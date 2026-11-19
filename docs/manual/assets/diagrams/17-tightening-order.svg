@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Tightening order: opposite corners" style="color:#14181D">
+<title>Tightening order: opposite corners</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Tightening order</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<polygon points="365.0,182.0 835.0,182.0 835.0,652.0 365.0,652.0" fill="none" stroke="#2A6FB5" stroke-width="16"/>
+<path d="M 429.3 246.3 L 770.7 587.7" fill="none" stroke="#14181D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arw)"/>
+<path d="M 765.0 580.0 L 765.0 254.0" fill="none" stroke="#5C6675" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 10" marker-end="url(#arwm)"/>
+<path d="M 770.7 246.3 L 429.3 587.7" fill="none" stroke="#14181D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arw)"/>
+<rect x="323.0" y="140.0" width="84.0" height="84.0" rx="8" fill="#FFFFFF" stroke="#14181D" stroke-width="4"/>
+<text x="365.0" y="199.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="48" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">1</text>
+<rect x="793.0" y="140.0" width="84.0" height="84.0" rx="8" fill="#FFFFFF" stroke="#14181D" stroke-width="4"/>
+<text x="835.0" y="199.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="48" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">2</text>
+<rect x="793.0" y="610.0" width="84.0" height="84.0" rx="8" fill="#FFFFFF" stroke="#14181D" stroke-width="4"/>
+<text x="835.0" y="669.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="48" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">3</text>
+<rect x="323.0" y="610.0" width="84.0" height="84.0" rx="8" fill="#FFFFFF" stroke="#14181D" stroke-width="4"/>
+<text x="365.0" y="669.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="48" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">4</text>
+<text x="600.0" y="772.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Go corner 1, 3, 2, 4.</text>
+<text x="600.0" y="824.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">Never work your way around.</text>
+</svg>

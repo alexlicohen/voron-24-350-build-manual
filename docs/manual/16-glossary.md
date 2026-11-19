@@ -27,6 +27,7 @@ Every term this manual uses without stopping to explain it, with the chapter or 
 | `nhk:` | Klipper pin prefix for the **toolboard** MCU (`[mcu nhk]`). A `nhk:` pin is on the Nitehawk, not the Leviathan | [12.21](12-software.md#step-1221-download-the-correct-config-file) |
 | `!` (leading, on a pin) | Klipper's invert marker. On an endstop it is almost always the wrong fix — stock Voron endstops are normally-closed to ground | [13.17](13-initial-startup.md#step-1317-query_endstops-with-everything-released) |
 | `OL` | Multimeter display for **open / over-range** — no measurable path. The expected reading for L-to-PE, bed-to-plate and any 24 V node to earth | [10.13](10-wiring.md#step-1013-measure-the-bed-heater-before-you-connect-it) |
+| **2020 extrusion** | The aluminium bar the frame is made of: 20 × 20 mm, with a T-slot down each face. The kit names its lengths A to E | [01.2](01-frame.md#step-012-sort-the-extrusions-by-length) |
 | **Plate mark** | The plate id and the date, written in paint marker on a non-visible face of every part as it is sorted. A reprint adds `R` and the extrusion multiplier if it changed | [print/README § Bins](print/README.md#bins) |
 | `(verify on bench)` | This manual's marker for a count, torque or dimension **no source publishes**. Measure it yourself; never invent it | [CONVENTIONS](CONVENTIONS.md) |
 | `Source:` | The line closing every step, linking the exact page or guide section that step was transcribed from | [CONVENTIONS](CONVENTIONS.md) |
@@ -42,6 +43,7 @@ Source: [Ch 00 Step 00.24](00-before-you-start.md#step-0024-file-naming-and-wher
 | Term | What it is | First matters at |
 |---|---|---|
 | **A and B** | The two CoreXY motors and their belts. A is the right-hand drive, B the left; moving both together moves X, moving them oppositely moves Y | [04 — A/B drives](04-ab-drives.md) |
+| **Access hole** | The small round hole near each end of a vertical frame extrusion. The hex key goes through it to reach the screw of a blind joint | [01.5](01-frame.md#step-015-understand-the-blind-joint-before-you-make-one) |
 | **ADXL345** | The accelerometer built into the Nitehawk-SB V2, used by `SHAPER_CALIBRATE` to measure resonance | [14.12](14-calibration.md#step-1412-bring-up-the-on-board-accelerometer) |
 | **Arachne** | PrusaSlicer's variable-width perimeter generator, kept on for every plate: it widens or narrows a bead to fill Voron's thin ribs instead of leaving a gap. The 0.40 mm width in the override table is Arachne's *target*, not a fixed bead | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides) |
 | **Anodising** | The hard oxide layer on the extrusions. It is an electrical **insulator**, which is why it gets scraped under the frame PE washer | [10.16](10-wiring.md#step-1016-frame-pe) |
@@ -63,6 +65,7 @@ Source: [Ch 04](04-ab-drives.md) · [Ch 14 Step 14.12](14-calibration.md#step-14
 | **Blind joint** | The frame joint: a BHCS head slides into one extrusion's slot and threads into the tapped end of the mating extrusion, tightened through an access hole | [00.28](00-before-you-start.md#step-0028-blind-joints-p10) |
 | **BMG** | The dual-geared filament drive inside Clockwork 2.5 — the idler assembly you grease and the tension arm that loads it | [08.9](08-toolhead.md#step-089-build-the-bmg-idler-assembly-and-grease-it) |
 | **Brim** | A flat single-layer ring printed around a part's base to hold its corners down. Every part 30 mm or longer carries a 3 mm one, set 0.3 mm off the part so it snaps away | [print/00-slicer-setup — Orientation & brim](print/00-slicer-setup.md#orientation-brim) |
+| **Burr** | A rough raised edge left where metal was cut. It stops two parts sitting flat against each other | [01.3](01-frame.md#step-013-inspect-the-ends-and-test-fit-a-t-nut) |
 
 Source: [Ch 05 Step 05.16](05-gantry.md#step-0516-unpack-and-identify-the-titanium-backers) · [Ch 00 Steps 00.2](00-before-you-start.md#step-002-find-the-kit-serial-and-open-your-batch-bom-page), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7), [00.28](00-before-you-start.md#step-0028-blind-joints-p10) · [Ch 08 Step 08.9](08-toolhead.md#step-089-build-the-bmg-idler-assembly-and-grease-it)
 
@@ -118,6 +121,7 @@ Source: [Ch 14 Steps 14.11](14-calibration.md#step-1411-caliper-the-cube-against
 |---|---|---|
 | **F695** | Flanged bearing, 5 × 13 × 4 mm — A/B drives, front idlers, XY joints. Twenty in the kit | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
 | **625-2RS** | Plain bearing, 5 × 16 × 5 mm — **Z drives only**. Same 5 mm bore as an F695, so sorting by bore does not work | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
+| **Feeler gauge** | A set of thin metal leaves, each of a marked thickness. The thickest leaf that slides into a gap tells you how big the gap is | [00.10](00-before-you-start.md#step-0010-verify-the-flat-reference) |
 | **Ferrule** | A crimped metal sleeve on a stranded wire end so a **screw** terminal clamps a solid tube instead of loose strands. The kit ships VE0508 | [00a.8](00a-mains-safety.md#step-00a8-ferrules-and-the-no-whisker-rule) |
 | **FFC** | Flat Flexible Cable — a thin ribbon with bare contacts at each end, held by a latch in each socket. Half-latched is the usual failure | [10 — Wiring](10-wiring.md) |
 | **FHCS** | Flat Head Cap Screw — countersunk cone head, flat top. The titanium backers use them, and they cam out easily in a countersink | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
@@ -220,6 +224,7 @@ Source: [Ch 00 Step 00.2](00-before-you-start.md#step-002-find-the-kit-serial-an
 | **Mainsail** | The web interface for Klipper (with Moonraker as its API layer). Every g-code command in Ch 13–14 is typed in its Console tab | [12.5](12-software.md#step-125-reach-mainsail-and-open-an-ssh-session) |
 | **`make menuconfig` / bootloader offset** | Klipper's firmware-build menu. The bootloader offset is where the firmware starts in flash, just past Katapult: 32 KiB on the F446, 128 KiB on the H743. The wrong one erases Katapult | [12.14](12-software.md#step-1214-build-klipper-firmware-for-the-leviathan) |
 | **`max_accel`** | The printer's acceleration ceiling. The LDO config ships a placeholder `10000`; input shaping tells you the real number and `SAVE_CONFIG` will not write it for you | [14.15](14-calibration.md#step-1415-save-the-shaper-and-set-the-real-max_accel) |
+| **Machinist square** | A precise L-shaped steel ruler. Held into a corner, any light between its blade and the part shows the corner is not 90° | [01.9](01-frame.md#step-019-snug-and-check-the-bottom-square) |
 | **MCU** | Microcontroller: a processor board that turns Klipper's commands into pin signals. Two here, the Leviathan (`[mcu]`) and the Nitehawk-SB V2 (`[mcu nhk]`) | [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) |
 | **Meanwell LRS-200-24** | The 24 V 8.8 A PSU. Its **115/230 V selector** is set once in Ch 09 and re-checked at Checkpoint #1; getting it wrong destroys the unit on first switch-on | [09.14](09-electronics-bay.md#step-0914-set-the-psu-voltage-selector-to-115-v) |
 | **MGN9 / MGN12** | Linear rail sizes. This build has one MGN12H (X) and six MGN9H (2 × Y, 4 × Z), all shipped dry and all greased in Ch 00 | [00.17](00-before-you-start.md#step-0017-unbag-the-rails-and-immobilise-every-carriage) |
@@ -311,6 +316,7 @@ Source: [Ch 05 Step 05.44](05-gantry.md#step-0544-run-the-x-axis-end-to-end) · 
 | **Shim** | A thin DIN 988 spacer the official manual calls for at M5 locations. Your kit replaces every one with a brass precision spacer | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
 | **Skirt (machine)** | The ring of printed segments around the base that hides and closes the electronics bay, and carries the touchscreen and bay-fan modules | [11.1](11-skirts-panels-door.md#step-111-dry-fit-the-whole-skirt-ring) |
 | **Skirt (slicer)** | A loop of filament a slicer can draw around the plate before the parts start, to prime the nozzle. This build prints without one (Alex 2026-10-28): the start G-code's purge line primes instead. Not the machine's skirt | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides); [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) |
+| **Snug** | Just closed: the parts touch and stay put, but a mallet tap can still shift them. Final tightening comes later, when a step says so | [01.7](01-frame.md#step-017-join-the-first-vertical-to-the-first-corner) |
 | **Snubber** | The RC network inside the SSR. It leaks a small current **even with no input**, which is why the SSR is only ever wired dead | [00a.7](00a-mains-safety.md#step-00a7-the-ssr-is-marked-earth-the-mounting-rail-and-this-build-does-not) |
 | **Squish** | How hard the first layer is pressed into the sheet, set live during a print and committed with `Z_OFFSET_APPLY_ENDSTOP`. Moves again when extrusion multiplier changes | [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) |
 | **SSH** | Secure Shell: the terminal connection from the laptop to the Pi, `ssh <youruser>@voron.local`, used for every command outside Mainsail | [12.5](12-software.md#step-125-reach-mainsail-and-open-an-ssh-session) |
@@ -326,6 +332,7 @@ Source: [Ch 00 Steps 00.22](00-before-you-start.md#step-0022-understand-the-rail
 
 | Term | What it is | First matters at |
 |---|---|---|
+| **T-slot** | The groove down each face of an extrusion. Nuts and screw heads slide along it, so parts can bolt on anywhere | [01.3](01-frame.md#step-013-inspect-the-ends-and-test-fit-a-t-nut) |
 | **Thermal fuse** | The 125 °C one-shot cut-out already bonded to the bed heater pad. Verify it, never try to re-seat it | [03.5](03-build-plate.md#step-035-verify-the-thermal-fuse-do-not-fit-one) |
 | **Thumb nut** | The knurled nut used as a **bed spacer** under the build plate, letting it float and expand | [03.13](03-build-plate.md#step-0313-fit-the-four-thumb-nuts-as-spacers) |
 | **Toolboard** | The PCB on the toolhead that drives the hotend, fans, LEDs, probe and accelerometer over one umbilical. Here: Nitehawk-SB V2, over USB | [00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) |

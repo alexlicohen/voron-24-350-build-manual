@@ -41,19 +41,20 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint 01 — Frame
 
-- [ ] Reference surface re-checked with straightedge + feelers in five positions; worst gap no larger than the Step 00.10 figure
-- [ ] 10 A, 4 B extrusions used; C ×2, D ×1, E ×1 bagged for Ch 05
-- [ ] All extrusion end faces deburred and flat against the square
-- [ ] 16 frame blind joints engaged and fully tightened, evenly
-- [ ] Bottom square diagonals equal; top square diagonals equal and matching the bottom
-- [ ] All four vertical faces: diagonals equal, corners 90°
-- [ ] Frame sits on all four corners with no rock
-- [ ] Every vertical's access holes face outward and take the straight 3 mm key face-on
-- [ ] Two bed extrusions running front-to-back on the front and rear rails, corner brackets, **M5 precision spacers** (not shims), 90° to the rails; FRONT tape on one of the two faces their ends land on
-- [ ] Bed extrusions 65 mm each side of the centreline, 130 mm clear gap, checked at both ends; all four M5×10 and four M5×16 bracket bolts tight
-- [ ] Titanium backers still bagged and labelled for Ch 05
-- [ ] Frame log table filled in
-- [ ] 16 blind-joint seals in, one per joint in the vertical's slot hard against the horizontal on the chamber side; 4 spares bagged
+- [ ] The counter was re-checked with straightedge and feelers in five positions, and is no worse than the Step 00.10 number
+- [ ] 10 A and 4 B extrusions are used; 2 C, 1 D and 1 E are bagged for Ch 05
+- [ ] Every extrusion end is smooth and sits flat against the square
+- [ ] All 16 blind joints are made and fully tightened, evenly
+- [ ] Bottom diagonals match; top diagonals match each other and the bottom pair
+- [ ] On all four upright sides the diagonals match and the corners are 90°
+- [ ] The frame sits on all four corners without rocking
+- [ ] Every vertical's access holes face outward, and the straight 3 mm key goes straight in
+- [ ] Both bed extrusions run front to back on their corner brackets, with brass **M5 precision spacers** under the screws, at 90° to the front
+- [ ] Bed extrusions are 65 mm either side of the centreline at both ends, 130 mm apart; all four M5×10 and four M5×16 bracket screws are tight
+- [ ] The FRONT tape is on a side the bed extrusions point at
+- [ ] Titanium backers are still bagged and labelled for Ch 05
+- [ ] The frame log table is filled in
+- [ ] 16 blind joint seals are in, each against its horizontal on the inside of the frame; 4 spares are bagged
 
 <div class="print-page-break"></div>
 

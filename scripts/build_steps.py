@@ -150,6 +150,18 @@ _PRIMARY_IMG_DIRS = ("assets/manual-pages/", "assets/sb-pages/")
 # assets/cad/steps.yml, so the manifest that decides what the picture shows also
 # says what it means; nothing in it is written twice.
 _CH_NUM_RE = re.compile(r"^(\d+[a-z]?)-")
+
+# Plain style (CONVENTIONS.md § "Plain style"): a chapter opts in with an HTML
+# comment in its header, so the switch travels with the chapter and the lint
+# reads the same line. `<!-- reference -->` in the header starts the part of
+# it that is kept for the record and folded away for the reader.
+_STYLE_PLAIN_RE = re.compile(r"<!--\s*style:\s*plain\s*-->")
+_REFERENCE_RE = re.compile(r"^\s*<!--\s*reference\s*-->\s*$")
+_REFERENCE_TITLE = "For reference: hardware totals, sources and video"
+_CHECK_LABEL_RE = re.compile(r"^\*{0,2}Check:\*{0,2}\s*")
+_DO_LABEL_RE = re.compile(r"^\*{0,2}Do:\*{0,2}\s*")
+GLOSSARY = MANUAL / "16-glossary.md"
+PLAIN_STEMS: set[str] = set()
 CHAPTER_SHOTS: dict[str, tuple[str | None, str]] = {}   # stem -> (before, after)
 CHAPTER_CAPTIONS: dict[str, tuple[str, str]] = {}   # "04" -> (title, caption + caveat)
 CAD_YML = MANUAL / "assets/cad/steps.yml"
@@ -209,6 +221,7 @@ class Chapter:
     segments: list["Segment"] = field(default_factory=list)
     gather: dict[str, list[str]] = field(default_factory=dict)
     next_body: list[str] = field(default_factory=list)   # the `## Next` section's lines
+    plain: bool = False  # `<!-- style: plain -->` in the header (§ Plain style)
 
 
 def _split_blocks(text: str) -> list[Block]:
@@ -290,7 +303,8 @@ def parse_chapter(path: Path) -> Chapter | None:
 
     slug = path.stem.lower()
     chapter = Chapter(path=path, stem=path.stem, slug=slug, title=title,
-                      short=short, time=time, sessions=sessions)
+                      short=short, time=time, sessions=sessions,
+                      plain=bool(_STYLE_PLAIN_RE.search("\n".join(front))))
 
     pages: list[Page] = []
     if front:
@@ -716,6 +730,56 @@ def _has_wide_code(lines: list[str]) -> bool:
 _ENLARGE_HINT = '<p class="step-figure__hint" data-search-exclude>Tap to enlarge</p>'
 
 
+def fold_reference(lines: list[str]) -> list[str]:
+    """Fold everything under a `<!-- reference -->` line into one collapsed
+    block: the tables and source lists the lint and the parts ledger need, and
+    the reader does not. Runs to the first thematic break or heading."""
+    for i, line in enumerate(lines):
+        if _REFERENCE_RE.match(line):
+            break
+    else:
+        return lines
+    end = len(lines)
+    for j in range(i + 1, len(lines)):
+        if _HR_RE.match(lines[j]) or _HEADING_RE.match(lines[j]):
+            end = j
+            break
+    tail = _strip_edges(lines[i + 1:end])
+    if not tail:
+        return lines[:i] + lines[end:]
+    folded = ['??? note "%s"' % _REFERENCE_TITLE, ""]
+    folded += ["    " + l if l.strip() else "" for l in tail]
+    return lines[:i] + folded + [""] + lines[end:]
+
+
+_TERM_ROW_RE = re.compile(r"^\|\s*\*\*(.+?)\*\*[^|]*\|\s*(.+?)\s*\|")
+_TERM_DEFS: list[str] = []
+
+
+def term_defs() -> list[str]:
+    """`*[term]: definition` lines for every bold glossary term, so a plain
+    step page can show the glossary's own line when a word is tapped. The
+    glossary stays the one place a term is defined."""
+    if _TERM_DEFS or not GLOSSARY.exists():
+        return _TERM_DEFS
+    seen: set[str] = set()
+    for line in GLOSSARY.read_text(encoding="utf-8").splitlines():
+        m = _TERM_ROW_RE.match(line)
+        if not m:
+            continue
+        meaning = " ".join(_plain(m.group(2)).replace("*", "").split())
+        for term in m.group(1).split(" / "):
+            term = re.sub(r"\s*\([^)]*\)\s*$", "", term).strip().strip('"“”')
+            if len(term) < 3 or "`" in term or "]" in term:
+                continue
+            for form in (term, term[0].lower() + term[1:]):
+                for variant in (form, form + "s"):
+                    if variant not in seen:
+                        seen.add(variant)
+                        _TERM_DEFS.append("*[%s]: %s" % (variant, meaning))
+    return _TERM_DEFS
+
+
 def layout_step(page: Page, chapter: Chapter) -> list[str]:
     """Step page, Prusa order: the segment's Gather block, Parts, then Do, Check
     and the helper's job, the collapsed description, then ⚠/Tip, Pause and
@@ -747,6 +811,8 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
             check += seg.lines + [""]
         elif seg.kind == "helper":
             helper.append(_helper_text(seg.lines))
+        elif seg.kind == "prose" and chapter.plain:
+            other += seg.lines + [""]      # nothing is hidden in the plain style
         elif seg.kind in ("desc", "prose"):
             desc += _describe(seg) + [""]
         elif seg.kind in ("warn", "tip", "block"):
@@ -762,7 +828,8 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
         src = _IMAGE_LINE_RE.match(img).group("src")
         return 0 if any(d in src for d in _PRIMARY_IMG_DIRS) else 1
 
-    images.sort(key=key)
+    if not chapter.plain:
+        images.sort(key=key)   # plain style: the chapter's own order, best picture first
 
     wide = " step-body--wide" if _has_wide_code(page.body) else ""
     out: list[str] = ['<div class="step-body%s" markdown="1">' % wide, ""]
@@ -799,7 +866,11 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
         out += ['<p class="step-figure__none" markdown="span">%s</p>' % caption, ""]
     out += ["</div>", ""]
 
-    out += ['<div class="step-text" markdown="1">', ""]
+    out += ['<div class="step-text%s" markdown="1">'
+            % (" step-text--plain" if chapter.plain else ""), ""]
+    if chapter.plain and desc:
+        # The lead: what this step is and why, in sight, before anything else.
+        out += ['<div class="step-lead" markdown="1">', ""] + _strip_edges(desc) + ["", "</div>", ""]
     # Parts are prepared before they are assembled (Alex 2026-09-24, reversing
     # G2-26): the segment's Gather block, then this step's Parts, then Do.
     gather = chapter.gather.get(page.step_id or "")
@@ -807,17 +878,32 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
         # Parts items may carry chapter-relative links; re-base them as the
         # rest of the page's links already were.
         out += rewrite_links(gather, chapter.path.parent, dest_dir, chapter.stem) + [""]
+    if chapter.plain and parts_md and parts_md[0].startswith("**Parts:** none"):
+        parts_md = []              # nothing to pick up: say nothing
     if parts_md:
         out += _strip_edges(parts_md) + [""]
+    do = _strip_edges(do)
+    if chapter.plain and do:
+        # The numbered actions speak for themselves: no "Do:" label.
+        do[0] = _DO_LABEL_RE.sub("", _logical(do[0]))
+        do = _strip_edges(do)
     if do:
-        out += ['<div class="step-do" markdown="1">', ""] + _strip_edges(do) + ["", "</div>", ""]
-    if check:
-        out += _strip_edges(check) + [""]
+        out += ['<div class="step-do" markdown="1">', ""] + do + ["", "</div>", ""]
+    check = _strip_edges(check)
+    if chapter.plain and check and not any(
+            _LIST_ITEM_RE.match(l) or _TABLE_ROW_RE.match(l) or not l.strip() for l in check):
+        # One sentence, one line: no box. A Check that carries a list or a
+        # table keeps the box below.
+        text = " ".join(_logical(l).strip() for l in check)
+        out += ['<p class="step-donewhen" markdown="span"><span class="step-donewhen__label">'
+                "You\u2019re done when</span> %s</p>" % _CHECK_LABEL_RE.sub("", text), ""]
+    elif check:
+        out += check + [""]
     for job in helper:
         out += ['<p class="step-helper" markdown="span">%s'
                 '<span class="step-helper__label">Helper</span> %s</p>'
                 % (mascot.badge_html("helper", "helper"), job), ""]
-    if desc:
+    if desc and not chapter.plain:
         out += ['??? note "What you\'re looking at"', ""]
         out += ["    " + l if l.strip() else "" for l in _strip_edges(desc)]
         out += [""]
@@ -985,6 +1071,13 @@ def gather_overview(chapter: Chapter) -> list[str]:
            "**Gather per session** — what to lay out before each bench segment.", ""]
     for segment in chapter.segments:
         mins = " · ~%d min" % segment.minutes if segment.minutes else ""
+        if chapter.plain and segment.grouped and segment.items():
+            # One line per source instead of one run-on paragraph.
+            label = segment.label[0].upper() + segment.label[1:]
+            out.append("- **%s**%s" % (label, mins))
+            for heading, items in parts.groups(segment.tallies):
+                out.append("    - *%s:* %s" % (heading, ", ".join(parts.tally_line(i) for i in items)))
+            continue
         body = _overview_body(segment)
         label = segment.label[0].upper() + segment.label[1:]   # step ids keep their case
         out.append("- **%s**%s — %s" % (label, mins, body))
@@ -1326,6 +1419,8 @@ def render_page(chapter: Chapter, page: Page, idx: int,
         if reward:
             end = page.own_end if page.own_end is not None else len(page.body)
             out += page.body[:end] + ["", reward, ""] + page.body[end:]
+        elif page.kind == "front" and chapter.plain:
+            out += fold_reference(page.body)
         else:
             out += page.body
         if page.kind == "front":
@@ -1333,6 +1428,8 @@ def render_page(chapter: Chapter, page: Page, idx: int,
         out += ["", "</div>"]
 
     out += [""] + _nav_bar(prev_ref, next_ref) + [""]
+    if chapter.plain:
+        out += term_defs() + [""]
     return "\n".join(out).rstrip() + "\n"
 
 
@@ -1518,6 +1615,9 @@ def build() -> dict:
             chapters.append(chapter)
 
     check_crops(chapters)
+    PLAIN_STEMS.clear()
+    PLAIN_STEMS.update(c.stem for c in chapters if c.plain)
+    _TERM_DEFS.clear()
 
     PARSE_WARNINGS.clear()
     for chapter in chapters:
@@ -1674,6 +1774,8 @@ def on_page_markdown(markdown, page, config, files, **kwargs):
             if line.startswith("# "):
                 lines[i] = line + "\n\n" + banner
                 break
+        if stem in PLAIN_STEMS:
+            lines = fold_reference(lines)
         markdown = "\n".join(lines)
         return _long_page_rewards(markdown, stem)
 

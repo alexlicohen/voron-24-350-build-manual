@@ -2279,7 +2279,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "extrusions sorted and labelled A–E, all end faces deburred, 16 M5×16 BHCS started finger-loose in eight A extrusions, and one blind joint dry-run understood. Nothing is assembled. The next segment is the long one — the frame goes from loose extrusions to squared-and-torqued in ~65 min and cannot safely be broken in the middle, so start it with the time to finish it.",
+     "leave_state": "extrusions sorted and labelled, ends checked, 16 screws started in eight A extrusions, one practice joint tried and taken apart. Nothing is assembled. The next session takes about 65 min and cannot be stopped halfway, so start it when you have the time.",
      "helpers": [
       [
        "01.1",
@@ -2290,7 +2290,7 @@
        "Sorts the extrusions into piles by length and counts each pile aloud."
       ]
      ],
-     "text": "Step 01.1 → Step 01.5 · ~40 min · leave-state: extrusions sorted and labelled A–E, all end faces deburred, 16 M5×16 BHCS started finger-loose in eight A extrusions, and one blind joint dry-run understood. Nothing is assembled. The next segment is the long one — the frame goes from loose extrusions to squared-and-torqued in ~65 min and cannot safely be broken in the middle, so start it with the time to finish it."
+     "text": "Step 01.1 → Step 01.5 · ~40 min · leave-state: extrusions sorted and labelled, ends checked, 16 screws started in eight A extrusions, one practice joint tried and taken apart. Nothing is assembled. The next session takes about 65 min and cannot be stopped halfway, so start it when you have the time."
     },
     {
      "id": "01-frame#1",
@@ -2316,7 +2316,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the frame is assembled, squared on both squares and all four vertical faces, all 16 blind joints fully torqued, and it sits on the stone with no rock. This is the first genuinely safe stop in the chapter: a frame left snug-but-untorqued keeps whatever error was in it, so never walk away between squaring and the torque pass. Leave the frame on the reference surface, covered.",
+     "leave_state": "the frame is assembled, square on all six sides, fully tightened, and sits on the stone without rocking. This is the first safe place to stop: never walk away between squaring and tightening. Leave the frame on the stone, covered.",
      "helpers": [
       [
        "01.7",
@@ -2351,7 +2351,7 @@
        "Watches the bottom corners and calls out any that lifts as you press."
       ]
      ],
-     "text": "Step 01.6 → Step 01.15 · ~65 min · leave-state: the frame is assembled, squared on both squares and all four vertical faces, all 16 blind joints fully torqued, and it sits on the stone with no rock. This is the first genuinely safe stop in the chapter: a frame left snug-but-untorqued keeps whatever error was in it, so never walk away between squaring and the torque pass. Leave the frame on the reference surface, covered."
+     "text": "Step 01.6 → Step 01.15 · ~65 min · leave-state: the frame is assembled, square on all six sides, fully tightened, and sits on the stone without rocking. This is the first safe place to stop: never walk away between squaring and tightening. Leave the frame on the stone, covered."
     },
     {
      "id": "01-frame#2",
@@ -2371,14 +2371,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both bed extrusions are bracketed, spaced with brass M5 precision spacers, set 65 mm each side of the centreline, their four M5×10 and four M5×16 tightened. Nothing is half-fastened. Do not fit the titanium backers, and do not move the frame off the stone yet — Step 01.20 re-checks squareness there.",
+     "leave_state": "both bed extrusions are in, 65 mm either side of the centreline, all eight bracket screws tight. Do not move the frame off the stone yet: Step 01.20 checks it there once more.",
      "helpers": [
       [
        "01.19",
        "Holds the tape on the centreline mark and reads each 65 mm aloud."
       ]
      ],
-     "text": "Step 01.16 → Step 01.19 · ~35 min · leave-state: both bed extrusions are bracketed, spaced with brass M5 precision spacers, set 65 mm each side of the centreline, their four M5×10 and four M5×16 tightened. Nothing is half-fastened. Do not fit the titanium backers, and do not move the frame off the stone yet — Step 01.20 re-checks squareness there."
+     "text": "Step 01.16 → Step 01.19 · ~35 min · leave-state: both bed extrusions are in, 65 mm either side of the centreline, all eight bracket screws tight. Do not move the frame off the stone yet: Step 01.20 checks it there once more."
     },
     {
      "id": "01-frame#3",
@@ -2398,7 +2398,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "final squareness pass done, backers confirmed still bagged for Ch 05, the frame log table complete and every blind joint sealed. Work through Checkpoint 01, then the frame can come off the counter.",
+     "leave_state": "final checks done, log filled in, every joint sealed. Go through Checkpoint 01, then the frame can come off the counter.",
      "helpers": [
       [
        "01.20",
@@ -2413,7 +2413,7 @@
        "Hands over seals one at a time and ticks off each joint."
       ]
      ],
-     "text": "Step 01.20 → Step 01.23 · ~35 min · leave-state: final squareness pass done, backers confirmed still bagged for Ch 05, the frame log table complete and every blind joint sealed. Work through Checkpoint 01, then the frame can come off the counter."
+     "text": "Step 01.20 → Step 01.23 · ~35 min · leave-state: final checks done, log filled in, every joint sealed. Go through Checkpoint 01, then the frame can come off the counter."
     }
    ]
   },

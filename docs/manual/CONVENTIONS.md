@@ -96,6 +96,55 @@ why-clause survives only where the action is wrong without it.
 Lint: `python3 scripts/lint_manual.py --budgets` (adds it to the default run) or
 `--budgets-only` (this check alone, no `mkdocs build` needed; `--json` for one finding per line).
 
+## Plain style (pilot: Ch 01 only, added 2026-11-19)
+
+Alex, 2026-11-19, after reading Ch 01: correct, but fragmented into boxes and too terse to follow.
+The reader is an intelligent non-expert and a teenager. A chapter opts in with
+`<!-- style: plain -->` in its header; every other chapter keeps the rules above until Alex has
+read the pilot on the iPad. In a plain chapter these rules replace the ones they contradict.
+
+**One voice per step.** Three text fields, all in sight, in this order on the step page:
+
+- `**What you're looking at:**` is the **lead**: one to three sentences saying what this step does
+  and why it matters, in bench terms. Never "Manual p.NN shows". It renders first, unlabelled and
+  never collapsed. A kit deviation (a renamed part, a Rev D+ change) is said here in plain words.
+- `**Do:**` is the numbered actions, full sentences, rendered without its label.
+- `**Check:**` is one or two full sentences that finish "You're done when": it renders as a line
+  under that label, not a box. A Check that carries a list or a table keeps the box.
+
+`**Helper:**` renders as a plain line. `**Parts:** none.` is not shown. Loose paragraphs stay visible.
+
+**A box only for a hazard.** `⚠` is for what can hurt someone or cannot be undone (a forced
+T-nut, mains, heat). Everything else that used to be a `⚠` or a `Tip:` is a sentence in the lead,
+the Do or a loose line after Check. `Pause:` and `Source:` are unchanged.
+
+**Budget the step, not the field.** Lead + Do + Check together: at most **120 words**. Helper 20,
+`⚠` 60. Parentheses are allowed for a definition in passing ("a rough edge (a burr)"). One
+why-clause is welcome where it makes the action make sense. Still no em-dash. Lint check 5 pools
+the three fields for a plain chapter (`step NN/120 words`).
+
+**Plain words.** Define a term the first time the chapter uses it, in the sentence. One word per
+thing: screw (not bolt), slot (not channel), extrusion, vertical, horizontal, snug. Avoid shop
+shorthand (proud, home, rack, null out) or say it the long way. Every glossary term in bold in
+`16-glossary.md` is dotted-underlined on a plain step page and shows its glossary line on a tap
+(`build_steps.term_defs`, `javascripts/terms.js`); a word worth a tap gets a glossary row.
+
+**Draw the action.** The first image line is the picture that shows what the hands do: a diagram
+from `scripts/draw_diagrams.py` where the manual page does not show it (diagrams 13–18 are Ch 01's),
+its numbered callouts matching the Do numbers. Images render in chapter order, first one largest;
+a second image is the manual page or a supporting diagram. Do not show the same crop on step
+after step.
+
+**Start page.** Above a `<!-- reference -->` line: the scope sentence, what you are building,
+Time, Sessions, Prerequisites, Tools and at most five Read-first bullets, all in plain words.
+Below it: the Printed parts and Hardware tables, the sourced notes, Sources and Video coverage.
+The build folds everything below the line into one collapsed block on the start page and the long
+page; the lint and the parts ledger still read it.
+
+**Unchanged.** Step ids and titles (titles are link anchors), the Parts grammar, Source lines,
+Pause lines, Helper safety rules, the mascot rules, and checking every rewritten step against the
+manual page image.
+
 ## Helper steps (added 2026-09-14)
 
 Alex builds this machine with his daughter. A step she can genuinely own carries one extra

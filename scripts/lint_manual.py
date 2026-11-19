@@ -223,6 +223,12 @@ def check_table_width():
 
 _BUDGETS = {"Do": 40, "Check": 25, "description": 45, "Tip": 30, "⚠": 60, "Helper": 20}
 _XREF_LIMIT = 1
+# Plain style (CONVENTIONS.md § "Plain style"): a chapter whose header carries
+# `<!-- style: plain -->` budgets the step, not the field: lead + Do + Check
+# together, with parentheses allowed for a definition in passing.
+_PLAIN_STYLE_RE = re.compile(r"<!--\s*style:\s*plain\s*-->")
+_PLAIN_STEP_BUDGET = 120
+_PLAIN_POOLED = ("Do", "Check", "description")
 _CANONICAL_PARENS = ("(verify on bench)", "(not specified — snug)")
 
 _B_STEP_HEAD_RE = re.compile(r"^#{2,3}\s*Step\s+([A-Za-z]?\d+[A-Za-z]?\.\d+)\b")
@@ -371,13 +377,14 @@ def check_step_budgets():
 
     for path in files:
         rel = path.relative_to(REPO)
+        plain = bool(_PLAIN_STYLE_RE.search(path.read_text(encoding="utf-8")))
         for step_id, head_no, body, body_start in _b_step_blocks(path):
             def add(line_no, field, kind, words=None, limit=None):
                 findings.append({"file": str(rel), "line": line_no, "step": step_id,
                                  "field": field, "words": words, "limit": limit,
                                  "kind": kind})
 
-            xrefs, i, prev_field = 0, 0, None
+            xrefs, i, prev_field, pooled = 0, 0, None, 0
             while i < len(body):
                 line = body[i]
                 if not line.strip():
@@ -402,15 +409,19 @@ def check_step_budgets():
                     text = _b_text(run)
                     words = len(text.split())
                     limit = _BUDGETS[field]
-                    if words > limit:
+                    if plain and field in _PLAIN_POOLED:
+                        pooled += words
+                    elif words > limit:
                         add(line_no, field, "words", words, limit)
                     if field in ("Do", "Check", "description", "Helper"):
                         checkable = _b_checkable(text)
                         if "—" in checkable:
                             add(line_no, field, "em-dash")
-                        if _B_PAREN_RE.search(checkable):
+                        if _B_PAREN_RE.search(checkable) and not (plain and field != "Helper"):
                             add(line_no, field, "parenthetical")
                 i = end
+            if pooled > _PLAIN_STEP_BUDGET:
+                add(head_no, "step", "words", pooled, _PLAIN_STEP_BUDGET)
             if xrefs > _XREF_LIMIT:
                 add(head_no, "cross-reference", "cross-reference", xrefs, _XREF_LIMIT)
     return findings

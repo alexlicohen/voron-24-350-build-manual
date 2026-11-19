@@ -49,6 +49,7 @@ extra_javascript:
   - javascripts/progress.js
   - javascripts/jumpbar.js
   - javascripts/stepnav.js
+  - javascripts/terms.js
   # R7: the three bench widgets. gatecalc/taptree fill in what hooks/gatecalc.py
   # rendered; boards.js draws Home's progress figure and the plate board from the
   # JSON scripts/build_printables.py writes into docs/assets/.
@@ -60,6 +61,9 @@ extra_javascript:
   - javascripts/tonight.js
 
 markdown_extensions:
+  # abbr: plain-style step pages end with `*[term]: meaning` lines taken from the
+  # glossary (scripts/build_steps.py term_defs); terms.js shows one on a tap.
+  - abbr
   - admonition
   - pymdownx.details
   - pymdownx.superfences

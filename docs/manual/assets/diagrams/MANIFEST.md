@@ -1,10 +1,10 @@
 # Diagram manifest
 
-Twelve generated SVGs covering the things the official manual states in prose but never draws. Regenerate with `python3 scripts/draw_diagrams.py`; the geometry and every label live in that script, not here.
+Eighteen generated SVGs covering the things the official manual states in prose but never draws. Regenerate with `python3 scripts/draw_diagrams.py`; the geometry and every label live in that script, not here.
 
 No chapter has been edited. The **Insert at** column is the proposal: the chapter file and the step whose image block the diagram belongs in.
 
-All twelve are 1200 px wide, legible at 800 px, and safe on a dark page — each carries its own light background rect and pins `color` on the `<svg>` root, so `currentColor` text stays dark whether the file is referenced with `<img>` or inlined. Style is uniform: 2 px strokes, orange for `[a]_` accent parts, blue for the frame and extrusions, grey for hardware, teal and violet for the A and B belts.
+All eighteen are 1200 px wide, legible at 800 px, and safe on a dark page — each carries its own light background rect and pins `color` on the `<svg>` root, so `currentColor` text stays dark whether the file is referenced with `<img>` or inlined. Style is uniform: 2 px strokes, orange for `[a]_` accent parts, blue for the frame and extrusions, grey for hardware, teal and violet for the A and B belts.
 
 ## Index
 
@@ -22,6 +22,12 @@ All twelve are 1200 px wide, legible at 800 px, and safe on a dark page — each
 | 10 | STEPPER_BUZZ motor-direction cheat sheet | [`10-stepper-buzz-directions.svg`](10-stepper-buzz-directions.svg) | `13-initial-startup.md` — Step 13.13 (+1 more) |
 | 11 | Build timeline — print batches against assembly chapters | [`11-build-timeline.svg`](11-build-timeline.svg) | `00-index.md` — The timeline |
 | 12 | Titanium backers — which is which | [`12-ti-backers.svg`](12-ti-backers.svg) | `05-gantry.md` — Step 05.16 |
+| 13 | Square it by the diagonals | [`13-frame-diagonals.svg`](13-frame-diagonals.svg) | `01-frame.md` — Step 01.12 (+1 more) |
+| 14 | Six faces to check | [`14-frame-six-faces.svg`](14-frame-six-faces.svg) | `01-frame.md` — Step 01.14 (+1 more) |
+| 15 | The blind joint | [`15-blind-joint.svg`](15-blind-joint.svg) | `01-frame.md` — Step 01.5 (+1 more) |
+| 16 | Access holes face out | [`16-corner-access-holes.svg`](16-corner-access-holes.svg) | `01-frame.md` — Step 01.7 (+1 more) |
+| 17 | Tightening order | [`17-tightening-order.svg`](17-tightening-order.svg) | `01-frame.md` — Step 01.9 (+1 more) |
+| 18 | Bed extrusions | [`18-bed-extrusions.svg`](18-bed-extrusions.svg) | `01-frame.md` — Step 01.19 (+2 more) |
 
 ---
 
@@ -276,6 +282,123 @@ All twelve are 1200 px wide, legible at 800 px, and safe on a dark page — each
 
 ---
 
+## 13. Square it by the diagonals
+
+`docs/manual/assets/diagrams/13-frame-diagonals.svg`
+
+**What it shows**
+
+- Top view of one square of the frame, out of square (an exaggerated parallelogram) beside square: both diagonals measured outside corner to outside corner, the longer one red.
+- The fix: tap the corner at one end of the longer diagonal inward along it. Square means both diagonals the same, about 721 mm on a 350.
+- Callouts 1 and 2 are the Do numbers of Step 01.12.
+
+**Insert at**
+
+- `docs/manual/01-frame.md` — **Step 01.12**: the bottom square.
+- `docs/manual/01-frame.md` — **Step 01.13**: again for the top square.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- The skew is exaggerated; 721 mm is the 510 × 510 plan diagonal (Step 01.12).
+
+---
+
+## 14. Six faces to check
+
+`docs/manual/assets/diagrams/14-frame-six-faces.svg`
+
+**What it shows**
+
+- The frame as an isometric wireframe: one upright face tinted with its two diagonals (about 735 mm, from 510 × 530 outside), the top face's diagonals (about 721 mm).
+- The rule: six faces, and on each one the two diagonals must match.
+
+**Insert at**
+
+- `docs/manual/01-frame.md` — **Step 01.14**: the four upright faces.
+- `docs/manual/01-frame.md` — **Step 01.20**: the final pass over all six.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- Drawn as a plain box of edges; the extrusions' 20 mm section is not to scale.
+
+---
+
+## 15. The blind joint
+
+`docs/manual/assets/diagrams/15-blind-joint.svg`
+
+**What it shows**
+
+- Three sections after p.10, looking down the vertical: (a) the M5×16 BHCS started in the horizontal's end, head about 2 mm off the end face; (b) the head slid into the vertical's slot; (c) the 3 mm hex key straight through the access hole in the opposite face into the head.
+
+**Insert at**
+
+- `docs/manual/01-frame.md` — **Step 01.5**: the whole sheet.
+- `docs/manual/01-frame.md` — **Step 01.4**: row (a), for the 2 mm.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- The three stages are stacked top to bottom, not left to right, so the section stays large enough to label at 480 px.
+- The 2020 slot (6.2 mm opening, 1.8 mm lip) and the 5 mm access hole are nominal; the access hole is drawn as one bore through the core.
+
+---
+
+## 16. Access holes face out
+
+`docs/manual/assets/diagrams/16-corner-access-holes.svg`
+
+**What it shows**
+
+- Top view of one corner: the vertical's section, a horizontal on each of its two inner faces, the access holes on the two outer faces and a hex key into each from outside the frame.
+- Callouts 1–3 are the Do numbers of Step 01.7. A small second panel shows the vertical turned the wrong way: holes under the horizontals, out of reach.
+
+**Insert at**
+
+- `docs/manual/01-frame.md` — **Step 01.7**: the first corner.
+- `docs/manual/01-frame.md` — **Step 01.8**: the same rule at the other three.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- The access holes sit in the side faces, so a top view cannot show them as holes: each is marked by a dot on its face.
+
+---
+
+## 17. Tightening order
+
+`docs/manual/assets/diagrams/17-tightening-order.svg`
+
+**What it shows**
+
+- Top view of a square with its corners numbered 1–4 going round, and the order 1, 3, 2, 4: always across to the opposite corner, never round the frame.
+
+**Insert at**
+
+- `docs/manual/01-frame.md` — **Step 01.9**: the bottom square.
+- `docs/manual/01-frame.md` — **Step 01.11**: the top square, and the torque passes of Steps 01.12 and 01.13.
+
+---
+
+## 18. Bed extrusions
+
+`docs/manual/assets/diagrams/18-bed-extrusions.svg`
+
+**What it shows**
+
+- Top view after p.20, FRONT at the bottom: the bed extrusions front to back between the front and rear rails, the centreline 255 mm from the left rail's outer face, each extrusion's inner face 65 mm from it (130 mm clear), and the 90° to the rail. Callouts 1 and 2 are the Do numbers of Step 01.19.
+- Side view of the front end after p.18, p.19 and p.21: the bed extrusion's end flush with the rail's inner face and its underside level with the rail's top; the corner bracket's upright leg on the end (M5×16 into the end bore), its flat leg on the rail (M5×10 with the brass spacer under its head, into a T-nut in the rail's top slot).
+
+**Insert at**
+
+- `docs/manual/01-frame.md` — **Step 01.19**: the top view.
+- `docs/manual/01-frame.md` — **Step 01.18**: the side view.
+- `docs/manual/01-frame.md` — **Step 01.16**: the side view again, for which leg goes where.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- The bracket's shape, leg thickness and the spacer's thickness are schematic; the chapter gives no dimensions for them.
+
+---
+
 ## Markdown to paste in
 
 Diagrams sit in the step's image block, in the same position a manual page image would take:
@@ -289,7 +412,7 @@ From `00-index.md` the path is the same; from a print-batch chapter under `docs/
 ## Regenerating
 
 ```
-python3 scripts/draw_diagrams.py            # all twelve + this file
+python3 scripts/draw_diagrams.py            # all eighteen + this file
 python3 scripts/draw_diagrams.py --only 3 7 # just those two
 ```
 
