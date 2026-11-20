@@ -182,53 +182,53 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint 08 — bench test before anything is powered
 
-- [ ] **Heater resistance.** Across the two `HE0` ferrules: a low, stable, non-zero reading. A 60 W 24 V Revo HF cartridge is roughly **9.6 Ω** (24²/60); anything near 0 Ω is a short and anything open is a broken lead. `(verify against the value E3D prints on your cartridge)`
-- [ ] **Heater isolation.** No continuity between either heater lead and the heatsink, the nozzle, the frame, or the toolboard `GND` pad.
-- [ ] **Thermistor at room temperature.** Across the `TH0` pigtail: about **100 kΩ at 25 °C** for the Semitec 104NT-4-R025H42G. Warm the HeaterCore with your fingers and watch the resistance **fall** — an NTC that rises is the wrong part or a bad connection.
-- [ ] **Probe.** Continuity from each `PROBE` pin to the matching probe wire; no continuity between `24V` and `GND`.
-- [ ] **LED chain.** No short between 5 V and GND at the chain connector; continuity along the chain in the order logo → right → left.
-- [ ] **Fan orientation, checked visually.** The hotend fan's moulded arrow points **into** the heatsink and its wires exit at the top. The 5015 discharges down into the ducts. Both impellers spin freely with a finger flick and no rub. Powered spin-up is confirmed in Ch 13 *Verify Fans*.
+- [ ] **Heater resistance.** Across the two `HE0` ferrules, the meter shows a low, steady reading that is not zero. A 60 W 24 V Revo HF cartridge is roughly **9.6 Ω** (24²/60). Anything near 0 Ω is a short, and an open reading is a broken lead. `(verify against the value E3D prints on your cartridge)`
+- [ ] **Heater isolation.** No continuity between either heater lead and the heatsink, the nozzle, the frame or the toolboard `GND` pad.
+- [ ] **Thermistor at room temperature.** Across the `TH0` lead, about **100 kΩ at 25 °C** for the Semitec 104NT-4-R025H42G. Warm the HeaterCore with your fingers and watch the resistance **fall**. An NTC whose reading rises is the wrong part or a bad connection.
+- [ ] **Probe.** Continuity from each `PROBE` pin to the matching probe wire, and none between `24V` and `GND`.
+- [ ] **LED chain.** No short between 5 V and GND at the chain connector, and continuity along the chain in the order logo, right, left.
+- [ ] **Fan direction, checked by eye.** The hotend fan's moulded arrow points **into** the heatsink and its wires leave at the top. The 5015 blows down into the ducts. Both impellers spin freely with a flick of a finger and no rub. Ch 13 *Verify Fans* confirms the powered spin-up.
 - [ ] **Fan-voltage jumpers.** `V_HEF` and `V_PCF` both on **24 V**, nothing cut, nothing bridged to 5 V.
-- [ ] **Fan ports.** Axial on **P2**, blower on **P4**, LEDs on **P3**. If the wrong fan spins in Ch 13, fix it in the config, not by re-crimping — see *Common mistakes*.
-- [ ] **Board-to-board header** fully seated, SB front snapped on with **no gap** at the parting line.
-- [ ] **Mechanical.** Extruder shaft turns freely by hand; gear mesh has a faint play; tension arm swings; latch closes; Bowden clip on the collet; filament runs from the CW2.5 collet through the PTFE to the nozzle with no catch.
-- [ ] **Probe height** still ~6 mm below the plastic and the insulation intact, front and sides only — set in Ch 07 Steps 07.34–07.37, re-checked at Step 08.55.
-- [ ] **Cable discipline.** Run X to both extremes by hand — the parked umbilical never goes taut, nothing rubs a belt, nothing touches the nozzle. The secondary USB port is still reachable. (Chain slack and the chain ties are Ch 10 Steps 10.59 and 10.66.)
-- [ ] The Extruder Motor Ground Wire (Steps 08.43 and 08.53) is fitted per LDO's ESD Hardening section, or, if it was missing from *Electronics 2*, reported to Fabreeko and asked in `#ldo_motors`. Do not let Ch 10 close the bay with this unresolved.
+- [ ] **Fan ports.** Axial on **P2**, blower on **P4**, LEDs on **P3**. If the wrong fan spins in Ch 13, fix it in the config, not by re-crimping (see *Common mistakes*).
+- [ ] **Board-to-board header** fully seated, and the Stealthburner front snapped on with **no gap** along the joint.
+- [ ] **Mechanical.** The extruder shaft turns freely by hand; the gear mesh has a faint play; the tension arm swings; the latch closes; the Bowden clip is on the collet; and filament runs from the CW2.5 collet through the PTFE to the nozzle without catching.
+- [ ] **Probe height** still about 6 mm below the plastic, with the tape intact on the front and sides only. It was set in Ch 07 Steps 07.34–07.37 and checked again at Step 08.55.
+- [ ] **Cable discipline.** Move X to both ends by hand: the parked umbilical never goes tight, nothing rubs a belt and nothing touches the nozzle. The secondary USB port is still reachable. The chain slack and the chain ties are Ch 10 Steps 10.59 and 10.66.
+- [ ] The Extruder Motor Ground Wire (Steps 08.43 and 08.53) is fitted as LDO's ESD Hardening section describes or, if it was missing from *Electronics 2*, reported to Fabreeko and asked about in `#ldo_motors`. Do not let Ch 10 close the bay with this unresolved.
 
 <div class="print-page-break"></div>
 
 ## Checkpoint 09 — Electronics bay
 
-- [ ] Two DIN rails run **left-to-right**, each bolted with one M5×10 BHCS into each bed extrusion, all four plastic end caps fitted.
-- [ ] DC loop VHB'd at 09.36 as one continuous run, rear-left Z motor to the notch, middle run 1.5 mm or more off the Leviathan and the PSU; AC conduit VHB'd against the WAGO bus, behind the SSR and over the round deck hole; notch clear; every lid off and bagged. LDO layout: five PVC ducts, the opening clear.
-- [ ] Meanwell LRS-200-24 selector set to **115 V**, on the rear rail via its two printed brackets, front-right corner 2 mm or more clear of the right T's rear fillet and left end 3 mm or more from the SSR run's open end — and **no** support bracket fitted.
-- [ ] Omron SSR on its metal bracket, latched to the rear rail left of the PSU, LOAD (1/2) and INPUT (3+/4−) identified and reachable.
-- [ ] **Every** Leviathan voltage-selection jumper removed and bagged.
-- [ ] Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
-- [ ] USB adapter on the front rail with the partial cover and the DC Ground Wire attached to its exposed point; frame end left loose for Ch 10.
-- [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
-- [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin 2–3 mm behind the plate's straight rear edge; its lead not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
-- [ ] XY endstop pod from Ch 05 tight on the right XY joint, its cable labels read XES / YES or repinned, full X and Y travel with no fouling.
-- [ ] Bed WAGO breakout built and mounted **above** the deck on the left bed extrusion, under the plate's rear half; the plate's three leads reach it with slack and the plate still lifts off from above.
-- [ ] Nothing wired. Nothing plugged in. Duct lids off, skirts and bottom panel off. Multimeter on the bench.
+- [ ] Two DIN rails run **left-to-right**, each fastened with one M5×10 BHCS into each bed extrusion, and all four plastic end caps are fitted.
+- [ ] The DC loop is stuck down with VHB at 09.36 as one continuous run, rear-left Z motor to the notch, its middle run 1.5 mm or more off the Leviathan and the PSU. The AC conduit is stuck down against the WAGO blocks, behind the SSR and over the round deck hole. The notch is clear and every lid is off and bagged. LDO layout: five PVC ducts, the opening clear.
+- [ ] The Meanwell LRS-200-24 selector is set to **115 V**, and the PSU is on the rear rail on its two printed brackets, its front-right corner 2 mm or more clear of the right T's rear fillet and its left end 3 mm or more from the SSR run's open end. **No** support bracket is fitted.
+- [ ] The Omron SSR is on its metal bracket, latched to the rear rail left of the PSU, with LOAD (1/2) and INPUT (3+/4−) identified and reachable.
+- [ ] **Every** Leviathan voltage-selection jumper is removed and bagged.
+- [ ] The Leviathan is on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
+- [ ] The USB adapter is on the front rail with the partial cover, and the DC Ground Wire is attached to its bare mounting point; the frame end is left loose for Ch 10.
+- [ ] The IEC inlet module (one part, not two) is in `power_inlet_IECGS_1mm`, the panel is screwed to the rear extrusion hard against the rear-left Z-motor mount, and three WAGO 221-415 clamps sit in the mains WAGO mount to its right.
+- [ ] The nozzle probe is assembled (collar fully in, PCB on two M2×10, shaft free) and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin 2–3 mm behind the plate's straight rear edge; its lead is not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
+- [ ] The XY endstop pod from Ch 05 is tight on the right XY joint, its cable labels read XES / YES or are repinned, and through full X and Y travel it touches nothing.
+- [ ] The bed WAGO breakout is built and mounted **above** the deck on the left bed extrusion, under the plate's rear half; the plate's three leads reach it with slack, and the plate still lifts off from above.
+- [ ] Nothing is wired and nothing is plugged in. Duct lids, skirts and the bottom panel are off. The multimeter is on the bench.
 
 <div class="print-page-break"></div>
 
 ## Checkpoint 10 — Wiring and Checkpoint #1
 
-- [ ] PSU voltage selector matches your mains — verified twice (10.2, 10.22)
-- [ ] LDO's **Checkpoint #1** passed in full: every node of each colour traced end to end — C14 pin to PSU screw, SSR, bed and frame — L/N/PE mutually isolated at the WAGOs and at the PSU screws, switch switches, SSR open, then one hand-on-the-switch power-on and off again (10.17–10.23)
+- [ ] PSU voltage switch matches your mains, checked twice (10.2, 10.22)
+- [ ] LDO's **Checkpoint #1** passed in full: every node of each colour traced end to end, from the C14 pin to the PSU screw, SSR, bed and frame; L, N and PE isolated from each other at the WAGOs and at the PSU screws; the switch switches; the SSR is open; then one hand-on-the-switch power-on and off again (10.17–10.23)
 - [ ] Bed heater reads tens of ohms L→N and `OL` to the plate (10.13)
 - [ ] SSR: bed on **LOAD 1**, mains L on **LOAD 2**, red on **INPUT 3**, black on **INPUT 4**; load and control sides isolated (10.14, 10.27, 10.78)
-- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — the frame lug fitted at 10.16, probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
+- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin; the frame lug fitted at 10.16 was probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
 - [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads about the same as +V → −V, never 0 Ω, and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
 - [ ] Bed thermistor reads within ±15 % of the room-temperature table (10.44, 10.76)
-- [ ] Six steppers on their mapped ports, tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
-- [ ] All three Rev D+ toolhead deviations verified: PH2.0 sensor connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the DC Ground Wire fitted (10.55–10.58)
-- [ ] Every cable in every chain can be slid by hand; all six chain ends zip-tied; gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
-- [ ] Strip fin between PSU **3 FG** and **4 −V**, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80); touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
-- [ ] Bay walked against LDO's finished photo with every difference explained (10.72); cord out of the room, next plug-in is Ch 12 Step 12.11 — with the bay still open
+- [ ] Six steppers on their mapped ports and tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
+- [ ] All three Rev D+ toolhead deviations checked: PH2.0 sensor connectors, the keyed 2×5 (10-pin) fan header seated with no gap, and the V2 partial cover with the DC Ground Wire fitted (10.55–10.58)
+- [ ] Every cable in every chain slides by hand; all six chain ends zip-tied; the gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
+- [ ] Strip fin between PSU **3 FG** and **4 −V**, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80). Touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
+- [ ] Bay walked against LDO's finished photo with every difference explained (10.72). Cord out of the room; the next plug-in is Ch 12 Step 12.11, with the bay still open
 
 <div class="print-page-break"></div>
 
@@ -236,44 +236,44 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 **Part A — before Ch 13**
 
-- [ ] Checkpoint #1 passed and Ch 12 Part 2 (12.11–12.20, 12.23, 12.37, Checkpoint 12) done **before** any of this started; deck panel calipered and the Ch 02 deck supports match it.
-- [ ] All twelve skirt segments checked for rock on the flat reference; the ring is closed with flush, tight joints all round, and no mini12864 parts exist anywhere on the machine.
-- [ ] BTT TFT4.3 module in the front-centre position; FFC seated at both ends in the correct orientation (contacts up at the screen, forward at the Pi) with a service loop.
-- [ ] Two 60×20 bay fans, both in the **right-hand** fan support, both blowing the same way, joined by the 3×2 splicer PCB **on its printed spacer**, landing on FAN2/PF7; the left support's grills on the two retainers.
-- [ ] Bottom panel bonded on six VHB pads to two rear hinges and four clips, opened and closed once after the VHB cured; four Z belt covers on, correct variant per corner, belts clear through full Z travel.
-- [ ] Nevermore built and installed: 6 heat-sets, both 5015 fans modified and bolted, bridge PCB **meter-checked for shorts**, magnets polarity-matched, plenum on the bed extrusions, filter fan on **FAN3/PF9** with the 24 V jumper confirmed, cartridge closed with its fill state written on the lid.
-- [ ] Spool holder and bowden retainer fitted; a full spool spins freely with no kink in the PTFE.
-- [ ] Clicky-Clack door frame square, acrylic retained, hinges and handle assembled, all magnet pairs attracting, hinge side as printed at B10 (left unless the `Hinge-L-*` parts were mirrored there); 3 mm foam on the front face of the front opening.
+- [ ] Checkpoint #1 passed and Ch 12 Part 2 (12.11–12.20, 12.23, 12.37, Checkpoint 12) done **before** any of this started. The deck panel is calipered and the Ch 02 deck supports match it.
+- [ ] All twelve skirt segments checked for rock on the flat reference. The ring is closed with flush, tight joints all round, and no mini12864 parts are anywhere on the machine.
+- [ ] The BTT TFT4.3 module is in the front-centre position. Its FFC is seated at both ends the right way round (contacts up at the screen, forward at the Pi), with a service loop.
+- [ ] Two 60×20 bay fans, both in the **right-hand** fan support and both blowing the same way, joined by the 3×2 splicer PCB **on its printed spacer** and landing on FAN2/PF7. The left support's grills are on the two retainers.
+- [ ] The bottom panel is stuck on six VHB pads to two rear hinges and four clips, and was opened and closed once after the VHB cured. Four Z belt covers are on, the right version at each corner, with the belts clear through full Z travel.
+- [ ] The Nevermore is built and installed: 6 inserts, both 5015 fans modified and screwed down, the bridge PCB **meter-checked for shorts**, magnets matched in polarity, the plenum on the bed extrusions, the filter fan on **FAN3/PF9** with the 24 V jumper confirmed, and the cartridge closed with its fill state written on the lid.
+- [ ] Spool holder and bowden retainer fitted; a full spool spins freely, with no kink in the PTFE.
+- [ ] The Clicky-Clack door frame is square, the acrylic held in, the hinges and handle assembled and every magnet pair attracting. The hinge side is as printed at B10 (left, unless the `Hinge-L-*` parts were mirrored there), and 3 mm foam is on the front face of the front opening.
 
 **Part B — after Ch 13**
 
 - [ ] **Ch 12 and Ch 13 complete**, including the Ch 06b gantry-squaring pass, before any panel went on.
-- [ ] Clips test-fitted for thickness before all 31 were committed: 4 mm on back + top with M3×8, 6 mm on both sides with M3×12, two screws in every corner clip; none left over, none short. Foam tape correct per panel: 1 mm back and top, 3 mm both sides.
-- [ ] Gantry run through full XY travel with the side panels on — no contact. Exhaust cover and grill sealing the back panel, cover tabs bolted to the top rear extrusion, the PTFE through the cover's coupler; no Voron filter housing fitted. Both handlebars on their printed spacers.
-- [ ] No stock door parts fitted; the Clicky-Clack latches with a click and draws the door onto the 3 mm foam; no daylight at any seam; thread locker on the panel-clip hammerhead nuts.
+- [ ] Clips test-fitted for thickness before all 31 were committed: 4 mm on back and top with M3×8, 6 mm on both sides with M3×12, two screws in every corner clip, none left over and none short. The foam tape is right for each panel: 1 mm on back and top, 3 mm on both sides.
+- [ ] The gantry runs through full XY travel with the side panels on and touches nothing. The exhaust cover and grill seal the back panel, the cover tabs are screwed to the top rear extrusion, and the PTFE goes through the cover's coupler; no Voron filter housing is fitted. Both handlebars sit on their printed spacers.
+- [ ] No stock door parts are fitted. The Clicky-Clack latches with a click and pulls the door onto the 3 mm foam, no daylight shows at any seam, and threadlocker is on the panel-clip hammerhead nuts.
 
 **Part C — side spool holder and camera**
 
 - [ ] Step 11.68's calculator passed; a stack over 6.2 mm got a frame reprinted from `remix.scad` at Step 11.69 before anything was fitted.
-- [ ] Side spool frame on the right side's extrusions, both feet on aluminium and the body clear of the panel; an empty USS Drybox hangs upright on the puck; one PTFE from the spool to the CW2.5 with no kink or joint.
-- [ ] HappyCam centred inside the top front extrusion, nothing touching it along the front at Z max, the stream live in Mainsail on the iPad.
+- [ ] The side spool frame is on the right side's extrusions, both feet on aluminium and the body clear of the panel. An empty USS Drybox hangs upright on the puck, and one PTFE runs from the spool to the CW2.5 with no kink or joint.
+- [ ] HappyCam is centred inside the top front extrusion, nothing touches it along the front at Z max, and the stream is live in Mainsail on the iPad.
 
 <div class="print-page-break"></div>
 
 ## Checkpoint 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
 
-- [ ] MainsailOS boots, is reachable at your hostname, and every component in the Update Manager is up to date.
-- [ ] The Klipper version string from Step 12.7 is written down. The Nitehawk was flashed from that working copy; the Leviathan was too, or its factory firmware passed 12.14's test and 12.37.
-- [ ] `ls /dev/serial/by-id/` shows exactly two Klipper devices: one `stm32g0b1xx` (Nitehawk-SB V2) and one `stm32f446xx` **or** `stm32h743xx` (Leviathan). No `katapult` entries.
-- [ ] `printer.cfg` is the **`-sbv2`** file — `grep -c 'nhk:PB8' printer.cfg` returns 1 and `grep -c gpio printer.cfg` returns 0 (the V1 file returns 20), and no `printer-350.cfg` is left beside it.
+- [ ] MainsailOS boots, answers at your hostname, and every component in the Update Manager is up to date.
+- [ ] The Klipper version string from Step 12.7 is written down. The Nitehawk was flashed from that working copy; so was the Leviathan, or its factory firmware passed 12.14's test and 12.37.
+- [ ] `ls /dev/serial/by-id/` shows exactly two Klipper devices, one `stm32g0b1xx` (Nitehawk-SB V2) and one `stm32f446xx` **or** `stm32h743xx` (Leviathan), and no `katapult` entries.
+- [ ] `printer.cfg` is the **`-sbv2`** file: `grep -c 'nhk:PB8' printer.cfg` returns 1 and `grep -c gpio printer.cfg` returns 0 (the V1 file returns 20), and no `printer-350.cfg` is left beside it.
 - [ ] `config.nitehawk`, and `config.leviathan` if 12.14 built one, are in `~/printer_data/config/`, and `~/printer_data/config` is a git repo with the Ch 12 baseline committed.
 - [ ] Line 1 is `[include mainsail.cfg]`, and Mainsail shows no missing-configuration panel.
-- [ ] All six 350 mm sites are uncommented: `[stepper_x]`, `[stepper_y]`, `[stepper_z]`, `[quad_gantry_level]`, `[resonance_tester]`, `[gcode_macro G32]`.
+- [ ] All six 350 mm places are uncommented: `[stepper_x]`, `[stepper_y]`, `[stepper_z]`, `[quad_gantry_level]`, `[resonance_tester]`, `[gcode_macro G32]`.
 - [ ] `[bed_mesh]` exists and carries `zero_reference_position: 175, 175`.
-- [ ] `[input_shaper]` and `[exclude_object]` exist; exactly one live `[probe]` section.
-- [ ] `[fan_generic nevermore]` on PF9; `[output_pin caselight]` has one live `value:`.
-- [ ] `safe_z_home` still reads `-10,-10` with the Ch 13 TODO next to it.
-- [ ] `STATUS` is clean after `RESTART`, both MCUs connected, three sensors reading room temperature.
+- [ ] `[input_shaper]` and `[exclude_object]` exist, and there is exactly one live `[probe]` section.
+- [ ] `[fan_generic nevermore]` is on PF9, and `[output_pin caselight]` has one live `value:`.
+- [ ] `safe_z_home` still reads `-10,-10`, with the Ch 13 TODO next to it.
+- [ ] `STATUS` is clean after `RESTART`, both MCUs are connected, and three sensors read room temperature.
 - [ ] KlipperScreen is running and the DSI panel shows the right way up.
 - [ ] Nothing has been homed, heated or jogged.
 - [ ] The machine is still live with the bay open: nobody reaches into the bay until [Step 11.67](../manual/11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead) has shut it down, unplugged it and read 0 V.
@@ -283,22 +283,22 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 13 — Initial startup
 
 - [ ] Checkpoint #1 (Ch 10) was passed before this chapter began, with a multimeter, unplugged.
-- [ ] `STATUS` returns `Klipper state: Ready`, and both MCUs are present — `stm32f446xx` (or `stm32h743xx` on a V1.3 board) and `stm32g0b1xx`.
-- [ ] `grep -c gpio ~/printer_data/config/printer.cfg` returns 0 — the `-sbv2` config.
+- [ ] `STATUS` returns `Klipper state: Ready`, and both MCUs are present: `stm32f446xx` (or `stm32h743xx` on a V1.3 board) and `stm32g0b1xx`.
+- [ ] `grep -c gpio ~/printer_data/config/printer.cfg` returns 0, so this is the `-sbv2` config.
 - [ ] `M112` tested once (Step 13.22) and typed-and-unsent, alone on the line, before every first move; everyone in the room knows it is the stop and `RESTART` is not.
-- [ ] Extruder, bed and chamber (three sensors) all report room temperature at rest and none of them drifts upward untouched.
-- [ ] Both heaters heat and cool on command; the toolboard HE0 LED tracks the hotend, and at 13.8 the SSR LED, watched eyes-only, tracked the bed, and the meter held 0 V before the bottom door closed.
-- [ ] All four fan outputs verified and on the right fan: hotend (SB bottom), part cooling (SB top), bay PCB fan pair, Nevermore filter fan; plus the chamber LEDs and all three Stealthburner LEDs.
-- [ ] All seven motors pass `STEPPER_BUZZ` — correct motor, clean motion; correct direction for the four Z motors (A/B at 13.22–13.23, extruder at 13.40).
+- [ ] Extruder, bed and chamber (three sensors) all read room temperature at rest, and none of them creeps upward untouched.
+- [ ] Both heaters heat and cool on command; the toolboard HE0 LED follows the hotend, at 13.8 the SSR LED, watched eyes-only, followed the bed, and the meter held 0 V before the bottom door closed.
+- [ ] All four fan outputs checked and on the right fan: hotend (SB bottom), part cooling (SB top), bay PCB fan pair, Nevermore filter fan; plus the chamber LEDs and all three Stealthburner LEDs.
+- [ ] All seven motors pass `STEPPER_BUZZ`: correct motor, clean motion, and correct direction for the four Z motors (A/B at 13.22–13.23, extruder at 13.40).
 - [ ] `QUERY_ENDSTOPS` reads `stepper_x:open stepper_y:open stepper_z:open` at rest and each endstop triggers alone; the nozzle probe shaft springs back freely.
-- [ ] `QUERY_PROBE` toggles `open` / `TRIGGERED` with metal, and the probe's fibreglass tape is front-and-sides only.
+- [ ] `QUERY_PROBE` switches between `open` and `TRIGGERED` with metal, and the probe's fibreglass tape is on the front and sides only.
 - [ ] `G28` completes on all three axes; 0,0 lands within 5 mm of the front-left corner of the plate with no skipping.
-- [ ] `[safe_z_home] home_xy_position` holds your measured Z-endstop coordinate, not `-10,-10`.
+- [ ] `[safe_z_home] home_xy_position` holds your measured Z-endstop position, not `-10,-10`.
 - [ ] Bed and hotend PID tuned and `SAVE_CONFIG`-ed; `PROBE_ACCURACY` hot shows σ < 0.003 mm with no trend, and you wrote down the soak time.
 - [ ] Ch 06b cold gantry squaring done (Checkpoint 06b ticked), A/B belts back at its provisional tension, and QGL re-run and converged afterwards. Final tension is Ch 14 Steps 14.4–14.6, not here.
 - [ ] `Z_ENDSTOP_CALIBRATE` done hot at the paper-drag height (no extra step down) and saved; bed mesh taken hot **after** QGL and saved.
 - [ ] Filament loaded, extruder direction confirmed, `rotation_distance` measured here (Step 13.40) and written into `[extruder]`.
-- [ ] PrusaSlicer has a `Voron 2.4 350` printer preset (350×350, Klipper flavour, limits for time estimate only, plain `.gcode`, `PRINT_START … FILAMENT=`/`PRINT_END`, physical printer test OK) and the Voron cube printed from it, first-layer squish committed with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG` **after** the print ended, cube kept for Ch 14's measurement.
+- [ ] PrusaSlicer has a `Voron 2.4 350` printer preset (350×350, Klipper flavour, limits for time estimate only, plain `.gcode`, `PRINT_START … FILAMENT=`/`PRINT_END`, physical printer test OK), and the Voron cube printed from it; first-layer squish saved with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG` **after** the print ended, and the cube kept for Ch 14's measurement.
 - [ ] `~/printer_data/config` committed after every `SAVE_CONFIG` and copied off the Pi.
 - [ ] Part L, if fitted: H, w, d, G and O written down and the Step 13.47 decision kept (L, T, sheet stops, or NO-GO); only the files it wrote were printed, both inspection readings within 0.2 mm; the cold dry-run touched nothing but silicone; `NOZZLE_CLEAN` runs in `PRINT_START` before the final `G28 Z`.
 
@@ -306,29 +306,29 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint 14 — Calibration and tuning
 
-- [ ] Bed and hotend PID tuned in Ch 13 and `SAVE_CONFIG`'d; both hold within ±0.5 °C at setpoint
-- [ ] A and B belts both at ~110 Hz over a measured 150 mm span, equal to each other after moving the gantry and returning
-- [ ] All four Z belts at ~140 Hz over a measured 150 mm span, even with each other — set at the Z idler tensioner bolts, belt clamps untouched
-- [ ] One closed-chamber soak of at least 1½–2 h, Steps 14.3 and 14.6, panels and door on, with the settled `chamber_temp` and the hot mesh Variance logged from it; QGL run 3–5× hot with shrinking corrections; machinist square clean at both front corners hot; the four Z joint M5×40 bolts tightened **hot**, idle timeout set back with `SET_IDLE_TIMEOUT TIMEOUT=1800` after the last hot check
-- [ ] `QUAD_GANTRY_LEVEL` converges in ≤3 retries hot after the lock; `PROBE_ACCURACY` σ < 0.003 mm with no trend
-- [ ] `rotation_distance` verified on the Ch 13 value: 100 mm requested measures 99.5–100.5 mm; `22.6789511` nowhere in `printer.cfg`
-- [ ] `PRINT_START` (Ch 12 Step 12.36, with Step 14.9's purge line) homes, heats the bed, soaks, QGLs, re-homes Z, meshes, heats the nozzle and purges — tested standalone from the console with `CHAMBER=0`
-- [ ] Chamber reaches the 50–60 °C band with panels and door closed
-- [ ] Voron cube (printed in Ch 13) calipered; X, Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm
-- [ ] Both cubes (Prusa and Voron) measured into the comparison table
-- [ ] `MEASURE_AXES_NOISE` in the 1–100 range; `[resonance_tester] probe_points: 175, 175, 20` confirmed live (Ch 12 Step 12.27)
-- [ ] `[input_shaper]` saved for X and Y; neither axis below 25 Hz
-- [ ] `[printer] max_accel` reduced from the stock 10000 to at or below the calibration's suggestion, with margin
-- [ ] `max_z_velocity: 15` / `max_z_accel: 350` restored if Z shaping was attempted
-- [ ] `Voron ASA` filament preset saved: `CHAMBER` from its Minimal, below the settled chamber (Step 14.9), PLA and PETG still at Minimal 0
-- [ ] Pressure advance set per-filament for ASA and recorded
-- [ ] Extrusion multiplier set in `Voron ASA`, one cube per print, and recorded
-- [ ] First-layer squish re-checked *after* the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP`
-- [ ] Every fastener the shaper run could have loosened re-checked
-- [ ] `~/printer_data/config` committed (one commit per `SAVE_CONFIG`) and copied off the Pi
-- [ ] Tuning log filled in, with initials
-- [ ] Serial request posted to r/voroncorexy (Step 14.24); the nameplate goes on the front top rail once the serial arrives
-- [ ] Part H, if fitted: Step 14.25's calculator passed before Part A; exactly three jumpers, Fan0, Fan2 and Fan3, all at 24 V; the ASA soak still settles at 50–60 °C with the housing closed; a PLA print held `chamber_temp` at or under 37 °C, then purged and stopped; config committed
+- [ ] Bed and hotend PID tuned in Ch 13 and saved with `SAVE_CONFIG`; both hold within ±0.5 °C of the target.
+- [ ] A and B belts both at about 110 Hz over a measured 150 mm span, equal to each other after the gantry moves away and back.
+- [ ] All four Z belts at about 140 Hz over a measured 150 mm span, even with each other, set at the Z idler tensioner screws with the belt clamps untouched.
+- [ ] One closed-chamber soak of at least 1½–2 h, Steps 14.3 and 14.6, panels and door on, with the settled `chamber_temp` and the hot mesh Variance logged from it; QGL run 3–5× hot with shrinking corrections; the machinist square clean at both front corners, hot; the four Z joint M5×40 screws tightened **hot**; and the idle timeout set back with `SET_IDLE_TIMEOUT TIMEOUT=1800` after the last hot check.
+- [ ] `QUAD_GANTRY_LEVEL` settles in 3 retries or fewer, hot, after the lock; `PROBE_ACCURACY` σ < 0.003 mm with no trend.
+- [ ] `rotation_distance` checked against the Ch 13 value: 100 mm requested measures 99.5–100.5 mm, and `22.6789511` appears nowhere in `printer.cfg`.
+- [ ] `PRINT_START` (Ch 12 Step 12.36, with Step 14.9's purge line) homes, heats the bed, soaks, runs QGL, re-homes Z, meshes, heats the nozzle and purges, tested on its own from the console with `CHAMBER=0`.
+- [ ] The chamber reaches the 50–60 °C band with the panels and door closed.
+- [ ] The Voron cube (printed in Ch 13) measured: X and Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm.
+- [ ] Both cubes (Prusa and Voron) measured into the comparison table.
+- [ ] `MEASURE_AXES_NOISE` in the 1–100 range; `[resonance_tester] probe_points: 175, 175, 20` confirmed live (Ch 12 Step 12.27).
+- [ ] `[input_shaper]` saved for X and Y; neither axis below 25 Hz.
+- [ ] `[printer] max_accel` lowered from the stock 10000 to at or below the calibration's suggestion, with margin.
+- [ ] `max_z_velocity: 15` / `max_z_accel: 350` put back if Z shaping was tried.
+- [ ] `Voron ASA` filament preset saved: `CHAMBER` from its Minimal, below the settled chamber (Step 14.9), with PLA and PETG still at Minimal 0.
+- [ ] Pressure advance set per filament for ASA, and recorded.
+- [ ] Extrusion multiplier set in `Voron ASA`, one cube per print, and recorded.
+- [ ] First-layer squish checked again *after* the extrusion-multiplier change, and saved with `Z_OFFSET_APPLY_ENDSTOP`.
+- [ ] Every fastener the shaper run could have loosened checked again.
+- [ ] `~/printer_data/config` committed (one commit per `SAVE_CONFIG`) and copied off the Pi.
+- [ ] Tuning log filled in, with initials.
+- [ ] Serial request posted to r/voroncorexy (Step 14.24); the nameplate goes on the front top rail once the serial arrives.
+- [ ] Part H, if fitted: Step 14.25's calculator passed before Part A; exactly three jumpers, Fan0, Fan2 and Fan3, all at 24 V; the ASA soak still settles at 50–60 °C with the housing closed; a PLA print held `chamber_temp` at or under 37 °C, then purged and stopped; config committed.
 
 <div class="print-page-break"></div>
 

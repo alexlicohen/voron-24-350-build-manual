@@ -96,12 +96,13 @@ why-clause survives only where the action is wrong without it.
 Lint: `python3 scripts/lint_manual.py --budgets` (adds it to the default run) or
 `--budgets-only` (this check alone, no `mkdocs build` needed; `--json` for one finding per line).
 
-## Plain style (pilot: Ch 01 only, added 2026-11-19)
+## Plain style (Ch 01–14, added 2026-11-19)
 
 Alex, 2026-11-19, after reading Ch 01: correct, but fragmented into boxes and too terse to follow.
 The reader is an intelligent non-expert and a teenager. A chapter opts in with
-`<!-- style: plain -->` in its header; every other chapter keeps the rules above until Alex has
-read the pilot on the iPad. In a plain chapter these rules replace the ones they contradict.
+`<!-- style: plain -->` in its header. Ch 01 was the pilot; Alex approved it and Ch 02–14 followed
+the same day. The front matter (00, 00a), troubleshooting and the glossary keep the rules above.
+In a plain chapter these rules replace the ones they contradict.
 
 **One voice per step.** Three text fields, all in sight, in this order on the step page:
 
@@ -113,6 +114,19 @@ read the pilot on the iPad. In a plain chapter these rules replace the ones they
   under that label, not a box. A Check that carries a list or a table keeps the box.
 
 `**Helper:**` renders as a plain line. `**Parts:** none.` is not shown. Loose paragraphs stay visible.
+
+**Page order follows the chapter.** What the chapter puts before a step's own text (a section
+intro, a gate warning) renders above the lead. What it puts between `**Do:**` and `**Check:**`
+(a second command, a table, what to do with the output) renders before "You're done when". What
+follows Check renders after it. So place a line where it should be read.
+
+**Code is data.** A rewrite never changes a code fence, a command, a config key or value, a pin,
+a port or terminal label, or a wire colour, and never moves one to another step.
+
+**Rewriting a chapter.** `scripts/check_plain_invariants.py --base <commit> --chapters NN` must
+pass: step headings, Parts blocks, Helper and Source lines and each Pause line's minutes are
+unchanged. A `⚠` that guards against injury, mains, heat, motion, a short or an irreversible cut
+stays a box with every condition and number; when in doubt it stays a box.
 
 **A box only for a hazard.** `⚠` is for what can hurt someone or cannot be undone (a forced
 T-nut, mains, heat). Everything else that used to be a `⚠` or a `Tip:` is a sentence in the lead,

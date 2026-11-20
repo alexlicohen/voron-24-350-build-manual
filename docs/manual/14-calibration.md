@@ -1,43 +1,56 @@
 # Chapter 14 — Calibration and tuning
 
-Takes a machine that homes, probes, levels, is squared cold and has printed its first cube (Ch 13), now closed in by Ch 11 Part B, and turns it into a machine that prints Voron-quality ASA: belts at final tension, the gantry's Z joints locked at working temperature, extruder refined, input shaper set, pressure advance and flow dialled in, and that cube calipered against the Prusa-printed reference.
+<!-- style: plain -->
 
-**What you're building in this chapter.** Nothing mechanical is added; six calibration items are measured and written down. **Belt tension** is set for the last time, now that gantry squaring has released it — a tensioned belt is a string, and its pitch over a measured span is the reading. Then the closed chamber gets its one real **heat soak**, QGL is run until it settles, and the four **Z joint** bolts are given their only full tighten while the frame is at working temperature — the last three steps of Voron's squaring procedure, which Ch 06b left for a panelled machine. The **extruder** value measured in Ch 13 is re-checked. **Input shaping** uses the accelerometer built into the toolboard to find the frequency at which this machine rings, fits a filter that cancels it, and brings the acceleration ceiling down from its placeholder. **Pressure advance** compensates for the lag between the extruder and the nozzle at corners, and **extrusion multiplier** scales the total amount of plastic — both belong to the filament, not the machine. Between them sits the **chamber**: how hot the closed enclosure actually gets, which decides both the print profile and the soak time. The tuning log at the end is the deliverable. Part H fits the stock Voron **exhaust housing**, printed in batch B13, on the back panel, its fan driven by the chamber thermistor, so PLA and PETG print under a 35–40 °C ceiling while ASA keeps its closed chamber. It goes on only if this machine passes its go/no-go look, which comes first so the fan and mat arrive while you calibrate.
+This chapter takes a machine that homes, probes, levels, is squared cold and has printed its first cube (Ch 13), now closed in by Ch 11 Part B, and turns it into one that prints Voron-quality ASA. By the end the belts are at final tension, the gantry's Z joints are locked at working temperature, the extruder is refined, the input shaper is set, pressure advance and flow are tuned, and the cube has been measured with a caliper against the one the Prusa printed.
+
+**What you're building in this chapter:** Nothing mechanical is added. You measure six calibration items and write each one down. **Belt tension** is set for the last time, since Ch 06b's squaring released it. The closed chamber gets its one **heat soak**, QGL is run until it settles, and the four **Z joint** screws get their only full tighten at working temperature: the last three steps of Voron's squaring. The **extruder** value from Ch 13 is checked again. **Input shaping** uses the toolboard's accelerometer to find the frequency this machine rings at, fits a filter that cancels it, and lowers the acceleration limit from its placeholder. **Pressure advance** covers the lag between extruder and nozzle at corners; the **extrusion multiplier** scales the total plastic. Both belong to the filament, not the machine. The **chamber** reading, how hot the closed box gets, sets the print profile and the soak time. Part H fits Voron's stock **exhaust housing** from B13 on the back panel, so PLA and PETG print under a 35–40 °C ceiling while ASA keeps a closed chamber. It goes on only if the machine passes a go/no-go look, done first so the fan and mat arrive while you calibrate.
 
 ```mascot
 pose: pass
 caption: Here the kit becomes a printer. I brought a caliper. Feelings are not evidence. My opinions nearly are.
 ```
 
-**Time:** 3.0–4.5 h hands-on (survey §7.2 gives 2.5–4.0 h; this chapter's Pause lines add up to ~4 h), spread over ~9–11 h wall-clock. Most of the wall-clock is the chapter's one 1½–2 h closed-chamber soak, Steps 14.3 and 14.6, which also gives Steps 14.8 and 14.22 their readings, and about a dozen short test prints: the PA pattern twice, eight single extrusion-multiplier cubes (PrusaSlicer cannot vary the multiplier per object, so each cube is its own print with its own `PRINT_START`) and a squish check. The exhaust housing (Part H) adds ~3.5 h hands-on, a ~1 h chamber soak and a ~1 h PLA print; its parts are already printed in B13, and its first two steps open the chapter, so the Step 00.8 delivery runs while Parts A–G do.
+**Time:** 3.0–4.5 h hands-on (survey §7.2 gives 2.5–4.0 h; this chapter's Pause lines add up to ~4 h), spread over ~9–11 h from start to finish. Most of that elapsed time is the chapter's one 1½–2 h closed-chamber soak, Steps 14.3 and 14.6, which also gives Steps 14.8 and 14.22 their readings, and about a dozen short test prints: the PA pattern twice, eight single extrusion-multiplier cubes (PrusaSlicer cannot vary the multiplier per object, so each cube is its own print with its own `PRINT_START`) and a squish check. The exhaust housing (Part H) adds ~3.5 h hands-on, a ~1 h chamber soak and a ~1 h PLA print. Its parts are already printed in B13, and its first two steps open the chapter, so the Step 00.8 delivery comes while Parts A–G run.
 
-**Sessions:** 14 × ~30 min hands-on, 20 with Part H (one Pause per calibration item; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes soaks and test prints).
+**Sessions:** 14 × ~30 min hands-on, 20 with Part H (one Pause per calibration item). Every minute figure is a first-build estimate taken from the Time range and the step count, and leaves out soaks and test prints.
 
 **Prerequisites:**
 
-- **Ch 13 — First power-up and initial startup.** All wizard steps passed (temperatures → heaters → fans → `STEPPER_BUZZ` → XY endstop → homing → bed locating → 0,0 → Z endstop → probe → PID → QGL → Z-offset), filament loaded and `rotation_distance` measured at Step 13.40, the Voron printer profile made at Step 13.41.
-- **The Voron-printed `Voron_Design_Cube_v7`** from [Ch 13 Steps 13.41–13.42](13-initial-startup.md#step-1341-make-the-voron-printer-profile-and-slice-the-cube), kept. Ch 13 prints the cube and commits the first-layer squish; this chapter measures it, at step 14.11.
-- **Ch 06b — Squaring the gantry, cold**, run out of the middle of Ch 13 at Step 13.34 and finished before Ch 13's Z=0 and mesh: gantry square, the four Z joint M5×40 bolts reinstalled **lightly** (06b.13) and not yet torqued, A/B belts at a provisional tension. **This chapter's belt-tension steps must come after 06b** — the squaring procedure starts by fully releasing A/B tension, so anything you set before it is gone (survey §4.4 #2, §5.2 W1). Voron's squaring steps 14–17 (closed-chamber soak, QGL 3–5×, tighten the Z joints hot, restart) are Steps 14.3 and 14.6 here, because they need the panels.
-- **Ch 11 Part B — Panels and the Clicky-Clack door**, on. The chamber has to close: the soak at Steps 14.3 and 14.6, the readings Steps 14.8 and 14.22 take from it, and Checkpoint 14 all gate on a closed chamber. The same panels are all Step 14.25 needs.
-- **Ch 12 — Software.** `[bed_mesh]` added at Step 12.34, `PRINT_START` replaced at Step 12.36 (survey §4.4 #15).
-- **Batch B00.** The Prusa-printed `Voron_Design_Cube_v7` in Prusament ASA Galaxy Black, kept as the reference coupon ([B00 step B00.6](print/B00-calibration-and-jigs.md)). You need it in hand at step 14.11.
+- **Ch 13** (first power-up and initial startup) is done. Every wizard step passed, in this order: temperatures, heaters, fans, `STEPPER_BUZZ`, XY endstop, homing, bed locating, 0,0, Z endstop, probe, PID, QGL, Z-offset. Filament is loaded, `rotation_distance` was measured at Step 13.40, and the Voron printer profile was made at Step 13.41.
+- **The Voron-printed `Voron_Design_Cube_v7`** from [Ch 13 Steps 13.41–13.42](13-initial-startup.md#step-1341-make-the-voron-printer-profile-and-slice-the-cube), kept. Ch 13 printed the cube and saved the first-layer squish; this chapter measures it, at Step 14.11.
+- **Ch 06b** (squaring the gantry, cold) is done. It ran from the middle of Ch 13 at Step 13.34 and finished before Ch 13's Z=0 and mesh: the gantry is square, the four Z joint M5×40 screws were put back **lightly** (06b.13) and not yet tightened, and the A/B belts are at a provisional tension. **This chapter's belt-tension steps must come after 06b,** because the squaring procedure starts by fully releasing the A/B tension, so anything you set before it is gone (survey §4.4 #2, §5.2 W1). Voron's squaring steps 14–17 (closed-chamber soak, QGL 3–5×, tighten the Z joints hot, restart) are Steps 14.3 and 14.6 here, because they need the panels.
+- **Ch 11 Part B** (panels and the Clicky-Clack door) is on. The chamber has to close: the soak at Steps 14.3 and 14.6, the readings Steps 14.8 and 14.22 take from it, and Checkpoint 14 all need a closed chamber. The same panels are all Step 14.25 needs.
+- **Ch 12** (software) is done: `[bed_mesh]` added at Step 12.34 and `PRINT_START` replaced at Step 12.36 (survey §4.4 #15).
+- **Batch B00**: the Prusa-printed `Voron_Design_Cube_v7` in Prusament ASA Galaxy Black, kept as the reference cube ([B00 step B00.6](print/B00-calibration-and-jigs.md)). You need it in hand at Step 14.11.
 - **Printed parts: none** for Parts A–G; everything they print, they print on the Voron. **Print batch B13** for Part H: its five parts wait in bin 14-exhaust and are fitted only if Step 14.25 passes. Steps 14.25 and 14.26 open the chapter, ahead of Part A.
 - **Part H only:** the Step 00.8 exhaust row (a 24 V 6020 fan, a 1 m JST-XH extension, carbon filter mat), bought when Step 14.25 passes, before Part A, so it arrives while Parts A–G run.
 - A spool of Prusament ASA in the dryer, warm and loaded (survey §7.3).
 
 **Tools**
 
-- Digital caliper, 150 mm
-- Steel rule, 150 mm minimum (belt spans and the e-step mark)
-- Masking tape and a fine marker (e-step mark; Ellis prefers tape to a marker line)
-- Phone with a spectrum analyser: **Sound Spectrum Analysis** (iOS), **Spectroid** (Android), or **Gates Carbon Drive** (both — use the "motorcycle" option) [src](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)
-- Hex 2.5 mm (A/B front tensioners, M3×40; Z idler tensioners, M3×16) and a ball-end hex 4 mm (the four Z joint M5×40 bolts, Step 14.6 — the rear pair are reached at an angle from the door)
-- 150 mm machinist square (the hot re-square check at Step 14.6 — the same one as Ch 06b)
-- Laptop or tablet on the Mainsail console, with `M112` typed and unsent in a second window for the shaper run at Step 14.13 (Ch 13 Tools)
-- Part H only: string, scissors, 3 mm hex key, the Nutopress Pro insert press with its M3 tip (the X-Tronic + LDO brass tip only if the housing will not fit under it), and the multimeter
+- Digital caliper, 150 mm.
+- Steel rule, 150 mm or longer, for the belt spans and the extruder tape mark.
+- Masking tape and a fine marker for that mark (Ellis prefers tape to a marker line).
+- A phone with a spectrum analyser app: **Sound Spectrum Analysis** (iOS), **Spectroid** (Android), or **Gates Carbon Drive** (both; use its "motorcycle" option). [src](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)
+- Hex keys: 2.5 mm for the A/B front tensioners (M3×40) and the Z idler tensioners (M3×16), and a ball-end 4 mm for the four Z joint M5×40 screws at Step 14.6. You reach the rear pair at an angle from the door.
+- The 150 mm machinist square from Ch 06b, for the hot square check at Step 14.6.
+- A laptop or tablet on the Mainsail console, with `M112` typed and unsent in a second window for the shaper run at Step 14.13 (Ch 13 Tools).
+- Part H only: string, scissors, a 3 mm hex key, the Nutopress Pro insert press with its M3 tip (the X-Tronic + LDO brass tip only if the housing will not fit under it), and the multimeter.
+
+**Consumables:** Prusament ASA Galaxy Black (~150 g across all test prints), IPA for the flex plate. Part H: VHB tape and zip ties from the kit and ~50 g PLA; its ASA parts come from B13.
+
+**Read first**
+
+- **The order matters, and it is not obvious.** PID before QGL, because a machine whose temperatures wander will not level the same way twice. The extruder check before the first print. Input shaper and pressure advance only after a successful first print, and the shaper first, because pressure advance changes when input shaping is switched on.
+- **`SAVE_CONFIG` restarts Klipper.** Each one loses the homing and lets go of all seven motors, so raise the gantry with `G0 Z30` and put a hand under it first, then home and level again with `G32` afterwards. Saved values land in the block at the bottom of `printer.cfg` and override anything typed above.
+- **Change one thing at a time and write it down** in the [tuning log](#tuning-log). If two things change between prints, you cannot tell which one made the difference.
+- **Do not chase size errors with `rotation_distance`, XY compensation or the extrusion multiplier.** A cube a little off size is plastic shrinking and bulging, not a wrong axis. The multiplier is set by eye, on a top surface.
+- **Running the shaper calibration too often can loosen parts.** After each run, check that everything on the printer is still tight.
+
+<!-- reference -->
 
 **Printed parts**
-
 
 | STL | Qty | Colour |
 |---|---|---|
@@ -54,9 +67,7 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 | M3×30 SHCS | 4 | Part H only: the exhaust fan and its grill, Step 14.28 |
 | — turned, not added — | 0 | Outside Part H, nothing else is added or removed in this chapter. The only things you turn are the two A/B front tensioner screws, the four Z idler tensioner bolts at the top of each upright (never the Z belt clamps at the gantry corners, on the front idlers, A/B drives and Z joints), and the four Z joint M5×40 bolts, which get their first and only full tighten hot at Step 14.6. |
 
-**Consumables:** Prusament ASA Galaxy Black (~150 g across all test prints), IPA for the flex plate. Part H: VHB tape and zip ties from the kit and ~50 g PLA; its ASA parts come from B13.
-
-**Read first**
+**Notes behind "Read first"**
 
 - **Order is not intuitive and is enforced.** PID before QGL (a thermally unstable machine will not QGL repeatably); e-steps before the first print; **input shaper and pressure advance only *after* a successful first print** (survey §3.3). Pressure advance changes when input shaping is enabled, so shaper comes first of the two. [src](https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/introduction.html)
 - **`SAVE_CONFIG` restarts Klipper.** Every `SAVE_CONFIG` in this chapter loses your homing and releases all seven motors, as `M84` does: `G0 Z30` and a hand under the gantry first. Re-`G32` after each one. Saved values land in the auto-generated block at the *bottom* of `printer.cfg` and override anything you typed above.
@@ -83,7 +94,11 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 
 ## Part H, first — The exhaust go/no-go and its printed parts
 
-This part fits the stock Voron exhaust housing over the back panel's exhaust notch, in place of the cover Ch 11 sealed it with, and lets the chamber thermistor drive its 60 mm fan through Klipper. PLA and PETG then print under a 35–40 °C ceiling; ASA keeps a closed, unvented chamber and the Nevermore. Its five printed parts are already made, in batch [B13](print/B13-exhaust-housing.md), and wait in bin 14-exhaust. Nothing is cut, and nothing is bought or fitted until the first step has checked this machine; if it fails, the parts stay in the bin unused. That check needs only the panels Ch 11 Part B fitted, so Steps 14.25 and 14.26 open the chapter: the Ch 00 row ships while Parts A–G run on the Voron, and the build resumes at Step 14.27, after Part G. Step 14.25 failed? Go straight to [Part A](14-calibration.md#part-a-heaters). The fan takes the Leviathan's FAN0 and a third 24 V jumper: Ch 10's "exactly two jumpers" and "FAN0 empty" describe the machine before this add-on, and stay true for a build without it. Expect a ceiling, not air conditioning: Voron's own tuning notes say PLA may still want the door open.
+This part fits the stock Voron exhaust housing over the back panel's exhaust notch, in place of the cover Ch 11 sealed it with, and lets the chamber thermistor drive its 60 mm fan through Klipper. PLA and PETG then print under a 35–40 °C ceiling; ASA keeps a closed, unvented chamber and the Nevermore. Its five printed parts are already made in batch [B13](print/B13-exhaust-housing.md) and wait in bin 14-exhaust. Nothing is cut, and nothing is bought or fitted until the first step has checked this machine; if it fails, the parts stay in the bin unused.
+
+That check needs only the panels Ch 11 Part B fitted, so Steps 14.25 and 14.26 open the chapter: the Ch 00 order ships while Parts A–G run on the Voron, and the build picks up again at Step 14.27, after Part G. If Step 14.25 fails, go straight to [Part A](14-calibration.md#part-a-heaters).
+
+The fan uses the Leviathan's FAN0 port and a third 24 V jumper. Ch 10's "exactly two jumpers" and "FAN0 empty" describe the machine before this add-on, and stay true for a build without it. Expect a ceiling, not air conditioning: Voron's own tuning notes say PLA may still want the door open.
 
 ### Step 14.25 — Inspect the back of the machine before anything is bought
 
@@ -93,7 +108,7 @@ This part fits the stock Voron exhaust housing over the back panel's exhaust not
 ![CAD render — the back panel's notch shown empty, with the two M5 T-nut positions in the top rear extrusion behind it](assets/cad/14-25-notch-b.png)
 ![Diagram — the fan lead's route: in through the grill, down the back panel's inside to the Z-chain notch, through the bay to Leviathan FAN0](assets/diagrams/exhaust-a-lead-route.svg)
 
-**What you're looking at:** The stock housing hangs outside the back panel over the exhaust notch, its grill in the notch and two mounts on the top rear extrusion. It stands about 62 mm proud, and its fan lead must reach the electronics bay.
+**What you're looking at:** Before anything is bought, check that the stock exhaust housing fits this machine. It hangs outside the back panel over the exhaust notch, grill in the notch and two mounts on the top rear extrusion. It sticks out about 62 mm, and its fan lead must reach the electronics bay.
 
 **Parts:**
 
@@ -102,11 +117,11 @@ This part fits the stock Voron exhaust housing over the back panel's exhaust not
 
 **Do:**
 
-1. Machine off: do the exhaust cover and grill fill a notch in the back panel's top edge?
-2. Rule the free depth behind it; string a lead route to FAN0.
-3. Note where the PTFE enters.
+1. With the machine off, look at the back panel's top edge: do the exhaust cover and grill fill a notch there?
+2. Measure the free depth behind the panel with the rule, and lay a string along a lead route to FAN0.
+3. Note where the PTFE tube enters.
 
-**Check:** Every row of the calculator below answered and passing, and the string length written down.
+**Check:** Every row of the calculator below is answered and passing, and the string length is written down.
 
 ```gate-calc
 id: exhaust-fit
@@ -147,7 +162,7 @@ pass: The stock housing fits. Order the Ch 00 exhaust row; the B13 parts in bin 
 
 **Helper:** Holds the string along the route and reads its length off the rule.
 
-⚠ A failing row ends Part H here: nothing is bought, and the B13 parts stay in bin 14-exhaust unused. Cutting the back panel or printing a community remix is a different job, decided separately, and nothing below covers it.
+A failing row ends Part H here: nothing is bought, and the B13 parts stay in bin 14-exhaust unused. Cutting the back panel or printing a community remix is a different job, decided separately, and nothing below covers it.
 
 Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=250) · [Voron-2 `350_Back_Panel.DXF`](https://github.com/VoronDesign/Voron-2/blob/a192410/Drawing_DXFs/Panels/350_Back_Panel.DXF) · [LDO Build Notes p.250–253, p.256](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · `review/2026-10-03-exhaust/DESIGN.md`
 
@@ -157,7 +172,7 @@ Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/d
 
 ![The five B13 parts, from the Voron STLs: the housing in black; the fan grill, access cover and two mounts in the blue accent; the exhaust grill already fitted](assets/parts/sheet-addon-exhaust.png)
 
-**What you're looking at:** Five stock Voron parts printed in batch B13: the housing in black, then the fan grill, the access cover and two mounts in the blue accent, as their `[a]_` prefix asks. They wait in bin 14-exhaust for the fan, lead and mat bought at Ch 00.
+**What you're looking at:** Five stock Voron parts printed in batch B13: the housing in black, and the fan grill, the access cover and two mounts in the blue accent, as their `[a]_` prefix asks. They wait in bin 14-exhaust for the fan, lead and filter mat bought at Ch 00.
 
 **Parts:**
 
@@ -168,17 +183,17 @@ Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/d
 
 **Do:**
 
-1. Open bin 14-exhaust and lay the five B13 parts out.
-2. Look each over for brim left on, a lifted corner or a cracked mount.
-3. Bag them again; the bought fan, lead and mat join them on delivery.
+1. Open bin 14-exhaust and lay out the five B13 parts.
+2. Look each one over for brim left on, a lifted corner or a cracked mount.
+3. Bag them again; the fan, lead and mat you bought join them when they arrive.
 
-**Check:** Five parts, flat and whole: one black housing, and a blue fan grill, access cover and two mounts. The Ch 00 exhaust row ordered.
+**Check:** Five flat, whole parts are in hand (one black housing, plus a blue fan grill, access cover and two mounts), and the Ch 00 exhaust row is ordered.
 
 **Helper:** Counts the five parts against the bin label and reads each name aloud.
 
 Source: [B13 — Exhaust housing](print/B13-exhaust-housing.md) · `slicer/addons/exhaust-voron2/README.md` · [Voron-2 `STLs/Exhaust_Filter/`](https://github.com/VoronDesign/Voron-2/tree/a192410/STLs/Exhaust_Filter)
 
-Pause: ~30 min since the last pause — the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the five B13 parts checked and back in bin 14-exhaust. Nothing on the Voron has changed. Go on with Part A while the delivery runs; Part H picks up at Step 14.27, after Part G.
+Pause: ~30 min since the last pause — the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the five B13 parts checked and back in bin 14-exhaust. Nothing on the Voron has changed. Carry on with Part A while the delivery comes; Part H picks up again at Step 14.27, after Part G.
 
 ---
 
@@ -188,11 +203,11 @@ Pause: ~30 min since the last pause — the back of the machine inspected and th
 
 (no image — see text)
 
-**What you're looking at:** Nothing to look at. You are reading four config sections before letting any of them generate numbers. The thermistor type, the pull-up resistor and the temperature ceiling all live in `[extruder]`, and a wrong value in any makes every PID constant wrong with it.
+**What you're looking at:** Before the machine generates any tuning numbers, read the four config sections they come from. The thermistor type (the hotend's temperature sensor), the pull-up resistor and the temperature limit all live in `[extruder]`, and a wrong value in any of them makes every PID number wrong too. On this kit the values come from `leviathan-printer-rev-d-**sbv2**.cfg`, not `leviathan-printer-rev-d.cfg`. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
 **Parts:** none.
 
-**Do:** Open `printer.cfg` and confirm these four sections before any of them generates a number.
+**Do:** Open `printer.cfg` and confirm these four sections hold the values below before any of them generates a number.
 
 | Section | Must hold |
 |---|---|
@@ -201,15 +216,15 @@ Pause: ~30 min since the last pause — the back of the machine inspected and th
 | `[resonance_tester]` | `accel_chip: adxl345` and the live `probe_points: 175, 175, 20` |
 | `[input_shaper]` | present, both `shaper_freq` lines still commented. Do not delete it |
 
-**Check:** `STATUS` is clean, both MCUs connected, and chamber, hotend and bed all read within a couple of degrees of the room.
+**Check:** `STATUS` is clean, both MCUs are connected, and the chamber, hotend and bed all read within a couple of degrees of the room.
 
 **Helper:** Reads each Must hold value aloud while the adult finds it in printer.cfg.
 
-⚠ A hotend reading 20 °C off the bed at rest means a wrong `sensor_type`, and every PID number you generate will be wrong with it.
+⚠ A hotend that reads 20 °C away from the bed while nothing is heating means a wrong `sensor_type`, and every PID number you generate will be wrong with it.
 
-Tip: E3D's 60 W HeaterCore uses the Semitec 104NT-4-R025H42G and is rated to **300 °C**, so `max_temp: 270` is a deliberate ceiling below the hardware limit.
+E3D's 60 W HeaterCore uses the Semitec 104NT-4-R025H42G and is rated to **300 °C**, so `max_temp: 270` is a deliberate limit below what the hardware can take.
 
-⚠ Rev D+ / LDO: These values come from `leviathan-printer-rev-d-**sbv2**.cfg`, not `leviathan-printer-rev-d.cfg`. If `[extruder] sensor_pin` reads `nhk:gpio29` instead of `nhk:PB12` you are on the V1 config and must go back to Ch 12 before doing anything thermal. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
+⚠ If `[extruder] sensor_pin` reads `nhk:gpio29` instead of `nhk:PB12`, you are on the V1 config: go back to Ch 12 before doing anything that heats.
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg) · [Voron docs — Secondary printer tuning](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)
 
@@ -217,35 +232,39 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 
 (no image — see text)
 
-**What you're looking at:** PID constants are the three numbers that hold a heater steady at a target. They were measured in Ch 13, and they belong to the temperature they were measured at, so changing your bed target means re-running the tune.
+**What you're looking at:** PID constants are the three numbers that hold a heater steady at its target. Ch 13 measured them, and they belong to the temperature they were measured at.
 
 **Parts:** none.
 
-**Do:** Both heaters were tuned and saved in Ch 13 at [Step 13.29](13-initial-startup.md#step-1329-pid-tune-the-bed-at-100-c); do not repeat that here. Open `printer.cfg` and confirm both PID stanzas are in the auto-generated block at the bottom.
+**Do:**
 
-**Check:** Both stanzas hold *your* numbers, not the LDO config's generic starting values.
+1. Do not repeat the tune here: both heaters were tuned and saved in Ch 13 at [Step 13.29](13-initial-startup.md#step-1329-pid-tune-the-bed-at-100-c).
+2. Open `printer.cfg` and confirm both PID sections are in the automatically generated block at the bottom.
+3. Re-run Ch 13's tune (bed 100 °C, hotend 245 °C, part fan 25 %) only if you have moved a target since, such as the bed to `TARGET=110` for ASA: PID is most accurate near its tuning temperature.
 
-⚠ Ch 13 owns the tuning procedure: bed at 100 °C, hotend at 245 °C with the part fan at 25 %. Re-run it only if you have moved a target since, for example re-tuning the bed at `TARGET=110` for ASA; PID is most accurate near the temperature it was tuned at.
+**Check:** Both sections hold *your* numbers, not the LDO config's generic starting values.
 
 ⚠ Do not re-run the hotend tune at the 260 °C print temperature. `PID_CALIBRATE` switches the heater off only at the target, and `[extruder] max_temp` is **270**, so a 60 W Revo HF can overshoot and shut Klipper down mid-tune *(verify on bench)*. To tune at the print temperature, raise `max_temp` to 290 first, under the core's rated 300 °C, then set it back.
 
-Tip: the generic values are `58.437 / 2.347 / 363.769` for the bed and `26.213 / 1.304 / 131.721` for the hotend. Do **not** add `pwm_cycle_time`; Klipper's 0.100 s default is correct here.
+For comparison, the generic values are `58.437 / 2.347 / 363.769` for the bed and `26.213 / 1.304 / 131.721` for the hotend. Do **not** add `pwm_cycle_time`; Klipper's 0.100 s default is correct here.
 
 Source: [Voron startup wizard § PID tune bed & hotend](https://docs.vorondesign.com/build/startup/startup.html#pid-tune-bed--hotend) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L236-307) · [E3D Revo 60 W heatercore / 104NT thermistor](https://e3d-online.com/pages/revo-support-60w-104nt-heatercore)
 
-Pause: ~15 min since the last pause — config pre-flighted against the `-sbv2` file and both PID stanzas confirmed. Nothing has heated and nothing mechanical has been touched: the heaters are read during the one closed soak, at Step 14.3, after the belts.
+Pause: ~15 min since the last pause — config checked against the `-sbv2` file and both PID sections confirmed. Nothing has heated and nothing mechanical has been touched: the heaters are read during the one closed soak, at Step 14.3, after the belts.
 
 ---
 
 ## Part B — Belts, final tension
 
-These four steps are the end of Voron's gantry-squaring procedure, split off from Ch 06b because they need a closed chamber. Prerequisites: **Ch 06b cold squaring done** (Checkpoint 06b ticked, Z joint M5×40 bolts still at their light 06b.13 torque, A/B belts at the provisional tension 06b set) and **Ch 11 Part B panels and door on**. Ch 14 owns final belt tension: 14.4 sets A/B and 14.5 sets Z, both cold; 14.3 starts the chapter's **one** closed-chamber soak and reads the heaters on the way up; 14.6 finishes it, settles QGL, locks the Z joints hot and logs the two readings the soak also gives, the settled chamber for Step 14.8 and the bed-mesh Variance for Step 14.22. Voron's order — tension first (its step 13), then soak, QGL and the hot tighten (14–17) — is kept, because tightening the joints hot freezes the gantry's geometry and re-tensioning afterwards would move what was just frozen.
+These four steps finish Voron's gantry-squaring procedure, split off from Ch 06b because they need a closed chamber. Before you start: **Ch 06b cold squaring done** (Checkpoint 06b ticked, the Z joint M5×40 screws still at their light 06b.13 tightness, the A/B belts at the provisional tension 06b set) and **Ch 11 Part B panels and door on**.
+
+Ch 14 owns the final belt tension: 14.4 sets A/B and 14.5 sets Z, both cold. 14.3 starts the chapter's **one** closed-chamber soak and reads the heaters on the way up. 14.6 finishes it: it settles QGL, locks the Z joints hot, and logs the two readings the soak also gives, the settled chamber for Step 14.8 and the bed-mesh Variance for Step 14.22. Voron's order is kept, tension first (its step 13), then the soak, QGL and the hot tighten (steps 14–17), because tightening the joints hot freezes the gantry's shape, and tensioning afterwards would move what was just frozen.
 
 ### Step 14.4 — Set A/B belt tension to 110 Hz over a 150 mm span
 
 ![Sound Spectrum Analysis reading a belt](assets/remote/14-calibration/voron-tuning-belt-sound-spectrum.jpg)
 
-**What you're looking at:** The photo shows a phone spectrum analyser on a plucked belt. A tensioned belt is a string: its lowest frequency peak is its pitch. A frequency means nothing without its span. Ch 06b put a working tension on these belts; this is the final one.
+**What you're looking at:** A tight belt is like a guitar string: its lowest note, read on a phone spectrum analyser (pictured), measures its tension, but only over a known span, the length you pluck.
 
 **Parts:**
 
@@ -256,21 +275,19 @@ These four steps are the end of Voron's gantry-squaring procedure, split off fro
 
 **Do:**
 
-1. Cold, panels on, door open: `SET_IDLE_TIMEOUT TIMEOUT=99999`, `G28`, gantry mid-height, `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` and `STEPPER=stepper_y`.
-2. Push the X extrusion forward to a measured **150 mm**, XY-joint to front idler centres.
-3. Pluck A, **lowest** peak, tension to **110 Hz**; repeat on B.
+1. Cold, panels on, door open: send `SET_IDLE_TIMEOUT TIMEOUT=99999` and `G28`, move the gantry to mid-height, then `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` and the same with `STEPPER=stepper_y`.
+2. Push the X extrusion forward to a measured **150 mm** span, XY joint to front idler centres.
+3. Pluck A, read the **lowest** peak and set **110 Hz**, then B; go back and forth until both are equal.
 
-**Check:** A and B agree within a few Hz at ~110 Hz after moving the gantry and returning. Write both in the tuning log.
+**Check:** Both read about 110 Hz, within a few Hz of each other, after the X extrusion moves back a few centimetres and returns. Both go in the tuning log.
 
 **Helper:** Holds the phone by the span and reads the lowest peak aloud after each pluck.
 
-⚠ If one reads 110 and the other 95, the gantry is not square — go back to Ch 06b, do not compensate with tension.
+The two tensions affect each other. If one belt reads 110 and the other 95, the gantry is not square: go back to Ch 06b, and do not make up for it with tension.
 
-⚠ Never `M84` on this machine with the gantry in the air: it releases the Z motors too and the gantry drops onto the bed. Disable only `stepper_x` and `stepper_y`, so the X carriage moves by hand while the four Z motors hold the gantry.
+⚠ Never send `M84` on this machine with the gantry in the air: it releases the Z motors too, and the gantry drops onto the bed. Disable only `stepper_x` and `stepper_y`, so the X carriage moves by hand while the four Z motors hold the gantry.
 
-Tip: the two tensions affect each other, so go back and forth until both are equal. Move the X extrusion back a few centimetres and forward again, then re-check both.
-
-??? note "Why 110 Hz over a 150 mm span — the three sources disagree"
+??? note "Why 110 Hz over a 150 mm span: the three sources disagree"
 
     | Source | A/B target | Z target |
     |---|---|---|
@@ -278,23 +295,23 @@ Tip: the two tensions affect each other, so go back and forth until both are equ
     | [docs.vorondesign.com — Secondary Printer Tuning](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) | **110 Hz over a 150 mm span** (≈ 2 lb, "on the lower end of the range") | **140 Hz** over 150 mm |
     | voronldo.com belt tension guide | 80–100 Hz for a 350 | "same as X/Y, 110–130 Hz" |
 
-    **Use 110 Hz / 150 mm.** It is the only sourced official figure, and it is the only
-    one that names the span, which is what makes a frequency mean anything — the same
-    belt at a 200 mm span reads far lower. The Voron docs also explain *why* 110: it
-    corresponds to roughly 2 lb of tension and is deliberately at the low end, so you
-    get a good starting point without stretching the belts. The survey rejects
-    voronldo.com as unaffiliated, uncited and internally inconsistent (survey §4.3,
-    §9 Rejected sources) — ignore the 80–100 Hz figure entirely.
+    **Use 110 Hz / 150 mm.** It is the only sourced official figure, and the only one that
+    names the span, which is what makes a frequency mean anything: the same belt over a
+    200 mm span reads far lower. The Voron docs also explain *why* 110: it is roughly 2 lb
+    of tension and deliberately at the low end, so you get a good starting point without
+    stretching the belts. The survey rejects voronldo.com as unaffiliated, uncited and
+    internally inconsistent (survey §4.3, §9 Rejected sources), so ignore its 80–100 Hz
+    figure entirely.
 
 Source: [Voron docs image `sound-spectrum-belt.jpg`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/tuning/images/sound-spectrum-belt.jpg) · [Voron docs — Secondary printer tuning § Belt tension](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [Voron manual p.125](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=125) · [Klipper docs § SET_IDLE_TIMEOUT](https://www.klipper3d.org/G-Codes.html#set_idle_timeout) · [Ch 06b Steps 06b.1, 06b.5](06-z-axis-and-gantry-squaring.md#step-06b1-raise-the-stepper-idle-timeout)
 
-Pause: ~20 min since the last pause — **A and B are both at final tension and equal.** Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed.
+Pause: ~20 min since the last pause — **A and B are both at final tension and equal.** The belts are one calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 sets it back to 1800 at the end, once the last hot check has passed.
 
 ### Step 14.5 — Set the four Z belts to 140 Hz over 150 mm
 
 (no image — see text)
 
-**What you're looking at:** The four Z belts lift the gantry and are set like A and B. One odd belt shows up as scatter in `PROBE_ACCURACY` rather than as anything you can see. The adjuster is the **Z idler tensioner bolt** at the top of each upright, an M3×16.
+**What you're looking at:** The four Z belts lift the gantry and are set like A and B. One odd belt shows up as scatter in `PROBE_ACCURACY`, the probe's repeat test, not as anything you can see. The adjuster is the **Z idler tensioner screw**, an M3×16 at the top of each vertical.
 
 **Parts:**
 
@@ -305,10 +322,11 @@ Pause: ~20 min since the last pause — **A and B are both at final tension and 
 
 **Do:**
 
-1. Set a **150 mm** span: Z bearing block top belt clip to that corner's Z idler pulley centre.
-2. Pluck it, read the lowest peak, adjust to **≈140 Hz**. All four, then re-check after jogging down and back up.
+1. Set a **150 mm** span, from the top belt clip on the Z bearing block to that corner's Z idler pulley centre.
+2. Pluck, read the lowest peak, and adjust to **about 140 Hz**.
+3. Do all four, then jog the gantry down and back up and read them again.
 
-**Check:** All four Z belts within a few Hz of each other at ~140 Hz, and four numbers in the tuning log.
+**Check:** All four Z belts are within a few Hz of each other at about 140 Hz, with four numbers logged.
 
 **Helper:** Holds the phone by each Z belt and reads the lowest peak aloud after each pluck.
 
@@ -377,11 +395,11 @@ inputs:
 pass: All six belts are at final tension over measured spans. Write the six numbers in the tuning log, then soak the closed chamber and lock the Z joints hot.
 ```
 
-⚠ Adjust at the Z idler tensioner bolt only, never the Z belt clamps on the gantry corners, on top of each front idler or A/B drive and under each Z joint: those hold both belt ends and let a belt go if loosened.
+⚠ Turn only the Z idler tensioner screw. Never loosen the Z belt clamps on the gantry corners, on top of each front idler or A/B drive and under each Z joint: they hold both belt ends and let a belt go if loosened.
 
-⚠ Evenness across the four matters more than hitting 140 exactly: the Voron QGL troubleshooting text points at uneven Z belts when `PROBE_ACCURACY` σ is high. This is the final setting; [Ch 06b Step 06b.3](06-z-axis-and-gantry-squaring.md#step-06b3-set-the-z-belts-to-140-hz) was the working value. (survey §4.3)
+The tensioner head is under the blue slider: use the 2.5 mm key from below. Clockwise, as you look up at the head, is tighter (verify on bench), and the note rises.
 
-Tip: the tensioner head is under the blue slider: 2.5 mm key from below, clockwise as you look up at the head is tighter (verify on bench). The note rises.
+Evenness across the four matters more than hitting 140 exactly: Voron's QGL troubleshooting text points at uneven Z belts when the `PROBE_ACCURACY` σ (the spread of its readings) is high. This is the final setting; [Ch 06b Step 06b.3](06-z-axis-and-gantry-squaring.md#step-06b3-set-the-z-belts-to-140-hz) was the working value (survey §4.3).
 
 Source: [Voron docs — Secondary printer tuning § Belt tension](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [Ch 06b Step 06b.3](06-z-axis-and-gantry-squaring.md#step-06b3-set-the-z-belts-to-140-hz)
 
@@ -389,7 +407,7 @@ Source: [Voron docs — Secondary printer tuning § Belt tension](https://docs.v
 
 (no image — see text)
 
-**What you're looking at:** Thermal stability means the frame, not just the heaters. This step starts the chapter's one closed soak and reads the heaters on the way up; `PROBE_ACCURACY` reads the frame once the soak is done, and the hot re-QGL follows it.
+**What you're looking at:** Thermal stability means the frame, not just the heaters. This step starts the chapter's one closed soak and reads the heaters as they warm up; `PROBE_ACCURACY` reads the frame once the soak is done, and the hot QGL follows it.
 
 **Parts:**
 
@@ -397,17 +415,17 @@ Source: [Voron docs — Secondary printer tuning § Belt tension](https://docs.v
 
 **Do:**
 
-1. `SET_IDLE_TIMEOUT TIMEOUT=99999`, `G28`; note the Z height where a ball-end 4 mm reaches all four Z-joint heads.
-2. Panels and door shut, bed 110 °C, hotend 150 °C: the soak starts.
+1. Send `SET_IDLE_TIMEOUT TIMEOUT=99999` and `G28`, then note the Z height at which a ball-end 4 mm key reaches all four Z joint screw heads.
+2. Shut the panels and door, and heat the bed to 110 °C and the hotend to 150 °C: the soak starts now.
 3. Watch the temperature graph for 10–20 minutes.
 
-**Check:** Both heaters hold within ±0.5 °C of setpoint with no slow oscillation, and the chamber stays shut for the rest of the soak.
+**Check:** Both heaters hold within ±0.5 °C of their targets with no slow swing up and down, and the chamber stays shut for the rest of the soak.
 
 ⚠ The LDO config's 1800 s idle timeout switches the heaters and the Z motors off 30 minutes after the last move, which is exactly what a static soak looks like.
 
-⚠ At the end of the soak, a drifting `PROBE_ACCURACY` series, each probe lower than the last, means the frame is still expanding: wait longer. If σ stays high after that, suspect uneven Z belts.
+At the end of the soak, a drifting `PROBE_ACCURACY` series, each probe lower than the last, means the frame is still expanding: wait longer. If σ stays high after that, suspect uneven Z belts.
 
-Tip: 110 °C is the ASA print temperature. Ch 13 tuned the bed PID at 100 °C; a slow oscillation here is the cue to re-tune it at 110.
+110 °C is the ASA print temperature. Ch 13 tuned the bed PID at 100 °C, so a slow swing here is the cue to tune it again at 110.
 
 Source: [Voron startup wizard § Probe accuracy check](https://docs.vorondesign.com/build/startup/startup.html#probe-accuracy-check) · [Voron startup wizard § QGL with heated bed and chamber](https://docs.vorondesign.com/build/startup/startup.html#qgl-with-heated-bed-and-chamber) · [Voron docs § V2 Gantry Squaring, step 14](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · [Klipper docs § SET_IDLE_TIMEOUT](https://www.klipper3d.org/G-Codes.html#set_idle_timeout)
 
@@ -415,7 +433,7 @@ Source: [Voron startup wizard § Probe accuracy check](https://docs.vorondesign.
 
 (no image — see text)
 
-**What you're looking at:** Aluminium grows as it warms, so a gantry squared cold in Ch 06b is not square at chamber temperature. A long soak brings the frame to its working size, and the four Z joint M5×40 bolts get their first and only full tighten hot.
+**What you're looking at:** Aluminium grows as it warms, so a gantry squared cold in Ch 06b is not square at chamber temperature. A long soak brings the frame to its working size, and then the four Z joint M5×40 screws get their first and only full tighten, hot.
 
 **Parts:**
 
@@ -426,8 +444,8 @@ Source: [Voron startup wizard § Probe accuracy check](https://docs.vorondesign.
 **Do:**
 
 1. Keep the soak from [14.3](#step-143-verify-thermal-stability-then-re-qgl) going for **at least 1½–2 hours**, door shut.
-2. Log `chamber_temp` at 45 minutes and when it plateaus: that is the reading [14.8](#step-148-set-the-chamber-target-and-understand-the-soak) takes.
-3. Then work the table hot.
+2. Log `chamber_temp` at 45 minutes and again when it levels off: that is the reading [14.8](#step-148-set-the-chamber-target-and-understand-the-soak) takes.
+3. Then work through the table below while the machine is hot.
 
 | Order | Hot, with the chamber closed | Accept |
 |---|---|---|
@@ -436,17 +454,17 @@ Source: [Voron startup wizard § Probe accuracy check](https://docs.vorondesign.
 | 3 | **Fully tighten the four M5×40 Z joint bolts while the machine is still hot**, rear pair first, door open as briefly as you can | First and only full torque on these four bolts |
 | 4 | Refit any side panel you took off, its M3×12 clip screws back in, door shut. Still hot: `G28`, one more `QUAD_GANTRY_LEVEL`, then `PROBE_ACCURACY`, then `BED_MESH_CALIBRATE` and open Mainsail's **Heightmap**. Only then heaters off and `SET_IDLE_TIMEOUT TIMEOUT=1800` | QGL converging in ≤3 retries within `retry_tolerance: 0.0075`, `PROBE_ACCURACY` σ < 0.003 mm with no trend, the mesh **Variance** and whether the map sits centred on Z0 in the log, for 14.22, idle timeout back at the config's 1800 |
 
-**Check:** `chamber_temp` was plateaued for at least 20 minutes before the QGL runs, and each run's correction got smaller rather than bouncing around.
+**Check:** `chamber_temp` was level for at least 20 minutes before the QGL runs, and each run's correction got smaller rather than bouncing around.
 
-⚠ Light showing under the square hot when it did not cold means the squaring did not survive thermal expansion or the belt change: leave the Z joints light, go back to Ch 06b Step 06b.14, and return here. Do **not** tighten the Z joints cold; cold-tightening throws away the point of the soak and shows up as first-layer inconsistency.
+⚠ Light under the square when hot, where there was none cold, means the squaring did not survive the heat or the belt change: leave the Z joints light, go back to Ch 06b Step 06b.14, then return. Do **not** tighten the Z joints cold: it throws away the point of the soak and shows up as an uneven first layer.
 
-⚠ If the QGL runs need all 5 retries where Ch 13 converged in 2, or throw new tolerance errors, first suspect Z joints left too loose at 06b.13: snug them a little more, per Voron's squaring step 15. If retries persist, re-check the six belts at 14.4/14.5 **before** the full tighten, which freezes whatever geometry the belts are holding.
+If the QGL runs need all 5 retries where Ch 13 settled in 2, or throw new tolerance errors, first suspect Z joints left too loose at 06b.13: snug them a little more, as Voron's squaring step 15 says. If the retries go on, re-check the six belts at 14.4/14.5 **before** the full tighten, which freezes whatever shape the belts are holding.
 
-Tip: if a rear Z joint is out of reach, take that side panel off and refit it before the last QGL.
+If a rear Z joint is out of reach, take that side panel off, and refit it before the last QGL.
 
 Source: [Voron docs § V2 Gantry Squaring, steps 14–17](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · [Voron startup wizard § Quad gantry level](https://docs.vorondesign.com/build/startup/startup.html#quad-gantry-level) · [Klipper docs § QUAD_GANTRY_LEVEL](https://www.klipper3d.org/G-Codes.html#quad_gantry_level) · [Klipper docs § SET_IDLE_TIMEOUT](https://www.klipper3d.org/G-Codes.html#set_idle_timeout) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L471-524) · [Ch 06b Part B](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring) · [Video: Part 9 @2:49:16](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10156s)
 
-Pause: ~25 min since the last pause (plus the 1½–2 h soak) — all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint bolts locked hot, `PROBE_ACCURACY` re-verified hot afterwards, the hot mesh Variance logged and the idle timeout set back to 1800. The whole belt-and-geometry item is closed; heaters can go off. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder.
+Pause: ~25 min since the last pause (plus the 1½–2 h soak) — all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint screws locked hot, `PROBE_ACCURACY` checked hot again afterwards, the hot mesh Variance logged and the idle timeout set back to 1800. The whole belt-and-shape item is closed, and the heaters can go off. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder.
 
 ---
 
@@ -456,7 +474,7 @@ Pause: ~25 min since the last pause (plus the 1½–2 h soak) — all six belts 
 
 (no image — see text)
 
-**What you're looking at:** `rotation_distance` is millimetres of filament per motor revolution. The measurement is indirect: the rule reads the **remainder**, not the amount extruded. [Ch 13 Step 13.40](13-initial-startup.md#step-1340-set-the-extruder-rotation-distance-ch-14-procedure) owns it; this is the refinement pass, now that the extruder has run a print.
+**What you're looking at:** `rotation_distance` is millimetres of filament per turn of the extruder motor. The rule reads the **remainder**, the length left over, not the amount pushed through. [Ch 13 Step 13.40](13-initial-startup.md#step-1340-set-the-extruder-rotation-distance-ch-14-procedure) owns this measurement; this is the refinement pass, now that the extruder has run a print.
 
 **Parts:**
 
@@ -465,20 +483,23 @@ Pause: ~25 min since the last pause (plus the 1½–2 h soak) — all six belts 
 - tool: digital caliper
 - consumable: Prusament ASA, loaded
 
-**Do:** Heat the hotend to the ASA print temperature of 260 °C with filament loaded and the extruder engaged. Repeat 13.40's measurement once, caliper rather than rule on the remainder: tape at the **120 mm** mark from the extruder entrance, then
+**Do:**
+
+1. With filament loaded and the extruder engaged, heat the hotend to the ASA print temperature, 260 °C.
+2. Repeat 13.40's measurement once, with the caliper instead of the rule on the remainder: put tape at the **120 mm** mark from the extruder entrance, then send:
 
 ```
 M83
 G1 E100 F60
 ```
 
-and measure from the extruder entrance to the tape — that reading is the **remaining** distance R. `[extruder]` still carries the `max_extrude_only_distance: 150` from 13.40. If the result is outside 0.5 %, apply 13.40's formula (`new = old × (120 − R) / 100`, using the value *currently* in the config), test it live with `SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=extruder DISTANCE=<value>`, and when it lands write the final number into `[extruder] rotation_distance` and `RESTART`. Never put `22.6789511` back — it is the Clockwork 2 starting point, not a calibration.
+Measure from the extruder entrance to the tape: that reading is the **remaining** distance R. `[extruder]` still carries the `max_extrude_only_distance: 150` from 13.40. If the result is more than 0.5 % out, apply 13.40's formula, `new = old × (120 − R) / 100`, using the value *currently* in the config. Test it live with `SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=extruder DISTANCE=<value>`, and when it lands, write the final number into `[extruder] rotation_distance` and send `RESTART`. Never put `22.6789511` back: it is the Clockwork 2 starting point, not a calibration.
 
-**Check:** R reads ≈20 mm, so the extruded amount is within **0.5 %** of target: 99.5 to 100.5 mm. Record it in the tuning log.
+**Check:** R reads about 20 mm, so the amount pushed through is within **0.5 %** of target, 99.5 to 100.5 mm, and it is recorded in the tuning log.
 
 Source: [Voron startup wizard § Extruder calibration (e-steps)](https://docs.vorondesign.com/build/startup/startup.html#extruder-calibration-e-steps) · [Ellis' Print Tuning Guide — extruder calibration](https://ellis3dp.com/Print-Tuning-Guide/articles/extruder_calibration.html) · [Klipper docs § Rotation distance](https://www.klipper3d.org/Rotation_Distance.html) · [Klipper docs § SET_EXTRUDER_ROTATION_DISTANCE](https://www.klipper3d.org/G-Codes.html#set_extruder_rotation_distance) · [Video: Part 9 @5:24:09](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=19449s)
 
-Pause: ~20 min since the last pause — rotation distance measured, iterated and written into `[extruder]`, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot.
+Pause: ~20 min since the last pause — rotation distance measured, adjusted and written into `[extruder]`, and Klipper restarted on the new value. Unload or park the filament, and do not leave the hotend hot.
 
 ---
 
@@ -488,24 +509,22 @@ Pause: ~20 min since the last pause — rotation distance measured, iterated and
 
 (no image — see text)
 
-**What you're looking at:** There is no chamber heater on this machine; the chamber is warmed by the bed and held there by the panels and the door. The toolboard sensor reads how hot the enclosure gets, settled by 45 minutes from cold. Step 14.6's soak already logged it.
+**What you're looking at:** This machine has no chamber heater: the bed warms the chamber, and the panels and door hold the heat in. The chamber sensor reads how hot the closed enclosure gets, settled by 45 minutes from cold, and Step 14.6's soak already logged it.
 
 **Parts:** none.
 
 **Do:**
 
 1. Copy the settled `chamber_temp` and its minutes from [14.6](#step-146-closed-chamber-soak-settle-qgl-lock-the-z-joints-hot-re-verify)'s log into the Chamber soak row.
-2. No log? `SET_IDLE_TIMEOUT TIMEOUT=7200`, bed 110 °C, panels on, door shut; wait **up to 45 minutes**, log it, then `SET_IDLE_TIMEOUT TIMEOUT=1800`.
+2. No log? Send `SET_IDLE_TIMEOUT TIMEOUT=7200`, heat the bed to 110 °C with the panels on and the door shut, wait **up to 45 minutes** and log the reading, then send `SET_IDLE_TIMEOUT TIMEOUT=1800`.
 
-**Check:** With bed at 110 °C, panels on and door closed, `chamber_temp` has settled in the **50–60 °C accept band** by 45 minutes.
+**Check:** With the bed at 110 °C and the panels and door closed, `chamber_temp` settled in the **50–60 °C accept band** by 45 minutes.
 
-⚠ Re-soaking? The LDO config's 1800 s idle timeout turns the heaters **and the Z motors** off 30 minutes after the last move, and a static soak is exactly that. `RESTART`, `FIRMWARE_RESTART` and every `SAVE_CONFIG` put it back to 1800.
+⚠ Re-soaking? The LDO config's 1800 s idle timeout turns the heaters **and the Z motors** off 30 minutes after the last move, and a static soak is exactly that. `RESTART`, `FIRMWARE_RESTART` and every `SAVE_CONFIG` set it back to 1800.
 
-⚠ The chamber sensor is already wired to the Nitehawk on `nhk:PB2`, the toolboard's **CT** port; the config's `T1` comment is a Leviathan-era label. Mainsail names it `chamber_temp`; its `gcode_id` in `M105` output is `chamber_th`.
+The chamber sensor is already wired to the Nitehawk on `nhk:PB2`, the toolboard's **CT** port; the config's `T1` comment is a label left over from the Leviathan. Mainsail calls it `chamber_temp`, and its `gcode_id` in `M105` output is `chamber_th`.
 
-⚠ If the chamber stalls below 45 °C, first check the bed is still heating: targets that went to 0 by themselves mean the idle timeout fired. Then look for a missing panel, an open keystone blank, or the exhaust left open.
-
-Tip: 55–60 °C is the ideal end of that band, what the printed parts were designed for. A 350 with a 100–110 °C bed and closed panels gets there passively.
+If the chamber stops climbing below 45 °C, first check the bed is still heating: targets that dropped to 0 by themselves mean the idle timeout fired. Then look for a missing panel, an open keystone blank or the exhaust left open. 55–60 °C is the ideal end of the band, what the printed parts were designed for, and a 350 with a 100–110 °C bed and closed panels gets there without help.
 
 Source: [Voron docs — materials](https://docs.vorondesign.com/materials.html) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L441-454) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L455-456) · [Klipper docs § SET_IDLE_TIMEOUT](https://www.klipper3d.org/G-Codes.html#set_idle_timeout)
 
@@ -513,11 +532,11 @@ Source: [Voron docs — materials](https://docs.vorondesign.com/materials.html) 
 
 (no image — see text)
 
-**What you're looking at:** A purge line is a short stripe of filament laid at the plate edge before the real print, to build nozzle pressure and wipe off ooze. It goes into Ch 12's `PRINT_START` macro rather than the slicer, so every print gets it.
+**What you're looking at:** A purge line is a short stripe of filament laid at the edge of the plate before the real print, to build up pressure in the nozzle and wipe off any drip. It goes into Ch 12's `PRINT_START` macro rather than the slicer, so every print gets it.
 
 **Parts:** none.
 
-**Do:** `PRINT_START` is owned by [Ch 12 Step 12.36](12-software.md); do not write a second one here. It ends with a `##  TODO Ch 14: purge / prime line goes here` marker. Now that the extruder is calibrated, replace that marker with:
+**Do:** `PRINT_START` belongs to [Ch 12 Step 12.36](12-software.md); do not write a second one here. It ends with a `##  TODO Ch 14: purge / prime line goes here` marker. Now that the extruder is calibrated, replace that marker with:
 
 ```ini
     G90
@@ -528,42 +547,43 @@ Source: [Voron docs — materials](https://docs.vorondesign.com/materials.html) 
     G1 Z2 F600
 ```
 
-`M83` and `G92 E0` are not optional. Klipper starts in **absolute** extrusion mode, and Ch 12's macro does not set `M83`/`G92 E0` until *after* this point — a bare `G1 E20` here would extrude to an arbitrary absolute position instead of 20 mm.
+`M83` and `G92 E0` are not optional. Klipper starts in **absolute** extrusion mode, where each E value is a position rather than an amount, and Ch 12's macro does not set `M83`/`G92 E0` until *after* this point, so a bare `G1 E20` here would extrude to an arbitrary absolute position instead of 20 mm.
 
-The slicer side already exists: the `Voron 2.4 350` printer preset from Ch 13 calls `PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0 FILAMENT={filament_type[initial_tool]}` and `PRINT_END`; nothing in the slicer changes for the purge line, because it lives in the macro. Only `CHAMBER=` changes, once, as the third warning below sets out.
+The slicer side already exists: the `Voron 2.4 350` printer preset from Ch 13 calls `PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0 FILAMENT={filament_type[initial_tool]}` and `PRINT_END`. Nothing in the slicer changes for the purge line, because it lives in the macro. Only `CHAMBER=` changes, once, as the last paragraph of this step explains.
 
-**Check:** A hand-run `PRINT_START CHAMBER=0` lays a continuous purge line at X5 to X120 that sticks, and `grep -c '^\[gcode_macro PRINT_START\]' printer.cfg` returns **1**.
+**Check:** A hand-run `PRINT_START CHAMBER=0` lays a continuous purge line from X5 to X120 that sticks, and `grep -c '^\[gcode_macro PRINT_START\]' printer.cfg` returns **1**.
 
-⚠ Run it from the console with the machine cold and watch Ch 12's order: homes first, heats the bed, timed soak, QGL hot, re-homes Z, meshes, parks at X5 Y5, heats the nozzle, then purges. Send `PRINT_END` afterwards; the hand run leaves the heaters on otherwise.
+⚠ Run it from the console with the machine cold, and watch Ch 12's order: it homes, heats the bed, soaks for a set time, runs QGL hot, re-homes Z, meshes, parks at X5 Y5, heats the nozzle, then purges. Send `PRINT_END` afterwards, or the hand run leaves the heaters on.
 
-⚠ **Keep `CHAMBER=0` until the previous step has told you what your chamber actually reaches.** `TEMPERATURE_WAIT` has **no timeout**: a `CHAMBER=50` the machine never reaches blocks the print forever, and the only way out is cancelling. [src](https://www.klipper3d.org/G-Codes.html#temperature_wait)
+⚠ **Keep `CHAMBER=0` until the previous step has told you what your chamber actually reaches.** `TEMPERATURE_WAIT` has **no timeout**: a `CHAMBER=50` the machine never reaches blocks the print forever, and the only way out is cancelling it. [src](https://www.klipper3d.org/G-Codes.html#temperature_wait)
 
-⚠ Then set it per filament, never as a number in the printer preset, where PLA and PETG would wait for it too. Change `CHAMBER=0` to `CHAMBER={chamber_minimal_temperature[initial_tool]}`. Save the Prusament ASA filament preset as `Voron ASA` and set its Chamber temperature *Minimal* a few degrees **below** 14.8's settled value, never at or above it. Prusa's PLA and PETG presets carry Minimal 0: no wait.
+Then set it per filament, never as a number in the printer preset, where PLA and PETG would wait for it too. Change `CHAMBER=0` to `CHAMBER={chamber_minimal_temperature[initial_tool]}`. Save the Prusament ASA filament preset as `Voron ASA` and set its Chamber temperature *Minimal* a few degrees **below** 14.8's settled value, never at or above it. Prusa's PLA and PETG presets carry Minimal 0: no wait.
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L621-628) · [Klipper docs § TEMPERATURE_WAIT](https://www.klipper3d.org/G-Codes.html#temperature_wait)
 
-Pause: ~10 min since the last pause — chamber behaviour taken from the soak and written down, and `PRINT_START`'s Ch 12 TODO closed with the real purge line. `CHAMBER` is still set from a measured number, not a guess. Config restarts clean.
+Pause: ~10 min since the last pause — the chamber's behaviour taken from the soak and written down, and `PRINT_START`'s Ch 12 TODO closed with the real purge line. `CHAMBER` is still set from a measured number, not a guess. The config restarts clean.
 
 ### Step 14.10 — Fetch the cube you already printed in Ch 13
 
 (no image — see text)
 
-**What you're looking at:** Two cubes of the same file in the same filament: one printed on the Prusa in batch B00, one on the Voron in Ch 13. Nothing is printed here; the pair goes on the bench so the next step can measure them.
+**What you're looking at:** Two cubes from the same file in the same filament: one printed on the Prusa in batch B00, one on the Voron in Ch 13. Nothing is printed here; the pair goes on the bench so the next step can measure them.
 
 **Parts:**
 
 - reused: the Voron-printed cube
 - reused: the Prusa-printed B00 reference cube
 
-**Do:** Put both cubes on the bench. The cube is printed **once**, in Ch 13, and [Step 13.41](13-initial-startup.md#step-1341-make-the-voron-printer-profile-and-slice-the-cube) is authoritative for it. Re-print only if you have changed a slicer setting since, and then re-run 13.41–13.42 as written.
+**Do:**
 
-**Check:** Two cubes in front of you, both `Voron_Design_Cube_v7`, both in Prusament ASA Galaxy Black.
+1. Put both cubes on the bench.
+2. The cube is printed **once**, in Ch 13, and [Step 13.41](13-initial-startup.md#step-1341-make-the-voron-printer-profile-and-slice-the-cube) is the authority for it. Print it again only if you have changed a slicer setting since, and then re-run 13.41–13.42 as written.
+
+**Check:** Two cubes are in front of you, both `Voron_Design_Cube_v7`, both in Prusament ASA Galaxy Black.
 
 **Helper:** Fetches the Prusa B00 cube from its bin and sets both cubes side by side.
 
-⚠ The purge line you just added to `PRINT_START` governs the *next* print; it does not invalidate this cube.
-
-Tip: 13.41 sliced it at 260 °C / 110 °C with XY size and shrinkage compensation both zero, the same overrides the Prusa profile used.
+The purge line you just added to `PRINT_START` affects the *next* print; it does not make this cube invalid. 13.41 sliced it at 260 °C / 110 °C with XY size and shrinkage compensation both zero, the same overrides the Prusa profile used.
 
 Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints) · [Voron docs — first print](https://docs.vorondesign.com/build/slicer/first_print.html)
 
@@ -571,14 +591,14 @@ Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tre
 
 (no image — see text)
 
-**What you're looking at:** A caliper on a 30 mm cube is the cheapest whole-machine test there is. Mid-height is the honest place to measure: the first layer is squashed and the top can bulge. The difference between the X and Y readings is a squareness proxy.
+**What you're looking at:** A caliper on a 30 mm cube is the cheapest whole-machine test there is. Measure at mid-height, because the first layer is squashed and the top can bulge. The difference between the X and Y readings stands in for squareness.
 
 **Parts:**
 
 - reused: both cubes
 - tool: digital caliper
 
-**Do:** Measure both cubes at **mid-height**, not across the first layer: X, Y and Z, recorded in the table below. Same STL, same filament, same nominal settings; the only variables are the two machines.
+**Do:** Measure both cubes at **mid-height**, not across the first layer, in X, Y and Z, and record them in the table below. Same STL, same filament, same nominal settings: the only difference is the machine.
 
 | Measurement | Nominal | Prusa Core One+ (B00 reference) | Voron 2.4 350 (this print) | Accept | If out |
 |---|---|---|---|---|---|
@@ -589,30 +609,30 @@ Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tre
 | X − Y (squareness proxy) | 0.00 mm | ______ | ______ | ≤0.10 mm | a persistent X−Y difference on the Voron is a gantry-square problem → Ch 06b |
 | Corner snap test | — | pass/fail | pass/fail | must not delaminate along a layer line | chamber too cold or fan too high |
 
-Two honest expectations before you start chasing numbers:
-
-- **A size error is not an axis error, and not a flow number.** Ellis: *"don't mess with your `steps_per_mm`/`rotation_distance`. Deviations are almost always from material shrinkage, bulging, layer inconsistencies, etc, NOT issues with your axes."* The extrusion multiplier is set by eye on a top surface at 14.19–14.20, never from these readings, and Voron parts need no compensation beyond that tune. X or Y out of ±0.15: confirm the slice had shrinkage and XY size compensation at 0, finish 14.19–14.20, then measure again. Never negative XY compensation: it wrecks every bearing fit in the machine. [src](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html)
-- **A Voron-vs-Prusa difference of ~0.1 mm is chamber, not calibration.** The Voron runs a hotter, more uniform chamber than the Core One+, so its parts shrink slightly differently. Both being *in* tolerance matters more than them matching each other.
-
-**Check:** Both cubes inside tolerance: X and Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm, and within 0.15 mm of *each other*.
+**Check:** Both cubes are inside tolerance, X and Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm, and within 0.15 mm of *each other*.
 
 **Helper:** Writes each caliper reading into the comparison table as the adult calls it out.
 
+Two honest expectations before you start chasing numbers:
+
+- **A size error is not an axis error, and not a flow number.** Ellis: *"don't mess with your `steps_per_mm`/`rotation_distance`. Deviations are almost always from material shrinkage, bulging, layer inconsistencies, etc, NOT issues with your axes."* The extrusion multiplier is set by eye on a top surface at 14.19–14.20, never from these readings, and Voron parts need no compensation beyond that tune. If X or Y is outside ±0.15, confirm the slice had shrinkage and XY size compensation at 0, finish 14.19–14.20, then measure again. Never use negative XY compensation: it ruins every bearing fit in the machine. [src](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html)
+- **A Voron-to-Prusa difference of about 0.1 mm is the chamber, not calibration.** The Voron runs a hotter, more even chamber than the Core One+, so its parts shrink slightly differently. Both being *inside* tolerance matters more than the two matching each other.
+
 Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html) · [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints)
 
-Pause: ~15 min since the last pause — the Ch 13 cube is calipered against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; the multiplier is set later by eye, at 14.19–14.20, not from these numbers.
+Pause: ~15 min since the last pause — the Ch 13 cube is measured against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; the multiplier is set later by eye, at 14.19–14.20, not from these numbers.
 
 ---
 
 ## Part E — Input shaper
 
-Now, and not before — the machine has printed successfully, the belts are at final tension, and the frame has been hot.
+Now, and not before: the machine has printed successfully, the belts are at final tension, and the frame has been hot.
 
 ### Step 14.12 — Bring up the on-board accelerometer
 
 (no image — see text)
 
-**What you're looking at:** The ADXL345 is an accelerometer: a chip that measures how hard it is being shaken, in three axes. On this build it is soldered onto the toolboard itself, so there is nothing to mount and nothing to wire.
+**What you're looking at:** The ADXL345 is an accelerometer, a chip that measures how hard it is being shaken in three directions. On this kit it is part of the Nitehawk-SB V2 toolboard itself, so there is no separate sensor board and no printed mount to fit: the V1 documentation's ADXL mount does not apply (survey §4.1).
 
 **Parts:** none.
 
@@ -623,9 +643,9 @@ Now, and not before — the machine has printed successfully, the belts are at f
 python3 -c 'import numpy, matplotlib'
 ```
 
-On a MainsailOS image both print nothing and return: it installs numpy into `klippy-env`, and numpy and matplotlib system-wide. `klippy-env` has no matplotlib, so never test for it there. If the first errors, `~/klippy-env/bin/pip install numpy`; if the second errors, `sudo apt install python3-numpy python3-matplotlib libopenblas-dev`. That is what MainsailOS itself runs. Do **not** copy Klipper's `numpy<1.26` pin or its `libatlas-base-dev` on a Trixie image: the pinned numpy does not support Trixie's Python 3.13, and `libatlas-base-dev` was merged into `libopenblas-dev` and no longer exists. [src](https://www.klipper3d.org/Measuring_Resonances.html#software-installation) · [MainsailOS](https://github.com/mainsail-crew/MainsailOS/blob/develop/modules/generic/50-klipper)
+On a MainsailOS image both print nothing and return: it installs numpy into `klippy-env`, and numpy and matplotlib for the whole system. `klippy-env` has no matplotlib, so never test for it there. If the first command errors, run `~/klippy-env/bin/pip install numpy`; if the second errors, run `sudo apt install python3-numpy python3-matplotlib libopenblas-dev`, which is what MainsailOS itself runs. Do **not** copy Klipper's `numpy<1.26` pin or its `libatlas-base-dev` on a Trixie image: the pinned numpy does not support Trixie's Python 3.13, and `libatlas-base-dev` was merged into `libopenblas-dev` and no longer exists. [src](https://www.klipper3d.org/Measuring_Resonances.html#software-installation) · [MainsailOS](https://github.com/mainsail-crew/MainsailOS/blob/develop/modules/generic/50-klipper)
 
-Then confirm — do not edit — that the **350 mm** probe point in `[resonance_tester]` is live; Ch 12 Step 12.27 uncommented it and Checkpoint 12 required it (the stock config ships all three build sizes commented out):
+Then confirm, without editing, that the **350 mm** probe point in `[resonance_tester]` is live. Ch 12 Step 12.27 uncommented it and Checkpoint 12 required it; the stock config ships all three build sizes commented out.
 
 ```ini
 [adxl345]
@@ -643,40 +663,40 @@ probe_points:
     175, 175, 20
 ```
 
-Then `ACCELEROMETER_QUERY` and `MEASURE_AXES_NOISE` (no restart needed — nothing was edited).
+Then send `ACCELEROMETER_QUERY` and `MEASURE_AXES_NOISE`. No restart is needed, because nothing was edited.
 
-**Check:** `ACCELEROMETER_QUERY` returns three axis values with roughly 9800, free-fall in mm/s², on one of them, and `MEASURE_AXES_NOISE` returns figures **in the ~1–100 range**.
+**Check:** `ACCELEROMETER_QUERY` returns three axis values, one of them about 9800 (gravity, in mm/s²), and `MEASURE_AXES_NOISE` returns figures **in the ~1–100 range**.
 
 **Helper:** Reads the MEASURE_AXES_NOISE figures aloud and checks each one is under 100.
 
-Tip: 1000 or more from `MEASURE_AXES_NOISE` means a sensor, power or wiring problem, or a badly imbalanced fan. On `Invalid adxl345 id`, run it again; SPI init is flaky on the first attempt.
+1000 or more from `MEASURE_AXES_NOISE` means a sensor, power or wiring problem, or a badly unbalanced fan. On `Invalid adxl345 id`, run it again: the sensor's connection often fails to start on the first try.
 
-⚠ Rev D+ / LDO: The accelerometer is **on the Nitehawk-SB V2 board itself**. There is no separate ADXL345 breakout and no printed ADXL mount to fit — the V1 documentation's ADXL mount does not apply to this kit (survey §4.1). The `[adxl345]` pins above are already correct in `leviathan-printer-rev-d-sbv2.cfg`; if yours read `nhk:gpio21/18/20/19` you are on the V1 config.
+The `[adxl345]` pins above are already correct in `leviathan-printer-rev-d-sbv2.cfg`; if yours read `nhk:gpio21/18/20/19`, you are on the V1 config.
 
 Source: [Klipper docs § Installation instructions](https://www.klipper3d.org/Measuring_Resonances.html#installation-instructions) · [MainsailOS `modules/generic/50-klipper`](https://github.com/mainsail-crew/MainsailOS/blob/develop/modules/generic/50-klipper) · [Klipper docs § Checking the setup](https://www.klipper3d.org/Measuring_Resonances.html#checking-the-setup) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L411-440) · [Klipper docs § ACCELEROMETER_QUERY](https://www.klipper3d.org/G-Codes.html#accelerometer_query) · [Video: Extras! @0:42:02](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2522s)
 
-Pause: ~15 min since the last pause — accelerometer answers, noise is in the 1–100 band, and the 350 mm `[resonance_tester]` probe point is confirmed live. Nothing has been shaped yet.
+Pause: ~15 min since the last pause — the accelerometer answers, the noise is in the 1–100 band, and the 350 mm `[resonance_tester]` probe point is confirmed live. Nothing has been shaped yet.
 
 ### Step 14.13 — Run `SHAPER_CALIBRATE`
 
 (no image — see text)
 
-**What you're looking at:** `SHAPER_CALIBRATE` drives the toolhead through a frequency sweep while the accelerometer records, then fits a filter to what it measured. Both axes run in one pass because the sensor is on the toolhead rather than clipped to a moving bed.
+**What you're looking at:** `SHAPER_CALIBRATE` shakes the toolhead through a sweep of frequencies while the accelerometer records, then fits a filter to what it measured. Both axes run in one pass, because the sensor rides on the toolhead rather than on a moving bed.
 
 **Parts:** none.
 
 **Do:**
 
-1. Fans still: hotend under 50 °C so its fan stops, `M107`, `SET_FAN_SPEED FAN=nevermore SPEED=0`.
-2. `G28`, nothing on the gantry, panels on, `M112` typed and unsent in a second console window. This is the fastest the machine has moved so far. Then:
+1. Keep the fans still: let the hotend drop under 50 °C so its fan stops, then send `M107` and `SET_FAN_SPEED FAN=nevermore SPEED=0`.
+2. Send `G28`, with nothing on the gantry, the panels on, and `M112` typed and unsent in a second console window: this is the fastest the machine has moved so far. Then send:
 
 ```
 SHAPER_CALIBRATE
 ```
 
-Both axes run in one pass (the accelerometer is on the toolhead, so this is not a bed-slinger — no re-mounting between axes). It takes a few minutes and is loud. **Do not** `SAVE_CONFIG` yet.
+There is no re-mounting between the axes, because the accelerometer is on the toolhead: this is not a bed-slinger, where the bed carries one axis. It takes a few minutes and is loud. **Do not** `SAVE_CONFIG` yet.
 
-**Check:** One output block per axis, each ending in a `Recommended shaper_type_x = …, shaper_freq_x = … Hz` line.
+**Check:** One output block per axis has appeared, each ending in a `Recommended shaper_type_x = …, shaper_freq_x = … Hz` line.
 
 ??? note "What the output block looks like"
 
@@ -697,11 +717,11 @@ Source: [Klipper docs § Input shaper auto-calibration](https://www.klipper3d.or
 
 ![Klipper shaper calibration chart, X axis](assets/remote/14-calibration/klipper-shaper-calibrate-x-chart.png)
 
-**What you're looking at:** The chart plots vibration against frequency: the tall peak is the machine's dominant resonance, and the curves show how far each shaper type would suppress it. A plot with no peak at all means the run measured noise rather than the machine.
+**What you're looking at:** The chart plots vibration against frequency. The tall peak is the machine's main resonance, the frequency it rings at, and the curves show how well each shaper type would damp it. A plot with no peak at all measured noise, not the machine.
 
 **Parts:** none.
 
-**Do:** Generate the PNGs from the CSVs the run left in `/tmp`. Ran it more than once? Delete the older CSVs first; the script averages every file it matches.
+**Do:** Make the PNG graphs from the CSV data files the run left in `/tmp`. If you ran it more than once, delete the older CSVs first: the script averages every file it matches.
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_x_*.csv -o /tmp/shaper_x.png
@@ -709,17 +729,18 @@ Source: [Klipper docs § Input shaper auto-calibration](https://www.klipper3d.or
 ```
 
 Read them in this order:
-1. **Where is the tallest peak?** That is the dominant resonance and it is what sets `shaper_freq`.
-2. **How many big peaks are there, and how far apart?** One clean peak → `mzv` or `zv` and a high `max_accel`. Two or more widely separated peaks → the script will push you to `2hump_ei`/`3hump_ei`, which cost acceleration. Widely separated peaks are usually a *mechanical* message: a loose backer, an under-tensioned belt, a rail bolt in the end hole.
-3. **`vibrations = X %`** — residual ringing after shaping. Lower is better; single digits is good.
-4. **`smoothing ~= Y`** — how much the shaper blurs fine detail. Higher smoothing forces a lower `max_accel`. The two trade against each other; the script's `max_accel` line is that trade expressed as a number.
-5. **Is the plot noise with no peak?** Then you measured nothing — go back to `MEASURE_AXES_NOISE`.
 
-**Check:** Both plots show a clear dominant peak, and neither axis peaks **below 25 Hz**.
+1. **Where is the tallest peak?** That is the main resonance, and it sets `shaper_freq`.
+2. **How many big peaks are there, and how far apart?** One clean peak points to `mzv` or `zv` and a high `max_accel`. Two or more widely separated peaks push the script toward `2hump_ei`/`3hump_ei`, which cost acceleration. Widely separated peaks are usually a *mechanical* message: a loose backer, an under-tensioned belt, a rail screw in the end hole.
+3. **`vibrations = X %`** is the ringing left after shaping. Lower is better; single digits is good.
+4. **`smoothing ~= Y`** is how much the shaper blurs fine detail. More smoothing forces a lower `max_accel`. The two trade against each other, and the script's `max_accel` line is that trade written as a number.
+5. **Is the plot noise with no peak?** Then you measured nothing: go back to `MEASURE_AXES_NOISE`.
+
+**Check:** Both plots show a clear main peak, and neither axis peaks **below 25 Hz**.
 
 **Helper:** Finds the tallest peak on each graph and reads its frequency aloud.
 
-⚠ Below 25 Hz on either axis is a build fault, not a tuning result. Stop, and go re-check belt tension, the titanium backers, the XY joints and the frame bolts before you shape over it.
+A peak below 25 Hz on either axis is a build fault, not a tuning result. Stop, and re-check the belt tension, the titanium backers, the XY joints and the frame screws before you shape over it.
 
 ??? note "What to expect on a 350, and where the 25 Hz floor comes from"
 
@@ -729,9 +750,9 @@ Read them in this order:
     mass… before proceeding with further input shaping tuning."**
 
     In practice a well-built 350 with backers fitted lands both axes in roughly the
-    **35–60 Hz** band, X usually the higher of the two — the toolhead alone is lighter
-    than the whole gantry that Y has to move. Treat that band as community-observed,
-    not a spec.
+    **35–60 Hz** band, X usually the higher of the two, because the toolhead alone is
+    lighter than the whole gantry that Y has to move. Treat that band as
+    community-observed, not a spec.
 
 Source: [Klipper `docs/img/calibrate-x.png`](https://raw.githubusercontent.com/Klipper3d/klipper/f0892d8/docs/img/calibrate-x.png) · [Klipper docs § Resonance compensation](https://www.klipper3d.org/Resonance_Compensation.html) · [Klipper docs § Max smoothing](https://www.klipper3d.org/Measuring_Resonances.html#max-smoothing)
 
@@ -739,11 +760,14 @@ Source: [Klipper `docs/img/calibrate-x.png`](https://raw.githubusercontent.com/K
 
 (no image — see text)
 
-**What you're looking at:** `SAVE_CONFIG` writes the shaper's four values into the auto-generated block at the bottom of the config. It deliberately does **not** touch `max_accel`, which the stock file leaves at a 10000 placeholder, so setting that by hand is the half of this step everyone forgets.
+**What you're looking at:** `SAVE_CONFIG` writes the shaper's four values into the automatic block at the bottom of the config. It deliberately does **not** touch `max_accel`, which the stock file leaves at a 10000 placeholder, so setting that by hand is the half of this step everyone forgets.
 
 **Parts:** none.
 
-**Do:** If the recommendations look sane, `SAVE_CONFIG`. That writes `[input_shaper]` with `shaper_type_x/y` and `shaper_freq_x/y`. It does **not** touch `max_accel`; Klipper says so explicitly, and this is the step everyone skips. The LDO config ships:
+**Do:**
+
+1. If the recommendations look sensible, send `SAVE_CONFIG`. It writes `[input_shaper]` with `shaper_type_x/y` and `shaper_freq_x/y`, and never `max_accel`; Klipper says so plainly.
+2. Set `max_accel` **at or below the lower of the two per-axis suggested values, with margin**: if the run suggested ≤4000 for X and ≤3500 for Y, use 3000–3500. Leave `square_corner_velocity` at **5.0**. The LDO config ships:
 
 ```ini
 [printer]
@@ -754,35 +778,33 @@ max_z_accel: 350
 square_corner_velocity: 5.0
 ```
 
-Set `max_accel` to **at or below the lower of the two per-axis suggested values, with margin** — if the run suggested ≤4000 for X and ≤3500 for Y, use 3000–3500. Leave `square_corner_velocity` at **5.0**.
+**Check:** `printer.cfg`'s bottom block holds `[input_shaper]` with four values, and `[printer] max_accel` is no longer 10000.
 
-**Check:** `printer.cfg`'s bottom block has `[input_shaper]` with four values and `[printer] max_accel` is no longer 10000.
-
-??? note "Why the suggested number is a ceiling, not a setting — and the post-run walk"
+??? note "Why the suggested number is a ceiling, not a setting, and the walk round after the run"
 
     Klipper is blunt that the suggested figure "is by no means a recommendation to set
-    this acceleration for printing"; it is only the ceiling at which that shaper stops
-    smoothing badly, and your real ceiling is also limited by motor torque. Leave
-    `square_corner_velocity` at 5.0 because the calibration script assumed it — changing
-    it invalidates the `max_accel` numbers.
+    this acceleration for printing"; it is only the limit at which that shaper stops
+    smoothing badly, and your real limit is also set by motor torque. Leave
+    `square_corner_velocity` at 5.0 because the calibration script assumed it: changing
+    it makes the `max_accel` numbers invalid.
 
-    Re-print the Voron cube and compare the corners to the first one; that is your
-    before/after. Then walk the machine and check nothing has unscrewed itself —
-    Klipper warns that resonance testing loosens fasteners.
+    Print the Voron cube again and compare its corners with the first one; that is your
+    before and after. Then walk round the machine and check nothing has unscrewed itself,
+    because Klipper warns that resonance testing loosens fasteners.
 
 Source: [Klipper docs § Input shaper auto-calibration](https://www.klipper3d.org/Measuring_Resonances.html#input-shaper-auto-calibration) · [Klipper docs § input_shaper](https://www.klipper3d.org/Config_Reference.html#input_shaper) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L32-46) · [Video: Extras! @2:00:00](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7200s)
 
-Pause: ~25 min since the last pause — `SHAPER_CALIBRATE` run, graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. **Never stop between running the calibration and saving it**; the CSVs live in `/tmp` and a reboot loses them.
+Pause: ~25 min since the last pause — `SHAPER_CALIBRATE` run, the graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. **Never stop between running the calibration and saving it**: the CSVs live in `/tmp`, and a reboot loses them.
 
 ### Step 14.16 — Z-axis shaping and Z limits (optional)
 
 ![Klipper docs: a Z-axis shaper calibration chart](assets/remote/14-calibration/klipper-calibrate-z.png)
 
-**What you're looking at:** On a 2.4 the gantry itself moves in Z, so the toolhead's accelerometer can measure Z too; the chart is Klipper's example of the result. The Z speed and acceleration limits are raised for the test only; they exist because Z is belt-driven.
+**What you're looking at:** On a 2.4 the gantry itself moves in Z, so the toolhead's accelerometer can measure Z too; the chart is Klipper's example of the result. The Z speed and acceleration limits are raised for the test only, and they exist because Z is belt-driven.
 
 **Parts:** none.
 
-**Do:** Worth doing if you see Z-direction artefacts. It needs two temporary changes, because the stock Z limits are far below what the test needs:
+**Do:** Do this only if you see Z-direction flaws in prints; skipping it breaks nothing downstream. It needs two temporary changes, because the stock Z limits are far below what the test needs:
 
 ```ini
 [resonance_tester]
@@ -793,15 +815,15 @@ max_z_velocity: 20        # temporarily, up from 15
 max_z_accel: 1550         # temporarily, up from 350
 ```
 
-`RESTART`, run `SHAPER_CALIBRATE AXIS=Z`, `SAVE_CONFIG` if you like the result (it writes `shaper_type_z` / `shaper_freq_z`), then **put `max_z_velocity` and `max_z_accel` back to 15 and 350.**
+Send `RESTART` and run `SHAPER_CALIBRATE AXIS=Z`. If you like the result, `SAVE_CONFIG` (it writes `shaper_type_z` / `shaper_freq_z`). Then **put `max_z_velocity` and `max_z_accel` back to 15 and 350.**
 
-**Check:** The two Z limits read 15 and 350 again after you are done.
+**Check:** The two Z limits read 15 and 350 again once you are done.
 
-Tip: those are belt-and-driver limits for a four-motor belted Z, not resonance limits; leaving them at 20/1550 is a way to skip Z steps. Skipping this step breaks nothing downstream.
+Those are belt-and-driver limits for a four-motor belted Z, not resonance limits. Leaving them at 20/1550 is a way to skip Z steps, where the motors slip and lose their place.
 
 Source: [Klipper docs § Measuring the resonances of Z axis](https://www.klipper3d.org/Measuring_Resonances.html#measuring-the-resonances-of-z-axis) · [Klipper `docs/img/calibrate-z.png`](https://raw.githubusercontent.com/Klipper3d/klipper/f0892d8/docs/img/calibrate-z.png) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L32-46)
 
-Pause: ~10 min since the last pause — optional Z shaping either done or skipped, and `max_z_velocity` / `max_z_accel` are back at **15 and 350**. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print.
+Pause: ~10 min since the last pause — optional Z shaping either done or skipped, and `max_z_velocity` / `max_z_accel` back at **15 and 350**. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print.
 
 ---
 
@@ -811,7 +833,7 @@ Pause: ~10 min since the last pause — optional Z shaping either done or skippe
 
 (no image — the pattern and an annotated example are on [Ellis' Pattern Method page](https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/pattern_method.html))
 
-**What you're looking at:** Pressure advance compensates for molten plastic behaving like a spring in the nozzle: pressure lags the extruder, so corners under-extrude going in and over-extrude coming out. Ellis' pattern prints many corners across a sweep of values so the right one can be picked by eye.
+**What you're looking at:** Pressure advance makes up for molten plastic behaving like a spring in the nozzle: pressure lags behind the extruder, so corners get too little plastic going in and too much coming out. Ellis' pattern prints many corners across a sweep of values, so you can pick the right one by eye.
 
 **Parts:**
 
@@ -819,15 +841,13 @@ Pause: ~10 min since the last pause — optional Z shaping either done or skippe
 
 **Do:**
 
-1. Open [ellis3dp.com/Pressure_Linear_Advance_Tool/](https://ellis3dp.com/Pressure_Linear_Advance_Tool/) with nozzle 0.4, layer 0.2, ASA temps 260/110.
-2. **Enable the acceleration-control option and set it to your external-perimeter acceleration**, not your new `max_accel`.
+1. Open [ellis3dp.com/Pressure_Linear_Advance_Tool/](https://ellis3dp.com/Pressure_Linear_Advance_Tool/) with nozzle 0.4, layer 0.2 and the ASA temperatures 260/110.
+2. **Turn on the acceleration-control option and set it to your external-perimeter acceleration**, not your new `max_accel`. At the machine maximum the pattern rings and the result is worthless.
 3. Sweep **PA 0 to 0.10 in 0.005 steps** and print it.
 
-**Check:** Pattern prints cleanly with visible, distinct corner tests across the full sweep.
+**Check:** The pattern prints cleanly, with visible, distinct corner tests across the full sweep.
 
-⚠ If you leave the acceleration at the machine maximum the pattern will ring and the result is worthless.
-
-Tip: if the extremes of your sweep both look equally bad, widen the range and re-run rather than guessing.
+If both ends of your sweep look equally bad, widen the range and run it again rather than guessing.
 
 Source: [Ellis' Print Tuning Guide — pressure advance, pattern method](https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/pattern_method.html) · [Ellis' Pressure/Linear Advance tool](https://ellis3dp.com/Pressure_Linear_Advance_Tool/)
 
@@ -835,7 +855,7 @@ Source: [Ellis' Print Tuning Guide — pressure advance, pattern method](https:/
 
 (no image — see text)
 
-**What you're looking at:** You are hunting for the one corner in the sweep that is sharp with no gap and no bulge. The value belongs to the **filament**, not the machine, so it is saved in the filament profile rather than in `printer.cfg`.
+**What you're looking at:** You are looking for the one corner in the sweep that is sharp, with no gap and no bulge. The value belongs to the **filament**, not the machine, so it is saved in the filament profile rather than in `printer.cfg`.
 
 **Parts:**
 
@@ -844,15 +864,15 @@ Source: [Ellis' Print Tuning Guide — pressure advance, pattern method](https:/
 
 **Do:**
 
-1. Find the **sharpest corner with the fewest artefacts**: no gaps, no bulges, no divots.
-2. Re-run at 0.001–0.002 intervals around it to refine.
-3. Put it in `Voron ASA`'s **filament** Start G-code, replacing Prusa's `M572`/`M142` lines, unknown to Klipper:
+1. Find the **sharpest corner with the fewest flaws**: no gaps, no bulges, no dips.
+2. Print the pattern again at 0.001–0.002 steps around that value to refine it.
+3. Put the value in `Voron ASA`'s **filament** Start G-code, replacing Prusa's `M572`/`M142` lines, which Klipper does not know:
 
 ```
 SET_PRESSURE_ADVANCE ADVANCE=<your value>
 ```
 
-Or set `[extruder] pressure_advance:` if you only ever print ASA on this machine.
+Or set `[extruder] pressure_advance:` instead, if you only ever print ASA on this machine.
 
 **Check:** One corner is visibly the sharpest, and the value you saved is in the **0.01–0.08** band, most often 0.02–0.05.
 
@@ -911,9 +931,9 @@ derive:
 pass: The pattern picked cleanly. Save the badge value with SET_PRESSURE_ADVANCE in the ASA filament custom G-code, and write it in the tuning log.
 ```
 
-Tip: there is rarely a perfect value. Ellis leans **higher**: if the sharpest corner has a tiny bit of gapping, still take it. Direct drive is that sensitive.
+There is rarely a perfect value. Ellis leans **higher**: if the sharpest corner has a tiny bit of gapping, still take it, because direct drive is that sensitive.
 
-⚠ If you cannot get a clean corner at *any* value, or you see gapping and bulging simultaneously, stop tuning — Ellis: *"you likely have extruder issues."* Check the CW2.5 for backlash: with the toolhead cold, reverse the extruder gear direction by hand and feel for a dead zone.
+If you cannot get a clean corner at *any* value, or you see gapping and bulging at the same time, stop tuning. Ellis: *"you likely have extruder issues."* Check the CW2.5 for backlash, play in its gears: with the toolhead cold, turn the extruder gear back the other way by hand and feel for a dead zone.
 
 ??? note "Where the 0.01–0.08 band comes from"
 
@@ -927,13 +947,13 @@ Tip: there is rarely a perfect value. Ellis leans **higher**: if the sharpest co
 
 Source: [Ellis' Print Tuning Guide — saving the pressure-advance value](https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/saving.html) · [Klipper docs § Pressure advance](https://www.klipper3d.org/Pressure_Advance.html) · [Klipper docs § SET_PRESSURE_ADVANCE](https://www.klipper3d.org/G-Codes.html#set_pressure_advance)
 
-Pause: ~20 min since the last pause — the PA pattern is printed, read and the chosen value saved into the ASA **filament** profile. One calibration item closed; extrusion multiplier is the next.
+Pause: ~20 min since the last pause — the PA pattern printed and read, and the chosen value saved in the ASA **filament** profile. One calibration item closed; the extrusion multiplier is next.
 
 ### Step 14.19 — Extrusion multiplier / flow: the 2 % pass
 
 (no image — see text)
 
-**What you're looking at:** Extrusion multiplier is a straight percentage scaling of how much plastic comes out. It is judged on the centre of a top surface: too little leaves visible valleys between the lines, too much leaves ridges. The edges always look over-extruded and prove nothing.
+**What you're looking at:** The extrusion multiplier is a straight percentage that scales how much plastic comes out. Judge it on the centre of a top surface: too little leaves gaps and valleys between the lines when held toward a light, too much leaves pellets, ridges and a rough raised surface. The edges always look over-extruded and prove nothing.
 
 **Parts:**
 
@@ -942,7 +962,7 @@ Pause: ~20 min since the last pause — the PA pattern is printed, read and the 
 **Do:**
 
 1. Slice Ellis' **30 × 30 × 3 mm** cube with the settings below, once per multiplier: **92, 94, 96, 98 %** in `Voron ASA`.
-2. Print the four one at a time, back to back, chamber hot.
+2. Print the four one at a time, back to back, with the chamber hot.
 
 | Setting | Value |
 |---|---|
@@ -985,11 +1005,9 @@ inputs:
 pass: Take this multiplier into the 0.5 % refinement pass next, then write the final number into the ASA filament profile, not the print profile.
 ```
 
-⚠ Too low leaves visible gaps and valleys between the top lines when held toward a light; too high leaves pellets, ridging and a rough raised surface. Most filaments land in the 92–98 % window, and Prusament ASA should.
+Most filaments land in that 92–98 % window, and Prusament ASA should. PrusaSlicer 2.9.7 has no per-object extrusion multiplier: it is a filament setting, and Add settings offers only print settings, which Ellis also notes. So each cube is its own print, with its own `PRINT_START`, about 10 minutes before the first line.
 
-⚠ PrusaSlicer 2.9.7 has no per-object extrusion multiplier: it is a filament setting, and Add settings offers only print settings. Ellis says the same. One cube per print, each with its own `PRINT_START`, about 10 minutes before the first line.
-
-Tip: the cubes are in Ellis' [`test_prints`](https://github.com/AndrewEllis93/Print-Tuning-Guide/tree/main/test_prints) folder. Export each slice under its multiplier, `em-092.gcode` and so on, so the four files cannot be mixed up.
+The cubes are in Ellis' [`test_prints`](https://github.com/AndrewEllis93/Print-Tuning-Guide/tree/main/test_prints) folder. Export each slice under its multiplier, `em-092.gcode` and so on, so the four files cannot be mixed up.
 
 Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html) · [Ellis — a note about line width](https://ellis3dp.com/Print-Tuning-Guide/articles/a_note_about_line_width.html) · [Ellis' `test_prints/`](https://github.com/AndrewEllis93/Print-Tuning-Guide/tree/main/test_prints) · [PrusaSlicer 2.9.6 `PrintConfig.hpp` — `extrusion_multiplier` in `GCodeConfig`](https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/src/libslic3r/PrintConfig.hpp#L848-L861)
 
@@ -1003,9 +1021,12 @@ Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.co
 
 - consumable: Prusament ASA, about 25 g
 
-**Do:** Take the winner from 14.19 and print four more cubes, one per print, at ±0.5 % and ±1.0 % around it. Pick the smoothest centre and leave that number in `Voron ASA`, the **filament** preset, not the print profile.
+**Do:**
 
-**Check:** The chosen cube has a uniformly smooth top with no gaps and no ridging.
+1. Take the winner from 14.19 and print four more cubes, one per print, at ±0.5 % and ±1.0 % around it.
+2. Pick the smoothest centre and leave that number in `Voron ASA`, the **filament** preset, not the print profile.
+
+**Check:** The chosen cube has an evenly smooth top, with no gaps and no ridging.
 
 Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html)
 
@@ -1015,13 +1036,16 @@ Pause: ~30 min since the last pause — both extrusion-multiplier passes done, e
 
 (no image — see text)
 
-**What you're looking at:** Changing extrusion multiplier changes how much plastic the first layer puts down, so the squish set in Ch 13 is now slightly off. Same live-Z procedure, same commit command; this loop back is expected, not a sign that something was done wrong.
+**What you're looking at:** Changing the extrusion multiplier changes how much plastic the first layer puts down, so the squish set in Ch 13 is now slightly off. The procedure and the save command are the same as before. This loop back is expected, not a sign that something went wrong.
 
 **Parts:** none.
 
-**Do:** Print one more cube, or any wide flat part, and repeat the live-Z procedure from [Ch 13 Step 13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish). Save with `Z_OFFSET_APPLY_ENDSTOP` then `SAVE_CONFIG`.
+**Do:**
 
-**Check:** Bottom surface is smooth, lines still individually visible, no gaps.
+1. Print one more cube, or any wide flat part, and repeat the live-Z procedure (nudging the nozzle height while the first layer prints) from [Ch 13 Step 13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish).
+2. Save with `Z_OFFSET_APPLY_ENDSTOP`, then `SAVE_CONFIG`.
+
+**Check:** The bottom surface is smooth, with the lines still individually visible and no gaps.
 
 ```gate-calc
 id: tune-squish
@@ -1046,11 +1070,11 @@ inputs:
 pass: The essentials loop is closed. Extruder, first layer, pressure advance, extrusion multiplier, first layer again.
 ```
 
-Tip: this closes the essentials loop. Ellis' order is extruder, surface prep, first layer, pressure advance, extrusion multiplier; the multiplier feeding back into first layer is expected.
+This closes the essentials loop. Ellis' order is extruder, surface prep, first layer, pressure advance, extrusion multiplier, and the multiplier feeding back into the first layer is expected.
 
 Source: [Ellis' Print Tuning Guide — first layer squish](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html) · [Klipper docs § Z_OFFSET_APPLY_ENDSTOP](https://www.klipper3d.org/G-Codes.html#z_offset_apply_endstop)
 
-Pause: ~10 min since the last pause — first-layer squish re-set after the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG`. The essentials loop is closed.
+Pause: ~10 min since the last pause — first-layer squish set again after the extrusion-multiplier change, and saved with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG`. The essentials loop is closed.
 
 ---
 
@@ -1066,9 +1090,9 @@ Pause: ~10 min since the last pause — first-layer squish re-set after the extr
 
 **Do:**
 
-1. Take the **Variance** from [14.6](#step-146-closed-chamber-soak-settle-qgl-lock-the-z-joints-hot-re-verify)'s hot mesh; re-mesh only after a full soak.
+1. Take the **Variance** from [14.6](#step-146-closed-chamber-soak-settle-qgl-lock-the-z-joints-hot-re-verify)'s hot mesh; mesh again only after a full soak.
 2. Read the number, not the colours, and confirm `zero_reference_position: 175,175` is set.
-3. Back up: `cd ~/printer_data/config && git add -A && git commit -m "Ch 14 done: belts, shaper, max_accel, Z offset"`, and copy the directory off the Pi.
+3. Back up: run `cd ~/printer_data/config && git add -A && git commit -m "Ch 14 done: belts, shaper, max_accel, Z offset"`, and copy the directory off the Pi.
 
 **Check:** The hot heightmap sat centred around Z0, its Variance is in the tuning log, and the config directory is copied off the Pi.
 
@@ -1100,9 +1124,9 @@ inputs:
 pass: Mesh variance is in the tuning log and the config is off the Pi. Everything after this is print tuning, at Ellis' pace.
 ```
 
-⚠ A V2 on the stock Z endstop **must** have `zero_reference_position: 175,175`, or the mesh floats away from Z0. Under ~0.05 mm total variance a mesh is optional, but keep generating one per print: the variance changes with chamber temperature as the gantry extrusions bend.
+A V2 on the stock Z endstop **must** have `zero_reference_position: 175,175`, or the mesh floats away from Z0. Under about 0.05 mm total variance a mesh is optional, but keep making one for every print: the variance changes with chamber temperature as the gantry extrusions bend.
 
-Tip: copy `printer.cfg` with its auto-save block, `moonraker.conf`, `config.leviathan` and `config.nitehawk`. `git log` should show one commit per `SAVE_CONFIG` since the Ch 12 baseline.
+Copy `printer.cfg` with its auto-save block, `moonraker.conf`, `config.leviathan` and `config.nitehawk`. `git log` should show one commit per `SAVE_CONFIG` since the Ch 12 baseline.
 
 Source: [Voron docs image `heightmap_variance.png`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/tuning/images/heightmap_variance.png) · [Voron docs — Secondary printer tuning § Bed mesh](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [Klipper docs § Bed Mesh](https://www.klipper3d.org/Bed_Mesh.html)
 
@@ -1110,11 +1134,11 @@ Source: [Voron docs image `heightmap_variance.png`](https://raw.githubuserconten
 
 (no image — see text)
 
-**What you're looking at:** Nothing to do on the machine. What is left after this chapter is print tuning rather than machine tuning, and it has an accepted order: each of Ellis' sections assumes the ones above it are already done.
+**What you're looking at:** Nothing to do on the machine. What is left after this chapter is print tuning, not machine tuning, and it has an accepted order: each of Ellis' sections assumes the ones above it are already done.
 
 **Parts:** none.
 
-**Do:** [**Ellis' Print Tuning Guide**](https://ellis3dp.com/Print-Tuning-Guide/) is the ongoing reference from here. Work his **Tuning** section in his order; the numbering is his, and each step assumes the ones above it:
+**Do:** From here on, [**Ellis' Print Tuning Guide**](https://ellis3dp.com/Print-Tuning-Guide/) is the reference. Work through his **Tuning** section in his order; the numbering below is his, and each step assumes the ones above it:
 
 | # | Section | Status after this chapter |
 |---|---|---|
@@ -1129,9 +1153,9 @@ Source: [Voron docs image `heightmap_variance.png`](https://raw.githubuserconten
 | 9 | [Infill/Perimeter Overlap](https://ellis3dp.com/Print-Tuning-Guide/articles/infill_perimeter_overlap.html) | later |
 | 10 | [Stepover](https://ellis3dp.com/Print-Tuning-Guide/articles/stepover.html) | later |
 
-Beyond that, his **Advanced Tuning** section covers [Maximum Volumetric Flow Rate](https://ellis3dp.com/Print-Tuning-Guide/articles/determining_max_volumetric_flow_rate.html) (worth doing — the Revo HF's whole point is flow) and [Maximum Speeds and Accelerations](https://ellis3dp.com/Print-Tuning-Guide/articles/determining_max_speeds_accels.html), and his [Troubleshooting](https://ellis3dp.com/Print-Tuning-Guide/articles/index_troubleshooting.html) index is the fastest way to name a defect you are looking at.
+**Check:** Cooling and layer times, and retraction, are on the list for the next session, with the tuning log ready to record them.
 
-**Check:** Cooling/layer times and retraction are on the list for the next session, with the tuning log ready to record them.
+Beyond that, his **Advanced Tuning** section covers [Maximum Volumetric Flow Rate](https://ellis3dp.com/Print-Tuning-Guide/articles/determining_max_volumetric_flow_rate.html) (worth doing: the Revo HF's whole point is flow) and [Maximum Speeds and Accelerations](https://ellis3dp.com/Print-Tuning-Guide/articles/determining_max_speeds_accels.html), and his [Troubleshooting](https://ellis3dp.com/Print-Tuning-Guide/articles/index_troubleshooting.html) index is the fastest way to name a defect you are looking at.
 
 Source: [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/) — link only, nothing from it is copied or mirrored
 
@@ -1141,7 +1165,7 @@ Pause: ~10 min since the last pause — the soak's mesh variance recorded, `prin
 
 ![Nameplate render, V2.1234 sample](assets/nameplate/nameplate.png)
 
-**What you're looking at:** Voron serials are issued by the community, not a vendor: mods on the r/voroncorexy subreddit review a video of a finished machine and reply with yours. The nameplate carrying it is the first print made for the machine itself.
+**What you're looking at:** Voron serial numbers are issued by the community, not a company: moderators on the r/voroncorexy subreddit review a video of a finished machine and reply with yours. The nameplate carrying it is the first print made for the machine itself.
 
 **Parts:**
 
@@ -1154,19 +1178,19 @@ Pause: ~10 min since the last pause — the soak's mesh variance recorded, `prin
 
 **Do:**
 
-1. Film the printer printing, bay closed, with a handwritten sheet showing your Reddit username and date.
-2. Post it to r/voroncorexy as a serial request.
-3. Print it in accent ASA and bolt it to the front top rail: `venv-cq/bin/python scripts/nameplate.py --serial V2.xxxx --names "Alex & Helper" --date 2026-12-20`
+1. Film the printer printing, with the electronics bay closed and a handwritten sheet in shot showing your Reddit username and the date.
+2. Post the video to r/voroncorexy as a serial request.
+3. Print the nameplate in accent ASA and screw it to the front top rail: `venv-cq/bin/python scripts/nameplate.py --serial V2.xxxx --names "Alex & Helper" --date 2026-12-20`
 
-**Check:** A serial like `V2.1234` arrives, and the plate is on the front top rail, clear of the closed door *(verify on bench)*.
+**Check:** A serial like `V2.1234` has arrived, and the plate is on the front top rail, clear of the closed door *(verify on bench)*.
 
 **Helper:** Reads the serial back from the post and checks every character on the printed plate.
 
-⚠ The request goes on the subreddit, and the machine has to be finished: cables managed above the deck plate, electronics separated from the chamber, bay covered. Your Reddit username and the date must be handwritten and in shot. Discord username is optional now, and its old 4-digit tag is no longer required.
+The request goes on the subreddit, and the machine has to be finished: cables tidied above the deck plate, electronics separated from the chamber, the bay covered. Your Reddit username and the date must be handwritten and in shot. A Discord username is optional now, and its old 4-digit tag is no longer required.
 
-Tip: the subreddit's nameplate bot posts a generic serial plate when your serial lands. This one is ours: front top rail, two M3 T-nuts, blue accent. [src](https://github.com/rdmullett/voron_serial_plate)
+When your serial lands, the subreddit's nameplate bot posts a generic serial plate. This one is ours: front top rail, two M3 T-nuts, blue accent. [src](https://github.com/rdmullett/voron_serial_plate)
 
-Pause: ~20 min since the last pause — the serial request is posted and the nameplate generated. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front uprights are 20 mm wide; do not bolt anything to the left upright, which carries the door hinges.
+Pause: ~20 min since the last pause — the serial request is posted and the nameplate generated. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front verticals are only 20 mm wide; do not screw anything to the left vertical, which carries the door hinges.
 
 Source: [Voron docs — About § Serial Numbers](https://docs.vorondesign.com/about.html#serial-numbers) · [TeamFDM FAQ — serial requirements](https://www.teamfdm.com/forums/topic/14-what-are-the-requirements-to-get-a-serial-for-my-printer/) · [Ch 11 Steps 11.12–11.13, 11.62](11-skirts-panels-door.md#step-1113-mount-the-front-skirt-segments) for what the skirt ring and the door hinges already occupy · `scripts/nameplate.py`
 
@@ -1176,23 +1200,23 @@ Source: [Voron docs — About § Serial Numbers](https://docs.vorondesign.com/ab
 
 ## Part H — Chamber exhaust fan
 
-Steps 14.25 and 14.26 opened the chapter: the five B13 parts wait in bin `14-exhaust` with the Step 00.8 fan, extension lead and mat. Step 14.25 failed? Skip this part; they stay in the bin. If any of them is not in hand yet, go to [Checkpoint 14](#checkpoint-14) and come back; only its Part H row waits.
+Steps 14.25 and 14.26 opened the chapter, so the five B13 parts are waiting in bin `14-exhaust` with the Step 00.8 fan, extension lead and mat. If Step 14.25 failed, skip this part and leave them in the bin. If any of them has not arrived yet, go to [Checkpoint 14](#checkpoint-14) and come back later; only its Part H row waits.
 
 ### Step 14.27 — Set the eight heat-set inserts in the housing
 
 ![Voron manual p.250](assets/manual-pages/manual-p250.png){ crop="0.14 0.22 0.91 0.76" }
 ![CAD render — the housing from behind and below with its insert bosses marked: four round the fan opening, two for the access cover](assets/cad/14-27-a.png)
 
-**What you're looking at:** The housing takes eight M3 inserts: two on the panel face for the grill screws, two on the outer face for the access cover, and four round the fan opening for the fan and its grill.
+**What you're looking at:** The housing takes eight M3 heat-set inserts, brass threads you melt into the plastic: two on the panel face for the grill screws, two on the outer face for the access cover, and four round the fan opening for the fan and its grill.
 
 **Parts:**
 
 - M3×5×4 heat-set insert ×8
 - tool: Nutopress Pro insert press, its M3 tip
 
-**Do:** Press an insert into each of the eight bosses p.250 highlights. Part flat, insert square, same tip temperature as every insert before.
+**Do:** Press an insert into each of the eight holes p.250 highlights, with the part flat, the insert square and the same tip temperature as every insert before.
 
-**Check:** Eight inserts flush and square, with no plastic pushed up round any of them.
+**Check:** Eight inserts are flush and square, with no plastic pushed up round any of them.
 
 Source: [Voron manual p.250](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=250)
 
@@ -1220,13 +1244,13 @@ Source: [Voron manual p.250](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. Bolt fan and grill on with four M3×30, arrow out, lead fed inside the housing.
-2. Cut two mat layers to fill the filter bay; slide them in.
+1. Screw the fan and grill on with four M3×30, arrow pointing out, and the fan lead fed inside the housing.
+2. Cut two mat layers, not the full stack the Voron CAD draws, to fill the filter bay, and slide them in.
 3. Close the access cover with two M3×8.
 
 **Check:** The fan spins freely by hand, its arrow points out of the housing, and its plug reaches the panel face past the mat.
 
-⚠ Two mat layers, not the full stack the Voron CAD draws: PLA and PETG need the airflow more than the filtering. The PLA test at the end of this part decides whether even those two stay.
+Two layers, because PLA and PETG need the airflow more than the filtering. The PLA test at the end of this part decides whether even those two stay.
 
 Source: [Voron manual p.252](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=252) · [Voron manual p.253](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=253)
 
@@ -1244,7 +1268,7 @@ Pause: ~40 min since the last pause — eight inserts set, and the fan, its gril
 ![CAD render — the panel joint opened up: grill in the notch on two mounts and T-nuts, the taped housing pulled back, two M3x12 from inside](assets/cad/14-29-b.png)
 ![CAD render — the finished swap from behind: housing, fan and fan grill, access cover, grill and mounts](assets/cad/14-25-close-b.png)
 
-**What you're looking at:** The grill sits in the notch, held up by two mounts bolted to the top rear extrusion. The housing is taped to the outside of the panel over it, and the two grill screws pull it tight from inside the chamber.
+**What you're looking at:** The grill hangs in the notch on two mounts on the top rear extrusion; the housing is taped outside, and two grill screws pull it tight from inside.
 
 **Parts:**
 
@@ -1258,21 +1282,19 @@ Pause: ~40 min since the last pause — eight inserts set, and the fan, its gril
 
 **Do:**
 
-1. Machine off. PTFE and coupler out of the cover; unbolt cover and grill, keep all four screws.
-2. Hang the grill on both mounts on the same T-nuts, snug.
-3. Tape the housing on; drive both M3×12 from inside.
+1. Machine off: PTFE tube and coupler out of the cover; unscrew cover and grill, keeping all four screws.
+2. Hang the grill on both mounts, same T-nuts, snug.
+3. Pass the fan lead in through a grill opening, screw the coupler into the housing's top boss and feed the PTFE through, looped as p.258 shows `(verify on bench)`. Then tape the housing on and drive both M3×12 from inside.
 
 **Check:** The housing sits square over the notch with no light round the tape, grill and mounts are tight, and full XY travel touches nothing.
 
 **Helper:** Holds the housing square on the panel while the adult drives the two screws from inside.
 
-⚠ Before taping, pass the fan lead in through one grill opening. Then thread the coupler into the housing's top boss and run the PTFE in through it, looped as p.258 shows `(verify on bench)`.
-
-Tip: keep the exhaust cover. Refitting it returns the machine to its Ch 11 state if the housing comes off.
+Keep the exhaust cover: refitting it returns the machine to its Ch 11 state if the housing ever comes off.
 
 Source: [Voron manual p.254](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=254) · [Voron manual p.255](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=255) · [Voron manual p.256](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=256)
 
-Pause: ~30 min since the last pause — the housing on the back panel, the exhaust cover kept as a spare, the fan lead inside the chamber and unplugged. Leave the tape an hour before anything leans on the housing.
+Pause: ~30 min since the last pause — the housing on the back panel, the exhaust cover kept as a spare, and the fan lead inside the chamber and unplugged. Leave the tape for an hour before anything leans on the housing.
 
 ---
 
@@ -1280,7 +1302,7 @@ Pause: ~30 min since the last pause — the housing on the back panel, the exhau
 
 (no image — see text)
 
-**What you're looking at:** The fan lead lands on the Leviathan, under the deck and beside the PSU's mains terminals. The bay opens only on a dead machine, exactly as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead).
+**What you're looking at:** The fan lead lands on the Leviathan board, under the deck and beside the power supply's mains terminals. The bay opens only on a dead machine, exactly as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead).
 
 **Parts:**
 
@@ -1288,11 +1310,11 @@ Pause: ~30 min since the last pause — the housing on the back panel, the exhau
 
 **Do:**
 
-1. Shut the Pi down from Mainsail; wait for the ACT LED to stop.
-2. Rocker off; unplug wall, then inlet; cord out of the room.
-3. On its side, open the bottom panel; meter DC V, +V to −V.
+1. Shut the Pi down from Mainsail and wait for its ACT LED to stop.
+2. Switch the rocker off, unplug the cord from the wall and then from the inlet, and take the cord out of the room.
+3. Lay the machine on its side, open the bottom panel, and measure DC volts from +V to −V.
 
-**Check:** Rocker unlit, PSU LED dark, no cord at the inlet. The meter reads 0 V and holds it for ten seconds.
+**Check:** The rocker is unlit, the PSU LED is dark and no cord is at the inlet, and the meter reads 0 V and holds it for ten seconds.
 
 ⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine until this Check passes. The helper stays out of the room until the meter holds 0 V and the cord is gone.
 
@@ -1306,7 +1328,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 ![Diagram — the Leviathan's five selection headers after Part H: Fan0, Fan2 and Fan3 jumpered at 24 V, Probe and Fan1 bare, the fan's 2-pin plug on FAN0 with red on +](assets/diagrams/exhaust-b-jumpers.svg)
 ![Diagram — the fan lead's route from the housing through the Z-chain notch and the bay to FAN0](assets/diagrams/exhaust-a-lead-route.svg)
 
-**What you're looking at:** FAN0 is the first of the Leviathan's four fan headers, a 3-pin XH socket on pin `PB7`. The jumper block beside them picks each port's voltage; this fan is a 24 V part.
+**What you're looking at:** FAN0 is the first of the Leviathan's four fan sockets, a 3-pin XH socket on pin `PB7`. The jumper block beside them sets each port's voltage, and this fan is a 24 V part.
 
 **Parts:**
 
@@ -1317,11 +1339,11 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 **Do:**
 
-1. Extend the fan lead; run it down the back panel's inside on VHB tie points, through the Z-chain notch.
-2. Plug it into FAN0, red where FAN2's red is.
-3. Jumper Fan0 on the 24 V pins.
+1. Join the extension to the fan lead and run it down the inside of the back panel on VHB tie points, through the Z-chain notch.
+2. Plug it into FAN0, with red on the same side as FAN2's red.
+3. Put the jumper on Fan0's 24 V pins.
 
-**Check:** Exactly three jumpers, Fan0, Fan2 and Fan3, all on the 24 V pins; Fan1 and Probe bare. The lead clears the bed and gantry.
+**Check:** There are exactly three jumpers, on Fan0, Fan2 and Fan3, all on the 24 V pins, with Fan1 and Probe bare, and the lead is clear of the bed and the gantry.
 
 ⚠ From here on this machine has three jumpers and a live FAN0, not the two jumpers Ch 10 checks for. A jumper on 5 V, or a 5 V fan on 24 V, destroys the fan or the board.
 
@@ -1333,20 +1355,20 @@ Source: [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-
 
 (no image — see text)
 
-**What you're looking at:** The first power-on after the bay was open repeats Ch 13's ritual: a hand on the rocker and eyes on the board. A new lead and a third jumper are the only changes since the last good boot.
+**What you're looking at:** The first power-on after the bay was open repeats Ch 13's routine: a hand on the rocker switch and eyes on the board. A new lead and a third jumper are the only changes since the last good start.
 
 **Parts:** none.
 
 **Do:**
 
-1. Close the bottom panel, stand the machine upright, cord back in.
+1. Close the bottom panel, stand the machine upright, and plug the cord back in.
 2. Power on with a hand on the rocker, as at [13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch).
 
-**Check:** Klipper Ready with both MCUs, no smell or smoke, and the exhaust fan still: nothing drives FAN0 yet.
+**Check:** Klipper shows Ready with both MCUs, there is no smell or smoke, and the exhaust fan is still, because nothing drives FAN0 yet.
 
 Source: [Ch 00a Step 00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives) · [Ch 13 Step 13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch)
 
-Pause: ~45 min since the last pause — FAN0 wired and jumpered for 24 V, the bay closed, the machine on and Ready with the exhaust fan still. Klipper does not know the fan yet.
+Pause: ~45 min since the last pause — FAN0 wired and jumpered for 24 V, the bay closed, and the machine on and Ready with the exhaust fan still. Klipper does not know about the fan yet.
 
 ---
 
@@ -1358,7 +1380,11 @@ Pause: ~45 min since the last pause — FAN0 wired and jumpered for 24 V, the ba
 
 **Parts:** none.
 
-**Do:** Paste the block below under `[fan_generic nevermore]`. Add the first line under `SET_GCODE_OFFSET Z=0` in `PRINT_START`, the second under `TURN_OFF_HEATERS` in `PRINT_END`. **SAVE & RESTART**.
+**Do:**
+
+1. Paste the first block below under `[fan_generic nevermore]`.
+2. Add the second block's line under `SET_GCODE_OFFSET Z=0` in `PRINT_START`, and the third under `TURN_OFF_HEATERS` in `PRINT_END`.
+3. Click **SAVE & RESTART**.
 
 ```ini
 #####################################################################
@@ -1429,9 +1455,9 @@ gcode:
 
 **Helper:** Reads the pin line back off the screen: PB7, not PF7.
 
-⚠ Leave `[temperature_sensor chamber_temp]` exactly as it is. The combined sensor reads it, so its pin is declared once, and `PRINT_START`'s chamber wait and `M105`'s `chamber_th` keep working.
+Leave `[temperature_sensor chamber_temp]` exactly as it is. The combined sensor reads it, so its pin is declared once, and `PRINT_START`'s chamber wait and `M105`'s `chamber_th` keep working.
 
-Tip: `SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan MAX_SPEED=0.6` quietens the fan until the next restart.
+`SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan MAX_SPEED=0.6` makes the fan quieter until the next restart.
 
 Source: [Klipper docs § temperature_fan](https://www.klipper3d.org/Config_Reference.html#temperature_fan) · [Klipper docs § Combined temperature sensor](https://www.klipper3d.org/Config_Reference.html#combined-temperature-sensor) · [Klipper `temperature_fan.py`](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/temperature_fan.py) · [Voron docs — Chamber Temperature & Exhaust Fan](https://github.com/VoronDesign/Voron-Documentation/blob/b8c014f/community/howto/alchemyEngine/chamber_temperature_exhaust_fan.md) · `review/2026-10-03-exhaust/test_macros.py`
 
@@ -1447,9 +1473,9 @@ Source: [Klipper docs § temperature_fan](https://www.klipper3d.org/Config_Refer
 
 **Do:**
 
-1. Send the first three lines: air blows out of the housing, then stops.
-2. Door shut, `M140 S110`; log `chamber_temp` once settled, up to 45 min.
-3. Send the next two; the fan runs, then stops. Send the last two.
+1. Send the first three lines below: air blows out of the housing, then stops.
+2. With the door shut, send `M140 S110` and log `chamber_temp` once it settles, up to 45 min.
+3. Send the next two: the fan runs, then stops. Then send the last two.
 
 ```
 SET_IDLE_TIMEOUT TIMEOUT=7200
@@ -1461,7 +1487,7 @@ SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan TARGET=0
 SET_IDLE_TIMEOUT TIMEOUT=1800
 ```
 
-**Check:** The settled chamber is still in the 50–60 °C band, and at ceiling 45, bed off, the fan runs and stops near 43 °C.
+**Check:** The settled chamber is still in the 50–60 °C band, and at ceiling 45, with the bed off, the fan runs and then stops near 43 °C.
 
 ```gate-calc
 id: exhaust-test
@@ -1482,11 +1508,11 @@ inputs:
 pass: The fan follows its ceiling, and the ASA soak is unchanged. Log both numbers.
 ```
 
-⚠ The bed reaches 110 °C. Hands off the plate until it reads under 40 °C again.
+⚠ The bed reaches 110 °C. Keep your hands off the plate until it reads under 40 °C again.
 
 Source: [Klipper docs § SET_TEMPERATURE_FAN_TARGET](https://www.klipper3d.org/G-Codes.html#set_temperature_fan_target) · [Klipper `temperature_fan.py` § watermark](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/temperature_fan.py#L117-L137) · [Ch 14 Step 14.8](#step-148-set-the-chamber-target-and-understand-the-soak)
 
-Pause: ~35 min since the last pause — the exhaust in `printer.cfg`, the fan proved by target and on a hot chamber, heaters off, ceiling 0, idle timeout back at 1800.
+Pause: ~35 min since the last pause — the exhaust in `printer.cfg`, the fan proved by target and on a hot chamber, heaters off, ceiling 0, and the idle timeout back at 1800.
 
 ---
 
@@ -1502,8 +1528,8 @@ Pause: ~35 min since the last pause — the exhaust in `printer.cfg`, the fan pr
 
 **Do:**
 
-1. Expert mode: make the line below the `Voron 2.4 350` start G-code.
-2. Save Prusament PLA and PETG as `Voron PLA` and `Voron PETG`, deleting `M572`/`M142`; Chamber temperature Nominal / Minimal: PLA 35 / 0, PETG 40 / 0.
+1. In Expert mode, make the line below the `Voron 2.4 350` start G-code.
+2. Save Prusament PLA and PETG as `Voron PLA` and `Voron PETG`, deleting `M572`/`M142`, with Chamber temperature Nominal / Minimal at PLA 35 / 0 and PETG 40 / 0.
 3. `Voron ASA` keeps its 14.9 Minimal.
 
 ```
@@ -1514,9 +1540,9 @@ PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature]
 
 **Helper:** Reads each Nominal and Minimal value back from the preset while the adult types.
 
-⚠ `EXHAUST=` is the only new field: `CHAMBER` has come from each filament's Minimal since 14.9. Keep PLA and PETG at Minimal 0; anything higher makes a vented print wait forever for heat it never makes.
+⚠ `EXHAUST=` is the only new field: `CHAMBER` has come from each filament's Minimal since 14.9. Keep PLA and PETG at Minimal 0, because anything higher makes a vented print wait forever for heat it never makes.
 
-Tip: Prusa's own presets ship PLA 20, PETG 35 and ASA 55 / 40. Kept as they are, PLA just runs the fan more, and ASA stays unvented either way.
+Prusa's own presets ship PLA 20, PETG 35 and ASA 55 / 40. Kept as they are, PLA just runs the fan more, and ASA stays unvented either way.
 
 Source: [PrusaSlicer 2.9.6 `GCode.cpp` — chamber commands only with automatic temperature commands on](https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/src/libslic3r/GCode.cpp#L1981-L2001) · [Ch 13 Step 13.41](13-initial-startup.md#step-1341-make-the-voron-printer-profile-and-slice-the-cube) · `review/2026-10-03-exhaust/DESIGN.md`
 
@@ -1526,7 +1552,7 @@ Source: [PrusaSlicer 2.9.6 `GCode.cpp` — chamber commands only with automatic 
 
 (no image — see text)
 
-**What you're looking at:** The proof is a real PLA print with the door shut: the chamber should sit near the ceiling while the fan cycles. Voron's own notes warn that PLA may still need the door open; this print finds out.
+**What you're looking at:** The proof is a real PLA print with the door shut: the chamber should sit near the ceiling while the fan switches on and off. Voron's own notes warn that PLA may still need the door open, and this print finds out.
 
 **Parts:**
 
@@ -1534,15 +1560,15 @@ Source: [PrusaSlicer 2.9.6 `GCode.cpp` — chamber commands only with automatic 
 
 **Do:**
 
-1. Print an hour-long PLA part from the Voron PLA preset, door shut.
-2. Every 15 min, log `chamber_temp` and whether the fan runs.
+1. Print an hour-long PLA part from the Voron PLA preset, with the door shut.
+2. Every 15 min, log `chamber_temp` and whether the fan is running.
 3. Commit the config, copy it off the Pi, and shut down as at [13.43](13-initial-startup.md#step-1343-shut-down-properly).
 
-**Check:** From 20 min in, `chamber_temp` stays at or under 37 °C. After the print the fan runs about 10 min, then stops.
+**Check:** From 20 min in, `chamber_temp` stays at or under 37 °C, and after the print the fan runs for about 10 min, then stops.
 
-⚠ If the chamber passes 37 °C with the fan flat out, take one mat layer out and print again. Past that, print PLA with the door ajar.
+If the chamber passes 37 °C with the fan flat out, take one mat layer out and print again. Past that, print PLA with the door slightly open.
 
-Tip: the sensor rides on the toolhead and reads warm, so the chamber itself runs a little under the ceiling. A thermometer hung mid-chamber shows by how much.
+The sensor rides on the toolhead and reads warm, so the chamber itself runs a little under the ceiling. A thermometer hung in the middle of the chamber shows by how much.
 
 Source: [Voron docs — filament tuning, PLA in an enclosure](https://github.com/VoronDesign/Voron-Documentation/blob/b8c014f/tuning/filament_tuning.md) · [Voron docs — Chamber Temperature & Exhaust Fan](https://github.com/VoronDesign/Voron-Documentation/blob/b8c014f/community/howto/alchemyEngine/chamber_temperature_exhaust_fan.md)
 
@@ -1552,7 +1578,7 @@ Pause: ~30 min since the last pause — PLA printed under the ceiling with the c
 
 ## Tuning log
 
-Fill this in as you go — one row per change, both of you initialling. This is the record that makes the next tuning session cheap, and the thing you check first when a print goes wrong three months from now.
+Fill this in as you go: one row per change, both of you initialling. It is the record that makes the next tuning session cheap, and the first thing you check when a print goes wrong three months from now.
 
 | Date | What | Value set | How measured | Result / notes | By |
 |---|---|---|---|---|---|
@@ -1584,44 +1610,45 @@ Fill this in as you go — one row per change, both of you initialling. This is 
 
 **Built:** a tuned printer with every number in the tuning log
 
-- [ ] Bed and hotend PID tuned in Ch 13 and `SAVE_CONFIG`'d; both hold within ±0.5 °C at setpoint
-- [ ] A and B belts both at ~110 Hz over a measured 150 mm span, equal to each other after moving the gantry and returning
-- [ ] All four Z belts at ~140 Hz over a measured 150 mm span, even with each other — set at the Z idler tensioner bolts, belt clamps untouched
-- [ ] One closed-chamber soak of at least 1½–2 h, Steps 14.3 and 14.6, panels and door on, with the settled `chamber_temp` and the hot mesh Variance logged from it; QGL run 3–5× hot with shrinking corrections; machinist square clean at both front corners hot; the four Z joint M5×40 bolts tightened **hot**, idle timeout set back with `SET_IDLE_TIMEOUT TIMEOUT=1800` after the last hot check
-- [ ] `QUAD_GANTRY_LEVEL` converges in ≤3 retries hot after the lock; `PROBE_ACCURACY` σ < 0.003 mm with no trend
-- [ ] `rotation_distance` verified on the Ch 13 value: 100 mm requested measures 99.5–100.5 mm; `22.6789511` nowhere in `printer.cfg`
-- [ ] `PRINT_START` (Ch 12 Step 12.36, with Step 14.9's purge line) homes, heats the bed, soaks, QGLs, re-homes Z, meshes, heats the nozzle and purges — tested standalone from the console with `CHAMBER=0`
-- [ ] Chamber reaches the 50–60 °C band with panels and door closed
-- [ ] Voron cube (printed in Ch 13) calipered; X, Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm
-- [ ] Both cubes (Prusa and Voron) measured into the comparison table
-- [ ] `MEASURE_AXES_NOISE` in the 1–100 range; `[resonance_tester] probe_points: 175, 175, 20` confirmed live (Ch 12 Step 12.27)
-- [ ] `[input_shaper]` saved for X and Y; neither axis below 25 Hz
-- [ ] `[printer] max_accel` reduced from the stock 10000 to at or below the calibration's suggestion, with margin
-- [ ] `max_z_velocity: 15` / `max_z_accel: 350` restored if Z shaping was attempted
-- [ ] `Voron ASA` filament preset saved: `CHAMBER` from its Minimal, below the settled chamber (Step 14.9), PLA and PETG still at Minimal 0
-- [ ] Pressure advance set per-filament for ASA and recorded
-- [ ] Extrusion multiplier set in `Voron ASA`, one cube per print, and recorded
-- [ ] First-layer squish re-checked *after* the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP`
-- [ ] Every fastener the shaper run could have loosened re-checked
-- [ ] `~/printer_data/config` committed (one commit per `SAVE_CONFIG`) and copied off the Pi
-- [ ] Tuning log filled in, with initials
-- [ ] Serial request posted to r/voroncorexy (Step 14.24); the nameplate goes on the front top rail once the serial arrives
-- [ ] Part H, if fitted: Step 14.25's calculator passed before Part A; exactly three jumpers, Fan0, Fan2 and Fan3, all at 24 V; the ASA soak still settles at 50–60 °C with the housing closed; a PLA print held `chamber_temp` at or under 37 °C, then purged and stopped; config committed
+- [ ] Bed and hotend PID tuned in Ch 13 and saved with `SAVE_CONFIG`; both hold within ±0.5 °C of the target.
+- [ ] A and B belts both at about 110 Hz over a measured 150 mm span, equal to each other after the gantry moves away and back.
+- [ ] All four Z belts at about 140 Hz over a measured 150 mm span, even with each other, set at the Z idler tensioner screws with the belt clamps untouched.
+- [ ] One closed-chamber soak of at least 1½–2 h, Steps 14.3 and 14.6, panels and door on, with the settled `chamber_temp` and the hot mesh Variance logged from it; QGL run 3–5× hot with shrinking corrections; the machinist square clean at both front corners, hot; the four Z joint M5×40 screws tightened **hot**; and the idle timeout set back with `SET_IDLE_TIMEOUT TIMEOUT=1800` after the last hot check.
+- [ ] `QUAD_GANTRY_LEVEL` settles in 3 retries or fewer, hot, after the lock; `PROBE_ACCURACY` σ < 0.003 mm with no trend.
+- [ ] `rotation_distance` checked against the Ch 13 value: 100 mm requested measures 99.5–100.5 mm, and `22.6789511` appears nowhere in `printer.cfg`.
+- [ ] `PRINT_START` (Ch 12 Step 12.36, with Step 14.9's purge line) homes, heats the bed, soaks, runs QGL, re-homes Z, meshes, heats the nozzle and purges, tested on its own from the console with `CHAMBER=0`.
+- [ ] The chamber reaches the 50–60 °C band with the panels and door closed.
+- [ ] The Voron cube (printed in Ch 13) measured: X and Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm.
+- [ ] Both cubes (Prusa and Voron) measured into the comparison table.
+- [ ] `MEASURE_AXES_NOISE` in the 1–100 range; `[resonance_tester] probe_points: 175, 175, 20` confirmed live (Ch 12 Step 12.27).
+- [ ] `[input_shaper]` saved for X and Y; neither axis below 25 Hz.
+- [ ] `[printer] max_accel` lowered from the stock 10000 to at or below the calibration's suggestion, with margin.
+- [ ] `max_z_velocity: 15` / `max_z_accel: 350` put back if Z shaping was tried.
+- [ ] `Voron ASA` filament preset saved: `CHAMBER` from its Minimal, below the settled chamber (Step 14.9), with PLA and PETG still at Minimal 0.
+- [ ] Pressure advance set per filament for ASA, and recorded.
+- [ ] Extrusion multiplier set in `Voron ASA`, one cube per print, and recorded.
+- [ ] First-layer squish checked again *after* the extrusion-multiplier change, and saved with `Z_OFFSET_APPLY_ENDSTOP`.
+- [ ] Every fastener the shaper run could have loosened checked again.
+- [ ] `~/printer_data/config` committed (one commit per `SAVE_CONFIG`) and copied off the Pi.
+- [ ] Tuning log filled in, with initials.
+- [ ] Serial request posted to r/voroncorexy (Step 14.24); the nameplate goes on the front top rail once the serial arrives.
+- [ ] Part H, if fitted: Step 14.25's calculator passed before Part A; exactly three jumpers, Fan0, Fan2 and Fan3, all at 24 V; the ASA soak still settles at 50–60 °C with the housing closed; a PLA print held `chamber_temp` at or under 37 °C, then purged and stopped; config committed.
 
 ## Common mistakes
 
-- **Tensioning belts before Ch 06b squaring.** The squaring procedure begins by fully releasing A/B tension; anything set before it is thrown away, and you will have done the work twice (survey §5.2 W1).
-- **Reading a belt frequency without measuring the span.** 110 Hz is only meaningful at 150 mm. Eyeballing the span is the single most common way people end up with belts 30 % out and blame the printer.
-- **Loosening a Z belt clamp to "adjust" Z tension.** The clamps on each gantry corner, on top of the front idler or A/B drive and under the Z joint, hold both belt ends; the adjuster is the idler tensioner bolt at the top of each upright. A released clamp means re-threading the belt.
-- **Tightening the Z joints cold, or skipping the closed-chamber soak.** The value of Step 14.6 is locking the gantry in at full thermal expansion; a cold tighten looks the same on the bench and shows up as first-layer inconsistency.
-- **Running `SHAPER_CALIBRATE` before the first successful print, or before final belt tension.** Both change the resonances you just measured, so the result is stale before you use it. Same for pressure advance, which also shifts when input shaping is switched on.
-- **`SAVE_CONFIG` after the shaper run and stopping there.** It writes `[input_shaper]` but explicitly does *not* touch `max_accel`. Leaving the stock `max_accel: 10000` means you shaped the ringing and then printed at an acceleration that reintroduces it.
-- **Fixing an oversize cube with negative XY size compensation or the extrusion multiplier.** Negative XY compensation makes every bearing bore and screw hole in the machine oversize, and a multiplier moved to hit a caliper number leaves the top-surface optimum of 14.19–14.20. Voron parts need no compensation beyond a good multiplier tune (Ellis).
-- **PID-tuning the hotend at 260 °C with `max_temp: 270`.** The relay test overshoots the target and can reach the limit mid-run *(verify on bench)*. Tune at 245, or raise `max_temp` to 290 first.
-- **Raising `[heater_bed] max_power` above 0.6 to speed up warm-up.** LDO set it to protect a 355 mm cast plate from warping. Wait the extra five minutes.
+- **Tensioning belts before the Ch 06b squaring.** The squaring procedure starts by fully releasing the A/B tension, so anything set before it is thrown away and you do the work twice (survey §5.2 W1).
+- **Reading a belt frequency without measuring the span.** 110 Hz only means something over 150 mm. Eyeballing the span is the most common way people end up with belts 30 % out and blame the printer.
+- **Loosening a Z belt clamp to adjust Z tension.** The clamps on each gantry corner, on top of the front idler or A/B drive and under the Z joint, hold both belt ends; the adjuster is the idler tensioner screw at the top of each vertical. A released clamp means threading the belt again.
+- **Tightening the Z joints cold, or skipping the closed-chamber soak.** The point of Step 14.6 is locking the gantry in at full heat expansion. A cold tighten looks the same on the bench and shows up later as an uneven first layer.
+- **Running `SHAPER_CALIBRATE` before the first successful print, or before final belt tension.** Both change the resonances you just measured, so the result is out of date before you use it. The same goes for pressure advance, which also shifts when input shaping is switched on.
+- **Sending `SAVE_CONFIG` after the shaper run and stopping there.** It writes `[input_shaper]` but deliberately does *not* touch `max_accel`. Leaving the stock `max_accel: 10000` means you shaped out the ringing and then printed at an acceleration that brings it back.
+- **Fixing an oversize cube with negative XY size compensation or the extrusion multiplier.** Negative XY compensation makes every bearing bore and screw hole in the machine oversize, and a multiplier moved to hit a caliper number leaves the best top-surface value found at 14.19–14.20. Voron parts need no compensation beyond a good multiplier tune (Ellis).
+- **PID-tuning the hotend at 260 °C with `max_temp: 270`.** The tune's relay test, which switches the heater fully on and off, overshoots the target and can reach the limit mid-run *(verify on bench)*. Tune at 245, or raise `max_temp` to 290 first.
+- **Raising `[heater_bed] max_power` above 0.6 to warm up faster.** LDO set it to protect a 355 mm cast plate from warping. Wait the extra five minutes.
 - **Skipping the heat soak because the bed says 110 °C.** The bed reaches temperature in minutes; the *frame* is there only when `PROBE_ACCURACY` stops trending. Probing a cold frame gives a mesh and a Z offset that are wrong for every print you then run.
-- **Soaking on the stock idle timeout.** `[idle_timeout] timeout: 1800` (LDO config) runs `TURN_OFF_HEATERS` + `M84` 30 minutes after the last move; a static soak has no moves, so the heaters go off, the Z motors release and the chamber "stalls". `SET_IDLE_TIMEOUT TIMEOUT=99999` when the one long soak starts at 14.3, back to 1800 at the end of 14.6; 7200 before any shorter soak, 14.8's re-soak or 14.34's.
+- **Soaking on the stock idle timeout.** `[idle_timeout] timeout: 1800` (LDO config) runs `TURN_OFF_HEATERS` + `M84` 30 minutes after the last move. A static soak has no moves, so the heaters go off, the Z motors release and the chamber seems to stall. Send `SET_IDLE_TIMEOUT TIMEOUT=99999` when the one long soak starts at 14.3 and set it back to 1800 at the end of 14.6; use 7200 before any shorter soak, 14.8's re-soak or 14.34's.
 
 ## Next
 
-The machine is tuned. Print something for the machine itself — a nozzle brush, a spool holder, the Clicky-Clack spares — and then work Ellis' sections 7 and 8 (cooling/layer times, retraction) as your first real tuning session on ASA.
+The machine is tuned. Print something for the machine itself, such as a nozzle brush, a spool holder or the Clicky-Clack spares, then work through Ellis' sections 7 and 8 (cooling and layer times, retraction) as your first real tuning session on ASA.
+

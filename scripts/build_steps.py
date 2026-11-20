@@ -799,6 +799,7 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
     pause: list[str] = []
     source: list[str] = []
     nxt: list[str] = []
+    mid: list[str] = []      # plain style: what the chapter puts between Do and Check
     before: list[str] = []   # plain style: a section intro, ahead of the step's own text
     started = False
     for seg in segs:
@@ -821,6 +822,11 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
             check += seg.lines + [""]
         elif seg.kind == "helper":
             helper.append(_helper_text(seg.lines))
+        elif chapter.plain and do and not check and seg.kind in ("prose", "warn", "tip", "block"):
+            # Between the actions and the Check in the chapter: more of the
+            # procedure (a second command, what to do with its output). It is
+            # read before "You're done when", in the chapter's own order.
+            mid += seg.lines + [""]
         elif seg.kind == "prose" and chapter.plain:
             other += seg.lines + [""]      # nothing is hidden in the plain style
         elif seg.kind in ("desc", "prose"):
@@ -901,6 +907,8 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
         do = _strip_edges(do)
     if do:
         out += ['<div class="step-do" markdown="1">', ""] + do + ["", "</div>", ""]
+    if mid:
+        out += _strip_edges(mid) + [""]
     check = _strip_edges(check)
     if chapter.plain and check and not any(
             _LIST_ITEM_RE.match(l) or _TABLE_ROW_RE.match(l) or not l.strip() for l in check):
@@ -1441,7 +1449,10 @@ def render_page(chapter: Chapter, page: Page, idx: int,
 
     out += [""] + _nav_bar(prev_ref, next_ref) + [""]
     if chapter.plain:
-        out += term_defs() + [""]
+        # Only the terms this page uses: every definition costs the abbr
+        # extension a pass over the page, and there are ~1000 of them.
+        body = "\n".join(out)
+        out += [d for d in term_defs() if d[2:d.index("]: ")] in body] + [""]
     return "\n".join(out).rstrip() + "\n"
 
 
