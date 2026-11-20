@@ -36,7 +36,7 @@ caption: Belts that sound alike are not alike. Measure both. My ears are excelle
 - **The tension you set here is provisional.** Set enough to home the printer and level the gantry (QGL). Ch 06b releases it completely to square the gantry, and Ch 14 Step 14.4 sets the final number. Tensioning to final now just gets undone.
 - **Equal length is the whole trick.** Cut each belt against the other, never to a tape measure alone.
 - **The only tension number is 110 Hz over a 150 mm span**, from the Voron tuning docs. The Voron manual gives none. Do not use a "push it 2 mm with your finger" test: nothing here calibrates it.
-- **Nothing in this chapter is torqued.** Clamp the belts lightly, pull them tight by hand, then tighten the carriage screws fully. There is no torque figure; do not invent one.
+- **Nothing in this chapter is torqued.** Clamp the first belt ends firmly and the second ends lightly, pull the belts tight by hand, then tighten the carriage screws fully. There is no torque figure; do not invent one.
 - **Three kit differences land here:** check the X carriage files (p.129–130), tape the probe (p.143), and skip p.145. The probe lead is never cut.
 
 <!-- reference -->
@@ -72,7 +72,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - **The tension you set here is provisional.** Gantry squaring (Ch 06b) *begins* by fully releasing A/B belt tension, and it needs a running printer (`G28`, `QUAD_GANTRY_LEVEL`, `SET_STEPPER_ENABLE`), so it happens inside Ch 13. Set enough tension to home and QGL. A/B tension is set three times on purpose: Ch 07 (provisional — enough to home and QGL), Ch 06b Step 06b.15 (provisional again, after squaring, cold and open) and Ch 14 Step 14.4 (final — panels on, cold, door open, immediately before the closed-chamber soak and hot Z-joint tighten of 14.6). Z belts: 06b.3 (so QGL converges for squaring), set for the last time at 14.5, same cold session. Ch 14 owns the final number; tensioning to final now just gets undone — that is [survey §5.2 W1](../voron-build-instructions-survey.md), a ~1.5 h rework.
 - **Equal length is the whole trick.** Both belt paths are the same length by design, so if the two belts are cut identical, equal tension follows (p.125). Cut each belt against the other, never to a tape measure alone: fold-cut both at once (Step 07.8), or do as p.125 recommends: route one, remove it, and cut the second to match it.
 - **There is no sourced deflection number.** The official manual gives *no* tension figure at all — only the equal-length rule. The one sourced number in this build's document set is **110 Hz over a 150 mm span** ([Voron secondary tuning](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)). voronldo.com's 80–100 Hz is discarded ([survey §4.3](../voron-build-instructions-survey.md)). Do not substitute a "push it 2 mm with your finger" test — nothing here calibrates it.
-- **Nothing in this chapter is torqued.** Belt clamps and carriage bolts go on lightly, the belts get pulled tight by hand, then the carriage bolts are fully tightened (p.140–141). The manual specifies no torque values; don't invent one.
+- **Nothing in this chapter is torqued.** The left half clamps the first belt ends at p.131. The right half's belt clamps and the carriage bolts go on lightly, the belts get pulled tight by hand, then those screws are fully tightened (p.140–141; p.141's middle panel highlights only the right half's two M3×8). The manual specifies no torque values; don't invent one.
 - Three LDO deviations land in this page range: the X-carriage variant check (p.129–130), probe insulation (p.143), and p.145 skipped entirely.
 - **The inductive probe is built once, here.** Insulation, fitting, the 6 mm height and the cable route are Steps 07.34–07.37 (manual p.143–144). The tape goes on here and nowhere else: Ch 10 Step 10.30 only confirms it. The lead is never cut: it arrives pre-terminated for the toolhead board, and Ch 08 Step 08.50 plugs it in. Ch 08 otherwise only confirms the decision and bags the Klicky set. The `probe_retainer_bracket` and the fibreglass tape are counted in this chapter's totals, not Ch 08's.
 
@@ -95,7 +95,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 ![Voron manual p.124](assets/manual-pages/manual-p124.png){ crop="0.32 0.14 0.76 0.84" }
 
-**What you're looking at:** Before any belt goes on, prove that the gantry slides freely in X and Y with nothing driving it. The belts are the last mechanical link, and they thread through six separate bearing stacks (small piles of bearings that turn the belt). Binding is far cheaper to find now.
+**What you're looking at:** Before any belt goes on, prove that the gantry slides freely in X and Y with nothing driving it. The belts are the last mechanical link, and they thread through bearing stacks (small piles of bearings that turn the belt) at six places. Binding is far cheaper to find now.
 
 **Parts:** none.
 
@@ -167,7 +167,7 @@ Source: [Voron manual p.127](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 07.5 — Set both front-idler tensioners
 
-![A front idler from above: screw backed out and the arm slid back, then 4 turns in pulling the arm forward](assets/diagrams/706-tensioner-four-turns.svg)
+![A front idler from above: screw backed out and the arm back at its stop, then 4 turns in pulling the arm forward along the screw](assets/diagrams/706-tensioner-four-turns.svg)
 ![Voron manual p.128](assets/manual-pages/manual-p128.png){ crop="0.18 0.22 0.92 0.74" }
 ![Front-idler tensioners — the handed left/right pair](assets/parts/pair-tensioner.png)
 
@@ -180,7 +180,7 @@ Source: [Voron manual p.127](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. Back each M3×40 out until the tension arm is at the slack end of its travel.
+1. Back each M3×40 out until the tension arm is at the slack end of its travel. If the arm does not follow, push it back by hand to its stop, screw head against the idler's front.
 2. Wind it back in exactly 4 turns. Count the turns, and give both idlers the same number.
 
 **Check:** both tensioner screws standing out of the front idler bodies by the same amount, with travel left in both directions.
@@ -196,7 +196,7 @@ Pause: ~25 min since the last pause — both belt paths traced against p.126–1
 ![Voron manual p.129](assets/manual-pages/manual-p129.png){ crop="0.16 0.22 0.76 0.78" }
 ![X carriage halves — the handed left/right pair](assets/parts/pair-x_frame_V2TR_MGN12.png)
 
-**What you're looking at:** Four heat-set inserts go in here: one in each X carriage half and two in the probe retainer bracket. A heat-set insert is a knurled brass sleeve melted into the plastic so a screw has metal threads to bite into.
+**What you're looking at:** Four heat-set inserts go in here: one in each X carriage half and two in the probe retainer bracket. A heat-set insert is a knurled brass sleeve melted into the plastic to give a screw metal threads.
 
 **Parts:**
 
@@ -208,7 +208,7 @@ Pause: ~25 min since the last pause — both belt paths traced against p.126–1
 
 **Do:**
 
-1. Before the belts go in, confirm you printed `x_frame_V2TR_MGN12_left` and `x_frame_V2TR_MGN12_right`, the R2 / Stealthburner halves, not the Afterburner ones.
+1. Confirm you printed `x_frame_V2TR_MGN12_left` and `x_frame_V2TR_MGN12_right`, the R2 / Stealthburner halves, not the ones for the older Afterburner toolhead.
 2. If the inserts went in during the Ch 00 pass, check them; otherwise set all four flush and square to the face.
 3. Press the two M3 nuts into their pockets in the right carriage half.
 
@@ -284,8 +284,8 @@ Pause: ~30 min since the last pause — heat-set inserts and M3 nuts in the carr
 
 **Do:**
 
-1. Feed belt A into the upper slot of the left carriage half and B into the lower, teeth facing away from the extrusion.
-2. Hold the left half, belts in, against the rail carriage (the block that rides the X rail), and run in both M3×8 screws, snug only.
+1. Feed belt A into the upper slot of the left half and B into the lower, teeth facing away from the extrusion.
+2. Hold the left half, belts in, against the rail carriage (the block that rides the X rail), and fully tighten both M3×8 screws, which hold these ends for good.
 
 **Check:** both ends held fast under a firm tug, the A mark in the upper slot, the teeth facing the same way, and neither belt twisted.
 
@@ -430,7 +430,7 @@ Source: [Voron manual p.134](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** A as a closed path, both ends at the carriage, teeth on the right joint's toothed idler and the smooth back everywhere else.
 
-*Soft stop (not a Pause):* if you must break here, tape the loose A tail to the X extrusion so it cannot pull back through a stack. When you come back, run a fingertip round all six A wraps before you start Step 07.17.
+*Soft stop (not a Pause):* if you must break here, tape the loose A tail to the X extrusion so it cannot pull back through a stack. When you come back, run a fingertip round all seven places the A belt touches before you start Step 07.17.
 
 Source: [Voron manual p.135](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=135)
 
@@ -644,14 +644,14 @@ Source: [Voron manual p.140](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Both belt tails pulled out below the X carriage until a rule shows the same length on each](assets/diagrams/704-belt-tails-equal.svg)
 ![Voron manual p.141](assets/manual-pages/manual-p141.png){ crop="0.06 0.28 0.46 0.88" }
 
-**What you're looking at:** This is where belt tension is really set; the tensioners only trim it. Because both belts and both paths are the same length, the same length of tail sticking out of the carriage on both belts means equal tension.
+**What you're looking at:** This is where belt tension is really set; the tensioners only trim it. Because both belts and both paths are the same length, equal tails mean equal tension.
 
 **Parts:** none.
 
 **Do:**
 
 1. Grab both belt ends with pliers and pull the belt tight, until the same length sticks out of the carriage on both belts.
-2. Pull one, then the other, then back again, because each pull changes the other. Tuck the excess into the carriage.
+2. Pull one, then the other, then back again, because each pull changes the other. Tuck a little excess into the carriage. Leave the rest uncut: squaring in Ch 06b may need to free and re-clamp these ends.
 
 **Check:** tails that match on the rule, and still match after you move the gantry through its full XY travel. If one crept, back off its M3×8 and pull it again.
 
@@ -669,8 +669,8 @@ Source: [Voron manual p.141](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. Fully tighten the right half's two M3×8 belt-clamp screws first, the ones p.140 left light, as the middle panel of p.141 shows. The left half's two should still be tight.
-2. Then fully tighten the two M3×30 carriage screws, stopping at solid (not specified — snug).
+1. Fully tighten the right half's two M3×8 belt-clamp screws first, the ones p.140 left light, as the middle panel of p.141 shows. The left half's two went fully tight in Step 07.9: check they still are.
+2. Then fully tighten the two M3×30 carriage screws, stopping when they are firm.
 
 **Check:** belts that do not slip when you pull hard on each one at the carriage, and an X carriage that still runs the full X rail without catching on anything.
 
@@ -705,7 +705,7 @@ This tension is provisional: the squaring procedure starts by releasing it compl
 
 ### Step 07.30 — Set the 150 mm measuring span
 
-![Top view of the right front corner: the run to pluck, 150 mm centre to centre between the XY joint's toothed idler and the front idler, and the tensioner screw, in for tighter, out for looser](assets/diagrams/702-belt-span-150.svg)
+![Top view of the right front corner: the run to pluck, 150 mm centre to centre between the XY joint's toothed idler and the front idler, and the tensioner screw, clockwise from the front for tighter, anticlockwise for looser](assets/diagrams/702-belt-span-150.svg)
 ![CAD render — the two centres the 150 mm is measured between](assets/cad/07-30-a.png)
 ![CAD render — the two centres the 150 mm is measured between, in place](assets/cad/07-30-b.png)
 
@@ -729,7 +729,7 @@ Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.voro
 ### Step 07.31 — Read both belts with the phone
 
 ![Sound Spectrum Analysis — read the lowest peak, not the loudest](assets/remote/07-ab-belts/belt-tension-spectrum-peak.jpg)
-(no image of your own belt: this is Voron's example of the app's screen. The 54.6 Hz at the top is only the peak under the finger, not a reading to copy.)
+(no image of your own belt: this is Voron's example of the app's screen, not a belt at 110 Hz. The 54.6 Hz at the top labels its tallest peak, not its lowest. Copy no number from it.)
 
 **What you're looking at:** A spectrum app turns a plucked belt into a plot of loudness against pitch, in hertz (Hz, vibrations per second). You want the lowest peak the pluck makes, the fundamental. A belt also rings at two and three times that, the harmonics, and a harmonic reads as far too tight.
 
@@ -748,7 +748,7 @@ Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.voro
 
 ### Step 07.32 — Bring both belts to ~110 Hz
 
-![Top view of the right front corner: the run to pluck, 150 mm centre to centre between the XY joint's toothed idler and the front idler, and the tensioner screw, in for tighter, out for looser](assets/diagrams/702-belt-span-150.svg)
+![Both front-idler screw heads seen from the front: a quarter turn clockwise tightens, anticlockwise loosens, alternating between the A screw on the right and the B screw on the left](assets/diagrams/707-quarter-turns.svg)
 
 **What you're looking at:** The two tensions affect each other: tightening one belt shifts the X extrusion and changes the other. So you get there by alternating quarter turns between the two belts, not by finishing one belt and then starting the other.
 
@@ -756,7 +756,7 @@ Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.voro
 
 **Do:**
 
-1. Adjust with the front-idler tensioner screws: in for more tension, out for less. Aim for about 110 Hz over the 150 mm span, about 2 lb.
+1. Adjust with the front-idler tensioner screws. Seen from the front, clockwise winds a screw in for more tension, anticlockwise lets it out. Aim for about 110 Hz over the 150 mm span, about 2 lb.
 2. Alternate quarter turns between the two belts until they read the same.
 
 **Check:** both belts reading about 110 Hz. Do not chase the number: this tension is provisional, and Ch 14 Step 14.4 sets it last.
@@ -767,7 +767,7 @@ Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.voro
 
 ### Step 07.33 — Move the gantry, return, and re-check
 
-![Top view: the X extrusion moved back a few centimetres, returned to 150 mm from the front idlers, and both belts read again](assets/diagrams/705-gantry-away-and-back.svg)
+![Top view: the X extrusion moved back a few centimetres, returned until the XY joint idler centres are 150 mm from the front idler centres, and both belts read again](assets/diagrams/705-gantry-away-and-back.svg)
 
 **What you're looking at:** Moving the gantry away and back re-seats both belts in every stack and lets trapped slack spread out. A reading that only holds while the gantry has not moved is not a reading.
 

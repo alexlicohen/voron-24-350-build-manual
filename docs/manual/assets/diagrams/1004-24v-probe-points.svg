@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" width="1200" height="1100" role="img" aria-label="24 V probe points: the PSU's DC screws and each 24 V input" style="color:#14181D">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1056" width="1200" height="1056" role="img" aria-label="24 V probe points: the PSU's DC screws and each 24 V input" style="color:#14181D">
 <title>24 V probe points: the PSU's DC screws and each 24 V input</title>
 <defs>
 <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
@@ -10,7 +10,7 @@
 <marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
 <pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
 </defs>
-<rect width="1200" height="1100" fill="#FBFAF8"/>
+<rect width="1200" height="1056" fill="#FBFAF8"/>
 <text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">24 V probe points</text>
 <line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
 <rect x="40.0" y="108.0" width="1120.0" height="70.0" rx="10" fill="#FBE3E0" stroke="#C0392B" stroke-width="3"/>
@@ -21,103 +21,104 @@
 <line x1="76.0" y1="117.0" x2="128.0" y2="169.0" stroke="#C0392B" stroke-width="6" stroke-linecap="round"/>
 <line x1="76.0" y1="169.0" x2="128.0" y2="117.0" stroke="#C0392B" stroke-width="6" stroke-linecap="round"/>
 <text x="152.0" y="155.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="800" text-anchor="start" fill="#C0392B" letter-spacing="0">Unplugged: cord out of the room</text>
-<rect x="30.0" y="198.0" width="1140.0" height="410.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<rect x="30.0" y="198.0" width="1140.0" height="390.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
 <text x="54.0" y="252.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">PSU terminal strip</text>
-<rect x="50.0" y="406.0" width="324.0" height="104.0" rx="8" fill="#FBE3E0" stroke="#C0392B" stroke-width="4"/>
-<rect x="446.0" y="406.0" width="660.0" height="104.0" rx="8" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
-<circle cx="100.0" cy="458.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<line x1="84.0" y1="442.0" x2="116.0" y2="474.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<line x1="84.0" y1="474.0" x2="116.0" y2="442.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<circle cx="212.0" cy="458.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<line x1="196.0" y1="442.0" x2="228.0" y2="474.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<line x1="196.0" y1="474.0" x2="228.0" y2="442.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<circle cx="324.0" cy="458.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<line x1="308.0" y1="442.0" x2="340.0" y2="474.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<line x1="308.0" y1="474.0" x2="340.0" y2="442.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<circle cx="496.0" cy="458.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<line x1="480.0" y1="442.0" x2="512.0" y2="474.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<line x1="480.0" y1="474.0" x2="512.0" y2="442.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<circle cx="608.0" cy="458.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<line x1="592.0" y1="442.0" x2="624.0" y2="474.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<line x1="592.0" y1="474.0" x2="624.0" y2="442.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<circle cx="720.0" cy="458.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<line x1="704.0" y1="442.0" x2="736.0" y2="474.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<line x1="704.0" y1="474.0" x2="736.0" y2="442.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<circle cx="832.0" cy="458.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<line x1="816.0" y1="442.0" x2="848.0" y2="474.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<line x1="816.0" y1="474.0" x2="848.0" y2="442.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<circle cx="944.0" cy="458.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<line x1="928.0" y1="442.0" x2="960.0" y2="474.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<line x1="928.0" y1="474.0" x2="960.0" y2="442.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<circle cx="1056.0" cy="458.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<line x1="1040.0" y1="442.0" x2="1072.0" y2="474.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<line x1="1040.0" y1="474.0" x2="1072.0" y2="442.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
-<text x="100.0" y="544.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">1 L</text>
-<text x="212.0" y="544.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">2 N</text>
-<text x="324.0" y="544.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">3 FG</text>
-<text x="212.0" y="582.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">mains: never probe</text>
-<rect x="403.0" y="366.0" width="14.0" height="184.0" rx="3" fill="#3E4550" stroke="#3E4550" stroke-width="1"/>
-<text x="410.0" y="354.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#3E4550" letter-spacing="0">fin</text>
-<text x="608.0" y="544.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">−V</text>
-<text x="944.0" y="544.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">+V</text>
-<text x="608.0" y="582.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">4 to 6</text>
-<text x="944.0" y="582.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">7 to 9</text>
-<line x1="608.0" y1="428.0" x2="603.9" y2="404.6" stroke="#B6BDC6" stroke-width="3.5" stroke-linecap="round"/>
-<polygon points="599.0,405.4 593.5,402.1 592.8,398.0 612.1,394.6 612.8,398.7 608.7,403.7" fill="#14181D" stroke="#14181D" stroke-width="1"/>
-<polygon points="595.5,397.5 582.9,325.8 596.7,323.4 609.3,395.1" fill="#14181D" stroke="#14181D" stroke-width="1"/>
-<line x1="589.8" y1="324.6" x2="583.7" y2="290.1" stroke="#14181D" stroke-width="3.5" stroke-linecap="round"/>
-<line x1="944.0" y1="428.0" x2="948.1" y2="404.6" stroke="#B6BDC6" stroke-width="3.5" stroke-linecap="round"/>
-<polygon points="943.3,403.7 939.2,398.7 939.9,394.6 959.2,398.0 958.5,402.1 953.0,405.4" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
-<polygon points="942.7,395.1 955.3,323.4 969.1,325.8 956.5,397.5" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
-<line x1="962.2" y1="324.6" x2="968.3" y2="290.1" stroke="#C0392B" stroke-width="3.5" stroke-linecap="round"/>
+<rect x="50.0" y="382.0" width="324.0" height="104.0" rx="8" fill="#FBE3E0" stroke="#C0392B" stroke-width="4"/>
+<rect x="446.0" y="382.0" width="660.0" height="104.0" rx="8" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<circle cx="100.0" cy="434.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<line x1="84.0" y1="418.0" x2="116.0" y2="450.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<line x1="84.0" y1="450.0" x2="116.0" y2="418.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<circle cx="212.0" cy="434.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<line x1="196.0" y1="418.0" x2="228.0" y2="450.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<line x1="196.0" y1="450.0" x2="228.0" y2="418.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<circle cx="324.0" cy="434.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<line x1="308.0" y1="418.0" x2="340.0" y2="450.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<line x1="308.0" y1="450.0" x2="340.0" y2="418.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<circle cx="496.0" cy="434.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<line x1="480.0" y1="418.0" x2="512.0" y2="450.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<line x1="480.0" y1="450.0" x2="512.0" y2="418.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<circle cx="608.0" cy="434.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<line x1="592.0" y1="418.0" x2="624.0" y2="450.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<line x1="592.0" y1="450.0" x2="624.0" y2="418.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<circle cx="720.0" cy="434.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<line x1="704.0" y1="418.0" x2="736.0" y2="450.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<line x1="704.0" y1="450.0" x2="736.0" y2="418.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<circle cx="832.0" cy="434.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<line x1="816.0" y1="418.0" x2="848.0" y2="450.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<line x1="816.0" y1="450.0" x2="848.0" y2="418.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<circle cx="944.0" cy="434.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<line x1="928.0" y1="418.0" x2="960.0" y2="450.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<line x1="928.0" y1="450.0" x2="960.0" y2="418.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<circle cx="1056.0" cy="434.0" r="30.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<line x1="1040.0" y1="418.0" x2="1072.0" y2="450.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<line x1="1040.0" y1="450.0" x2="1072.0" y2="418.0" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<text x="100.0" y="520.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">1 L</text>
+<text x="212.0" y="520.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">2 N</text>
+<text x="324.0" y="520.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">3 FG</text>
+<text x="212.0" y="310.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">mains screws:</text>
+<text x="212.0" y="348.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">not in this test</text>
+<rect x="403.0" y="342.0" width="14.0" height="184.0" rx="3" fill="#3E4550" stroke="#3E4550" stroke-width="1"/>
+<text x="410.0" y="330.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#3E4550" letter-spacing="0">fin</text>
+<text x="608.0" y="520.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">−V</text>
+<text x="944.0" y="520.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">+V</text>
+<text x="608.0" y="558.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">4 to 6</text>
+<text x="944.0" y="558.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">7 to 9</text>
+<line x1="608.0" y1="404.0" x2="604.2" y2="382.2" stroke="#B6BDC6" stroke-width="3.25" stroke-linecap="round"/>
+<polygon points="599.7,383.0 594.5,380.0 593.8,376.1 611.8,373.0 612.4,376.8 608.6,381.4" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<polygon points="596.4,375.7 584.7,309.1 597.5,306.9 609.2,373.4" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<line x1="591.1" y1="308.0" x2="585.4" y2="276.0" stroke="#14181D" stroke-width="3.25" stroke-linecap="round"/>
+<line x1="944.0" y1="404.0" x2="947.8" y2="382.2" stroke="#B6BDC6" stroke-width="3.25" stroke-linecap="round"/>
+<polygon points="943.4,381.4 939.6,376.8 940.2,373.0 958.2,376.1 957.5,380.0 952.3,383.0" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<polygon points="942.8,373.4 954.5,306.9 967.3,309.1 955.6,375.7" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<line x1="960.9" y1="308.0" x2="966.6" y2="276.0" stroke="#C0392B" stroke-width="3.25" stroke-linecap="round"/>
 <text x="1150.0" y="252.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="end" fill="#2E7D32" letter-spacing="0">first: DC V reads 0 V for 10 s</text>
-<rect x="30.0" y="624.0" width="1140.0" height="460.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
-<text x="54.0" y="678.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Then on Ω, each input, + to −</text>
-<rect x="130.0" y="800.0" width="180.0" height="80.0" rx="8" fill="#E7E9EC" stroke="#14181D" stroke-width="3"/>
-<circle cx="176.0" cy="840.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<text x="176.0" y="853.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">+</text>
-<circle cx="264.0" cy="840.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<text x="264.0" y="853.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#14181D" letter-spacing="0">−</text>
-<line x1="176.0" y1="816.0" x2="170.7" y2="796.3" stroke="#B6BDC6" stroke-width="3.0" stroke-linecap="round"/>
-<polygon points="166.7,797.4 161.7,795.0 160.7,791.5 177.0,787.2 177.9,790.6 174.8,795.2" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
-<polygon points="163.1,790.9 146.9,730.6 158.5,727.5 174.7,787.8" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
-<line x1="152.7" y1="729.1" x2="144.9" y2="700.1" stroke="#C0392B" stroke-width="3.0" stroke-linecap="round"/>
-<line x1="264.0" y1="816.0" x2="269.3" y2="796.3" stroke="#B6BDC6" stroke-width="3.0" stroke-linecap="round"/>
-<polygon points="265.2,795.2 262.1,790.6 263.0,787.2 279.3,791.5 278.3,795.0 273.3,797.4" fill="#14181D" stroke="#14181D" stroke-width="1"/>
-<polygon points="265.3,787.8 281.5,727.5 293.1,730.6 276.9,790.9" fill="#14181D" stroke="#14181D" stroke-width="1"/>
-<line x1="287.3" y1="729.1" x2="295.1" y2="700.1" stroke="#14181D" stroke-width="3.0" stroke-linecap="round"/>
-<text x="220.0" y="924.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Leviathan</text>
-<text x="220.0" y="960.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Vin 24V</text>
-<rect x="510.0" y="800.0" width="180.0" height="80.0" rx="8" fill="#E7E9EC" stroke="#14181D" stroke-width="3"/>
-<circle cx="556.0" cy="840.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<text x="556.0" y="853.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">+</text>
-<circle cx="644.0" cy="840.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<text x="644.0" y="853.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#14181D" letter-spacing="0">−</text>
-<line x1="556.0" y1="816.0" x2="550.7" y2="796.3" stroke="#B6BDC6" stroke-width="3.0" stroke-linecap="round"/>
-<polygon points="546.7,797.4 541.7,795.0 540.7,791.5 557.0,787.2 557.9,790.6 554.8,795.2" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
-<polygon points="543.1,790.9 526.9,730.6 538.5,727.5 554.7,787.8" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
-<line x1="532.7" y1="729.1" x2="524.9" y2="700.1" stroke="#C0392B" stroke-width="3.0" stroke-linecap="round"/>
-<line x1="644.0" y1="816.0" x2="649.3" y2="796.3" stroke="#B6BDC6" stroke-width="3.0" stroke-linecap="round"/>
-<polygon points="645.2,795.2 642.1,790.6 643.0,787.2 659.3,791.5 658.3,795.0 653.3,797.4" fill="#14181D" stroke="#14181D" stroke-width="1"/>
-<polygon points="645.3,787.8 661.5,727.5 673.1,730.6 656.9,790.9" fill="#14181D" stroke="#14181D" stroke-width="1"/>
-<line x1="667.3" y1="729.1" x2="675.1" y2="700.1" stroke="#14181D" stroke-width="3.0" stroke-linecap="round"/>
-<text x="600.0" y="924.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Leviathan</text>
-<text x="600.0" y="960.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Vin 24-48V</text>
-<rect x="890.0" y="800.0" width="180.0" height="80.0" rx="8" fill="#E7E9EC" stroke="#14181D" stroke-width="3"/>
-<circle cx="936.0" cy="840.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<text x="936.0" y="853.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">+</text>
-<circle cx="1024.0" cy="840.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
-<text x="1024.0" y="853.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#14181D" letter-spacing="0">−</text>
-<line x1="936.0" y1="816.0" x2="930.7" y2="796.3" stroke="#B6BDC6" stroke-width="3.0" stroke-linecap="round"/>
-<polygon points="926.7,797.4 921.7,795.0 920.7,791.5 937.0,787.2 937.9,790.6 934.8,795.2" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
-<polygon points="923.1,790.9 906.9,730.6 918.5,727.5 934.7,787.8" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
-<line x1="912.7" y1="729.1" x2="904.9" y2="700.1" stroke="#C0392B" stroke-width="3.0" stroke-linecap="round"/>
-<line x1="1024.0" y1="816.0" x2="1029.3" y2="796.3" stroke="#B6BDC6" stroke-width="3.0" stroke-linecap="round"/>
-<polygon points="1025.2,795.2 1022.1,790.6 1023.0,787.2 1039.3,791.5 1038.3,795.0 1033.3,797.4" fill="#14181D" stroke="#14181D" stroke-width="1"/>
-<polygon points="1025.3,787.8 1041.5,727.5 1053.1,730.6 1036.9,790.9" fill="#14181D" stroke="#14181D" stroke-width="1"/>
-<line x1="1047.3" y1="729.1" x2="1055.1" y2="700.1" stroke="#14181D" stroke-width="3.0" stroke-linecap="round"/>
-<text x="980.0" y="924.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">USB adapter</text>
-<text x="980.0" y="960.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">24V IN</text>
-<text x="600.0" y="1024.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">All four read the same, rising. Never 0 Ω.</text>
-<text x="600.0" y="1068.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">To the C14 earth pin: +V about the same, −V a few Ω.</text>
+<rect x="30.0" y="604.0" width="1140.0" height="436.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<text x="54.0" y="658.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Then on Ω, each input, + to −</text>
+<rect x="130.0" y="760.0" width="180.0" height="80.0" rx="8" fill="#E7E9EC" stroke="#14181D" stroke-width="3"/>
+<circle cx="176.0" cy="800.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<text x="176.0" y="813.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">+</text>
+<circle cx="264.0" cy="800.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<text x="264.0" y="813.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#14181D" letter-spacing="0">−</text>
+<line x1="176.0" y1="776.0" x2="171.6" y2="759.6" stroke="#B6BDC6" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="168.2,760.5 164.1,758.5 163.3,755.6 176.8,752.0 177.6,754.9 175.0,758.7" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<polygon points="165.2,755.1 151.8,704.8 161.4,702.3 174.9,752.5" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<line x1="156.6" y1="703.6" x2="150.1" y2="679.4" stroke="#C0392B" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="264.0" y1="776.0" x2="268.4" y2="759.6" stroke="#B6BDC6" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="265.0,758.7 262.4,754.9 263.2,752.0 276.7,755.6 275.9,758.5 271.8,760.5" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<polygon points="265.1,752.5 278.6,702.3 288.2,704.8 274.8,755.1" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<line x1="283.4" y1="703.6" x2="289.9" y2="679.4" stroke="#14181D" stroke-width="2.5" stroke-linecap="round"/>
+<text x="220.0" y="884.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Leviathan</text>
+<text x="220.0" y="920.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Vin 24V</text>
+<rect x="510.0" y="760.0" width="180.0" height="80.0" rx="8" fill="#E7E9EC" stroke="#14181D" stroke-width="3"/>
+<circle cx="556.0" cy="800.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<text x="556.0" y="813.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">+</text>
+<circle cx="644.0" cy="800.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<text x="644.0" y="813.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#14181D" letter-spacing="0">−</text>
+<line x1="556.0" y1="776.0" x2="551.6" y2="759.6" stroke="#B6BDC6" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="548.2,760.5 544.1,758.5 543.3,755.6 556.8,752.0 557.6,754.9 555.0,758.7" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<polygon points="545.2,755.1 531.8,704.8 541.4,702.3 554.9,752.5" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<line x1="536.6" y1="703.6" x2="530.1" y2="679.4" stroke="#C0392B" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="644.0" y1="776.0" x2="648.4" y2="759.6" stroke="#B6BDC6" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="645.0,758.7 642.4,754.9 643.2,752.0 656.7,755.6 655.9,758.5 651.8,760.5" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<polygon points="645.1,752.5 658.6,702.3 668.2,704.8 654.8,755.1" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<line x1="663.4" y1="703.6" x2="669.9" y2="679.4" stroke="#14181D" stroke-width="2.5" stroke-linecap="round"/>
+<text x="600.0" y="884.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Leviathan</text>
+<text x="600.0" y="920.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Vin 24-48V</text>
+<rect x="890.0" y="760.0" width="180.0" height="80.0" rx="8" fill="#E7E9EC" stroke="#14181D" stroke-width="3"/>
+<circle cx="936.0" cy="800.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<text x="936.0" y="813.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">+</text>
+<circle cx="1024.0" cy="800.0" r="24.0" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<text x="1024.0" y="813.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#14181D" letter-spacing="0">−</text>
+<line x1="936.0" y1="776.0" x2="931.6" y2="759.6" stroke="#B6BDC6" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="928.2,760.5 924.1,758.5 923.3,755.6 936.8,752.0 937.6,754.9 935.0,758.7" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<polygon points="925.2,755.1 911.8,704.8 921.4,702.3 934.9,752.5" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<line x1="916.6" y1="703.6" x2="910.1" y2="679.4" stroke="#C0392B" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="1024.0" y1="776.0" x2="1028.4" y2="759.6" stroke="#B6BDC6" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="1025.0,758.7 1022.4,754.9 1023.2,752.0 1036.7,755.6 1035.9,758.5 1031.8,760.5" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<polygon points="1025.1,752.5 1038.6,702.3 1048.2,704.8 1034.8,755.1" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<line x1="1043.4" y1="703.6" x2="1049.9" y2="679.4" stroke="#14181D" stroke-width="2.5" stroke-linecap="round"/>
+<text x="980.0" y="884.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">USB adapter</text>
+<text x="980.0" y="920.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">24V IN</text>
+<text x="600.0" y="976.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">All four read the same, rising. Never 0 Ω.</text>
+<text x="600.0" y="1018.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">To the C14 earth pin: +V about the same, −V a few Ω.</text>
 </svg>

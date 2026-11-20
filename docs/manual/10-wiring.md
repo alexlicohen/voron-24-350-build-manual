@@ -167,15 +167,15 @@ Source: [Voron manual p.181](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![LDO Leviathan V1.3 board map — port and jumper-block locations](assets/remote/10-wiring/wiring_V1.3.jpg)
 
-**What you're looking at:** The [Leviathan](16-glossary.md#l) is LDO's mainboard: it drives six motors, reads the bed thermistor and the endstops, and supplies the Raspberry Pi with 5 V. Its jumper block is five pairs of pins that choose 24 V or 5 V for the probe port and four fan ports. A jumper is the small plug that bridges a pair.
+**What you're looking at:** The [Leviathan](16-glossary.md#l) is LDO's mainboard: it drives six motors, reads the bed thermistor and the endstops, and supplies the Raspberry Pi with 5 V. Above the probe port and each of the four fan ports sits a small 3-pin header. A jumper, the small plug that bridges two of its three pins, picks 24 V or 5 V for that port.
 
 **Parts:**
 
 - reused: the Leviathan mainboard
 
-**Do:** Find the jumper block printed *Voltage selection for Z-Probe and Fans*, next to the fan headers. All five positions, **Probe, Fan0, Fan1, Fan2, Fan3**, must be bare.
+**Do:** Find the five 3-pin headers that LDO's map boxes in red as *Voltage selection for Z-Probe and Fans*, one above each of the **Z-PROBE, FAN0, FAN1, FAN2** and **FAN3** ports. All five must be bare.
 
-**Check:** You have counted five empty jumper pairs.
+**Check:** You have counted five headers, none with a jumper on it.
 
 ⚠ Rev D+ / LDO: this build uses an **active** toolboard, so the Leviathan's own probe port and Fan0/Fan1 stay unused and without jumpers. Only Ch 14 Part H's optional exhaust fan later takes FAN0 and a third jumper. A 24 V jumper on a port feeding a 5 V device destroys the device. [src](https://ldomotion.com/guides/voron-leviathan-v1-3) · Leviathan V1.3 manual p.7
 
@@ -306,7 +306,7 @@ Source: [LDO Rev D photo S2 inlet wired](https://raw.githubusercontent.com/Motor
 ![Layout v3, Step 10.9: WAGO bus into the wire box, down the port stub (10c) into the SSR run (T_SHORT) and out its open end to PSU 1 L, 2 N, 3 FG. Lead paths schematic](assets/b11/v3-lead-10-09-wago-psu.jpg)
 ![LDO S3 mapping, LDO layout](assets/remote/10-wiring/ldo-revd-s3-wago-psu-mapping.jpg)
 
-**What you're looking at:** The PSU's AC input is the three screws at one end of its terminal block: **1 AC/L, 2 AC/N, 3 FG**, where FG is frame ground, marked ⏚. The rest is the 24 V DC output, empty until step 10.24.
+**What you're looking at:** The PSU's AC input is the three screws at one end of its terminal block: **1 AC/L, 2 AC/N, 3 FG** (frame ground, ⏚). The rest is the 24 V output, left empty until step 10.24.
 
 **Parts:**
 
@@ -315,11 +315,11 @@ Source: [LDO Rev D photo S2 inlet wired](https://raw.githubusercontent.com/Motor
 
 **Do:**
 
-1. Feed the [ferruled](16-glossary.md#f) ends (crimped sleeves) down the port stub and SSR run.
+1. Feed the [ferruled](16-glossary.md#f) ends (crimped sleeves) down the port stub, the short duct off the wire box, and the SSR run, the T-duct behind the SSR.
 2. Brown on **1 L**, blue on **2 N**, green/yellow on **3 FG**, PH2 tight.
-3. Strip the other ends to 11 mm and push them into WAGO blue **N**, brown **L**, green/yellow **PE**.
+3. Strip the other ends to 11 mm and push each into its colour's WAGO: **N**, **L**, **PE**.
 
-**Check:** Screw **1 L** is outermost, then **2 N**, then **3 FG** innermost beside −V: brown, blue, green/yellow. All six ends pass a pull test; the DC side is still empty.
+**Check:** Screw **1 L** is outermost, then **2 N**, then **3 FG** innermost beside −V, and all six ends pass a pull test.
 
 ⚠ **LDO layout:** the cable runs from the WAGO bus along LDO's rear PVC duct to the PSU screws, as the mapping photo shows. [LDO § Connecting WAGO and PSU](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-wago-and-psu)
 
@@ -461,7 +461,7 @@ Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/e
 
 **Do:**
 
-1. Run the Bed L extension from the bed WAGO breakout down through the round deck hole into the 34 mm run, round both curves, and through the wire box, port stub and SSR run.
+1. Run the Bed L extension from the bed WAGO breakout down through the round deck hole into the 34 mm run, the short straight duct over that hole, round both curves, and through the wire box, port stub and SSR run.
 2. Land it on terminal **LOAD 1**, PH2 tight.
 
 **Check:** Terminal 1 is the bed and terminal 2 is mains Live, LDO's convention from the photo, and the lead lies slack in the conduit.
@@ -555,9 +555,9 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 ### Step 10.18 — Colour groups are shorted
 
-![Mains bus, unplugged: one probe parked on a C14 pin, the other walked to every point of that colour; every point beeps](assets/diagrams/1001-mains-bus-probe-points.svg)
+![Mains bus, unplugged: one probe parked on a C14 pin, the other walked to every point of that colour; L passes the fuse and the rocker, N the rocker, PE neither; every point beeps](assets/diagrams/1001-mains-bus-probe-points.svg)
 
-**What you're looking at:** You are proving that each wire colour is one node, one connected path, from the inlet pin to its last destination: out to the PSU screws, the relay, the bed and the frame. A core that never seated in its lever looks perfect from outside.
+**What you're looking at:** You are proving that each wire colour is one node, one connected path, from the inlet pin out to the PSU screws, the relay, the bed and the frame. A core that never seated in its lever looks perfect from outside.
 
 **Parts:**
 
@@ -569,7 +569,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 2. Rocker **ON** for the L and N tables; either position for PE.
 3. For a row with an Ω figure, first touch the probes together on Ω and subtract that reading.
 
-**Check:** Every row of the tables below beeps.
+**Check:** Every row beeps except SSR **LOAD 1 → LOAD 2** in the last table, which stays silent.
 
 **PE, green/yellow** (rocker on or off: the earth path is never switched)
 
@@ -616,7 +616,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 ### Step 10.19 — L, N and PE are isolated from each other
 
-![L, N and PE, unplugged: no pair beeps, at the WAGO blocks with the rocker on and off, and at the PSU screws 1 L, 2 N and 3 FG](assets/diagrams/1006-mains-isolation-pairs.svg)
+![L, N and PE, unplugged: no pair beeps, at the WAGO blocks N, L, PE left to right with the rocker on and off, and at the PSU screws 1 L, 2 N and 3 FG](assets/diagrams/1006-mains-isolation-pairs.svg)
 
 **What you're looking at:** The mirror image of the last check: the three buses must have no path between them at all. Live touching Neutral is a short circuit across the mains; Live touching earth is what makes the metalwork deadly.
 
@@ -743,14 +743,14 @@ Pause: ~25 min since the last pause — Checkpoint #1 passed end to end, and the
 
 ![LDO inductive-probe insulation](assets/remote/10-wiring/ldo-probe-insulation.jpg)
 
-**What you're looking at:** The [inductive probe](16-glossary.md#i) is the small Omron sensor on the X carriage that senses the metal bed for gantry levelling; it never sets Z=0. Its fibreglass tape went on before it was fitted. The tape shields the probe from hotend heat; it is not a spacer. This step only confirms it.
+**What you're looking at:** The [inductive probe](16-glossary.md#i) is the small Omron sensor on the X carriage that senses the metal bed for gantry levelling; it never sets Z=0. Its fibreglass tape, fitted earlier, shields it from hotend heat. This step only confirms it.
 
 **Parts:** none.
 
 **Do:**
 
 1. Look at the probe on the carriage. Confirm the tape from Step 07.34 is intact on the front and sides.
-2. Do not add more tape: a second wrap makes too much, and the probe stops triggering. If the tape is torn, patch that spot only. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe)
+2. Leave it: LDO asks for at least two layers there. Patch a torn spot only. If the probe later fails to trigger, LDO's fix is to trim bits of tape away. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe)
 
 **Check:** The sensing face and the back are bare, and the tape does not bulge past the probe's lower rim.
 
@@ -955,8 +955,8 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 
 **Do:**
 
-1. Tape a 10 cm tail 5 cm left of front centre. Run it along the top front, then top right, lower slots.
-2. Take it down the rear-right vertical's slot below the PCB, past both seals, to the notch and the Pi. Lay the whole run before taping.
+1. Lay the whole run first: the lower slot of the top front extrusion, then of the top right one, then down the rear-right vertical's slot below the PCB, past both seals, to the notch and the Pi.
+2. If it reaches, tape a 10 cm tail 5 cm left of front centre.
 
 **Check:** The tail is taped left of the front centre, the cable sits below every slot lip, and the plug end is tagged at the Pi, unplugged.
 
@@ -970,10 +970,10 @@ Source: [HappyCam, Printables 488020](https://www.printables.com/model/488020) �
 
 ### Step 10.38 — Route the LED lead down to the deck and close the slots
 
-![LDO LED strip routing](assets/remote/10-wiring/ldo-led-route.png)
 ![LDO photo of the finished LED run: cable in the extrusion slot under its cover](assets/remote/10-wiring/led_final.jpg)
+![LDO LED strip routing](assets/remote/10-wiring/ldo-led-route.png)
 
-**What you're looking at:** Extrusion slot covers are flexible plastic strips that press into an empty extrusion slot; here they hide and protect the LED cable down to the deck. Ch 11's top panel and Z-belt covers close this path for good.
+**What you're looking at:** Extrusion slot covers are flexible plastic strips that press into an extrusion slot and protect the LED cable down to the deck. Ch 11's top panel and Z-belt covers close this path for good.
 
 **Parts:**
 
@@ -982,8 +982,8 @@ Source: [HappyCam, Printables 488020](https://www.printables.com/model/488020) �
 
 **Do:**
 
-1. Run the junction PCB's third lead down the rear-right vertical's slot below the PCB, then through the Z-chain notch. The seals from Step 01.23 stay in: the lead enters the slot below the top seal and leaves it above the bottom seal.
-2. Press the 6 mm slot covers over every slot a cable occupies. Do this **now**.
+1. Plug the *LED STRIP* cable into the junction PCB's third port and run it down the rear-right vertical's slot below the PCB, then through the Z-chain notch. The seals from Step 01.23 stay in: the lead enters below the top seal and leaves above the bottom one.
+2. Press 6 mm slot covers over every slot a cable occupies. Do it **now**.
 
 **Check:** No cable is outside a covered slot except the short hops past the seals, and nothing crosses the gantry's Z travel.
 
@@ -1008,7 +1008,7 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 **Do:**
 
 1. Nothing on the Leviathan: the chamber thermistor goes on the **toolboard's CT port**, a Ch 08 step.
-2. If yours is still loose, place its tip in free chamber air, away from the hotend and out of the toolhead's travel.
+2. If yours is still loose, place its tip in free chamber air, away from the hotend, where nothing it passes can snag it.
 
 **Check:** Your batch BOM tells you whether the part is in the kit, and the Klipper config's `[temperature_sensor chamber_temp]` reads `nhk:PB2`, the toolboard, not the mainboard.
 
@@ -1028,7 +1028,7 @@ Pause: ~35 min since the last pause, ~45 with the camera cable — eight COB mou
 
 ![Voron manual p.197](assets/manual-pages/manual-p197.png)
 
-**What you're looking at:** A [drag chain](16-glossary.md#d) is a hinged plastic channel that lets a cable follow a moving part without bending in the same spot every time. The X chain runs along the top of the X extrusion, fixed at one end and clipped to the toolhead anchor at the other. 
+**What you're looking at:** A [drag chain](16-glossary.md#d) is a hinged plastic channel that lets a cable follow a moving part without bending in one spot. The X chain runs along the top of the X extrusion, from a fixed end to the toolhead.
 
 **Parts:**
 
@@ -1039,10 +1039,10 @@ Pause: ~35 min since the last pause, ~45 with the camera cable — eight COB mou
 
 **Do:**
 
-1. Cut the chain to length. Slide the T-nut into the top slot of the X extrusion.
-2. Fix the chain's fixed end to it with one M3×6 FHCS, and the moving end to LDO's tilted chain anchor on the toolhead with two.
+1. Slide the T-nut into the X extrusion's top slot. Hold both chain ends in place, push the toolhead through its full X travel, and unclip links to the shortest length that never pulls tight, plus one spare (verify on bench).
+2. Screw the fixed end to the T-nut with one M3×6 FHCS, the moving end to the CW2 Chain Anchor Tilted with two.
 
-**Check:** The chain rolls, never drags on the extrusion and never reaches full stretch as you push the toolhead through its full X travel by hand.
+**Check:** Over full X travel, the chain rolls, never drags on the extrusion and never pulls tight.
 
 The kit ships **2-hole** chain ends: print the `*_2hole` variants, never `*_3hole`. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
@@ -1282,7 +1282,7 @@ Source: [LDO Rev D photo S1 stepper mapping](https://raw.githubusercontent.com/M
 
 **Do:**
 
-1. Plug the A motor, rear right, into the TMC5160 port LDO's diagram labels `HV-STEPPER-1`. Match your board against `S1_mapping.jpg`, not the *Stepper X/Y* printed on the board.
+1. Plug the A motor, rear right, into the port printed `HV-STEPPER-1` on the board, as `S1_mapping.jpg` shows. LDO's board map in step 10.3 calls this port *Stepper Y*: that is Klipper's name for the A motor, not a Y-axis motor.
 2. Route the lead from the notch along the DC loop's right run and middle run.
 
 **Check:** The connector is fully in with its latch engaged, and the lead lies in the DC loop with slack and no pull on the header.
@@ -1386,7 +1386,7 @@ Source: [LDO Rev D photo S6 gantry-cable mapping](https://raw.githubusercontent.
 
 ![LDO S6 endstop result](assets/remote/10-wiring/ldo-revd-s6-endstops-wired.jpg)
 
-**What you're looking at:** `Z-ENDSTOP` and `Z-PROBE` are two different headers a few millimetres apart on the same board. The mechanical nozzle probe belongs on `Z-ENDSTOP`; `Z-PROBE` stays empty for the whole build, because the inductive probe is wired to the toolboard instead.
+**What you're looking at:** `Z-ENDSTOP` and `Z-PROBE` are two different headers at opposite ends of the board's long row of small headers: `Z-PROBE` beside `FAN0`, `Z-ENDSTOP` last, after `Y-ENDSTOP`. The mechanical nozzle probe belongs on `Z-ENDSTOP`; `Z-PROBE` stays empty for the whole build, because the inductive probe is wired to the toolboard instead.
 
 **Parts:**
 
@@ -1464,7 +1464,7 @@ Source: [LDO Rev D photo S7 fans wired](https://raw.githubusercontent.com/MotorD
 
 ![LDO S7 mapping](assets/remote/10-wiring/ldo-revd-s7-fan-led-mapping.jpg)
 
-**What you're looking at:** `LED-Strip` is a dimmable constant-current output that powers plain LEDs directly, up to 350 mA. The `Neopixel` header next to it instead sends a data signal to addressable LEDs, each set separately; the Stealthburner logo uses those, and it runs from the toolboard, not from here.
+**What you're looking at:** `LED-Strip` is a dimmable constant-current output that powers plain LEDs directly, up to 350 mA. The `Neopixel` header, further along the same board edge, instead sends a data signal to addressable LEDs, each set separately; the Stealthburner logo uses those, and it runs from the toolboard, not from here.
 
 **Parts:**
 
@@ -1590,10 +1590,11 @@ Pause: ~40 min since the last pause — bay-fan splicer, filter fan and LED stri
 
 **Do:**
 
-1. Put the **TO MB** end on the PSU +V/−V and the **24V** end on the Leviathan's **Vin 24V / Board**: red to +, black to −.
-2. Tag the cable. Tags and wire colours are the only end markers (verify on bench).
+1. Before touching the DC screws, meter PSU +V to −V on DC volts: **0 V**, still 0 V ten seconds later.
+2. Put the **TO MB** end on the PSU +V/−V and the **24V** end on the Leviathan's **Vin 24V / Board**: red to +, black to −.
+3. Tag the cable. Tags and wire colours are the only end markers (verify on bench).
 
-**Check:** The meter on DC volts reads **0 V** across PSU +V and −V, still 0 V ten seconds later; polarity is read twice at both ends, and the cable is tagged at the board end.
+**Check:** Polarity is read twice at both ends, and the cable is tagged at the board end.
 
 Source: [LDO Rev D photo S4 24 V/SSR mapping](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S4_mapping.jpg) · [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-24v) · [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) (manual p.8)
 
@@ -1619,7 +1620,7 @@ Source: [LDO Rev D photo S4 mainboard/PSU wired](https://raw.githubusercontent.c
 
 ### Step 10.26 — PSU → USB adapter PCB (toolhead 24 V)
 
-![LDO S4 mapping: the dark green run from the PSU to the USB adapter PCB on the right DIN rail](assets/remote/10-wiring/ldo-revd-s4-24v-ssr-mapping.jpg)
+![LDO S4 mapping: the dark green run from the PSU to the USB adapter PCB at the right end of the upper DIN rail](assets/remote/10-wiring/ldo-revd-s4-24v-ssr-mapping.jpg)
 
 **What you're looking at:** The [USB adapter PCB](16-glossary.md#u) on its DIN clip is the bay end of the toolhead link: 24 V and USB arrive on one side as two separate cables and leave on the other as one umbilical. This step is the 24 V half.
 
@@ -1663,7 +1664,7 @@ Source: [LDO Rev D photo S4 24 V/SSR mapping](https://raw.githubusercontent.com/
 ![LDO Leviathan V1.3 board map — port and jumper-block locations](assets/remote/10-wiring/wiring_V1.3.jpg)
 ![Leviathan voltage-selection jumper map](assets/diagrams/07-leviathan-jumper-map.svg)
 
-**What you're looking at:** The jumper block from step 10.3, now being set. A jumper across a port's 24 V pins selects that port's output voltage. The diagram shows the end state: five headers, Fan2 and Fan3 fitted at 24 V, three left bare.
+**What you're looking at:** The five jumper headers from step 10.3, now being set. A jumper in the 24V position of a port's 3-pin header selects 24 V for that port. The diagram shows the end state: five headers, Fan2 and Fan3 fitted at 24 V, three left bare.
 
 **Parts:**
 
@@ -1762,7 +1763,7 @@ Source: [Nitehawk-SB-V2 repo `nhsbv2_pcb_pinout.jpg`](https://github.com/MotorDy
 
 **Parts:** none.
 
-**Do:** Know the board-to-board interface between the Stealthburner fan adapter and the toolboard: on V2 it is a **2×5**, 10-pin header, with **reversed gender** and **keying**. V1 used 2×4, and every Rev D photo online shows that old arrangement.
+**Do:** Look at the seam where the Stealthburner front meets the toolboard. The two boards join there through a **2×5**, 10-pin header, **keyed** and with **reversed gender** on V2. V1 used 2×4, and every Rev D photo online shows that old arrangement.
 
 **Check:** The Stealthburner front drops on and the header seats with **no gap**. If it does not, it is backwards; do not press harder.
 
@@ -2005,7 +2006,7 @@ Pause: ~30 min since the last pause — below-deck runs dressed, mains in the AC
 
 ### Step 10.73 — Confirm dead
 
-![24 V probe points, unplugged: on the PSU strip the black probe on −V and the red on +V, never on 1 L, 2 N or 3 FG; then each 24 V input, + to −](assets/diagrams/1004-24v-probe-points.svg)
+![24 V probe points, unplugged: on the PSU strip the black probe on −V and the red on +V; the mains screws 1 L, 2 N and 3 FG are not part of this test; then each 24 V input, + to −](assets/diagrams/1004-24v-probe-points.svg)
 
 **What you're looking at:** A PSU holds charge in its large (bulk) capacitors after the cord comes out. Reading 0 V across its DC output, and watching it stay there for ten seconds, is what proves the machine is safe to probe.
 
@@ -2028,7 +2029,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 ### Step 10.74 — 24 V rails
 
-![24 V probe points, unplugged: on the PSU strip the black probe on −V and the red on +V, never on 1 L, 2 N or 3 FG; then each 24 V input, + to −](assets/diagrams/1004-24v-probe-points.svg)
+![24 V probe points, unplugged: on the PSU strip the black probe on −V and the red on +V; the mains screws 1 L, 2 N and 3 FG are not part of this test; then each 24 V input, + to −](assets/diagrams/1004-24v-probe-points.svg)
 
 **What you're looking at:** The final 24 V table, now that the umbilical and toolboard are on the rail too. A healthy rail reads a resistance that rises; a shorted one behaves like a piece of wire. The last two rows check the rail against **earth**.
 
@@ -2096,7 +2097,7 @@ Source: [LDO Build Notes p.152, p.172, p.190](https://docs.ldomotors.com/voron/v
 
 1. Read your room temperature.
 2. Leave the bed thermistor plugged in, and write its 10.44 reading in the table.
-3. Skip the hotend and chamber thermistors: the toolhead closed at 10.58, and Ch 13 reads both.
+3. Skip the hotend and chamber thermistors: the toolhead was closed in Ch 08, and Ch 13 reads both.
 
 **Check:** The bed reading is within ±15 % of the row for your room temperature in Klipper's own curve for that part, below.
 

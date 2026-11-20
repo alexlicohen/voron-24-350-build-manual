@@ -79,30 +79,32 @@ def _break(d, x0, x1, y):
 
 # ============================================================ 1101 (11.62) ===
 def d1101_door_hinges() -> Doc:
-    """Left side elevation, front to the right: the printer's front left vertical, the
-    door frame's left vertical in front of it, both hinges with their printer half below
-    and the door half above, pins up. Drawn as a top and a bottom window."""
-    d = Doc(1240, "Door hinges on the left front vertical, pins up")
+    """Left side elevation, front to the right: the printer's front left vertical and,
+    behind a visible foam strip, the door frame's left vertical in front of it, both
+    hinges with their printer half below and the door half above, pins up. Drawn as a
+    top and a bottom window with a band of blue tape across the break."""
+    d = Doc(1075, "Door hinges on the left front vertical, pins up")
     top = step_header(d, "Hang the door hinges")
-    k = 3.0                                   # px per mm
+    k = 2.6                                   # px per mm along the verticals
     W = 20 * k
+    fo = 14                                   # foam strip, drawn wider than 3 mm
     px = 300                                  # printer vertical, rear (left) face
-    dx = px + W + 3 * k                       # door vertical, 3 mm of foam in front
+    dx = px + W + fo                          # door frame vertical, in front
     hh = 55 * k                               # each hinge half is 55 mm tall (STL)
     hw = 21 * k
-    pin_x = px + W + 1.5 * k                  # pin axis on the foam line (schematic)
+    pin_x = px + W + fo / 2                   # pin axis on the foam line (schematic)
     clip_h = 12 * k
     gap = 3 * k
 
-    fy = top + 80                             # frame top
-    w1 = fy + clip_h + gap + 2 * hh + 40      # end of the top window
-    w2 = w1 + 130                             # start of the bottom window
-    by = w2 + 40 + 2 * hh + gap + clip_h      # frame bottom
+    fy = top + 104                            # frame top
+    w1 = fy + clip_h + gap + 2 * hh + 22      # end of the top window
+    w2 = w1 + 96                              # start of the bottom window
+    by = w2 + 22 + 2 * hh + gap + clip_h      # frame bottom
 
     def window(y0, y1, brk_top, brk_bot):
         _vbar(d, px, y0, y1, W)
         _vbar(d, dx, y0, y1, W)
-        d.rect(px + W, y0, 3 * k, y1 - y0, fill=FOAM_F, stroke=FOAM, sw=1.5)
+        d.rect(px + W, y0, fo, y1 - y0, fill=FOAM_F, stroke=FOAM, sw=2)
         if brk_top:
             _break(d, px - 10, dx + W + 10, y0)
         if brk_bot:
@@ -113,66 +115,78 @@ def d1101_door_hinges() -> Doc:
     _hbar(d, 40, px, fy, W)                   # top horizontal, running back
     _hbar(d, 40, px, by - W, W)               # bottom horizontal
 
-    # corner clips at the top front and bottom front corners of the vertical
-    d.rect(px - 26, fy - 14, W + 3 * k + 30, 14 + clip_h, fill=BLACKPART_F,
+    # corner clips at the top front and bottom front corners of the printer vertical
+    d.rect(px - 26, fy - 12, W + 30, 12 + clip_h, fill=BLACKPART_F,
            stroke=BLACKPART, sw=3, rx=8)
-    d.rect(px - 26, by - clip_h, W + 3 * k + 30, clip_h + 14, fill=BLACKPART_F,
+    d.rect(px - 26, by - clip_h, W + 30, clip_h + 12, fill=BLACKPART_F,
            stroke=BLACKPART, sw=3, rx=8)
 
     def hinge(y_top):
         """Door half (sleeve) on the door frame above, printer half (solid) below, one
         pin pressed into the printer half and standing 20 mm up into the door half."""
         yd, yp = y_top, y_top + hh
-        d.rect(pin_x - 3 * k, yd, hw, hh, fill=BLACKPART_F, stroke=BLACKPART, sw=3, rx=8)
-        d.rect(pin_x - hw + 3 * k, yp, hw, hh, fill=BLACKPART, stroke=INK, sw=3, rx=8)
+        d.rect(pin_x - 4, yd, hw, hh, fill=BLACKPART_F, stroke=BLACKPART, sw=3, rx=8)
+        d.rect(pin_x - hw + 4, yp, hw, hh, fill=BLACKPART, stroke=INK, sw=3, rx=8)
         for f in (0.3, 0.7):                  # two M3x8 per half into two T-nuts
-            _screw_dot(d, dx + W / 2, yd + hh * f)
-            _screw_dot(d, px + W / 2, yp + hh * f)
-        d.line(pin_x, yp - 20 * k, pin_x, yp + hh - 8, stroke=STEEL, sw=8, dash="12 7")
+            _screw_dot(d, dx + W / 2, yd + hh * f, r=8)
+            _screw_dot(d, px + W / 2, yp + hh * f, r=8)
+        d.line(pin_x, yp - 20 * k, pin_x, yp + hh - 8, stroke=STEEL, sw=7, dash="12 7")
         return yd, yp
 
     t_d, t_p = hinge(fy + clip_h + gap)
     b_d, b_p = hinge(by - clip_h - gap - 2 * hh)
 
+    # the two verticals, named apart with leaders
+    d.text(px + W / 2, fy - 58, "printer", size=T_LAB, anchor="end", weight=700,
+           fill=BLUE)
+    d.leader(px + W / 2 - 6, fy - 50, px + W / 2, fy - 14, col=BLUE)
+    d.text(dx + W / 2 + 10, fy - 58, "door frame", size=T_LAB, weight=700, fill=BLUE)
+    d.leader(dx + W / 2 + 6, fy - 50, dx + W / 2, fy - 2, col=BLUE)
+    d.text(60, fy + W + 46, "printer's front", size=T_MIN, weight=700, fill=BLUE)
+    d.text(60, fy + W + 82, "left vertical", size=T_MIN, weight=700, fill=BLUE)
+    d.text(60, fy + W + 128, "foam between", size=T_MIN, weight=700, fill=FOAM)
+    d.leader(250, fy + W + 118, px + W + fo / 2, fy + W + 150, col=FOAM)
+
     # the small gap under the top clip
     gx = dx + W + 46
     d.line(gx - 18, fy + clip_h, gx + 18, fy + clip_h, stroke=INK, sw=2.5)
     d.line(gx - 18, t_d, gx + 18, t_d, stroke=INK, sw=2.5)
-    _arrow(d, gx, fy + clip_h - 44, gx, fy + clip_h - 2, sw=3)
-    _arrow(d, gx, t_d + 44, gx, t_d + 2, sw=3)
+    _arrow(d, gx, fy + clip_h - 40, gx, fy + clip_h - 2, sw=3)
+    _arrow(d, gx, t_d + 40, gx, t_d + 2, sw=3)
     d.text(gx + 30, fy + clip_h + 12, "small gap", size=T_LAB, weight=700)
 
     # pins up: an arrow beside the top printer half
     ax = dx + W + 46
     _arrow(d, ax, t_p + hh - 6, ax, t_p + 26, col=ORANGE, sw=7, mk="arwo")
     d.text(ax + 26, t_p + hh / 2 + 6, "pin up", size=T_LAB, weight=700, fill=ORANGE)
-    callout(d, ax + 60, t_p + hh / 2 + 66, 3)
-    d.text(dx + W + 24, t_d + hh / 2 + 4, "door half", size=T_LAB, weight=700)
-    d.leader(dx + W - 4, t_d + hh / 2 - 8, dx + W + 18, t_d + hh / 2 - 8, col=INK)
-    d.text(px - 34, t_p + hh / 2 - 48, "printer", size=T_LAB, anchor="end", weight=700)
-    d.text(px - 34, t_p + hh / 2 - 10, "half", size=T_LAB, anchor="end", weight=700)
-    callout(d, px - 60, t_p + hh / 2 + 44, 2)
-    callout(d, px - 60, b_p + hh / 2, 2)
+    callout(d, ax + 168, t_p + hh / 2 - 6, 2)
+    d.text(dx + W + 24, t_d + hh / 2 + 22, "door half", size=T_LAB, weight=700)
+    d.text(px - 34, t_p + hh / 2 - 6, "printer", size=T_LAB, anchor="end", weight=700)
+    d.text(px - 34, t_p + hh / 2 + 32, "half", size=T_LAB, anchor="end", weight=700)
 
-    # break band: blue tape holding the door while the hinges go on, and the names
-    ty = (w1 + w2) / 2 - 17
-    d.rect(px - 40, ty, (dx + W + 40) - (px - 40), 34, fill=TAPE, stroke=TAPE, sw=1,
+    # break band: blue tape across both verticals, holding the door while you work
+    ty = (w1 + w2) / 2 - 16
+    d.rect(px - 30, ty, (dx + W + 30) - (px - 30), 32, fill=TAPE, stroke=TAPE, sw=1,
            op=0.85)
-    callout(d, px - 84, ty + 17, 1)
-    d.text(dx + W + 60, ty + 4, "door frame", size=T_LAB, weight=700, fill=BLUE)
-    d.text(dx + W + 60, ty + 42, "in front", size=T_LAB, weight=700, fill=BLUE)
-    d.text(60, fy + W + 50, "printer's front", size=T_LAB, weight=700, fill=BLUE)
-    d.text(60, fy + W + 88, "left vertical", size=T_LAB, weight=700, fill=BLUE)
-    d.text(px - 30, fy - 30, "top corner clip", size=T_LAB, anchor="end", weight=700)
-    d.text(40, by + 50, "bottom corner clip", size=T_LAB, weight=700)
-    d.text(dx + W + 70, by + 50, "FRONT \u2192", size=T_LAB, weight=800, fill=BLUE)
+    callout(d, px - 70, ty + 16, 1)
+    d.text(dx + W + 46, ty + 27, "blue tape", size=T_LAB, weight=700, fill=TAPE)
+
+    # tighten all eight once the door hangs parallel: on the bottom hinge's screws
+    callout(d, dx + W + 52, b_d + hh * 0.5, 3)
+    d.leader(dx + W + 24, b_d + hh * 0.5, dx + W / 2 + 10, b_d + hh * 0.7, col=INK)
+    d.text(dx + W + 100, b_d + hh * 0.5 + 12, "screws", size=T_LAB, weight=700)
+
+    d.text(px - 30, by + 48, "bottom corner clip", size=T_MIN, anchor="middle",
+           weight=700)
+    d.text(40, fy - 22, "top corner clip", size=T_MIN, weight=700)
+    d.text(dx + W + 46, by + 48, "FRONT \u2192", size=T_LAB, weight=800, fill=BLUE)
 
     # legend, right column
-    lx = 780
-    y = legend_row(d, lx, w1 - 150, 1, ["tape the door", "in place"])
-    y = legend_row(d, lx, y + 40, 2, ["two T-nuts per half:", "4 in the vertical,", "4 in the door frame"])
-    y = legend_row(d, lx, y + 40, 3, ["pins up,", "door half on top"])
-    d.text(lx, y + 64, "seen from the left side", size=T_MIN, fill=MUTED)
+    lx = 760
+    y = legend_row(d, lx, top + 230, 1, ["tape the door; 4 T-nuts", "in each vertical"])
+    y = legend_row(d, lx, y + 46, 2, ["hinges on loosely,", "pins up, a small gap", "from each clip"])
+    y = legend_row(d, lx, y + 46, 3, ["door hangs parallel:", "tighten all 8 screws"])
+    d.text(lx, y + 60, "seen from the left side", size=T_MIN, fill=MUTED)
     return d
 
 
@@ -235,7 +249,7 @@ def d1102_handle_latch() -> Doc:
     # labels
     d.text(ax - 30, lc - 20, "slide to", size=T_LAB, anchor="end", weight=700)
     d.text(ax - 30, lc + 20, "line up", size=T_LAB, anchor="end", weight=700)
-    callout(d, ax - 80, lc + 80, 2)
+    callout(d, ax - 80, lc + 80, 3)
     d.text(gx0 - 48, ht - shim - gH - 14, "handle hinge", size=T_LAB, anchor="end",
            weight=700)
     callout(d, gx0 - 40, ht - shim - gH + 40, 1)
@@ -245,7 +259,9 @@ def d1102_handle_latch() -> Doc:
     label_bg(d, 860, lc - 20, "latch,", size=T_LAB, bg="#FBFAF8")
     label_bg(d, 860, lc + 20, "behind the handle", size=T_LAB, bg="#FBFAF8")
     d.leader(lx0 + lW - 4, lc - 32, 740, lc - 32, col=INK)
-    callout(d, 860, lc + 88, 3)
+    callout(d, 790, lc + 92, 2)
+    d.leader(762, lc + 92, lx0 + lW - 4, lc + 40, col=INK)
+    d.text(830, lc + 104, "centre, tighten", size=T_MIN, weight=700)
     d.text(dx, y1 + 56, "← FRONT", size=T_LAB, weight=800, fill=BLUE)
     d.text(dx + W / 2, y0 - 16, "door", size=T_LAB, anchor="middle", weight=700, fill=BLUE)
     d.text(px + W / 2 + 40, y0 - 16, "printer", size=T_LAB, anchor="start", weight=700,
@@ -258,15 +274,15 @@ def d1102_handle_latch() -> Doc:
 def d1103_front_foam() -> Doc:
     """Top: a section seen from above through the left side of the front opening, front
     at the bottom. Bottom: the opening seen from the front, foam corners butted."""
-    d = Doc(1180, "3 mm foam on the front face of the front opening, corners butted")
+    d = Doc(1075, "3 mm foam on the front face of the front opening, corners butted")
     top = step_header(d, "Foam on the front face")
 
     # ---- section from above, FRONT at the bottom
-    d.panel(30, top + 16, 1140, 560)
-    k = 8.0
+    d.panel(30, top + 16, 1140, 500)
+    k = 6.6
     W = 20 * k
     cx = 330
-    py = top + 70 + W / 2                     # printer vertical centre
+    py = top + 50 + W / 2                     # printer vertical centre
     fy0 = py + W / 2                          # its front face
     foam = 3 * k
     dy = fy0 + foam + W / 2                   # door vertical centre
@@ -275,9 +291,9 @@ def d1103_front_foam() -> Doc:
     # foam: on the front face, along the inner edge (toward the opening, right)
     d.rect(cx + 1 * k, fy0, 9 * k, foam, fill=FOAM, stroke=INK, sw=2)
     # acrylic in the door frame's inner slot, running into the opening
-    d.rect(cx + 4 * k, dy - 1.5 * k, 700 - 4 * k, 3 * k, fill=PANEL_F, stroke=MUTED, sw=2.5)
-    _break(d, cx + 700, cx + 700, dy)
-    d.text(cx + 690, dy - 3 * k - 16, "door panel", size=T_LAB, anchor="end", weight=700,
+    d.rect(cx + 4 * k, dy - 1.5 * k, 290 - 4 * k, 3 * k, fill=PANEL_F, stroke=MUTED, sw=2.5)
+    _break(d, cx + 290, cx + 290, dy)
+    d.text(cx + 290, dy + 3 * k + 36, "door panel", size=T_LAB, anchor="end", weight=700,
            fill=MUTED)
     # labels
     d.text(cx - W / 2 - 24, py - 8, "printer's front", size=T_LAB, anchor="end",
@@ -294,11 +310,14 @@ def d1103_front_foam() -> Doc:
     _arrow(d, cx, dy + W / 2 + 74, cx, dy + W / 2 + 12, col=ORANGE, sw=7, mk="arwo")
     d.text(cx + 34, dy + W / 2 + 56, "the door closes onto the foam", size=T_LAB,
            weight=700, fill=ORANGE)
-    d.text(1150, top + 556, "seen from above, FRONT at the bottom", size=T_MIN,
+    d.text(1150, top + 500, "seen from above, FRONT at the bottom", size=T_MIN,
            anchor="end", fill=MUTED)
+    for i, ln in enumerate(("or on the door frame's", "back face instead: check",
+                            "on the bench, never both")):
+        d.text(650, fy0 + 12 + 36 * i, ln, size=T_MIN, weight=700, fill=AMBER)
 
     # ---- the opening from the front: four strips, corners butted
-    by = top + 600
+    by = top + 530
     d.panel(30, by, 1140, d.h - by - 16)
     s, e, f = 380, 32, 15                      # opening outline, extrusion, foam (schematic)
     x0, y0 = 90, by + 40
@@ -314,8 +333,8 @@ def d1103_front_foam() -> Doc:
     _tick(d, x0 + s + 60, y0 + 40, 1.4)
     d.text(x0 + s + 96, y0 + 42, "corners", size=T_LAB, weight=700, fill=OK)
     d.text(x0 + s + 96, y0 + 80, "butted", size=T_LAB, weight=700, fill=OK)
-    d.text(x0 + s + 40, y0 + s - 10, "the opening,", size=T_MIN, fill=MUTED)
-    d.text(x0 + s + 40, y0 + s + 28, "from the front", size=T_MIN, fill=MUTED)
+    d.text(x0 + s + 40, y0 + s - 50, "the opening,", size=T_MIN, fill=MUTED)
+    d.text(x0 + s + 40, y0 + s - 12, "from the front", size=T_MIN, fill=MUTED)
     # wrong: overlapped corner, small
     wx, wy = 860, by + 120
     d.rect(wx, wy, 220, 40, fill=FOAM, stroke=INK, sw=2)
@@ -333,9 +352,9 @@ def d1103_front_foam() -> Doc:
 def d1104_door_frame_order() -> Doc:
     """Three rows, one per Do number: screws started in the tapped 470s, the two 530s
     fitted to one 470 through their access holes, the panel slid in and the last side."""
-    d = Doc(1270, "Clicky-Clack door frame: the order")
+    d = Doc(1075, "Clicky-Clack door frame: the order")
     top = step_header(d, "Door frame, in this order")
-    s = 0.66                                   # px per mm along the bars
+    s = 0.55                                   # px per mm along the bars
     e = 30                                     # bar width drawn, schematic
     X0 = 120                                   # left edge of the frame drawings
     L = 470 * s
@@ -377,7 +396,7 @@ def d1104_door_frame_order() -> Doc:
     legend_row(d, tx, ry + 104, 1, ["Start a screw halfway", "into each tapped end"])
 
     # row 2: the two 530s fitted to one 470, corners squared
-    ry = top + 220
+    ry = top + 190
     d.line(40, ry, d.w - 40, ry, stroke=dd.RULE, sw=2)
     u_frame(ry + 40, True)
     d.text(X0 + fw / 2, ry + 40 + vh / 2 - 30, "530 mm", size=T_MIN, anchor="middle",
@@ -386,12 +405,12 @@ def d1104_door_frame_order() -> Doc:
            weight=700, fill=BLUE)
     d.text(X0 + fw / 2, ry + 40 + vh + 44, "key in through the access holes", size=T_MIN,
            anchor="middle", fill=MUTED)
-    legend_row(d, tx, ry + 160, 2, ["Fit both 530 mm", "pieces, then square", "each corner"])
+    legend_row(d, tx, ry + 140, 2, ["Fit both 530 mm", "pieces, then square", "each corner"])
 
     # row 3: panel slides into the slots, then the fourth side
-    ry = top + 220 + vh + 100
+    ry = top + 190 + vh + 96
     d.line(40, ry, d.w - 40, ry, stroke=dd.RULE, sw=2)
-    u_top = ry + 110
+    u_top = ry + 76
     u_frame(u_top, False)
     d.rect(X0 + e - 5 * s, u_top - 50, 480 * s, vh - e + 50 - 4 * s, fill=PANEL_F,
            stroke=MUTED, sw=2.5, op=0.9)
@@ -399,9 +418,9 @@ def d1104_door_frame_order() -> Doc:
            weight=700, fill=MUTED)
     _arrow(d, X0 + fw / 2, u_top + 30, X0 + fw / 2, u_top + 150, col=ORANGE, sw=8,
            mk="arwo")
-    bar_h(X0 + e, ry + 24)
-    _arrow(d, X0 + fw + 46, ry + 30, X0 + fw + 46, u_top - 10, col=ORANGE, sw=7, mk="arwo")
-    legend_row(d, tx, ry + 170, 3, ["Slide the acrylic in,", "then close the", "fourth side"])
+    bar_h(X0 + e, ry + 16)
+    _arrow(d, X0 + fw + 46, ry + 20, X0 + fw + 46, u_top - 6, col=ORANGE, sw=7, mk="arwo")
+    legend_row(d, tx, ry + 150, 3, ["Slide the acrylic in,", "then close the", "fourth side"])
     return d
 
 
@@ -411,7 +430,7 @@ def d1105_plenum_mount() -> Doc:
     extrusions just behind the front corner brackets, one M3x12 out through each end wall
     into a T-nut in the extrusion's inside face. Below: that face end-on, and the top
     slot marked wrong."""
-    d = Doc(1200, "Nevermore plenum between the bed extrusions, T-nuts in the inside faces")
+    d = Doc(1075, "Nevermore plenum between the bed extrusions, T-nuts in the inside faces")
     top = step_header(d, "Plenum between the bed extrusions")
     k = 3.2
     W = 20 * k
@@ -419,7 +438,7 @@ def d1105_plenum_mount() -> Doc:
     gap = 130 * k
     lx1, rx0 = cx - gap / 2, cx + gap / 2            # inside faces
     lx0, rx1 = lx1 - W, rx0 + W
-    ry0 = top + 600                                   # front rail, its inner (rear) face
+    ry0 = top + 520                                   # front rail, its inner (rear) face
     yb = top + 40                                     # where the view stops, rearward
     # front rail and the two bed extrusions running back from its inner face
     _hbar(d, 120, 1080, ry0, W)
@@ -459,10 +478,10 @@ def d1105_plenum_mount() -> Doc:
     d.text(1150, ry0 + W + 44, "seen from above", size=T_MIN, anchor="end", fill=MUTED)
 
     # ---- end-on: inside face right, top slot wrong
-    py = ry0 + W + 80
+    py = ry0 + W + 70
     d.panel(30, py, 1140, d.h - py - 16)
-    kk = 7.0
-    c1 = (420, py + 200)
+    kk = 5.6
+    c1 = (420, py + 160)
     profile2020(d, *c1, kk)
     _tnut_end(d, *c1, kk, 3)
     fx = c1[0] - 10 * kk                              # the inside face
@@ -472,15 +491,15 @@ def d1105_plenum_mount() -> Doc:
            stroke=GREY, sw=2.5)                       # SHCS head
     d.rect(fx - 6 * kk, c1[1] - 1.5 * kk, 12 * kk, 3 * kk, fill=GREY_F, stroke=GREY, sw=2)
     _tick(d, c1[0] + 10 * kk + 60, c1[1] - 10, 1.6)
-    d.text(80, py + 60, "Right: the inside face", size=T_LAB, weight=700, fill=OK)
+    d.text(80, py + 48, "Right: the inside face", size=T_LAB, weight=700, fill=OK)
     d.text(fx - 3 * kk, c1[1] + 16 * kk + 40, "plenum wall", size=T_MIN, anchor="middle",
            fill=MUTED)
-    c2 = (930, py + 210)
+    c2 = (930, py + 170)
     k2 = 4.5
     profile2020(d, *c2, k2)
     _tnut_end(d, *c2, k2, 0)
     _xmark(d, c2[0] + 10 * k2 + 50, c2[1] - 10 * k2 - 10, 22)
-    d.text(790, py + 60, "Wrong: top slot", size=T_LAB, weight=700, fill=RED)
+    d.text(790, py + 48, "Wrong: top slot", size=T_LAB, weight=700, fill=RED)
     return d
 
 
@@ -498,12 +517,12 @@ _SCREWS = [(10.0, 180.0), (180.0, 10.0)]         # frame screws, in the outer sl
 
 def d1106_side_spool() -> Doc:
     """Right side elevation, FRONT to the left: the side spool frame's two feet on the top
-    extrusion and the front vertical, the puck, the Drybox outline, and the tube holder in
-    the top slot about 22 cm behind the front, behind the box."""
-    d = Doc(1200, "Side spool frame on the right side, tube holder 22 cm back")
-    top = step_header(d, "Side spool frame and tube holder")
+    extrusion and the front vertical, a T-nut in each outer slot, the puck and the Drybox
+    outline. Callouts 1 and 2 are Step 11.71's Do numbers."""
+    d = Doc(1075, "Side spool frame on the right side")
+    top = step_header(d, "Hang the side spool frame")
     k = 3.3
-    X0, Y0 = 196, top + 170                      # frame front face / top face on the page
+    X0, Y0 = 196, top + 96                       # frame front face / top face on the page
 
     def P(b, dd_):
         return X0 + b * k, Y0 + dd_ * k
@@ -535,46 +554,109 @@ def d1106_side_spool() -> Doc:
     for sx in (-13, 13):
         for sy in (-13, 13):
             _screw_dot(d, pc[0] + sx * k, pc[1] + sy * k, r=7)
-    # tube holder in the top slot, about 22 cm back, behind the box
-    hb0, hb1 = 220, 220 + 65.5
-    a, c = P(hb0, -10), P(hb1, 0)
-    d.rect(a[0], a[1], c[0] - a[0], c[1] - a[1], fill=BLACKPART, stroke=INK, sw=2.5, rx=4)
-    # PTFE: up from the spool to the holder, then back to the bowden retainer
-    hx, hy = P(hb0 + 20, -6)
-    d.path(f"M {pc[0]:.1f} {pc[1] - 36 * k:.1f} C {pc[0] + 60 * k:.1f} {pc[1] - 80 * k:.1f} "
-           f"{hx - 30:.1f} {hy + 10:.1f} {hx:.1f} {hy:.1f} L {P(bmax, -6)[0] + 20:.1f} "
-           f"{hy:.1f}", stroke=ORANGE, sw=5, dash="12 8", marker="arwo")
-    # dimension: front face to the holder's front end
-    dy_ = Y0 - 70
-    d.line(X0, Y0 - 8, X0, dy_ - 14, stroke=MUTED, sw=2)
-    d.line(a[0], a[1] - 4, a[0], dy_ - 14, stroke=MUTED, sw=2)
-    _arrow(d, (X0 + a[0]) / 2, dy_, X0 + 3, dy_, col=MUTED, sw=3, mk="arwm")
-    _arrow(d, (X0 + a[0]) / 2, dy_, a[0] - 3, dy_, col=MUTED, sw=3, mk="arwm")
-    label_bg(d, (X0 + a[0]) / 2, dy_ - 14, "about 22 cm", size=T_LAB, bg=dd.BG)
 
-    # labels
-    d.text(a[0] + 10, dy_ - 14, "tube holder,", size=T_LAB, weight=700)
-    d.text(a[0] + 10, dy_ + 24, "top slot", size=T_LAB, weight=700)
-    for i, ln in enumerate(("holder spot:", "check on", "the bench")):
-        d.text(P(bmax, 0)[0] - 4, Y0 + 20 * k + 200 + 38 * i, ln, size=T_MIN, anchor="end",
-               weight=700, fill=AMBER)
-    d.text(pc[0] + 36 * k, pc[1] + 10, "puck", size=T_LAB, weight=800, fill=ORANGE)
+    # 1: a T-nut in each outer slot, under each foot's screw hole
+    st, sv = P(*_SCREWS[1]), P(*_SCREWS[0])
+    callout(d, X0 + 470, Y0 - 34, 1)
+    d.leader(X0 + 496, Y0 - 26, st[0] - 6, st[1] - 8, col=INK)
+    d.text(X0, Y0 - 22, "T-nut in each outer slot", size=T_MIN, weight=700)
+    callout(d, X0 - 50, sv[1], 1)
+    d.leader(X0 - 22, sv[1], sv[0] - 12, sv[1], col=INK)
+    # 2: frame up, puck out, both screws snug, feet on bare aluminium
     fx, fy = P(13, 200)
-    d.leader(fx - 10, fy, X0 + 110, P(0, dmax)[1] + 50, col=INK)
-    d.text(X0 + 120, P(0, dmax)[1] + 60, "both dark feet on bare aluminium,", size=T_MIN,
+    callout(d, X0 + 130, P(0, dmax)[1] + 54, 2)
+    d.leader(X0 + 102, P(0, dmax)[1] + 44, fx - 10, fy, col=INK)
+    d.text(X0 + 172, P(0, dmax)[1] + 50, "both dark feet on bare aluminium,", size=T_MIN,
            weight=700)
-    d.text(X0 + 120, P(0, dmax)[1] + 98, "a T-nut in each outer slot", size=T_MIN,
+    d.text(X0 + 172, P(0, dmax)[1] + 88, "screws snug, puck facing out", size=T_MIN,
            weight=700)
-    d.text(P(bmax, 0)[0] - 4, Y0 + 20 * k + 140, "Drybox outline", size=T_MIN,
+    d.text(pc[0] + 36 * k, pc[1] + 10, "puck", size=T_LAB, weight=800, fill=ORANGE)
+    d.text(P(bmax, 0)[0] - 4, Y0 + 20 * k + 50, "Drybox outline", size=T_MIN,
            anchor="end", fill=MUTED)
-    d.text(P(bmax, 0)[0] - 4, Y0 + 20 * k + 50, "to the bowden", size=T_MIN, anchor="end",
-           weight=700, fill=ORANGE)
-    d.text(P(bmax, 0)[0] - 4, Y0 + 20 * k + 88, "retainer", size=T_MIN, anchor="end",
-           weight=700, fill=ORANGE)
-    d.text(X0 - 16, Y0 + 300, "\u2190 FRONT", size=T_LAB, anchor="end", weight=800,
+    d.text(X0 - 16, Y0 + 330, "\u2190 FRONT", size=T_LAB, anchor="end", weight=800,
            fill=BLUE)
-    d.text(1150, d.h - 30, "the right side, seen from outside", size=T_MIN, anchor="end",
-           fill=MUTED)
+    d.text(P(bmax, 0)[0] - 4, Y0 + 20 * k + 88, "seen from outside", size=T_MIN,
+           anchor="end", fill=MUTED)
+    return d
+
+
+# ============================================================ 1107 (11.72) ===
+def d1107_tube_route() -> Doc:
+    """Top view, FRONT at the bottom: the top frame, the tube holder in the top right
+    extrusion's top slot about 22 cm behind the front, the bowden retainer on the top rear
+    extrusion beside the exhaust cover, and one PTFE run from the CW2.5 out through the
+    cover's coupler, through the retainer, forward to the holder and down to the spool
+    outside the right side. Callouts 1 to 3 are Step 11.72's Do numbers."""
+    d = Doc(1000, "One PTFE from the CW2.5 to the side spool, seen from above")
+    top = step_header(d, "One new tube, seen from above")
+    k = 1.25                                     # px per mm
+    W = 20 * k
+    F = 510 * k                                  # frame outer width and depth
+    X0 = 70                                      # frame left outer edge
+    Yr = top + 130                               # frame rear outer edge
+    Yf = Yr + F                                  # frame front outer edge
+    Xr = X0 + F                                  # frame right outer edge
+    # the four top extrusions
+    _hbar(d, X0, Xr, Yr, W)
+    _hbar(d, X0, Xr, Yf - W, W)
+    _vbar(d, X0, Yr + W, Yf - W, W)
+    _vbar(d, Xr - W, Yr + W, Yf - W, W)
+    d.rect(X0 + W, Yr + W, F - 2 * W, F - 2 * W, fill=PANEL_F, stroke="none", sw=0)
+    # back panel edge and the exhaust cover outside it, at the centre
+    cxm = X0 + F / 2
+    d.line(X0, Yr - 6, Xr, Yr - 6, stroke=MUTED, sw=3)
+    d.rect(cxm - 50, Yr - 40, 100, 34, fill=BLACKPART_F, stroke=BLACKPART, sw=3, rx=6)
+    cpl = (cxm, Yr - 23)
+    d.circle(*cpl, 8, fill=GREY_F, stroke=GREY, sw=2.5)
+    d.text(cxm - 62, Yr - 14, "exhaust cover", size=T_MIN, anchor="end", weight=700)
+    # bowden retainer on the top rear extrusion, hanging over the back (schematic spot)
+    rx = cxm + 150
+    d.rect(rx - 22, Yr - 20, 44, W + 26, fill=BLACKPART, stroke=INK, sw=2.5, rx=4)
+    # tube holder in the top right extrusion's top slot, about 22 cm behind the front
+    hy0 = Yf - 220 * k - 65.5 * k
+    d.rect(Xr - W - 4, hy0, W + 8, 65.5 * k, fill=BLACKPART, stroke=INK, sw=2.5, rx=4)
+    # the spool and Drybox outside the right side, from the front to about 22 cm back
+    sx0 = Xr + 22
+    d.rect(sx0, Yf - 221 * k, 120 * k, 219 * k, fill="none", stroke=MUTED, sw=3,
+           dash="14 9", rx=10)
+    d.text(sx0 + 60 * k, Yf - 66, "spool,", size=T_MIN, anchor="middle",
+           fill=MUTED, weight=700)
+    d.text(sx0 + 60 * k, Yf - 30, "Drybox", size=T_MIN, anchor="middle",
+           fill=MUTED, weight=700)
+    # toolhead inside, front left, gantry low
+    th = (X0 + 130, Yf - 120)
+    d.rect(th[0] - 34, th[1] - 26, 68, 52, fill=BLUE_F, stroke=BLUE, sw=3, rx=8)
+    d.text(th[0], th[1] + 60, "CW2.5", size=T_MIN, anchor="middle", weight=700, fill=BLUE)
+    # the one tube
+    hx, hy = Xr - W / 2, hy0 + 65.5 * k / 2
+    sp = (sx0 + 60 * k, Yf - 150 * k)
+    d.path(f"M {th[0]:.1f} {th[1] - 26:.1f} C {th[0] + 40:.1f} {Yr + 200:.1f} "
+           f"{cpl[0] - 60:.1f} {cpl[1] + 120:.1f} {cpl[0]:.1f} {cpl[1]:.1f} "
+           f"C {cpl[0] + 40:.1f} {cpl[1] - 70:.1f} {rx - 40:.1f} {Yr - 70:.1f} {rx:.1f} {Yr:.1f} "
+           f"C {rx + 120:.1f} {Yr + 60:.1f} {hx:.1f} {hy - 160:.1f} {hx:.1f} {hy:.1f} "
+           f"C {hx:.1f} {hy + 60:.1f} {sp[0]:.1f} {sp[1] - 80:.1f} {sp[0]:.1f} {sp[1]:.1f}",
+           stroke=ORANGE, sw=6)
+    # 1: the holder; 2: the route; 3: cut square at the spool
+    callout(d, Xr + 70, hy0 - 10, 1)
+    d.text(Xr + 110, hy0 + 2, "holder, top slot,", size=T_MIN, weight=700)
+    d.text(Xr + 110, hy0 + 38, "about 22 cm back", size=T_MIN, weight=700)
+    callout(d, rx + 70, Yr - 60, 2)
+    d.text(rx + 110, Yr - 48, "retainer", size=T_MIN, weight=700)
+    callout(d, sx0 + 120 * k + 44, sp[1], 3)
+    d.leader(sx0 + 120 * k + 16, sp[1], sp[0] + 6, sp[1], col=INK)
+    d.text(sx0 + 120 * k + 84, sp[1] + 11, "cut square", size=T_MIN, weight=700)
+    # 22 cm dimension along the right edge, inside
+    dx_ = Xr - W - 40
+    _arrow(d, dx_, (Yf + hy0 + 65.5 * k) / 2, dx_, Yf - 4, col=MUTED, sw=3, mk="arwm")
+    _arrow(d, dx_, (Yf + hy0 + 65.5 * k) / 2, dx_, hy0 + 65.5 * k + 4, col=MUTED, sw=3,
+           mk="arwm")
+    label_bg(d, dx_ - 12, (Yf + hy0 + 65.5 * k) / 2 + 10, "22 cm", size=T_MIN, anchor="end",
+             fill=MUTED, bg=PANEL_F)
+    for i, ln in enumerate(("holder spot:", "check on the bench")):
+        d.text(X0 + F / 2, Yf - 300 + 36 * i, ln, size=T_MIN, anchor="middle", weight=700,
+               fill=AMBER)
+    d.text(X0 + F / 2, Yf + 50, "FRONT", size=T_LAB, anchor="middle", weight=800, fill=BLUE)
+    d.text(1150, Yf + 50, "seen from above", size=T_MIN, anchor="end", fill=MUTED)
     return d
 
 
@@ -586,12 +668,13 @@ DIAGRAMS = [
         "fn": d1101_door_hinges,
         "shows": [
             "The machine's left side, front to the right: the printer's front left vertical "
-            "and, 3 mm of foam in front of it, the door frame's left vertical.",
+            "and, a labelled foam strip in front of it, the door frame's left vertical, each "
+            "named with a leader; a band of blue tape across both.",
             "Two hinges, each a printer half below (pin pointing up) and the door half above "
             "it, the top one just under the top corner clip with a small gap, the bottom one "
-            "just above the bottom corner clip.",
-            "Two T-nuts per half: four in the printer's vertical, four in the door frame. "
-            "Callouts 1 to 3 are Step 11.62's Do numbers.",
+            "just above the bottom corner clip; two screws per half.",
+            "Callouts 1 to 3 are Step 11.62's Do numbers: tape and T-nuts, hinges on loosely "
+            "pins up, all eight screws tightened once the door hangs parallel.",
         ],
         "insert": [
             ("11-skirts-panels-door.md", "Step 11.62", "first image: what the hands do"),
@@ -616,9 +699,10 @@ DIAGRAMS = [
         "shows": [
             "The machine's right side, front to the left: the door frame's right vertical, "
             "3 mm of foam, the printer's front right vertical and the side panel's edge.",
-            "The latch on the printer vertical over the panel edge, the two handle hinges "
-            "on the door frame, the handle between them over the latch, a paper shim at each "
-            "end of the handle, and the up-and-down slide that lines the handle up.",
+            "The latch on the printer vertical over the panel edge (callout 2: centred and "
+            "tightened first), the two handle hinges on the door frame (callout 1), the "
+            "handle between them over the latch, a paper shim at each end of the handle, and "
+            "the up-and-down slide that lines the handle up (callout 3).",
             "Callouts 1 to 3 are Step 11.64's Do numbers.",
         ],
         "insert": [
@@ -652,6 +736,9 @@ DIAGRAMS = [
             "schematic; the kit's 3 mm tape width is not published.",
             "The door frame is drawn straight in front of the printer vertical because both "
             "frames are 510 mm wide; the opening's proportions in the lower view are schematic.",
+            "KB3D's guide says to put the foam 'on the inner portion of the extrusion' in its "
+            "door-frame section, so the door frame's back face may be meant; the step marks "
+            "it '(verify on bench)' and the drawing carries a 'check on the bench' note.",
         ],
     },
     {
@@ -704,28 +791,48 @@ DIAGRAMS = [
     {
         "n": 1106,
         "file": "1106-side-spool-frame-and-holder.svg",
-        "title": "Side spool frame on the right side, tube holder 22 cm back",
+        "title": "Side spool frame on the right side",
         "fn": d1106_side_spool,
         "shows": [
             "The right side from outside, FRONT to the left, at 3.3 px per mm from the remix "
             "STL: the frame's two feet on the 13.5 mm strip of bare aluminium beside the "
             "panel, one on the top extrusion and one on the front vertical, a screw into a "
             "T-nut in each outer slot.",
-            "The puck on its boss, the USS Drybox outline (217 × 219 mm, on the puck), and the "
-            "tube holder in the top extrusion's top slot about 22 cm behind the front, behind "
-            "the box, with the PTFE climbing to it and running back to the bowden retainer.",
+            "The puck on its boss and the USS Drybox outline (217 × 219 mm, on the puck). "
+            "Callouts 1 and 2 are Step 11.71's Do numbers.",
         ],
         "insert": [
             ("11-skirts-panels-door.md", "Step 11.71", "first image: what the hands do"),
-            ("11-skirts-panels-door.md", "Step 11.72", "first image, before the manual page"),
         ],
         "verify": [
-            "The 'about 22 cm' is drawn to the holder's front end, which puts it just behind "
-            "the box; the README says about 22 cm without naming the end.",
-            "The holder clearing the box and the top-panel clips is '(verify on bench)' in "
-            "the step, so the diagram labels its position 'check on the bench'.",
-            "The PTFE line is schematic: the filament leaves a spool standing about 120 mm out "
-            "from the panel.",
+            "The panel edge is drawn 13.5 mm in from the frame edges (483 mm panel on a 510 mm "
+            "frame); the frame outline, feet and puck axis are from the remix STL.",
+        ],
+    },
+    {
+        "n": 1107,
+        "file": "1107-side-spool-tube-route.svg",
+        "title": "One PTFE from the CW2.5 to the side spool, seen from above",
+        "fn": d1107_tube_route,
+        "shows": [
+            "The top of the frame from above, FRONT at the bottom: the tube holder in the top "
+            "right extrusion's top slot about 22 cm behind the front, the bowden retainer on "
+            "the top rear extrusion, and the exhaust cover's coupler at the back centre.",
+            "One PTFE from the CW2.5 out through the coupler, through the retainer, forward to "
+            "the holder and down to the spool outside the right side, cut square there. "
+            "Callouts 1 to 3 are Step 11.72's Do numbers.",
+        ],
+        "insert": [
+            ("11-skirts-panels-door.md", "Step 11.72", "first image: what the hands do"),
+        ],
+        "verify": [
+            "The 'about 22 cm' is drawn to the holder's front end; the README says about 22 cm "
+            "without naming the end. The holder clearing the box and the top-panel clips is "
+            "'(verify on bench)' in the step, so the drawing labels its spot 'check on the "
+            "bench'.",
+            "The retainer's spot along the rear extrusion follows p.258 (beside the exhaust, "
+            "toward the right side) but is not dimensioned; the tube's path and the toolhead "
+            "position are schematic.",
         ],
     },
 ]

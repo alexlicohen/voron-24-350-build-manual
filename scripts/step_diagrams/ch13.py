@@ -21,15 +21,17 @@ def _arrow(d, x0, y0, x1, y1, col=dd.INK, sw=6, mk="arw", dash=None):
            dash=dash)
 
 
-def _hand(d, x, y, ang_deg, s=1.0):
+def _hand(d, x, y, ang_deg, s=1.0, mirror=False):
     """A flat hand seen from the side, fingers pointing along ang_deg, palm facing
-    'up' on screen when ang_deg is 0. (x, y) is the middle of the palm's top edge."""
+    'up' on screen when ang_deg is 0. (x, y) is the middle of the palm's top edge.
+    mirror=True flips it left-right (the other hand)."""
     a = math.radians(ang_deg)
     ux, uy = math.cos(a), math.sin(a)
     vx, vy = -uy, ux                                  # 'down' from the palm
+    m = -1 if mirror else 1
 
     def P(u, v):
-        return x + (u * ux + v * vx) * s, y + (u * uy + v * vy) * s
+        return x + (m * u * ux + v * vx) * s, y + (m * u * uy + v * vy) * s
     pts = [P(-70, 0), P(60, 0), P(88, 4), P(96, 14), P(88, 24), P(60, 28),
            P(-20, 30), P(-60, 40), P(-160, 92), P(-176, 62), P(-80, 16)]
     dpath = "M " + " L ".join(f"{px:.1f} {py:.1f}" for px, py in pts) + " Z"
@@ -82,8 +84,8 @@ def _cross(d, x, y, r=22, col=dd.RED, sw=7):
 
 # ============================================================= diagram 1301 ===
 def d1301_hand_under_gantry() -> dd.Doc:
-    d = dd.Doc(1000, "A hand under the gantry before M84, then lower it to a third")
-    top = dd.step_header(d, "Hand under the gantry first")
+    d = dd.Doc(1000, "A hand under each end of the gantry before M84, then lower it evenly")
+    top = dd.step_header(d, "A hand under each end first")
     k = 1.55                                          # px per mm of Z
     plate_y = 860                                     # plate top
     fx0, fx1 = 70, 820                                # frame verticals (centres)
@@ -117,16 +119,18 @@ def d1301_hand_under_gantry() -> dd.Doc:
 
     by0 = gantry(300, ghost=True)
     by = gantry(100)
-    # lowered by hand: arrow from the old height to the new
-    _arrow(d, 640, by0 + 40, 640, by - 20, sw=5)
-    # hand flat under the beam, left of the toolhead
+    # lowered by hand, both ends together: an arrow at each end
+    for ax in (170, 720):
+        _arrow(d, ax, by0 + 44, ax, by - 14, sw=5)
+    # a hand flat under each end of the beam
     _hand(d, 245, by + 34, 0, 1.0)
+    _hand(d, 645, by + 34, 0, 1.0, mirror=True)
     dd.callout(d, 150, by + 150, 1)
     # about 100 mm, nozzle to plate
     _vdim(d, 520, zy(100), plate_y, "about 100 mm", side=1)
-    # push the toolhead to the middle
-    _arrow(d, 760, by + 70, 525, by + 70, col=dd.MUTED, sw=4, mk="arwm", dash="12 9")
-    dd.callout(d, 445, by - 70, 2)
+    # push the toolhead to the middle, along the top of the beam
+    _arrow(d, 690, by - 46, 525, by - 46, col=dd.MUTED, sw=4, mk="arwm", dash="12 9")
+    dd.callout(d, 610, by - 96, 2)
 
     # legend, right-hand column
     lx = 860
@@ -135,7 +139,7 @@ def d1301_hand_under_gantry() -> dd.Doc:
     d.text(lx, top + 200, "every motor:", size=dd.T_LAB, weight=600)
     d.text(lx, top + 240, "the gantry", size=dd.T_LAB, weight=700, fill=dd.RED)
     d.text(lx, top + 280, "sinks", size=dd.T_LAB, weight=700, fill=dd.RED)
-    y = dd.legend_row(d, lx - 6, top + 430, 1, ["hand under,", "M84, lower"],
+    y = dd.legend_row(d, lx - 6, top + 400, 1, ["two people:", "hands under", "each end,", "M84, lower", "evenly"],
                       size=dd.T_MIN)
     dd.legend_row(d, lx - 6, y + 40, 2, ["toolhead to", "the middle"], size=dd.T_MIN)
     return d
@@ -143,10 +147,10 @@ def d1301_hand_under_gantry() -> dd.Doc:
 
 # ============================================================= diagram 1302 ===
 def d1302_rotation_distance_tape() -> dd.Doc:
-    d = dd.Doc(1060, "Tape at 120 mm above the extruder entrance; after 100 mm, R is what is left")
+    d = dd.Doc(1060, "Tape at 120 mm above the collet top; after 100 mm, R is what is left")
     top = dd.step_header(d, "Tape at 120 mm, then read R")
     k = 4.2                                            # px per mm of filament
-    entry = 880                                        # the collet, extruder entrance
+    entry = 880                                        # the collet top
     tube_top = top + 90
     tube_end = entry - 140 * k                          # the PTFE, lifted clear
 
@@ -160,7 +164,7 @@ def d1302_rotation_distance_tape() -> dd.Doc:
         d.line(cx, entry + 50, cx, tube_top, stroke=FIL, sw=7, cap="butt")
         d.rect(cx - 17, tube_top, 34, tube_end - tube_top, fill=dd.STEEL, stroke=dd.GREY,
                sw=3, op=0.8)
-        # steel rule beside the filament, zero at the entrance
+        # steel rule beside the filament, zero at the collet top
         rx = cx + 40
         d.rect(rx, entry - 130 * k, 34, 130 * k, fill=dd.GREY_F, stroke=dd.GREY, sw=2.5)
         for mm in range(0, 131, 10):
@@ -190,9 +194,9 @@ def d1302_rotation_distance_tape() -> dd.Doc:
     _arrow(d, 480, 560, 610, 560, sw=6)
     d.text(545, 520, "G1 E100 F60", size=dd.T_MIN, anchor="middle", weight=700,
            family=dd.MONO)
-    # the entrance
-    d.text(560, entry - 150, "extruder", size=dd.T_MIN, anchor="middle", weight=700)
-    d.text(560, entry - 112, "entrance", size=dd.T_MIN, anchor="middle", weight=700)
+    # the collet top, where the rule's zero sits
+    d.text(560, entry - 150, "collet", size=dd.T_MIN, anchor="middle", weight=700)
+    d.text(560, entry - 112, "top", size=dd.T_MIN, anchor="middle", weight=700)
     d.leader(cx1 + 28, entry + 6, 480, entry - 110, col=dd.INK)
     dd.step_note(d, "what went in = 120 − R", size=dd.T_LAB)
     return d
@@ -341,13 +345,13 @@ def d1304_paper_test() -> dd.Doc:
     for x0, feel, act, col, n in cols:
         w = 360
         cxx = x0 + w / 2
-        gap = {dd.MUTED: 40, dd.OK: 12, dd.RED: 0}[col]
+        gap = {dd.MUTED: 40, dd.OK: 0, dd.RED: 0}[col]   # light drag: tip ON the paper
         p_y = by + 210
         d.rect(x0 + 30, p_y, w - 60, 22, fill=dd.GREY_F, stroke=dd.GREY, sw=2.5)
         d.rect(x0 + 50, p_y - 8, w - 100, 8, fill=dd.PANEL, stroke=dd.INK, sw=2)
         tip = p_y - 8 - gap
         if col == dd.RED:
-            tip = p_y - 3
+            tip = p_y - 1                             # pinned: pressed into the paper
         _nozzle(d, cxx, tip, w=40, h=60)
         d.text(cxx, by + 60, feel, size=dd.T_LAB, anchor="middle", weight=700, fill=col)
         d.text(cxx, by + 300, act, size=dd.T_LAB, anchor="middle", weight=800,
@@ -358,75 +362,130 @@ def d1304_paper_test() -> dd.Doc:
 
 
 # ============================================================= diagram 1305 ===
-def d1305_scrubber_measurements() -> dd.Doc:
-    d = dd.Doc(1020, "Where H, w, d, G and O are measured behind the plate")
-    top = dd.step_header(d, "H, w, d, G and O")
-    k = 9.0                                            # px per mm
-    ey = 800                                           # left bed extrusion top
-    xe = 430                                           # plate's rear edge
-    H, dd_, O, OM = 20.0, 3.0, 4.5, 25.0               # d drawn 3 mm: not to scale
+def _bed_stack(d, k, ey, xe, x_front=1140, x_rear=60, label_x=None):
+    """Side view seen from the machine's left, rear to the LEFT: the left bed
+    extrusion (top at ey) and the plate stack ending at its rear edge xe. Returns the
+    flex plate's top y."""
+    H = 20.0                                           # flex-plate top above the extrusion
     plate_top = ey - H * k
-    nx = xe + O * k                                    # nozzle at full Y
-    ox = nx + OM * k                                   # Omron centre, 25 mm behind
-    # bed extrusion along Y (rear to the right), plate stack ending at its rear edge
-    d.rect(60, ey, 1080, 100, fill=dd.BLUE_F, stroke=dd.BLUE, sw=3)
-    d.path(f"M 50 {ey + 100} L 1150 {ey + 100}", stroke=dd.BG, sw=8)
-    d.path(f"M 50 {ey + 104} L 300 {ey + 94} L 600 {ey + 104} L 900 {ey + 94} "
-           f"L 1150 {ey + 104}", stroke=dd.BLUE, sw=3)
-    dd.label_bg(d, 840, ey + 64, "left bed extrusion", size=dd.T_MIN, fill=dd.BLUE,
-                bg=dd.BLUE_F)
-    d.rect(xe - 7 * k - 30, ey - 8 * k, 60, 8 * k, fill=dd.GREY_F, stroke=dd.GREY, sw=2.5)
-    d.rect(60, ey - 8 * k - 10 * k, xe - 60, 10 * k, fill=dd.GREY_F, stroke=dd.GREY, sw=3)
-    d.rect(60, plate_top, xe - 60, H * k - 18 * k, fill=dd.PANEL, stroke=dd.INK, sw=2.5)
-    dd.label_bg(d, 230, ey - 13 * k + 12, "plate", size=dd.T_MIN, fill=dd.MUTED,
-                bg=dd.GREY_F)
-    d.text(130, plate_top - 24, "flex plate", size=dd.T_MIN, weight=600, fill=dd.MUTED)
-    # H at the rear edge
-    _vdim(d, xe - 46, plate_top, ey, "", col=dd.ORANGE)
-    _letter(d, xe - 100, (plate_top + ey) / 2 + 40, "H", col=dd.ORANGE)
-    # toolhead at full Y, nozzle at Z0 (on the plate's level), Omron behind
-    th_y = plate_top - 240
-    d.rect(nx - 80, th_y, ox - nx + 170, 150, fill=dd.BLACKPART_F, stroke=dd.BLACKPART,
-           sw=3, rx=12)
-    d.text(nx + 30, th_y + 90, "toolhead", size=dd.T_MIN, weight=700)
-    _nozzle(d, nx, plate_top, w=46, h=110)
+    d.rect(x_rear, ey, x_front - x_rear, 100, fill=dd.BLUE_F, stroke=dd.BLUE, sw=3)
+    d.path(f"M {x_rear - 10} {ey + 100} L {x_front + 10} {ey + 100}", stroke=dd.BG, sw=8)
+    d.path(f"M {x_rear - 10} {ey + 104} L 300 {ey + 94} L 600 {ey + 104} L 900 {ey + 94} "
+           f"L {x_front + 10} {ey + 104}", stroke=dd.BLUE, sw=3)
+    dd.label_bg(d, label_x or (x_rear + 230), ey + 64, "left bed extrusion", size=dd.T_MIN,
+                fill=dd.BLUE, bg=dd.BLUE_F)
+    d.rect(xe + 7 * k - 30, ey - 8 * k, 60, 8 * k, fill=dd.GREY_F, stroke=dd.GREY, sw=2.5)
+    d.rect(xe, ey - 18 * k, x_front - xe, 10 * k, fill=dd.GREY_F, stroke=dd.GREY, sw=3)
+    d.rect(xe, plate_top, x_front - xe, H * k - 18 * k, fill=dd.PANEL, stroke=dd.INK, sw=2.5)
+    dd.label_bg(d, (xe + x_front) / 2 + 40, ey - 13 * k + 12, "plate", size=dd.T_MIN,
+                fill=dd.MUTED, bg=dd.GREY_F)
+    d.text(x_front - 10, plate_top - 24, "flex plate", size=dd.T_MIN, anchor="end",
+           weight=600, fill=dd.MUTED)
+    return plate_top
+
+
+def _rear_arrow(d, x, y):
+    _arrow(d, x + 110, y - 10, x + 20, y - 10, col=dd.MUTED, sw=4, mk="arwm")
+    d.text(x + 130, y, "rear", size=dd.T_MIN, fill=dd.MUTED)
+
+
+def d1305_scrubber_measurements() -> dd.Doc:
+    d = dd.Doc(940, "H measured with the caliper's depth rod at the plate's rear edge; the wiper's height w")
+    top = dd.step_header(d, "H at the rear edge, w in the hand")
+    k = 9.0                                            # px per mm
+    ey = 780                                           # left bed extrusion top
+    xe = 640                                           # plate's rear edge
+    plate_top = _bed_stack(d, k, ey, xe, label_x=290)
+    _rear_arrow(d, 40, top + 70)
+
+    # the caliper, standing on its end on the flex plate, its end overhanging the edge
+    bx0, bx1 = xe - 22, xe + 34                        # beam
+    beam_top = top + 120
+    d.rect(bx0, beam_top, bx1 - bx0, plate_top - beam_top, fill=dd.STEEL, stroke=dd.GREY,
+           sw=3)
+    for yy in range(int(beam_top) + 20, int(plate_top) - 10, 24):
+        d.line(bx1 - 14, yy, bx1, yy, stroke=dd.INK, sw=1.6)
+    sy0, sy1 = top + 210, top + 350                    # slider with its display
+    d.rect(bx0 - 120, sy0, bx1 - bx0 + 150, sy1 - sy0, fill=dd.GREY_F, stroke=dd.GREY,
+           sw=3, rx=10)
+    d.rect(bx0 - 100, sy0 + 30, 96, 52, fill=dd.PANEL, stroke=dd.INK, sw=2.5, rx=4)
+    d.text(bx0 - 52, sy0 + 68, "H", size=dd.T_LAB, anchor="middle", weight=800,
+           family=dd.MONO)
+    # depth rod: out of the beam's end, just past the plate edge, down to the extrusion
+    rx = xe - 12
+    d.line(rx, plate_top - 2, rx, ey - 2, stroke=dd.INK, sw=6, cap="butt")
+    d.text(rx - 34, ey - 50, "depth rod", size=dd.T_MIN, anchor="end", weight=700)
+    d.leader(rx - 30, ey - 60, rx - 5, ey - 80, col=dd.INK)
+    # H: flex-plate top to the extrusion top
+    hx = xe - 280
+    d.line(hx - 14, plate_top, bx0 - 6, plate_top, stroke=dd.FAINT, sw=2.5, dash="10 8")
+    _vdim(d, hx, plate_top, ey, "", col=dd.ORANGE)
+    _letter(d, hx - 56, (plate_top + ey) / 2, "H", col=dd.ORANGE)
+    dd.callout(d, bx0 - 160, sy0 + 40, 1)
+
+    # the wiper, measured in the hand
+    wx, wy = 790, top + 40
+    d.panel(wx - 10, wy - 20, 390, 300)
+    d.text(wx + 10, wy + 26, "A1 wiper, in the hand", size=dd.T_MIN, weight=700)
+    base_y = wy + 230
+    d.rect(wx + 30, base_y - 14, 230, 14, fill=dd.BLACKPART, stroke=dd.INK, sw=2)
+    for i in range(12):
+        bxx = wx + 40 + i * 19
+        d.line(bxx, base_y - 14, bxx, base_y - 100, stroke=dd.MUTED, sw=6)
+    _vdim(d, wx + 295, base_y - 100, base_y, "", col=dd.BROWN)
+    _letter(d, wx + 340, base_y - 50, "w", col=dd.BROWN)
+    d.text(wx + 10, wy + 70, "base underside", size=dd.T_MIN, weight=600, fill=dd.MUTED)
+    d.text(wx + 10, wy + 106, "to bristle tips", size=dd.T_MIN, weight=600, fill=dd.MUTED)
+    dd.callout(d, wx + 340, wy + 80, 2)
+    return d
+
+
+# ============================================================= diagram 1308 ===
+def d1308_omron_height_and_reach() -> dd.Doc:
+    d = dd.Doc(920, "d, G and O behind the plate: the Omron's height and the nozzle's reach")
+    top = dd.step_header(d, "d, G and O behind the plate")
+    k = 9.0                                            # px per mm
+    ey = 740                                           # left bed extrusion top
+    xe = 780                                           # plate's rear edge
+    dd_, O, OM = 6.0, 4.5, 25.0                        # d drawn 6 mm: not to scale
+    plate_top = _bed_stack(d, k, ey, xe, label_x=300)
+    _rear_arrow(d, 40, top + 70)
+    nx = xe - O * k                                    # nozzle at full Y, past the edge
+    ox = nx - OM * k                                   # Omron centre, 25 mm behind
+    # toolhead, nozzle at Z0 (the flex plate's level), Omron behind it
+    th_y = plate_top - 310
+    d.rect(ox - 95, th_y, nx + 80 - (ox - 95), 150, fill=dd.BLACKPART_F,
+           stroke=dd.BLACKPART, sw=3, rx=12)
+    d.text(nx - 20, th_y + 90, "toolhead", size=dd.T_MIN, anchor="end", weight=700)
+    _nozzle(d, nx, plate_top, w=46, h=plate_top - th_y - 148)
     om_face = plate_top - dd_ * k
     d.rect(ox - 8.5 * k, th_y + 150, 17 * k, om_face - th_y - 150, fill=dd.GREY_F,
            stroke=dd.GREY, sw=3, rx=4)
-    d.text(ox, th_y + 150 + 44, "Omron", size=dd.T_MIN, anchor="middle", weight=700)
+    d.text(ox, th_y + 150 + 50, "Omron", size=dd.T_MIN, anchor="middle", weight=700)
     # level lines
-    d.line(nx - 10, plate_top, ox + 130, plate_top, stroke=dd.FAINT, sw=2.5, dash="10 8")
-    d.line(ox - 70, om_face, ox + 130, om_face, stroke=dd.FAINT, sw=2.5, dash="10 8")
-    # d: Omron face above the nozzle tip
-    _letter(d, ox + 175, (plate_top + om_face) / 2 - 10, "d", col=dd.BELT_B)
-    d.line(ox + 120, om_face, ox + 120, plate_top, stroke=dd.BELT_B, sw=3)
-    # G: Omron face above the extrusion top
-    gx = ox + 30
+    d.line(ox - 150, plate_top, nx + 10, plate_top, stroke=dd.FAINT, sw=2.5, dash="10 8")
+    d.line(ox - 150, om_face, ox + 70, om_face, stroke=dd.FAINT, sw=2.5, dash="10 8")
+    # 1 = d: Omron face above the nozzle tip
+    dx = ox - 130
+    d.line(dx, om_face, dx, plate_top, stroke=dd.BELT_B, sw=3)
+    for y in (om_face, plate_top):
+        d.line(dx - 10, y, dx + 10, y, stroke=dd.BELT_B, sw=3)
+    _letter(d, dx - 52, (plate_top + om_face) / 2, "d", col=dd.BELT_B)
+    dd.callout(d, dx - 120, (plate_top + om_face) / 2, 1)
+    # 2 = G: Omron face above the extrusion top
+    gx = ox
     d.line(gx, om_face + 3, gx, ey - 3, stroke=dd.BELT_A, sw=3)
     for y in (om_face, ey):
         d.line(gx - 12, y, gx + 12, y, stroke=dd.BELT_A, sw=3)
-    _letter(d, gx + 60, ey - 80, "G", col=dd.BELT_A)
-    # O: nozzle past the plate's rear edge
+    _letter(d, gx - 60, ey - 80, "G", col=dd.BELT_A)
+    dd.callout(d, gx - 135, ey - 80, 2)
+    # 3 = O: nozzle past the plate's rear edge
     oy = plate_top + 60
     d.line(xe, plate_top - 4, xe, oy + 14, stroke=dd.FAINT, sw=2.5)
     d.line(nx, plate_top + 4, nx, oy + 14, stroke=dd.FAINT, sw=2.5)
-    _hdim(d, oy, xe, nx, "", col=dd.OK, tick=10)
-    _letter(d, nx + 40, oy + 56, "O", col=dd.OK)
-
-    # wiper, measured in the hand
-    wx, wy = 780, top + 40
-    d.panel(wx - 10, wy - 20, 400, 250)
-    d.text(wx + 10, wy + 26, "A1 wiper, in the hand", size=dd.T_MIN, weight=700)
-    base_y = wy + 190
-    d.rect(wx + 40, base_y - 14, 230, 14, fill=dd.BLACKPART, stroke=dd.INK, sw=2)
-    for i in range(12):
-        bx = wx + 50 + i * 19
-        d.line(bx, base_y - 14, bx, base_y - 90, stroke=dd.MUTED, sw=6)
-    _vdim(d, wx + 310, base_y - 90, base_y, "", col=dd.BROWN)
-    _letter(d, wx + 355, base_y - 45, "w", col=dd.BROWN)
-
-    d.text(60, top + 70, "rear", size=dd.T_MIN, fill=dd.MUTED)
-    _arrow(d, 140, top + 60, 220, top + 60, col=dd.MUTED, sw=4, mk="arwm")
+    _hdim(d, oy, nx, xe, "", col=dd.OK, tick=10)
+    _letter(d, nx - 60, oy + 48, "O", col=dd.OK)
+    dd.callout(d, nx - 135, oy + 48, 3)
     dd.step_note(d, "d and G are read at Z10: take 10 off each", size=dd.T_LAB)
     return d
 
@@ -435,7 +494,7 @@ def d1305_scrubber_measurements() -> dd.Doc:
 def d1306_power_on_rocker() -> dd.Doc:
     d = dd.Doc(1000, "First power-on: hand on the inlet rocker, standing to the side, bay eyes only")
     top = dd.step_header(d, "Hand on the rocker, eyes on the bay")
-    # the machine on its side, bay toward you; rear end on the left
+    # the machine on its RIGHT side (Step 13.2), bay toward you; rear end on the left
     mx0, mx1, my0, my1 = 400, 1110, top + 90, top + 610
     d.rect(mx0, my0, mx1 - mx0, my1 - my0, fill=dd.PANEL, stroke=dd.BLUE, sw=18)
     d.rect(mx0 + 36, my0 + 36, mx1 - mx0 - 72, my1 - my0 - 72, fill="url(#hatch)",
@@ -447,6 +506,8 @@ def d1306_power_on_rocker() -> dd.Doc:
            weight=800, fill=dd.RED)
     d.text(mx0 + 10, my1 + 50, "rear", size=dd.T_MIN, fill=dd.MUTED)
     d.text(mx1 - 10, my1 + 50, "front", size=dd.T_MIN, anchor="end", fill=dd.MUTED)
+    d.text((mx0 + mx1) / 2 + 40, my1 + 50, "on its right side", size=dd.T_MIN,
+           anchor="middle", weight=700, fill=dd.MUTED)
     # the inlet on the rear end, near the top corner; the mains lead in red
     ix, iy = mx0 - 9, my0 + 80
     d.rect(ix - 34, iy - 40, 34, 80, fill=dd.BLACKPART, stroke=dd.INK, sw=2.5, rx=4)
@@ -517,11 +578,13 @@ def d1307_first_layer_squish() -> dd.Doc:
                    weight=600, fill=dd.MUTED)
             d.text(x0 + w / 2, base + 162, "Z_ADJUST=-0.01", size=dd.T_MIN, anchor="middle",
                    weight=700, family=dd.MONO)
+            dd.callout(d, x0 + 44, base + 110, 2)
         else:
             d.text(x0 + w / 2, base + 120, "further:", size=dd.T_MIN, anchor="middle",
                    weight=600, fill=dd.MUTED)
             d.text(x0 + w / 2, base + 162, "Z_ADJUST=0.01", size=dd.T_MIN, anchor="middle",
                    weight=700, family=dd.MONO)
+            dd.callout(d, x0 + 44, base + 110, 2)
     return d
 
 
@@ -532,19 +595,23 @@ DIAGRAMS = [
         "title": "Hand under the gantry first",
         "fn": d1301_hand_under_gantry,
         "shows": [
-            "Front view of the machine: a hand flat under the gantry beam, `M84` sent, and "
-            "the gantry lowered by hand from high up to a third of its travel, nozzle about "
-            "100 mm above the plate (callout 1); the toolhead pushed to the middle (2).",
+            "Front view of the machine: a hand flat under each end of the gantry beam, `M84` "
+            "sent by the second person, and the gantry lowered evenly by hand from high up to "
+            "a third of its travel, nozzle about 100 mm above the plate (callout 1); the "
+            "toolhead pushed to the middle (2).",
         ],
         "insert": [
-            ("13-initial-startup.md", "Step 13.17", "the hand under the gantry and the "
-             "lowered height"),
+            ("13-initial-startup.md", "Step 13.17", "a hand under each end of the gantry "
+             "and the lowered height"),
         ],
         "verify": [
             "Frame, gantry, toolhead and hand are schematic; the gantry's starting height "
             "is drawn high and dashed because the step does not say where it is.",
             "100 mm is the step's figure (a third of the 330 mm Z travel, "
             "`[stepper_z] position_max: 330`), drawn to scale against the plate.",
+            "Both hands under the beam because the four Z motors are released at once: "
+            "lowered by one end, the gantry tilts (review 2026-11-20). Whether and how fast "
+            "it sinks on its own is for the bench.",
         ],
     },
     {
@@ -553,9 +620,9 @@ DIAGRAMS = [
         "title": "Tape at 120 mm, then read R",
         "fn": d1302_rotation_distance_tape,
         "shows": [
-            "The top of the Clockwork 2.5 with its collet (the extruder entrance), the PTFE "
-            "lifted off the filament, and a rule with zero at the entrance: tape at 120 mm "
-            "before (callout 3), and after `G1 E100 F60` the tape at R, about 20 mm.",
+            "The top of the Clockwork 2.5 with its collet, the PTFE lifted off the filament, "
+            "and a rule with zero at the collet top: tape at 120 mm before (callout 3), and "
+            "after `G1 E100 F60` the tape at R, about 20 mm.",
         ],
         "insert": [
             ("13-initial-startup.md", "Step 13.40", "where the tape goes and where R is "
@@ -591,6 +658,9 @@ DIAGRAMS = [
             "spacer and probe body are schematic (the LDO body is taller than p.161's).",
             "Bed-extrusion spacing in the top view is schematic; the probe's side and "
             "face follow LDO's build-plate mapping and Ch 09 Step 09.30.",
+            "The side view looks from the middle of the bed at the probe on the right "
+            "extrusion's inner face, so the rear is on the left; diagrams 1305 and 1308 look "
+            "from the machine's left and keep the rear on the left too.",
         ],
     },
     {
@@ -601,7 +671,8 @@ DIAGRAMS = [
         "shows": [
             "The nozzle over a sheet of paper on the plate (callout 1); `TESTZ Z=-1` until "
             "close, `TESTZ Z=-0.1` to the drag, `TESTZ Z=0.1` to back up (2); three feels: "
-            "slides free (keep going), light drag (`ACCEPT`, 3), pinned (back up).",
+            "slides free (keep going), light drag with the tip resting on the paper "
+            "(`ACCEPT`, 3), pinned with the tip pressed into it (back up).",
         ],
         "insert": [
             ("13-initial-startup.md", "Step 13.36", "the step sizes and the feel to "
@@ -615,25 +686,46 @@ DIAGRAMS = [
     {
         "n": 1305,
         "file": "1305-scrubber-measurements.svg",
-        "title": "H, w, d, G and O",
+        "title": "H at the rear edge, w in the hand",
         "fn": d1305_scrubber_measurements,
         "shows": [
-            "Side view behind the plate, rear to the right: H from the left bed "
-            "extrusion's top to the flex plate's top at its rear edge; the toolhead at "
-            "full Y with the nozzle O past the plate's edge; the Omron 25 mm behind it, its "
-            "face d above the nozzle tip and G above the extrusion top; the A1 wiper's "
-            "height w measured in the hand.",
+            "Side view seen from the machine's left, rear to the left: the caliper standing "
+            "on its end on the flex plate at the plate's rear edge, its depth rod run down to "
+            "the left bed extrusion's top, giving H (callout 1); the A1 wiper's height w, "
+            "base underside to bristle tips, measured in the hand (2).",
         ],
         "insert": [
             ("13-initial-startup.md", "Step 13.45", "where H and w are measured"),
+        ],
+        "verify": [
+            "The caliper, plate stack and wiper are schematic. H is drawn 20 mm to scale "
+            "(the author's 20.05 mm); the depth rod must run just past the plate edge, which "
+            "is how the step words it.",
+            "Seen from the machine's left so the rear is on the left, the same way round as "
+            "diagram 1303's side view.",
+        ],
+    },
+    {
+        "n": 1308,
+        "file": "1308-omron-height-and-reach.svg",
+        "title": "d, G and O behind the plate",
+        "fn": d1308_omron_height_and_reach,
+        "shows": [
+            "Side view seen from the machine's left, rear to the left: the toolhead at full "
+            "Y with the nozzle tip at the flex plate's level, the Omron 25 mm behind it; d, "
+            "the Omron face above the nozzle tip (callout 1); G, the Omron face above the "
+            "left bed extrusion's top (2); O, how far the nozzle reaches past the plate's "
+            "rear edge (3). Foot note: d and G are read at Z10, less 10.",
+        ],
+        "insert": [
             ("13-initial-startup.md", "Step 13.46", "where d, G and O are measured"),
         ],
         "verify": [
-            "d is drawn as 3 mm so it can be seen (expected about 0.6 mm); the plate "
-            "stack, toolhead and wiper are schematic. H 20 mm, the Omron's 25 mm "
-            "`y_offset` and 17 mm body and O 4.5 mm are drawn to scale.",
-            "No callouts: the diagram serves two steps whose Do numbers differ, so the "
-            "quantities carry their letters instead.",
+            "d is drawn as 6 mm so it can be read at 480 px (expected about 0.6 mm); the "
+            "plate stack and toolhead are schematic. H 20 mm, the Omron's 25 mm `y_offset` "
+            "and 17 mm body and O 4.5 mm are drawn to scale.",
+            "Split from 1305 (review 2026-11-20) so each step's callouts match its own Do "
+            "numbers.",
         ],
     },
     {
@@ -642,7 +734,7 @@ DIAGRAMS = [
         "title": "Hand on the rocker, eyes on the bay",
         "fn": d1306_power_on_rocker,
         "shows": [
-            "The machine on its side with the bay toward you, the open bay marked live, "
+            "The machine on its right side with the bay toward you, the open bay marked live, "
             "eyes only; one adult standing beside the rear end, not in front of the bay "
             "(callout 1), hand on the inlet's rocker with the mains lead in red (2), "
             "looking into the bay (3).",
@@ -652,10 +744,9 @@ DIAGRAMS = [
              "goes"),
         ],
         "verify": [
-            "Which side the machine lies on is not stated (Step 10.1 'on its side'); the "
-            "drawing lays it on its right side, which puts the rear end on your left and "
-            "the inlet, at the rear-left corner (Ch 09 Step 09.2), at the top of that "
-            "end. On its left side both are mirrored: check on the bench.",
+            "The machine lies on its right side (owner's ruling 2026-11-20, now in Step "
+            "13.2), which puts the rear end on your left and the inlet, at the rear-left "
+            "corner (Ch 09 Step 09.2), at the top of that end.",
             "The person, frame and bay are schematic; the bottom door is left out.",
         ],
     },
@@ -668,7 +759,8 @@ DIAGRAMS = [
             "Three sections across first-layer lines on the plate: round lines with gaps "
             "(too high, `Z_ADJUST=-0.01` brings it closer), flattened lines that touch but "
             "each still shows (right), and a ridged, glassy sheet (too low, "
-            "`Z_ADJUST=0.01`).",
+            "`Z_ADJUST=0.01`); callout 2, the step's live-adjust Do, beside both "
+            "`Z_ADJUST` lines.",
         ],
         "insert": [
             ("13-initial-startup.md", "Step 13.42", "what the right squish looks like"),

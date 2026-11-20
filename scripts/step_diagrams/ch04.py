@@ -329,10 +329,11 @@ def _stack_side(d, S, u, z0, pairs, k):
 
 
 def d403_belt_level() -> dd.Doc:
-    d = dd.Doc(960, "The belt run through each drive, from above and from behind")
+    dy, dy2 = 70, 110                             # room for the two views' labels
+    d = dd.Doc(960 + dy2, "The belt run through each drive, from above and from behind")
     top = step_header(d, "Belt through the drive")
     k = 4.5
-    py, ph = top + 18, 830
+    py, ph = top + 18, 830 + dy2
     R = 7.2 * k                                   # belt centre line round a stack
     RP = 7.0 * k                                  # and round the pulley teeth
 
@@ -340,8 +341,14 @@ def d403_belt_level() -> dd.Doc:
         d.panel(px, py, 555, ph)
         d.text(px + 24, py + 54, f"{name}: {'upper' if upper else 'lower'} level",
                size=40, weight=700, fill=colour)
+        # which way the top view is seen (the posts mirror diagram 401's, which shows
+        # the frame upside down on the bench)
+        d.text(px + 24, py + 96, "from above, right way up,", size=T_MIN, weight=600,
+               fill=MUTED)
+        d.text(px + 24, py + 132, "standing behind the printer", size=T_MIN, weight=600,
+               fill=MUTED)
         ulo, uhi = min(p[1] for p in outer), max(p[1] for p in outer)
-        ox, oy = px + 277.5 - (ulo + uhi) / 2 * k, py + 262
+        ox, oy = px + 277.5 - (ulo + uhi) / 2 * k, py + 262 + dy
         mirror = name == "B"
         # ---- from above, X-ray: frame outline dashed, stacks, pulley, belt
         d.path(_pts_path(_from_behind(outer, ox, oy, k)), fill="none", stroke=BLACKPART,
@@ -372,14 +379,17 @@ def d403_belt_level() -> dd.Doc:
 
         # ---- from behind, as p.76 / p.80 draw it, larger
         ks = 7.0
-        face = py + 732
+        face = py + 732 + dy2
         u_n, u_f = posts["near"][1], posts["far"][1]
         uc = (u_n + u_f) / 2
 
         def S(u, z):
             return px + 277.5 + (u - uc) * ks, face - (z - _FACE) * ks
-        d.text(px + 24, py + 462, "from behind", size=T_MIN, weight=600, fill=MUTED)
-        callout(d, px + 236, py + 452, 1)
+        # the side view's own heading, under a rule that closes the top view
+        d.line(px + 20, py + 510, px + 535, py + 510, stroke=FAINT, sw=2)
+        callout(d, px + 48, py + 548, 1)
+        d.text(px + 84, py + 560, f"from behind, as p.{76 if upper else 80}",
+               size=T_MIN, weight=700, fill=MUTED)
         # motor below the lower frame, cut off
         (x0, y0), (x1, y1) = S(-NEMA / 2, _FACE), S(NEMA / 2, _FACE - 6)
         d.rect(x0, y0, x1 - x0, y1 - y0, fill=GREY_F, stroke=GREY, sw=2.5)
@@ -618,8 +628,13 @@ def d406_set_screw_flat() -> dd.Doc:
     d.panel(ox, py, 360, 670)
     d.text(ox + 24, py + 52, "Wrong", size=38, weight=700, fill=RED)
     k2 = 13.0
-    _hub_section(d, ox + 170, py + 300, k2, flat_deg=90, s1_deg=0, s2_deg=-90, sw=2.5)
+    # the flat under the second screw, the first screw tightened on the round
+    _hub_section(d, ox + 170, py + 300, k2, flat_deg=-90, s1_deg=0, s2_deg=-90, sw=2.5)
     _cross(d, ox + 170 + 8 * k2 + 30, py + 300 - 60, 22)
+    d.text(ox + 170 + 8.05 * k2 + 8, py + 300 + 52, "1st", size=T_MIN, weight=700,
+           fill=RED)
+    d.text(ox + 170 - 1.5 * k2 - 10, py + 300 - 8.05 * k2 - 12, "2nd", size=T_MIN,
+           weight=700, anchor="end", fill=MUTED)
     d.text(ox + 24, py + 520, "first screw on", size=T_MIN, weight=700, fill=RED)
     d.text(ox + 24, py + 560, "the round part", size=T_MIN, weight=700, fill=RED)
     step_note(d, "Only if your motor shaft has a flat side.", size=T_MIN)
@@ -644,10 +659,8 @@ DIAGRAMS = [
             "on the right for A and on the left for B, as p.74 and p.78 draw them.",
         ],
         "insert": [
-            ("04-ab-drives.md", "Step 04.21", "the near post on A"),
-            ("04-ab-drives.md", "Step 04.22", "the far post on A"),
-            ("04-ab-drives.md", "Step 04.30", "the far post on B"),
-            ("04-ab-drives.md", "Step 04.31", "the near post on B"),
+            ("04-ab-drives.md", "Step 04.21", "both posts on A, before the near stack"),
+            ("04-ab-drives.md", "Step 04.30", "both posts on B, before the far stack"),
         ],
         "verify": [
             "Outline is the flat face's outline at 0.5 mm, simplified to 0.25 mm; the "
@@ -689,10 +702,12 @@ DIAGRAMS = [
         "title": "Belt through the drive",
         "fn": d403_belt_level,
         "shows": [
-            "Each drive from above, with the frame shown as a dashed outline so the stacks "
-            "show: the belt end run over the near stack, teeth round the pulley's front and "
-            "over the far stack, as the CAD routes the A and B belts. Below it, the same "
-            "drive from behind as p.76 and p.80 draw it: the belt's band level across the "
+            "Each drive from above, right way up, seen standing behind the printer (so its "
+            "posts mirror diagram 401's upside-down bench view), with the frame shown as a "
+            "dashed outline so the stacks show: the belt end run over the near stack, teeth "
+            "round the pulley's front and over the far stack, as the CAD routes the A and B "
+            "belts. Below a rule, the same drive from behind as p.76 and p.80 draw it, "
+            "labelled so: the belt's band level across the "
             "near pair, the pulley teeth and the far post's upper pair (A) or lower pair "
             "(B); the far post's other pair carries the other belt. Callouts 1 and 2 are "
             "the Do numbers of Steps 04.28 and 04.37.",
@@ -757,7 +772,7 @@ DIAGRAMS = [
             "The pulley hub cut across at its two set screws, 90 degrees apart: the first "
             "screw's tip on the flat side of the motor shaft, the second on the round. "
             "Callout 2 is the Do number of Step 04.25. A small panel shows the first screw "
-            "on the round part with the flat turned away, crossed out.",
+            "tightened on the round part with the flat under the second, crossed out.",
         ],
         "insert": [("04-ab-drives.md", "Step 04.25", "which screw goes on the flat")],
         "verify": [

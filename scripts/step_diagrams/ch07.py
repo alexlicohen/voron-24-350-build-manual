@@ -199,17 +199,18 @@ def d702_span() -> dd.Doc:
     d.text(lx, pm[1] - 30, "pluck", size=T_LAB, weight=800, fill=dd.BELT_A)
     d.text(lx, pm[1] + 8, "this run", size=T_LAB, weight=800, fill=dd.BELT_A)
 
-    # the tensioner screw: in = tighter, out = looser
+    # the tensioner screw, turned as seen from the front (the head end): a top view
+    # cannot show a rotation, so the direction is written, not drawn
     h = P(290, -37)
-    turn_arrow(d, h[0], h[1] + 40, 30, 200, 500, dd.OK, 5, "arwg")
-    d.text(h[0] - 60, h[1] + 40, "screw in:", size=T_LAB, anchor="end", weight=700)
-    d.text(h[0] - 60, h[1] + 78, "tighter", size=T_LAB, anchor="end", weight=800,
+    d.text(h[0] - 30, h[1] + 44, "clockwise:", size=T_LAB, anchor="end", weight=700)
+    d.text(h[0] - 30, h[1] + 82, "tighter", size=T_LAB, anchor="end", weight=800,
            fill=dd.OK)
-    d.text(h[0] + 60, h[1] + 40, "out:", size=T_LAB, weight=700)
-    d.text(h[0] + 60, h[1] + 78, "looser", size=T_LAB, weight=800, fill=dd.MUTED)
+    d.text(h[0] + 30, h[1] + 44, "anticlockwise:", size=T_LAB, weight=700)
+    d.text(h[0] + 30, h[1] + 82, "looser", size=T_LAB, weight=800, fill=dd.MUTED)
     d.text(1150, top + 66, "FRONT at the bottom", size=T_MIN, anchor="end", weight=700,
            fill=dd.MUTED)
-    dd.step_note(d, "Same on the left, with the B belt.", size=T_LAB)
+    dd.step_note(d, "Screw turned as seen from the front. Left side: same, B belt.",
+                 size=T_LAB)
     return d
 
 
@@ -360,13 +361,26 @@ def d705_move_return() -> dd.Doc:
     arrow(d, xa, y150 - 60, xa, yAway + 24, dd.ORANGE, 7, "arwo")
     arrow(d, xa + 140, yAway + 24, xa + 140, y150 - 60, dd.ORANGE, 7, "arwo")
     dd.callout(d, xa + 70, (y150 + yAway) / 2 - 20, 1)
-    # 150 mm on both sides
-    for x in (F0 + 60, F1 - 60):
-        arrow(d, x, (y150 + yI) / 2, x, y150 + 20, dd.INK, 3.5)
-        arrow(d, x, (y150 + yI) / 2, x, yI - 26, dd.INK, 3.5)
+    # the XY joints' toothed idlers at the ends of the X extrusion (orange, as in 702)
+    for x in (F0 + 15, F1 - 15):
+        d.circle(x, y150, 22, fill=dd.ORANGE_F, stroke=dd.ORANGE, sw=3)
+        d.circle(x, y150, 6, fill=dd.ORANGE, stroke="none", sw=0)
+        d.circle(x, yI, 6, fill=dd.GREY, stroke="none", sw=0)
+    d.text(F0 - 14, y150 + 10, "XY joint", size=T_MIN, anchor="end", weight=700)
+    d.text(F0 - 14, y150 + 44, "idler", size=T_MIN, anchor="end", weight=700)
+    d.text(F0 - 14, yI + 10, "front", size=T_MIN, anchor="end", weight=700)
+    d.text(F0 - 14, yI + 44, "idler", size=T_MIN, anchor="end", weight=700)
+    # 150 mm on both sides, idler centre to idler centre
+    for xc, x, s in ((F0 + 15, F0 + 90, 1), (F1 - 15, F1 - 90, -1)):
+        for y in (y150, yI):
+            d.line(xc, y, x + s * 14, y, stroke=dd.MUTED, sw=2, dash="8 6")
+        arrow(d, x, (y150 + yI) / 2, x, y150 + 3, dd.INK, 3.5)
+        arrow(d, x, (y150 + yI) / 2, x, yI - 3, dd.INK, 3.5)
     d.text((F0 + F1) / 2, (y150 + yI) / 2 + 12, "150 mm", size=36, anchor="middle",
            weight=800)
-    dd.callout(d, (F0 + F1) / 2, (y150 + yI) / 2 + 76, 2)
+    d.text((F0 + F1) / 2, (y150 + yI) / 2 + 50, "centre to centre", size=T_MIN,
+           anchor="middle", weight=600, fill=dd.MUTED)
+    dd.callout(d, (F0 + F1) / 2, (y150 + yI) / 2 + 110, 2)
     y = dd.legend_row(d, 720, top + 250, 1, ["back a few cm,", "then forward", "to 150 mm"])
     dd.legend_row(d, 720, y + 50, 2, ["pluck and read", "both belts again"])
     return d
@@ -394,21 +408,29 @@ def d706_tensioner_turns() -> dd.Doc:
         d.rect(cx - 120, ay0, 230, 190, fill=dd.ORANGE_F, stroke=dd.ORANGE, sw=3, rx=10)
         d.circle(cx + 40, ay0 + 95, 62, fill=dd.GREY_F, stroke=dd.GREY, sw=3)
         d.circle(cx + 40, ay0 + 95, 18, fill=dd.PANEL, stroke=dd.GREY, sw=2.5)
-        # screw: head against the washer on the front wall, tip into the arm's back
+        # screw: head against the washer on the front wall, threaded through the
+        # arm. The head stays put, so the screw is the same length in both panels
+        # and the arm moves along it: more tip shows behind the arm once it is
+        # pulled forward.
         sx = cx - 80
-        d.rect(sx - 10, ay0 - 20, 20, wall - ay0 + 20, fill=dd.GREY_F, stroke=dd.GREY,
-               sw=2.5)
+        tip = top + 300 - 60 - 20
+        d.rect(sx - 10, tip, 20, wall - tip, fill=dd.GREY_F, stroke=dd.GREY, sw=2.5)
         d.rect(sx - 26, wall + 4, 52, 6, fill=dd.STEEL, stroke=dd.GREY, sw=2)
         d.rect(sx - 24, wall + 10, 48, 34, fill=dd.GREY, stroke=dd.INK, sw=2.5, rx=4)
-        d.text(cx + 40, top + 155, "bearing stack", size=T_MIN, anchor="middle",
+        d.text(cx + 40, top + 155, "front idler", size=T_MIN, anchor="middle",
                weight=700, fill=dd.MUTED)
+        lb = ay0 + 190 + 44
+        d.text(cx + 40, lb, "bearing stack", size=T_MIN, anchor="middle", weight=700,
+               fill=dd.INK)
+        d.leader(cx + 40, ay0 + 95 + 62, cx + 40, lb - 26, col=dd.INK)
         dd.callout(d, sx - 70, wall + 30, n)
         return cx, sx, wall, ay0
 
     cx, sx, wall, ay0 = idler(30, -60, "Out to the end", 1)
     arrow(d, cx + 185, ay0 + 150, cx + 185, ay0 + 60, dd.MUTED, 6, "arwm")
     d.text(sx + 40, wall + 40, "unscrew", size=T_LAB, weight=700, fill=dd.MUTED)
-    d.text(cx - 230, wall + 140, "arm slides back", size=T_MIN, weight=700, fill=dd.MUTED)
+    d.text(cx - 230, wall + 140, "arm back to its stop", size=T_MIN, weight=700,
+           fill=dd.MUTED)
     cx, sx, wall, ay0 = idler(615, 0, "4 turns in", 2)
     arrow(d, cx + 185, ay0 + 60, cx + 185, ay0 + 150, dd.OK, 6, "arwg")
     d.text(sx + 40, wall + 40, "4 turns", size=T_LAB, weight=800, fill=dd.OK)
@@ -416,6 +438,47 @@ def d706_tensioner_turns() -> dd.Doc:
            fill=dd.OK)
     d.text(1150, 66, "FRONT at the bottom", size=T_MIN, anchor="end", weight=700,
            fill=dd.MUTED)
+    return d
+
+
+# ============================================================ diagram 707 ===
+def d707_quarter_turns() -> dd.Doc:
+    """Both front idlers seen from the front, screw heads towards you (p.128, CAD:
+    the M3x40 head sits on the idler's front face). Right-hand thread: clockwise
+    seen from the head winds the screw in, which pulls the arm forward = tighter.
+    B is the left idler, A the right one (p.126-127)."""
+    d = dd.Doc(860, "Front-idler screws seen from the front: quarter turns, A then B")
+    top = dd.step_header(d, "Quarter turns, A then B")
+    yc = top + 250
+
+    def idler(cx, name, col, side):
+        d.rect(cx - 170, top + 50, 340, 400, fill="none", stroke=dd.BLACKPART, sw=4,
+               rx=18, dash="12 8")
+        d.text(cx, top + 100, side, size=T_MIN, anchor="middle", weight=700,
+               fill=dd.MUTED)
+        d.circle(cx, yc, 46, fill=dd.GREY, stroke=dd.INK, sw=3)
+        hexs = [(cx + 18 * math.cos(math.radians(a)), yc + 18 * math.sin(math.radians(a)))
+                for a in range(0, 360, 60)]
+        d.poly(hexs, fill=dd.PANEL, stroke=dd.INK, sw=2)
+        turn_arrow(d, cx, yc, 84, -135, -45, dd.OK, 7, "arwg")
+        d.text(cx, yc + 120, "M3×40 head", size=T_MIN, anchor="middle", weight=600,
+               fill=dd.MUTED)
+        d.text(cx, top + 420, name, size=T_LAB, anchor="middle", weight=800, fill=col)
+
+    idler(300, "B belt", dd.BELT_B, "front-left idler")
+    idler(900, "A belt", dd.BELT_A, "front-right idler")
+    dd.callout(d, 900 + 110, yc - 110, 1)
+    # alternate: A, then B, then A again
+    d.path(f"M 720 {yc - 70} C 660 {yc - 130} 540 {yc - 130} 480 {yc - 70}",
+           stroke=dd.ORANGE, sw=5, marker="arwo", dash="12 8")
+    d.path(f"M 480 {yc + 70} C 540 {yc + 130} 660 {yc + 130} 720 {yc + 70}",
+           stroke=dd.ORANGE, sw=5, marker="arwo", dash="12 8")
+    dd.callout(d, 600, yc, 2)
+
+    y = dd.legend_row(d, 60, top + 530, 1, ["clockwise: tighter", "anticlockwise: looser"])
+    dd.legend_row(d, 60, y + 40, 2, ["a quarter turn on A, then on B,",
+                                     "until both belts read the same"])
+    dd.step_note(d, "Screw heads seen from the front of the machine.", size=T_LAB)
     return d
 
 
@@ -450,12 +513,12 @@ DIAGRAMS = [
             "A belt's inner run between the XY joint's toothed idler and the front "
             "idler, 150 mm centre to centre, marked as the run to pluck; the outer run "
             "drawn faint.",
-            "The front-idler M3x40 head at the front: screw in = tighter, out = looser. "
-            "The left side is the mirror, with the B belt.",
+            "The front-idler M3x40 head at the front: turned as seen from the front, "
+            "clockwise = tighter, anticlockwise = looser (written, since a top view "
+            "cannot show a rotation). The left side is the mirror, with the B belt.",
         ],
         "insert": [
             ("07-ab-belts.md", "Step 07.30", "first, before the two CAD renders"),
-            ("07-ab-belts.md", "Step 07.32", "replaces the no-image placeholder"),
         ],
         "verify": [
             "Positions are from the 2.4r2 CAD (250 build) with the XY joint moved to the "
@@ -512,8 +575,9 @@ DIAGRAMS = [
         "fn": d705_move_return,
         "shows": [
             "Top view: the X extrusion moved back a few centimetres (dashed) and forward "
-            "again to 150 mm from the front idlers on both sides (callout 1), then both "
-            "belts read again (callout 2), the Do numbers of Step 07.33.",
+            "again until the XY joint idler centres are 150 mm from the front idler "
+            "centres on both sides (callout 1), then both belts read again (callout 2), "
+            "the Do numbers of Step 07.33.",
         ],
         "insert": [
             ("07-ab-belts.md", "Step 07.33", "replaces the no-image placeholder"),
@@ -530,9 +594,10 @@ DIAGRAMS = [
         "shows": [
             "A front idler from above, FRONT at the bottom: the M3x40 through the front "
             "wall, head on its washer, threaded into the back of the blue tension arm "
-            "that carries the bearing stack. Callout 1: screw backed out, arm slid back "
-            "to the end of its travel. Callout 2: 4 turns in, arm pulled forward. The "
-            "Do numbers of Step 07.5.",
+            "that carries the bearing stack. Callout 1: screw backed out, arm back to "
+            "the end of its travel (pushed by hand if it does not follow). Callout 2: "
+            "4 turns in, arm pulled forward along the screw, so more tip shows behind "
+            "it. The Do numbers of Step 07.5.",
         ],
         "insert": [
             ("07-ab-belts.md", "Step 07.5", "first, before the p.128 crop"),
@@ -540,6 +605,27 @@ DIAGRAMS = [
         "verify": [
             "Schematic block and arm shapes; the screw path (front wall, insert at the "
             "rear of the arm) is from the CAD and p.128's section.",
+            "Whether the arm follows the screw back on its own with no belt on is not "
+            "known; Step 07.5 says to push it back by hand if it does not.",
+        ],
+    },
+    {
+        "n": 707,
+        "file": "707-quarter-turns.svg",
+        "title": "Quarter turns, A then B",
+        "fn": d707_quarter_turns,
+        "shows": [
+            "Both front idlers seen from the front, screw heads towards you: B on the "
+            "left, A on the right. Callout 1: clockwise tightens, anticlockwise loosens. "
+            "Callout 2: alternate quarter turns between the two. The Do numbers of "
+            "Step 07.32.",
+        ],
+        "insert": [
+            ("07-ab-belts.md", "Step 07.32", "first; replaces 702 there"),
+        ],
+        "verify": [
+            "Schematic idler faces. Clockwise = in = tighter follows from the head at "
+            "the front (p.128 section, CAD) and the M3 right-hand thread.",
         ],
     },
 ]

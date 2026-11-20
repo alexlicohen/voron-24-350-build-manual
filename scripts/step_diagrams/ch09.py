@@ -138,13 +138,13 @@ def din_rail(b: Bay, d: Doc, x0, x1, yc, w=35):
 
 # ============================================================= diagram 901 ===
 def d901_psu_position() -> Doc:
-    d = Doc(1300, "PSU on the rear rail: 2 mm from the T's rounded corner, 3 mm from the SSR run")
+    d = Doc(1070, "PSU on the rear rail: 2 mm from the T's rounded corner, 3 mm from the SSR run")
     top = step_header(d, "Where the PSU stops")
-    d.panel(30, top + 16, 1140, 700)
-    d.text(54, top + 62, "Seen from the rear, printer on its head", size=T_MIN, weight=700,
+    d.panel(30, top + 16, 1140, 630)
+    d.text(54, top + 60, "Seen from the rear, printer on its head", size=T_MIN, weight=700,
            fill=MUTED)
-    b = Bay(60, top + 150, 3.05, -128, -22)
-    view_tag(d, b.X(30), top + 108, "FRONT")
+    b = Bay(70, top + 118, 2.65, -128, -40)
+    view_tag(d, b.X(30), top + 100, "FRONT")
     # rear rail, SSR (faint), PSU
     din_rail(b, d, -120, 192, 70)
     b.rect(d, -108.5, -63.5, 43.8, 101.8, fill="#EDE6DE", stroke=GREY, sw=2.5, op=0.85)
@@ -160,87 +160,87 @@ def d901_psu_position() -> Doc:
            f"L {b.X(tx1)} {b.Y(-30)} L {b.X(tx1)} {b.Y(32)} L {b.X(tx0)} {b.Y(32)} "
            f"L {b.X(tx0)} {b.Y(20.8)} Q {b.X(tx0)} {b.Y(8.8)} {b.X(185)} {b.Y(8.8)} "
            f"L {b.X(169.4)} {b.Y(8.8)} Z", fill=DUCT_F, stroke=BLACKPART, sw=3)
-    d.text(b.X(20), b.Y(-22), "middle run", size=T_MIN, anchor="middle", weight=700,
+    d.text(b.X(-60), b.Y(-20), "middle run", size=T_MIN, anchor="middle", weight=700,
            fill=BLACKPART)
     d.text(b.X(209), b.Y(-34), "T", size=T_LAB, anchor="middle", weight=800, fill=BLACKPART)
     # the SSR run behind the SSR: AC conduit, mains (red outline)
     b.rect(d, -109.8, -102, 103.8, 128.2, fill=RED_F, stroke=RED, sw=3)
     duct(b, d, -102, -32, 103.8, 128.2, col=RED, fill=RED_F)
-    d.text(b.X(-68), b.Y(144), "SSR run (mains)", size=T_MIN, anchor="middle", weight=700,
+    d.text(b.X(-68), b.Y(146), "SSR run (mains)", size=T_MIN, anchor="middle", weight=700,
            fill=RED)
     # magnifier rings on the two gaps
     for (cx, cy) in ((-30.5, 116), (190, 12)):
-        d.circle(b.X(cx), b.Y(cy), 46, fill="none", stroke=ORANGE, sw=4, dash="10 7")
+        d.circle(b.X(cx), b.Y(cy), 42, fill="none", stroke=ORANGE, sw=4, dash="10 7")
     # callouts: 1 = on the rear rail, terminals left; 2 = slide left
     callout(d, b.X(150), b.Y(100), 1)
-    arrow(d, b.X(130), b.Y(108), b.X(70), b.Y(108), col=ORANGE, sw=8, mk="arwo")
-    callout(d, b.X(48), b.Y(108), 2)
-    d.text(b.X(30), b.Y(138), "REAR", size=T_MIN, anchor="middle", weight=800, fill=BLUE)
+    arrow(d, b.X(128), b.Y(108), b.X(66), b.Y(108), col=ORANGE, sw=8, mk="arwo")
+    callout(d, b.X(44), b.Y(108), 2)
+    d.text(b.X(60), b.Y(146), "REAR", size=T_MIN, anchor="middle", weight=800, fill=BLUE)
 
     # ---- the two gaps, enlarged
-    gy = top + 732
+    gy = top + 656
     gh = d.h - gy - 16
     # left end: the SSR run's open end, then the PSU's terminal strip
     d.panel(30, gy, 560, gh)
-    d.text(54, gy + 48, "Left end", size=36, weight=700)
-    y0, y1 = gy + 80, gy + 240
-    d.path(f"M 300 {y0 + 20} L 70 {y0 + 20} L 70 {y1 - 20} L 300 {y1 - 20}", fill=RED_F,
+    d.text(54, gy + 46, "Left end", size=36, weight=700)
+    bench_tag(d, 574, gy + 44, "check on the bench", anchor="end")
+    y0, y1 = gy + 74, gy + 194
+    d.path(f"M 300 {y0 + 14} L 70 {y0 + 14} L 70 {y1 - 14} L 300 {y1 - 14}", fill=RED_F,
            stroke=RED, sw=4)
     d.text(185, (y0 + y1) / 2 + 11, "SSR run", size=T_LAB, anchor="middle", weight=800,
            fill=RED)
-    d.text(185, y1 + 22, "open end", size=T_MIN, weight=700, fill=RED)
-    d.rect(370, y0, 205, y1 - y0 + 20, fill=GREY_F, stroke=GREY, sw=4)
+    d.text(150, y1 + 24, "open end", size=T_MIN, weight=700, fill=RED)
+    d.rect(370, y0, 205, y1 - y0 + 10, fill=GREY_F, stroke=GREY, sw=4)
     for i in range(4):
-        d.rect(370, y0 + 10 + i * 50, 48, 50, fill=RED_F if i else "#3A3F46",
+        d.rect(370, y0 + 6 + i * 31, 44, 31, fill=RED_F if i else "#3A3F46",
                stroke=RED if i else INK, sw=2.5)
     d.text(500, (y0 + y1) / 2 + 11, "PSU", size=T_LAB, anchor="middle", weight=800)
-    gap_arrows(d, 300, 370, y1 + 66, col=INK, out=60)
-    d.text(335, y1 + 116, "3 mm or more", size=T_LAB, anchor="middle", weight=800)
-    bench_tag(d, 310, gy + gh - 34, "check on the bench", anchor="middle")
+    gap_arrows(d, 300, 370, y1 + 50, col=INK, out=60)
+    d.text(335, y1 + 96, "3 mm or more", size=T_LAB, anchor="middle", weight=800)
     # front-right corner: the right T's rounded corner and the PSU's corner
     d.panel(610, gy, 560, gh)
-    d.text(634, gy + 48, "Front-right corner", size=36, weight=700)
-    sy0, sy1, bx0, bx1, r = gy + 90, gy + 160, 960, 1040, 90
+    d.text(634, gy + 46, "Front-right corner", size=36, weight=700)
+    sy0, sy1, bx0, bx1, r = gy + 76, gy + 132, 960, 1040, 70
     acx, acy = bx0 - r, sy1 + r
-    d.path(f"M 630 {sy0} L {bx0} {sy0} L {bx0} {gy + 66} L {bx1} {gy + 66} "
-           f"L {bx1} {gy + gh - 20} L {bx0} {gy + gh - 20} L {bx0} {acy} "
+    d.path(f"M 630 {sy0} L {bx0} {sy0} L {bx0} {gy + 62} L {bx1} {gy + 62} "
+           f"L {bx1} {gy + gh - 16} L {bx0} {gy + gh - 16} L {bx0} {acy} "
            f"A {r} {r} 0 0 0 {acx} {sy1} L 630 {sy1} Z", fill=DUCT_F, stroke=BLACKPART, sw=4)
-    d.text(640, sy1 - 22, "right T", size=T_LAB, weight=800, fill="#FFFFFF")
+    d.text(640, sy1 - 16, "right T", size=T_LAB, weight=800, fill="#FFFFFF")
     c45 = math.cos(math.radians(45))
     fx, fy = acx + r * c45, acy - r * c45
-    pcx, pcy = fx - 24, fy + 24
-    d.rect(630, pcy, pcx - 630, gy + gh - 20 - pcy, fill=GREY_F, stroke=GREY, sw=4)
+    pcx, pcy = fx - 22, fy + 22
+    d.rect(630, pcy, pcx - 630, gy + gh - 16 - pcy, fill=GREY_F, stroke=GREY, sw=4)
     d.line(pcx, pcy, fx, fy, stroke=ORANGE, sw=6)
-    d.text(pcx - 16, pcy + 52, "2 mm", size=T_LAB, anchor="end", weight=800)
-    d.text(720, gy + gh - 60, "PSU", size=T_LAB, anchor="middle", weight=800)
-    d.text(bx1 + 10, acy + 90, "rounded", size=T_MIN, weight=700, fill=BLACKPART)
-    d.text(bx1 + 10, acy + 126, "corner", size=T_MIN, weight=700, fill=BLACKPART)
-    d.leader(fx + 6, fy + 6, bx1 + 6, acy + 80, col=INK)
+    d.text(pcx - 16, pcy + 46, "2 mm", size=T_LAB, anchor="end", weight=800)
+    d.text(720, gy + gh - 40, "PSU", size=T_LAB, anchor="middle", weight=800)
+    d.text(bx1 + 10, acy + 40, "rounded", size=T_MIN, weight=700, fill=BLACKPART)
+    d.text(bx1 + 10, acy + 76, "corner", size=T_MIN, weight=700, fill=BLACKPART)
+    d.leader(fx + 6, fy + 6, bx1 + 6, acy + 30, col=INK)
     return d
 
 
 # ============================================================= diagram 902 ===
 def d902_vhb_checks() -> Doc:
-    d = Doc(1300, "Before the VHB goes down: middle run gaps, stub on the port, 34 mm run over "
+    d = Doc(1070, "Before the VHB goes down: middle run gaps, stub on the port, 34 mm run over "
                   "the hole")
     top = step_header(d, "Check, then stick")
 
     # ---- panel 1: middle run between the Leviathan and the PSU (gaps drawn enlarged)
-    d.panel(30, top + 16, 1140, 380)
-    d.text(54, top + 62, "Middle run, gaps enlarged", size=T_MIN, weight=700, fill=MUTED)
+    d.panel(30, top + 16, 1140, 316)
+    d.text(54, top + 58, "Middle run, gaps enlarged", size=T_MIN, weight=700, fill=MUTED)
     x0, x1 = 290, 960
-    g = 24                                       # 1.5 mm, drawn enlarged
-    ly0, ly1 = top + 86, top + 146
-    dy0, dy1 = ly1 + g, ly1 + g + 132
-    py0, py1 = dy1 + g, dy1 + g + 52
+    g = 22                                       # 1.5 mm, drawn enlarged
+    ly0, ly1 = top + 76, top + 128
+    dy0, dy1 = ly1 + g, ly1 + g + 100
+    py0, py1 = dy1 + g, dy1 + g + 48
     d.rect(x0, ly0, x1 - x0, ly1 - ly0, fill=PCB, stroke=PCB_EDGE, sw=3, rx=6)
     d.text((x0 + x1) / 2, ly1 - 18, "Leviathan", size=T_LAB, anchor="middle", weight=800,
            fill="#FFFFFF")
     d.rect(x0, dy0, x1 - x0, dy1 - dy0, fill=DUCT_F, stroke=BLACKPART, sw=4)
     for i in range(10):
         x = x0 + 30 + i * 68
-        d.line(x, dy0, x, dy0 + 18, stroke="#AEB4BC", sw=3)
-        d.line(x, dy1, x, dy1 - 18, stroke="#AEB4BC", sw=3)
+        d.line(x, dy0, x, dy0 + 14, stroke="#AEB4BC", sw=3)
+        d.line(x, dy1, x, dy1 - 14, stroke="#AEB4BC", sw=3)
     d.text((x0 + x1) / 2, (dy0 + dy1) / 2 + 11, "middle run", size=T_LAB, anchor="middle",
            weight=800, fill="#FFFFFF")
     d.rect(x0, py0, x1 - x0, py1 - py0, fill=GREY_F, stroke=GREY, sw=3)
@@ -248,17 +248,17 @@ def d902_vhb_checks() -> Doc:
     for ya, yb, ty in ((ly1, dy0, ly1 + 4), (dy1, py0, dy1 + 4)):
         gap_arrows(d, ya, yb, 990, col=INK, out=40, vertical=True)
         d.text(1012, ty, "1.5 mm", size=T_LAB, weight=800)
-        d.text(1012, ty + 36, "or more", size=T_MIN, weight=700)
+        d.text(1012, ty + 34, "or more", size=T_MIN, weight=700)
     callout(d, 160, (dy0 + dy1) / 2 - 16, 1)
     d.text(160, (dy0 + dy1) / 2 + 54, "centred", size=T_MIN, anchor="middle", weight=700)
 
     # ---- panel 2: the AC conduit (mains), from the box at the WAGO bus to the 34 mm run
-    py = top + 412
+    py = top + 344
     d.panel(30, py, 1140, d.h - py - 16)
     d.text(54, py + 46, "AC conduit", size=T_MIN, weight=700, fill=MUTED)
     bench_tag(d, 1150, py + 46, "stub length: on the bench", anchor="end")
-    b = Bay(80, py + 84, 4.0, -125, 62)
-    d.text(b.X(-20), py + 110, "FRONT", size=T_MIN, anchor="middle", weight=800, fill=BLUE)
+    b = Bay(150, py + 74, 3.15, -125, 62)
+    d.text(b.X(-20), py + 100, "FRONT", size=T_MIN, anchor="middle", weight=800, fill=BLUE)
     # SSR (faint), WAGO blocks behind the box
     b.rect(d, -108.5, -63.5, 66, 101.8, fill="#EDE6DE", stroke=GREY, sw=2.5)
     d.text(b.X(-86), b.Y(90), "SSR", size=T_MIN, anchor="middle", weight=700, fill=MUTED)
@@ -304,7 +304,7 @@ def d902_vhb_checks() -> Doc:
     d.text(b.X(-22), b.Y(108), "stub seated", size=T_LAB, weight=700)
     d.text(b.X(-22), b.Y(108) + 38, "on the box port", size=T_LAB, weight=700)
     d.leader(b.X(-60), b.Y(141), b.X(-26), b.Y(112), col=INK)
-    d.text(b.X(-20), d.h - 40, "REAR", size=T_MIN, anchor="middle", weight=800, fill=BLUE)
+    d.text(b.X(40), d.h - 40, "REAR", size=T_MIN, anchor="middle", weight=800, fill=BLUE)
     return d
 
 
@@ -335,9 +335,14 @@ def d903_ssr_orientation() -> Doc:
     d.circle(b.X(-103), b.Y(63.5), 1.8 * b.s, fill="#F0B020", stroke=AMBER, sw=2)
     d.text(b.X(-84), b.Y(66), "INPUT", size=T_MIN, anchor="middle", weight=800)
     d.text(b.X(-86), b.Y(83), "LOAD", size=T_MIN, anchor="middle", weight=800, fill=RED)
-    # PSU's left end to the right
-    b.rect(d, -29, -20, 26, 125.5, fill=GREY_F, stroke=GREY, sw=3)
-    d.text(b.X(-24.5), b.Y(136), "PSU", size=T_LAB, anchor="middle", weight=800)
+    # PSU's left end to the right: the body runs on past the panel edge
+    b.rect(d, -29, -13, 26, 125.5, fill=GREY_F, stroke=GREY, sw=3)
+    for i in range(9):
+        ty = 31 + i * 10.4
+        mains = i >= 6
+        b.rect(d, -29, -24, ty, ty + 10.4, fill=RED_F if mains else "#3A3F46",
+               stroke=RED if mains else INK, sw=2)
+    d.text(b.X(-20.5), b.Y(136), "PSU", size=T_LAB, anchor="middle", weight=800)
     # clear rail between them
     d.line(b.X(-63.5), b.Y(116), b.X(-29), b.Y(116), stroke=MUTED, sw=3)
     for x in (-63.5, -29):
@@ -351,8 +356,8 @@ def d903_ssr_orientation() -> Doc:
     x = 750
     d.panel(x, top + 16, 420, 870)
     y = legend_row(d, x + 20, top + 110, 2, ["left of", "the PSU"])
-    y = legend_row(d, x + 20, y + 50, 3, ["INPUT 3+ 4−", "toward the front"])
-    d.text(x + 92, y + 40, "LOAD 1 2", size=T_LAB, weight=800, fill=RED)
+    y = legend_row(d, x + 20, y + 50, 3, ["INPUT 3+ and 4−", "toward the front"])
+    d.text(x + 92, y + 40, "LOAD 1 and 2", size=T_LAB, weight=800, fill=RED)
     d.text(x + 92, y + 80, "toward the rear:", size=T_LAB, weight=600)
     d.text(x + 92, y + 120, "the mains side", size=T_LAB, weight=700, fill=RED)
     d.text(x + 24, top + 790, "amber LED on", size=T_MIN, weight=600, fill=MUTED)
@@ -368,7 +373,7 @@ def d904_probe_gap() -> Doc:
     d.panel(30, top + 16, 700, 870)
     d.text(54, top + 62, "From above, rear at the top", size=T_MIN, weight=700, fill=MUTED)
     k = 9.0                                      # px per mm
-    ex0 = 520                                    # right bed extrusion, inner face x
+    ex0 = 430                                    # right bed extrusion, inner face x
     pe = top + 470                               # plate rear edge y
     # right bed extrusion running front-back, under everything
     d.rect(ex0, top + 90, 20 * k, 780, fill=BLUE_F, stroke=BLUE, sw=3)
@@ -378,8 +383,15 @@ def d904_probe_gap() -> Doc:
     d.text(ex0 + 10 * k, top + 830, "bed", size=T_MIN, anchor="middle", weight=700, fill=BLUE)
     d.text(ex0 + 10 * k, top + 862, "extr.", size=T_MIN, anchor="middle", weight=700,
            fill=BLUE)
-    # build plate, straight rear edge
-    d.rect(60, pe, ex0 + 20 * k - 60, top + 760 - pe, fill="#E9ECEF", stroke=INK, sw=4)
+    # build plate, straight rear edge; it overhangs the bed extrusion and runs on past
+    # the panel edge (LDO build-plate mapping), drawn with a break line
+    xr = 712
+    zz = " ".join(f"L {xr + (10 if i % 2 else -10)} {pe + 30 + i * 30}"
+                  for i in range(int((top + 760 - pe - 30) // 30)))
+    d.path(f"M 60 {pe} L {xr} {pe} {zz} L {xr} {top + 760} L 60 {top + 760} Z",
+           fill="#E9ECEF", stroke=INK, sw=4)
+    d.text(xr - 14, top + 742, "plate runs on", size=T_MIN, anchor="end", weight=600,
+           fill=MUTED)
     d.text(260, pe + 150, "build plate", size=T_LAB, anchor="middle", weight=800)
     # probe body against the inner face, behind the plate edge; pin at its front end
     pin_r = 2.5 * k
@@ -474,28 +486,31 @@ def d905_inlet_press() -> Doc:
     d.text(wx + 300, fy0 + 414, "on the", size=T_MIN, anchor="middle", weight=700, fill=RED)
     d.text(wx + 300, fy0 + 448, "spades", size=T_MIN, anchor="middle", weight=700, fill=RED)
 
-    # right: the socket face from outside, printer upright
+    # right: the panel from outside on the bench, which end the switch goes
     gx = 690
     d.panel(gx, top + 16, 480, 870)
     d.text(gx + 24, top + 62, "From outside,", size=T_MIN, weight=700, fill=MUTED)
-    d.text(gx + 24, top + 96, "printer upright", size=T_MIN, weight=700, fill=MUTED)
-    cx, cy = gx + 240, top + 380
-    d.rect(cx - 180, cy - 150, 360, 300, fill=RED_F, stroke=RED, sw=4, rx=16)
-    d.rect(cx - 150, cy - 110, 180, 210, fill=PANEL, stroke=RED, sw=3, rx=14)   # C14 recess
-    sx = cx - 60
-    d.rect(sx - 10, cy - 76, 20, 48, fill=OK_F, stroke=OK, sw=3, rx=3)           # earth pin
-    for dx in (-48, 48):
-        d.rect(sx + dx - 8, cy + 10, 16, 48, fill=STEEL, stroke=GREY, sw=3, rx=3)
-    d.rect(cx + 60, cy - 100, 90, 200, fill="#3A3F46", stroke=INK, sw=3, rx=8)    # rocker
-    d.line(cx + 60, cy, cx + 150, cy, stroke="#8A929D", sw=3)
-    d.text(sx, cy - 172, "earth pin up", size=T_LAB, anchor="middle", weight=800, fill=OK)
-    d.leader(sx, cy - 82, sx, cy - 160, col=OK)
-    d.text(cx + 105, cy + 190, "switch", size=T_LAB, anchor="middle", weight=800)
-    d.text(cx + 105, cy + 228, "facing out", size=T_LAB, anchor="middle", weight=700)
-    d.text(gx + 24, top + 700, "On its head now,", size=T_MIN, weight=600, fill=MUTED)
-    d.text(gx + 24, top + 736, "so the earth pin", size=T_MIN, weight=600, fill=MUTED)
-    d.text(gx + 24, top + 772, "points at the floor.", size=T_MIN, weight=600, fill=MUTED)
-    bench_tag(d, gx + 240, top + 836, "fits either way up", anchor="middle")
+    d.text(gx + 24, top + 96, "panel on the bench", size=T_MIN, weight=700, fill=MUTED)
+    # the panel, long axis vertical here: the curved cut-out in its top end
+    px0, px1, py0, py1 = gx + 40, gx + 440, top + 190, top + 760
+    ca, cb = px0 + 40, px0 + 180                         # the cut-out's ends on the top edge
+    d.path(f"M {px0} {py0} L {ca} {py0} A 70 70 0 0 0 {cb} {py0} L {px1} {py0} "
+           f"L {px1} {py1} L {px0} {py1} Z", fill=BLACKPART_F, stroke=BLACKPART, sw=4)
+    d.text(px0, py0 - 44, "curved cut-out", size=T_MIN, weight=700, fill=BLACKPART)
+    # the module: switch end toward the curved cut-out, socket + fuse drawer the other end
+    mx0, mx1, my0, my1 = px0 + 80, px1 - 60, py0 + 100, py1 - 40
+    d.rect(mx0, my0, mx1 - mx0, my1 - my0, fill=RED_F, stroke=RED, sw=4, rx=12)
+    d.rect(mx0 + 30, my0 + 26, mx1 - mx0 - 60, 140, fill="#3A3F46", stroke=INK, sw=3, rx=8)
+    d.line(mx0 + 30, my0 + 96, mx1 - 30, my0 + 96, stroke="#8A929D", sw=3)
+    d.text((mx0 + mx1) / 2, my0 + 76, "switch", size=T_MIN, anchor="middle", weight=700,
+           fill="#FFFFFF")
+    d.rect(mx0 + 24, my0 + 196, mx1 - mx0 - 48, my1 - my0 - 220, fill=PANEL, stroke=RED,
+           sw=3, rx=12)
+    for i, w in enumerate(("socket", "and fuse", "drawer")):
+        d.text((mx0 + mx1) / 2, my0 + 270 + i * 38, w, size=T_MIN, anchor="middle",
+               weight=700, fill=RED)
+    d.text(gx + 240, py1 + 52, "switch end at the", size=T_LAB, anchor="middle", weight=800)
+    d.text(gx + 240, py1 + 90, "curved cut-out", size=T_LAB, anchor="middle", weight=800)
     return d
 
 
@@ -536,36 +551,49 @@ def d906_usb_adapter_stack() -> Doc:
     d.path(f"M {rx + 30} {ry - 28} L {rx + 70} {ry - 80}", stroke=STEEL, sw=16, cap="butt")
     d.path(f"M {rx + 70} {ry - 80} C {rx + 100} {ry - 120} {rx + 110} {ry - 150} "
            f"{rx + 120} {ry - 200}", stroke="#D9A21B", sw=10)
+    # M2x10 heads in the base's two wing holes (the DIN clip is behind)
+    for (hx, hy) in ((cx - 205, cy - 10), (cx + 30, cy + 285)):
+        d.circle(hx, hy, 13, fill=GREY_F, stroke=GREY, sw=3)
+        d.line(hx - 7, hy, hx + 7, hy, stroke=GREY, sw=3)
+        d.line(hx, hy - 7, hx, hy + 7, stroke=GREY, sw=3)
     callout(d, rx - 80, ry - 10, 3)
     callout(d, cx - 110, cy - 110, 1)
-    d.text(cx - 200, cy + 230, "partial cover", size=T_MIN, anchor="middle", weight=700)
+    callout(d, cx + 100, cy + 285, 2)
+    # labels: the textured top piece is the partial cover, the diamond is the base
+    d.text(54, top + 112, "partial cover,", size=T_MIN, weight=700)
+    d.text(54, top + 148, "cut away at top-right", size=T_MIN, weight=700)
+    d.leader(120, top + 160, cx - 150, cy - 215, col=INK)
+    d.text(60, cy + 262, "base", size=T_MIN, weight=700)
+    d.leader(100, cy + 236, cx - 222, cy + 40, col=INK)
     d.text(54, top + 846, "3× M3×10 hold the stack", size=T_MIN, weight=700)
 
     # right: edge view, the layers and the DIN clip on the base's back
     gx = 690
     d.panel(gx, top + 16, 480, 870)
     d.text(gx + 24, top + 62, "From the side", size=T_MIN, weight=700, fill=MUTED)
-    lx = gx + 40
-    lay = [("cover", "#3E4550", 50), ("PCB", PCB, 40), ("base", BLACKPART_F, 56)]
+    lx = gx + 30
+    lay = [("cover", "#3E4550", 46, 50, 190), ("PCB", PCB, 36, 40, 200),
+           ("base", BLACKPART_F, 50, 0, 240)]
     y = top + 120
-    for name, col, th in lay:
-        d.rect(lx, y, 240, th, fill=col, stroke=INK, sw=2.5)
+    for name, col, th, xa, xb in lay:
+        d.rect(lx + xa, y, xb - xa, th, fill=col, stroke=INK, sw=2.5)
         d.text(lx + 256, y + th / 2 + 11, name, size=T_MIN, weight=700)
         y += th
-    # DIN clip on the back of the base, two M2x10 up into the base
-    d.rect(lx + 50, y, 140, 44, fill=BLACKPART, stroke=INK, sw=2.5)
+    # DIN clip on the back of the base; two M2x10 from the front through the wing holes
+    d.rect(lx + 6, y, 228, 44, fill=BLACKPART, stroke=INK, sw=2.5)
     d.text(lx + 256, y + 33, "DIN clip", size=T_MIN, weight=800)
-    for sx in (lx + 80, lx + 160):
-        d.line(sx, y + 44, sx, y - 40, stroke=GREY, sw=7)
-        d.rect(sx - 13, y + 44, 26, 10, fill=GREY_F, stroke=GREY, sw=2)
+    for sx in (lx + 22, lx + 218):
+        d.line(sx, y - 50, sx, y + 36, stroke=GREY, sw=7)
+        d.rect(sx - 13, y - 60, 26, 10, fill=GREY_F, stroke=GREY, sw=2)
     callout(d, lx + 120, y + 110, 2)
     d.text(gx + 24, y + 190, "2× M2×10 self-tapping,", size=T_MIN, weight=700)
-    d.text(gx + 24, y + 226, "for the clip only", size=T_MIN, weight=700)
-    bench_tag(d, gx + 240, y + 292, "clip screws: on the bench", anchor="middle")
-    d.rect(lx + 10, y + 420, 220, 30, fill=RAIL, stroke=RAIL_E, sw=2.5)
-    d.text(lx + 120, y + 490, "front DIN rail", size=T_MIN, anchor="middle", weight=700,
+    d.text(gx + 24, y + 226, "from the front through", size=T_MIN, weight=700)
+    d.text(gx + 24, y + 262, "the base's wing holes", size=T_MIN, weight=700)
+    bench_tag(d, gx + 240, y + 322, "M2×10: check on the bench", anchor="middle")
+    d.rect(lx + 10, y + 440, 220, 30, fill=RAIL, stroke=RAIL_E, sw=2.5)
+    d.text(lx + 120, y + 510, "front DIN rail", size=T_MIN, anchor="middle", weight=700,
            fill=MUTED)
-    arrow(d, lx + 120, y + 330, lx + 120, y + 410, col=MUTED, sw=4, mk="arwm", dash="10 8")
+    arrow(d, lx + 120, y + 360, lx + 120, y + 430, col=MUTED, sw=4, mk="arwm", dash="10 8")
     return d
 
 
@@ -626,7 +654,8 @@ DIAGRAMS = [
         "shows": [
             "The SSR on its metal bracket on the rear rail, from the rear with the printer on "
             "its head: INPUT pair toward the front, LOAD pair (mains, red) toward the rear, "
-            "the PSU to its right with about 30 mm of rail between.",
+            "the PSU's left end, terminal strip and all, to its right with about 30 mm of "
+            "rail between (Do 2).",
             "Callouts 2 and 3 are the Do numbers of Step 09.18; Do 1 (open the latch) is not "
             "drawn.",
         ],
@@ -647,8 +676,9 @@ DIAGRAMS = [
         "fn": d904_probe_gap,
         "shows": [
             "From above, rear at the top: the right bed extrusion, the build plate's straight "
-            "rear edge, the probe body on the extrusion's inner face behind it on two M3×25, "
-            "and its pin just behind the edge. Callouts 1–3 are the Do numbers of Step 09.30.",
+            "rear edge overhanging the extrusion and running on past the panel edge, the probe "
+            "body on the extrusion's inner face behind it on two M3×25, and its pin just "
+            "behind the edge. Callouts 1–3 are the Do numbers of Step 09.30.",
             "Right: the gauge enlarged, a 2 mm hex key slides between pin and plate, a 3 mm "
             "key does not; p.161 draws 1.5 mm.",
         ],
@@ -671,16 +701,19 @@ DIAGRAMS = [
             "Left: a cut through the inlet panel, the module (red, mains) pressed in from "
             "outside until its sprung tabs snap behind the panel wall; nothing on the spade "
             "terminals. Callouts 1 and 2 are the Do numbers of Step 09.11.",
-            "Right: the face from outside with the printer upright: earth pin at the top, "
-            "the switch facing out.",
+            "Right: the panel from outside on the bench: the module's switch end toward the "
+            "panel's curved cut-out, the socket and fuse drawer at the other end.",
         ],
         "insert": [
             ("09-electronics-bay.md", "Step 09.11", "first image: what the hands do"),
         ],
         "verify": [
-            "The panel's cut-out is symmetric top to bottom (STL section), so the module fits "
-            "either way up: earth pin up is the step's convention, not LDO's, and is tagged. "
-            "The socket outline, the switch's side and the tab shape are schematic.",
+            "The panel's cut-out takes the module either way round (STL section). Switch end "
+            "at the curved cut-out follows LDO's fitted photo (iec-inlet-module-fitted.jpg: "
+            "the factory L-to-fuse bar and the earth spade sit at the end away from the Z "
+            "motor) and p.167. No earth-pin direction is drawn: no source shows the socket "
+            "face. The fuse sits in the socket half (LDO inlet_layout.png, rear view); the "
+            "drawer's exact place on the face, the tab shape and proportions are schematic.",
         ],
     },
     {
@@ -689,18 +722,22 @@ DIAGRAMS = [
         "title": "USB-adapter stack",
         "fn": d906_usb_adapter_stack,
         "shows": [
-            "Front, after the Nitehawk-SB V2 grounding photo: base, PCB and partial cover held "
-            "by three M3×10, the top-right screw left bare with the DC Ground Wire's ring "
-            "terminal on it.",
+            "Front, after the Nitehawk-SB V2 grounding photo: the diamond base (labelled), the "
+            "partial cover cut away at top-right (labelled), three M3×10, the top-right screw "
+            "left bare with the DC Ground Wire's ring terminal under it, and the M2×10 heads in "
+            "the base's two wing holes.",
             "Side: cover, PCB and base in that order, the DIN clip on the base's back on two "
-            "M2×10 self-tapping screws. Callouts 1–3 are the Do numbers of Step 09.25.",
+            "M2×10 self-tapping screws driven from the front through the wing holes. Callouts "
+            "1–3 are the Do numbers of Step 09.25.",
         ],
         "insert": [
             ("09-electronics-bay.md", "Step 09.25", "first image, before the Nitehawk photo"),
         ],
         "verify": [
-            "Layer thicknesses and the clip's screw positions are schematic. The M2×10 clip "
-            "screws are the step's (verify on bench); tagged.",
+            "Layer thicknesses are schematic. Screw direction from the STL "
+            "(usb_adapter_mount_partial_cover: base wing holes Ø2.4 with Ø4 counterbores on "
+            "the front, 32 mm apart; pcb_din_clip Ø1.9 pilots ~31 mm apart). The M2×10 count "
+            "and length are the step's (verify on bench); tagged.",
         ],
     },
 ]

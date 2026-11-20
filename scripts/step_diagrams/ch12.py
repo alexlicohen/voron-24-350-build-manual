@@ -11,6 +11,8 @@ Bay positions are read off LDO's photo of the bay seen from below, front edge up
 (u across, machine left = 0; v down, front = 0). For the machine on its side they are turned so
 the floor is the machine's right side: the rear is on the left and the front on the right.
 """
+import math
+
 import draw_diagrams as dd
 from draw_diagrams import (AMBER, AMBER_F, BLACKPART, BLACKPART_F, BLUE, BLUE_F, GREY, GREY_F,
                            INK, MONO, MUTED, OK, OK_F, ORANGE, ORANGE_F, PANEL, RED, RULE, STEEL,
@@ -256,13 +258,50 @@ def d1202_sw1_reach() -> Doc:
     return d
 
 
+# ============================================================ diagram 1207 ===
+def d1207_dfu_press() -> Doc:
+    """12.16's recovery press, in 1202's close-up orientation (SW1 above SW2, chip to the
+    right), as three frames: both down, SW1 released, SW2 released."""
+    d = Doc(800, "Leviathan DFU press: SW2 and SW1 together, release SW1, then SW2")
+    top = step_header(d, "DFU: both down, SW1 up first")
+    fw, fy0, fy1 = 340, top + 46, top + 500
+    frames = (("press both", (True, True)), ("let go of SW1", (False, True)),
+              ("then let go of SW2", (False, False)))
+    for i, (cap, (sw1_down, sw2_down)) in enumerate(frames):
+        x0 = 40 + i * (fw + 50)
+        d.rect(x0, fy0, fw, fy1 - fy0, fill=PCB, stroke=PCB_EDGE, sw=3, rx=12)
+        bx = x0 + 120
+        for (yy, name, down, ly) in ((fy0 + 160, "SW1", sw1_down, fy0 + 90),
+                                     (fy0 + 330, "SW2", sw2_down, fy0 + 430)):
+            d.rect(bx - 40, yy - 40, 80, 80, fill=STEEL, stroke=GREY, sw=3, rx=8)
+            if down:
+                d.circle(bx, yy, 30, fill=ORANGE, stroke="#FFFFFF", sw=4)
+            else:
+                d.circle(bx, yy, 22, fill="#E6E6E6", stroke=INK, sw=3)
+            d.text(bx, ly, name, size=36, anchor="middle", weight=800,
+                   fill=ORANGE if down else "#FFFFFF")
+        d.rect(x0 + 220, fy0 + 190, 96, 110, fill="#4A5059", stroke=INK, sw=3)
+        d.text(x0 + 268, fy0 + 256, "chip", size=T_MIN, anchor="middle", weight=700,
+               fill="#FFFFFF")
+        d.text(x0 + fw / 2, fy1 + 52, cap, size=T_LAB, anchor="middle", weight=800,
+               fill=ORANGE if i == 0 else INK)
+        if i:
+            ax = x0 - 25
+            d.poly([(ax - 14, (fy0 + fy1) / 2 - 22), (ax - 14, (fy0 + fy1) / 2 + 22),
+                    (ax + 14, (fy0 + fy1) / 2)], fill=INK, stroke=INK, sw=1)
+    callout(d, 40 + 40, fy0 + 40, 2)
+    d.text(600, d.h - 40, "Reach as at 12.15: from the upper edge, in front of the middle duct",
+           size=T_MIN, anchor="middle", weight=700, fill=RED)
+    return d
+
+
 # ============================================================ diagram 1203 ===
 def d1203_board_markings() -> Doc:
     d = Doc(1060, "Where the Leviathan says which version it is")
     top = step_header(d, "Which Leviathan: read the chip")
     # board as LDO photographs it (stepper sockets along the top), 1215 x 730 photo px
     k = 0.86
-    ox, oy = 78, top + 70
+    ox, oy = 78, top + 40
 
     def P(u, v):
         return ox + u * 1215 * k, oy + v * 730 * k
@@ -299,7 +338,7 @@ def d1203_board_markings() -> Doc:
            weight=700, fill=PI_GREEN)
 
     # labels under the board
-    ly = oy + H + 70
+    ly = oy + H + 60
     pointer(d, cx0 + cw / 2, cy0 + ch + 6, 250, ly - 36, ORANGE)
     d.text(60, ly, "Read the chip:", size=T_LAB, weight=700, fill=ORANGE)
     d.mono(60, ly + 50, "STM32F446…", size=34, weight=700)
@@ -310,6 +349,12 @@ def d1203_board_markings() -> Doc:
     d.text(1140, ly, "Version line:", size=T_LAB, anchor="end", weight=700, fill=MUTED)
     d.text(1140, ly + 50, "hidden once the", size=T_LAB, anchor="end", weight=600, fill=MUTED)
     d.text(1140, ly + 96, "Pi is mounted", size=T_LAB, anchor="end", weight=600, fill=MUTED)
+    # the drawing keeps LDO's photo orientation; the bay turns the board
+    d.line(40, ly + 132, 1160, ly + 132, stroke=RULE, sw=2)
+    d.text(600, ly + 176, "Drawn as LDO photographs it. In your bay the board", size=T_MIN,
+           anchor="middle", weight=600, fill=MUTED)
+    d.text(600, ly + 216, "is turned, so the chip's lettering reads sideways.", size=T_MIN,
+           anchor="middle", weight=600, fill=MUTED)
     return d
 
 
@@ -320,25 +365,26 @@ def d1204_serial_paths() -> Doc:
     top = step_header(d, "Which line goes where")
     ms = 30                                         # mono size, ~18 units a character
 
-    # the terminal output
+    # the terminal output; ls sorts f446 above g0b1 (an H743 line sorts below g0b1)
     y0 = top + 24
     d.rect(40, y0, 1120, 210, fill=PCB, stroke=PCB_EDGE, sw=3, rx=12)
-    d.mono(70, y0 + 50, "$ ls /dev/serial/by-id/", size=ms, fill="#C9D1D9")
+    tx = 110                                        # text start; x 72 is the [mcu] lane
+    d.mono(tx, y0 + 50, "$ ls /dev/serial/by-id/", size=ms, fill="#C9D1D9")
     l1, l2 = y0 + 112, y0 + 172
     for yy, chip, col, who in ((l1, "stm32f446xx", "#8CC4FF", "mainboard"),
                                (l2, "stm32g0b1xx", "#FFB27A", "toolboard")):
-        d.mono(70, yy, "usb-Klipper_", size=ms, fill="#FFFFFF")
-        d.mono(70 + 12 * 18, yy, chip, size=ms, weight=800, fill=col)
-        d.mono(70 + 23 * 18, yy, "_<id>-if00", size=ms, fill="#FFFFFF")
-        d.text(720, yy, who, size=T_LAB, weight=700, fill=col)
+        d.mono(tx, yy, "usb-Klipper_", size=ms, fill="#FFFFFF")
+        d.mono(tx + 12 * 18, yy, chip, size=ms, weight=800, fill=col)
+        d.mono(tx + 23 * 18, yy, "_<id>-if00", size=ms, fill="#FFFFFF")
+        d.text(760, yy, who, size=T_LAB, weight=700, fill=col)
+        # the chip name underlined in its colour: the arrows leave from these lines
+        d.line(tx + 12 * 18, yy + 10, tx + 23 * 18, yy + 10, stroke=col, sw=4)
 
-    # the two config sections, side by side
+    # the two config sections in file order: [mcu] first (left), [mcu nhk] second (right)
     by, bh, bw = y0 + 290, 270, 545
-    for i, (sec, chip, col, colf, note, x_arrow, y_from, top_col) in enumerate((
-            ("[mcu nhk]", "stm32g0b1xx", ORANGE, ORANGE_F, "never rp2040", 300, l2,
-             "#FFB27A"),
-            ("[mcu]", "stm32f446xx", BLUE, BLUE_F, "or stm32h743xx: V1.3", 1000, l1,
-             "#8CC4FF"))):
+    for i, (sec, chip, col, colf, note) in enumerate((
+            ("[mcu]", "stm32f446xx", BLUE, BLUE_F, "or stm32h743xx: V1.3"),
+            ("[mcu nhk]", "stm32g0b1xx", ORANGE, ORANGE_F, "never rp2040"))):
         x = 40 + i * (bw + 30)
         d.rect(x, by, bw, bh, fill=colf, stroke=col, sw=4, rx=12)
         d.mono(x + 26, by + 52, sec, size=34, weight=800, fill=col)
@@ -346,7 +392,23 @@ def d1204_serial_paths() -> Doc:
         d.mono(x + 56, by + 150, "usb-Klipper_", size=ms)
         d.mono(x + 56, by + 196, chip + "_…", size=ms, weight=800, fill=col)
         d.text(x + 26, by + 246, note, size=T_MIN, weight=700, fill=MUTED)
-        down_arrow(d, x_arrow, y_from + 14, by - 4, top_col, col)
+
+    # [mcu]: from the start of the f446 underline, left into the lane, down to the left box
+    ux0 = tx + 12 * 18
+    d.path(f"M {ux0} {l1 + 10} L 72 {l1 + 10} L 72 {by - 30}", stroke=BLUE, sw=8)
+    d.circle(ux0, l1 + 10, 8, fill="#8CC4FF", stroke="none", sw=0)
+    d.poly([(72 - 18, by - 34), (72 + 18, by - 34), (72, by - 4)], fill=BLUE, stroke=BLUE,
+           sw=1)
+    # [mcu nhk]: from the middle of the g0b1 underline, slanting down to the right box
+    sx, sy = tx + 17.5 * 18, l2 + 10
+    ex, ey = 40 + bw + 30 + 200, by - 4
+    ang = math.atan2(ey - sy, ex - sx)
+    bx, bys = ex - 30 * math.cos(ang), ey - 30 * math.sin(ang)
+    d.line(sx, sy, bx, bys, stroke=ORANGE, sw=8)
+    d.circle(sx, sy, 8, fill="#FFB27A", stroke="none", sw=0)
+    px, py = -math.sin(ang) * 18, math.cos(ang) * 18
+    d.poly([(bx + px, bys + py), (bx - px, bys - py), (ex, ey)], fill=ORANGE, stroke=ORANGE,
+           sw=1)
     return d
 
 
@@ -364,17 +426,18 @@ LEV_ROWS = [
 
 def d1205_menuconfig_card() -> Doc:
     # landscape: 12.14 renders stacked, the picture capped at 40vh
-    d = Doc(660, "Leviathan make menuconfig settings: F446 and H743")
+    # rows in menuconfig's own screen order: tick, architecture, the three that differ,
+    # then the communication interface
+    d = Doc(700, "Leviathan make menuconfig settings: F446 and H743")
     top = step_header(d, "Leviathan menuconfig")
     ms = 30
-    d.rect(40, top + 20, 1120, 200, fill=GREY_F, stroke=GREY, sw=3, rx=12)
-    d.text(64, top + 62, "Both boards, the tick first:", size=T_LAB, weight=700)
+    d.rect(40, top + 20, 1120, 156, fill=GREY_F, stroke=GREY, sw=3, rx=12)
+    d.text(64, top + 62, "Both versions, the tick first:", size=T_LAB, weight=700)
     d.mono(64, top + 110, LEV_COMMON_TOP[0], size=ms, weight=700)
     d.mono(64, top + 154, "Micro-controller Architecture: STMicroelectronics STM32", size=ms)
-    d.mono(64, top + 198, "Communication interface: USB (on PA11/PA12)", size=ms)
 
-    # the three lines that differ, one column per board
-    ty = top + 244
+    # the three lines that differ, one column per version
+    ty = top + 200
     c0, c1, c2 = 40, 470, 820
     d.rect(c1 - 10, ty, 340, 62, fill=BLUE_F, stroke=BLUE, sw=3, rx=8)
     d.rect(c2 - 10, ty, 340, 62, fill=ORANGE_F, stroke=ORANGE, sw=3, rx=8)
@@ -390,6 +453,12 @@ def d1205_menuconfig_card() -> Doc:
         d.text(c0 + 24, yy, lab, size=T_LAB, weight=700)
         d.mono(c1, yy, f, size=ms, weight=700, fill=BLUE)
         d.mono(c2, yy, h, size=ms, weight=700, fill=ORANGE)
+
+    # last on the screen, the same on both versions
+    cy = ry + 2 * 70 + 34
+    d.rect(40, cy, 1120, 84, fill=GREY_F, stroke=GREY, sw=3, rx=12)
+    d.text(64, cy + 53, "Both, last:", size=T_LAB, weight=700)
+    d.mono(250, cy + 53, "Communication interface: USB (on PA11/PA12)", size=ms)
     return d
 
 
@@ -460,8 +529,8 @@ DIAGRAMS = [
             ("12-software.md", "Step 12.11", "first image: what the hands do"),
         ],
         "verify": [
-            "Which side the machine lies on is not stated in Ch 10 or Ch 12; it is drawn on "
-            "its right side, which puts the rear-left inlet and its rocker uppermost.",
+            "Drawn on its right side, as 12.11 Do 2 now says (Alex's ruling 2026-11-20), which "
+            "puts the rear-left inlet and its rocker uppermost.",
             "Bay positions are read off LDO's Rev D finished-bay photo (a Rev D bay, PVC "
             "ducts; this build uses printed B11 conduits) and turned to that orientation. The "
             "person is not to scale.",
@@ -483,7 +552,6 @@ DIAGRAMS = [
         ],
         "insert": [
             ("12-software.md", "Step 12.15", "first image: where the hand goes"),
-            ("12-software.md", "Step 12.16", "the same buttons for the DFU press"),
         ],
         "verify": [
             "Button order and side follow LDO's frontsw1sw2.jpg (SW2 Boot left of SW1 Reset "
@@ -491,7 +559,9 @@ DIAGRAMS = [
             "90° for the machine on its right side.",
             "In LDO's rpi4_installed_V1.3 photo the J9 Pi power lead runs over the buttons; in "
             "the Rev D bay photo it does not. Where it runs on this build is a bench fact.",
-            "The reach direction assumes the machine lies on its right side, as in 1201.",
+            "The reach direction assumes the machine lies on its right side, as 12.11 says. "
+            "The red line is the limit the 12.15 warning names: the arm stays in front of the "
+            "middle duct.",
         ],
     },
     {
@@ -503,6 +573,8 @@ DIAGRAMS = [
             "The Leviathan as LDO photographs it, stepper sockets along the top: the processor "
             "with SW2 and SW1 above it, and the VORON / Leviathan V1.x line at the lower right, "
             "under the Pi drawn see-through as mounted in Ch 09.",
+            "A footnote says the drawing keeps LDO's photo orientation and that in the bay the "
+            "board is turned, so the chip lettering reads sideways.",
             "STM32F446… = V1.1 or V1.2; STM32H743… = V1.3.",
         ],
         "insert": [
@@ -523,18 +595,19 @@ DIAGRAMS = [
         "title": "Which line goes where",
         "fn": d1204_serial_paths,
         "shows": [
-            "ls /dev/serial/by-id/ output with two usb-Klipper_ lines: the stm32g0b1xx one "
-            "(toolboard) arrowed into the [mcu nhk] box on the left, the stm32f446xx one "
-            "(mainboard) into the [mcu] box on the right; landscape, because 12.23 renders "
-            "stacked with the picture capped at 40vh.",
+            "ls /dev/serial/by-id/ output with two usb-Klipper_ lines, each chip name "
+            "underlined: the stm32f446xx one (mainboard) arrowed into the [mcu] box on the "
+            "left, the stm32g0b1xx one (toolboard) into the [mcu nhk] box on the right, boxes "
+            "in printer.cfg order; landscape, because 12.23 renders stacked with the picture "
+            "capped at 40vh.",
         ],
         "insert": [
             ("12-software.md", "Step 12.23", "first image"),
         ],
         "verify": [
-            "Strings follow the chapter's own code (12.12 table, 12.23 config). The order of "
-            "the two lines in a real listing is not fixed; the step says to match by chip "
-            "family, not order.",
+            "Strings follow the chapter's own code (12.12 table, 12.23 config). ls sorts by "
+            "name, so f446 lists above g0b1 and an H743 below it; the step says to match by "
+            "chip family, not order.",
         ],
     },
     {
@@ -543,9 +616,10 @@ DIAGRAMS = [
         "title": "Leviathan menuconfig",
         "fn": d1205_menuconfig_card,
         "shows": [
-            "A settings card: the low-level tick, Micro-controller Architecture and "
-            "Communication interface for both boards, then Processor model, Bootloader offset "
-            "and Clock Reference side by side for F446 (V1.1, V1.2) and H743 (V1.3).",
+            "A settings card in menuconfig's screen order: the low-level tick and "
+            "Micro-controller Architecture for both versions, then Processor model, Bootloader "
+            "offset and Clock Reference side by side for F446 (V1.1, V1.2) and H743 (V1.3), "
+            "then Communication interface, the same on both.",
         ],
         "insert": [
             ("12-software.md", "Step 12.14", "first image: the settings in the code blocks"),
@@ -576,6 +650,25 @@ DIAGRAMS = [
             "placed after Ch 09.30 (right bed extrusion's inner face, just behind the plate's "
             "rear edge, extrusions 65 mm either side of centre); its coordinates are measured "
             "in Ch 13 and the drawn spot is approximate.",
+        ],
+    },
+    {
+        "n": 1207,
+        "file": "1207-leviathan-dfu-press.svg",
+        "title": "DFU: both down, SW1 up first",
+        "fn": d1207_dfu_press,
+        "shows": [
+            "Three close-ups of SW1 (above) and SW2 (below) beside the processor, in 1202's "
+            "orientation: both pressed, SW1 released, then SW2 released; callout 2 is the Do "
+            "number of Step 12.16; a red caption repeats the 12.15 reach limit.",
+        ],
+        "insert": [
+            ("12-software.md", "Step 12.16", "first image: the press order"),
+        ],
+        "verify": [
+            "Press order from LDO's Leviathan V1.2 and V1.3 guides (fetched 2026-11-20): "
+            "press both SW2 and SW1 at the same time, release SW1 first, then SW2. Button "
+            "positions as in 1202. Whether one fingertip covers both buttons is a bench fact.",
         ],
     },
 ]

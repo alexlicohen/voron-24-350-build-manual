@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" role="img" aria-label="Tool cartridge up into the keyholes; heater into HE0, thermistor into TH0" style="color:#14181D">
-<title>Tool cartridge up into the keyholes; heater into HE0, thermistor into TH0</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" role="img" aria-label="Tool cartridge pushed up under the extruder and held by its body; heater into HE0, thermistor into TH0" style="color:#14181D">
+<title>Tool cartridge pushed up under the extruder and held by its body; heater into HE0, thermistor into TH0</title>
 <defs>
 <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
 <marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
@@ -25,35 +25,34 @@
 <circle cx="574.0" cy="440.0" r="22.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
 <line x1="560.0" y1="426.0" x2="588.0" y2="454.0" stroke="#7E8794" stroke-width="4" stroke-linecap="round"/>
 <text x="540.0" y="384.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="32" font-weight="700" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">HE0</text>
-<rect x="304.0" y="556.0" width="52.0" height="16.0" rx="6" fill="#FFFFFF" stroke="#3E4550" stroke-width="2"/>
-<rect x="584.0" y="556.0" width="52.0" height="16.0" rx="6" fill="#FFFFFF" stroke="#3E4550" stroke-width="2"/>
-<rect x="250.0" y="660.0" width="440.0" height="190.0" rx="14" fill="#E2E4E8" stroke="#3E4550" stroke-width="4"/>
-<polygon points="450.0,850.0 490.0,850.0 478.0,882.0 462.0,882.0" fill="#C9A13B" stroke="#14181D" stroke-width="2"/>
-<rect x="324.0" y="634.0" width="12.0" height="26.0" rx="0" fill="#7E8794" stroke="#7E8794" stroke-width="1"/>
-<rect x="310.0" y="620.0" width="40.0" height="16.0" rx="3" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
-<rect x="604.0" y="634.0" width="12.0" height="26.0" rx="0" fill="#7E8794" stroke="#7E8794" stroke-width="1"/>
-<rect x="590.0" y="620.0" width="40.0" height="16.0" rx="3" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
-<text x="470.0" y="770.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">tool cartridge</text>
-<path d="M 760.0 810.0 L 760.0 620.0" fill="none" stroke="#E8751A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwo)"/>
-<circle cx="760.0" cy="860.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
-<text x="760.0" y="871.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
-<path d="M 520 654 C 520 610 506 560 506 492" fill="none" stroke="#C0392B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="250.0" y="620.0" width="440.0" height="190.0" rx="14" fill="#E2E4E8" stroke="#3E4550" stroke-width="4"/>
+<polygon points="450.0,810.0 490.0,810.0 478.0,842.0 462.0,842.0" fill="#C9A13B" stroke="#14181D" stroke-width="2"/>
+<text x="470.0" y="730.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">tool cartridge</text>
+<path d="M 760.0 770.0 L 760.0 600.0" fill="none" stroke="#E8751A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwo)"/>
+<circle cx="760.0" cy="820.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="760.0" y="831.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
+<path d="M 260 868 C 260 806 340 806 340 868 Z" fill="#E7E9EC" stroke="#7E8794" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 300.0 916.0 L 300.0 878.0" fill="none" stroke="#5C6675" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwm)"/>
+<path d="M 600 868 C 600 806 680 806 680 868 Z" fill="#E7E9EC" stroke="#7E8794" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 640.0 916.0 L 640.0 878.0" fill="none" stroke="#5C6675" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwm)"/>
+<text x="470.0" y="950.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#5C6675" letter-spacing="0">hold the cartridge, not the nozzle</text>
+<path d="M 520 614 C 520 590 506 560 506 492" fill="none" stroke="#C0392B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
 <rect x="498.0" y="470.0" width="16.0" height="26.0" rx="0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
-<path d="M 546 654 C 546 610 574 560 574 492" fill="none" stroke="#C0392B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 546 614 C 546 590 574 560 574 492" fill="none" stroke="#C0392B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
 <rect x="566.0" y="470.0" width="16.0" height="26.0" rx="0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
-<path d="M 400 654 C 400 620 360 560 360 476" fill="none" stroke="#E6E6E6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 400 654 C 400 620 360 560 360 476" fill="none" stroke="#7E8794" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 416 654 C 416 620 380 560 380 476" fill="none" stroke="#E6E6E6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 416 654 C 416 620 380 560 380 476" fill="none" stroke="#7E8794" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 400 614 C 400 600 360 560 360 476" fill="none" stroke="#E6E6E6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 400 614 C 400 600 360 560 360 476" fill="none" stroke="#7E8794" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 416 614 C 416 600 380 560 380 476" fill="none" stroke="#E6E6E6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 416 614 C 416 600 380 560 380 476" fill="none" stroke="#7E8794" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <circle cx="650.0" cy="450.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
 <text x="650.0" y="461.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
 <circle cx="270.0" cy="450.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
 <text x="270.0" y="461.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">3</text>
 <circle cx="878.0" cy="200.8" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
 <text x="878.0" y="212.6" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
-<text x="922.0" y="212.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">slide it up</text>
-<text x="922.0" y="250.4" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">onto the four</text>
-<text x="922.0" y="288.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">screw heads</text>
+<text x="922.0" y="212.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">push it up,</text>
+<text x="922.0" y="250.4" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">hold it by the</text>
+<text x="922.0" y="288.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">cartridge</text>
 <circle cx="878.0" cy="346.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
 <text x="878.0" y="357.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
 <text x="922.0" y="357.2" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">heater leads</text>
@@ -63,4 +62,8 @@
 <text x="878.0" y="503.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">3</text>
 <text x="922.0" y="502.4" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">thermistor</text>
 <text x="922.0" y="540.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">into TH0</text>
+<text x="850.0" y="639.2" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">what holds it</text>
+<text x="850.0" y="677.2" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">before 08.62:</text>
+<rect x="897.2" y="710.7" width="225.6" height="42.0" rx="8" fill="#FBEBD3" stroke="#D98324" stroke-width="2.5"/>
+<text x="1010.0" y="740.7" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#14181D" letter-spacing="0">on the bench</text>
 </svg>

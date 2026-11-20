@@ -4,7 +4,7 @@
 
 You prepare the heated build plate, 355 × 355 × 10 mm, and fasten it to the bed extrusions. That gives the frame its datum, the flat surface everything else is measured from, and leaves the plate's three leads loose above the deck, ready for the bed WAGO mount in Ch 09.
 
-**What you're building in this chapter:** The heated bed, a stack of four parts. The **build plate** is a cast aluminium slab, ground flat, 355 × 355 × 10 mm. Bonded to its underside are a silicone **heater pad** that runs on mains power and a 125 °C **thermal fuse**. Both come fitted at the factory on this kit, so two pages of the Voron manual become inspections. On top goes the **magnetic pad**, a magnetised sheet with an adhesive back, which you stick down here unless it arrives already on. The **flex plate** drops onto the magnet: a removable sheet of spring steel that prints stick to, and that you flex to pop a finished part off. The stack rests on four **thumb nuts**, used as spacers, on the two bed extrusions from Ch 01, and four screws hold it. Only one of them is ever tightened: the other three let a 355 mm aluminium plate grow as it heats instead of buckling. Nothing is wired here. The plate's three short leads stay loose **above** the deck, ready for the bed WAGO mount that Ch 09 fits on the left bed extrusion.
+**What you're building in this chapter:** The heated bed, a stack of four parts. The **build plate** is a cast aluminium slab, ground flat, 355 × 355 × 10 mm. Fitted to its underside are a silicone **heater pad**, bonded and screwed, that runs on mains power, and a 125 °C **thermal fuse** screwed to a bare strip of aluminium by the cable exit. Both come fitted at the factory on this kit, so two pages of the Voron manual become inspections. On top goes the **magnetic pad**, a magnetised sheet with an adhesive back, which you stick down here unless it arrives already on. The **flex plate** drops onto the magnet: a removable sheet of spring steel that prints stick to, and that you flex to pop a finished part off. The stack rests on four **thumb nuts**, used as spacers, on the two bed extrusions from Ch 01, and four screws hold it. Only one of them is ever tightened: the other three let a 355 mm aluminium plate grow as it heats instead of buckling. Nothing is wired here. The plate's three short leads stay loose **above** the deck, ready for the bed WAGO mount that Ch 09 fits on the left bed extrusion.
 
 ```mascot
 pose: check
@@ -27,7 +27,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 - Plastic scraper, squeegee or an old credit card, to press the magnet down
 - Sharp craft knife with a fresh blade, to cut the magnet clear of the screw holes and to cut the liner at Step 03.9
 - Masking tape, to mark the back edge at Step 03.2 and to make the hinge for the magnet at Step 03.9
-- Steel rule or straightedge at least 360 mm long, for the flatness check and the 38 mm offset
+- Steel rule or straightedge, for the flatness check and the 38 mm offset: 500 mm or longer spans the plate's diagonal in one go, and a shorter one (at least 360 mm) does it in two overlapping halves
 - Digital caliper
 
 **Consumables:** IPA (isopropyl alcohol) of 90 % or stronger, a lint-free cloth and nitrile gloves. The plate's protective film goes in the bin.
@@ -183,6 +183,7 @@ Source: [Voron manual p.55](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 03.5 — Verify the thermal fuse (do not fit one)
 
+![The plate's underside at the back edge: the thermal fuse held flat by one screw and washer on a bare aluminium strip beside the cable exit, its two legs joined under heat-shrink](assets/diagrams/307-fuse-check.svg)
 ![Voron manual p.56](assets/manual-pages/manual-p056.png)
 
 **What you're looking at:** The **thermal fuse** is a one-time safety cut-out: wired in series with one heater lead, it opens for good at 125 °C, so a runaway heater loses its power. It works only pressed flat against the aluminium. It comes fitted, so skip manual p.56, its M3×12 SHCS and M3 washer [src](https://docs.ldomotors.com/voron/voron2/build-faq).
@@ -219,7 +220,7 @@ Source: [Voron manual p.56](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 The manual asks for an M3×6 BHCS you supply. Your plate ships with the M4×6 BHCS already fitted: use that one. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-The bed wiring is a breakout design. The plate's L and N land on the bed WAGO mount above the deck and its thermistor on the 2×2 XH splicer PCB, both in Ch 10, and extension leads carry on below. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
+The bed wiring is a breakout design. The plate's L and N land on the bed WAGO mount above the deck and its thermistor on a small joining board, the 2×2 XH splicer PCB, both in Ch 10, and extension leads carry on below. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
 Source: [Voron manual p.57](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=57) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
@@ -231,7 +232,7 @@ Pause: ~30 min since the last pause — the plate is unpacked, you know its top 
 
 ![Voron manual p.53](assets/manual-pages/manual-p053.png)
 
-**What you're looking at:** This is the last time you see the bare aluminium. Once the magnet is on, a dip in the middle (a dish) or a hump (a crown) shows up only in the **bed mesh**, the map of bed heights the printer measures, and neither the mesh nor **QGL**, which levels the gantry, corrects it.
+**What you're looking at:** Once the magnet is on, a dip (a dish) or a hump (a crown) in the bare aluminium is hidden for good. The **bed mesh**, the printer's map of bed heights, only partly makes up for it in software [src](https://www.klipper3d.org/Bed_Mesh.html), and **QGL**, which levels the gantry, cannot.
 
 **Parts:**
 
@@ -241,13 +242,13 @@ Pause: ~30 min since the last pause — the plate is unpacked, you know its top 
 **Do:**
 
 1. Stand the straightedge on its edge on the bare face and look along it toward a light.
-2. Check one diagonal and one centreline. It takes two minutes, and once the magnet is on you cannot look at this surface again.
+2. Check one centreline and one diagonal, in two overlapping halves if your straightedge is under 500 mm.
 
-**Check:** No daylight shows under the straightedge. No flatness tolerance is specified: ask in `#ldo_motors` only if a sheet of paper slides under.
+**Check:** Paper will not slide under the straightedge anywhere; a thin line of light alone is fine. No flatness tolerance is published: if paper slides under, stop and ask in `#ldo_motors`.
 
 **Helper:** Holds a torch behind the straightedge and says if any light shows under it.
 
-The plate is cast 5083 aluminium, Blanchard-ground, and deliberately thick and stress-relieved. A dish you can see here does not get corrected by mesh or QGL later. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
+The plate is cast 5083 aluminium, Blanchard-ground, and deliberately thick and stress-relieved. A dish you can see here is one the mesh has to work around on every print. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 Source: [Voron manual p.53](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=53) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
@@ -285,7 +286,7 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![The magnet laid with a tape hinge: lined up and taped at the back edge, folded back to cut off a 40 to 50 mm liner strip, then pressed down while the liner is pulled out to the front](assets/diagrams/301-magnet-hinge.svg)
 ![Voron manual p.54](assets/manual-pages/manual-p054.png)
 
-**What you're looking at:** The **magnetic pad** is magnetised rubber with an adhesive back under a liner; it holds the flex plate down. LDO lists it separately; Fabreeko says it ships fitted [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [Fabreeko](https://www.fabreeko.com/products/ldo-voron-v2-4-kit). If it is on, skip to 03.10; check its holes are cut.
+**What you're looking at:** The **magnetic pad**, magnetised rubber with an adhesive back under a liner, holds the flex plate. Fabreeko says it ships fitted [Fabreeko](https://www.fabreeko.com/products/ldo-voron-v2-4-kit); if yours is on, skip to 03.10.
 
 **Parts:**
 
@@ -296,15 +297,13 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Measure it (verify on bench). At 355 mm, align it with the back edge and one side; if smaller, centre it, noting the border.
-2. Lay it liner down and tape the **back** edge as a hinge.
-3. Fold it back, peel and cut 40–50 mm of liner, squeegee that strip, then draw the liner out, pressing the rest down.
+1. Measure the pad: at 355 mm, set it flush with the back edge and one side; if smaller, centre it.
+2. Lay it liner side (the sticky side) down and tape the **back** edge as a hinge.
+3. Fold it back, cut off 40–50 mm of liner and squeegee that strip, lifting it at once if crooked. Pull the liner out forward, pad held up ahead of the squeegee, then peel off the hinge tape.
 
-**Check:** The pad lies square with an even border all round, with no bubbles or wrinkles.
+**Check:** The pad lies square, with no bubbles or wrinkles, and the hinge tape is off.
 
-The liner side is the adhesive and the plain rubber face is the magnet. Keep the rest of the pad lifted so the adhesive never touches ahead of the squeegee. If the first strip lands crooked, lift it at once: past a few centimetres it will not move.
-
-Bubbles worked out to an edge come out; ones in the middle do not.
+Past the first few centimetres the pad will not move. Bubbles worked out to an edge come out; ones in the middle do not.
 
 Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=54) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [magnet lamination demo](https://voron.link/rm6tpld)
 
@@ -315,7 +314,7 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![One screw hole from above with the knife cutting round the dimple, and cut through: the screw head flush below the magnet, the hex key in it](assets/diagrams/302-trim-counterbore.svg)
 ![Voron manual p.54](assets/manual-pages/manual-p054.png)
 
-**What you're looking at:** The four screws go down through the plate's counterbored holes, and the hex key has to reach their heads, so the magnet is cut away over each hole. Do it now: the screws go in only at manual p.59, and finding the holes covered then costs the magnet [src](https://docs.ldomotors.com/voron/voron2/build-faq).
+**What you're looking at:** The hex key has to reach the four screw heads in the plate's counterbored holes, so the magnet is cut away over each one. Do it now: finding the holes covered at manual p.59 costs the magnet [src](https://docs.ldomotors.com/voron/voron2/build-faq).
 
 **Parts:**
 
@@ -326,11 +325,11 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Press on the magnet to find the four holes: they show as dimples.
-2. Cut the magnet away over each one, following the counterbore, in light repeated passes.
+1. Press on the magnet to find the four holes as dimples. If one hides, push the hex key gently up through it from underneath.
+2. Cut the magnet away over each one, following the counterbore, in light repeated passes, away from the hand that steadies the plate.
 3. Do not gouge the aluminium: a rough raised edge (a **burr**) stops the screw head sitting flush.
 
-**Check:** All four counterbores are fully open, each tested with an M3×20 SHCS and the hex key before you go anywhere near the frame.
+**Check:** All four counterbores are fully open, each tested with an M3×20 SHCS and the hex key.
 
 Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=54) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -367,7 +366,7 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![Voron manual p.58, plan view: the front T-nuts 25 mm behind the front rail](assets/manual-pages/manual-p058.png){ crop="0.46 0.68 0.84 0.90" }
 ![LDO build-plate mapping, seen from above, rear at the top: the nozzle probe on the right bed extrusion's inner face and the bed WAGO mount on the left one's, both in the rear half](assets/remote/10-wiring/ldo-build-plate-mapping.png)
 
-**What you're looking at:** A **roll-in T-nut** drops into an extrusion's slot and turns to lock. Four M3 ones go in the top slots, one per plate screw. Four more go in the inner side slots while no plate covers them, for the Ch 09 nozzle probe and bed WAGO mount.
+**What you're looking at:** A **roll-in T-nut** drops into an extrusion's slot and turns to lock. Four M3 go in the top slots, one per plate screw, and four in the inner side slots for the Ch 09 nozzle probe and bed WAGO mount, while no plate covers them.
 
 **Parts:**
 
@@ -376,13 +375,13 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Top slots, two M3 per extrusion: front pair 25 mm behind the front extrusion's inner face, rear pair under the plate's rear holes.
+1. Top slots, two M3 per extrusion: front pair 25 mm behind the front extrusion's inner face, rear pair behind them by the plate's hole spacing, centre to centre.
 2. Inner side slots, rear half: two M3 on the right extrusion, two M5 on the left.
 3. Leave all eight loose.
 
-**Check:** Four T-nuts sit in the top slots, two M3 in the right extrusion's inner slot and two M5 in the left's, and none can fall out.
+**Check:** Four T-nuts sit in the top slots and four in the inner slots, M3 right and M5 left, and none can fall out.
 
-⚠ Never force a T-nut. Extrusions and roll-in T-nuts fit tightly in this kit, and a forced nut galls the slot, tearing up its metal. Test-fit each nut, and if one is stiff, try another nut: the bed extrusions are fastened now, so you cannot turn them to an easier face. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+⚠ Never force a T-nut. Extrusions and roll-in T-nuts fit tightly in this kit, and a forced nut galls the slot, tearing up its metal. Test-fit each; if one is stiff, try another. If every nut sticks in that slot, stop and ask in `#ldo_motors`: the bed extrusions are fastened now, so you cannot turn them to an easier face. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=58) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [Voron manual p.161: probe T-nuts](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161) · [LDO wiring guide § Wiring the bed heater: two M5×10 BHCS](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png)
 
@@ -412,8 +411,8 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 03.14 — Lower the plate on, cables above the deck
 
-![Voron manual p.60](assets/manual-pages/manual-p060.png){ crop="0.16 0.26 0.58 0.55" }
 ![LDO build-plate mapping, seen from above, rear at the top: the plate's leads end at the red bed WAGO mount on the left bed extrusion](assets/remote/10-wiring/ldo-build-plate-mapping.png)
+![Voron manual p.60: the manual feeds the wires through the deck hole, which this kit does not](assets/manual-pages/manual-p060.png){ crop="0.16 0.26 0.58 0.55" }
 
 **What you're looking at:** The Voron manual feeds the bed wires through the deck here; this kit does not. The plate's three short leads stay above the deck and end at LDO's bed WAGO mount, a holder for lever connectors on the left bed extrusion, so the plate can lift off [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater).
 
@@ -431,7 +430,7 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Helper:** Holds the three leads toward the left extrusion while you lower the plate.
 
-Only the extension leads fitted in Ch 10 go below the deck. With **Layout v3**, L, N and PE go through the round hole and TH through the notch; with the **LDO layout**, all four go through the hole.
+Only the extension leads fitted in Ch 10 go below the deck, and Ch 10 says which deck opening each one takes.
 
 Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=60) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png) · `review/2026-09-23-bay-mods/layout-v2/layout-v2.md` § How each requirement is met · [Video: Part 2 @1:36:04](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5764s)
 
@@ -464,7 +463,7 @@ Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.60](assets/manual-pages/manual-p060.png){ crop="0.14 0.59 0.84 0.89" }
 
-**What you're looking at:** Now set where the plate sits. A front edge 38 mm behind the front of the frame puts the plate where the print head can reach it. Equal gaps left and right keep it clear of the verticals and the Z rails, which is tight for a 355 mm plate in a 350 mm machine.
+**What you're looking at:** A front edge 38 mm behind the front of the frame puts the plate where the print head can reach it. Sideways, the screws hold it over the bed extrusions, so the side gaps are only checked.
 
 **Parts:**
 
@@ -474,7 +473,7 @@ Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. With the screws loose, slide the plate until its front edge is **38 mm behind the frame's front edge**.
-2. Make the left and right gaps equal, then check the 38 mm again.
+2. Check the left and right gaps match. The screws allow almost no sideways play, so a clear difference means the bed extrusions are off centre: go back to Step 03.11.
 3. Run a finger all the way round the plate's edge.
 
 **Check:** The plate is 38 mm back at both front corners, with equal side gaps, touching no vertical or Z rail.
@@ -490,7 +489,7 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![The plate from above: the front-left screw tight, the other three slightly loose, and the plate growing away from the tight one as it heats](assets/diagrams/306-one-screw-tight.svg)
 ![Voron manual p.59](assets/manual-pages/manual-p059.png){ crop="0.12 0.57 0.83 0.89" }
 
-**What you're looking at:** The manual's DON'T TIGHTEN rule holds for this kit. One screw fixes the plate's position; the other three stay slightly loose so the aluminium can grow as it heats against the steel-screwed frame. Clamped at all four corners and taken to 110 °C, a plate this size buckles for good.
+**What you're looking at:** The manual's DON'T TIGHTEN rule holds for this kit. One screw fixes the plate's position; the other three stay slightly loose so the aluminium can grow as it heats while the frame under it stays cooler. Clamped at all four corners and taken to 110 °C, a plate this size buckles for good.
 
 **Parts:**
 
@@ -501,9 +500,9 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 1. Tighten any one screw fully; use the front-left, so you remember which.
 2. **Leave the other three slightly loose.** They locate the plate; they do not clamp it.
-3. No torque is specified: tighten it snug by hand feel, with no torque driver.
+3. No torque is specified: snug it by hand feel, no torque driver.
 
-**Check:** One screw is tight and the other three turn with a fingertip on the hex key. A free corner gives slightly when pressed and comes back.
+**Check:** One screw is tight, and each other one turns under a fingertip on the hex key, its head touching the plate without clamping it.
 
 Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=59)
 
@@ -517,7 +516,7 @@ Pause: ~40 min since the last pause — the plate sits on its four thumb-nut spa
 ![CAD render — the four gaps that have to match](assets/cad/03-18-a.png)
 ![CAD render — the four gaps that have to match, in place](assets/cad/03-18-b.png)
 
-**What you're looking at:** The plate rides on four screws above the two bed extrusions. The gap under each screw is what you measure, and all four should match: a short corner is a permanent tilt that every bed mesh has to fight.
+**What you're looking at:** The plate rests on four thumb nuts, so the gap under each screw should be one thumb nut's height, the same at all four. A high corner is a permanent tilt every bed mesh has to fight.
 
 **Parts:**
 
@@ -525,11 +524,11 @@ Pause: ~40 min since the last pause — the plate sits on its four thumb-nut spa
 
 **Do:**
 
-1. With the caliper, measure the gap between the top of the extrusion and the underside of the plate at each screw.
+1. At each screw, measure the gap between the extrusion top and the plate's underside with the caliper.
 2. Look along the plate at eye level, from the front and from the side.
-3. A short corner means a T-nut that has not rolled into place, a tipped thumb nut or a tight screw.
+3. A high corner or a rocking plate means a tipped thumb nut or a T-nut sitting raised under one: loosen all four screws, reseat the plate and repeat from Step 03.15.
 
-**Check:** All four gaps equal the thumb-nut height and each other, and pressing each corner in turn gives no rock and no click.
+**Check:** All four gaps read the same, and pressing each corner in turn gives no rock and no click.
 
 **Helper:** Reads the caliper at each corner and writes the four gaps down.
 

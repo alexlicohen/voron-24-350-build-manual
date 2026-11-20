@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1040" width="1200" height="1040" role="img" aria-label="Z belts: jog up to a 150 mm fixed run, pluck it, 140 Hz" style="color:#14181D">
+<title>Z belts: jog up to a 150 mm fixed run, pluck it, 140 Hz</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="1040" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Z belts: 140 Hz each</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="30.0" y="108.0" width="1140.0" height="912.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<rect x="380.0" y="138.0" width="440.0" height="70.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3"/>
+<text x="836.0" y="184.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="#2A6FB5" letter-spacing="0">top extrusion</text>
+<rect x="490.0" y="208.0" width="220.0" height="42.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="4"/>
+<path d="M 518 250 L 518 388 A 82 82 0 0 0 682 388 L 682 250 Z" fill="#FBE6D2" stroke="#E8751A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="600.0" cy="368.0" r="46.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<circle cx="600.0" cy="368.0" r="9.0" fill="#7E8794" stroke="none" stroke-width="0"/>
+<text x="500.0" y="308.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">Z idler</text>
+<rect x="571.0" y="212.0" width="14.0" height="46.0" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<rect x="559.0" y="258.0" width="38.0" height="22.0" rx="4" fill="#7E8794" stroke="#14181D" stroke-width="2.5"/>
+<path d="M 536 286 A 42 8 0 1 0 616 290" fill="none" stroke="#E8751A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwo)"/>
+<line x1="600.0" y1="269.0" x2="720.0" y2="269.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="600.0" cy="269.0" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<text x="732.0" y="268.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">tensioner head, down</text>
+<text x="732.0" y="302.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">in the blue sliding body:</text>
+<text x="732.0" y="344.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#2E7D32" letter-spacing="0">clockwise, looking up,</text>
+<text x="732.0" y="378.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#2E7D32" letter-spacing="0">is tighter</text>
+<path d="M 554 788.0 L 554 368 A 46 46 0 0 1 646 368 L 646 1018" fill="none" stroke="#2B3038" stroke-width="10" stroke-linecap="butt" stroke-linejoin="round"/>
+<text x="666.0" y="668.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="#5C6675" letter-spacing="0">to the Z drive:</text>
+<text x="666.0" y="702.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="#5C6675" letter-spacing="0">not this run</text>
+<rect x="254.0" y="818.0" width="300.0" height="80.0" rx="8" fill="#E2E4E8" stroke="#3E4550" stroke-width="4"/>
+<rect x="354.0" y="788.0" width="200.0" height="30.0" rx="4" fill="#FBE6D2" stroke="#E8751A" stroke-width="3"/>
+<path d="M 554 788.0 L 554 818.0 L 354 818.0" fill="none" stroke="#2B3038" stroke-width="8" stroke-linecap="butt" stroke-linejoin="round"/>
+<text x="274.0" y="866.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">gantry corner</text>
+<text x="364.0" y="772.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">top clip</text>
+<line x1="588.0" y1="368.0" x2="136.0" y2="368.0" stroke="#5C6675" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 6"/>
+<line x1="344.0" y1="788.0" x2="136.0" y2="788.0" stroke="#5C6675" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 6"/>
+<path d="M 150.0 578.0 L 150.0 371.0" fill="none" stroke="#14181D" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arw)"/>
+<path d="M 150.0 578.0 L 150.0 785.0" fill="none" stroke="#14181D" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arw)"/>
+<rect x="76.8" y="557.2" width="146.4" height="43.2" rx="4" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<text x="150.0" y="590.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">150 mm</text>
+<path d="M 404.0 998.0 L 404.0 912.0" fill="none" stroke="#E8751A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwo)"/>
+<circle cx="344.0" cy="956.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="344.0" y="967.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
+<text x="444.0" y="970.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">jog Z up</text>
+<path d="M 532.0 560.4 Q 524.3 578.0 532.0 595.6" fill="none" stroke="#E8751A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<path d="M 516.0 547.6 Q 502.7 578.0 516.0 608.4" fill="none" stroke="#E8751A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+<path d="M 500.0 534.8 Q 481.1 578.0 500.0 621.2" fill="none" stroke="#E8751A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+<circle cx="444.0" cy="508.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="444.0" y="519.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<text x="474.0" y="670.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">pluck this run:</text>
+<text x="474.0" y="710.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="end" fill="#2E7D32" letter-spacing="0">about 140 Hz</text>
+<circle cx="728.0" cy="857.5" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="728.0" y="869.3" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">3</text>
+<text x="772.0" y="868.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">all four corners, then</text>
+<text x="772.0" y="904.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Z down and back up,</text>
+<text x="772.0" y="940.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">and read them again</text>
+</svg>

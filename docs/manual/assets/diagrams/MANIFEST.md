@@ -1,10 +1,10 @@
 # Diagram manifest
 
-96 generated SVGs covering the things the official manual states in prose but never draws. Regenerate with `python3 scripts/draw_diagrams.py`; the geometry and every label live in the scripts, not here.
+104 generated SVGs covering the things the official manual states in prose but never draws. Regenerate with `python3 scripts/draw_diagrams.py`; the geometry and every label live in the scripts, not here.
 
 The **Insert at** column names the chapter file and the step whose image block carries the diagram. Diagrams 1 to 18 are drawn in the script itself; the step-column diagrams of Chapters 02 to 14 (numbered by chapter, 201 onwards) live in `scripts/step_diagrams/chNN.py`.
 
-All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each carries its own light background rect and pins `color` on the `<svg>` root, so `currentColor` text stays dark whether the file is referenced with `<img>` or inlined. Style is uniform: 2 px strokes, orange for `[a]_` accent parts, blue for the frame and extrusions, grey for hardware, teal and violet for the A and B belts.
+All 104 are 1200 px wide, legible at 800 px, and safe on a dark page — each carries its own light background rect and pins `color` on the `<svg>` root, so `currentColor` text stays dark whether the file is referenced with `<img>` or inlined. Style is uniform: 2 px strokes, orange for `[a]_` accent parts, blue for the frame and extrusions, grey for hardware, teal and violet for the A and B belts.
 
 ## Index
 
@@ -27,12 +27,14 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 | 15 | The blind joint | [`15-blind-joint.svg`](15-blind-joint.svg) | `01-frame.md` — Step 01.5 (+1 more) |
 | 16 | Access holes face out | [`16-corner-access-holes.svg`](16-corner-access-holes.svg) | `01-frame.md` — Step 01.7 (+1 more) |
 | 17 | Tightening order | [`17-tightening-order.svg`](17-tightening-order.svg) | `01-frame.md` — Step 01.9 (+1 more) |
-| 18 | Bed extrusions | [`18-bed-extrusions.svg`](18-bed-extrusions.svg) | `01-frame.md` — Step 01.19 (+2 more) |
+| 18 | Bed extrusions | [`18-bed-extrusions.svg`](18-bed-extrusions.svg) | `01-frame.md` — Step 01.19 |
 | 201 | The Z drive shaft stack, in order | [`201-z-shaft-stack.svg`](201-z-shaft-stack.svg) | `02-z-drives.md` — Step 02.19 |
-| 202 | Z rails: which holes, which faces | [`202-z-rail-holes-faces.svg`](202-z-rail-holes-faces.svg) | `02-z-drives.md` — Step 02.06 (+1 more) |
-| 203 | The Z0 corner with the printer upside down | [`203-z0-corner-upside-down.svg`](203-z0-corner-upside-down.svg) | `02-z-drives.md` — Step 02.29 (+2 more) |
-| 204 | The belt tensioner cam in three stages | [`204-belt-tensioner-cam.svg`](204-belt-tensioner-cam.svg) | `02-z-drives.md` — Step 02.33 (+1 more) |
-| 205 | Fitting a deck clip: in end-first, then turn it | [`205-deck-clip-twist.svg`](205-deck-clip-twist.svg) | `02-z-drives.md` — Step 02.14 |
+| 202 | The first Z rail: holes, key and face | [`202-z-rail-holes-faces.svg`](202-z-rail-holes-faces.svg) | `02-z-drives.md` — Step 02.06 |
+| 208 | Which face each Z rail goes on | [`208-z-rail-faces.svg`](208-z-rail-faces.svg) | `02-z-drives.md` — Step 02.09 |
+| 203 | The Z0 corner with the printer upside down | [`203-z0-corner-upside-down.svg`](203-z0-corner-upside-down.svg) | `02-z-drives.md` — Step 02.29 |
+| 204 | The belt tensioner cam: hand and fit | [`204-belt-tensioner-cam.svg`](204-belt-tensioner-cam.svg) | `02-z-drives.md` — Step 02.33 |
+| 209 | Closing the belt tensioner cam | [`209-belt-tensioner-close.svg`](209-belt-tensioner-close.svg) | `02-z-drives.md` — Step 02.34 |
+| 205 | Fitting a deck clip: thin edge in, then turn it | [`205-deck-clip-twist.svg`](205-deck-clip-twist.svg) | `02-z-drives.md` — Step 02.14 |
 | 206 | Setting the 16T pulley with pulley_jig | [`206-16t-pulley-jig.svg`](206-16t-pulley-jig.svg) | `02-z-drives.md` — Step 02.27 |
 | 207 | Insert map: retainer and main body | [`207-z-drive-insert-map.svg`](207-z-drive-insert-map.svg) | `02-z-drives.md` — Step 02.04 |
 | 301 | Lay the magnet with a hinge | [`301-magnet-hinge.svg`](301-magnet-hinge.svg) | `03-build-plate.md` — Step 03.9 |
@@ -41,7 +43,8 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 | 304 | Measure the gap at each screw | [`304-gap-caliper.svg`](304-gap-caliper.svg) | `03-build-plate.md` — Step 03.18 |
 | 305 | Eight T-nuts, from above | [`305-tnut-plan.svg`](305-tnut-plan.svg) | `03-build-plate.md` — Step 03.12 |
 | 306 | One screw tight, three loose | [`306-one-screw-tight.svg`](306-one-screw-tight.svg) | `03-build-plate.md` — Step 03.17 |
-| 401 | Near post, far post | [`401-near-far-post.svg`](401-near-far-post.svg) | `04-ab-drives.md` — Step 04.21 (+3 more) |
+| 307 | Check the fuse, from below | [`307-fuse-check.svg`](307-fuse-check.svg) | `03-build-plate.md` — Step 03.5 |
+| 401 | Near post, far post | [`401-near-far-post.svg`](401-near-far-post.svg) | `04-ab-drives.md` — Step 04.21 (+1 more) |
 | 402 | Pulley height with the jig | [`402-pulley-jig.svg`](402-pulley-jig.svg) | `04-ab-drives.md` — Step 04.24 (+1 more) |
 | 403 | Belt through the drive | [`403-belt-through-drive.svg`](403-belt-through-drive.svg) | `04-ab-drives.md` — Step 04.28 (+1 more) |
 | 404 | Insert into the wide end | [`404-tensioner-insert.svg`](404-tensioner-insert.svg) | `04-ab-drives.md` — Step 04.4 |
@@ -49,7 +52,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 | 406 | First set screw on the flat | [`406-set-screw-flat.svg`](406-set-screw-flat.svg) | `04-ab-drives.md` — Step 04.25 |
 | 501 | X extrusion: M5 T-nuts | [`501-x-extrusion-m5-tnuts.svg`](501-x-extrusion-m5-tnuts.svg) | `05-gantry.md` — Step 05.36 |
 | 502 | Y extrusion end: four T-nuts | [`502-y-extrusion-end-tnuts.svg`](502-y-extrusion-end-tnuts.svg) | `05-gantry.md` — Step 05.14 |
-| 503 | Upside down: left and right swap | [`503-gantry-flip.svg`](503-gantry-flip.svg) | `05-gantry.md` — Step 05.41 (+1 more) |
+| 503 | Upside down: left and right swap | [`503-gantry-flip.svg`](503-gantry-flip.svg) | `05-gantry.md` — Step 05.41 |
 | 504 | Endstop pod: on top, screws down | [`504-endstop-pod-on-joint.svg`](504-endstop-pod-on-joint.svg) | `05-gantry.md` — Step 05.49 |
 | 505 | XY joint bearing stack | [`505-xy-joint-bearing-stack.svg`](505-xy-joint-bearing-stack.svg) | `05-gantry.md` — Step 05.26 (+1 more) |
 | 506 | Rail one side, backer opposite | [`506-rail-and-backer-faces.svg`](506-rail-and-backer-faces.svg) | `05-gantry.md` — Step 05.17 (+1 more) |
@@ -59,11 +62,12 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 | 604 | The 150 mm span | [`604-z-belt-span.svg`](604-z-belt-span.svg) | `06-z-axis-and-gantry-squaring.md` — Step 06b.3 |
 | 605 | Turn it over, mark the ends | [`605-turn-over-and-mark.svg`](605-turn-over-and-mark.svg) | `06-z-axis-and-gantry-squaring.md` — Step 06.11 |
 | 701 | Fold, then cut both at once | [`701-belt-fold-cut.svg`](701-belt-fold-cut.svg) | `07-ab-belts.md` — Step 07.8 |
-| 702 | Pluck the 150 mm span | [`702-belt-span-150.svg`](702-belt-span-150.svg) | `07-ab-belts.md` — Step 07.30 (+1 more) |
+| 702 | Pluck the 150 mm span | [`702-belt-span-150.svg`](702-belt-span-150.svg) | `07-ab-belts.md` — Step 07.30 |
 | 703 | Belt slots: A upper, B lower | [`703-belt-clamp-section.svg`](703-belt-clamp-section.svg) | `07-ab-belts.md` — Step 07.9 (+1 more) |
 | 704 | Same length on both tails | [`704-belt-tails-equal.svg`](704-belt-tails-equal.svg) | `07-ab-belts.md` — Step 07.27 |
 | 705 | Away, back, measure again | [`705-gantry-away-and-back.svg`](705-gantry-away-and-back.svg) | `07-ab-belts.md` — Step 07.33 |
 | 706 | Out to the end, then 4 turns in | [`706-tensioner-four-turns.svg`](706-tensioner-four-turns.svg) | `07-ab-belts.md` — Step 07.5 |
+| 707 | Quarter turns, A then B | [`707-quarter-turns.svg`](707-quarter-turns.svg) | `07-ab-belts.md` — Step 07.32 |
 | 801 | Fan adapter on the 5015 | [`801-fan-adapter-on-5015.svg`](801-fan-adapter-on-5015.svg) | `08-toolhead.md` — Step 08.44 |
 | 802 | Ground wire, motor end | [`802-ground-lug-motor-end.svg`](802-ground-lug-motor-end.svg) | `08-toolhead.md` — Step 08.53 |
 | 803 | Cartridge up, leads in | [`803-cartridge-he0-th0.svg`](803-cartridge-he0-th0.svg) | `08-toolhead.md` — Step 08.61 |
@@ -87,18 +91,21 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 | 1103 | 3 mm foam on the front face of the front opening, corners butted | [`1103-front-opening-foam.svg`](1103-front-opening-foam.svg) | `11-skirts-panels-door.md` — Step 11.51 |
 | 1104 | Clicky-Clack door frame: the order | [`1104-door-frame-order.svg`](1104-door-frame-order.svg) | `11-skirts-panels-door.md` — Step 11.44 |
 | 1105 | Nevermore plenum between the bed extrusions, T-nuts in the inside faces | [`1105-plenum-on-bed-extrusions.svg`](1105-plenum-on-bed-extrusions.svg) | `11-skirts-panels-door.md` — Step 11.38 |
-| 1106 | Side spool frame on the right side, tube holder 22 cm back | [`1106-side-spool-frame-and-holder.svg`](1106-side-spool-frame-and-holder.svg) | `11-skirts-panels-door.md` — Step 11.71 (+1 more) |
+| 1106 | Side spool frame on the right side | [`1106-side-spool-frame-and-holder.svg`](1106-side-spool-frame-and-holder.svg) | `11-skirts-panels-door.md` — Step 11.71 |
+| 1107 | One PTFE from the CW2.5 to the side spool, seen from above | [`1107-side-spool-tube-route.svg`](1107-side-spool-tube-route.svg) | `11-skirts-panels-door.md` — Step 11.72 |
 | 1201 | Power on: where to stand and look | [`1201-power-on-stance.svg`](1201-power-on-stance.svg) | `12-software.md` — Step 12.11 |
-| 1202 | SW1 and SW2: reach from above | [`1202-leviathan-sw1-sw2.svg`](1202-leviathan-sw1-sw2.svg) | `12-software.md` — Step 12.15 (+1 more) |
+| 1202 | SW1 and SW2: reach from above | [`1202-leviathan-sw1-sw2.svg`](1202-leviathan-sw1-sw2.svg) | `12-software.md` — Step 12.15 |
 | 1203 | Which Leviathan: read the chip | [`1203-leviathan-chip-marking.svg`](1203-leviathan-chip-marking.svg) | `12-software.md` — Step 12.13 |
 | 1204 | Which line goes where | [`1204-serial-paths.svg`](1204-serial-paths.svg) | `12-software.md` — Step 12.23 |
 | 1205 | Leviathan menuconfig | [`1205-leviathan-menuconfig.svg`](1205-leviathan-menuconfig.svg) | `12-software.md` — Step 12.14 |
 | 1206 | Why -10,-10 cannot be reached | [`1206-safe-z-home.svg`](1206-safe-z-home.svg) | `12-software.md` — Step 12.33 |
+| 1207 | DFU: both down, SW1 up first | [`1207-leviathan-dfu-press.svg`](1207-leviathan-dfu-press.svg) | `12-software.md` — Step 12.16 |
 | 1301 | Hand under the gantry first | [`1301-hand-under-gantry-m84.svg`](1301-hand-under-gantry-m84.svg) | `13-initial-startup.md` — Step 13.17 |
 | 1302 | Tape at 120 mm, then read R | [`1302-rotation-distance-tape.svg`](1302-rotation-distance-tape.svg) | `13-initial-startup.md` — Step 13.40 |
 | 1303 | Shaft under the nozzle | [`1303-probe-under-nozzle.svg`](1303-probe-under-nozzle.svg) | `13-initial-startup.md` — Step 13.24 |
 | 1304 | Paper test: step down to the first drag | [`1304-paper-test-testz.svg`](1304-paper-test-testz.svg) | `13-initial-startup.md` — Step 13.36 |
-| 1305 | H, w, d, G and O | [`1305-scrubber-measurements.svg`](1305-scrubber-measurements.svg) | `13-initial-startup.md` — Step 13.45 (+1 more) |
+| 1305 | H at the rear edge, w in the hand | [`1305-scrubber-measurements.svg`](1305-scrubber-measurements.svg) | `13-initial-startup.md` — Step 13.45 |
+| 1308 | d, G and O behind the plate | [`1308-omron-height-and-reach.svg`](1308-omron-height-and-reach.svg) | `13-initial-startup.md` — Step 13.46 |
 | 1306 | Hand on the rocker, eyes on the bay | [`1306-power-on-hand-on-rocker.svg`](1306-power-on-hand-on-rocker.svg) | `13-initial-startup.md` — Step 13.3 |
 | 1307 | First layer, cut across the lines | [`1307-first-layer-squish.svg`](1307-first-layer-squish.svg) | `13-initial-startup.md` — Step 13.42 |
 | 1401 | A and B: 110 Hz each | [`1401-ab-belts-110hz.svg`](1401-ab-belts-110hz.svg) | `14-calibration.md` — Step 14.4 |
@@ -106,6 +113,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 | 1403 | Tape at 120 mm, read R | [`1403-extruder-tape-r.svg`](1403-extruder-tape-r.svg) | `14-calibration.md` — Step 14.7 |
 | 1404 | Measure at mid-height | [`1404-cube-mid-height.svg`](1404-cube-mid-height.svg) | `14-calibration.md` — Step 14.11 |
 | 1405 | Prove it dead: 0 V | [`1405-psu-prove-dead.svg`](1405-psu-prove-dead.svg) | `14-calibration.md` — Step 14.30 |
+| 1406 | Z belts: 140 Hz each | [`1406-z-belt-span-140hz.svg`](1406-z-belt-span-140hz.svg) | `14-calibration.md` — Step 14.5 |
 
 ---
 
@@ -368,12 +376,12 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 - Top view of one square of the frame, out of square (an exaggerated parallelogram) beside square: both diagonals measured outside corner to outside corner, the longer one red.
 - The fix: tap the corner at one end of the longer diagonal inward along it. Square means both diagonals the same, about 721 mm on a 350.
-- Callouts 1 and 2 are the Do numbers of Step 01.12.
+- Callouts 1 and 2 are the Do numbers of Step 01.12 and of Step 01.13, whose Do 1 and 2 are the same measure and tap.
 
 **Insert at**
 
 - `docs/manual/01-frame.md` — **Step 01.12**: the bottom square.
-- `docs/manual/01-frame.md` — **Step 01.13**: again for the top square.
+- `docs/manual/01-frame.md` — **Step 01.13**: again for the top square, the same callouts.
 
 **Drawn schematically / left unlabelled (verify)**
 
@@ -387,7 +395,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- The frame as an isometric wireframe: one upright face tinted with its two diagonals (about 735 mm, from 510 × 530 outside), the top face's diagonals (about 721 mm).
+- The frame as a wireframe turned 35° and seen from 20° above (off-isometric, so no diagonal lies on a hidden edge): the front face tinted with its two diagonals (about 735 mm, from 510 × 530 outside), the top face's diagonals dashed (about 721 mm), the three hidden edges dashed.
 - The rule: six faces, and on each one the two diagonals must match.
 
 **Insert at**
@@ -407,12 +415,12 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Three sections after p.10, looking down the vertical: (a) the M5×16 BHCS started in the horizontal's end, head about 2 mm off the end face; (b) the head slid into the vertical's slot; (c) the 3 mm hex key straight through the access hole in the opposite face into the head.
+- Three sections after p.10, looking down the vertical, titled rather than numbered because two steps with different Do numbers use them: the M5×16 BHCS started in the horizontal's end, head about 2 mm off the end face; the head slid into the vertical's slot; the 3 mm hex key straight through the access hole in the opposite face into the head.
 
 **Insert at**
 
 - `docs/manual/01-frame.md` — **Step 01.5**: the whole sheet.
-- `docs/manual/01-frame.md` — **Step 01.4**: row (a), for the 2 mm.
+- `docs/manual/01-frame.md` — **Step 01.4**: the top row, for the 2 mm.
 
 **Drawn schematically / left unlabelled (verify)**
 
@@ -447,12 +455,12 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Top view of a square with its corners numbered 1–4 going round, and the order 1, 3, 2, 4: always across to the opposite corner, never round the frame.
+- Top view of a square with its corners numbered 1–4 going round, and the order 1, 3, 2, 4: always across to the opposite corner. The red line says never tighten round the frame in order; fitting the corners in turn (Step 01.8) is not tightening.
 
 **Insert at**
 
-- `docs/manual/01-frame.md` — **Step 01.9**: the bottom square.
-- `docs/manual/01-frame.md` — **Step 01.11**: the top square, and the torque passes of Steps 01.12 and 01.13.
+- `docs/manual/01-frame.md` — **Step 01.9**: the bottom square, snug pass.
+- `docs/manual/01-frame.md` — **Step 01.12**: the torque pass; Steps 01.11 and 01.13 repeat the order without the picture.
 
 ---
 
@@ -462,18 +470,17 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Top view after p.20, FRONT at the bottom: the bed extrusions front to back between the front and rear rails, the centreline 255 mm from the left rail's outer face, each extrusion's inner face 65 mm from it (130 mm clear), and the 90° to the rail. Callouts 1 and 2 are the Do numbers of Step 01.19.
+- Top view after p.20, FRONT at the bottom: the bed extrusions front to back between the front and rear rails, the centreline 255 mm from the left rail's outer face, each extrusion's inner face 65 mm from it (130 mm clear), and the 90° to the rail. Callouts 1–3 are the Do numbers of Step 01.19; callout 3 sits on the bracket in the side view.
 - Side view of the front end after p.18, p.19 and p.21: the bed extrusion's end flush with the rail's inner face and its underside level with the rail's top; the corner bracket's upright leg on the end (M5×16 into the end bore), its flat leg on the rail (M5×10 with the brass spacer under its head, into a T-nut in the rail's top slot).
 
 **Insert at**
 
-- `docs/manual/01-frame.md` — **Step 01.19**: the top view.
-- `docs/manual/01-frame.md` — **Step 01.18**: the side view.
-- `docs/manual/01-frame.md` — **Step 01.16**: the side view again, for which leg goes where.
+- `docs/manual/01-frame.md` — **Step 01.19**: only here: its callouts are this step's Do. Steps 01.16 and 01.18 show the p.18 and p.19 crops instead.
 
 **Drawn schematically / left unlabelled (verify)**
 
 - The bracket's shape, leg thickness and the spacer's thickness are schematic; the chapter gives no dimensions for them.
+- Kept within 1200 × 1075 so it fills the iPad's picture column: top view at 0.8 px per mm.
 
 ---
 
@@ -495,23 +502,40 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 ---
 
-## 202. Z rails: which holes, which faces
+## 202. The first Z rail: holes, key and face
 
 `docs/manual/assets/diagrams/202-z-rail-holes-faces.svg`
 
 **What it shows**
 
-- Side view of one MGN9H 400 rail on its vertical: 20 holes numbered from the bottom, screws in 2, 4 ... 18, holes 1, 19 and 20 empty, the rail standing on the 3 mm hex key above the bottom horizontal (p.25).
-- Plan view from above, front at the bottom: the front rails on the front verticals' back faces, the rear rails on the rear verticals' front faces, so the two on each side face each other (CAD, Step 02.09 render; p.27).
+- Side view of one MGN9H 400 rail on its vertical: 20 holes numbered from the bottom, screws in 2, 4 ... 18, holes 1, 19 and 20 empty, the carriage taped at mid-rail, the rail standing on the 3 mm hex key above the bottom horizontal (p.25 gap; LDO p.88 end-hole note).
+- Plan view from above, front at the bottom: the first rail at Z0 on the vertical's rear-facing side, the rear rails on the rear verticals' front-facing sides (CAD, Step 02.09 render; p.27). Callouts 1 to 3 are the Do numbers of Step 02.06.
 
 **Insert at**
 
-- `docs/manual/02-z-drives.md` — **Step 02.06**: holes, key and faces, first image.
-- `docs/manual/02-z-drives.md` — **Step 02.09**: faces, before the CAD renders.
+- `docs/manual/02-z-drives.md` — **Step 02.06**: holes, key and face, first image.
 
 **Drawn schematically / left unlabelled (verify)**
 
-- Counting from the bottom is this manual's choice: p.25 starts its pattern at the bottom end hole and no source says which end of a 20-hole rail to leave two holes open at. Rail length, widths and the 3 mm gap are drawn schematic (the gap is exaggerated).
+- p.25 draws the 250's 15-hole rail with both end holes used; LDO's p.88 note leaves the end holes empty. A 20-hole rail then keeps two empty holes at one end; no source picks the end and it makes no difference, so this manual counts from the bottom. Rail length, widths and the 3 mm gap are drawn schematic (the gap is exaggerated).
+
+---
+
+## 208. Which face each Z rail goes on
+
+`docs/manual/assets/diagrams/208-z-rail-faces.svg`
+
+**What it shows**
+
+- Plan from above, printer upright, front at the bottom: Z0's rail done, the other three to fit; the front rails on the front verticals' rear-facing sides and the rear rails on the rear verticals' front-facing sides, so the two on each side face each other (CAD, Step 02.09 render; p.27). Callouts 1 to 3 are the Do numbers of Step 02.09.
+
+**Insert at**
+
+- `docs/manual/02-z-drives.md` — **Step 02.09**: which face, first image.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- Rail and corner sizes are schematic; only the faces are from the CAD.
 
 ---
 
@@ -521,13 +545,11 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Plan from above with the printer upside down (rolled over sideways, as p.41's inset shows), standing at the FRONT tape: Z0 is on your right. The drive body's counterbored face faces outward over the side rail, its retainer face toward the motor; two M5x40 go into the side rail, the motor foot's two M5x10 into the front rail, 25 mm apart. Positions from the CAD Z0 corner.
+- Plan from above with the printer upside down (rolled over sideways, as p.41's inset shows), standing at the FRONT tape: Z0 is on your right. The drive body's counterbored face faces outward over the side extrusion, its retainer face toward the motor; two M5x40 go into the side extrusion, the motor foot's two M5x10 into the front extrusion, 25 mm apart. Positions from the CAD Z0 corner. Callouts 1 and 2 are the Do numbers of Step 02.29.
 
 **Insert at**
 
 - `docs/manual/02-z-drives.md` — **Step 02.29**: the corner, first image.
-- `docs/manual/02-z-drives.md` — **Step 02.30**: which rail takes which screws, first image.
-- `docs/manual/02-z-drives.md` — **Step 02.31**: which faces point where, first image.
 
 **Drawn schematically / left unlabelled (verify)**
 
@@ -535,17 +557,34 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 ---
 
-## 204. The belt tensioner cam in three stages
+## 204. The belt tensioner cam: hand and fit
 
 `docs/manual/assets/diagrams/204-belt-tensioner-cam.svg`
 
 **What it shows**
 
-- From above, printer upside down, Z0 corner: the cam (outline from the STL) on its loose M5x10 under the motor foot's drive end. (a) Tab sticking straight out, (b) swinging toward the motor, (c) flat along the rail in the notch, the lobe pushing the foot about 2.5 mm away from the drive body (p.43-44; CAD closed position).
+- Top: the cam flat face down with the lobe on the left (STL outline): the tab is far-right on _a and near-right on _b (the mirror). Bottom: from above, printer upside down, Z0 corner: the cam's lobe under the motor foot's drive end on its loose M5x10, tab sticking straight out (p.43). Callouts 1 to 3 are the Do numbers of Step 02.33.
 
 **Insert at**
 
-- `docs/manual/02-z-drives.md` — **Step 02.33**: where the cam sits, first image.
+- `docs/manual/02-z-drives.md` — **Step 02.33**: hand and where the cam sits, first image.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- The foot's outline and the surface the lobe bears on are schematic; the cam outline is the STL slice.
+
+---
+
+## 209. Closing the belt tensioner cam
+
+`docs/manual/assets/diagrams/209-belt-tensioner-close.svg`
+
+**What it shows**
+
+- From above, printer upside down, Z0 corner: (1) the tab swinging toward the motor, (2) flat along the front extrusion in the notch, the lobe pushing the foot about 2.5 mm away from the drive body, which stays put (p.44; CAD closed position). Callouts 1 and 2 are the Do numbers of Step 02.34.
+
+**Insert at**
+
 - `docs/manual/02-z-drives.md` — **Step 02.34**: the swing, first image.
 
 **Drawn schematically / left unlabelled (verify)**
@@ -554,13 +593,13 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 ---
 
-## 205. Fitting a deck clip: in end-first, then turn it
+## 205. Fitting a deck clip: thin edge in, then turn it
 
 `docs/manual/assets/diagrams/205-deck-clip-twist.svg`
 
 **What it shows**
 
-- Section along a bottom frame rail, printer upside down, deck panel below. (a) The clip goes in edge-on, its 5.8 mm thickness through the slot mouth. (b) Turned 90°: the head sits behind the slot's lips and the short end of the body lies over the panel's edge (outline from deck_support_3mm; the short end stops about 0.8 mm off a 3 mm panel). Callout 1 is Do 1 of Step 02.14.
+- Section along a bottom frame extrusion, printer upside down, deck panel below. (a) The clip goes in thin edge first, its 5.8 mm thickness through the slot mouth and its 20 mm length along the slot. (b) Turned 90°: the head sits behind the slot's lips and the short end of the body lies over the panel's edge (outline from deck_support_3mm; the short end stops about 0.8 mm off a 3 mm panel). Callout 2 is Do 2 of Step 02.14.
 
 **Insert at**
 
@@ -568,7 +607,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- No manual page or CAD shows the clips; the fit is worked out from the STL (key, body and which end is the short one) and the CAD deck position (panel top flush with the rail's top). Spacing along the rail stays 'verify on bench'.
+- No manual page or CAD shows the clips; the fit is worked out from the STL (key, body and which end is the short one) and the CAD deck position (panel top flush with the extrusion's top). Spacing along the extrusion stays 'verify on bench'.
 
 ---
 
@@ -614,7 +653,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Three side views, FRONT left, BACK right. (a) The pad, liner down, flush at the plate's back edge, a strip of masking tape over that edge as the hinge (Do 1, 2). (b) The pad folded back over the hinge, its liner now facing the front, a 40 to 50 mm strip of liner cut off at the hinge end (Do 3). (c) The bare strip pressed down at the back, the rest of the pad held up, the liner pulled out to the front with the squeegee following (Do 3).
+- Three side views, FRONT left, BACK right. (a) The pad, liner side down, flush at the plate's back edge if it is 355 mm, a strip of masking tape over that edge as the hinge (Do 1, 2). (b) The pad folded back over the hinge, its liner now facing the front, a 40 to 50 mm strip of liner cut off at the hinge end (Do 3). (c) The bare strip pressed down at the back, the rest of the pad held up, the liner pulled out to the front and the squeegee sweeping after it toward the front (Do 3).
 
 **Insert at**
 
@@ -622,7 +661,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- The pad's size is not known before kit day (Do 1 says verify on bench): the drawing shows it flush at the back and carries a 'check on the bench' label.
+- The pad's size is not known before kit day (Do 1 says verify on bench): the drawing shows it flush at the back, labelled 'if 355 mm', and carries a 'check on the bench' label.
 - The fold-back geometry follows the step's own words; the linked lamination video was not watched. Thicknesses of the magnet, liner and tape, and the counterbore's size, are schematic.
 
 ---
@@ -633,7 +672,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Left, from above: the magnet with the counterbore showing through as a dimple and a craft knife two thirds of the way round its edge (Do 1, 2). Right, cut through one hole: the magnet cut back to the counterbore's edge, the M3 head sitting flush with the plate face below the magnet, a hex key in its socket, and no burr at the rim (Do 3).
+- Left, from above: the magnet with the counterbore showing through as a dimple and a craft knife two thirds of the way round its edge (Do 1, 2). Right, cut through one hole: the magnet cut back to the counterbore's edge, the M3 head sitting flush with the plate face with no magnet over it, a hex key in its socket, and no burr at the rim (Do 3).
 
 **Insert at**
 
@@ -696,7 +735,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- Scale is about 1.5 px per mm across and 1.4 front to back. The side-slot T-nuts' exact place along the rear half is set in Ch 09 and is schematic here; the rear holes 7 mm in from the plate's rear edge are the 250 CAD's.
+- Scale is about 1.5 px per mm across and 1.4 front to back. The side-slot T-nuts slide into place in Ch 09: the M3 pair is drawn where the 250 CAD puts the probe's nuts, 87 to 105 mm from the rear extrusion, level with the plate's rear edge; the M5 pair is schematic. The rear holes 7 mm in from the plate's rear edge are the 250 CAD's; the step has the builder measure them.
 
 ---
 
@@ -714,6 +753,24 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 ---
 
+## 307. Check the fuse, from below
+
+`docs/manual/assets/diagrams/307-fuse-check.svg`
+
+**What it shows**
+
+- The plate's underside at the back edge, seen from below: the heater pad, the bare aluminium strip along the edge, the plate's three leads leaving in the middle (Do 1), the thermal fuse held flat by one screw and washer (Do 2), and its two legs running down to their heat-shrink joins (Do 3).
+
+**Insert at**
+
+- `docs/manual/03-build-plate.md` — **Step 03.5**: where the fuse sits.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- Traced from LDO's Rev C 300 mm plate photo (build_plate_bottom_view.jpg), the only underside photo LDO publishes; the 350 plate's strip and fuse position are not published, so the drawing carries a check-on-the-bench note. Wire routing below the edge is schematic.
+
+---
+
 ## 401. Near post, far post
 
 `docs/manual/assets/diagrams/401-near-far-post.svg`
@@ -724,10 +781,8 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Insert at**
 
-- `docs/manual/04-ab-drives.md` — **Step 04.21**: the near post on A.
-- `docs/manual/04-ab-drives.md` — **Step 04.22**: the far post on A.
-- `docs/manual/04-ab-drives.md` — **Step 04.30**: the far post on B.
-- `docs/manual/04-ab-drives.md` — **Step 04.31**: the near post on B.
+- `docs/manual/04-ab-drives.md` — **Step 04.21**: both posts on A, before the near stack.
+- `docs/manual/04-ab-drives.md` — **Step 04.30**: both posts on B, before the far stack.
 
 **Drawn schematically / left unlabelled (verify)**
 
@@ -763,7 +818,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Each drive from above, with the frame shown as a dashed outline so the stacks show: the belt end run over the near stack, teeth round the pulley's front and over the far stack, as the CAD routes the A and B belts. Below it, the same drive from behind as p.76 and p.80 draw it: the belt's band level across the near pair, the pulley teeth and the far post's upper pair (A) or lower pair (B); the far post's other pair carries the other belt. Callouts 1 and 2 are the Do numbers of Steps 04.28 and 04.37.
+- Each drive from above, right way up, seen standing behind the printer (so its posts mirror diagram 401's upside-down bench view), with the frame shown as a dashed outline so the stacks show: the belt end run over the near stack, teeth round the pulley's front and over the far stack, as the CAD routes the A and B belts. Below a rule, the same drive from behind as p.76 and p.80 draw it, labelled so: the belt's band level across the near pair, the pulley teeth and the far post's upper pair (A) or lower pair (B); the far post's other pair carries the other belt. Callouts 1 and 2 are the Do numbers of Steps 04.28 and 04.37.
 
 **Insert at**
 
@@ -820,7 +875,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- The pulley hub cut across at its two set screws, 90 degrees apart: the first screw's tip on the flat side of the motor shaft, the second on the round. Callout 2 is the Do number of Step 04.25. A small panel shows the first screw on the round part with the flat turned away, crossed out.
+- The pulley hub cut across at its two set screws, 90 degrees apart: the first screw's tip on the flat side of the motor shaft, the second on the round. Callout 2 is the Do number of Step 04.25. A small panel shows the first screw tightened on the round part with the flat under the second, crossed out.
 
 **Insert at**
 
@@ -877,16 +932,15 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Two top views from the front (idler) end. Before: motors down, rails underneath, B drive and B idler on the left, A on the right. After turning it over: motors up, rails on top, A on the left, and the X axis landed with the right XY joint (the one with the cable bridge) on the A side, your left.
+- Two top views from the front (idler) end. Before: motors down, rails underneath, B drive and B idler on the left, A on the right, with a dashed front-to-back line down the middle and one arrow rolling the gantry over it, left to right. After the roll: motors up, rails on top, A on the left, and the X axis landed with the right XY joint (the one with the cable bridge) on the A side, your left.
 
 **Insert at**
 
-- `docs/manual/05-gantry.md` — **Step 05.41**: what turning it over does to left and right.
-- `docs/manual/05-gantry.md` — **Step 05.42**: which end the right XY joint lands on.
+- `docs/manual/05-gantry.md` — **Step 05.41**: what rolling it over does to left and right, and which end the right XY joint lands on.
 
 **Drawn schematically / left unlabelled (verify)**
 
-- Proportions are schematic. Any way of turning it over gives the same result once the idlers are nearest you, so no turning axis is drawn.
+- Proportions are schematic. Any way of turning it over gives the same result once the idlers are nearest you; the roll about the front-to-back line is drawn because it keeps them nearest you throughout.
 
 ---
 
@@ -915,7 +969,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Side view, exploded, as p.97 builds it: the thin plate at the bottom, the M5×40 pushed up through it, then spacer, F695 flange down, F695 flange up, spacer, and the thick body coming down on top. A small red panel shows the wrong way: flanges facing in.
+- Side view as p.97 builds it: the thin plate at the bottom, the M5×40 pushed up through it (callout 2), then the stack touching item to item, spacer, F695 flange down, F695 flange up, spacer (callout 3), and the thick body coming down on top. Callouts 2 and 3 are the Do numbers of Steps 05.26 and 05.30. A small red panel shows the wrong way: flanges facing in.
 
 **Insert at**
 
@@ -973,7 +1027,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Side section of a gantry corner's top clamp: the belt from the Z idler under the upper clip and its two M5×16; the tail out the far side, up, folded back on itself, and one small zip tie round both layers just above the clip, after p.120 (callouts 1-3 = Do of Step 06.21).
+- Side section of a gantry corner's top clamp, after p.120: the run from the Z idler comes down past the clip's far edge and bends under the upper clip and its two M5×16; the tail leaves the near edge, rises, folds back on itself, and one small zip tie goes round both layers just above the clip (callouts 1-3 = Do of Step 06.21).
 
 **Insert at**
 
@@ -981,7 +1035,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- Which side of the clip the running belt enters and the tail leaves, and the fold's exact path, are schematic; p.120 shows the tail folded over and tied to itself above the clip.
+- The fold's exact path is schematic: p.120 shows the tail folded over and tied to itself above the clip, and whether the tie also catches the running belt is a bench check.
 
 ---
 
@@ -991,8 +1045,8 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Front view of one corner: the gantry corner with its lower clip and Z bearing block coming down (1) onto the domed top of the lower joint, parked on its rubber stopper, the carriage slid up or down until the M5 holes are in line.
-- Side panel: without stoppers, a long zip tie from the gantry corner up over the top frame extrusion before lowering (2), after p.114.
+- Left panel: without stoppers, a long zip tie from the gantry corner up over the top frame extrusion before lowering (1), after p.114.
+- Front view of one corner: the gantry corner with its lower clip and Z bearing block coming down (2) onto the domed top of the lower joint, parked on its rubber stopper. A corner that does not touch: slide that carriage UP (p.115's arrow). Holes off to one side: nudge the gantry, since the M5×40 is vertical and a carriage slide cannot move a hole sideways.
 
 **Insert at**
 
@@ -1011,7 +1065,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 **What it shows**
 
 - Side view of one Z corner: the Z idler at the top, the run that is fixed to the gantry going down to the top clip, 150 mm from the idler axle to the clip (1), and the pluck point in the middle of that run, about 140 Hz (2). The other run goes on down to the Z drive.
-- The tensioner screw under the idler, head down: clockwise, looking up at it, pulls the idler up and tightens the belt (p.117 section).
+- The tensioner screw up through the moving slider (the blue part that carries the pulley) into the fixed bracket, head down at the slider's underside: clockwise, looking up at it, pulls the idler up and tightens the belt (p.117 section).
 
 **Insert at**
 
@@ -1019,7 +1073,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- The span is drawn to scale (3.4 px/mm); the idler, its body and the corner are schematic.
+- The span is drawn to scale (3.1 px/mm); the bracket, slider, screw position and the corner are schematic.
 
 ---
 
@@ -1066,12 +1120,11 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 **What it shows**
 
 - Top view of the right front corner of the gantry, FRONT at the bottom: the A belt's inner run between the XY joint's toothed idler and the front idler, 150 mm centre to centre, marked as the run to pluck; the outer run drawn faint.
-- The front-idler M3x40 head at the front: screw in = tighter, out = looser. The left side is the mirror, with the B belt.
+- The front-idler M3x40 head at the front: turned as seen from the front, clockwise = tighter, anticlockwise = looser (written, since a top view cannot show a rotation). The left side is the mirror, with the B belt.
 
 **Insert at**
 
 - `docs/manual/07-ab-belts.md` — **Step 07.30**: first, before the two CAD renders.
-- `docs/manual/07-ab-belts.md` — **Step 07.32**: replaces the no-image placeholder.
 
 **Drawn schematically / left unlabelled (verify)**
 
@@ -1123,7 +1176,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Top view: the X extrusion moved back a few centimetres (dashed) and forward again to 150 mm from the front idlers on both sides (callout 1), then both belts read again (callout 2), the Do numbers of Step 07.33.
+- Top view: the X extrusion moved back a few centimetres (dashed) and forward again until the XY joint idler centres are 150 mm from the front idler centres on both sides (callout 1), then both belts read again (callout 2), the Do numbers of Step 07.33.
 
 **Insert at**
 
@@ -1141,7 +1194,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- A front idler from above, FRONT at the bottom: the M3x40 through the front wall, head on its washer, threaded into the back of the blue tension arm that carries the bearing stack. Callout 1: screw backed out, arm slid back to the end of its travel. Callout 2: 4 turns in, arm pulled forward. The Do numbers of Step 07.5.
+- A front idler from above, FRONT at the bottom: the M3x40 through the front wall, head on its washer, threaded into the back of the blue tension arm that carries the bearing stack. Callout 1: screw backed out, arm back to the end of its travel (pushed by hand if it does not follow). Callout 2: 4 turns in, arm pulled forward along the screw, so more tip shows behind it. The Do numbers of Step 07.5.
 
 **Insert at**
 
@@ -1150,6 +1203,25 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 **Drawn schematically / left unlabelled (verify)**
 
 - Schematic block and arm shapes; the screw path (front wall, insert at the rear of the arm) is from the CAD and p.128's section.
+- Whether the arm follows the screw back on its own with no belt on is not known; Step 07.5 says to push it back by hand if it does not.
+
+---
+
+## 707. Quarter turns, A then B
+
+`docs/manual/assets/diagrams/707-quarter-turns.svg`
+
+**What it shows**
+
+- Both front idlers seen from the front, screw heads towards you: B on the left, A on the right. Callout 1: clockwise tightens, anticlockwise loosens. Callout 2: alternate quarter turns between the two. The Do numbers of Step 07.32.
+
+**Insert at**
+
+- `docs/manual/07-ab-belts.md` — **Step 07.32**: first; replaces 702 there.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- Schematic idler faces. Clockwise = in = tighter follows from the head at the front (p.128 section, CAD) and the M3 right-hand thread.
 
 ---
 
@@ -1159,7 +1231,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- The Stealthburner body from behind with the 5015 in its upper pocket and the triangular SBurnerFanAdapter V2.0 lying flat on the fan's back, its two end holes over the fan's two screw holes, two M3×10 flat-head screws through both.
+- The Stealthburner body from behind with the 5015 in its upper pocket and the triangular SBurnerFanAdapter V2.0 lying flat on the fan's back, its two end holes over the two body holes SB p.64's M3×6 FHCS use, two M3×10 flat-head screws through both.
 - P1's pins point back, at the toolboard, on the toolboard side of the body.
 - Callouts 1 and 2 are the Do numbers of Step 08.44.
 
@@ -1189,7 +1261,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- Schematic proportions. The screw that holds the lug (length, or whether it is a nut on a motor screw's tip, as LDO's top-down photo may show) is unpublished: drawn generic and tagged for the bench.
+- Schematic proportions. What holds the lug (the supplied short screw, or a nut on the tip of the front M3×8 that shares the lower ear, as LDO's top-down photo may show) is unpublished: drawn generic and tagged for the bench.
 
 ---
 
@@ -1199,7 +1271,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Side view from the toolboard side, front on the left: the tool cartridge rising so its screw heads drop into the extruder's keyholes; the heater pair with ferrules into the HE0 screw terminal; the thermistor pair into TH0, the 2-pin socket to the left of HE0 (board pinout).
+- Side view from the toolboard side, front on the left: the tool cartridge pushed up under the extruder, held by the cartridge, not the nozzle (the body screws at 08.62 hold it; what holds it before then is tagged for the bench); the heater pair with ferrules into the HE0 screw terminal; the thermistor pair into TH0, the 2-pin socket to the left of HE0 (board pinout).
 - Callouts 1 to 3 are the Do numbers of Step 08.61.
 
 **Insert at**
@@ -1208,7 +1280,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- Schematic: two of the four screw heads show in a side view; board, terminal and socket sizes are not to scale. TH0-left-of-HE0 and the board's front edge forward are from LDO's pinout and ground-routing photo.
+- Schematic: board, terminal and socket sizes are not to scale. No screw heads or keyholes are drawn: the cartridge's four M3×8 sit in Ø5.8 counterbores in its top (STL) and clamp the Revo heatsink (SB p.50). TH0-left-of-HE0 and the board's front edge forward are from LDO's pinout and ground-routing photo.
 
 ---
 
@@ -1218,7 +1290,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Top: the extruder from the front with the latch open, the M3×16 straight in through the front access hole (SB p.37-38) and the M3×6 BHCS into the cable cover's side wall, low at the front (SB p.38).
+- Top: the extruder from the front with the latch open (closed again after), the M3×16 straight in through the front access hole (SB p.37-38) and the M3×6 BHCS into the cable cover's side wall, low at the front (SB p.38).
 - Bottom: side view from the toolboard side, front on the left: the fan adapter's P1 pins pointing back, the toolboard's socket on its front edge, A1/A2 row on top and the 24V row at the bottom, the body pushed straight back; two M3×25 upper and two M3×50 lower from the front.
 - Callouts 1 to 3 are the Do numbers of Step 08.62.
 
@@ -1238,7 +1310,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Top: the Revo's own Micro-Fit plug, kept if LDO's cables mate with it; the cut line only if not.
+- Top: the HeaterCore's heater and thermistor leads, each ending in a Micro-Fit plug (E3D Revo Voron page), marked never cut; the 1 m extension cables beyond them, with the cut line at their board end, only if LDO's cables do not mate.
 - Bottom: the heater pair ending in two E0508 ferrules (8 mm tube); the thermistor pair in a 2-pin JST-PH2.0 housing (2.0 mm pitch), with XH2.5 marked as not fitting TH0.
 - Callouts 1 and 2 are the Do numbers of Step 08.33.
 
@@ -1316,7 +1388,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- The SSR on its metal bracket on the rear rail, from the rear with the printer on its head: INPUT pair toward the front, LOAD pair (mains, red) toward the rear, the PSU to its right with about 30 mm of rail between.
+- The SSR on its metal bracket on the rear rail, from the rear with the printer on its head: INPUT pair toward the front, LOAD pair (mains, red) toward the rear, the PSU's left end, terminal strip and all, to its right with about 30 mm of rail between (Do 2).
 - Callouts 2 and 3 are the Do numbers of Step 09.18; Do 1 (open the latch) is not drawn.
 
 **Insert at**
@@ -1335,7 +1407,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- From above, rear at the top: the right bed extrusion, the build plate's straight rear edge, the probe body on the extrusion's inner face behind it on two M3×25, and its pin just behind the edge. Callouts 1–3 are the Do numbers of Step 09.30.
+- From above, rear at the top: the right bed extrusion, the build plate's straight rear edge overhanging the extrusion and running on past the panel edge, the probe body on the extrusion's inner face behind it on two M3×25, and its pin just behind the edge. Callouts 1–3 are the Do numbers of Step 09.30.
 - Right: the gauge enlarged, a 2 mm hex key slides between pin and plate, a 3 mm key does not; p.161 draws 1.5 mm.
 
 **Insert at**
@@ -1355,7 +1427,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 **What it shows**
 
 - Left: a cut through the inlet panel, the module (red, mains) pressed in from outside until its sprung tabs snap behind the panel wall; nothing on the spade terminals. Callouts 1 and 2 are the Do numbers of Step 09.11.
-- Right: the face from outside with the printer upright: earth pin at the top, the switch facing out.
+- Right: the panel from outside on the bench: the module's switch end toward the panel's curved cut-out, the socket and fuse drawer at the other end.
 
 **Insert at**
 
@@ -1363,7 +1435,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- The panel's cut-out is symmetric top to bottom (STL section), so the module fits either way up: earth pin up is the step's convention, not LDO's, and is tagged. The socket outline, the switch's side and the tab shape are schematic.
+- The panel's cut-out takes the module either way round (STL section). Switch end at the curved cut-out follows LDO's fitted photo (iec-inlet-module-fitted.jpg: the factory L-to-fuse bar and the earth spade sit at the end away from the Z motor) and p.167. No earth-pin direction is drawn: no source shows the socket face. The fuse sits in the socket half (LDO inlet_layout.png, rear view); the drawer's exact place on the face, the tab shape and proportions are schematic.
 
 ---
 
@@ -1373,8 +1445,8 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Front, after the Nitehawk-SB V2 grounding photo: base, PCB and partial cover held by three M3×10, the top-right screw left bare with the DC Ground Wire's ring terminal on it.
-- Side: cover, PCB and base in that order, the DIN clip on the base's back on two M2×10 self-tapping screws. Callouts 1–3 are the Do numbers of Step 09.25.
+- Front, after the Nitehawk-SB V2 grounding photo: the diamond base (labelled), the partial cover cut away at top-right (labelled), three M3×10, the top-right screw left bare with the DC Ground Wire's ring terminal under it, and the M2×10 heads in the base's two wing holes.
+- Side: cover, PCB and base in that order, the DIN clip on the base's back on two M2×10 self-tapping screws driven from the front through the wing holes. Callouts 1–3 are the Do numbers of Step 09.25.
 
 **Insert at**
 
@@ -1382,7 +1454,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- Layer thicknesses and the clip's screw positions are schematic. The M2×10 clip screws are the step's (verify on bench); tagged.
+- Layer thicknesses are schematic. Screw direction from the STL (usb_adapter_mount_partial_cover: base wing holes Ø2.4 with Ø4 counterbores on the front, 32 mm apart; pcb_din_clip Ø1.9 pilots ~31 mm apart). The M2×10 count and length are the step's (verify on bench); tagged.
 
 ---
 
@@ -1393,7 +1465,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 **What it shows**
 
 - The precondition in the picture: unplugged, cord out of the room.
-- The C14 inlet's E, L and N pins, each wired in its colour to its WAGO block and on to every point the 10.18 tables list: PE to PSU 3 FG, the bed plate screw, the frame lug and a far frame corner; L to PSU 1 L and SSR LOAD 2; N to PSU 2 N and the bed N lead. One probe parked on the pin, the other walked along.
+- The inlet module: its C14 E, L and N pins, the fuse in series with L, the rocker breaking L and N together (drawn ON), E neither fused nor switched; each wire in its colour to its WAGO block and on to every point the 10.18 tables list: PE to PSU 3 FG, the bed plate screw, the frame lug and a far frame corner; L to PSU 1 L and SSR LOAD 2; N to PSU 2 N and the bed N lead. One probe parked on the pin, the other walked along.
 - Callouts 1 to 3 are the Do numbers of Step 10.18.
 
 **Insert at**
@@ -1402,7 +1474,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- A wiring schematic, not a layout: block positions do not match the bay. The fuse, the rocker and the Bed L branch (SSR LOAD 1) stay in the step's tables.
+- A wiring schematic, not a layout: block positions do not match the bay. Fuse and rocker placement inside the module from LDO's inlet_layout.png. The Bed L branch (SSR LOAD 1) stays in the step's table.
 
 ---
 
@@ -1413,7 +1485,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 **What it shows**
 
 - The precondition in the picture: unplugged, cord out of the room.
-- The three pairs L-N, L-PE and N-PE crossed out at the WAGO blocks (rocker on, then off) and at the PSU screws 1 L, 2 N, 3 FG, with the expected readings: L to N 100 kΩ or more or OL, L or N to PE OL. Callouts 1 and 2 are the Do numbers of Step 10.19.
+- The three pairs L-N, L-PE and N-PE crossed out at the WAGO blocks, drawn in their bench order N, L, PE (Step 10.7; rocker on, then off) and at the PSU screws 1 L, 2 N, 3 FG, with the expected readings: L to N 100 kΩ or more or OL, L or N to PE OL. Callouts 1 and 2 are the Do numbers of Step 10.19.
 
 **Insert at**
 
@@ -1465,7 +1537,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- The PSU's nine screws in datasheet order, 1 L, 2 N, 3 FG (mains, never probed), the fin, then 4 to 6 −V and 7 to 9 +V, with the black probe on −V and the red on +V; first DC V, 0 V for ten seconds (10.73).
+- The PSU's nine screws in datasheet order, 1 L, 2 N, 3 FG (mains screws, not part of this test; 10.18, 10.19 and 10.77 meter them with the cord out), the fin, then 4 to 6 −V and 7 to 9 +V, with the black probe on −V and the red on +V; first DC V, 0 V for ten seconds (10.73).
 - Then on Ω the three 24 V inputs, Leviathan Vin 24V, Vin 24-48V and the USB adapter's 24V IN, + to −: all read the same, never 0 Ω; and the two rows to the C14 earth pin (10.74).
 
 **Insert at**
@@ -1504,9 +1576,9 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- The machine's left side, front to the right: the printer's front left vertical and, 3 mm of foam in front of it, the door frame's left vertical.
-- Two hinges, each a printer half below (pin pointing up) and the door half above it, the top one just under the top corner clip with a small gap, the bottom one just above the bottom corner clip.
-- Two T-nuts per half: four in the printer's vertical, four in the door frame. Callouts 1 to 3 are Step 11.62's Do numbers.
+- The machine's left side, front to the right: the printer's front left vertical and, a labelled foam strip in front of it, the door frame's left vertical, each named with a leader; a band of blue tape across both.
+- Two hinges, each a printer half below (pin pointing up) and the door half above it, the top one just under the top corner clip with a small gap, the bottom one just above the bottom corner clip; two screws per half.
+- Callouts 1 to 3 are Step 11.62's Do numbers: tape and T-nuts, hinges on loosely pins up, all eight screws tightened once the door hangs parallel.
 
 **Insert at**
 
@@ -1527,7 +1599,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 **What it shows**
 
 - The machine's right side, front to the left: the door frame's right vertical, 3 mm of foam, the printer's front right vertical and the side panel's edge.
-- The latch on the printer vertical over the panel edge, the two handle hinges on the door frame, the handle between them over the latch, a paper shim at each end of the handle, and the up-and-down slide that lines the handle up.
+- The latch on the printer vertical over the panel edge (callout 2: centred and tightened first), the two handle hinges on the door frame (callout 1), the handle between them over the latch, a paper shim at each end of the handle, and the up-and-down slide that lines the handle up (callout 3).
 - Callouts 1 to 3 are Step 11.64's Do numbers.
 
 **Insert at**
@@ -1558,6 +1630,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 - The foam strip's width (drawn about 9 mm) and its exact place on the face are schematic; the kit's 3 mm tape width is not published.
 - The door frame is drawn straight in front of the printer vertical because both frames are 510 mm wide; the opening's proportions in the lower view are schematic.
+- KB3D's guide says to put the foam 'on the inner portion of the extrusion' in its door-frame section, so the door frame's back face may be meant; the step marks it '(verify on bench)' and the drawing carries a 'check on the bench' note.
 
 ---
 
@@ -1603,25 +1676,42 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 ---
 
-## 1106. Side spool frame on the right side, tube holder 22 cm back
+## 1106. Side spool frame on the right side
 
 `docs/manual/assets/diagrams/1106-side-spool-frame-and-holder.svg`
 
 **What it shows**
 
 - The right side from outside, FRONT to the left, at 3.3 px per mm from the remix STL: the frame's two feet on the 13.5 mm strip of bare aluminium beside the panel, one on the top extrusion and one on the front vertical, a screw into a T-nut in each outer slot.
-- The puck on its boss, the USS Drybox outline (217 × 219 mm, on the puck), and the tube holder in the top extrusion's top slot about 22 cm behind the front, behind the box, with the PTFE climbing to it and running back to the bowden retainer.
+- The puck on its boss and the USS Drybox outline (217 × 219 mm, on the puck). Callouts 1 and 2 are Step 11.71's Do numbers.
 
 **Insert at**
 
 - `docs/manual/11-skirts-panels-door.md` — **Step 11.71**: first image: what the hands do.
-- `docs/manual/11-skirts-panels-door.md` — **Step 11.72**: first image, before the manual page.
 
 **Drawn schematically / left unlabelled (verify)**
 
-- The 'about 22 cm' is drawn to the holder's front end, which puts it just behind the box; the README says about 22 cm without naming the end.
-- The holder clearing the box and the top-panel clips is '(verify on bench)' in the step, so the diagram labels its position 'check on the bench'.
-- The PTFE line is schematic: the filament leaves a spool standing about 120 mm out from the panel.
+- The panel edge is drawn 13.5 mm in from the frame edges (483 mm panel on a 510 mm frame); the frame outline, feet and puck axis are from the remix STL.
+
+---
+
+## 1107. One PTFE from the CW2.5 to the side spool, seen from above
+
+`docs/manual/assets/diagrams/1107-side-spool-tube-route.svg`
+
+**What it shows**
+
+- The top of the frame from above, FRONT at the bottom: the tube holder in the top right extrusion's top slot about 22 cm behind the front, the bowden retainer on the top rear extrusion, and the exhaust cover's coupler at the back centre.
+- One PTFE from the CW2.5 out through the coupler, through the retainer, forward to the holder and down to the spool outside the right side, cut square there. Callouts 1 to 3 are Step 11.72's Do numbers.
+
+**Insert at**
+
+- `docs/manual/11-skirts-panels-door.md` — **Step 11.72**: first image: what the hands do.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- The 'about 22 cm' is drawn to the holder's front end; the README says about 22 cm without naming the end. The holder clearing the box and the top-panel clips is '(verify on bench)' in the step, so the drawing labels its spot 'check on the bench'.
+- The retainer's spot along the rear extrusion follows p.258 (beside the exhaust, toward the right side) but is not dimensioned; the tube's path and the toolhead position are schematic.
 
 ---
 
@@ -1641,7 +1731,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- Which side the machine lies on is not stated in Ch 10 or Ch 12; it is drawn on its right side, which puts the rear-left inlet and its rocker uppermost.
+- Drawn on its right side, as 12.11 Do 2 now says (Alex's ruling 2026-11-20), which puts the rear-left inlet and its rocker uppermost.
 - Bay positions are read off LDO's Rev D finished-bay photo (a Rev D bay, PVC ducts; this build uses printed B11 conduits) and turned to that orientation. The person is not to scale.
 - The Pi LED position (the Pi's short edge away from its USB ports) is from the Raspberry Pi 4 photo; on the bench the DSI ribbon runs close by.
 
@@ -1659,13 +1749,12 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 **Insert at**
 
 - `docs/manual/12-software.md` — **Step 12.15**: first image: where the hand goes.
-- `docs/manual/12-software.md` — **Step 12.16**: the same buttons for the DFU press.
 
 **Drawn schematically / left unlabelled (verify)**
 
 - Button order and side follow LDO's frontsw1sw2.jpg (SW2 Boot left of SW1 Reset above the processor) turned 180° as the board sits in LDO's Rev D bay photo, then 90° for the machine on its right side.
 - In LDO's rpi4_installed_V1.3 photo the J9 Pi power lead runs over the buttons; in the Rev D bay photo it does not. Where it runs on this build is a bench fact.
-- The reach direction assumes the machine lies on its right side, as in 1201.
+- The reach direction assumes the machine lies on its right side, as 12.11 says. The red line is the limit the 12.15 warning names: the arm stays in front of the middle duct.
 
 ---
 
@@ -1676,6 +1765,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 **What it shows**
 
 - The Leviathan as LDO photographs it, stepper sockets along the top: the processor with SW2 and SW1 above it, and the VORON / Leviathan V1.x line at the lower right, under the Pi drawn see-through as mounted in Ch 09.
+- A footnote says the drawing keeps LDO's photo orientation and that in the bay the board is turned, so the chip lettering reads sideways.
 - STM32F446… = V1.1 or V1.2; STM32H743… = V1.3.
 
 **Insert at**
@@ -1695,7 +1785,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- ls /dev/serial/by-id/ output with two usb-Klipper_ lines: the stm32g0b1xx one (toolboard) arrowed into the [mcu nhk] box on the left, the stm32f446xx one (mainboard) into the [mcu] box on the right; landscape, because 12.23 renders stacked with the picture capped at 40vh.
+- ls /dev/serial/by-id/ output with two usb-Klipper_ lines, each chip name underlined: the stm32f446xx one (mainboard) arrowed into the [mcu] box on the left, the stm32g0b1xx one (toolboard) into the [mcu nhk] box on the right, boxes in printer.cfg order; landscape, because 12.23 renders stacked with the picture capped at 40vh.
 
 **Insert at**
 
@@ -1703,7 +1793,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- Strings follow the chapter's own code (12.12 table, 12.23 config). The order of the two lines in a real listing is not fixed; the step says to match by chip family, not order.
+- Strings follow the chapter's own code (12.12 table, 12.23 config). ls sorts by name, so f446 lists above g0b1 and an H743 below it; the step says to match by chip family, not order.
 
 ---
 
@@ -1713,7 +1803,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- A settings card: the low-level tick, Micro-controller Architecture and Communication interface for both boards, then Processor model, Bootloader offset and Clock Reference side by side for F446 (V1.1, V1.2) and H743 (V1.3).
+- A settings card in menuconfig's screen order: the low-level tick and Micro-controller Architecture for both versions, then Processor model, Bootloader offset and Clock Reference side by side for F446 (V1.1, V1.2) and H743 (V1.3), then Communication interface, the same on both.
 
 **Insert at**
 
@@ -1743,22 +1833,41 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 ---
 
+## 1207. DFU: both down, SW1 up first
+
+`docs/manual/assets/diagrams/1207-leviathan-dfu-press.svg`
+
+**What it shows**
+
+- Three close-ups of SW1 (above) and SW2 (below) beside the processor, in 1202's orientation: both pressed, SW1 released, then SW2 released; callout 2 is the Do number of Step 12.16; a red caption repeats the 12.15 reach limit.
+
+**Insert at**
+
+- `docs/manual/12-software.md` — **Step 12.16**: first image: the press order.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- Press order from LDO's Leviathan V1.2 and V1.3 guides (fetched 2026-11-20): press both SW2 and SW1 at the same time, release SW1 first, then SW2. Button positions as in 1202. Whether one fingertip covers both buttons is a bench fact.
+
+---
+
 ## 1301. Hand under the gantry first
 
 `docs/manual/assets/diagrams/1301-hand-under-gantry-m84.svg`
 
 **What it shows**
 
-- Front view of the machine: a hand flat under the gantry beam, `M84` sent, and the gantry lowered by hand from high up to a third of its travel, nozzle about 100 mm above the plate (callout 1); the toolhead pushed to the middle (2).
+- Front view of the machine: a hand flat under each end of the gantry beam, `M84` sent by the second person, and the gantry lowered evenly by hand from high up to a third of its travel, nozzle about 100 mm above the plate (callout 1); the toolhead pushed to the middle (2).
 
 **Insert at**
 
-- `docs/manual/13-initial-startup.md` — **Step 13.17**: the hand under the gantry and the lowered height.
+- `docs/manual/13-initial-startup.md` — **Step 13.17**: a hand under each end of the gantry and the lowered height.
 
 **Drawn schematically / left unlabelled (verify)**
 
 - Frame, gantry, toolhead and hand are schematic; the gantry's starting height is drawn high and dashed because the step does not say where it is.
 - 100 mm is the step's figure (a third of the 330 mm Z travel, `[stepper_z] position_max: 330`), drawn to scale against the plate.
+- Both hands under the beam because the four Z motors are released at once: lowered by one end, the gantry tilts (review 2026-11-20). Whether and how fast it sinks on its own is for the bench.
 
 ---
 
@@ -1768,7 +1877,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- The top of the Clockwork 2.5 with its collet (the extruder entrance), the PTFE lifted off the filament, and a rule with zero at the entrance: tape at 120 mm before (callout 3), and after `G1 E100 F60` the tape at R, about 20 mm.
+- The top of the Clockwork 2.5 with its collet, the PTFE lifted off the filament, and a rule with zero at the collet top: tape at 120 mm before (callout 3), and after `G1 E100 F60` the tape at R, about 20 mm.
 
 **Insert at**
 
@@ -1798,6 +1907,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 - The 2 to 3 mm gap is drawn wider than scale so it can be seen; the plate, spacer and probe body are schematic (the LDO body is taller than p.161's).
 - Bed-extrusion spacing in the top view is schematic; the probe's side and face follow LDO's build-plate mapping and Ch 09 Step 09.30.
+- The side view looks from the middle of the bed at the probe on the right extrusion's inner face, so the rear is on the left; diagrams 1305 and 1308 look from the machine's left and keep the rear on the left too.
 
 ---
 
@@ -1807,7 +1917,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- The nozzle over a sheet of paper on the plate (callout 1); `TESTZ Z=-1` until close, `TESTZ Z=-0.1` to the drag, `TESTZ Z=0.1` to back up (2); three feels: slides free (keep going), light drag (`ACCEPT`, 3), pinned (back up).
+- The nozzle over a sheet of paper on the plate (callout 1); `TESTZ Z=-1` until close, `TESTZ Z=-0.1` to the drag, `TESTZ Z=0.1` to back up (2); three feels: slides free (keep going), light drag with the tip resting on the paper (`ACCEPT`, 3), pinned with the tip pressed into it (back up).
 
 **Insert at**
 
@@ -1819,23 +1929,41 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 ---
 
-## 1305. H, w, d, G and O
+## 1305. H at the rear edge, w in the hand
 
 `docs/manual/assets/diagrams/1305-scrubber-measurements.svg`
 
 **What it shows**
 
-- Side view behind the plate, rear to the right: H from the left bed extrusion's top to the flex plate's top at its rear edge; the toolhead at full Y with the nozzle O past the plate's edge; the Omron 25 mm behind it, its face d above the nozzle tip and G above the extrusion top; the A1 wiper's height w measured in the hand.
+- Side view seen from the machine's left, rear to the left: the caliper standing on its end on the flex plate at the plate's rear edge, its depth rod run down to the left bed extrusion's top, giving H (callout 1); the A1 wiper's height w, base underside to bristle tips, measured in the hand (2).
 
 **Insert at**
 
 - `docs/manual/13-initial-startup.md` — **Step 13.45**: where H and w are measured.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- The caliper, plate stack and wiper are schematic. H is drawn 20 mm to scale (the author's 20.05 mm); the depth rod must run just past the plate edge, which is how the step words it.
+- Seen from the machine's left so the rear is on the left, the same way round as diagram 1303's side view.
+
+---
+
+## 1308. d, G and O behind the plate
+
+`docs/manual/assets/diagrams/1308-omron-height-and-reach.svg`
+
+**What it shows**
+
+- Side view seen from the machine's left, rear to the left: the toolhead at full Y with the nozzle tip at the flex plate's level, the Omron 25 mm behind it; d, the Omron face above the nozzle tip (callout 1); G, the Omron face above the left bed extrusion's top (2); O, how far the nozzle reaches past the plate's rear edge (3). Foot note: d and G are read at Z10, less 10.
+
+**Insert at**
+
 - `docs/manual/13-initial-startup.md` — **Step 13.46**: where d, G and O are measured.
 
 **Drawn schematically / left unlabelled (verify)**
 
-- d is drawn as 3 mm so it can be seen (expected about 0.6 mm); the plate stack, toolhead and wiper are schematic. H 20 mm, the Omron's 25 mm `y_offset` and 17 mm body and O 4.5 mm are drawn to scale.
-- No callouts: the diagram serves two steps whose Do numbers differ, so the quantities carry their letters instead.
+- d is drawn as 6 mm so it can be read at 480 px (expected about 0.6 mm); the plate stack and toolhead are schematic. H 20 mm, the Omron's 25 mm `y_offset` and 17 mm body and O 4.5 mm are drawn to scale.
+- Split from 1305 (review 2026-11-20) so each step's callouts match its own Do numbers.
 
 ---
 
@@ -1845,7 +1973,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- The machine on its side with the bay toward you, the open bay marked live, eyes only; one adult standing beside the rear end, not in front of the bay (callout 1), hand on the inlet's rocker with the mains lead in red (2), looking into the bay (3).
+- The machine on its right side with the bay toward you, the open bay marked live, eyes only; one adult standing beside the rear end, not in front of the bay (callout 1), hand on the inlet's rocker with the mains lead in red (2), looking into the bay (3).
 
 **Insert at**
 
@@ -1853,7 +1981,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- Which side the machine lies on is not stated (Step 10.1 'on its side'); the drawing lays it on its right side, which puts the rear end on your left and the inlet, at the rear-left corner (Ch 09 Step 09.2), at the top of that end. On its left side both are mirrored: check on the bench.
+- The machine lies on its right side (owner's ruling 2026-11-20, now in Step 13.2), which puts the rear end on your left and the inlet, at the rear-left corner (Ch 09 Step 09.2), at the top of that end.
 - The person, frame and bay are schematic; the bottom door is left out.
 
 ---
@@ -1864,7 +1992,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Three sections across first-layer lines on the plate: round lines with gaps (too high, `Z_ADJUST=-0.01` brings it closer), flattened lines that touch but each still shows (right), and a ridged, glassy sheet (too low, `Z_ADJUST=0.01`).
+- Three sections across first-layer lines on the plate: round lines with gaps (too high, `Z_ADJUST=-0.01` brings it closer), flattened lines that touch but each still shows (right), and a ridged, glassy sheet (too low, `Z_ADJUST=0.01`); callout 2, the step's live-adjust Do, beside both `Z_ADJUST` lines.
 
 **Insert at**
 
@@ -1882,7 +2010,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Top view of the gantry's front half, FRONT at the bottom: X and Y motors off while the Z motors hold (1); the X extrusion pushed forward (2) until each XY joint's toothed idler is 150 mm, centre to centre, from its front idler; the A belt's inner run on the right and the B belt's on the left, the runs to pluck (3); the two front tensioner screws, heads at the front, in = tighter.
+- Top view of the gantry's front half, FRONT at the bottom: X and Y motors off while the Z motors hold (1); the X extrusion pushed forward (2) until each XY joint's toothed idler is 150 mm, centre to centre, from its front idler; the A belt's inner run on the right and the B belt's on the left, the runs to pluck (3); the X extrusion moved back a few centimetres and returned before both are plucked again (4); the two front tensioner screws, heads at the front, in = tighter.
 - A spectrum strip: read the lowest peak, about 110 Hz, not a louder or higher one (3).
 
 **Insert at**
@@ -1922,8 +2050,8 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **What it shows**
 
-- Before: the hotend at 260 °C (1), the filament above the extruder entrance with tape 120 mm above it (2), a rule beside it.
-- After 100 mm: the tape has moved down to R above the entrance, about 20 mm; pushed through = 120 − R.
+- Before: the hotend at 260 °C (1); the PTFE tube out of the collet, its ring pressed down, and slid about 130 mm up (check on the bench); tape on the bare filament 120 mm above the collet (2), a rule beside it.
+- After 100 mm: the tape has moved down to R above the collet, about 20 mm; pushed through = 120 − R.
 
 **Insert at**
 
@@ -1931,7 +2059,7 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 **Drawn schematically / left unlabelled (verify)**
 
-- The PTFE tube lifted off the top so the filament can be marked is inferred: the tape has to sit on bare filament above the entrance. How the CW2.5's inlet releases the tube is a bench check.
+- Tube out of the collet so the tape sits on bare filament: Ellis marks where the filament enters the extruder, and the reverse-bowden covers it up to the collet (Ch 08: collet and clip, SB p.21). The ~130 mm of tube slack is the step's bench check.
 - Filament, tape and R are to scale (3.3 px/mm); the toolhead is a block.
 
 ---
@@ -1973,6 +2101,26 @@ All 96 are 1200 px wide, legible at 800 px, and safe on a dark page — each car
 
 ---
 
+## 1406. Z belts: 140 Hz each
+
+`docs/manual/assets/diagrams/1406-z-belt-span-140hz.svg`
+
+**What it shows**
+
+- One Z corner from the side: the gantry jogged up (1) until its top clip is 150 mm below the Z idler pulley centre; the fixed run between them plucked on its outer side, about 140 Hz (2); the other run, down to the Z drive, not plucked.
+- The tensioner from p.117: the M3 head points down inside the blue sliding body above the pulley and threads up into the fixed mount; clockwise, looking up, is tighter. All four corners, then Z down and back up and read again (3).
+
+**Insert at**
+
+- `docs/manual/14-calibration.md` — **Step 14.5**: first, in place of Ch 06's 604.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- Screw head down in the sliding body above the pulley: p.117 section view; the hex key reaches it from below. Proportions are schematic; the span is to scale (2.8 px/mm).
+- Fixed run = idler to the gantry's top clip: Voron secondary tuning, Z belts step 1.
+
+---
+
 ## Markdown to paste in
 
 Diagrams sit in the step's image block, in the same position a manual page image would take:
@@ -1986,7 +2134,7 @@ From `00-index.md` the path is the same; from a print-batch chapter under `docs/
 ## Regenerating
 
 ```
-python3 scripts/draw_diagrams.py            # all 96 + this file
+python3 scripts/draw_diagrams.py            # all 104 + this file
 python3 scripts/draw_diagrams.py --only 3 7 # just those two
 ```
 

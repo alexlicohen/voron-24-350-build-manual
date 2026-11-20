@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" role="img" aria-label="Re-terminating the Revo leads: ferrules on the heater, a PH2.0 housing on the thermistor" style="color:#14181D">
-<title>Re-terminating the Revo leads: ferrules on the heater, a PH2.0 housing on the thermistor</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" role="img" aria-label="Revo leads: the HeaterCore's Micro-Fit plugs stay; only the extension cable is cut, at the board end, for ferrules and a PH2.0 housing" style="color:#14181D">
+<title>Revo leads: the HeaterCore's Micro-Fit plugs stay; only the extension cable is cut, at the board end, for ferrules and a PH2.0 housing</title>
 <defs>
 <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
 <marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
@@ -14,18 +14,26 @@
 <text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Ends for HE0 and TH0</text>
 <line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
 <rect x="30.0" y="108.0" width="1140.0" height="250.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
-<rect x="80.0" y="188.0" width="150.0" height="90.0" rx="8" fill="#F2F2EE" stroke="#7E8794" stroke-width="3"/>
-<text x="155.0" y="246.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Micro-Fit</text>
-<line x1="230.0" y1="218.0" x2="640.0" y2="218.0" stroke="#C0392B" stroke-width="8" stroke-linecap="round"/>
-<line x1="230.0" y1="248.0" x2="640.0" y2="248.0" stroke="#C0392B" stroke-width="8" stroke-linecap="round"/>
-<line x1="470.0" y1="182.0" x2="470.0" y2="288.0" stroke="#C0392B" stroke-width="4" stroke-linecap="round" stroke-dasharray="12 8"/>
-<text x="470.0" y="328.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">cut only if needed</text>
-<circle cx="155.0" cy="320.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
-<text x="155.0" y="331.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
-<text x="680.0" y="212.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">LDO's cable fits it:</text>
-<text x="680.0" y="254.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#2E7D32" letter-spacing="0">keep it as it is</text>
-<rect x="680.0" y="285.5" width="326.4" height="42.0" rx="8" fill="#FBEBD3" stroke="#D98324" stroke-width="2.5"/>
-<text x="843.2" y="315.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#14181D" letter-spacing="0">check on the bench</text>
+<rect x="60.0" y="196.0" width="70.0" height="100.0" rx="8" fill="#B6BDC6" stroke="#7E8794" stroke-width="3"/>
+<text x="54.0" y="162.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">HeaterCore</text>
+<line x1="130.0" y1="222.0" x2="268.0" y2="222.0" stroke="#C0392B" stroke-width="8" stroke-linecap="round"/>
+<rect x="268.0" y="204.0" width="64.0" height="36.0" rx="5" fill="#F2F2EE" stroke="#7E8794" stroke-width="3"/>
+<line x1="332.0" y1="222.0" x2="1000.0" y2="222.0" stroke="#C0392B" stroke-width="8" stroke-linecap="round"/>
+<line x1="130.0" y1="272.0" x2="268.0" y2="272.0" stroke="#BDBDBD" stroke-width="6" stroke-linecap="round"/>
+<rect x="268.0" y="254.0" width="64.0" height="36.0" rx="5" fill="#F2F2EE" stroke="#7E8794" stroke-width="3"/>
+<line x1="332.0" y1="272.0" x2="1000.0" y2="272.0" stroke="#BDBDBD" stroke-width="6" stroke-linecap="round"/>
+<text x="300.0" y="180.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Micro-Fit</text>
+<text x="600.0" y="180.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">extension cable</text>
+<text x="1012.0" y="258.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#5C6675" letter-spacing="0">board</text>
+<text x="175.0" y="338.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">never cut</text>
+<circle cx="300.0" cy="324.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="300.0" y="335.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
+<line x1="880.0" y1="192.0" x2="880.0" y2="298.0" stroke="#C0392B" stroke-width="4" stroke-linecap="round" stroke-dasharray="12 8"/>
+<text x="840.0" y="338.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="end" fill="#C0392B" letter-spacing="0">cut here, only if needed</text>
+<circle cx="880.0" cy="324.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="880.0" y="335.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<rect x="823.6" y="127.5" width="326.4" height="42.0" rx="8" fill="#FBEBD3" stroke="#D98324" stroke-width="2.5"/>
+<text x="986.8" y="157.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#14181D" letter-spacing="0">check on the bench</text>
 <rect x="30.0" y="382.0" width="560.0" height="602.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
 <text x="54.0" y="436.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Heater</text>
 <line x1="70.0" y1="552.0" x2="300.0" y2="552.0" stroke="#C0392B" stroke-width="12" stroke-linecap="round"/>

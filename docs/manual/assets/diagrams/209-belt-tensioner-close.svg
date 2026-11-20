@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 860" width="1200" height="860" role="img" aria-label="Closing the belt tensioner cam" style="color:#14181D">
+<title>Closing the belt tensioner cam</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="860" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Closing the cam</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<text x="48.0" y="148.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Swing the tab toward the motor</text>
+<rect x="40.0" y="207.0" width="1120.0" height="150.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3"/>
+<text x="52.0" y="293.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#2A6FB5" letter-spacing="0">front extrusion</text>
+<rect x="715.0" y="172.0" width="445.0" height="220.0" rx="4" fill="#E2E4E8" stroke="#3E4550" stroke-width="3"/>
+<text x="935.0" y="294.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#5C6675" letter-spacing="0">Z drive</text>
+<rect x="385.0" y="187.0" width="315.0" height="190.0" rx="4" fill="none" stroke="#3E4550" stroke-width="3" stroke-dasharray="12 8"/>
+<rect x="397.0" y="170.4" width="180.0" height="32.4" rx="4" fill="#FBFAF8" stroke="none" stroke-width="0"/>
+<text x="397.0" y="195.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="800" text-anchor="start" fill="#3E4550" letter-spacing="0">motor foot</text>
+<path d="M 665.8 211.6 L 676.1 213.4 L 689.2 207.1 L 697.1 207.2 L 716.9 226.3 L 725.0 242.5 L 728.9 260.1 L 728.6 278.2 L 723.9 295.7 L 707.4 320.7 L 576.3 451.8 L 568.2 453.3 L 549.4 435.2 L 548.0 428.2 L 591.1 383.2 L 597.9 361.5 L 594.2 345.3 L 575.7 320.6 L 567.4 300.8 L 565.2 276.5 L 571.0 252.7 L 588.3 227.6 L 611.3 212.7 L 638.1 207.1 Z" fill="#FBE6D2" stroke="#E8751A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 594.9 396.0 L 552.5 438.4 L 571.1 457.0 L 613.5 414.6 Z" fill="#E8751A" stroke="#E8751A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="640.0" cy="282.0" r="35.6" fill="#E7E9EC" stroke="#14181D" stroke-width="2.5"/>
+<circle cx="640.0" cy="282.0" r="10.5" fill="#14181D" stroke="none" stroke-width="0"/>
+<circle cx="452.5" cy="282.0" r="35.6" fill="#E7E9EC" stroke="#14181D" stroke-width="2.5"/>
+<circle cx="452.5" cy="282.0" r="10.5" fill="#14181D" stroke="none" stroke-width="0"/>
+<path d="M 581.0 428.0 A 157.5 157.5 0 0 1 485.9 314.7" fill="none" stroke="#E8751A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwo)"/>
+<circle cx="412.5" cy="412.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="412.5" y="423.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
+<line x1="40.0" y1="477.0" x2="1160.0" y2="477.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<text x="48.0" y="523.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Flat in the notch: foot pushed away</text>
+<rect x="40.0" y="582.0" width="1120.0" height="150.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3"/>
+<text x="52.0" y="668.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#2A6FB5" letter-spacing="0">front extrusion</text>
+<rect x="715.0" y="547.0" width="445.0" height="220.0" rx="4" fill="#E2E4E8" stroke="#3E4550" stroke-width="3"/>
+<text x="935.0" y="669.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#5C6675" letter-spacing="0">Z drive</text>
+<rect x="366.2" y="562.0" width="315.0" height="190.0" rx="4" fill="none" stroke="#3E4550" stroke-width="3" stroke-dasharray="12 8"/>
+<rect x="378.2" y="545.4" width="180.0" height="32.4" rx="4" fill="#FBFAF8" stroke="none" stroke-width="0"/>
+<text x="378.2" y="570.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="800" text-anchor="start" fill="#3E4550" letter-spacing="0">motor foot</text>
+<path d="M 689.3 625.5 L 695.3 634.0 L 709.0 638.9 L 714.5 644.5 L 715.0 672.0 L 709.3 689.2 L 699.6 704.4 L 686.6 716.9 L 670.9 726.0 L 641.5 732.0 L 456.2 732.0 L 449.4 727.4 L 448.8 701.2 L 452.8 695.3 L 515.0 694.0 L 535.3 683.5 L 544.1 669.4 L 548.5 638.8 L 556.6 619.0 L 572.3 600.2 L 593.1 587.5 L 623.1 582.0 L 650.0 587.7 L 672.9 602.7 Z" fill="#FBE6D2" stroke="#E8751A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 508.8 705.8 L 448.8 705.8 L 448.8 732.0 L 508.8 732.0 Z" fill="#E8751A" stroke="#E8751A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="621.2" cy="657.0" r="35.6" fill="#E7E9EC" stroke="#14181D" stroke-width="2.5"/>
+<circle cx="621.2" cy="657.0" r="10.5" fill="#14181D" stroke="none" stroke-width="0"/>
+<circle cx="433.8" cy="657.0" r="35.6" fill="#E7E9EC" stroke="#14181D" stroke-width="2.5"/>
+<circle cx="433.8" cy="657.0" r="10.5" fill="#14181D" stroke="none" stroke-width="0"/>
+<line x1="700.0" y1="542.0" x2="700.0" y2="762.0" stroke="#5C6675" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 6"/>
+<path d="M 760.0 782.0 L 683.2 782.0" fill="none" stroke="#14181D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arw)"/>
+<text x="665.2" y="793.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="end" fill="currentColor" letter-spacing="0">foot moves 2 to 3 mm</text>
+<circle cx="800.0" cy="782.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="800.0" y="793.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<text x="840.0" y="793.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="start" fill="currentColor" letter-spacing="0">drive stays put</text>
+</svg>

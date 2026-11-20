@@ -86,7 +86,7 @@ def bench_tag(d: Doc, x, y, s, anchor="start", size=T_MIN):
 
 # ============================================================ diagram 1001 ===
 def d1001_mains_bus() -> Doc:
-    d = Doc(1000, "Mains bus: each colour beeps from its C14 pin to every point")
+    d = Doc(1060, "Mains bus: each colour beeps from its C14 pin to every point")
     top = step_header(d, "Mains bus: one colour at a time")
     unplugged(d, 40, top + 16, 1120)
 
@@ -94,7 +94,7 @@ def d1001_mains_bus() -> Doc:
     d.panel(30, ay, 1140, d.h - ay - 16)
     callout(d, 78, ay + 44, 1)
     d.text(120, ay + 56, "park one probe", size=T_MIN, weight=700, fill=MUTED)
-    d.text(560, ay + 56, "walk the other along: beeps", size=T_MIN, weight=700, fill=OK)
+    d.text(660, ay + 56, "walk the other along: beeps", size=T_MIN, weight=700, fill=OK)
 
     rows = [  # (bus label, wire colour, destinations)
         ("PE", "PE", ["PSU screw 3 FG", "bed plate screw", "frame lug screw", "far frame corner"]),
@@ -104,7 +104,9 @@ def d1001_mains_bus() -> Doc:
     pin_label = {"PE": "E", "L": "L", "N": "N"}
     lh, gap = 46, 52
     y = ay + 130
-    bx0, bx1 = 60, 210                       # the C14 inlet
+    bx0, bx1 = 60, 340                       # the inlet module: C14 pins, fuse, rocker
+    px = 130                                 # the C14 pins
+    wx0, wx1 = 420, 540                      # the WAGO blocks
     blocks = []
     for name, col, dests in rows:
         ys = [y + i * lh for i in range(len(dests))]
@@ -113,22 +115,41 @@ def d1001_mains_bus() -> Doc:
         y = ys[-1] + lh + gap
     d.rect(bx0, blocks[0][4] - 70, bx1 - bx0, blocks[-1][4] - blocks[0][4] + 140, fill=PANEL,
            stroke=RED, sw=4, rx=12)
-    d.text((bx0 + bx1) / 2, blocks[-1][4] + 112, "C14 inlet", size=T_MIN, anchor="middle",
-           weight=700, fill=RED)
+    d.text((bx0 + bx1) / 2, blocks[-1][4] + 112, "C14 inlet module", size=T_MIN,
+           anchor="middle", weight=700, fill=RED)
+    sw_a, sw_b = 262, 306                    # the rocker's two contacts on each pole
+    lever = {}
     for name, col, ys, dests, cy in blocks:
-        px = bx1 - 34
-        d.text(bx0 + 26, cy + 11, pin_label[name], size=T_LAB, weight=800)
-        wire(d, px, cy, 320, cy, col)
+        d.text(bx0 + 14, cy + 11, pin_label[name], size=T_LAB, weight=800)
+        if name == "PE":                     # earth: neither fused nor switched
+            wire(d, px, cy, wx0, cy, col)
+        else:
+            wire(d, px, cy, sw_a, cy, col)
+            wire(d, sw_b, cy, wx0, cy, col)
+            d.circle(sw_a, cy, 7, fill=INK, stroke=INK, sw=1)
+            d.circle(sw_b, cy, 7, fill=INK, stroke=INK, sw=1)
+            d.line(sw_a, cy, sw_b + 4, cy - 14, stroke=INK, sw=5)     # contact closed: ON
+            lever[name] = cy
+        if name == "L":                      # the fuse, in series with Live only
+            fx = 196
+            d.rect(fx - 28, cy - 13, 56, 26, fill=PANEL, stroke=INK, sw=3, rx=4)
+            d.line(fx - 28, cy, fx + 28, cy, stroke=INK, sw=2)
+            d.text(fx, cy - 26, "fuse", size=T_MIN, anchor="middle", weight=700)
         d.circle(px, cy, 11, fill=INK, stroke=PANEL, sw=2)
-        d.rect(320, cy - 34, 120, 68, fill=PANEL, stroke=RED, sw=4, rx=8)
-        d.text(380, cy + 11, name, size=T_LAB, anchor="middle", weight=800)
+        d.rect(wx0, cy - 34, wx1 - wx0, 68, fill=PANEL, stroke=RED, sw=4, rx=8)
+        d.text((wx0 + wx1) / 2, cy + 11, name, size=T_LAB, anchor="middle", weight=800)
         for yy, s in zip(ys, dests):
-            wire(d, 440, cy, 540, yy, col, sw=6)
-            d.circle(548, yy, 10, fill=OK, stroke=PANEL, sw=2)
-            d.text(574, yy + 11, s, size=T_MIN, weight=600)
+            wire(d, wx1, cy, wx1 + 100, yy, col, sw=6)
+            d.circle(wx1 + 108, yy, 10, fill=OK, stroke=PANEL, sw=2)
+            d.text(wx1 + 134, yy + 11, s, size=T_MIN, weight=600)
+    # the rocker breaks L and N together: one lever, two poles
+    mx = (sw_a + sw_b) / 2 + 2
+    d.line(mx, lever["L"] - 6, mx, lever["N"] - 6, stroke=INK, sw=3, dash="8 7")
+    d.text(mx - 14, (lever["L"] + lever["N"]) / 2 + 10, "rocker", size=T_MIN, anchor="end",
+           weight=700, fill=INK)
     # the probes: black parked on the E pin, red on the PE row's last point
-    probe(d, bx1 - 34, blocks[0][4] - 4, -55, INK, 0.75)
-    probe(d, 548, blocks[0][2][-1] + 4, 140, RED, 0.62)
+    probe(d, px, blocks[0][4] - 4, -55, INK, 0.75)
+    probe(d, wx1 + 108, blocks[0][2][-1] + 4, 140, RED, 0.62)
     y = legend_row(d, 54, blocks[-1][4] + 186, 2, ["Rocker ON for L and N; PE beeps either way"],
                    size=T_MIN)
     legend_row(d, 54, y + 30, 3, ["Ω rows: subtract the probes-together reading"],
@@ -144,12 +165,11 @@ def d1006_isolation_pairs() -> Doc:
     by = top + 106
     d.panel(30, by, 1140, d.h - by - 16)
 
-    def group(x0, n, title, labels, foot):
+    def group(x0, n, title, labels, cols, foot):
         callout(d, x0 + 28, by + 46, n)
         d.text(x0 + 70, by + 58, title, size=T_LAB, weight=700)
         xs = [x0 + 85 + i * 170 for i in range(3)]
         ty = by + 230
-        cols = [BROWN, WIRE_N, "PE"]
         for x, lab, col in zip(xs, labels, cols):
             d.rect(x - 64, ty - 36, 128, 72, fill=PANEL, stroke=RED, sw=4, rx=8)
             d.text(x, ty + 11, lab, size=T_LAB, anchor="middle", weight=800)
@@ -161,8 +181,12 @@ def d1006_isolation_pairs() -> Doc:
             cross(d, (xa + xb) / 2, ty - 40 - h, r=13, sw=5)
         d.text(x0 + 255, ty + 118, foot, size=T_MIN, anchor="middle", weight=600, fill=MUTED)
 
-    group(60, 1, "at the WAGO blocks", ["L", "N", "PE"], "rocker on, then off")
-    group(620, 2, "at the PSU screws", ["1 L", "2 N", "3 FG"], "the same three pairs")
+    # WAGO blocks in their bench order, left to right N, L, PE (Step 10.7);
+    # PSU screws in datasheet order 1 L, 2 N, 3 FG
+    group(60, 1, "at the WAGO blocks", ["N", "L", "PE"], [WIRE_N, BROWN, "PE"],
+          "rocker on, then off")
+    group(620, 2, "at the PSU screws", ["1 L", "2 N", "3 FG"], [BROWN, WIRE_N, "PE"],
+          "the same three pairs")
     d.text(600, by + 430, "L to N: 100 kΩ or more, or OL", size=T_LAB, anchor="middle",
            weight=700)
     d.text(600, by + 476, "L or N to PE: OL", size=T_LAB, anchor="middle", weight=700)
@@ -291,17 +315,17 @@ def d1003_hat_pads() -> Doc:
 
 # ============================================================ diagram 1004 ===
 def d1004_24v_points() -> Doc:
-    d = Doc(1100, "24 V probe points: the PSU's DC screws and each 24 V input")
+    d = Doc(1056, "24 V probe points: the PSU's DC screws and each 24 V input")
     top = step_header(d, "24 V probe points")
     unplugged(d, 40, top + 16, 1120)
 
     # ---- the PSU terminal strip, nine screws
     py = top + 106
-    d.panel(30, py, 1140, 410)
+    d.panel(30, py, 1140, 390)
     d.text(54, py + 54, "PSU terminal strip", size=T_LAB + 2, weight=700)
     pitch = 112
     xs = [100 + i * pitch for i in range(3)] + [100 + 3 * pitch + 60 + i * pitch for i in range(6)]
-    sy = py + 260
+    sy = py + 236
     d.rect(xs[0] - 50, sy - 52, xs[2] - xs[0] + 100, 104, fill=RED_F, stroke=RED, sw=4, rx=8)
     d.rect(xs[3] - 50, sy - 52, xs[8] - xs[3] + 100, 104, fill=GREY_F, stroke=GREY, sw=3, rx=8)
     for x in xs:
@@ -310,7 +334,10 @@ def d1004_24v_points() -> Doc:
         d.line(x - 16, sy + 16, x + 16, sy - 16, stroke=INK, sw=4)
     for x, s in zip(xs[:3], ("1 L", "2 N", "3 FG")):
         d.text(x, sy + 86, s, size=T_LAB, anchor="middle", weight=800, fill=RED)
-    d.text((xs[0] + xs[2]) / 2, sy + 124, "mains: never probe", size=T_MIN, anchor="middle",
+    # mains screws: 10.18, 10.19 and 10.77 meter 3 FG etc. unplugged; this test does not
+    d.text((xs[0] + xs[2]) / 2, py + 112, "mains screws:", size=T_MIN, anchor="middle",
+           weight=700, fill=RED)
+    d.text((xs[0] + xs[2]) / 2, py + 150, "not in this test", size=T_MIN, anchor="middle",
            weight=700, fill=RED)
     finx = (xs[2] + xs[3]) / 2
     d.rect(finx - 7, sy - 92, 14, 184, fill=BLACKPART, stroke=BLACKPART, sw=1, rx=3)
@@ -322,46 +349,46 @@ def d1004_24v_points() -> Doc:
            fill=MUTED)
     d.text((xs[6] + xs[8]) / 2, sy + 124, "7 to 9", size=T_MIN, anchor="middle", weight=600,
            fill=MUTED)
-    probe(d, xs[4], sy - 30, -100, INK, 0.7)
-    probe(d, xs[7], sy - 30, -80, RED, 0.7)
+    probe(d, xs[4], sy - 30, -100, INK, 0.65)
+    probe(d, xs[7], sy - 30, -80, RED, 0.65)
     d.text(1150, py + 54, "first: DC V reads 0 V for 10 s", size=T_MIN, anchor="end",
            weight=700, fill=OK)
 
     # ---- the three 24 V inputs
-    iy = py + 426
+    iy = py + 406
     d.panel(30, iy, 1140, d.h - iy - 16)
     d.text(54, iy + 54, "Then on Ω, each input, + to −", size=T_LAB + 2, weight=700)
     inputs = [("Leviathan", "Vin 24V"), ("Leviathan", "Vin 24-48V"), ("USB adapter", "24V IN")]
     for i, (a, b) in enumerate(inputs):
         cx = 220 + i * 380
-        ty = iy + 216
+        ty = iy + 196
         d.rect(cx - 90, ty - 40, 180, 80, fill=GREY_F, stroke=INK, sw=3, rx=8)
         for k, sgn in enumerate(("+", "−")):
             x = cx - 44 + k * 88
             d.circle(x, ty, 24, fill=PANEL, stroke=INK, sw=3)
             d.text(x, ty + 13, sgn, size=T_LAB + 4, anchor="middle", weight=800,
                    fill=RED if sgn == "+" else INK)
-        probe(d, cx - 44, ty - 24, -105, RED, 0.6)
-        probe(d, cx + 44, ty - 24, -75, INK, 0.6)
+        probe(d, cx - 44, ty - 24, -105, RED, 0.5)
+        probe(d, cx + 44, ty - 24, -75, INK, 0.5)
         d.text(cx, ty + 84, a, size=T_MIN, anchor="middle", weight=700)
         d.mono(cx, ty + 120, b, size=T_MIN, anchor="middle", weight=700)
-    d.text(600, iy + 400, "All four read the same, rising. Never 0 Ω.", size=T_LAB,
+    d.text(600, iy + 372, "All four read the same, rising. Never 0 Ω.", size=T_LAB,
            anchor="middle", weight=700)
-    d.text(600, iy + 444, "To the C14 earth pin: +V about the same, −V a few Ω.", size=T_MIN,
+    d.text(600, iy + 414, "To the C14 earth pin: +V about the same, −V a few Ω.", size=T_MIN,
            anchor="middle", weight=600, fill=MUTED)
     return d
 
 
 # ============================================================ diagram 1005 ===
 def d1005_earth_points() -> Doc:
-    d = Doc(1115, "Earth bonding: one probe on the C14 earth pin, the other on bare metal")
+    d = Doc(1060, "Earth bonding: one probe on the C14 earth pin, the other on bare metal")
     top = step_header(d, "Earth: one probe stays on C14 E")
     unplugged(d, 40, top + 16, 1120)
 
     py = top + 106
-    d.panel(30, py, 1140, 562)
+    d.panel(30, py, 1140, 530)
     # C14 inlet, seen from outside: E pin centred above L and N
-    ix, iy = 170, py + 310
+    ix, iy = 170, py + 290
     d.rect(ix - 110, iy - 120, 220, 240, fill=PANEL, stroke=RED, sw=4, rx=18)
     d.rect(ix - 80, iy - 90, 160, 180, fill=GREY_F, stroke=INK, sw=3, rx=26)
     pins = {"E": (ix, iy - 40), "L": (ix - 44, iy + 40), "N": (ix + 44, iy + 40)}
@@ -388,27 +415,27 @@ def d1005_earth_points() -> Doc:
         w = len(val) * 19 + 30
         d.rect(1140 - w, y - 34, w, 50, fill=OK_F, stroke=OK, sw=2.5, rx=8)
         d.text(1140 - w / 2, y + 2, val, size=T_LAB, anchor="middle", weight=800, fill=OK)
-        y += 108 if sub else 80
+        y += 96 if sub else 74
     d.text(470, py + 50, "touch the other probe to each, on bare metal", size=T_MIN,
            weight=600, fill=MUTED)
 
     # ---- callout 1: probes together; and the wrong way, small
-    by = py + 580
+    by = py + 546
     d.panel(30, by, 560, d.h - by - 16)
-    probe(d, 300, by + 140, -150, INK, 0.9)
-    probe(d, 310, by + 140, -30, RED, 0.9)
-    callout(d, 305, by + 200, 1)
-    d.text(305, by + 262, "probes together:", size=T_MIN, anchor="middle", weight=700)
-    d.text(305, by + 298, "subtract this reading", size=T_MIN, anchor="middle", weight=700)
+    probe(d, 300, by + 120, -150, INK, 0.9)
+    probe(d, 310, by + 120, -30, RED, 0.9)
+    callout(d, 305, by + 180, 1)
+    d.text(305, by + 240, "probes together:", size=T_MIN, anchor="middle", weight=700)
+    d.text(305, by + 276, "subtract this reading", size=T_MIN, anchor="middle", weight=700)
     d.panel(610, by, 560, d.h - by - 16)
     d.text(634, by + 54, "Wrong", size=36, weight=700, fill=RED)
-    d.rect(660, by + 160, 460, 60, fill=dd.BLUE_F, stroke=BLUE, sw=4, rx=4)
-    d.text(890, by + 200, "anodised face", size=T_MIN, anchor="middle", weight=700, fill=BLUE)
-    probe(d, 860, by + 160, -60, RED, 0.6)
-    cross(d, 790, by + 110, r=20, sw=7)
-    d.text(890, by + 262, "reads OL: the oxide", size=T_MIN, anchor="middle", weight=700,
+    d.rect(660, by + 140, 460, 60, fill=dd.BLUE_F, stroke=BLUE, sw=4, rx=4)
+    d.text(890, by + 180, "anodised face", size=T_MIN, anchor="middle", weight=700, fill=BLUE)
+    probe(d, 860, by + 140, -60, RED, 0.6)
+    cross(d, 790, by + 92, r=20, sw=7)
+    d.text(890, by + 240, "reads OL: the oxide", size=T_MIN, anchor="middle", weight=700,
            fill=RED)
-    d.text(890, by + 298, "does not conduct", size=T_MIN, anchor="middle", weight=700,
+    d.text(890, by + 276, "does not conduct", size=T_MIN, anchor="middle", weight=700,
            fill=RED)
     return d
 
@@ -422,8 +449,9 @@ DIAGRAMS = [
         "fn": d1001_mains_bus,
         "shows": [
             "The precondition in the picture: unplugged, cord out of the room.",
-            "The C14 inlet's E, L and N pins, each wired in its colour to its WAGO block and "
-            "on to every point the 10.18 tables list: PE to PSU 3 FG, the bed plate screw, the "
+            "The inlet module: its C14 E, L and N pins, the fuse in series with L, the rocker "
+            "breaking L and N together (drawn ON), E neither fused nor switched; each wire in "
+            "its colour to its WAGO block and on to every point the 10.18 tables list: PE to PSU 3 FG, the bed plate screw, the "
             "frame lug and a far frame corner; L to PSU 1 L and SSR LOAD 2; N to PSU 2 N and "
             "the bed N lead. One probe parked on the pin, the other walked along.",
             "Callouts 1 to 3 are the Do numbers of Step 10.18.",
@@ -432,8 +460,9 @@ DIAGRAMS = [
             ("10-wiring.md", "Step 10.18", "replaces the no-image line"),
         ],
         "verify": [
-            "A wiring schematic, not a layout: block positions do not match the bay. The fuse, "
-            "the rocker and the Bed L branch (SSR LOAD 1) stay in the step's tables.",
+            "A wiring schematic, not a layout: block positions do not match the bay. Fuse and "
+            "rocker placement inside the module from LDO's inlet_layout.png. The Bed L branch "
+            "(SSR LOAD 1) stays in the step's table.",
         ],
     },
     {
@@ -443,8 +472,8 @@ DIAGRAMS = [
         "fn": d1006_isolation_pairs,
         "shows": [
             "The precondition in the picture: unplugged, cord out of the room.",
-            "The three pairs L-N, L-PE and N-PE crossed out at the WAGO blocks (rocker on, then "
-            "off) and at the PSU screws 1 L, 2 N, 3 FG, with the expected readings: L to N "
+            "The three pairs L-N, L-PE and N-PE crossed out at the WAGO blocks, drawn in their "
+            "bench order N, L, PE (Step 10.7; rocker on, then off) and at the PSU screws 1 L, 2 N, 3 FG, with the expected readings: L to N "
             "100 kΩ or more or OL, L or N to PE OL. Callouts 1 and 2 are the Do numbers of "
             "Step 10.19.",
         ],
@@ -503,7 +532,8 @@ DIAGRAMS = [
         "title": "24 V probe points",
         "fn": d1004_24v_points,
         "shows": [
-            "The PSU's nine screws in datasheet order, 1 L, 2 N, 3 FG (mains, never probed), "
+            "The PSU's nine screws in datasheet order, 1 L, 2 N, 3 FG (mains screws, not part "
+            "of this test; 10.18, 10.19 and 10.77 meter them with the cord out), "
             "the fin, then 4 to 6 −V and 7 to 9 +V, with the black probe on −V and the red on "
             "+V; first DC V, 0 V for ten seconds (10.73).",
             "Then on Ω the three 24 V inputs, Leviathan Vin 24V, Vin 24-48V and the USB "

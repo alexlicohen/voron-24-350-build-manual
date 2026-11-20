@@ -87,9 +87,9 @@ def _arrow(d: dd.Doc, x0, y0, x1, y1, col=INK, sw=5, mk="arw"):
 
 # ============================================================ diagram 301 ===
 def d301_magnet_hinge() -> dd.Doc:
-    d = dd.Doc(1130, "Laying the magnet with a tape hinge")
+    d = dd.Doc(1072, "Laying the magnet with a tape hinge")
     top = step_header(d, "Lay the magnet with a hinge")
-    ph, gap = 330, 12
+    ph, gap = 312, 10
     X0, X1 = 150, 1040                       # plate, front (left) to back (right)
     TH, LT, MT = 30, 10, 16                  # plate, liner, pad thickness (schematic)
     strip = 115                              # 40-50 mm of a 355 mm pad, in px
@@ -98,7 +98,7 @@ def d301_magnet_hinge() -> dd.Doc:
         ry = top + 14 + i * (ph + gap)
         d.panel(30, ry, 1140, ph)
         d.text(54, ry + 50, title, size=34, weight=700)
-        pt = ry + 236                        # plate top
+        pt = ry + 228                        # plate top
         d.line(50, pt + TH, 1150, pt + TH, stroke=FAINT, sw=3)            # bench
         d.rect(X0, pt, X1 - X0, TH, fill=PLATE_F, stroke=GREY, sw=3)
         return ry, pt
@@ -114,9 +114,10 @@ def d301_magnet_hinge() -> dd.Doc:
     d.rect(X0, pt - LT, X1 - X0, LT, fill=LINER_F, stroke=MUTED, sw=3)
     d.rect(X0, pt - LT - MT, X1 - X0, MT, fill=MAG, stroke=INK, sw=2)
     tape(pt - LT - MT)
-    d.text(X0 + 10, pt - 46, "pad, liner down", size=T_LAB, weight=700)
-    d.text(X1 - 30, pt - 52, "flush at the back", size=T_LAB, anchor="end", weight=700)
-    callout(d, X1 - 30 - 305 - 40, pt - 63, 1)
+    d.text(X0 + 10, pt - 46, "pad, liner side down", size=T_LAB, weight=700)
+    d.text(X1 - 30, pt - 52, "flush at back if 355 mm", size=T_LAB, anchor="end",
+           weight=700)
+    callout(d, X1 - 30 - 420 - 36, pt - 63, 1)
     d.text(X1 + 100, pt - 116, "tape hinge", size=T_LAB, anchor="end", weight=700,
            fill=AMBER)
     callout(d, X1 + 66, pt - 46, 2)
@@ -126,7 +127,7 @@ def d301_magnet_hinge() -> dd.Doc:
     # (b) fold it back over the hinge, cut 40-50 mm of liner off
     ry, pt = row(1, "Fold it back, cut off a liner strip")
     hx, hy = X1, pt                                       # the hinge
-    ang, L = 104, 205
+    ang, L = 104, 195
     d.poly(_rot(hx, hy, _rect_pts(hx - L, hy - MT, L, MT), ang), fill=MAG, stroke=INK,
            sw=2)
     # liner on the pad's former underside, now facing the front; the strip is gone
@@ -166,9 +167,12 @@ def d301_magnet_hinge() -> dd.Doc:
     sq = [(xs - 14, pt - MT - 2), (xs + 14, pt - MT - 2), (xs + 58, pt - 110),
           (xs + 30, pt - 120)]
     d.poly(sq, fill=GREY_F, stroke=INK, sw=3)
-    _arrow(d, xs + 70, pt - 150, xs - 60, pt - 150, col=INK, sw=5)
-    d.text(xs + 84, pt - 140, "squeegee", size=T_LAB, weight=700)
-    callout(d, xs - 100, pt - 150, 3)
+    d.text(xs + 60, pt - 170, "squeegee", size=T_LAB, anchor="middle", weight=700)
+    d.leader(xs + 50, pt - 160, xs + 46, pt - 124, col=INK)
+    # the way the squeegee sweeps: toward the front
+    _arrow(d, xs - 12, pt - 90, xs - 120, pt - 90, col=INK, sw=5)
+    d.text(xs - 130, pt - 80, "sweep", size=T_MIN, anchor="end", weight=700)
+    callout(d, 600, ry + 40, 3)
     return d
 
 
@@ -232,9 +236,9 @@ def d302_trim_counterbore() -> dd.Doc:
     d.text(hx + 1.25 * k + 16, ptop - 112, "hex key", size=T_LAB, weight=700)
     d.text(xL + 6, ptop - mt * k - 18, "magnet", size=T_LAB, weight=700)
     d.text(xL + 6, ptop + 7 * k, "plate", size=T_LAB, weight=700, fill=MUTED)
-    d.text(ox + 280, py + ph - 108, "head flush,", size=T_LAB, anchor="middle",
-           weight=700, fill=OK)
-    d.text(ox + 280, py + ph - 66, "under the magnet", size=T_LAB, anchor="middle",
+    d.text(ox + 280, py + ph - 108, "head flush with the plate,", size=T_LAB,
+           anchor="middle", weight=700, fill=OK)
+    d.text(ox + 280, py + ph - 66, "nothing over it", size=T_LAB, anchor="middle",
            weight=700, fill=OK)
     callout(d, hx + cbr * k + 70, ptop + 1.5 * k, 3)
     d.leader(hx + cbr * k + 4, ptop + 2, hx + cbr * k + 42, ptop + 1.5 * k, col=INK)
@@ -413,17 +417,18 @@ def d305_tnut_plan() -> dd.Doc:
     d.text(PCX, py + ph * 0.72, "plate goes", size=T_MIN, anchor="middle", fill=MUTED)
     d.text(PCX, py + ph * 0.72 + 36, "here", size=T_MIN, anchor="middle", fill=MUTED)
     for x, y in holes:                                # top-slot T-nuts under the holes
-        d.rect(x - 14, y - 13, 28, 26, fill=GREY, stroke=INK, sw=2.5, rx=4)
-    # inner side slots, rear half: M3 x2 right (probe), M5 x2 left (WAGO mount)
-    m3 = [yr + 52 * SY, yr + 74 * SY]
+        d.rect(x - 11, y - 13, 22, 26, fill=GREY, stroke=INK, sw=2.5, rx=4)
+    # inner side slots, rear half: M3 x2 right (probe: 87-105 mm from the rear
+    # extrusion in the CAD, level with the plate's rear edge), M5 x2 left (WAGO mount)
+    m3 = [yr + 87 * SY, yr + 105 * SY]
     m5 = [yr + 150 * SY, yr + 205 * SY]
     for y in m3:
-        d.rect(xr - 10 * SX - 9, y - 13, 16, 26, fill=GREY, stroke=INK, sw=2.5, rx=3)
+        d.rect(xr - 10 * SX - 14, y - 9, 14, 18, fill=GREY, stroke=INK, sw=2.5, rx=3)
     for y in m5:
-        d.rect(xl + 10 * SX - 7, y - 13, 16, 26, fill=BLACKPART, stroke=INK, sw=2.5, rx=3)
-    d.text(xr - 10 * SX - 20, (m3[0] + m3[1]) / 2 + 11, "M3 ×2", size=T_MIN,
-           anchor="end", weight=700)
-    d.text(xl + 10 * SX + 20, (m5[0] + m5[1]) / 2 + 11, "M5 ×2", size=T_MIN, weight=700)
+        d.rect(xl + 10 * SX, y - 13, 16, 26, fill=BLACKPART, stroke=INK, sw=2.5, rx=3)
+    label_bg(d, xr - 10 * SX - 28, (m3[0] + m3[1]) / 2 + 11, "M3 ×2", size=T_MIN,
+             anchor="end", weight=700)
+    d.text(xl + 10 * SX + 28, (m5[0] + m5[1]) / 2 + 11, "M5 ×2", size=T_MIN, weight=700)
     # half-way mark
     ym = (yr + yf) / 2
     d.line(xl + 10 * SX + 4, ym, xr - 10 * SX - 4, ym, stroke=MUTED, sw=2, dash="6 8")
@@ -487,6 +492,60 @@ def d306_one_tight() -> dd.Doc:
     return d
 
 
+# ============================================================ diagram 307 ===
+def d307_fuse_check() -> dd.Doc:
+    """Underside of the plate at the cable exit, from LDO's build_plate_bottom_view.jpg
+    (Rev C 300 plate): the fuse is screwed to a bare aluminium strip along the back
+    edge, beside the cable exit, with its two leads joined under heat-shrink."""
+    d = dd.Doc(800, "The thermal fuse, seen from under the plate")
+    top = step_header(d, "Check the fuse, from below")
+    PAD_F, PAD = "#C8664A", "#8E3F2B"
+    y0, ys, ye = top + 40, top + 230, top + 350          # pad top, strip top, plate edge
+    xL, xR = 60, 1140
+    d.rect(xL, y0, xR - xL, ys - y0, fill=PAD_F, stroke=PAD, sw=2.5)        # heater pad
+    d.rect(xL, ys, xR - xL, ye - ys, fill=STEEL, stroke=GREY, sw=2.5)       # bare strip
+    d.line(xL, ye, xR, ye, stroke=INK, sw=4)                                # back edge
+    for x in (xL, xR):
+        _break_v(d, x, y0 - 4, ye + 4, amp=8)
+    d.text(xL + 24, y0 + 54, "heater pad", size=T_LAB, weight=700, fill="#FFFFFF")
+    d.text(xR - 24, ys + 50, "bare", size=T_LAB, anchor="end", weight=700)
+    d.text(xR - 24, ys + 90, "aluminium strip", size=T_LAB, anchor="end", weight=700)
+    d.text(xR - 10, ye + 44, "BACK EDGE", size=T_MIN, anchor="end", weight=800,
+           fill=MUTED)
+    # the plate's three leads leave the pad in the middle of the back edge
+    for i, x in enumerate((670, 720, 770)):
+        d.path(f"M {x} {ys - 30} L {x} {ye} C {x} {ye + 120} {x + 30 * (i - 1)} "
+               f"{ye + 200} {x + 40 * (i - 1)} {d.h - 80}", stroke=GREY, sw=13)
+        d.path(f"M {x} {ys - 30} L {x} {ye} C {x} {ye + 120} {x + 30 * (i - 1)} "
+               f"{ye + 200} {x + 40 * (i - 1)} {d.h - 80}", stroke="#FFFFFF", sw=8)
+    d.text(840, d.h - 96, "the plate's leads", size=T_LAB, weight=700)
+    # the fuse: white body, one screw and washer through its lug
+    fx0, fx1, fy0, fy1 = 300, 520, ys + 22, ys + 98
+    d.rect(fx0, fy0, fx1 - fx0, fy1 - fy0, fill="#FFFFFF", stroke=INK, sw=3, rx=10)
+    sx, sy = fx0 + 46, (fy0 + fy1) / 2
+    d.circle(sx, sy, 34, fill=GREY_F, stroke=GREY, sw=3)                    # washer
+    d.circle(sx, sy, 24, fill=STEEL, stroke=INK, sw=3)                      # screw head
+    d.circle(sx, sy, 8, fill=INK, stroke="none", sw=0)
+    # its two legs: out of the body's end, down past the edge, joined under heat-shrink
+    for j, (xo, yo) in enumerate(((fx1, fy0 + 22), (fx1, fy1 - 22))):
+        xe = 560 + 40 * j
+        d.path(f"M {xo} {yo} C {xo + 40 + 40 * j} {yo} {xe} {yo + 30} {xe} {ye + 40} "
+               f"L {xe - 20 * (1 - j)} {d.h - 80}", stroke=GREY, sw=9)
+        d.path(f"M {xo} {yo} C {xo + 40 + 40 * j} {yo} {xe} {yo + 30} {xe} {ye + 40} "
+               f"L {xe - 20 * (1 - j)} {d.h - 80}", stroke="#FFFFFF", sw=5)
+        hy = ye + 90 + 70 * j
+        d.rect(xe - 12 - 10 * (1 - j), hy, 24, 70, fill=INK, stroke=INK, sw=2, rx=5)
+    d.text(fx0 + 110, fy0 - 18, "thermal fuse", size=T_LAB, anchor="middle", weight=700)
+    d.text(400, ye + 150, "joins:", size=T_LAB, anchor="end", weight=700)
+    d.text(400, ye + 190, "leave alone", size=T_LAB, anchor="end", weight=700)
+    d.leader(408, ye + 140, 532, ye + 130, col=INK)
+    callout(d, 720, ys - 76, 1)
+    callout(d, fx0 - 54, sy, 2)
+    callout(d, 160, ye + 166, 3)
+    step_note(d, "Drawn from LDO's 300 plate: check yours on the bench.", size=T_MIN)
+    return d
+
+
 # ================================================================ registry ===
 _COMMON_SCHEMATIC = ("Thicknesses of the magnet, liner and tape, and the counterbore's "
                      "size, are schematic.")
@@ -498,17 +557,19 @@ DIAGRAMS = [
         "title": "Lay the magnet with a hinge",
         "fn": d301_magnet_hinge,
         "shows": [
-            "Three side views, FRONT left, BACK right. (a) The pad, liner down, flush at "
-            "the plate's back edge, a strip of masking tape over that edge as the hinge "
-            "(Do 1, 2). (b) The pad folded back over the hinge, its liner now facing the "
-            "front, a 40 to 50 mm strip of liner cut off at the hinge end (Do 3). (c) "
-            "The bare strip pressed down at the back, the rest of the pad held up, the "
-            "liner pulled out to the front with the squeegee following (Do 3).",
+            "Three side views, FRONT left, BACK right. (a) The pad, liner side down, "
+            "flush at the plate's back edge if it is 355 mm, a strip of masking tape "
+            "over that edge as the hinge (Do 1, 2). (b) The pad folded back over the "
+            "hinge, its liner now facing the front, a 40 to 50 mm strip of liner cut off "
+            "at the hinge end (Do 3). (c) The bare strip pressed down at the back, the "
+            "rest of the pad held up, the liner pulled out to the front and the squeegee "
+            "sweeping after it toward the front (Do 3).",
         ],
         "insert": [("03-build-plate.md", "Step 03.9", "the hinge method")],
         "verify": [
             "The pad's size is not known before kit day (Do 1 says verify on bench): the "
-            "drawing shows it flush at the back and carries a 'check on the bench' label.",
+            "drawing shows it flush at the back, labelled 'if 355 mm', and carries a "
+            "'check on the bench' label.",
             "The fold-back geometry follows the step's own words; the linked lamination "
             "video was not watched. " + _COMMON_SCHEMATIC,
         ],
@@ -522,8 +583,8 @@ DIAGRAMS = [
             "Left, from above: the magnet with the counterbore showing through as a "
             "dimple and a craft knife two thirds of the way round its edge (Do 1, 2). "
             "Right, cut through one hole: the magnet cut back to the counterbore's edge, "
-            "the M3 head sitting flush with the plate face below the magnet, a hex key "
-            "in its socket, and no burr at the rim (Do 3).",
+            "the M3 head sitting flush with the plate face with no magnet over it, a "
+            "hex key in its socket, and no burr at the rim (Do 3).",
         ],
         "insert": [("03-build-plate.md", "Step 03.10", "the cut and the flush head")],
         "verify": [
@@ -587,8 +648,10 @@ DIAGRAMS = [
         "insert": [("03-build-plate.md", "Step 03.12", "where all eight go")],
         "verify": [
             "Scale is about 1.5 px per mm across and 1.4 front to back. The side-slot "
-            "T-nuts' exact place along the rear half is set in Ch 09 and is schematic "
-            "here; the rear holes 7 mm in from the plate's rear edge are the 250 CAD's.",
+            "T-nuts slide into place in Ch 09: the M3 pair is drawn where the 250 CAD "
+            "puts the probe's nuts, 87 to 105 mm from the rear extrusion, level with the "
+            "plate's rear edge; the M5 pair is schematic. The rear holes 7 mm in from the "
+            "plate's rear edge are the 250 CAD's; the step has the builder measure them.",
         ],
     },
     {
@@ -604,5 +667,24 @@ DIAGRAMS = [
         ],
         "insert": [("03-build-plate.md", "Step 03.17", "which screw is tight")],
         "verify": [],
+    },
+    {
+        "n": 307,
+        "file": "307-fuse-check.svg",
+        "title": "Check the fuse, from below",
+        "fn": d307_fuse_check,
+        "shows": [
+            "The plate's underside at the back edge, seen from below: the heater pad, "
+            "the bare aluminium strip along the edge, the plate's three leads leaving in "
+            "the middle (Do 1), the thermal fuse held flat by one screw and washer (Do 2), "
+            "and its two legs running down to their heat-shrink joins (Do 3).",
+        ],
+        "insert": [("03-build-plate.md", "Step 03.5", "where the fuse sits")],
+        "verify": [
+            "Traced from LDO's Rev C 300 mm plate photo (build_plate_bottom_view.jpg), "
+            "the only underside photo LDO publishes; the 350 plate's strip and fuse "
+            "position are not published, so the drawing carries a check-on-the-bench "
+            "note. Wire routing below the edge is schematic.",
+        ],
     },
 ]

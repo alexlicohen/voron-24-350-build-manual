@@ -93,6 +93,7 @@ Source: [Ch 05 Step 05.16](05-gantry.md#step-0516-unpack-and-identify-the-titani
 | **Clicky-Clack** | The magnetic-latch front door kit (LDO, blue frame) fitted instead of the stock Voron doors | [11.44](11-skirts-panels-door.md#step-1144-assemble-the-clicky-clack-door-frame) |
 | **Clockwork 2.5 (CW2.5)** | The Voron extruder that mounts to the Stealthburner r2 — BMG drive, printed body with a push-in Bowden collet, its own insert pass. Successor to Clockwork 2 (CW2), with no anti-squish screw | [08.3](08-toolhead.md#step-083-inserts-clockwork-25-main-body) |
 | **COB light strip** | The chamber lighting: two strips on printed mounts, joined by a splitter PCB, on the Leviathan's `LED-Strip` port | [12.32](12-software.md#step-1232-fans-and-lighting-nevermore-cob-strips-bay-fans) |
+| **Collet** | The push-in fitting on top of the Clockwork 2.5 that grips the PTFE tube; its clip stops the tube creeping. To free the tube, take the clip off, press the collet's ring down and pull the tube out | [08.14](08-toolhead.md#step-0814-seat-the-second-mr85-fit-the-collet-and-clear-the-support) |
 | **CoreXY** | The motion system: two fixed motors drive two belts, stacked one above the other so they never cross (the Voron leaves out the crossing many CoreXY printers have, p.125); neither motor moves the bed or itself. One motor alone moves the head diagonally, so a diagonal move when you asked for X or Y means A and B are wrong | [04 — A/B drives](04-ab-drives.md) |
 | **Counterbore** | A wider recess round a hole that a screw head sinks into, so the head sits below the surface | [02.04](02-z-drives.md) |
 | **Cross-threaded** | Said of a screw started at an angle, so its threads bind and cut a new, wrong thread | [03.15](03-build-plate.md) |
@@ -198,7 +199,7 @@ Source: [Ch 13 Step 13.27](13-initial-startup.md#step-1327-full-g28) · [Ch 12 S
 | **HeaterCore** | The Revo's heater and thermistor in one module, held on the heatsink by a spring | [08.27](08-toolhead.md) |
 | **Host** | The Raspberry Pi half of Klipper, which does the planning and the arithmetic | [12.1](12-software.md) |
 | **Hotend fan** | The Stealthburner's bottom fan. It cools the heatsink above the nozzle whenever the hotend is hot | [13.9](13-initial-startup.md) |
-| **Heightmap variance** | Mainsail's single number for how far the bed mesh strays from flat. Read it, not the colours | [14.22](14-calibration.md) |
+| **Heightmap Range / Heightmap variance** | Mainsail's number, in its Heightmap panel, for how far the bed mesh strays from flat: the highest point minus the lowest. Voron's docs and older screenshots call it Variance. Read it, not the colours | [14.22](14-calibration.md) |
 
 Source: [Ch 00 Steps 00.13](00-before-you-start.md#step-0013-fit-the-m3-tip-in-the-press-and-set-the-height-stop), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) · [Ch 13 Step 13.31](13-initial-startup.md#step-1331-heat-soak-bed-100-c-hotend-150-c) · [Ch 10 Step 10.25](10-wiring.md#step-1025-psu-leviathan-hv-stepper-supply)
 
@@ -400,7 +401,7 @@ Source: [Ch 05 Step 05.44](05-gantry.md#step-0544-run-the-x-axis-end-to-end) · 
 | **Silkscreen** | The lettering printed on a circuit board | [08.33](08-toolhead.md) |
 | **Solder jumper** | Three pads on a circuit board. Joining the middle pad to one side with solder picks an option, here 24 V or 5 V | [08.45](08-toolhead.md) |
 | **Service loop** | Deliberate slack in a cable so that it never pulls tight at the ends of travel | [08.63](08-toolhead.md) |
-| **Strain relief** | A clamp or tie point that takes any pull on a cable so that the pull never reaches the connector or terminal | [09.35](09-electronics-bay.md) |
+| **Strain relief** | A clamp or tie point that takes any pull on a cable so that the pull never reaches the connector or terminal. On the Revo HeaterCore it is the stainless sleeve where the wires leave the module, bent clear at Step 08.29 | [09.35](09-electronics-bay.md) · [08.29](08-toolhead.md#step-0829-route-the-wires-and-bend-the-strain-relief-so-the-nozzle-can-seat-fully) |
 | **Spade terminal** | A flat metal tab that a crimped push-on connector slides onto | [09.11](09-electronics-bay.md) |
 | **Self-tapping screw** | A screw that cuts its own thread in plastic. Driven in and out repeatedly, it strips the hole | [09.20](09-electronics-bay.md) |
 | **Splicer PCB** | A small board with no electronics on it that joins several plugs onto one lead | [09.34](09-electronics-bay.md) |
@@ -419,7 +420,7 @@ Source: [Ch 00 Steps 00.22](00-before-you-start.md#step-0022-understand-the-rail
 | Term | What it is | First matters at |
 |---|---|---|
 | **T-slot** | The groove down each face of an extrusion. Nuts and screw heads slide along it, so parts can bolt on anywhere | [01.3](01-frame.md#step-013-inspect-the-ends-and-test-fit-a-t-nut) |
-| **Thermal fuse** | The 125 °C one-shot cut-out already bonded to the bed heater pad. Verify it, never try to re-seat it | [03.5](03-build-plate.md#step-035-verify-the-thermal-fuse-do-not-fit-one) |
+| **Thermal fuse** | The 125 °C one-shot cut-out already screwed to a bare aluminium strip by the bed's cable exit, wired in line with one heater lead. Verify it, never try to re-seat it | [03.5](03-build-plate.md#step-035-verify-the-thermal-fuse-do-not-fit-one) |
 | **Threadlocker** | A thread glue that stops a screw shaking loose. Loctite 243 is the one this build uses | [02.17](02-z-drives.md) |
 | **Thumb nut** | An M4 nut with a wide knurled rim and a narrow collar, used as a **bed spacer** under the build plate: it stands rim down, collar up, and the M3 screw passes through it, letting the plate float and expand | [03.13](03-build-plate.md#step-0313-fit-the-four-thumb-nuts-as-spacers) |
 | **Toolboard** | The PCB on the toolhead that drives the hotend, fans, LEDs, probe and accelerometer over one umbilical. Here: Nitehawk-SB V2, over USB | [00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) |

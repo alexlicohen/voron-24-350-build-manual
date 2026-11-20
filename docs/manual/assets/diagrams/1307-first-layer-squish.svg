@@ -23,6 +23,8 @@
 <text x="220.0" y="254.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">too high</text>
 <text x="220.0" y="582.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">closer:</text>
 <text x="220.0" y="624.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Z_ADJUST=-0.01</text>
+<circle cx="84.0" cy="572.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="84.0" y="583.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
 <rect x="420.0" y="122.0" width="360.0" height="600.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
 <rect x="440.0" y="462.0" width="320.0" height="40.0" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
 <ellipse cx="487.5" cy="446.0" rx="39.5" ry="21" fill="#1F2329" stroke="#FFFFFF" stroke-width="2.5"/>
@@ -46,4 +48,6 @@
 <text x="980.0" y="254.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">too low</text>
 <text x="980.0" y="582.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">further:</text>
 <text x="980.0" y="624.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Z_ADJUST=0.01</text>
+<circle cx="844.0" cy="572.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="844.0" y="583.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
 </svg>

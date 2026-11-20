@@ -6,7 +6,7 @@ Geometry sources:
 - The Voron 2.4r2 CAD index (250 size, ~/.cache/voron-cad): the Z0 corner ("Z Belt Drive A
   (1)") gives the shaft stack positions along the shaft (625 / 80T / 2 shims / 625 / 2 shims /
   20T / 625, 20T flange 33.2 mm from the long end), the drive and motor positions against
-  the frame rails, the M5x40 and M5x10 positions and the closed tensioner's span.
+  the frame extrusions, the M5x40 and M5x10 positions and the closed tensioner's span.
 - The STLs under slicer/stl/voron2/STLs (Voron-2 @ de7e89d): outlines below are plane slices
   of z_drive_retainer_a / z_drive_main_a (z = 1 mm), [a]_belt_tensioner_a (z = 1 mm, centred
   on its pivot hole), pulley_jig (z = 0.5 mm) and deck_support_3mm (z = 0.3 mm), simplified
@@ -112,10 +112,10 @@ def _bracket_h(d, x0, x1, y, col=MUTED, tick=14):
 # ============================================================= diagram 201 ===
 def d201_shaft_stack() -> dd.Doc:
     """02.19: the Z drive shaft, side view, short end left, long end right."""
-    d = dd.Doc(1310, "The Z drive shaft stack, in order")
+    d = dd.Doc(1075, "The Z drive shaft stack, in order")
     step_header(d, "The shaft stack, in order")
-    k = 13.0
-    X0, Yc = 210, 560
+    k = 11.0
+    X0, Yc = 230, 482
 
     def X(s):                               # s = mm from the shaft's long end
         return X0 + (60 - s) * k
@@ -163,7 +163,7 @@ def d201_shaft_stack() -> dd.Doc:
     m20 = (tx0 + cx1) / 2
 
     # 33 mm, long end to the 20T's flange
-    dy = 160
+    dy = 150
     for x in (X(0), X(33.2)):
         d.line(x, dy - 14, x, Yc - 8 * k - 6, stroke=MUTED, sw=2, dash="6 6")
     _twoway(d, X(33.2) + 3, dy, X(0) - 3, dy, col=INK, sw=3)
@@ -171,46 +171,54 @@ def d201_shaft_stack() -> dd.Doc:
            weight=800)
 
     # part names
-    ly = Yc + 8 * k + 50
+    ly = Yc + 8 * k + 48
     for x, s in ((b_short, "625"), (m20, "20T"), (mid_b, "625")):
         d.text(x, ly, s, size=T_LAB, anchor="middle", weight=700)
-    for xs, lx in ((X(32.2), 440), (X(25.2), 670)):
-        d.text(lx, 300, "2 spacers", size=T_LAB, anchor="middle", weight=700, fill=AMBER)
-        d.leader(xs, Yc - 5 * k - 4, lx, 310, col=AMBER)
-    d.text(m80, Yc + 27.5 * k + 44, "80T", size=T_LAB, anchor="middle", weight=700)
-    d.text(b_long, Yc + 27.5 * k + 44, "625", size=T_LAB, anchor="middle", weight=700)
+    # the two spacer pairs: one label each, left of the 33 mm line and above the hub
+    d.text(400, 300, "2 spacers", size=T_LAB, anchor="middle", weight=700, fill=AMBER)
+    d.leader(X(32.2), Yc - 5 * k - 4, 440, 310, col=AMBER)
+    label_bg(d, 590, 236, "2 spacers", size=T_LAB, fill=AMBER, weight=700)
+    d.leader(X(25.2), Yc - 5 * k - 4, 600, 246, col=AMBER)
+    d.text(m80, Yc + 27.5 * k + 40, "80T", size=T_LAB, anchor="middle", weight=700)
+    d.text(b_long, Yc + 27.5 * k + 40, "625", size=T_LAB, anchor="middle", weight=700)
 
     # callouts: 1 the first 625, 2 the order after the 20T, 3 push on the inner ring
-    callout(d, b_short, ly + 60, 1)
-    by = Yc + 27.5 * k + 86
+    callout(d, b_short, ly + 56, 1)
+    by = Yc + 27.5 * k + 70
     _bracket_h(d, X(33.2), X(0), by, col=ORANGE, tick=-16)
-    callout(d, (X(33.2) + X(0)) / 2, by + 34, 2)
+    callout(d, (X(33.2) + X(0)) / 2, by + 32, 2)
     _arrow(d, X(0) + 90, Yc, X(0) + 10, Yc, col=ORANGE, sw=6, mk="arwo")
     callout(d, X(0) + 120, Yc, 3)
 
-    y = legend_row(d, 60, 1130, 1, ["625 against the collar"])
-    y = legend_row(d, 60, y + 26, 2, ["then spacers, 625, spacers, 80T, 625"])
-    legend_row(d, 60, y + 26, 3, ["push only on a bearing's inner ring"])
+    legend_row(d, 50, 980, 1, ["625 against the collar"])
+    legend_row(d, 620, 980, 3, ["push on the inner ring"])
+    legend_row(d, 50, 1044, 2, ["then spacers, 625, spacers, 80T, 625"])
     return d
 
 
 # ============================================================= diagram 202 ===
 def d202_rail_holes_faces() -> dd.Doc:
-    """02.06 / 02.09: which holes take a screw, the 3 mm key, and which face each rail is on."""
-    d = dd.Doc(1260, "Z rails: which holes, which faces")
-    top = step_header(d, "Z rails: holes and faces")
+    """02.06: which holes take a screw, the taped carriage, the 3 mm key, and which face
+    the first rail goes on. Callouts are 02.06's Do numbers."""
+    d = dd.Doc(1075, "The first Z rail: holes, key and face")
+    top = step_header(d, "First Z rail: holes and face")
 
     # ---- side view of one rail, bottom on the 3 mm key (rail length schematic)
     d.panel(30, top + 16, 560, d.h - top - 32)
-    kk = 2.25                                    # px per mm along the rail
-    ybot = 1080                                  # rail's bottom end
+    kk = 2.0                                     # px per mm along the rail
+    ybot = 930                                   # rail's bottom end
     vx0, vx1 = 160, 290                          # the vertical behind the rail
     rx0, rx1 = 192, 258                          # the rail
-    d.rect(vx0, top + 40, vx1 - vx0, 1160 - top - 40 - 40, fill=BLUE_F, stroke=BLUE, sw=3)
-    d.rect(60, 1112, 510, 48, fill=BLUE_F, stroke=BLUE, sw=3)          # bottom horizontal
-    d.rect(vx0, 1112, vx1 - vx0, 48, fill=BLUE, stroke=BLUE, sw=1)
+    hz = ybot + 32                               # top of the bottom horizontal
+    d.rect(vx0, top + 30, vx1 - vx0, hz - top - 30, fill=BLUE_F, stroke=BLUE, sw=3)
+    d.rect(60, hz, 510, 48, fill=BLUE_F, stroke=BLUE, sw=3)            # bottom horizontal
+    d.rect(vx0, hz, vx1 - vx0, 48, fill=BLUE, stroke=BLUE, sw=1)
     ytop = ybot - 400 * kk
     d.rect(rx0, ytop, rx1 - rx0, ybot - ytop, fill=STEEL, stroke=GREY, sw=3, rx=3)
+    # the carriage, taped at mid-rail (drawn first so the holes show through)
+    yc = ybot - 170 * kk
+    d.rect(rx0 - 17, yc - 36, rx1 - rx0 + 34, 72, fill=GREY_F, stroke=GREY, sw=3, rx=4)
+    d.rect(rx0 - 24, yc - 12, rx1 - rx0 + 48, 24, fill=AMBER_F, stroke=AMBER, sw=2.5, rx=2)
     # the 3 mm hex key standing under the rail's end (gap exaggerated)
     d.rect(rx0 - 4, ybot + 4, rx1 - rx0 + 64, 24, fill=BLACKPART, stroke=INK, sw=2, rx=4)
     for i in range(1, 21):
@@ -231,59 +239,117 @@ def d202_rail_holes_faces() -> dd.Doc:
     d.text(318, y20 + 4, "19 and 20:", size=T_LAB, weight=700)
     d.text(318, y20 + 44, "leave empty", size=T_LAB, weight=700)
     d.leader(262, (y19 + y20) / 2, 312, y20 + 16, col=INK)
+    # 2: the screw holes
+    callout(d, 346, 330, 2)
+    d.text(318, 400, "screws in", size=T_LAB, weight=700)
+    d.text(318, 440, "2, 4, 6 and", size=T_LAB, weight=700)
+    d.text(318, 480, "on up to 18", size=T_LAB, weight=700)
+    # 1: the carriage taped at mid-rail
+    d.leader(rx1 + 18, yc, 314, yc, col=INK)
+    callout(d, 344, yc, 1)
+    d.text(386, yc - 6, "carriage", size=T_LAB, weight=700)
+    d.text(386, yc + 32, "taped", size=T_LAB, weight=700)
     d.text(318, y1 - 112, "hole 1 is", size=T_LAB, weight=700)
     d.text(318, y1 - 72, "the bottom one:", size=T_LAB, weight=700)
     d.text(318, y1 - 32, "leave empty", size=T_LAB, weight=700)
     d.leader(262, y1, 312, y1 - 40, col=INK)
-    d.text(318, 640, "screws in", size=T_LAB, weight=700)
-    d.text(318, 680, "2, 4, 6 and", size=T_LAB, weight=700)
-    d.text(318, 720, "on up to 18", size=T_LAB, weight=700)
-    d.text(336, 1100, "3 mm key", size=T_LAB, weight=700)
+    # 3: T-nuts and screws, rail standing on the key
+    callout(d, 350, ybot + 6, 3)
+    d.text(390, ybot + 16, "3 mm key", size=T_LAB, weight=700)
 
-    # ---- plan view, front at the bottom
+    # ---- plan view, front at the bottom: where the first rail goes
     px0, py0 = 620, top + 16
-    d.panel(px0, py0, 550, 640)
+    d.panel(px0, py0, 550, 560)
     d.text(px0 + 275, py0 + 52, "Seen from above", size=T_LAB, anchor="middle", weight=700,
            fill=MUTED)
-    F, c = 330, 30                               # frame square, corner size
-    fx0, fy0 = px0 + (550 - F) / 2, py0 + 130
+    F, c = 300, 30                               # frame square, corner size
+    fx0, fy0 = px0 + (550 - F) / 2, py0 + 140
     d.rect(fx0, fy0, F, F, fill="none", stroke=BLUE, sw=6)
     corners = {"Z0": (fx0, fy0 + F), "Z1": (fx0, fy0), "Z2": (fx0 + F, fy0),
                "Z3": (fx0 + F, fy0 + F)}
     for name, (x, y) in corners.items():
         d.rect(x - c / 2, y - c / 2, c, c, fill=BLUE, stroke=BLUE, sw=1)
         front = name in ("Z0", "Z3")
-        # rail on the vertical's rear face (front corners) or front face (rear corners)
+        # rail on the vertical's rear-facing side (front corners) or front-facing side
         ry = y - c / 2 - 12 if front else y + c / 2
-        d.rect(x - 12, ry, 24, 12, fill=GREY, stroke=INK, sw=2)
+        first = name == "Z0"
+        d.rect(x - 12, ry, 24, 12, fill=ORANGE if first else GREY, stroke=INK, sw=2)
         left = name in ("Z0", "Z1")
         d.text(x + (-26 if left else 26), y + (44 if front else -26), name, size=T_LAB,
-               anchor="end" if left else "start", weight=800)
+               anchor="end" if left else "start", weight=800,
+               fill=ORANGE if first else INK)
     for x in (fx0 + 40, fx0 + F - 40):
-        _twoway(d, x, fy0 + 40, x, fy0 + F - 40, col=INK, sw=4)
-    d.text(px0 + 275, fy0 + F / 2 - 6, "face each", size=T_LAB, anchor="middle", weight=700)
-    d.text(px0 + 275, fy0 + F / 2 + 34, "other", size=T_LAB, anchor="middle", weight=700)
-    d.text(px0 + 275, fy0 + F + 86, "FRONT", size=T_LAB, anchor="middle", weight=800,
+        _twoway(d, x, fy0 + 40, x, fy0 + F - 40, col=MUTED, sw=4, mk="arwm")
+    d.text(px0 + 275, fy0 + F / 2 - 6, "face each", size=T_LAB, anchor="middle", weight=700,
+           fill=MUTED)
+    d.text(px0 + 275, fy0 + F / 2 + 34, "other", size=T_LAB, anchor="middle", weight=700,
+           fill=MUTED)
+    d.text(px0 + 275, fy0 + F + 80, "FRONT", size=T_LAB, anchor="middle", weight=800,
            fill=BLUE)
     d.text(px0 + 275, fy0 - 30, "BACK", size=T_LAB, anchor="middle", weight=800, fill=BLUE)
 
-    ny = py0 + 640 + 70
-    d.text(px0 + 10, ny, "Front rails go on the", size=T_LAB, weight=600)
-    d.text(px0 + 10, ny + 40, "vertical's back face.", size=T_LAB, weight=600)
-    d.text(px0 + 10, ny + 100, "Rear rails go on the", size=T_LAB, weight=600)
-    d.text(px0 + 10, ny + 140, "vertical's front face.", size=T_LAB, weight=600)
-    d.text(px0 + 10, ny + 220, "Same holes and the", size=T_LAB, weight=600, fill=MUTED)
-    d.text(px0 + 10, ny + 260, "same gap on all four.", size=T_LAB, weight=600, fill=MUTED)
+    ny = py0 + 560 + 64
+    d.text(px0 + 10, ny, "First rail: Z0, on the", size=T_LAB, weight=700, fill=ORANGE)
+    d.text(px0 + 10, ny + 40, "vertical's rear-facing side.", size=T_LAB, weight=700,
+           fill=ORANGE)
+    d.text(px0 + 10, ny + 104, "Rear rails go on the", size=T_LAB, weight=600)
+    d.text(px0 + 10, ny + 144, "vertical's front-facing side.", size=T_LAB, weight=600)
+    d.text(px0 + 10, ny + 208, "Same holes and the", size=T_LAB, weight=600, fill=MUTED)
+    d.text(px0 + 10, ny + 248, "same gap on all four.", size=T_LAB, weight=600, fill=MUTED)
+    return d
+
+
+# ============================================================= diagram 208 ===
+def d208_rail_faces() -> dd.Doc:
+    """02.09: the other three Z rails, seen from above; the two on each side face each
+    other (CAD). Callouts are 02.09's Do numbers."""
+    d = dd.Doc(1040, "Which face each Z rail goes on")
+    top = step_header(d, "The other three rails")
+    px0, py0 = 40, top + 16
+    d.panel(px0, py0, 1120, 680)
+    d.text(600, py0 + 52, "Seen from above, printer upright", size=T_LAB, anchor="middle",
+           weight=700, fill=MUTED)
+    F, c = 420, 40
+    fx0, fy0 = 600 - F / 2, py0 + 150
+    d.rect(fx0, fy0, F, F, fill="none", stroke=BLUE, sw=7)
+    d.text(600, fy0 - 34, "BACK", size=T_LAB, anchor="middle", weight=800, fill=BLUE)
+    d.text(600, fy0 + F + 64, "FRONT", size=T_LAB, anchor="middle", weight=800, fill=BLUE)
+    corners = {"Z0": (fx0, fy0 + F), "Z1": (fx0, fy0), "Z2": (fx0 + F, fy0),
+               "Z3": (fx0 + F, fy0 + F)}
+    for name, (x, y) in corners.items():
+        d.rect(x - c / 2, y - c / 2, c, c, fill=BLUE, stroke=BLUE, sw=1)
+        front = name in ("Z0", "Z3")
+        ry = y - c / 2 - 16 if front else y + c / 2
+        done = name == "Z0"
+        d.rect(x - 16, ry, 32, 16, fill=GREY if done else ORANGE, stroke=INK, sw=2)
+        left = name in ("Z0", "Z1")
+        sx = x + (-34 if left else 34)
+        d.text(sx, y + (14 if front else 2), name, size=T_LAB + 2,
+               anchor="end" if left else "start", weight=800)
+        if done:
+            d.text(sx, y + 52, "done", size=T_MIN, anchor="end", weight=600, fill=MUTED)
+        else:
+            callout(d, sx + (-26 if left else 26), y + (60 if front else -58), 1, r=24)
+    for x in (fx0 + 70, fx0 + F - 70):
+        _twoway(d, x, fy0 + 50, x, fy0 + F - 50, col=INK, sw=5)
+    callout(d, 600, fy0 + F / 2 - 70, 2)
+    d.text(600, fy0 + F / 2 + 4, "face each", size=T_LAB, anchor="middle", weight=700)
+    d.text(600, fy0 + F / 2 + 44, "other", size=T_LAB, anchor="middle", weight=700)
+
+    y = legend_row(d, 60, py0 + 680 + 70, 1, ["the other three rails, as at Z0"])
+    y = legend_row(d, 60, y + 22, 2, ["front rails face back, rear rails face front"])
+    legend_row(d, 60, y + 22, 3, ["same 3 mm gap and holes 2 to 18"])
     return d
 
 
 # ============================================================= diagram 203 ===
 def d203_z0_corner() -> dd.Doc:
-    """02.29-02.31: the Z0 corner from above with the printer upside down (CAD positions)."""
-    d = dd.Doc(1200, "The Z0 corner with the printer upside down")
+    """02.29: the Z0 corner from above with the printer upside down (CAD positions).
+    Callouts are 02.29's Do numbers."""
+    d = dd.Doc(1070, "The Z0 corner with the printer upside down")
     top = step_header(d, "Z0 corner, printer upside down")
     k = 6.2
-    ox, oy = 440, 640             # screen position of plan (0, 0)
+    ox, oy = 440, 540             # screen position of plan (0, 0)
 
     def P(xp, y):                 # xp: CAD x mirrored (printer rolled over), y: CAD y
         return ox + xp * k, oy - y * k
@@ -292,23 +358,24 @@ def d203_z0_corner() -> dd.Doc:
         a, b = P(x0, y1), P(x1, y0)
         d.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], **kw)
 
-    # frame: front rail along the bottom, the left side rail (now on your right) going back
+    # frame: front extrusion along the bottom, the left side extrusion (now on your right)
+    # going back
     R(-75, -38, 58, -18, fill=BLUE_F, stroke=BLUE, sw=3)
-    R(58, -18, 78, 72, fill=BLUE_F, stroke=BLUE, sw=3)
+    R(58, -18, 78, 52, fill=BLUE_F, stroke=BLUE, sw=3)
     R(58, -38, 78, -18, fill=BLUE, stroke=BLUE, sw=1)
     for y in (-30.9, -25.1):                     # the top slot's edges
         a, b = P(-75, y), P(58, y)
         d.line(a[0], a[1], b[0], b[1], stroke=BLUE, sw=1.5, op=0.5)
     for x in (65.1, 70.9):
-        a, b = P(x, -18), P(x, 72)
+        a, b = P(x, -18), P(x, 52)
         d.line(a[0], a[1], b[0], b[1], stroke=BLUE, sw=1.5, op=0.5)
-    # FRONT tape on the front rail
+    # FRONT tape on the front extrusion
     a, b = P(-68, -21), P(-36, -35)
     d.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], fill=AMBER_F, stroke=AMBER, sw=2, rx=3)
     d.text((a[0] + b[0]) / 2, (a[1] + b[1]) / 2 + 11, "FRONT", size=T_MIN, anchor="middle",
            weight=800)
 
-    # motor and its mount (foot on the front rail, plate, motor behind it)
+    # motor and its mount (foot on the front extrusion, plate, motor behind it)
     R(-11.3, -8, 31.5, 40, fill=GREY_F, stroke=GREY, sw=3)
     R(-11, -38, 31, -8, fill=BLACKPART_F, stroke=BLACKPART, sw=3)
     R(-11, -14, 31, -8, fill=BLACKPART, stroke=BLACKPART, sw=1)
@@ -322,7 +389,7 @@ def d203_z0_corner() -> dd.Doc:
     d.line(a[0], a[1], b[0], b[1], stroke=ORANGE, sw=8)             # retainer face
     a, b = P(81, 28.7), P(81, -42)
     d.line(a[0], a[1], b[0], b[1], stroke=OK, sw=8)                 # counterbored face
-    # screws: M5x40 down the drive's wells into the side rail, M5x10 in the foot
+    # screws: M5x40 down the drive's wells into the side extrusion, M5x10 in the foot
     for y in (2, 18):
         x, yy = P(68, y)
         d.circle(x, yy, 4.2 * k, fill=GREY, stroke=INK, sw=2.5)
@@ -334,120 +401,164 @@ def d203_z0_corner() -> dd.Doc:
 
     # labels
     x, y = P(68, 18)
-    d.text(1170, 240, "M5×40 ×2:", size=T_LAB, anchor="end", weight=700)
-    d.text(1170, 280, "into the side rail", size=T_LAB, anchor="end", weight=700)
-    d.leader(x + 14, y - 22, 1060, 290, col=INK)
+    d.text(1170, 150, "M5×40 ×2: into", size=T_LAB, anchor="end", weight=700)
+    d.text(1170, 190, "the side extrusion", size=T_LAB, anchor="end", weight=700)
+    d.leader(x + 14, y - 22, 1060, 200, col=INK)
     xa, ya = P(-2.3, -28)
     xb, yb = P(22.7, -28)
     _twoway(d, xa, ya + 64, xb, yb + 64, col=MUTED, sw=3, mk="arwm")
     d.text((xa + xb) / 2, ya + 112, "25 mm", size=T_MIN, anchor="middle", weight=700,
            fill=MUTED)
-    d.text(60, 920, "M5×10 ×2: into", size=T_LAB, weight=700)
-    d.text(60, 960, "the front rail", size=T_LAB, weight=700)
-    d.leader(xa - 20, ya + 20, 250, 890, col=INK)
+    d.text(40, 830, "M5×10 ×2: into", size=T_LAB, weight=700)
+    d.text(40, 870, "the front extrusion", size=T_LAB, weight=700)
+    d.leader(xa - 20, ya + 20, 250, 800, col=INK)
     xr, yr = P(38, 28.7)
-    d.text(380, 190, "retainer face:", size=T_LAB, weight=700, fill=ORANGE)
-    d.text(380, 230, "toward the motor", size=T_LAB, weight=700, fill=ORANGE)
-    d.leader(xr - 2, yr + 20, 600, 246, col=ORANGE)
-    xc, yc = P(81, -10)
-    d.text(962, 700, "counter-", size=T_LAB, weight=700, fill=OK)
-    d.text(962, 740, "bored face:", size=T_LAB, weight=700, fill=OK)
-    d.text(962, 780, "outward", size=T_LAB, weight=700, fill=OK)
+    d.text(330, 150, "retainer face:", size=T_LAB, weight=700, fill=ORANGE)
+    d.text(330, 190, "toward the motor", size=T_LAB, weight=700, fill=ORANGE)
+    d.leader(xr - 2, yr + 20, 560, 206, col=ORANGE)
+    d.text(962, 580, "counter-", size=T_LAB, weight=700, fill=OK)
+    d.text(962, 620, "bored face:", size=T_LAB, weight=700, fill=OK)
+    d.text(962, 660, "outward", size=T_LAB, weight=700, fill=OK)
     xm, ym = P(10, 40)
     d.text(xm, ym - 20, "motor", size=T_LAB, anchor="middle", weight=700, fill=MUTED)
     xd, yd = P(67.6, -34)
     d.text(xd, yd, "Z drive", size=T_LAB, anchor="middle", weight=700, fill=MUTED)
+    # 2: dry-fit the drive and motor with these faces
+    callout(d, 990, 480, 2)
+    # 1: find the corner from the FRONT tape
+    xt, yt = P(-52, -18)
+    callout(d, xt, yt - 44, 1)
 
     # where you stand
-    d.line(40, 1010, 1160, 1010, stroke=RULE, sw=2)
-    _arrow(d, 80, 1150, 80, 1070, col=INK, sw=6)
-    d.text(120, 1095, "You stand here, facing", size=T_LAB, weight=700)
-    d.text(120, 1135, "the FRONT tape.", size=T_LAB, weight=700)
-    d.text(1160, 1095, "Z0 (front-left)", size=T_LAB, anchor="end", weight=800, fill=BLUE)
-    d.text(1160, 1135, "is on your right.", size=T_LAB, anchor="end", weight=800, fill=BLUE)
+    d.line(40, 912, 1160, 912, stroke=RULE, sw=2)
+    _arrow(d, 80, 1052, 80, 972, col=INK, sw=6)
+    d.text(120, 997, "You stand here, facing", size=T_LAB, weight=700)
+    d.text(120, 1037, "the FRONT tape.", size=T_LAB, weight=700)
+    d.text(1160, 997, "Z0 (front-left)", size=T_LAB, anchor="end", weight=800, fill=BLUE)
+    d.text(1160, 1037, "is on your right.", size=T_LAB, anchor="end", weight=800, fill=BLUE)
     return d
 
 
 # ============================================================= diagram 204 ===
-def d204_cam_stages() -> dd.Doc:
-    """02.33 / 02.34: the belt tensioner cam, open, swinging, closed (seen from above,
-    printer upside down, Z0: motor on the left, drive on the right)."""
-    d = dd.Doc(1230, "The belt tensioner cam in three stages")
-    top = step_header(d, "Closing the cam")
-    k = 7.5
-    row_h = 375
-    piv_x = 600                       # pivot screen x in the open rows
+_CAM_K = 7.5
+_CAM_PIV = 640                        # pivot screen x in the open rows
 
-    def row(i, title, shift_mm, deg, swing=False):
-        ry = top + 10 + i * row_h
-        if i:
-            d.line(40, ry, d.w - 40, ry, stroke=RULE, sw=2)
-        d.text(48, ry + 46, title, size=T_LAB + 2, weight=700)
-        rail_y0 = ry + 105                      # rail (front rail) band, 20 mm
-        d.rect(40, rail_y0, 1120, 20 * k, fill=BLUE_F, stroke=BLUE, sw=3)
-        cy = rail_y0 + 10 * k                   # the rail's centre line = the screws' line
-        px = piv_x - shift_mm * k
-        # drive body at the right; its side face where the lobe bears
-        face = piv_x + 10 * k
-        d.rect(face, ry + 70, 1160 - face, 20 * k + 70, fill=BLACKPART_F, stroke=BLACKPART,
-               sw=3, rx=4)
-        d.text(face + 140, rail_y0 + 10 * k + 12, "Z drive", size=T_LAB, anchor="middle",
-               weight=700, fill=MUTED)
-        # motor foot to the left of the pivot (outline only: the cam lies under it)
-        fx1 = px + 8 * k
-        d.rect(fx1 - 42 * k, rail_y0 - 20, 42 * k, 20 * k + 40, fill="none",
-               stroke=BLACKPART, sw=3, rx=4, dash="12 8")
-        d.text(fx1 - 42 * k - 14, rail_y0 + 10 * k + 12, "motor foot", size=T_MIN,
-               anchor="end", weight=700, fill=BLACKPART)
-        # the cam, rotated about its pivot (CAD: arm toward the motor when closed)
-        pts = _rot(CAM, deg)
-        d.path(_path([(px + x * k, cy - y * k) for x, y in pts]), fill=ORANGE_F,
+
+def _cam_row(d, ry, title, shift_mm, deg, swing=False, rule=True):
+    """One cam stage, seen from above, printer upside down, Z0: motor foot on the left on
+    the front extrusion, drive body on the right. Returns (rail_y0, cy, px)."""
+    k = _CAM_K
+    if rule:
+        d.line(40, ry, d.w - 40, ry, stroke=RULE, sw=2)
+    d.text(48, ry + 46, title, size=T_LAB + 2, weight=700)
+    rail_y0 = ry + 105                      # front extrusion band, 20 mm
+    d.rect(40, rail_y0, 1120, 20 * k, fill=BLUE_F, stroke=BLUE, sw=3)
+    d.text(52, rail_y0 + 10 * k + 11, "front extrusion", size=T_MIN, weight=700, fill=BLUE)
+    cy = rail_y0 + 10 * k                   # the extrusion's centre line = the screws' line
+    px = _CAM_PIV - shift_mm * k
+    # drive body at the right; its side face where the lobe bears
+    face = _CAM_PIV + 10 * k
+    d.rect(face, ry + 70, 1160 - face, 20 * k + 70, fill=BLACKPART_F, stroke=BLACKPART,
+           sw=3, rx=4)
+    d.text(face + 220, rail_y0 + 10 * k + 12, "Z drive", size=T_LAB, anchor="middle",
+           weight=700, fill=MUTED)
+    # motor foot to the left of the pivot (outline only: the cam lies under it)
+    fx1 = px + 8 * k
+    d.rect(fx1 - 42 * k, rail_y0 - 20, 42 * k, 20 * k + 40, fill="none",
+           stroke=BLACKPART, sw=3, rx=4, dash="12 8")
+    label_bg(d, fx1 - 42 * k + 12, rail_y0 - 12, "motor foot", size=T_MIN,
+             anchor="start", fill=BLACKPART, weight=800, bg=dd.BG)
+    # the cam, rotated about its pivot (CAD: arm toward the motor when closed)
+    pts = _rot(CAM, deg)
+    d.path(_path([(px + x * k, cy - y * k) for x, y in pts]), fill=ORANGE_F,
+           stroke=ORANGE, sw=3.5)
+    tab = [(CAM_TAB[0], CAM_TAB[1]), (CAM_TAB[2], CAM_TAB[1]), (CAM_TAB[2], CAM_TAB[3]),
+           (CAM_TAB[0], CAM_TAB[3])]
+    d.path(_path([(px + x * k, cy - y * k) for x, y in _rot(tab, deg)]), fill=ORANGE,
+           stroke=ORANGE, sw=2)
+    d.circle(px, cy, 4.75 * k, fill=GREY_F, stroke=INK, sw=2.5)        # M5x10 head
+    d.circle(px, cy, 1.4 * k, fill=INK, stroke="none", sw=0)
+    # the far motor-end screw in the foot, 25 mm along
+    d.circle(px - 25 * k, cy, 4.75 * k, fill=GREY_F, stroke=INK, sw=2.5)
+    d.circle(px - 25 * k, cy, 1.4 * k, fill=INK, stroke="none", sw=0)
+    if swing:
+        r = 21 * k
+        a0, a1 = math.radians(-112), math.radians(-168)
+        p0 = (px + r * math.cos(a0), cy - r * math.sin(a0))
+        p1 = (px + r * math.cos(a1), cy - r * math.sin(a1))
+        d.path(f"M {p0[0]:.1f} {p0[1]:.1f} A {r:.1f} {r:.1f} 0 0 1 {p1[0]:.1f} "
+               f"{p1[1]:.1f}", stroke=ORANGE, sw=7, marker="arwo")
+    return rail_y0, cy, px
+
+
+def d204_cam_fit() -> dd.Doc:
+    """02.33: which hand the cam is, then the cam under the foot's drive end on its loose
+    pivot screw. Callouts are 02.33's Do numbers."""
+    d = dd.Doc(860, "The belt tensioner cam: hand and fit")
+    top = step_header(d, "Fitting the cam, still loose")
+    k = _CAM_K
+    # ---- 1: the hand, flat face down, lobe on the left (STL outline; _b is the mirror)
+    callout(d, 76, top + 50, 1)
+    d.text(120, top + 61, "Flat face down, lobe on the left:", size=T_LAB, weight=700)
+    tab = [(CAM_TAB[0], CAM_TAB[1]), (CAM_TAB[2], CAM_TAB[1]), (CAM_TAB[2], CAM_TAB[3]),
+           (CAM_TAB[0], CAM_TAB[3])]
+    for cx, mir, name, sub in ((330, 1, "_a", "tab far-right"), (870, -1, "_b",
+                                                                  "tab near-right")):
+        cy = top + 190
+        d.path(_path([(cx + x * k, cy - mir * y * k) for x, y in CAM]), fill=ORANGE_F,
                stroke=ORANGE, sw=3.5)
-        tab = [(CAM_TAB[0], CAM_TAB[1]), (CAM_TAB[2], CAM_TAB[1]), (CAM_TAB[2], CAM_TAB[3]),
-               (CAM_TAB[0], CAM_TAB[3])]
-        d.path(_path([(px + x * k, cy - y * k) for x, y in _rot(tab, deg)]), fill=ORANGE,
+        d.path(_path([(cx + x * k, cy - mir * y * k) for x, y in tab]), fill=ORANGE,
                stroke=ORANGE, sw=2)
-        d.circle(px, cy, 4.75 * k, fill=GREY_F, stroke=INK, sw=2.5)        # M5x10 head
-        d.circle(px, cy, 1.4 * k, fill=INK, stroke="none", sw=0)
-        # the far motor-end screw in the foot, 25 mm along
-        d.circle(px - 25 * k, cy, 4.75 * k, fill=GREY_F, stroke=INK, sw=2.5)
-        d.circle(px - 25 * k, cy, 1.4 * k, fill=INK, stroke="none", sw=0)
-        if swing:
-            r = 21 * k
-            a0, a1 = math.radians(-112), math.radians(-168)
-            p0 = (px + r * math.cos(a0), cy - r * math.sin(a0))
-            p1 = (px + r * math.cos(a1), cy - r * math.sin(a1))
-            d.path(f"M {p0[0]:.1f} {p0[1]:.1f} A {r:.1f} {r:.1f} 0 0 1 {p1[0]:.1f} "
-                   f"{p1[1]:.1f}", stroke=ORANGE, sw=7, marker="arwo")
-        return ry, cy, px
+        d.circle(cx, cy, 2.6 * k, fill=PANEL, stroke=ORANGE, sw=2.5)
+        d.text(cx + 40, cy + 120, f"{name}: {sub}", size=T_LAB, anchor="middle", weight=800)
+    d.text(600, top + 140, "far", size=T_MIN, anchor="middle", weight=600, fill=MUTED)
+    d.text(600, top + 262, "near", size=T_MIN, anchor="middle", weight=600, fill=MUTED)
+    # ---- 2 and 3: the cam in place, tab sticking out, both foot screws loose
+    rail_y0, cy, px = _cam_row(d, top + 360, "In place, tab sticking out, both screws loose",
+                               0, -90)
+    callout(d, px - 120, rail_y0 + 20 * k + 64, 2)
+    d.leader(px - 60, cy + 30, px - 106, rail_y0 + 20 * k + 40, col=INK)
+    callout(d, px - 20, rail_y0 + 20 * k + 64, 3)
+    d.leader(px - 4, cy + 30, px - 16, rail_y0 + 20 * k + 36, col=INK)
+    return d
 
-    row(0, "a   Tab sticking out, both screws loose", 0, -90)
-    row(1, "b   Swing the tab toward the motor", 0, -135, swing=True)
-    ry, cy, px = row(2, "c   Flat in the notch: motor pushed away", 2.5, 180)
-    # the 2-3 mm the foot moved: its open position faint, an arrow along its top edge
-    fx_open = piv_x + 8 * k
-    rail_y0 = ry + 105
+
+def d209_cam_close() -> dd.Doc:
+    """02.34: the cam swinging toward the motor, then closed with the foot pushed away.
+    Callouts are 02.34's Do numbers."""
+    d = dd.Doc(860, "Closing the belt tensioner cam")
+    top = step_header(d, "Closing the cam")
+    k = _CAM_K
+    rail_y0, cy, px = _cam_row(d, top + 10, "Swing the tab toward the motor", 0, -135,
+                               swing=True, rule=False)
+    callout(d, px - 21 * k - 70, cy + 20 * k - 20, 1)
+    rail_y0, cy, px = _cam_row(d, top + 385, "Flat in the notch: foot pushed away", 2.5, 180)
+    # the 2-3 mm the foot moved: its open position faint, an arrow along its edge
+    fx_open = _CAM_PIV + 8 * k
     d.line(fx_open, rail_y0 - 40, fx_open, rail_y0 + 20 * k + 30, stroke=MUTED, sw=2.5,
            dash="6 6")
-    yb = rail_y0 + 20 * k + 44
+    yb = rail_y0 + 20 * k + 50
     _arrow(d, fx_open + 60, yb, px + 8 * k + 2, yb, col=INK, sw=4)
     d.text(fx_open - 2.5 * k - 16, yb + 11, "foot moves 2 to 3 mm", size=T_LAB,
            anchor="end", weight=800)
+    callout(d, fx_open + 100, yb, 2)
+    d.text(fx_open + 140, yb + 11, "drive stays put", size=T_LAB, weight=800)
     return d
 
 
 # ============================================================= diagram 205 ===
 def d205_deck_clip() -> dd.Doc:
-    """02.14: a deck support clip, end-first into the rail's inward slot, then turned 90°,
-    seen along the rail with the printer upside down (panel below)."""
-    d = dd.Doc(960, "Fitting a deck clip: in end-first, then turn it")
+    """02.14: a deck support clip, thin edge first into the extrusion's inward slot, then
+    turned 90°, seen along the extrusion with the printer upside down (panel below).
+    Callout 2 is 02.14's Do 2."""
+    d = dd.Doc(960, "Fitting a deck clip: thin edge in, then turn it")
     top = step_header(d, "Deck clip: in, then turn")
     k = 13.0
 
     def scene(ox, title):
         d.panel(ox, top + 16, 555, 790)
         d.text(ox + 24, top + 66, title, size=T_LAB + 2, weight=700)
-        cx, cy = ox + 170, top + 400            # rail section centre
+        cx, cy = ox + 170, top + 400            # extrusion section centre
         profile2020(d, cx, cy, k)
         face = cx + 10 * k
         # deck panel: inverted, its top face flush with the rail's (now lower) face
@@ -455,7 +566,7 @@ def d205_deck_clip() -> dd.Doc:
                fill=BLACKPART, stroke=INK, sw=2)
         d.text(ox + 535, cy + 10 * k + 46, "deck panel", size=T_LAB, anchor="end",
                weight=700)
-        d.text(cx, cy + 10 * k + 46, "frame rail", size=T_LAB, anchor="middle", weight=700,
+        d.text(cx, cy + 10 * k + 46, "frame extrusion", size=T_LAB, anchor="middle", weight=700,
                fill=BLUE)
         return cx, cy, face
 
@@ -466,9 +577,11 @@ def d205_deck_clip() -> dd.Doc:
            stroke=BLACKPART, sw=3, rx=3)
     _arrow(d, body0 + 8.7 * k + 120, cy, body0 + 8.7 * k + 20, cy, col=ORANGE, sw=7,
            mk="arwo")
-    callout(d, body0 + 8.7 * k + 70, cy - 70, 1)
-    d.text(cx - 10 * k, cy - 10 * k - 50, "long side along the slot", size=T_MIN,
-           weight=600, fill=MUTED)
+    callout(d, body0 + 8.7 * k + 70, cy - 70, 2)
+    d.text(cx - 10 * k, cy - 10 * k - 90, "its 20 mm length", size=T_MIN, weight=600,
+           fill=MUTED)
+    d.text(cx - 10 * k, cy - 10 * k - 52, "runs along the slot", size=T_MIN, weight=600,
+           fill=MUTED)
 
     # (b) turned 90°: head behind the slot lips, the short end over the panel
     ox_b = 615
@@ -485,7 +598,7 @@ def d205_deck_clip() -> dd.Doc:
     ax, ay = C(56, 66)
     d.path(f"M {ax + r:.1f} {ay - 40:.1f} A {r} {r} 0 0 0 {ax - 10:.1f} {ay - r - 30:.1f}",
            stroke=ORANGE, sw=7, marker="arwo")
-    callout(d, ax + 120, ay - 90, 1)
+    callout(d, ax + 120, ay - 90, 2)
     step_note(d, "Upside down: the panel lies below.", size=T_LAB)
     return d
 
@@ -554,7 +667,7 @@ def d206_pulley_jig() -> dd.Doc:
 def d207_insert_map() -> dd.Doc:
     """02.04: where the 9 inserts per drive go. Flat faces as you look at them, the foot
     face (where the baseplate's three screws go) unfolded below each."""
-    d = dd.Doc(1150, "Insert map: retainer and main body")
+    d = dd.Doc(1060, "Insert map: retainer and main body")
     top = step_header(d, "Inserts: 7 + 2 per drive")
     k = 7.0
 
@@ -588,14 +701,14 @@ def d207_insert_map() -> dd.Doc:
         d.circle(x, y, r * 0.5, fill=PANEL, stroke="none", sw=0)
 
     # retainer: flat face (the print face) as you look at it
-    M, fy = part(50, 210, RET, True, False, 16.2, 85.0, "Retainer",
+    M, fy = part(50, 176, RET, True, False, 16.2, 85.0, "Retainer",
                  "foot face (baseplate side)")
     for x, y in RET_INSERTS:
         insert(*M(x, y))
     fx, _ = M(154, 85)
     insert(fx, fy + 5 * k)
     # main body
-    M2, fy2 = part(640, 210, MAIN, False, True, 26.8, 144.5, "Main body",
+    M2, fy2 = part(640, 176, MAIN, False, True, 26.8, 144.5, "Main body",
                    "foot face (baseplate side)")
     for x, y in MAIN_CBORES:
         cx, cy = M2(x, y)
@@ -607,12 +720,12 @@ def d207_insert_map() -> dd.Doc:
 
     callout(d, M(126, 114)[0], M(126, 114)[1], 1)
     callout(d, M2(126, 116)[0] - 4, M2(126, 116)[1], 2)
-    y = legend_row(d, 60, 930, 1, ["7 in each retainer, 2 in each main body"])
-    legend_row(d, 60, y + 26, 2, ["counterbores stay empty: screw heads go there"])
-    d.circle(80, 1090, 16, fill=AMBER, stroke=INK, sw=2)
-    d.text(110, 1101, "insert", size=T_MIN, weight=700)
-    d.circle(300, 1090, 18, fill=dd.BG, stroke=OK, sw=4)
-    d.text(330, 1101, "counterbore", size=T_MIN, weight=700)
+    y = legend_row(d, 60, 880, 1, ["7 in each retainer, 2 in each main body"])
+    legend_row(d, 60, y + 24, 2, ["counterbores stay empty: screw heads go there"])
+    d.circle(80, 1018, 16, fill=AMBER, stroke=INK, sw=2)
+    d.text(110, 1029, "insert", size=T_MIN, weight=700)
+    d.circle(300, 1018, 18, fill=dd.BG, stroke=OK, sw=4)
+    d.text(330, 1029, "counterbore", size=T_MIN, weight=700)
     return d
 
 
@@ -642,26 +755,41 @@ DIAGRAMS = [
     {
         "n": 202,
         "file": "202-z-rail-holes-faces.svg",
-        "title": "Z rails: which holes, which faces",
+        "title": "The first Z rail: holes, key and face",
         "fn": d202_rail_holes_faces,
         "shows": [
             "Side view of one MGN9H 400 rail on its vertical: 20 holes numbered from the "
-            "bottom, screws in 2, 4 ... 18, holes 1, 19 and 20 empty, the rail standing on "
-            "the 3 mm hex key above the bottom horizontal (p.25).",
-            "Plan view from above, front at the bottom: the front rails on the front "
-            "verticals' back faces, the rear rails on the rear verticals' front faces, so "
-            "the two on each side face each other (CAD, Step 02.09 render; p.27).",
+            "bottom, screws in 2, 4 ... 18, holes 1, 19 and 20 empty, the carriage taped at "
+            "mid-rail, the rail standing on the 3 mm hex key above the bottom horizontal "
+            "(p.25 gap; LDO p.88 end-hole note).",
+            "Plan view from above, front at the bottom: the first rail at Z0 on the "
+            "vertical's rear-facing side, the rear rails on the rear verticals' "
+            "front-facing sides (CAD, Step 02.09 render; p.27). Callouts 1 to 3 are the Do "
+            "numbers of Step 02.06.",
         ],
-        "insert": [
-            ("02-z-drives.md", "Step 02.06", "holes, key and faces, first image"),
-            ("02-z-drives.md", "Step 02.09", "faces, before the CAD renders"),
-        ],
+        "insert": [("02-z-drives.md", "Step 02.06", "holes, key and face, first image")],
         "verify": [
-            "Counting from the bottom is this manual's choice: p.25 starts its pattern at "
-            "the bottom end hole and no source says which end of a 20-hole rail to leave "
-            "two holes open at. Rail length, widths and the 3 mm gap are drawn schematic "
+            "p.25 draws the 250's 15-hole rail with both end holes used; LDO's p.88 note "
+            "leaves the end holes empty. A 20-hole rail then keeps two empty holes at one "
+            "end; no source picks the end and it makes no difference, so this manual counts "
+            "from the bottom. Rail length, widths and the 3 mm gap are drawn schematic "
             "(the gap is exaggerated).",
         ],
+    },
+    {
+        "n": 208,
+        "file": "208-z-rail-faces.svg",
+        "title": "Which face each Z rail goes on",
+        "fn": d208_rail_faces,
+        "shows": [
+            "Plan from above, printer upright, front at the bottom: Z0's rail done, the "
+            "other three to fit; the front rails on the front verticals' rear-facing sides "
+            "and the rear rails on the rear verticals' front-facing sides, so the two on "
+            "each side face each other (CAD, Step 02.09 render; p.27). Callouts 1 to 3 are "
+            "the Do numbers of Step 02.09.",
+        ],
+        "insert": [("02-z-drives.md", "Step 02.09", "which face, first image")],
+        "verify": ["Rail and corner sizes are schematic; only the faces are from the CAD."],
     },
     {
         "n": 203,
@@ -671,15 +799,12 @@ DIAGRAMS = [
         "shows": [
             "Plan from above with the printer upside down (rolled over sideways, as p.41's "
             "inset shows), standing at the FRONT tape: Z0 is on your right. The drive "
-            "body's counterbored face faces outward over the side rail, its retainer face "
-            "toward the motor; two M5x40 go into the side rail, the motor foot's two "
-            "M5x10 into the front rail, 25 mm apart. Positions from the CAD Z0 corner.",
+            "body's counterbored face faces outward over the side extrusion, its retainer "
+            "face toward the motor; two M5x40 go into the side extrusion, the motor foot's "
+            "two M5x10 into the front extrusion, 25 mm apart. Positions from the CAD Z0 "
+            "corner. Callouts 1 and 2 are the Do numbers of Step 02.29.",
         ],
-        "insert": [
-            ("02-z-drives.md", "Step 02.29", "the corner, first image"),
-            ("02-z-drives.md", "Step 02.30", "which rail takes which screws, first image"),
-            ("02-z-drives.md", "Step 02.31", "which faces point where, first image"),
-        ],
+        "insert": [("02-z-drives.md", "Step 02.29", "the corner, first image")],
         "verify": [
             "Outlines are bounding boxes from the 250 CAD; the baseplate, foot and cam are "
             "left off so the faces and screws show. " + _SCHEMATIC,
@@ -688,19 +813,33 @@ DIAGRAMS = [
     {
         "n": 204,
         "file": "204-belt-tensioner-cam.svg",
-        "title": "The belt tensioner cam in three stages",
-        "fn": d204_cam_stages,
+        "title": "The belt tensioner cam: hand and fit",
+        "fn": d204_cam_fit,
         "shows": [
-            "From above, printer upside down, Z0 corner: the cam (outline from the STL) on "
-            "its loose M5x10 under the motor foot's drive end. (a) Tab sticking straight "
-            "out, (b) swinging toward the motor, (c) flat along the rail in the notch, the "
-            "lobe pushing the foot about 2.5 mm away from the drive body (p.43-44; CAD "
-            "closed position).",
+            "Top: the cam flat face down with the lobe on the left (STL outline): the tab "
+            "is far-right on _a and near-right on _b (the mirror). Bottom: from above, "
+            "printer upside down, Z0 corner: the cam's lobe under the motor foot's drive "
+            "end on its loose M5x10, tab sticking straight out (p.43). Callouts 1 to 3 are "
+            "the Do numbers of Step 02.33.",
         ],
-        "insert": [
-            ("02-z-drives.md", "Step 02.33", "where the cam sits, first image"),
-            ("02-z-drives.md", "Step 02.34", "the swing, first image"),
+        "insert": [("02-z-drives.md", "Step 02.33", "hand and where the cam sits, first image")],
+        "verify": [
+            "The foot's outline and the surface the lobe bears on are schematic; the cam "
+            "outline is the STL slice.",
         ],
+    },
+    {
+        "n": 209,
+        "file": "209-belt-tensioner-close.svg",
+        "title": "Closing the belt tensioner cam",
+        "fn": d209_cam_close,
+        "shows": [
+            "From above, printer upside down, Z0 corner: (1) the tab swinging toward the "
+            "motor, (2) flat along the front extrusion in the notch, the lobe pushing the "
+            "foot about 2.5 mm away from the drive body, which stays put (p.44; CAD closed "
+            "position). Callouts 1 and 2 are the Do numbers of Step 02.34.",
+        ],
+        "insert": [("02-z-drives.md", "Step 02.34", "the swing, first image")],
         "verify": [
             "The 2.5 mm throw is the lobe's 12.5 mm reach (closed) less its 10 mm reach "
             "(open) toward the drive, from the STL; the surface it bears on and the foot's "
@@ -710,20 +849,22 @@ DIAGRAMS = [
     {
         "n": 205,
         "file": "205-deck-clip-twist.svg",
-        "title": "Fitting a deck clip: in end-first, then turn it",
+        "title": "Fitting a deck clip: thin edge in, then turn it",
         "fn": d205_deck_clip,
         "shows": [
-            "Section along a bottom frame rail, printer upside down, deck panel below. (a) "
-            "The clip goes in edge-on, its 5.8 mm thickness through the slot mouth. (b) "
+            "Section along a bottom frame extrusion, printer upside down, deck panel below. "
+            "(a) The clip goes in thin edge first, its 5.8 mm thickness through the slot "
+            "mouth and its 20 mm length along the slot. (b) "
             "Turned 90°: the head sits behind the slot's lips and the short end of the "
             "body lies over the panel's edge (outline from deck_support_3mm; the short "
-            "end stops about 0.8 mm off a 3 mm panel). Callout 1 is Do 1 of Step 02.14.",
+            "end stops about 0.8 mm off a 3 mm panel). Callout 2 is Do 2 of Step 02.14.",
         ],
         "insert": [("02-z-drives.md", "Step 02.14", "the twist-in, first image")],
         "verify": [
             "No manual page or CAD shows the clips; the fit is worked out from the STL "
             "(key, body and which end is the short one) and the CAD deck position (panel "
-            "top flush with the rail's top). Spacing along the rail stays 'verify on bench'.",
+            "top flush with the extrusion's top). Spacing along the extrusion stays 'verify "
+            "on bench'.",
         ],
     },
     {

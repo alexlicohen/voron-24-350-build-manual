@@ -50,6 +50,6 @@
 <text x="838.0" y="651.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
 <text x="882.0" y="651.2" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">bend it clear</text>
 <text x="882.0" y="689.6" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">of the anchor</text>
-<rect x="818.4" y="769.5" width="343.2" height="42.0" rx="8" fill="#FBEBD3" stroke="#D98324" stroke-width="2.5"/>
-<text x="990.0" y="799.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#14181D" letter-spacing="0">screw: on the bench</text>
+<rect x="810.0" y="769.5" width="360.0" height="42.0" rx="8" fill="#FBEBD3" stroke="#D98324" stroke-width="2.5"/>
+<text x="990.0" y="799.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#14181D" letter-spacing="0">fixing: on the bench</text>
 </svg>

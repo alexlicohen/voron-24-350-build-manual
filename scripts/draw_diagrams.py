@@ -2183,60 +2183,67 @@ def d13_frame_diagonals() -> Doc:
 def d14_frame_six_faces() -> Doc:
     d = Doc(1000, "The six faces of the frame to check")
     top = step_header(d, "Six faces to check")
-    s = 0.62
-    c30, s30 = math.cos(math.radians(30)), 0.5
-    ox, oy = 335, 810                                 # front-bottom corner on the page
+    # Off-isometric view (turned 35° about the vertical, eye 20° up), so no diagonal
+    # lands on an edge behind it, as it does in a true isometric view.
+    s = 0.86
+    ya, pa = math.radians(35), math.radians(20)
+    ox, oy = 330, 930                                 # front-left-bottom corner on the page
 
     def P(x, y, z):
-        # x to the right-back, y to the left-back, z up (mm)
-        return ox + (x - y) * c30 * s, oy - (x + y) * s30 * s - z * s
+        # x to the right, y to the back, z up (mm); the front and left faces face you
+        x1 = x * math.cos(ya) - y * math.sin(ya)
+        y1 = x * math.sin(ya) + y * math.cos(ya)
+        return ox + x1 * s, oy - (z * math.cos(pa) + y1 * math.sin(pa)) * s
     A, B, H = 510, 510, 530
     v = {(i, j, k): P(i * A, j * B, k * H) for i in (0, 1) for j in (0, 1) for k in (0, 1)}
 
-    # top face diagonals, lightly
+    # top face tinted, its diagonals dashed
     d.poly([v[0, 0, 1], v[1, 0, 1], v[1, 1, 1], v[0, 1, 1]], fill=BLUE_F, stroke="none",
            sw=0)
-    d.line(*v[0, 0, 1], *v[1, 1, 1], stroke=MUTED, sw=3, dash="10 8")
-    d.line(*v[1, 0, 1], *v[0, 1, 1], stroke=MUTED, sw=3, dash="10 8")
-    # one upright face tinted, with both diagonals
+    # the front face tinted, with both diagonals
     face = [v[0, 0, 0], v[1, 0, 0], v[1, 0, 1], v[0, 0, 1]]
     d.poly(face, fill=AMBER_F, stroke="none", sw=0)
-    # frame edges: the three meeting at the hidden back-bottom corner drawn faint
+    # frame edges: the three meeting at the hidden back-right-bottom corner drawn faint
     edges = [((0, 0, 0), (1, 0, 0)), ((0, 0, 0), (0, 1, 0)), ((0, 0, 0), (0, 0, 1)),
              ((1, 0, 0), (1, 0, 1)), ((0, 1, 0), (0, 1, 1)), ((1, 0, 1), (0, 0, 1)),
              ((0, 1, 1), (0, 0, 1)), ((1, 0, 1), (1, 1, 1)), ((0, 1, 1), (1, 1, 1)),
              ((1, 0, 0), (1, 1, 0)), ((0, 1, 0), (1, 1, 0)), ((1, 1, 0), (1, 1, 1))]
     back = (1, 1, 0)
     for a, b in edges:
-        hidden = back in (a, b)
-        d.line(*v[a], *v[b], stroke=BLUE, sw=7 if hidden else 12, op=0.4 if hidden else None)
-    d.line(*face[0], *face[2], stroke=AMBER, sw=6)
-    d.line(*face[1], *face[3], stroke=AMBER, sw=6)
+        if back in (a, b):
+            d.line(*v[a], *v[b], stroke=BLUE, sw=5, dash="14 10", op=0.5)
+    d.line(*v[0, 0, 1], *v[1, 1, 1], stroke=MUTED, sw=4, dash="12 9")
+    d.line(*v[1, 0, 1], *v[0, 1, 1], stroke=MUTED, sw=4, dash="12 9")
+    for a, b in edges:
+        if back not in (a, b):
+            d.line(*v[a], *v[b], stroke=BLUE, sw=12)
+    d.line(*face[0], *face[2], stroke=AMBER, sw=7)
+    d.line(*face[1], *face[3], stroke=AMBER, sw=7)
 
     # labels, right-hand column, leaders into the faces
     fx = sum(p[0] for p in face) / 4
     fy = sum(p[1] for p in face) / 4
-    tx = (v[0, 0, 1][0] + v[1, 1, 1][0]) / 2
-    ty = (v[0, 0, 1][1] + v[1, 1, 1][1]) / 2
-    lx = 760
-    d.text(lx, 230, "Top and bottom:", size=T_LAB + 2, weight=700)
-    d.text(lx, 272, "about 721 mm", size=T_LAB + 2, weight=700, fill=MUTED)
-    d.leader(tx + 60, ty - 20, lx - 14, 240, col=MUTED)
-    d.text(lx, 520, "Each upright face:", size=T_LAB + 2, weight=700, fill=AMBER)
-    d.text(lx, 562, "two diagonals,", size=T_LAB + 2, weight=700)
-    d.text(lx, 604, "about 735 mm", size=T_LAB + 2, weight=700)
-    d.leader(fx + 40, fy - 30, lx - 14, 530, col=AMBER)
+    tx = (v[1, 0, 1][0] + v[1, 1, 1][0]) / 2 - 20
+    ty = (v[1, 0, 1][1] + v[1, 1, 1][1]) / 2 + 6
+    lx = 800
+    d.text(lx, 200, "Top and bottom:", size=T_LAB + 2, weight=700)
+    d.text(lx, 242, "about 721 mm", size=T_LAB + 2, weight=700, fill=MUTED)
+    d.leader(tx, ty, lx - 14, 212, col=MUTED)
+    d.text(lx, 600, "Each upright face:", size=T_LAB + 2, weight=700, fill=AMBER)
+    d.text(lx, 642, "two diagonals,", size=T_LAB + 2, weight=700)
+    d.text(lx, 684, "about 735 mm", size=T_LAB + 2, weight=700)
+    d.leader(fx + 60, fy - 40, lx - 14, 612, col=AMBER)
     step_note(d, "Six faces. On each one the two diagonals must match.", size=T_LAB + 2)
     return d
 
 
 # ============================================================== diagram 15 ===
 def d15_blind_joint() -> Doc:
-    d = Doc(1080, "The blind joint, step by step")
+    d = Doc(1040, "The blind joint, step by step")
     top = step_header(d, "The blind joint")
     k = 9.0                                    # px per mm
     vx0, vx1 = 360, 360 + 20 * k               # the vertical's section, left/right faces
-    row_h = 320
+    row_h = 308
 
     def horizontal(cy, label=None):
         d.rect(vx1, cy - 10 * k, 1160 - vx1, 20 * k, fill=BLUE_F, stroke=BLUE, sw=3)
@@ -2251,10 +2258,11 @@ def d15_blind_joint() -> Doc:
         if i:
             d.line(40, ry, d.w - 40, ry, stroke=RULE, sw=2)
         d.text(44, ry + 50, title, size=36, weight=700)
-        return ry + 190
+        return ry + 186
 
-    # (a) the screw started, its head about 2 mm off the end face
-    cy = row(0, "a   Screw started")
+    # the screw started, its head about 2 mm off the end face. The three rows carry
+    # titles, not letters or numbers: two steps with different Do numbers use the sheet.
+    cy = row(0, "Screw started")
     horizontal(cy, "horizontal (A)")
     _bhcs(d, vx1 - 2 * k, cy, k, 1, 0, 16, solid=2)
     dy = cy - 10 * k - 26
@@ -2265,8 +2273,8 @@ def d15_blind_joint() -> Doc:
     d.path(f"M {vx1 + 60} {dy} L {vx1 + 2} {dy}", stroke=MUTED, sw=2.5, marker="arwm")
     d.text(vx1 + 70, dy + 11, "about 2 mm", size=T_LAB, weight=700, fill=MUTED)
 
-    # (b) the head slides into the vertical's slot
-    cy = row(1, "b   Head slides into the slot")
+    # the head slides into the vertical's slot
+    cy = row(1, "Head slides into the slot")
     horizontal(cy)
     profile2020(d, (vx0 + vx1) / 2, cy, k)
     _bhcs(d, vx1 - 2 * k, cy, k, 1, 0, 16, solid=2)
@@ -2275,8 +2283,8 @@ def d15_blind_joint() -> Doc:
     d.text(vx1 + 120, cy - 44, "screw head hidden inside", size=T_LAB, weight=700)
     d.leader(vx1 - 3 * k, cy - 3 * k, vx1 + 112, cy - 54, col=INK)
 
-    # (c) the hex key goes in through the access hole in the opposite face
-    cy = row(2, "c   Tighten through the access hole")
+    # the hex key goes in through the access hole in the opposite face
+    cy = row(2, "Tighten through the access hole")
     horizontal(cy)
     profile2020(d, (vx0 + vx1) / 2, cy, k)
     hx0, hx1 = vx0 + 3.9 * k, vx1 - 3.9 * k     # cavity floor to cavity floor
@@ -2329,7 +2337,7 @@ def d16_corner_access_holes() -> Doc:
     d.path(f"M {cx} {cy + h + 250} L {cx} {cy + h + 140}", stroke=ORANGE, sw=7,
            marker="arwo")
     callout(d, cx - h + 6, cy - h + 6, 1)
-    callout(d, cx + h + 370, cy, 2)
+    callout(d, cx + h + 260, cy - h - 46, 2)     # inside the panel, over its arrow
     callout(d, cx - h - 150, cy + 50, 3)
     y = legend_row(d, 400, py + 470, 1, ["access holes", "facing out"])
     y = legend_row(d, 400, y + 24, 2, ["push both", "horizontals in tight"])
@@ -2385,20 +2393,21 @@ def d17_tightening_order() -> Doc:
         d.text(x, y + 17, str(i + 1), size=48, anchor="middle", weight=800)
     d.text(d.w / 2, y0 + s + 120, "Go corner 1, 3, 2, 4.", size=40, anchor="middle",
            weight=700)
-    d.text(d.w / 2, y0 + s + 172, "Never work your way around.", size=40,
+    d.text(d.w / 2, y0 + s + 172, "Never tighten round the frame in order.", size=40,
            anchor="middle", weight=700, fill=RED)
     return d
 
 
 # ============================================================== diagram 18 ===
 def d18_bed_extrusions() -> Doc:
-    d = Doc(1200, "Bed extrusions: where they sit and how they fasten")
+    d = Doc(1070, "Bed extrusions: where they sit and how they fasten")
     top = step_header(d, "Bed extrusions")
 
-    # ---- top view (after p.20), FRONT at the bottom of the drawing, 1 px = 1 mm
-    d.panel(30, top + 16, 1140, 660)
-    X0, Y0, F = 100, top + 110, 510
-    R = 20                                         # rail section
+    # ---- top view (after p.20), FRONT at the bottom of the drawing, q px per mm
+    q = 0.8
+    d.panel(30, top + 16, 1140, 552)
+    X0, Y0, F = 90, top + 100, 510 * q
+    R = 20 * q                                     # rail section
     d.rect(X0, Y0, F, F, fill="none", stroke=BLUE, sw=2)
     d.rect(X0 + R, Y0 + R, F - 2 * R, F - 2 * R, fill="none", stroke=BLUE, sw=2)
     for (x, y, w, hh) in ((X0, Y0, F, R), (X0, Y0 + F - R, F, R), (X0, Y0, R, F),
@@ -2407,49 +2416,50 @@ def d18_bed_extrusions() -> Doc:
     for (x, y) in ((X0, Y0), (X0 + F - R, Y0), (X0, Y0 + F - R), (X0 + F - R, Y0 + F - R)):
         d.rect(x, y, R, R, fill=BLUE, stroke=BLUE, sw=1)
     cl = X0 + F / 2
-    inner_l, inner_r = cl - 65, cl + 65
+    inner_l, inner_r = cl - 65 * q, cl + 65 * q
     for bx in (inner_l - R, inner_r):
         d.rect(bx, Y0 + R, R, F - 2 * R, fill=BLUE_F, stroke=BLUE, sw=2.5)
         for by in (Y0, Y0 + F - R):               # bracket over each rail, bolt in it
             d.rect(bx - 2, by + 1, R + 4, R - 2, fill=GREY_F, stroke=GREY, sw=2)
-            d.circle(bx + R / 2, by + R / 2, 5, fill=PANEL, stroke=INK, sw=2)
+            d.circle(bx + R / 2, by + R / 2, 4.5, fill=PANEL, stroke=INK, sw=2)
     d.line(cl, Y0 - 14, cl, Y0 + F + 14, stroke=INK, sw=2.5, dash="26 8 4 8")
     # dimensions
     dy = Y0 - 34
     for x in (X0, cl):
         d.line(x, dy - 10, x, Y0 - 4, stroke=MUTED, sw=2)
-    d.path(f"M {X0 + 100} {dy} L {X0 + 3} {dy}", stroke=MUTED, sw=2.5, marker="arwm")
-    d.path(f"M {cl - 100} {dy} L {cl - 3} {dy}", stroke=MUTED, sw=2.5, marker="arwm")
-    d.line(X0 + 100, dy, cl - 100, dy, stroke=MUTED, sw=2.5)
+    d.path(f"M {X0 + 60} {dy} L {X0 + 3} {dy}", stroke=MUTED, sw=2.5, marker="arwm")
+    d.path(f"M {cl - 60} {dy} L {cl - 3} {dy}", stroke=MUTED, sw=2.5, marker="arwm")
+    d.line(X0 + 60, dy, cl - 60, dy, stroke=MUTED, sw=2.5)
     d.text((X0 + cl) / 2, dy - 14, "255 mm", size=T_LAB, anchor="middle", weight=700)
 
     def dim(y, xa, xb, label):
         d.path(f"M {(xa + xb) / 2} {y} L {xa + 2} {y}", stroke=INK, sw=2.5, marker="arw")
         d.path(f"M {(xa + xb) / 2} {y} L {xb - 2} {y}", stroke=INK, sw=2.5, marker="arw")
         label_bg(d, (xa + xb) / 2, y - 14, label, size=T_MIN, weight=700)
-    dim(Y0 + 120, inner_l, cl, "65 mm")
-    dim(Y0 + F - 90, cl, inner_r, "65 mm")
-    dim(Y0 + F / 2 + 40, inner_l, inner_r, "130 mm")
+    dim(Y0 + 100, inner_l, cl, "65 mm")
+    dim(Y0 + F - 70, cl, inner_r, "65 mm")
+    dim(Y0 + F / 2 + 36, inner_l, inner_r, "130 mm")
     # 90° where the left bed extrusion meets the front rail
-    ax, ay, r = inner_l - R, Y0 + F - R, 46
+    ax, ay, r = inner_l - R, Y0 + F - R, 40
     d.path(f"M {ax} {ay - r} A {r} {r} 0 0 0 {ax - r} {ay}", stroke=INK, sw=2.5)
     d.text(ax - r - 8, ay - r + 2, "90°", size=T_MIN, anchor="end", weight=700)
-    d.text(cl, Y0 + F + 50, "FRONT", size=T_LAB, anchor="middle", weight=800, fill=BLUE)
-    callout(d, cl, Y0 + 210, 1)
-    callout(d, inner_l - R - 44, Y0 + 106, 2)
+    d.text(cl, Y0 + F + 44, "FRONT", size=T_LAB, anchor="middle", weight=800, fill=BLUE)
+    callout(d, cl, Y0 + 156, 1)
+    callout(d, inner_l - R - 40, Y0 + 92, 2)
     d.text(1150, top + 66, "Top view", size=T_LAB, anchor="end", weight=700, fill=MUTED)
-    y = legend_row(d, 680, top + 230, 1, ["mark the centreline,", "front and rear"])
-    y = legend_row(d, 680, y + 40, 2, ["slide each to 65 mm"])
-    d.text(748, y + 50, "130 mm clear", size=T_LAB, weight=600, fill=MUTED)
-    d.text(748, y + 90, "between them", size=T_LAB, weight=600, fill=MUTED)
+    y = legend_row(d, 580, top + 170, 1, ["mark the centreline,", "front and rear"])
+    y = legend_row(d, 580, y + 36, 2, ["slide each to 65 mm"])
+    y = legend_row(d, 580, y + 36, 3, ["tighten the M5×10,", "then the M5×16"])
+    d.text(652, y + 46, "130 mm clear", size=T_LAB, weight=600, fill=MUTED)
+    d.text(652, y + 86, "between them", size=T_LAB, weight=600, fill=MUTED)
 
     # ---- side view of the front end (after p.18, p.19, p.21), FRONT to the left
-    sy = top + 696
+    sy = top + 584
     d.panel(30, sy, 1140, d.h - sy - 16)
     d.text(1150, sy + 50, "Side view, front end", size=T_LAB, anchor="end", weight=700,
            fill=MUTED)
-    k = 7.0
-    rcx, rcy = 380, sy + 300                      # front rail section centre
+    k = 6.5
+    rcx, rcy = 380, sy + 272                      # front rail section centre
     rt = rcy - 10 * k                             # rail top face
     ri = rcx + 10 * k                             # rail inner face = bed extrusion end
     profile2020(d, rcx, rcy, k)
@@ -2488,6 +2498,7 @@ def d18_bed_extrusions() -> Doc:
     d.text(54, rcy + 92, "front extrusion", size=T_LAB, weight=700, fill=BLUE)
     d.text(ri + 110, rt + 60, "T-nut in the slot", size=T_LAB, weight=700)
     d.leader(rcx + 4.6 * k, rt + 3.4 * k, ri + 102, rt + 50, col=INK)
+    callout(d, ri + 52, rt - 20 * k - 30, 3)      # Step 01.19 Do 3: both screws here
     return d
 
 
@@ -2844,11 +2855,12 @@ DIAGRAMS = [
             "outside corner, the longer one red.",
             "The fix: tap the corner at one end of the longer diagonal inward along it. "
             "Square means both diagonals the same, about 721 mm on a 350.",
-            "Callouts 1 and 2 are the Do numbers of Step 01.12.",
+            "Callouts 1 and 2 are the Do numbers of Step 01.12 and of Step 01.13, whose "
+            "Do 1 and 2 are the same measure and tap.",
         ],
         "insert": [
             ("01-frame.md", "Step 01.12", "the bottom square"),
-            ("01-frame.md", "Step 01.13", "again for the top square"),
+            ("01-frame.md", "Step 01.13", "again for the top square, the same callouts"),
         ],
         "verify": [
             "The skew is exaggerated; 721 mm is the 510 × 510 plan diagonal (Step 01.12).",
@@ -2860,9 +2872,10 @@ DIAGRAMS = [
         "title": "Six faces to check",
         "fn": d14_frame_six_faces,
         "shows": [
-            "The frame as an isometric wireframe: one upright face tinted with its two "
+            "The frame as a wireframe turned 35° and seen from 20° above (off-isometric, "
+            "so no diagonal lies on a hidden edge): the front face tinted with its two "
             "diagonals (about 735 mm, from 510 × 530 outside), the top face's diagonals "
-            "(about 721 mm).",
+            "dashed (about 721 mm), the three hidden edges dashed.",
             "The rule: six faces, and on each one the two diagonals must match.",
         ],
         "insert": [
@@ -2879,14 +2892,15 @@ DIAGRAMS = [
         "title": "The blind joint",
         "fn": d15_blind_joint,
         "shows": [
-            "Three sections after p.10, looking down the vertical: (a) the M5×16 BHCS "
-            "started in the horizontal's end, head about 2 mm off the end face; (b) the "
-            "head slid into the vertical's slot; (c) the 3 mm hex key straight through the "
+            "Three sections after p.10, looking down the vertical, titled rather than "
+            "numbered because two steps with different Do numbers use them: the M5×16 "
+            "BHCS started in the horizontal's end, head about 2 mm off the end face; the "
+            "head slid into the vertical's slot; the 3 mm hex key straight through the "
             "access hole in the opposite face into the head.",
         ],
         "insert": [
             ("01-frame.md", "Step 01.5", "the whole sheet"),
-            ("01-frame.md", "Step 01.4", "row (a), for the 2 mm"),
+            ("01-frame.md", "Step 01.4", "the top row, for the 2 mm"),
         ],
         "verify": [
             "The three stages are stacked top to bottom, not left to right, so the "
@@ -2923,13 +2937,14 @@ DIAGRAMS = [
         "fn": d17_tightening_order,
         "shows": [
             "Top view of a square with its corners numbered 1–4 going round, and the "
-            "order 1, 3, 2, 4: always across to the opposite corner, never round the "
-            "frame.",
+            "order 1, 3, 2, 4: always across to the opposite corner. The red line says "
+            "never tighten round the frame in order; fitting the corners in turn "
+            "(Step 01.8) is not tightening.",
         ],
         "insert": [
-            ("01-frame.md", "Step 01.9", "the bottom square"),
-            ("01-frame.md", "Step 01.11", "the top square, and the torque passes of "
-             "Steps 01.12 and 01.13"),
+            ("01-frame.md", "Step 01.9", "the bottom square, snug pass"),
+            ("01-frame.md", "Step 01.12", "the torque pass; Steps 01.11 and 01.13 "
+             "repeat the order without the picture"),
         ],
         "verify": [],
     },
@@ -2942,7 +2957,8 @@ DIAGRAMS = [
             "Top view after p.20, FRONT at the bottom: the bed extrusions front to back "
             "between the front and rear rails, the centreline 255 mm from the left rail's "
             "outer face, each extrusion's inner face 65 mm from it (130 mm clear), and the "
-            "90° to the rail. Callouts 1 and 2 are the Do numbers of Step 01.19.",
+            "90° to the rail. Callouts 1–3 are the Do numbers of Step 01.19; callout 3 "
+            "sits on the bracket in the side view.",
             "Side view of the front end after p.18, p.19 and p.21: the bed extrusion's end "
             "flush with the rail's inner face and its underside level with the rail's top; "
             "the corner bracket's upright leg on the end (M5×16 into the end bore), its "
@@ -2950,13 +2966,14 @@ DIAGRAMS = [
             "T-nut in the rail's top slot).",
         ],
         "insert": [
-            ("01-frame.md", "Step 01.19", "the top view"),
-            ("01-frame.md", "Step 01.18", "the side view"),
-            ("01-frame.md", "Step 01.16", "the side view again, for which leg goes where"),
+            ("01-frame.md", "Step 01.19", "only here: its callouts are this step's Do. "
+             "Steps 01.16 and 01.18 show the p.18 and p.19 crops instead"),
         ],
         "verify": [
             "The bracket's shape, leg thickness and the spacer's thickness are schematic; "
             "the chapter gives no dimensions for them.",
+            "Kept within 1200 × 1075 so it fills the iPad's picture column: top view "
+            "at 0.8 px per mm.",
         ],
     },
 ]

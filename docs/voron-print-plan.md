@@ -497,7 +497,7 @@ Notes:
 | `lrs_200_psu_bracket_x2.stl` | Voron-2 `STLs/Electronics_Bay/` | 2 | Black | 8.2 | 0.49 |
 | `PSU_stabilizer_50mm.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 **(verify)** | Black | 4.1 | 0.26 |
 | `usb_adapter_mount.stl` | Nitehawk-SB `STLs/` | 1 file *(contains base **and** cover; kit supplies the base, so you get a spare; base only — cover body superseded by the V2 partial cover below)* | Black | 9.4 | 0.55 |
-| `usb_adapter_mount_partial_cover.stl` | Nitehawk-SB-V2 `STLs/` | 1 | Black | 5.0 (est.) | 0.30 (est.) |
+| `usb_adapter_mount_partial_cover.stl` | Nitehawk-SB-V2 `STLs/` | 1 file *(contains a base **and** the partial cover; kit supplies the base, so the printed base is a spare)* | Black | 5.0 (est.) | 0.30 (est.) |
 | `pcb_din_clip_x3.stl` | Voron-2 `STLs/Electronics_Bay/` | 3 *(one clip per file; spares — the kit supplies the 4 needed)* | Black | 5.9 | 0.35 |
 | `handlebar_spacer_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 2.1 | 0.13 |
 | `cob_light_strip_mount_100mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 6 | Black | 18.1 | 1.06 |

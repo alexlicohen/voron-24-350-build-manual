@@ -62,7 +62,7 @@ def d801_fan_adapter() -> Doc:
     d.path(f"M {fx - fr} {fy} A {fr} {fr} 0 1 1 {fx + 40} {fy + fr - 4} L {fx + 40} {fy + fr + 70} "
            f"L {fx - 120} {fy + fr + 70} L {fx - 150} {fy + 60} Z", fill=GREY_F, stroke=GREY, sw=4)
     d.circle(fx, fy, 70, fill=PANEL, stroke=GREY, sw=3)
-    # the fan's two screw holes (p.64): upper left of the fan, and right of its centre
+    # the two body holes SB p.64's M3x6 FHCS use: upper left of the fan, and right of its centre
     h1, h2 = (262, 262), (612, 470)
     # adapter PCB: holes at the two ends of its long edge, third corner below
     tri = [(h1[0] - 40, h1[1] - 30), (h2[0] + 44, h2[1] - 8), (400, 600)]
@@ -81,9 +81,10 @@ def d801_fan_adapter() -> Doc:
         d.rect(cx - 22, cy - 16, 44, 32, fill=INK, stroke=INK, sw=1, rx=3)
 
     callout(d, 470, 380, 1)
-    callout(d, h2[0] + 70, h2[1] + 56, 2)
-    d.text(70, 820, "toolboard side", size=T_MIN, weight=700, fill=MUTED)
-    arrow(d, 300, 856, 70, 856, col=MUTED, sw=4, mk="arwm")
+    callout(d, h2[0] + 26, h2[1] + 30, 2)
+    # below the body outline: the toolboard is on the viewer's left in a rear view
+    arrow(d, 106, 955, 46, 955, col=MUTED, sw=4, mk="arwm")
+    d.text(116, 966, "toolboard side", size=T_MIN, weight=700, fill=MUTED)
 
     # right column
     y = legend_row(d, 810, top + 120, 1, ["board flat on", "the back of", "the 5015"])
@@ -142,13 +143,14 @@ def d802_ground_lug() -> Doc:
 
     y = legend_row(d, 810, top + 420, 1, ["lug on the", "motor's lower", "ear"])
     y = legend_row(d, 810, y + 24, 2, ["bend it clear", "of the anchor"])
-    bench_tag(d, 990, y + 70, "screw: on the bench", anchor="middle")
+    bench_tag(d, 990, y + 70, "fixing: on the bench", anchor="middle")
     return d
 
 
 # ============================================================= diagram 803 ===
 def d803_cartridge_leads() -> Doc:
-    d = Doc(1000, "Tool cartridge up into the keyholes; heater into HE0, thermistor into TH0")
+    d = Doc(1000, "Tool cartridge pushed up under the extruder and held by its body; heater into HE0, "
+                  "thermistor into TH0")
     top = step_header(d, "Cartridge up, leads in")
     d.panel(30, top + 16, 800, 870)
     d.text(54, top + 64, "Toolboard side, front on the left", size=T_MIN, weight=700, fill=MUTED)
@@ -167,86 +169,92 @@ def d803_cartridge_leads() -> Doc:
         d.line(hx + sx - 14, hy - 14, hx + sx + 14, hy + 14, stroke=GREY, sw=4)
     d.mono(hx, hy - 56, "HE0", size=T_LAB, anchor="middle", weight=700, fill="#FFFFFF")
 
-    # keyholes in the extruder's underside and the cartridge below with its stud heads
-    for kx in (330, 610):
-        d.rect(kx - 26, 556, 52, 16, fill=PANEL, stroke=BLACKPART, sw=2, rx=6)
-    cy0 = 660
+    # the cartridge just below the extruder: its four screws sit recessed in the top,
+    # so nothing stands proud; the body screws at 08.62 hold it, a hand holds it till then
+    cy0 = 620
     d.rect(250, cy0, 440, 190, fill=BLACKPART_F, stroke=BLACKPART, sw=4, rx=14)
     d.poly([(450, cy0 + 190), (490, cy0 + 190), (478, cy0 + 222), (462, cy0 + 222)],
            fill="#C9A13B", stroke=INK, sw=2)
-    for kx in (330, 610):
-        d.rect(kx - 6, cy0 - 26, 12, 26, fill=GREY, stroke=GREY, sw=1)
-        d.rect(kx - 20, cy0 - 40, 40, 16, fill=GREY_F, stroke=GREY, sw=2, rx=3)
     d.text(470, cy0 + 110, "tool cartridge", size=T_LAB, anchor="middle", weight=700)
-    arrow(d, 760, cy0 + 150, 760, cy0 - 40, col=ORANGE, sw=8, mk="arwo")
+    arrow(d, 760, cy0 + 150, 760, cy0 - 20, col=ORANGE, sw=8, mk="arwo")
     callout(d, 760, cy0 + 200, 1)
+    # fingertips under the cartridge's corners, clear of the nozzle
+    for fx in (300, 640):
+        d.path(f"M {fx - 40} 868 C {fx - 40} 806 {fx + 40} 806 {fx + 40} 868 Z",
+               fill=GREY_F, stroke=GREY, sw=4)
+        arrow(d, fx, 916, fx, 878, col=MUTED, sw=4, mk="arwm")
+    d.text(470, 950, "hold the cartridge, not the nozzle", size=T_MIN, anchor="middle",
+           weight=700, fill=MUTED)
 
     # heater pair (red) to HE0 with ferrules, thermistor pair (thin) to TH0
     for i, sx in enumerate((-34, 34)):
         x0 = 520 + i * 26
-        d.path(f"M {x0} {cy0 - 6} C {x0} 610 {hx + sx} 560 {hx + sx} {hy + 52}",
+        d.path(f"M {x0} {cy0 - 6} C {x0} 590 {hx + sx} 560 {hx + sx} {hy + 52}",
                stroke=WIRE_RED, sw=8)
         d.rect(hx + sx - 8, hy + 30, 16, 26, fill=STEEL, stroke=GREY, sw=2)
     for i in range(2):
         x0 = 400 + i * 16
-        d.path(f"M {x0} {cy0 - 6} C {x0} 620 {tx - 10 + i * 20} 560 {tx - 10 + i * 20} {ty + 36}",
+        d.path(f"M {x0} {cy0 - 6} C {x0} 600 {tx - 10 + i * 20} 560 {tx - 10 + i * 20} {ty + 36}",
                stroke="#E6E6E6", sw=5)
-        d.path(f"M {x0} {cy0 - 6} C {x0} 620 {tx - 10 + i * 20} 560 {tx - 10 + i * 20} {ty + 36}",
+        d.path(f"M {x0} {cy0 - 6} C {x0} 600 {tx - 10 + i * 20} 560 {tx - 10 + i * 20} {ty + 36}",
                stroke=GREY, sw=1.5)
     callout(d, hx + 110, hy + 10, 2)
     callout(d, tx - 100, ty + 10, 3)
 
-    y = legend_row(d, 850, top + 120, 1, ["slide it up", "onto the four", "screw heads"])
+    y = legend_row(d, 850, top + 120, 1, ["push it up,", "hold it by the", "cartridge"])
     y = legend_row(d, 850, y + 30, 2, ["heater leads", "into HE0,", "tug each one"])
-    legend_row(d, 850, y + 30, 3, ["thermistor", "into TH0"])
+    y = legend_row(d, 850, y + 30, 3, ["thermistor", "into TH0"])
+    d.text(850, y + 60, "what holds it", size=T_MIN, weight=700)
+    d.text(850, y + 98, "before 08.62:", size=T_MIN, weight=700)
+    bench_tag(d, 1010, y + 160, "on the bench", anchor="middle")
     return d
 
 
 # ============================================================= diagram 804 ===
 def d804_body_header() -> Doc:
-    d = Doc(1290, "Cable cover screws, then the body's header straight onto the toolboard's")
+    d = Doc(1075, "Cable cover screws, then the body's header straight onto the toolboard's")
     top = step_header(d, "Cover, header, body")
 
     # ---- panel A: the cover's two screws, extruder seen from the front
     ay = top + 16
-    d.panel(30, ay, 1140, 420)
+    d.panel(30, ay, 1140, 360)
     d.text(54, ay + 50, "Extruder from the front", size=T_MIN, weight=700, fill=MUTED)
-    ex0, ex1, ey0, ey1 = 280, 610, ay + 90, ay + 390
+    ex0, ex1, ey0, ey1 = 280, 610, ay + 90, ay + 330
     d.rect(ex0, ey0, ex1 - ex0, ey1 - ey0, fill=BLACKPART_F, stroke=BLACKPART, sw=4, rx=14)
     d.rect(ex1, ey0 + 20, 70, ey1 - ey0 - 30, fill="#B9BFC8", stroke=BLACKPART, sw=4, rx=10)
-    d.text(ex1 + 90, ey0 + 60, "cable cover", size=T_MIN, weight=700)
-    # latch flipped open, top right
+    d.text(ex1 + 90, ey0 + 80, "cable cover", size=T_MIN, weight=700)
+    # latch flipped open, top right; it closes again once both screws are in
     d.poly([(560, ey0 + 4), (640, ey0 - 50), (660, ey0 - 26), (590, ey0 + 18)],
            fill=ORANGE_F, stroke=ORANGE, sw=3)
-    d.text(470, ey0 - 22, "latch open", size=T_MIN, anchor="middle", weight=700, fill=ORANGE)
+    d.text(690, ey0 - 14, "latch: open, then close", size=T_MIN, weight=700, fill=ORANGE)
     # M3x16 straight in through the front access hole (into the page)
-    sx, sy = 590, ey0 + 80
+    sx, sy = 590, ey0 + 70
     d.circle(sx, sy, 24, fill=PANEL, stroke=INK, sw=3)
     d.line(sx - 14, sy - 14, sx + 14, sy + 14, stroke=INK, sw=4)
     d.line(sx - 14, sy + 14, sx + 14, sy - 14, stroke=INK, sw=4)
-    d.text(54, ey0 + 92, "M3×16 in from", size=T_LAB, weight=700)
-    d.text(54, ey0 + 132, "the front", size=T_LAB, weight=700)
-    d.leader(sx - 30, sy + 4, 250, ey0 + 110, col=INK)
+    d.text(54, ey0 + 82, "M3×16 in from", size=T_LAB, weight=700)
+    d.text(54, ey0 + 122, "the front", size=T_LAB, weight=700)
+    d.leader(sx - 30, sy + 4, 250, ey0 + 100, col=INK)
     # M3x6 BHCS into the cover's side wall, low at the front
     bx, by = ex1 + 70, ey1 - 50
     arrow(d, bx + 110, by, bx + 8, by, col=INK, sw=7)
     d.text(bx + 130, by + 11, "M3×6 into its side", size=T_LAB, weight=700)
-    callout(d, 470, ey0 + 170, 1)
-    bench_tag(d, 1160, by + 72, "reach: on the bench", anchor="end")
+    callout(d, 445, ey0 + 160, 1)
+    bench_tag(d, 1160, by + 58, "reach: on the bench", anchor="end")
 
     # ---- panel B: body onto the toolboard, side view, front on the left
-    by0 = ay + 440
+    by0 = ay + 380
     d.panel(30, by0, 1140, d.h - by0 - 16)
-    d.text(54, by0 + 50, "Toolboard side, front on the left", size=T_MIN, weight=700,
+    d.text(54, by0 + 46, "Toolboard side, front on the left", size=T_MIN, weight=700,
            fill=MUTED)
     # toolboard (face on) with its socket on the front edge
-    tbx0, tbx1, tby0, tby1 = 640, 1100, by0 + 150, by0 + 610
+    tbx0, tbx1, tby0, tby1 = 640, 1100, by0 + 90, by0 + 500
     d.rect(tbx0, tby0, tbx1 - tbx0, tby1 - tby0, fill=PCB, stroke=PCB_EDGE, sw=3, rx=10)
-    d.text((tbx0 + tbx1) / 2 + 30, tby1 - 40, "toolboard", size=T_LAB, anchor="middle",
+    d.text((tbx0 + tbx1) / 2 + 30, tby1 - 32, "toolboard", size=T_LAB, anchor="middle",
            weight=700, fill="#FFFFFF")
     sk0, sk1 = tbx0 - 60, tbx0 + 20
-    rows = [tby0 + 60 + i * 52 for i in range(5)]
-    d.rect(sk0, rows[0] - 34, sk1 - sk0, rows[-1] - rows[0] + 68, fill=INK, stroke=INK, sw=2,
+    rows = [tby0 + 52 + i * 50 for i in range(5)]
+    d.rect(sk0, rows[0] - 32, sk1 - sk0, rows[-1] - rows[0] + 64, fill=INK, stroke=INK, sw=2,
            rx=4)
     for ry in rows:
         d.rect(sk0 + 4, ry - 9, 30, 18, fill=PANEL, stroke="none", sw=0, rx=3)
@@ -255,43 +263,51 @@ def d804_body_header() -> Doc:
            fill="#FFFFFF")
     # fan adapter seen edge-on in the body, its P1 pins pointing back at the socket
     ax = 360
-    d.poly([(110, by0 + 110), (ax + 40, by0 + 110), (ax + 40, by0 + 650), (150, by0 + 650),
-            (90, by0 + 400)], fill=ORANGE_F, stroke=ORANGE, sw=5)
-    d.text(150, by0 + 420, "body", size=T_LAB, weight=700, fill=ORANGE)
-    d.rect(ax - 6, rows[0] - 70, 12, rows[-1] - rows[0] + 140, fill=PCB, stroke=PCB_EDGE, sw=2)
+    d.poly([(110, by0 + 76), (ax + 40, by0 + 76), (ax + 40, by0 + 500), (150, by0 + 500),
+            (90, by0 + 290)], fill=ORANGE_F, stroke=ORANGE, sw=5)
+    d.text(150, by0 + 330, "body", size=T_LAB, weight=700, fill=ORANGE)
+    d.rect(ax - 6, rows[0] - 50, 12, rows[-1] - rows[0] + 100, fill=PCB, stroke=PCB_EDGE, sw=2)
     for ry in rows:
         d.line(ax + 6, ry, ax + 120, ry, stroke="#C9A13B", sw=7, cap="butt")
     arrow(d, ax + 150, rows[2], sk0 - 16, rows[2], col=ORANGE, sw=8, mk="arwo")
-    callout(d, (ax + 150 + sk0) / 2, rows[2] - 60, 2)
-    d.text(ax + 140, by0 + 700, "straight in. Resists: backwards, stop", size=T_LAB,
+    callout(d, (ax + 150 + sk0) / 2, rows[2] - 56, 2)
+    d.text(ax + 140, by0 + 548, "straight in. Resists: backwards, stop", size=T_LAB,
            anchor="middle", weight=700, fill=RED)
     # the four body screws from the front: two upper, two lower
-    for yy, lab in ((by0 + 160, "2 × M3×25"), (by0 + 560, "2 × M3×50")):
+    for yy, lab in ((by0 + 126, "2 × M3×25"), (by0 + 450, "2 × M3×50")):
         arrow(d, 40 + 10, yy, 150, yy, col=INK, sw=6)
-        label_bg(d, 210, yy - 22, lab, size=T_MIN, anchor="start", weight=700, bg=ORANGE_F)
-    callout(d, 80, by0 + 360, 3)
+        label_bg(d, 170, yy + 11, lab, size=T_MIN, anchor="start", weight=700, bg=ORANGE_F)
+    callout(d, 80, by0 + 290, 3)
     return d
 
 
 # ============================================================= diagram 805 ===
 def d805_revo_leads() -> Doc:
-    d = Doc(1000, "Re-terminating the Revo leads: ferrules on the heater, a PH2.0 housing on "
-                  "the thermistor")
+    d = Doc(1000, "Revo leads: the HeaterCore's Micro-Fit plugs stay; only the extension cable "
+                  "is cut, at the board end, for ferrules and a PH2.0 housing")
     top = step_header(d, "Ends for HE0 and TH0")
 
-    # ---- top strip: the Revo's own plug, kept if LDO's cables mate with it
+    # ---- top strip: HeaterCore leads end in Micro-Fit plugs (E3D); only the extension
+    # cable, at its board end, is ever cut
     d.panel(30, top + 16, 1140, 250)
-    d.rect(80, top + 96, 150, 90, fill="#F2F2EE", stroke=GREY, sw=3, rx=8)
-    d.text(155, top + 154, "Micro-Fit", size=T_MIN, anchor="middle", weight=700)
-    for i, col in enumerate((WIRE_RED, WIRE_RED)):
-        d.line(230, top + 126 + i * 30, 640, top + 126 + i * 30, stroke=col, sw=8)
-    d.line(470, top + 90, 470, top + 196, stroke=RED, sw=4, dash="12 8")
-    d.text(470, top + 236, "cut only if needed", size=T_MIN, anchor="middle", weight=700,
-           fill=RED)
-    callout(d, 155, top + 230 - 2, 1)
-    d.text(680, top + 120, "LDO's cable fits it:", size=T_LAB, weight=700)
-    d.text(680, top + 162, "keep it as it is", size=T_LAB, weight=700, fill=OK)
-    bench_tag(d, 680, top + 222, "check on the bench")
+    y1, y2 = top + 130, top + 180
+    d.rect(60, top + 104, 70, 100, fill=STEEL, stroke=GREY, sw=3, rx=8)
+    d.text(54, top + 70, "HeaterCore", size=T_MIN, weight=700)
+    for yy, col, w in ((y1, WIRE_RED, 8), (y2, "#BDBDBD", 6)):
+        d.line(130, yy, 268, yy, stroke=col, sw=w)
+        d.rect(268, yy - 18, 64, 36, fill="#F2F2EE", stroke=GREY, sw=3, rx=5)
+        d.line(332, yy, 1000, yy, stroke=col, sw=w)
+    d.text(300, top + 88, "Micro-Fit", size=T_MIN, anchor="middle", weight=700)
+    d.text(600, top + 88, "extension cable", size=T_MIN, anchor="middle", weight=700)
+    d.text(1012, (y1 + y2) / 2 + 11, "board", size=T_MIN, weight=700, fill=MUTED)
+    d.text(175, top + 246, "never cut", size=T_MIN, anchor="middle", weight=700, fill=RED)
+    callout(d, 300, top + 232, 1)
+    cut = 880
+    d.line(cut, top + 100, cut, top + 206, stroke=RED, sw=4, dash="12 8")
+    d.text(cut - 40, top + 246, "cut here, only if needed", size=T_MIN, anchor="end",
+           weight=700, fill=RED)
+    callout(d, cut, top + 232, 2)
+    bench_tag(d, 1150, top + 64, "check on the bench", anchor="end")
 
     # ---- heater: two E0508 ferrules
     py = top + 290
@@ -342,19 +358,24 @@ def d806_led_index() -> Doc:
     # nozzle
     d.poly([(cx - 22, 700), (cx + 22, 700), (cx + 10, 760), (cx - 10, 760)], fill="#C9A13B",
            stroke=INK, sw=2)
-    # the two toolhead LEDs in the bottom corners, either side of the nozzle
+    # the two toolhead LEDs in the bottom corners, either side of the nozzle, each pushed
+    # in from the outside (Do 1); index 2 on your right, 3 on your left (Do 2)
     for side, idx in ((-1, 3), (1, 2)):
         lx = cx + side * 115
         d.circle(lx, 700, 30, fill="#FFF3B0", stroke=INK, sw=3)
-        arrow(d, lx + side * 210, 700, lx + side * 40, 700, col=MUTED, sw=5, mk="arwm")
-        d.text(lx + side * 150, 640, str(idx), size=64, anchor="middle", weight=800)
-    callout(d, cx + 330, 760, 1)
+        arrow(d, lx + side * 230, 700, lx + side * 40, 700, col=INK, sw=6)
+        label_bg(d, lx + side * 150, 640, f"LED {idx}", size=40, weight=800, bg=PANEL)
+    callout(d, cx + 115 + 175, 700, 1)
+    callout(d, cx - 115 - 175, 700, 1)
 
-    d.text(170, 830, "your left: 3", size=40, anchor="middle", weight=800)
-    d.text(1030, 830, "your right: 2", size=40, anchor="middle", weight=800)
+    d.text(200, 830, "your left: LED 3", size=36, anchor="middle", weight=800)
+    d.text(985, 830, "your right: LED 2", size=36, anchor="middle", weight=800)
+    callout(d, cx - 115 - 150 - 92, 627, 2)
+    callout(d, cx + 115 + 150 + 92, 627, 2)
     d.text(cx, 880, "you, facing the printer", size=T_LAB, anchor="middle", weight=700,
            fill=MUTED)
-    legend_row(d, 60, 940, 2, ["SB p.56 is drawn from behind, upside down"])
+    d.text(cx, 950, "SB p.56 is drawn from behind, upside down", size=T_MIN,
+           anchor="middle", weight=600, fill=MUTED)
     return d
 
 
@@ -368,7 +389,8 @@ DIAGRAMS = [
         "shows": [
             "The Stealthburner body from behind with the 5015 in its upper pocket and the "
             "triangular SBurnerFanAdapter V2.0 lying flat on the fan's back, its two end holes "
-            "over the fan's two screw holes, two M3×10 flat-head screws through both.",
+            "over the two body holes SB p.64's M3×6 FHCS use, two M3×10 flat-head screws "
+            "through both.",
             "P1's pins point back, at the toolboard, on the toolboard side of the body.",
             "Callouts 1 and 2 are the Do numbers of Step 08.44.",
         ],
@@ -400,9 +422,9 @@ DIAGRAMS = [
             ("08-toolhead.md", "Step 08.53", "first image: what the hands do"),
         ],
         "verify": [
-            "Schematic proportions. The screw that holds the lug (length, or whether it is a "
-            "nut on a motor screw's tip, as LDO's top-down photo may show) is unpublished: "
-            "drawn generic and tagged for the bench.",
+            "Schematic proportions. What holds the lug (the supplied short screw, or a nut on "
+            "the tip of the front M3×8 that shares the lower ear, as LDO's top-down photo may "
+            "show) is unpublished: drawn generic and tagged for the bench.",
         ],
     },
     {
@@ -411,8 +433,9 @@ DIAGRAMS = [
         "title": "Cartridge up, leads in",
         "fn": d803_cartridge_leads,
         "shows": [
-            "Side view from the toolboard side, front on the left: the tool cartridge rising "
-            "so its screw heads drop into the extruder's keyholes; the heater pair with "
+            "Side view from the toolboard side, front on the left: the tool cartridge pushed "
+            "up under the extruder, held by the cartridge, not the nozzle (the body screws at 08.62 hold it; "
+            "what holds it before then is tagged for the bench); the heater pair with "
             "ferrules into the HE0 screw terminal; the thermistor pair into TH0, the 2-pin "
             "socket to the left of HE0 (board pinout).",
             "Callouts 1 to 3 are the Do numbers of Step 08.61.",
@@ -421,8 +444,9 @@ DIAGRAMS = [
             ("08-toolhead.md", "Step 08.61", "first image: what the hands do"),
         ],
         "verify": [
-            "Schematic: two of the four screw heads show in a side view; board, terminal and "
-            "socket sizes are not to scale. TH0-left-of-HE0 and the board's front edge "
+            "Schematic: board, terminal and socket sizes are not to scale. No screw heads or "
+            "keyholes are drawn: the cartridge's four M3×8 sit in Ø5.8 counterbores in its top "
+            "(STL) and clamp the Revo heatsink (SB p.50). TH0-left-of-HE0 and the board's front edge "
             "forward are from LDO's pinout and ground-routing photo.",
         ],
     },
@@ -432,9 +456,9 @@ DIAGRAMS = [
         "title": "Cover, header, body",
         "fn": d804_body_header,
         "shows": [
-            "Top: the extruder from the front with the latch open, the M3×16 straight in "
-            "through the front access hole (SB p.37-38) and the M3×6 BHCS into the cable "
-            "cover's side wall, low at the front (SB p.38).",
+            "Top: the extruder from the front with the latch open (closed again after), the "
+            "M3×16 straight in through the front access hole (SB p.37-38) and the M3×6 BHCS "
+            "into the cable cover's side wall, low at the front (SB p.38).",
             "Bottom: side view from the toolboard side, front on the left: the fan adapter's P1 "
             "pins pointing back, the toolboard's socket on its front edge, A1/A2 row on top and "
             "the 24V row at the bottom, the body pushed straight back; two M3×25 upper and two "
@@ -456,8 +480,9 @@ DIAGRAMS = [
         "title": "Ends for HE0 and TH0",
         "fn": d805_revo_leads,
         "shows": [
-            "Top: the Revo's own Micro-Fit plug, kept if LDO's cables mate with it; the cut "
-            "line only if not.",
+            "Top: the HeaterCore's heater and thermistor leads, each ending in a Micro-Fit "
+            "plug (E3D Revo Voron page), marked never cut; the 1 m extension cables beyond "
+            "them, with the cut line at their board end, only if LDO's cables do not mate.",
             "Bottom: the heater pair ending in two E0508 ferrules (8 mm tube); the thermistor "
             "pair in a 2-pin JST-PH2.0 housing (2.0 mm pitch), with XH2.5 marked as not "
             "fitting TH0.",

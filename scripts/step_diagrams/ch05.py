@@ -104,14 +104,14 @@ def shcs_v(d: Doc, x, y_head_top, k, length, head_up=True, col=GREY, fill=GREY_F
 # ============================================================== diagram 501 ===
 def d501_x_extrusion_tnuts() -> Doc:
     """Step 05.36: the D extrusion's six M5 T-nuts, end view and front view."""
-    d = Doc(1110, "X extrusion: which slot takes the M5 T-nuts")
+    d = Doc(1064, "X extrusion: which slot takes the M5 T-nuts")
     top = step_header(d, "X extrusion: M5 T-nuts")
 
     # ---- end view, left
-    d.panel(30, top + 16, 540, 560)
+    d.panel(30, top + 16, 540, 520)
     d.text(54, top + 66, "End view", size=T_LAB, weight=700, fill=MUTED)
     k = 12.0
-    cx, cy = 300, top + 290
+    cx, cy = 300, top + 270
     profile2020(d, cx, cy, k)
     rail_on_face(d, cx, cy, k, 3, 12, 8)               # MGN12 on the front (left) face
     strip_on_face(d, cx, cy, k, 1, 18, 2.5, fill=TI_F, stroke=TI)   # backer, rear face
@@ -134,7 +134,7 @@ def d501_x_extrusion_tnuts() -> Doc:
     d.text(610, y + 110, "rail or backer slots.", size=T_LAB, weight=600, fill=MUTED)
 
     # ---- front view, along the bottom (430 mm D, 400 mm rail, 15 mm each end)
-    py = top + 596
+    py = top + 556
     d.panel(30, py, 1140, d.h - py - 16)
     d.text(54, py + 50, "From the front, nuts lifted out", size=T_LAB, weight=700,
            fill=MUTED)
@@ -216,12 +216,16 @@ def d502_y_extrusion_end() -> Doc:
            marker="arwm")
     d.text(x0 + 12.5 * s, dy + 44, "25 mm", size=T_LAB, anchor="middle", weight=700)
     d.text(x0 - 16, yt + h / 2 + 11, "end", size=T_LAB, anchor="end", weight=700, fill=BLUE)
-    # callouts: 1 = the pair in the rail slot, 2 = the M5 outermost
-    callout(d, x0 + 46 * s, by + nh / 2, 1)
-    d.leader(x0 + 30 * s, by + nh / 2, x0 + 46 * s - 30, by + nh / 2, col=INK)
-    c2y = (yt + 1.6 * s + nh + by) / 2
-    callout(d, x0 + 8.5 * s, c2y, 2, r=24)
-    d.text(x0 + 8.5 * s + 36, c2y + 11, "M5 outermost", size=T_MIN, weight=700)
+    # callout 1 = both nuts in the rail slot: a bracket over the pair
+    bry = by - 16
+    d.path(f"M {x0 + 2 * s} {by - 4} L {x0 + 2 * s} {bry} L {x0 + 29.5 * s} {bry} "
+           f"L {x0 + 29.5 * s} {by - 4}", stroke=INK, sw=3)
+    callout(d, x0 + 46 * s, bry, 1)
+    d.leader(x0 + 29.5 * s, bry, x0 + 46 * s - 30, bry, col=INK)
+    # callout 2 = the M5 outermost, from outside the end face
+    c2x, c2y = x0 - 48, by + nh / 2
+    callout(d, c2x, c2y, 2)
+    d.leader(c2x + 28, c2y, x0 + 2 * s, c2y, col=INK)
     step_note(d, "Page 90 draws this end turned over, rail up.", size=T_MIN)
     return d
 
@@ -265,9 +269,9 @@ def _gantry_top(d: Doc, ox, oy, flipped, with_x):
 
 def d503_gantry_flip() -> Doc:
     """Steps 05.41-05.42: before and after turning the gantry upside down."""
-    d = Doc(1080, "Turning the gantry upside down swaps left and right")
+    d = Doc(1060, "Turning the gantry upside down swaps left and right")
     top = step_header(d, "Upside down: left and right swap")
-    py, ph = top + 18, 950
+    py, ph = top + 18, 880
     d.panel(30, py, 555, ph)
     d.text(54, py + 52, "Motors down", size=38, weight=700)
     d.text(54, py + 94, "rails underneath", size=T_MIN, fill=MUTED)
@@ -277,20 +281,25 @@ def d503_gantry_flip() -> Doc:
     d.text(ox + 24, py + 52, "Upside down", size=38, weight=700, fill=OK)
     d.text(ox + 24, py + 94, "motors up, rails on top", size=T_MIN, fill=MUTED)
     fx0, fy0, fW, fH, xy = _gantry_top(d, ox, py, True, True)
-    d.text(fx0 + 50, xy + 82, "right XY joint", size=T_MIN, weight=700)
-    d.text(fx0 + 50, xy + 118, "with the bridge", size=T_MIN, weight=600, fill=ORANGE)
-    d.leader(fx0 + 30, xy + 28, fx0 + 46, xy + 56, col=INK)
+    d.text(fx0 + 40, xy + 82, "right XY joint", size=T_MIN, weight=700)
+    d.text(fx0 + 40, xy + 118, "and cable bridge", size=T_MIN, weight=600, fill=ORANGE)
+    d.leader(fx0 + 28, xy + 28, fx0 + 38, xy + 56, col=INK)
     for xx, ww, yy, hh in ((x0, W, y0, H), (fx0, fW, fy0, fH)):
         d.text(xx + ww / 2, yy + hh + 110, "FRONT: you stand here", size=T_MIN,
                anchor="middle", weight=700, fill=BLUE)
-    d.text(54, py + ph - 70, "A on your right", size=T_LAB, weight=700, fill=BELT_A)
-    d.text(ox + 24, py + ph - 70, "A now on your left", size=T_LAB, weight=700, fill=BELT_A)
-    # turn-over arrows between the panels
-    cy = py + 420
-    d.path(f"M 560 {cy - 40} C 590 {cy - 120}, 650 {cy - 120}, 656 {cy - 44}", stroke=INK,
-           sw=6, marker="arw")
-    d.path(f"M 640 {cy + 40} C 610 {cy + 120}, 550 {cy + 120}, 544 {cy + 44}", stroke=INK,
-           sw=6, marker="arw")
+    d.text(54, py + ph - 50, "A on your right", size=T_LAB, weight=700, fill=BELT_A)
+    d.text(ox + 24, py + ph - 50, "A now on your left", size=T_LAB, weight=700, fill=BELT_A)
+    # the roll: a dashed front-to-back axis down the middle of the left gantry and one
+    # arrow rolling over it, left side up and across to the right
+    ax = x0 + W / 2
+    ry = y0 + H * 0.36
+    d.line(ax, y0 - 20 - 96, ax, ry + 56, stroke=INK, sw=3, dash="14 10")
+    d.line(ax, ry + 152, ax, y0 + H + 62, stroke=INK, sw=3, dash="14 10")
+    d.path(f"M {ax - 120} {ry + 30} C {ax - 120} {ry - 80}, {ax + 120} {ry - 80}, "
+           f"{ax + 120} {ry + 24}", stroke=INK, sw=6, marker="arw")
+    d.text(ax, ry + 92, "roll it over", size=T_MIN, anchor="middle", weight=700)
+    d.text(ax, ry + 132, "this line", size=T_MIN, anchor="middle", weight=700)
+    step_note(d, "Roll it left to right: the idlers stay nearest you.", size=T_MIN)
     return d
 
 
@@ -302,9 +311,9 @@ def d504_endstop_pod() -> Doc:
     Heights from the CAD (machine z, flipped): Y extrusion 20, rail 6.5, carriage
     top 10 above the extrusion face, joint 14.3 over the carriage, pod 15.4 on it.
     """
-    d = Doc(1100, "Endstop pod: on top of the right XY joint, screws down")
+    d = Doc(1064, "Endstop pod: on top of the right XY joint, screws down")
     top = step_header(d, "Endstop pod: on top, screws down")
-    d.panel(30, top + 16, 1140, 680)
+    d.panel(30, top + 16, 1140, 650)
     d.text(54, top + 66, "From the front, gantry upside down", size=T_MIN, weight=700,
            fill=MUTED)
     k = 6.2
@@ -312,7 +321,7 @@ def d504_endstop_pod() -> Doc:
 
     def X(mm):                  # mm inboard from the outboard edge
         return ox + mm * k
-    base = top + 620            # bottom face of the Y extrusion, resting on the bench
+    base = top + 608            # bottom face of the Y extrusion, resting on the bench
 
     def Z(mm):                  # mm up from that face
         return base - mm * k
@@ -350,7 +359,7 @@ def d504_endstop_pod() -> Doc:
            fill=BLUE)
 
     # ---- inset: the four carriage holes seen from above, front at the bottom
-    iy = top + 716
+    iy = top + 686
     d.panel(30, iy, 1140, d.h - iy - 16)
     d.text(54, iy + 50, "From above: which two holes", size=T_MIN, weight=700, fill=MUTED)
     jx, jy, jw, jh = 110, iy + 80, 200, 170
@@ -362,7 +371,7 @@ def d504_endstop_pod() -> Doc:
     d.text(tx, jy + 40, "M3×16 already in:", size=T_MIN, weight=700)
     d.text(tx, jy + 76, "the pair nearer the drives", size=T_MIN, weight=600, fill=MUTED)
     d.text(tx, jy + 130, "M3×30 here:", size=T_MIN, weight=700, fill=ORANGE)
-    d.text(tx, jy + 166, "the pair nearer you", size=T_MIN, weight=600, fill=MUTED)
+    d.text(tx, jy + 166, "the pair nearer the idlers", size=T_MIN, weight=600, fill=MUTED)
     return d
 
 
@@ -374,7 +383,7 @@ def d505_xy_joint_stack() -> Doc:
     top = step_header(d, "XY joint bearing stack")
     d.panel(30, top + 16, 780, d.h - top - 32)
     d.text(54, top + 70, "flanges face out", size=T_LAB + 4, weight=800, fill=OK)
-    k = 15.0
+    k = 16.0
     cx = 240
     plate_top = d.h - 210
 
@@ -390,44 +399,54 @@ def d505_xy_joint_stack() -> Doc:
         d.rect(cx - 5 * k, yb - 1.2 * k, 10 * k, 1.2 * k, fill=AMBER_F, stroke=AMBER, sw=3,
                rx=2)
         return yb - 1.2 * k
-    gap = 34
-    ys = [plate_top - gap]
+    # the stack as p.97 draws it: the four items touching, plain face to plain face in
+    # the middle; only the plate below and the body above are pulled apart
+    stack_bot = plate_top - 40
+    order = ("spacer", "down", "up", "spacer")
     rows = []
-    y = ys[0]
-    for kind in ("spacer", "down", "up", "spacer"):
+    y = stack_bot
+    for kind in order:
+        y1 = y - (1.2 * k if kind == "spacer" else 4 * k)
         if kind == "spacer":
-            y1 = spacer(y)
             rows.append(((y + y1) / 2, "spacer", AMBER))
         else:
-            y1 = bearing(y, kind == "down")
             rows.append(((y + y1) / 2, "F695, flange " + kind, INK))
-        y = y1 - gap
-    stack_top = y + gap
-    body_top = stack_top - 190
+        y = y1
+    stack_top = y
+    body_top = stack_top - 200
     shaft_top = body_top + 20
     # the screw: drawn first so the stack sits over it
     d.rect(cx - 2.5 * k, shaft_top, 5 * k, plate_top + 70 - shaft_top, fill=GREY_F,
            stroke=GREY, sw=2.5)
-    # redraw the stack over the shaft
-    y = ys[0]
-    for kind in ("spacer", "down", "up", "spacer"):
-        y1 = spacer(y) if kind == "spacer" else bearing(y, kind == "down")
-        y = y1 - gap
+    y = stack_bot
+    for kind in order:
+        y = spacer(y) if kind == "spacer" else bearing(y, kind == "down")
     # the thin plate at the bottom, the screw head under it
     d.rect(cx - 160, plate_top, 320, 70, fill=BLACKPART_F, stroke=BLACKPART, sw=3, rx=8)
     d.rect(cx - 2.5 * k, plate_top - 1, 5 * k, 72, fill=GREY_F, stroke=GREY, sw=2.5)
     d.rect(cx - 4.25 * k, plate_top + 72, 8.5 * k, 60, fill=GREY_F, stroke=GREY, sw=2.5, rx=6)
-    for yy, lab, col in rows:
-        d.leader(cx + 8 * k, yy, 420, yy, col=col if col != INK else MUTED)
-        d.text(430, yy + 11, lab, size=T_LAB, weight=700, fill=col)
-    # the thick body comes down on top
+    # labels fanned out a little so the thin spacer rows keep clear of the bearing rows
+    nudge = (10, 0, 0, -10)
+    for (yy, lab, col), dy in zip(rows, nudge):
+        d.path(f"M {cx + 8 * k} {yy} L {440} {yy + dy}", stroke=col if col != INK else MUTED,
+               sw=2)
+        d.text(450, yy + dy + 11, lab, size=T_LAB, weight=700, fill=col)
+    # the thick body comes down on top, labelled beside its box
     d.rect(cx - 170, body_top, 340, 110, fill="none", stroke=BLACKPART, sw=3, rx=10,
            dash="12 8")
-    d.text(cx, body_top + 66, "thick body", size=T_MIN, anchor="middle", weight=700,
-           fill=MUTED)
     arrow(d, cx + 210, body_top + 10, cx + 210, body_top + 100, col=MUTED, sw=4, mk="arwm")
+    d.text(cx + 240, body_top + 50, "thick body", size=T_MIN, weight=700, fill=MUTED)
+    d.text(cx + 240, body_top + 88, "comes down last", size=T_MIN, weight=600, fill=MUTED)
     d.text(cx + 175, plate_top + 46, "thin plate", size=T_MIN, weight=700)
     d.text(cx + 80, plate_top + 116, "M5×40, pushed up", size=T_MIN, weight=700)
+    # Do numbers of Steps 05.26 and 05.30: 2 = the screw up through the plate, 3 = the stack
+    callout(d, cx - 130, plate_top + 102, 2)
+    d.leader(cx - 102, plate_top + 102, cx - 4.25 * k - 4, plate_top + 102, col=INK)
+    smid = (stack_bot + stack_top) / 2
+    callout(d, 68, smid, 3)
+    d.path(f"M 114 {stack_top + 2} L 104 {stack_top + 2} L 104 {stack_bot - 2} "
+           f"L 114 {stack_bot - 2}", stroke=INK, sw=3)
+    d.leader(96, smid, 104, smid, col=INK)
 
     # ---- wrong: flanges in, meeting in the middle
     ox = 830
@@ -534,17 +553,19 @@ DIAGRAMS = [
         "fn": d503_gantry_flip,
         "shows": [
             "Two top views from the front (idler) end. Before: motors down, rails underneath, "
-            "B drive and B idler on the left, A on the right. After turning it over: motors "
-            "up, rails on top, A on the left, and the X axis landed with the right XY joint "
-            "(the one with the cable bridge) on the A side, your left.",
+            "B drive and B idler on the left, A on the right, with a dashed front-to-back "
+            "line down the middle and one arrow rolling the gantry over it, left to right. "
+            "After the roll: motors up, rails on top, A on the left, and the X axis landed "
+            "with the right XY joint (the one with the cable bridge) on the A side, your left.",
         ],
         "insert": [
-            ("05-gantry.md", "Step 05.41", "what turning it over does to left and right"),
-            ("05-gantry.md", "Step 05.42", "which end the right XY joint lands on"),
+            ("05-gantry.md", "Step 05.41", "what rolling it over does to left and right, and "
+             "which end the right XY joint lands on"),
         ],
         "verify": [
             "Proportions are schematic. Any way of turning it over gives the same result once "
-            "the idlers are nearest you, so no turning axis is drawn.",
+            "the idlers are nearest you; the roll about the front-to-back line is drawn "
+            "because it keeps them nearest you throughout.",
         ],
     },
     {
@@ -577,10 +598,11 @@ DIAGRAMS = [
         "title": "XY joint bearing stack",
         "fn": d505_xy_joint_stack,
         "shows": [
-            "Side view, exploded, as p.97 builds it: the thin plate at the bottom, the M5×40 "
-            "pushed up through it, then spacer, F695 flange down, F695 flange up, spacer, and "
-            "the thick body coming down on top. A small red panel shows the wrong way: "
-            "flanges facing in.",
+            "Side view as p.97 builds it: the thin plate at the bottom, the M5×40 pushed up "
+            "through it (callout 2), then the stack touching item to item, spacer, F695 "
+            "flange down, F695 flange up, spacer (callout 3), and the thick body coming down "
+            "on top. Callouts 2 and 3 are the Do numbers of Steps 05.26 and 05.30. A small "
+            "red panel shows the wrong way: flanges facing in.",
         ],
         "insert": [
             ("05-gantry.md", "Step 05.26", "the stack order on the right joint"),

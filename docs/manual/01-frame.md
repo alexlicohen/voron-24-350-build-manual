@@ -13,7 +13,7 @@ caption: Square the frame once, properly. Everything above copies this frame, in
 
 **Time:** 2.5–4.0 h hands-on, first build, two people ([survey §5.1 P01 / §7.2](../voron-build-instructions-survey.md)).
 
-**Sessions:** 4 × ~40 min. Each session ends at a safe place to stop.
+**Sessions:** 4 × ~40 min (35 to 65 min each). Each session ends at a safe place to stop. The second, Steps 01.6 to 01.15, takes about 65 min and cannot be stopped halfway.
 
 **Prerequisites:**
 
@@ -141,7 +141,7 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.13](assets/manual-pages/manual-p013.png){ crop="0.14 0.19 0.84 0.84" }
 
-**What you're looking at:** Two things can spoil a joint: a rough edge (a burr) on a cut end, and a slot too tight for a nut. A roll-in T-nut is a small nut that drops into a slot and turns a quarter turn to lock. Find both now.
+**What you're looking at:** Two things spoil a joint: a rough edge (a burr) on a cut end, and a tight slot. A roll-in T-nut drops into a slot and turns to lock.
 
 **Parts:**
 
@@ -152,11 +152,11 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Check both ends of all 10 A and 4 B extrusions and file off any burr.
-2. Roll the M5 T-nut into all four slots of each A extrusion. Tape the slot it fits most easily.
-3. Roll the M3 T-nut into the two slots of each B extrusion that have no access holes.
+1. Check both ends of every A and B extrusion. File only a burr off the edge, never the flat face.
+2. Roll the M5 T-nut into all four slots of each A. Tape the slot it fits best; mark any slot where it sticks with an X.
+3. Roll the M3 T-nut into the two slots of each B that have no access holes.
 
-**Check:** Every end sits flat against the machinist square. Every T-nut goes in and turns with finger pressure alone.
+**Check:** Every end sits flat against the square, each A has a taped slot, and the M3 T-nut turns by finger in both tested B slots.
 
 ⚠ Never force a T-nut. LDO warns that the fit is tight in this kit. If one will not turn, try another slot or another extrusion. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
@@ -169,7 +169,7 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![Voron manual p.14](assets/manual-pages/manual-p014.png){ crop="0.27 0.15 0.94 0.72" }
 ![The blind joint in three stages: screw started, head in the slot, tightened through the access hole](assets/diagrams/15-blind-joint.svg)
 
-**What you're looking at:** Each joint's screw goes into the end of a horizontal first, because later its head hides inside the vertical. BHCS means button head cap screw: a screw with a low, domed head.
+**What you're looking at:** Each joint's screw goes into a horizontal's end first, because later its head hides inside the vertical. BHCS means button head cap screw: a screw with a low, domed head.
 
 **Parts:**
 
@@ -180,9 +180,9 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 1. Take 8 of the 10 A extrusions. Set the other 2 aside for the bed.
 2. Thread an M5×16 BHCS into the hole in each end, 16 screws in all. Stop when about 2 mm of the screw still shows under its head.
-3. Leave them finger-loose.
+3. Leave them finger-loose. If a screw is hard to turn, try a fresh one. If that is stiff too, the extrusion's thread is damaged: stop and ask your kit vendor.
 
-**Check:** All 16 screws go in smoothly and stick out by the same amount. A screw that is hard to turn means a damaged thread: sort it out now.
+**Check:** All 16 screws went in smoothly and stick out by the same amount.
 
 Source: [Voron manual p.14](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=14)
 
@@ -225,7 +225,7 @@ Pause: ~40 min since the last pause — extrusions sorted and labelled, ends che
 
 1. Lay four of the prepared A extrusions on the stone in a square, taped slot facing up. They do not touch each other.
 2. Point each end into a corner gap of about 20 × 20 mm, the size of a vertical.
-3. Stick tape marked **FRONT** on the side facing you. Any side will do for now.
+3. Stick tape marked **FRONT** on the side facing you. Any side will do.
 
 **Check:** All four lie flat on the stone with nothing lifting, and each corner has a square gap of roughly 20 × 20 mm.
 
@@ -238,7 +238,7 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![One corner from above: the vertical with its access holes facing out of the frame](assets/diagrams/16-corner-access-holes.svg)
 ![Voron manual p.15](assets/manual-pages/manual-p015.png){ crop="0.06 0.20 0.60 0.86" }
 
-**What you're looking at:** The first corner sets the pattern for the other three. The one thing to get right is which way the vertical faces. Its two access holes must point out of the frame, because the two horizontals cover its inner faces.
+**What you're looking at:** The first corner sets the pattern for the other three. Get one thing right: the vertical's two access holes point out of the frame, because the two horizontals cover its inner faces.
 
 **Parts:**
 
@@ -252,7 +252,7 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. Lower it so each screw head slides into a slot, then push both A extrusions tight against it.
 3. Snug each screw through its access hole with the 3 mm key. Snug means just closed, **not tight**.
 
-**Check:** Both A ends touch the vertical with no gap, the vertical's bottom end is level with them, and the corner sits flat on the stone.
+**Check:** Both access holes face out of the frame, both A ends touch the vertical with no gap, the vertical's bottom end is level with them, and the corner sits flat on the stone.
 
 **Helper:** Holds the two A extrusions together at the corner while you snug the bolts.
 
@@ -273,7 +273,7 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 - reused: A extrusion ×2, prepared
 - reused: M5×16 BHCS ×6, already in the A extrusions
 
-**Do:** Repeat Step 01.7 at each remaining corner, working your way around and joining in the last two bottom A extrusions as you go. Access holes face outward every time.
+**Do:** Repeat Step 01.7 at each remaining corner in turn, adding the last two bottom A extrusions as you go. Access holes face outward every time.
 
 **Check:** The bottom square is closed and four verticals stand in it, so 8 of the 16 blind joints are made. It still sits flat on the stone without rocking.
 
@@ -296,9 +296,9 @@ Source: [Voron manual p.16](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 1. Press each corner down onto the stone.
 2. Snug all 8 bottom screws, jumping to the opposite corner each time: corner 1, then 3, then 2, then 4.
-3. Hold the machinist square into each of the four inside corners.
+3. Hold the machinist square into each of the four inside corners. If a corner shows light, carry on: Step 01.12 squares the frame before anything is tightened.
 
-**Check:** No light shows between the square and the extrusion at any corner, and all four extrusions still touch the stone along their whole length.
+**Check:** All 8 bottom screws are snug, you have looked into all four corners, and all four extrusions still touch the stone along their whole length.
 
 **Helper:** Holds the square in each inside corner and calls out any light under the blade.
 
@@ -310,7 +310,7 @@ Source: [Voron manual p.16](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.17](assets/manual-pages/manual-p017.png){ crop="0.20 0.22 0.58 0.80" }
 
-**What you're looking at:** The top square is the same joint the other way up: each screw head drops into a vertical's slot from its open top end. The extrusions are long and the verticals wobble, so this takes two people.
+**What you're looking at:** The top square is the same joint the other way up: each screw head drops into a vertical's slot from its open top end. The verticals wobble, so this takes two people.
 
 **Parts:**
 
@@ -320,7 +320,7 @@ Source: [Voron manual p.16](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. With one person at each end, lower each of the four remaining A extrusions between two verticals so both screw heads enter the slots from the top.
-2. If one will not go in, turn its screws in a little further. Never pull the verticals apart to make room.
+2. If one will not go in, check its screws: about 2 mm should show under each head. Back out one that shows less, turn in one that shows more. Never pull the verticals apart.
 3. Snug only.
 
 **Check:** The top square is closed, so all 16 blind joints are made, and no end has a visible gap.
@@ -333,7 +333,6 @@ Source: [Voron manual p.17](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 01.11 — Snug the top square
 
-![Tightening order: corner 1, then 3, then 2, then 4](assets/diagrams/17-tightening-order.svg)
 ![Voron manual p.17](assets/manual-pages/manual-p017.png){ crop="0.20 0.22 0.58 0.80" }
 
 **What you're looking at:** As more parts go on, the frame settles, and the screws you snugged first are no longer snug. So go round once more.
@@ -366,11 +365,11 @@ Source: [Voron manual p.17](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. If one diagonal is longer, tap one of its corners inward with the mallet. Measure again, and repeat until the two match.
 3. Fully tighten the 8 bottom screws in the order 1, 3, 2, 4, then measure once more.
 
+How tight: the manual gives no torque number for these screws. Tighten firmly with the straight 3 mm key, not a ball end, which slips out under force. If you use the torque screwdriver, pick one setting and use it on all 16 joints. Even matters more than exact. `(not specified — snug, then even)`
+
 **Check:** Both diagonals read the same, about **721 mm** on this frame, and all four corners are 90°. Write both numbers in the log. [src](https://voron.link/kdtpzam)
 
 **Helper:** Holds the tape's far end on the corner and reads each diagonal aloud.
-
-How tight: the manual gives no torque number for these screws. Tighten firmly with the straight 3 mm key, not a ball end, which slips out under force. If you use the torque screwdriver, pick one setting and use it on all 16 joints. Even matters more than exact. `(not specified — snug, then even)`
 
 Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [Voron manual p.17](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=17) · [frame squaring video](https://voron.link/kdtpzam)
 
@@ -379,17 +378,16 @@ Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 01.13 — Square the top square and lock it
 
 ![How to square a frame: measure both diagonals, tap the corner on the longer one inward](assets/diagrams/13-frame-diagonals.svg)
-![Tightening order: corner 1, then 3, then 2, then 4](assets/diagrams/17-tightening-order.svg)
 
-**What you're looking at:** The top needs the same treatment. One extra risk: top and bottom can each be square and still be turned slightly against each other. That is a twisted frame, and later the gantry will not sit parallel to the bed.
+**What you're looking at:** The top gets the same treatment, with one extra risk: top and bottom can each be square yet turned slightly against each other. That twisted frame would leave the gantry out of parallel with the bed.
 
 **Parts:** none.
 
 **Do:**
 
-1. Measure both top diagonals and tap with the mallet until they match.
-2. Before tightening, look down each vertical to see that none leans, and check the top inside corners with the machinist square.
-3. Fully tighten the 8 top screws in the order 1, 3, 2, 4, then measure again.
+1. Measure both top diagonals.
+2. Tap a corner of the longer one inward with the mallet. Measure again, and repeat until they match.
+3. Look down each vertical to see that none leans, and check the top inside corners with the machinist square. Then fully tighten the 8 top screws in the order 1, 3, 2, 4, and measure again.
 
 **Check:** The two top diagonals match each other and are within about a millimetre of the bottom pair.
 
@@ -443,9 +441,8 @@ Pause: ~65 min since the last pause — the frame is assembled, square on all si
 ### Step 01.16 — Fit corner brackets to the two bed extrusions
 
 ![Voron manual p.18](assets/manual-pages/manual-p018.png){ crop="0.12 0.34 0.80 0.74" }
-![The bed extrusions from above with the 255 mm and 65 mm measurements, and one bracket from the side](assets/diagrams/18-bed-extrusions.svg)
 
-**What you're looking at:** The last two A extrusions carry the heated bed. Instead of blind joints, each end gets a corner bracket, a small metal angle that later sits on top of the front or rear bottom extrusion.
+**What you're looking at:** The last two A extrusions carry the heated bed. Each end gets a corner bracket, a small metal angle that later sits on a bottom extrusion.
 
 **Parts:**
 
@@ -455,13 +452,11 @@ Pause: ~65 min since the last pause — the frame is assembled, square on all si
 
 **Do:**
 
-1. Hold a bracket against one end of an A extrusion and fix it with an M5×16 BHCS into the hole in the end.
-2. Turn the bracket so its free leg is level with the extrusion's bottom face and points away from the end.
-3. Do all four ends the same way. Snug only: Step 01.19 tightens them.
+1. Turn each bed extrusion so the slot you taped in Step 01.3 faces up. Ch 03 rolls M3 T-nuts into it, and once the brackets are on it cannot turn.
+2. Fix a bracket to each end with an M5×16 BHCS into the end hole, its free leg level with the bottom face and pointing away from the end.
+3. Snug only for now.
 
-**Check:** 4 brackets are on with 4 screws. Every free leg lies level with the bottom face, points away from its end, and matches the other three.
-
-Before the brackets go on, turn each bed extrusion so the slot you taped when test-fitting T-nuts faces up: Chapter 03 rolls T-nuts into its top and inner slots after it is screwed down.
+**Check:** 4 brackets are on with 4 screws, every taped slot faces up, and every free leg lies level with the bottom face, pointing away from its end.
 
 Source: [Voron manual p.18](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=18) · [Voron manual p.20](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=20) · CAD: Voron 2.4r2 STEP @ de7e89d · [Video: Part 1 @1:29:21](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5361s)
 
@@ -488,9 +483,8 @@ Source: [Voron manual p.19](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 01.18 — Set the bed extrusions and start the fasteners
 
 ![Voron manual p.19](assets/manual-pages/manual-p019.png){ crop="0.38 0.19 0.89 0.86" }
-![The bed extrusions from above with the 255 mm and 65 mm measurements, and one bracket from the side](assets/diagrams/18-bed-extrusions.svg)
 
-**What you're looking at:** Under each screw head sits a brass precision spacer: a ring of exact thickness, not an ordinary washer. In this kit it replaces every "M5 shim" in the Voron manual.
+**What you're looking at:** Set the bed extrusions in place and start their four screws. Under each head goes a brass precision spacer, not a washer: it replaces the Voron manual's "M5 shim".
 
 **Parts:**
 
@@ -500,11 +494,11 @@ Source: [Voron manual p.19](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Set both bed extrusions in front to back, each bracket leg on a bottom extrusion, over a T-nut.
-2. If your FRONT tape is on a side that runs alongside the bed extrusions, move it to a side they point at.
-3. Put a spacer on each bracket hole and start an M5×10 BHCS through it into the T-nut, finger-loose.
+1. Set both bed extrusions in front to back, each bracket leg on a bottom extrusion over a T-nut.
+2. Ch 03 rolls T-nuts into the two side slots that face each other: if one carries an X, turn that extrusion end for end.
+3. Start an M5×10 BHCS through a spacer and each bracket hole into its T-nut, finger-loose.
 
-**Check:** 4 screws and 4 spacers are in. Each bed extrusion ends flush with the inner faces of the front and rear extrusions, with its underside level with their tops.
+**Check:** 4 screws and 4 spacers are in. Each bed extrusion ends flush with the inner faces of the front and rear extrusions, its underside level with their tops.
 
 Source: [Voron manual p.19](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=19) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -512,7 +506,7 @@ Source: [Voron manual p.19](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 01.19 — Position the bed extrusions on the centreline
 
-![The bed extrusions from above with the 255 mm and 65 mm measurements, and one bracket from the side](assets/diagrams/18-bed-extrusions.svg)
+![The bed extrusions from above with the 255 mm and 65 mm measurements, and the bracket from the side with both screws to tighten](assets/diagrams/18-bed-extrusions.svg)
 ![Voron manual p.20](assets/manual-pages/manual-p020.png){ crop="0.22 0.18 0.92 0.83" }
 
 **What you're looking at:** The bed bolts to these two extrusions, so they have to sit exactly where its mounting holes are: the same distance either side of the printer's centreline, and square to the front.
@@ -562,7 +556,7 @@ Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 01.21 — Titanium backers: not now
 
-![The three titanium backers and where each goes in Ch 05](assets/diagrams/12-ti-backers.svg)
+(no image — see text)
 
 **What you're looking at:** The kit includes thin titanium strips called backers. In Ch 05 they bolt to the gantry, on the face opposite a steel rail, to stop the aluminium bowing as the two metals warm up. They look like frame parts. They are not.
 
@@ -578,7 +572,7 @@ Source: [whopping_Voron_mods — `extrusion_backers`](https://github.com/tanaes/
 
 ### Step 01.22 — Record the frame log
 
-![The six faces of the frame, each with two diagonals to compare](assets/diagrams/14-frame-six-faces.svg)
+(no image — see text)
 
 **What you're looking at:** Write the numbers down before the frame leaves the counter. Much later, if the gantry will not square up in Ch 06, these numbers tell you whether the frame is to blame. "It looked fine" cannot do that.
 

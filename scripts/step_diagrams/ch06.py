@@ -145,14 +145,20 @@ def d602_belt_tail_tie() -> dd.Doc:
         d.rect(x - 11, cy0 - 84, 22, 84 + bt + 70, fill=dd.GREY_F, stroke=dd.GREY,
                sw=2, dash="8 6")
 
-    # belt: in from the right under the clip, out on the left, up, folded back down
+    # belt (p.120): the run from the Z idler comes DOWN past the clip's far edge,
+    # bends under the clip, and the tail leaves the near edge, rises and folds back
+    xr = fx1 + 40                       # the running belt, rising to the Z idler
+    rb = 40
     xb = fx0 - 70                       # the rising tail, left of the clip
     ytop = py + 140                     # top of the fold
     r1 = 46
-    path = (f"M 1150 {fy - bt / 2} L {xb + r1} {fy - bt / 2} "
-            f"A {r1} {r1} 0 0 1 {xb} {fy - bt / 2 - r1} L {xb} {ytop + 40} "
+    yb = fy - bt / 2
+    path = (f"M {xr} {py + 30} L {xr} {yb - rb} A {rb} {rb} 0 0 1 {xr - rb} {yb} "
+            f"L {xb + r1} {yb} "
+            f"A {r1} {r1} 0 0 1 {xb} {yb - r1} L {xb} {ytop + 40} "
             f"A 40 40 0 0 1 {xb + 80} {ytop + 40} L {xb + 80} {py + 420}")
     d.path(path, stroke=BELT, sw=bt, cap="butt")
+    _arrow(d, xr + 50, py + 300, xr + 50, py + 130, col=dd.MUTED, sw=5, mk="arwm")
     # zip tie round both layers, just above the clip
     ty = py + 400
     d.rect(xb - 22, ty - 18, 124, 36, fill=dd.GREY_F, stroke=dd.INK, sw=3, rx=8)
@@ -161,20 +167,23 @@ def d602_belt_tail_tie() -> dd.Doc:
     d.line(xb + 136, ty, xb + 146, ty, stroke=dd.INK, sw=3)
 
     dd.callout(d, xb - 70, ty, 1)
-    dd.callout(d, xb + 150, ytop + 10, 2)
+    dd.callout(d, xb - 70, ytop + 10, 2)
     dd.callout(d, xb + 186, ty, 3)
-    # legend, top right
-    y = dd.legend_row(d, 640, py + 70, 1, ["fold the tail up,", "tie it to itself"])
-    y = dd.legend_row(d, 640, y + 24, 2, ["leave enough to", "clamp it once more"])
-    dd.legend_row(d, 640, y + 24, 3, ["trim the tie flush"])
+    # legend, top middle
+    y = dd.legend_row(d, 560, py + 70, 1, ["fold the tail up,", "tie it to itself"])
+    y = dd.legend_row(d, 560, y + 24, 2, ["leave enough to", "clamp it once more"])
+    dd.legend_row(d, 560, y + 24, 3, ["trim the tie flush"])
     # labels
     d.text((fx0 + fx1) / 2, cy0 - 30, "upper clip", size=dd.T_LAB, anchor="middle",
            weight=700, fill=dd.ORANGE)
-    d.text(fx1 - 80, cy0 - 104, "two M5×16", size=dd.T_LAB, weight=700)
-    d.text(780, fy + 160, "gantry corner", size=dd.T_LAB, anchor="middle", weight=700)
-    d.text(1150, fy - 30, "to the Z idler", size=dd.T_MIN, anchor="end", weight=600,
+    d.text(fx0 + 200, cy0 - 140, "two M5×16", size=dd.T_LAB, weight=700)
+    d.text((fx0 + fx1) / 2 + 40, fy + 160, "gantry corner", size=dd.T_LAB,
+           anchor="middle", weight=700)
+    d.text(xr - 24, py + 380, "up to the", size=dd.T_MIN, anchor="end", weight=600,
            fill=dd.MUTED)
-    d.text(xb - 30, py + 250, "belt tail", size=dd.T_MIN, anchor="end", weight=600,
+    d.text(xr - 24, py + 416, "Z idler", size=dd.T_MIN, anchor="end", weight=600,
+           fill=dd.MUTED)
+    d.text(xb - 30, py + 270, "tail", size=dd.T_MIN, anchor="end", weight=600,
            fill=dd.MUTED)
     return d
 
@@ -185,9 +194,9 @@ def d603_set_gantry_down() -> dd.Doc:
     top = dd.step_header(d, "Set it down on the joints")
     py = top + 18
 
-    # ---- left: one corner coming down
-    d.panel(30, py, 700, 880)
-    cx = 330
+    # ---- right: one corner coming down (Do 2)
+    d.panel(460, py, 710, 880)
+    cx = 700
     _rail_window(d, cx, py + 20, py + 860, 92, 46, 104, py - 40, lambda i: i % 2 == 0)
     # lower joint on its carriage, parked on its stopper (a free hole)
     jt = py + 380
@@ -197,83 +206,96 @@ def d603_set_gantry_down() -> dd.Doc:
     _stopper(d, cx, jt + 224, 26)
     # gantry corner, lower clip and Z bearing block, held a little above
     gy = py + 310                        # underside of the block
-    d.rect(cx - 250, py + 120, 350, 80, fill=dd.BLACKPART_F, stroke=dd.BLACKPART, sw=4,
+    d.rect(cx - 220, py + 120, 300, 80, fill=dd.BLACKPART_F, stroke=dd.BLACKPART, sw=4,
            rx=8)
-    d.text(cx - 230, py + 172, "gantry corner", size=dd.T_MIN, weight=700)
+    d.text(cx - 204, py + 172, "gantry corner", size=dd.T_MIN, weight=700)
     d.rect(cx - 85, py + 200, 170, 22, fill=dd.ORANGE_F, stroke=dd.ORANGE, sw=3, rx=4)
     d.rect(cx - 85, py + 222, 170, 88, fill=dd.BLACKPART_F, stroke=dd.BLACKPART, sw=4, rx=8)
     d.rect(cx - 13, gy - 60, 26, 60, fill=dd.PANEL, stroke=dd.BLACKPART, sw=3)
-    # holes in line
+    # holes in line: a sideways error is fixed by nudging the gantry, not the carriage
     d.line(cx, gy - 70, cx, jt + 140, stroke=dd.OK, sw=4, dash="12 9")
+    nx0, nx1, ny = cx + 104, cx + 224, py + 160
+    _arrow(d, (nx0 + nx1) / 2, ny, nx0, ny, col=dd.MUTED, sw=5, mk="arwm")
+    _arrow(d, (nx0 + nx1) / 2, ny, nx1, ny, col=dd.MUTED, sw=5, mk="arwm")
+    d.text(nx1 + 20, ny - 8, "nudge the", size=dd.T_MIN, weight=600, fill=dd.MUTED)
+    d.text(nx1 + 20, ny + 28, "gantry", size=dd.T_MIN, weight=600, fill=dd.MUTED)
     # lower it
-    _arrow(d, cx - 200, py + 240, cx - 200, py + 350, sw=8)
-    dd.callout(d, cx - 200, py + 410, 1)
-    # slide the carriage up or down to meet it
-    ax = cx + 150
-    _arrow(d, ax, jt + 100, ax, jt + 10, col=dd.MUTED, sw=5, mk="arwm")
-    _arrow(d, ax, jt + 100, ax, jt + 190, col=dd.MUTED, sw=5, mk="arwm")
-    d.text(ax + 26, jt + 70, "slide the", size=dd.T_MIN, weight=600, fill=dd.MUTED)
-    d.text(ax + 26, jt + 106, "carriage", size=dd.T_MIN, weight=600, fill=dd.MUTED)
-    d.text(ax + 26, jt + 142, "to line up", size=dd.T_MIN, weight=600, fill=dd.MUTED)
+    _arrow(d, cx - 170, py + 240, cx - 170, py + 350, sw=8)
+    dd.callout(d, cx - 170, py + 410, 2)
+    # a corner that does not touch: slide that carriage UP to meet it (p.115)
+    ax = cx + 140
+    _arrow(d, ax, jt + 190, ax, jt + 10, col=dd.MUTED, sw=5, mk="arwm")
+    d.text(ax + 24, jt + 70, "no touch?", size=dd.T_MIN, weight=600, fill=dd.MUTED)
+    d.text(ax + 24, jt + 106, "slide it up", size=dd.T_MIN, weight=600, fill=dd.MUTED)
+    d.text(ax + 24, jt + 142, "until it does", size=dd.T_MIN, weight=600, fill=dd.MUTED)
     d.text(cx + 100, gy - 30, "Z block", size=dd.T_LAB, weight=700)
-    d.text(ax + 26, jt + 232, "on its stopper", size=dd.T_MIN, weight=600, fill=dd.MUTED)
-    d.text(60, py + 720, "holes in line", size=dd.T_LAB, weight=700, fill=dd.OK)
-    d.leader(cx - 2, jt + 120, 170, py + 690, col=dd.OK)
+    d.text(ax + 24, jt + 232, "on its stopper", size=dd.T_MIN, weight=600, fill=dd.MUTED)
+    d.leader(cx + 30, jt + 224, ax + 14, jt + 222, col=dd.MUTED)
+    d.text(484, py + 700, "holes", size=dd.T_LAB, weight=700, fill=dd.OK)
+    d.text(484, py + 738, "in line", size=dd.T_LAB, weight=700, fill=dd.OK)
+    d.leader(cx - 2, jt + 120, 560, py + 668, col=dd.OK)
 
-    # ---- right: no stoppers, zip-tie each corner up first
-    ox = 750
-    d.panel(ox, py, 420, 880)
-    d.text(ox + 210, py + 52, "No stoppers?", size=dd.T_LAB, anchor="middle", weight=700)
-    tcx, tcy = ox + 210, py + 200
+    # ---- left: no stoppers, zip-tie each corner up first (Do 1)
+    ox = 30
+    d.panel(ox, py, 410, 880)
+    d.text(ox + 205, py + 52, "No stoppers?", size=dd.T_LAB, anchor="middle", weight=700)
+    tcx, tcy = ox + 205, py + 200
     by = py + 560
     # the long zip tie: over the top extrusion, under the gantry corner
     d.rect(tcx - 62, tcy - 58, 124, by + 90 - tcy + 58, fill="none", stroke=dd.GREY, sw=9,
            rx=40)
     dd.profile2020(d, tcx, tcy, 3.6)
-    d.rect(ox + 60, by, 300, 70, fill=dd.BLACKPART_F, stroke=dd.BLACKPART, sw=4, rx=8)
+    d.rect(ox + 55, by, 300, 70, fill=dd.BLACKPART_F, stroke=dd.BLACKPART, sw=4, rx=8)
     dd.label_bg(d, tcx, by + 47, "gantry corner", size=dd.T_MIN, weight=700,
                 bg=dd.BLACKPART_F)
     dd.label_bg(d, tcx, tcy + 82, "top extrusion", size=dd.T_MIN, weight=600,
                 fill=dd.BLUE)
     dd.label_bg(d, tcx, py + 400, "long zip tie", size=dd.T_MIN, weight=600,
                 fill=dd.MUTED)
-    dd.callout(d, tcx + 120, py + 470, 2)
-    d.text(ox + 210, py + 730, "zip-tie it up", size=dd.T_LAB, anchor="middle",
+    dd.callout(d, tcx + 120, py + 470, 1)
+    d.text(ox + 205, py + 730, "zip-tie it up", size=dd.T_LAB, anchor="middle",
            weight=700)
-    d.text(ox + 210, py + 770, "before you lower", size=dd.T_LAB, anchor="middle",
+    d.text(ox + 205, py + 770, "before you lower", size=dd.T_LAB, anchor="middle",
            weight=700)
     return d
 
 
 # ============================================================== diagram 604 ===
 def d604_z_belt_span() -> dd.Doc:
-    d = dd.Doc(1100, "Where the 150 mm Z belt span is measured and plucked")
+    d = dd.Doc(1060, "Where the 150 mm Z belt span is measured and plucked")
     top = dd.step_header(d, "The 150 mm span")
     py = top + 18
-    d.panel(30, py, 1140, 970)
+    d.panel(30, py, 1140, 930)
 
-    k = 3.4                                  # px per mm on the span
-    ix, iy, ir = 470, py + 200, 46           # Z idler pulley centre
-    # idler body (black part) on the top frame extrusion
-    d.rect(ix - 130, py + 40, 330, 70, fill=dd.BLUE_F, stroke=dd.BLUE, sw=3)
-    d.text(ix + 215, py + 88, "top extrusion", size=dd.T_MIN, weight=600, fill=dd.BLUE)
-    d.path(f"M {ix - 80} {py + 110} L {ix - 80} {iy + 30} A 80 80 0 0 0 {ix + 80} {iy + 30} "
-           f"L {ix + 80} {py + 110} Z", fill=dd.BLACKPART_F, stroke=dd.BLACKPART, sw=4)
+    k = 3.1                                  # px per mm on the span
+    ix, iy, ir = 470, py + 236, 46           # Z idler pulley centre
+    # fixed bracket (black) under the top frame extrusion
+    d.rect(ix - 130, py + 30, 330, 64, fill=dd.BLUE_F, stroke=dd.BLUE, sw=3)
+    d.text(ix + 215, py + 74, "top extrusion", size=dd.T_MIN, weight=600, fill=dd.BLUE)
+    d.rect(ix - 90, py + 94, 270, 46, fill=dd.BLACKPART_F, stroke=dd.BLACKPART, sw=4, rx=6)
+    # the moving slider (blue part) carries the pulley; it hangs from the screw
+    sy0, sy1 = py + 146, py + 196            # slider block under the bracket
+    d.path(f"M {ix - 80} {sy0} L {ix + 170} {sy0} L {ix + 170} {sy1} L {ix + 80} {sy1} "
+           f"L {ix + 80} {iy + 26} A 80 80 0 0 1 {ix - 80} {iy + 26} Z",
+           fill=dd.ORANGE_F, stroke=dd.ORANGE, sw=4)
     d.circle(ix, iy, ir, fill=dd.GREY_F, stroke=dd.GREY, sw=3)
     d.circle(ix, iy, 9, fill=dd.GREY, stroke="none", sw=0)
-    # the tensioner screw: head under the idler, turned from below
-    hx, hy = ix + 120, py + 150
-    d.rect(hx - 9, py + 110, 18, hy - py - 110, fill=dd.GREY_F, stroke=dd.GREY, sw=2.5)
-    d.rect(hx - 20, hy, 40, 26, fill=dd.GREY_F, stroke=dd.GREY, sw=3, rx=4)
-    d.path(f"M {hx - 46} {hy + 50} A 46 18 0 1 0 {hx + 40} {hy + 58}", stroke=dd.ORANGE,
+    # the tensioner screw (p.117 section): up through the slider into the bracket,
+    # head down at the slider's underside, turned from below
+    hx, hy = ix + 128, sy1
+    d.rect(hx - 9, py + 100, 18, hy - py - 100, fill=dd.GREY_F, stroke=dd.GREY, sw=2.5,
+           dash="8 6")
+    d.rect(hx - 20, hy, 40, 24, fill=dd.GREY_F, stroke=dd.GREY, sw=3, rx=4)
+    d.path(f"M {hx - 46} {hy + 44} A 46 18 0 1 0 {hx + 40} {hy + 52}", stroke=dd.ORANGE,
            sw=5, marker="arwo")
+    d.text(ix + 186, sy0 + 34, "slider", size=dd.T_MIN, weight=700, fill=dd.ORANGE)
     d.text(hx + 66, hy + 30, "tensioner: clockwise,", size=dd.T_MIN, weight=700)
     d.text(hx + 66, hy + 66, "looking up, is tighter", size=dd.T_MIN, weight=700)
 
     # belt runs: the fixed side down to the gantry's top clip, the other side to the drive
     lx, rx = ix - ir, ix + ir
     clip_y = iy + 150 * k
-    d.path(f"M {lx} {clip_y} L {lx} {iy} A {ir} {ir} 0 0 1 {rx} {iy} L {rx} {py + 960}",
+    d.path(f"M {lx} {clip_y} L {lx} {iy} A {ir} {ir} 0 0 1 {rx} {iy} L {rx} {py + 926}",
            stroke=BELT, sw=10, cap="butt")
     # gantry corner with the upper clip on top, belt clamped under the clip
     d.rect(lx - 250, clip_y + 30, 300, 80, fill=dd.BLACKPART_F, stroke=dd.BLACKPART, sw=4,
@@ -283,7 +305,7 @@ def d604_z_belt_span() -> dd.Doc:
            stroke=BELT, sw=8, cap="butt")
     d.text(lx - 240, clip_y + 160, "top clip on the", size=dd.T_MIN, weight=700)
     d.text(lx - 240, clip_y + 196, "gantry corner", size=dd.T_MIN, weight=700)
-    d.text(rx + 20, py + 930, "to the Z drive", size=dd.T_MIN, weight=600, fill=dd.MUTED)
+    d.text(rx + 20, py + 900, "to the Z drive", size=dd.T_MIN, weight=600, fill=dd.MUTED)
 
     # 150 mm, axle to clip
     dx = lx - 120
@@ -301,7 +323,7 @@ def d604_z_belt_span() -> dd.Doc:
         d.path(f"M {lx + r} {my - r * 0.8} Q {lx + r * 1.35} {my} {lx + r} {my + r * 0.8}",
                stroke=dd.ORANGE, sw=4, op=1 - i * 0.25)
     dd.callout(d, lx + 130, my, 2)
-    d.text(lx + 175, my - 10, "pluck here:", size=dd.T_LAB, weight=700)
+    d.text(lx + 175, my - 10, "pluck the left run:", size=dd.T_LAB, weight=700)
     d.text(lx + 175, my + 30, "about 140 Hz", size=dd.T_LAB, weight=700, fill=dd.OK)
     d.text(ix - 100, iy - 40, "Z idler", size=dd.T_LAB, anchor="end", weight=700)
     return d
@@ -338,32 +360,32 @@ def _tape(d, x, y, s):
 
 
 def d605_turn_over_and_mark() -> dd.Doc:
-    d = dd.Doc(1120, "Turning the gantry the right way up and taping Front and Back")
+    d = dd.Doc(1060, "Turning the gantry the right way up and taping Front and Back")
     top = dd.step_header(d, "Turn it over, mark the ends")
     py = top + 18
     x0, x1 = 200, 960
 
     # now: upside down on the bench
-    d.panel(30, py, 1140, 400)
+    d.panel(30, py, 1140, 380)
     d.text(54, py + 50, "Now: upside down", size=dd.T_LAB, weight=700, fill=dd.MUTED)
-    _gantry_side(d, x0, x1, py + 290, motors_down=False)
-    d.text(x0 + 5, py + 380, "front", size=dd.T_MIN, anchor="middle", weight=600,
+    _gantry_side(d, x0, x1, py + 272, motors_down=False)
+    d.text(x0 + 5, py + 358, "front", size=dd.T_MIN, anchor="middle", weight=600,
            fill=dd.MUTED)
-    d.text(x1 - 10, py + 380, "back", size=dd.T_MIN, anchor="middle", weight=600,
+    d.text(x1 - 10, py + 358, "back", size=dd.T_MIN, anchor="middle", weight=600,
            fill=dd.MUTED)
 
     # turn over, in the gap between the panels
-    ay = py + 455
+    ay = py + 428
     d.path(f"M 470 {ay - 30} C 540 {ay + 40} 660 {ay + 40} 730 {ay - 30}",
            stroke=dd.ORANGE, sw=7, marker="arwo")
     dd.callout(d, 400, ay - 20, 1)
     d.text(770, ay + 2, "turn it over", size=dd.T_LAB, weight=700)
 
     # right way up, marked
-    by = py + 510
-    d.panel(30, by, 1140, 480)
+    by = py + 470
+    d.panel(30, by, 1140, 460)
     d.text(54, by + 50, "Right way up", size=dd.T_LAB, weight=700, fill=dd.OK)
-    gy = by + 210
+    gy = by + 200
     _gantry_side(d, x0, x1, gy, motors_down=True)
     d.text(x0 + 330, gy + 150, "rails underneath", size=dd.T_MIN, weight=600,
            fill=dd.MUTED)
@@ -373,7 +395,7 @@ def d605_turn_over_and_mark() -> dd.Doc:
     _tape(d, x0 + 30, gy - 90, "FRONT")
     _tape(d, x1 - 150, gy - 90, "BACK")
     dd.callout(d, x0 - 80, gy - 90, 2)
-    d.text(600, by + 445, "Tape the same two marks on the frame.", size=dd.T_LAB,
+    d.text(600, by + 434, "Tape the same two marks on the frame.", size=dd.T_LAB,
            anchor="middle", weight=700)
     return d
 
@@ -409,18 +431,19 @@ DIAGRAMS = [
         "title": "Fold the tail, tie it to itself",
         "fn": d602_belt_tail_tie,
         "shows": [
-            "Side section of a gantry corner's top clamp: the belt from the Z idler under "
-            "the upper clip and its two M5×16; the tail out the far side, up, folded back "
-            "on itself, and one small zip tie round both layers just above the clip, after "
-            "p.120 (callouts 1-3 = Do of Step 06.21).",
+            "Side section of a gantry corner's top clamp, after p.120: the run from the Z "
+            "idler comes down past the clip's far edge and bends under the upper clip and "
+            "its two M5×16; the tail leaves the near edge, rises, folds back on itself, and "
+            "one small zip tie goes round both layers just above the clip (callouts 1-3 = "
+            "Do of Step 06.21).",
         ],
         "insert": [
             ("06-z-axis-and-gantry-squaring.md", "Step 06.21", "the fold and the tie"),
         ],
         "verify": [
-            "Which side of the clip the running belt enters and the tail leaves, and the "
-            "fold's exact path, are schematic; p.120 shows the tail folded over and tied to "
-            "itself above the clip.",
+            "The fold's exact path is schematic: p.120 shows the tail folded over and tied "
+            "to itself above the clip, and whether the tie also catches the running belt is "
+            "a bench check.",
         ],
     },
     {
@@ -429,11 +452,13 @@ DIAGRAMS = [
         "title": "Set it down on the joints",
         "fn": d603_set_gantry_down,
         "shows": [
+            "Left panel: without stoppers, a long zip tie from the gantry corner up over the "
+            "top frame extrusion before lowering (1), after p.114.",
             "Front view of one corner: the gantry corner with its lower clip and Z bearing "
-            "block coming down (1) onto the domed top of the lower joint, parked on its "
-            "rubber stopper, the carriage slid up or down until the M5 holes are in line.",
-            "Side panel: without stoppers, a long zip tie from the gantry corner up over the "
-            "top frame extrusion before lowering (2), after p.114.",
+            "block coming down (2) onto the domed top of the lower joint, parked on its "
+            "rubber stopper. A corner that does not touch: slide that carriage UP (p.115's "
+            "arrow). Holes off to one side: nudge the gantry, since the M5×40 is vertical "
+            "and a carriage slide cannot move a hole sideways.",
         ],
         "insert": [
             ("06-z-axis-and-gantry-squaring.md", "Step 06.13", "lowering and the fallback"),
@@ -453,15 +478,17 @@ DIAGRAMS = [
             "gantry going down to the top clip, 150 mm from the idler axle to the clip (1), "
             "and the pluck point in the middle of that run, about 140 Hz (2). The other run "
             "goes on down to the Z drive.",
-            "The tensioner screw under the idler, head down: clockwise, looking up at it, "
-            "pulls the idler up and tightens the belt (p.117 section).",
+            "The tensioner screw up through the moving slider (the blue part that carries "
+            "the pulley) into the fixed bracket, head down at the slider's underside: "
+            "clockwise, looking up at it, pulls the idler up and tightens the belt (p.117 "
+            "section).",
         ],
         "insert": [
             ("06-z-axis-and-gantry-squaring.md", "Step 06b.3", "the span and the pluck point"),
         ],
         "verify": [
-            "The span is drawn to scale (3.4 px/mm); the idler, its body and the corner are "
-            "schematic.",
+            "The span is drawn to scale (3.1 px/mm); the bracket, slider, screw position "
+            "and the corner are schematic.",
         ],
     },
     {
