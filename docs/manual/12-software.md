@@ -88,7 +88,7 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 ![Raspberry Pi Imager: the 3D printing list, Mainsail OS](assets/screens/imager-os-mainsailos.png)
 ![Raspberry Pi Imager: MainsailOS 3.0.0, Raspberry Pi 64-bit, the one entry offered for a Pi 4](assets/screens/imager-os-mainsailos-64bit.png)
 
-**What you're looking at:** You write the Pi's operating system onto the microSD card from your laptop. **MainsailOS** is a ready-made Pi disk image that already carries **Klipper**, which runs the machine, **Moonraker**, the API in front of it (the service other programs talk to), and [**Mainsail**](16-glossary.md#m), the web page you drive it from. LDO's guide installs a different image ([src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup)).
+**What you're looking at:** You write the Pi's operating system onto the microSD card from your laptop. **MainsailOS** is a ready-made Pi disk image that already carries **Klipper**, which runs the machine, **Moonraker**, the API other programs talk to, and [**Mainsail**](16-glossary.md#m), the web page you drive it from. LDO's guide installs a different image ([src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup)). Checked against Imager 2.0.12 ([src](https://github.com/raspberrypi/rpi-imager/releases/tag/v2.0.12)).
 
 **Parts:**
 
@@ -97,11 +97,11 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 **Do:**
 
-1. Insert the card, launch Raspberry Pi Imager and pick **Choose Device** → Raspberry Pi 4.
-2. Pick **Choose OS** → **Other specific-purpose OS** → **3D printing** → **MainsailOS** → **64-bit**. The screenshots walk these menus.
-3. Pick **Choose Storage** → the SD card, and read its description twice.
+1. Insert the card and launch Raspberry Pi Imager. **Device**: **Raspberry Pi 4**. Press **Next** after each page.
+2. **OS**: **Other specific-purpose OS** → **3D printing** → **Mainsail OS** → **Raspberry Pi (64-bit)**.
+3. **Storage**: the SD card. Read its description twice, and leave **Exclude system drives** ticked.
 
-**Check:** **Storage** lists the SD card at its own size, not your laptop's disk.
+**Check:** The **Storage** page lists the SD card at its own size, not your laptop's disk.
 
 LDO's wiring guide tells you to install **Raspberry Pi OS Lite (32-bit)** and add Klipper, Moonraker and Mainsail with KIAUH. MainsailOS ships those plus Crowsnest, Sonar, Timelapse and the input-shaper dependencies, already set up to work together: the same end state in four fewer passes. Take the MainsailOS path. It does **not** include KlipperScreen, so you still need KIAUH in Step 12.8 for that. [src](https://docs.mainsail.xyz/mainsailos/getting-started/raspberry-pi/) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup)
 
@@ -118,15 +118,15 @@ Source: [MainsailOS install docs](https://docs.mainsail.xyz/mainsailos/getting-s
 ![Raspberry Pi Imager customisation: SSH enabled, password authentication](assets/screens/imager-ssh.png)
 ![Raspberry Pi Imager: the Write image summary for a Pi 4 and MainsailOS 64-bit](assets/screens/imager-write-summary.png)
 
-**What you're looking at:** Imager's customisation pages write your settings into the image before its first boot, so the Pi comes up with its own name, on your network, and reachable over SSH. The screenshots carry placeholder values: type your own. The hostname is the Pi's address from now on.
+**What you're looking at:** Imager's customisation pages write your settings into the image before its first boot, so the Pi comes up with its own name, on your network, and reachable over SSH.
 
 **Parts:** none.
 
 **Do:**
 
-1. **Hostname**: `voron` gives you `http://voron.local`. **Localisation**: your timezone.
-2. **User**: a username and a real password, never the `pi`/`raspberry` default. **Wi-Fi**: your network's name (SSID) and password.
-3. **Remote access**: turn on SSH. Write the card, confirming the prompt that it will be erased, and eject it when Imager is finished.
+1. **Hostname**: `voron` gives you `http://voron.local`. **Localisation**: your capital city, which sets the timezone. Press **Next** after each page.
+2. **User**: your own username and a real password. The screenshots' values are placeholders: never use the `pi`/`raspberry` default. **Wi-Fi**: your network's name (SSID) and password.
+3. **Remote access**: SSH on, with password authentication. Then **Write**, **I understand, erase and write**, and eject the card at **Done**.
 
 **Check:** The **Write image** summary named Raspberry Pi 4, MainsailOS 64-bit and the SD card, and Imager reported a successful write and verify.
 
@@ -211,7 +211,7 @@ Source: [LDO Rev D photo, Mainsail Machine page](https://raw.githubusercontent.c
 
 **Do:**
 
-1. In Mainsail go to **Machine** → **Update Manager**, bottom right, and click **Update all components**.
+1. In Mainsail open **Machine**. The **Update Manager** panel sits at the bottom right of that page; click **Update all components** at the foot of the panel.
 2. Let it finish, including the system packages. Reboot if it asks.
 
 **Check:** Every row in the Update Manager reads up to date.
@@ -839,7 +839,7 @@ Pause: ~15 min since the last pause — probe, hotend, bed, chamber sensor, fans
 
 ### Step 12.33 — Z endstop: leave `safe_z_home` deliberately unreachable
 
-(no image — see text)
+![Top view: -10,-10 lies outside the 0 to 350 travel, the nozzle-probe pin near the rear edge, and a bed-centre guess with no pin under it](assets/diagrams/1206-safe-z-home.svg)
 
 **What you're looking at:** `[safe_z_home]` is the XY position the toolhead moves to before homing Z, which here must be right over the nozzle-probe pin. The shipped `-10,-10` sits outside the machine's travel limits on purpose, so Klipper refuses the move instead of guessing.
 
@@ -1065,9 +1065,9 @@ Pause: ~15 min since the last pause — Part 1 is done: `printer-350.cfg` is com
 
 ### Step 12.11 — Gate: power the bay and confirm both MCUs enumerate
 
-(no image — see text)
+![The machine on its side with the bay toward you: the adult stands to the side with a hand on the rocker; PSU LED, Pi LEDs, screen and printhead LEDs to watch; mains parts in red](assets/diagrams/1201-power-on-stance.svg)
 
-**What you're looking at:** This is the **first time the boards, drivers and heater outputs are powered**. An **MCU** is a microcontroller, a processor board that turns Klipper's commands into pin signals. Two are here, the [Leviathan](16-glossary.md#l) mainboard and the [Nitehawk-SB V2](16-glossary.md#n) toolboard, and `lsusb` proves both are alive.
+**What you're looking at:** The **first power for the boards, drivers and heater outputs**. Each **MCU** (microcontroller) turns Klipper's commands into pin signals: the [Leviathan](16-glossary.md#l) mainboard and the [Nitehawk-SB V2](16-glossary.md#n) toolboard; `lsusb` shows both.
 
 **Parts:**
 
@@ -1076,16 +1076,16 @@ Pause: ~15 min since the last pause — Part 1 is done: `printer-350.cfg` is com
 
 **Do:**
 
-1. **Checkpoint #1 passed, or stop.** Clear tools from the bay.
-2. Machine dead, on its side, bay toward you, one adult: cord into the inlet, then the wall.
-3. Stand aside, hand on the rocker, switch on and keep it there ten seconds. Then, over SSH:
+1. **Checkpoint #1 passed, or stop.** Clear the bay and chamber of tools.
+2. Dead machine on its side, bay toward you, rocker off, one adult: cord into the inlet, then the wall.
+3. Stand to the side, hand on the rocker, switch on, and keep the hand there ten seconds, watching the table. Then, over SSH:
 
 ```bash
 lsusb
 grep -H . /sys/class/drm/card*-*/status | grep :connected
 ```
 
-**Check:** Every table row holds within ten seconds, the last after a minute; anything wrong, switch off and go back to Ch 10. `lsusb` lists two `ID 1d50:614e` devices plus the Nitehawk hub.
+**Check:** Every table row holds within ten seconds, the last after a minute. Anything wrong: rocker off at once, then unplug at the wall; back to Ch 10. `lsusb` lists two `ID 1d50:614e` devices plus the Nitehawk hub.
 
 | Watch | What is right |
 |---|---|
@@ -1154,20 +1154,20 @@ Source: [LDO Rev D photo, `ls /dev/serial/by-id` output](https://raw.githubuserc
 
 ### Step 12.13 — Identify your Leviathan revision before you build anything
 
-(no image — see text)
+![The Leviathan: the processor's printed name tells F446 from H743; the board's version line sits under the mounted Pi](assets/diagrams/1203-leviathan-chip-marking.svg)
 
 **What you're looking at:** Silkscreen is the printed lettering on the board itself. The processor your Leviathan carries decides three settings of the firmware build: processor model, crystal frequency (its clock) and where in flash memory the firmware starts. LDO's own documents disagree about which processor ships, so the board is the only authority ([src](https://github.com/MotorDynamicsLab/Leviathan)).
 
 **Parts:** none.
 
-**Do:** Read the revision printed on the mainboard silkscreen and cross-check it against the ID you just read. They must agree:
+**Do:** Read the name printed on the big square processor chip beside the Pi, by eye or with a torch from outside the bay, and cross-check it against the ID you just read. They must agree:
 
 | Silkscreen | MCU | Klipper/Katapult clock | Bootloader offset | Serial ID |
 |---|---|---|---|---|
 | Leviathan **V1.1 / V1.2** | STM32F446 | 12 MHz crystal | **32 KiB** | `stm32f446xx` |
 | Leviathan **V1.3** | STM32H743 | 25 MHz crystal | **128 KiB** | `stm32h743xx` |
 
-Use the row that matches *your* board in Step 12.14. If the silkscreen and the serial ID disagree, trust the serial ID and stop to ask in `#ldo_motors`.
+Use the row that matches *your* board in Step 12.14. The chip reads `STM32F446…` or `STM32H743…`. The **Leviathan V1.x** line under the VORON logo is hidden by the Pi once it is mounted, as in LDO's photos; use it only if you noted it before Ch 09 covered it. If the chip, the version line and the serial ID disagree, trust the serial ID and stop to ask in `#ldo_motors`.
 
 **Check:** You have written down one MCU model, one clock reference and one offset, and you will not look at the other row again.
 
@@ -1181,7 +1181,7 @@ Pause: ~15 min since the last pause — the bay has been powered once, both MCUs
 
 ### Step 12.14 — Build Klipper firmware for the Leviathan
 
-(no image — see text)
+![Leviathan make menuconfig: the settings both boards share, then processor, bootloader offset and clock for the F446 and the H743](assets/diagrams/1205-leviathan-menuconfig.svg)
 
 **What you're looking at:** LDO ships the Leviathan already running Klipper. A six-line test config lets the host connect to it, and a clean connect means no build and no flash. `make menuconfig` is the firmware build's settings screen; its bootloader offset leaves the start of flash memory to the bootloader, the small start-up program that loads new firmware.
 
@@ -1256,7 +1256,7 @@ Source: [LDO wiring guide § Mainboard Firmware Setup: "pre-programmed when you 
 
 ### Step 12.15 — Flash the Leviathan through Katapult
 
-(no image — see text)
+![SW1 RESET and SW2 BOOT beside the Leviathan's processor, reached from the upper edge, never past the PSU and SSR](assets/diagrams/1202-leviathan-sw1-sw2.svg)
 
 **What you're looking at:** [Katapult](16-glossary.md#k) is a bootloader: a small program that runs first at power-up and can overwrite the main firmware over USB. Asked over USB, a running Klipper restarts into Katapult, and the board shows up again as `usb-katapult_…`. No button is needed.
 
@@ -1294,7 +1294,7 @@ Source: [Katapult README § Uploading Klipper: flashtool requests the bootloader
 
 ### Step 12.16 — Recovery only: reinstall Katapult on the Leviathan over DFU
 
-(no image — see text)
+![SW1 RESET and SW2 BOOT beside the Leviathan's processor, reached from the upper edge, never past the PSU and SSR](assets/diagrams/1202-leviathan-sw1-sw2.svg)
 
 **What you're looking at:** [DFU](16-glossary.md#d) is the USB bootloader built into the STM32 chip at the factory. It cannot be erased, so it can install Katapult on a board that lacks it. Klipper's USB request at 12.15, or LDO's two buttons, put the chip into DFU, and `dfu-util` writes Katapult.
 
@@ -1481,7 +1481,7 @@ Source: [LDO Klipper-ID guide](https://docs.ldomotors.com/guides/klipper_id) · 
 
 ### Step 12.23 — Paste the two serial paths
 
-(no image — see text)
+![The stm32f446xx line goes into the mcu section, the stm32g0b1xx line into mcu nhk](assets/diagrams/1204-serial-paths.svg)
 
 **What you're looking at:** `[mcu]` is the mainboard and `[mcu nhk]` is the toolboard; every pin name starting `nhk:` is looked up on the second one. Klipper checks each pin name against the board it is sent to, so swapping the two paths stops Klipper with a pin-name error instead of driving the wrong pins.
 
@@ -1585,7 +1585,7 @@ Pause: ~30 min since the last pause — both boards flashed and re-read, your be
 - **Building MCU firmware before running the Update Manager.** You will flash both boards twice. Update the host first, then flash.
 - **Leaving out the bootloader offset in `make menuconfig`.** It is 8 KiB for the Nitehawk, and 32 KiB (F446) or 128 KiB (H743) for the Leviathan. Flash with no offset and Katapult is gone, and the only way back is DFU with the board buttons.
 - **Never seeing `Clock Reference` in menuconfig.** It appears only once *Enable extra low-level configuration options* is ticked. Without it the build quietly uses 8 MHz, flashes cleanly and never shows up over USB. Double-click SW1 for Katapult, fix the setting and flash again: no DFU needed.
-- **Following the V1.3 Leviathan guide on a V1.2 board.** That is STM32H743/25 MHz/128 KiB against STM32F446/12 MHz/32 KiB. Read the silkscreen and the serial ID before menuconfig, not after.
+- **Following the V1.3 Leviathan guide on a V1.2 board.** That is STM32H743/25 MHz/128 KiB against STM32F446/12 MHz/32 KiB. Read the processor chip and the serial ID before menuconfig, not after.
 - **Filling in `home_xy_position` with a guess.** `-10,-10` failing is the safety interlock working. A plausible wrong value drives the nozzle into the plate.
 - **Adding `[bed_mesh]` without `zero_reference_position`.** The Omron's `z_offset` is 0 by design, so the raw mesh carries its whole trigger height as a constant offset.
 

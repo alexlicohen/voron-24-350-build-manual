@@ -386,7 +386,7 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | Steel tape measure ≥ 2.2 m | **Buy if not owned** — the 600 mm straightedge is too short for the frame diagonals and the 2000 mm belt cut | Ch 01 (diagonals), Ch 07 (07.8) |
 | Sharp craft knife with fresh blades; plastic scraper or an old credit card | **Buy if not owned** | Ch 03 (03.9, the magnetic pad) |
 | Needle-nose pliers and tweezers | **Buy if not owned** | Ch 06 (Z belt routing), Ch 07 (A/B belt threading) |
-| Hacksaw or fine-tooth saw; small flat file | **Buy if not owned** — no DIN rail length is published, so a rail may need shortening | Ch 08 (file, 5015 fan ears), Ch 09 (09.5, DIN rails) |
+| Hacksaw or fine-tooth saw; small flat file | **Buy if not owned** — no DIN rail length is published, so a rail may need shortening | Ch 01 (file, 01.3, burrs on cut ends), Ch 08 (file, 5015 fan ears), Ch 09 (09.5, DIN rails) |
 | PH1 and PH2 Phillips screwdrivers | **Buy if not owned** — the kit's drivers are hex and one 2.5 mm slot | Ch 09 (PH1 M2 self-tapping screws, PH2 PSU and SSR terminals) |
 | Small hammer | **Buy if not owned** | Ch 11 (Clicky-Clack dowel pins and bushings) |
 | USB-C 5 V/3 A supply and an Ethernet cable, for the Pi on the bench | **Buy if not owned** — the kit powers the Pi from the Leviathan only once the bay is wired | Ch 12 (12.1), kit week |

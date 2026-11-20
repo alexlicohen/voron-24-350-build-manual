@@ -28,6 +28,7 @@ caption: Square the frame once, properly. Everything above copies this frame, in
 - Straightedge and feeler gauges, 0.02–0.10 mm: thin metal leaves for measuring small gaps
 - The flat surface you chose in Step 00.10: the kitchen stone counter
 - Rubber or nylon mallet
+- Small flat file, for a rough edge on a cut end (it is on the Chapter 00 tool list)
 - Masking tape and a marker
 - Optional: torque screwdriver, 0.5–3 N·m
 
@@ -147,10 +148,11 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 - tool: M5 roll-in T-nut, fit test, back in its tray
 - tool: M3 roll-in T-nut, fit test, back in its tray
 - tool: machinist square
+- tool: small flat file
 
 **Do:**
 
-1. Check both ends of all 10 A and 4 B extrusions and smooth off any burr.
+1. Check both ends of all 10 A and 4 B extrusions and file off any burr.
 2. Roll the M5 T-nut into all four slots of each A extrusion. Tape the slot it fits most easily.
 3. Roll the M3 T-nut into the two slots of each B extrusion that have no access holes.
 
@@ -459,6 +461,8 @@ Pause: ~65 min since the last pause — the frame is assembled, square on all si
 
 **Check:** 4 brackets are on with 4 screws. Every free leg lies level with the bottom face, points away from its end, and matches the other three.
 
+Before the brackets go on, turn each bed extrusion so the slot you taped when test-fitting T-nuts faces up: Chapter 03 rolls T-nuts into its top and inner slots after it is screwed down.
+
 Source: [Voron manual p.18](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=18) · [Voron manual p.20](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=20) · CAD: Voron 2.4r2 STEP @ de7e89d · [Video: Part 1 @1:29:21](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5361s)
 
 ---
@@ -473,7 +477,7 @@ Source: [Voron manual p.18](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 - M5 roll-in T-nut ×4
 
-**Do:** Roll two M5 T-nuts into the top slot of the front bottom extrusion and two into the rear one. Leave them loose, roughly where the brackets will sit.
+**Do:** Roll two M5 T-nuts into the top slot of the front bottom extrusion and two into the rear one, one for each bed-extrusion end. Leave them loose, roughly where the brackets will sit.
 
 **Check:** All four T-nuts turn freely and lie flat in the slot. If one is tight, swap it for another.
 

@@ -144,7 +144,7 @@ Pause: ~15 min since the last pause — bench cleared, tools and meter staged, C
 
 ### Step 13.3 — Power on again, hand on the switch
 
-(no image — see text)
+![The machine on its side with the live bay toward you: one adult stands beside the rear end, hand on the inlet rocker, looking into the bay without reaching in](assets/diagrams/1306-power-on-hand-on-rocker.svg)
 
 **What you're looking at:** This first power-on has a live `printer.cfg` that can drive heaters and motors. Your hand rests on the rocker in the C14 inlet module beside the mains lead: the machine's only mains isolator, the one switch that cuts all mains.
 
@@ -332,11 +332,14 @@ Source: [Voron startup wizard § Hotend fan](https://docs.vorondesign.com/build/
 
 **Parts:** none.
 
-**Do:** Send `M106 S255`, then `M107`.
+**Do:**
 
-**Check:** The **top** fan spins to full, you feel air under the nozzle, and `M107` stops it.
+1. Send `M106 S255`, then `M107`.
+2. Set the **Extruder** target to **Off**, whatever the fans did.
 
-This fan is `[fan]` on `nhk:PA15`; `off_below: 0.10` sends zero below 10 %, which is expected. If the **bottom** fan answers `M106`, apply Step 13.9's fix, then set the Extruder target to **Off**.
+**Check:** The **top** fan spun to full, you felt air under the nozzle, `M107` stopped it, and the Extruder target reads **Off**.
+
+This fan is `[fan]` on `nhk:PA15`; `off_below: 0.10` sends zero below 10 %, which is expected. If the **bottom** fan answered `M106`, apply Step 13.9's fix and run 13.9 and this step again: each run ends here with the hotend **Off**.
 
 ⚠ Rev D+ / LDO: the 2×5 (10-pin) board-to-board header between the Stealthburner fan adapter and the toolboard has **reversed gender and is keyed** on Rev D+. If a toolhead fan does nothing at all, do not press the connector harder: check that it seated with the key, not against it. (survey §4.1 ④)
 
@@ -505,6 +508,7 @@ Pause: ~20 min since the last pause — every motor buzzed, identified and turni
 
 ### Step 13.17 — `QUERY_ENDSTOPS` with everything released
 
+![Front view: a hand flat under the gantry while M84 lets the motors go, the gantry lowered to about 100 mm above the plate, then the toolhead pushed to the middle](assets/diagrams/1301-hand-under-gantry-m84.svg)
 ![Simulated printer: the Mainsail console, QUERY_ENDSTOPS answering stepper_x:open stepper_y:open stepper_z:open](assets/screens/mainsail-console-query-endstops.png)
 ![Simulated printer: Mainsail's Endstops panel, all three steppers and the probe OPEN](assets/screens/mainsail-machine-endstops.png)
 
@@ -586,9 +590,9 @@ Source: [Voron startup wizard § Endstop check](https://docs.vorondesign.com/bui
 
 ### Step 13.20 — Z endstop (the LDO nozzle probe) by hand
 
-![LDO nozzle probe installed](assets/remote/13-initial-startup/ldo-nozzle-probe-installed.jpg)
+![LDO nozzle probe, finished, on the bench and not yet on the machine](assets/remote/13-initial-startup/ldo-nozzle-probe-installed.jpg)
 
-**What you're looking at:** The photo is the LDO nozzle probe installed: a sprung 5 mm shaft beside the bed with a D2F microswitch under it. The nozzle presses that shaft at the end of every Z homing move, so this part, not the inductive probe, defines Z=0.
+**What you're looking at:** The photo is LDO's finished nozzle probe on the bench, off the machine: a sprung 5 mm shaft with a D2F microswitch under it. On yours it sits on the right bed extrusion just behind the plate. The nozzle presses that shaft at the end of every Z homing move, so this part, not the inductive probe, defines Z=0.
 
 **Parts:** none.
 
@@ -702,6 +706,7 @@ Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubus
 
 ### Step 13.24 — Bed locating: line up the Z endstop and set the bed gap
 
+![From above, the toolhead jogged left along the rear to the nozzle probe; from the side, the probe slid on its two M3×25 screws until the shaft is under the nozzle, 2 to 3 mm behind the plate's rear edge](assets/diagrams/1303-probe-under-nozzle.svg)
 ![LDO — the probe body in the hand with its PCB screwed on; not the machine](assets/remote/13-initial-startup/ldo-nozzle-probe-installation.jpg)
 
 **What you're looking at:** Two things have to line up: the probe shaft directly under the nozzle, and 2–3 mm of clearance between that shaft and the back edge of the build plate. The photo is LDO's bench shot of the probe body, not how it sits on the extrusion.
@@ -1038,6 +1043,7 @@ Source: [Voron startup wizard § QGL with heated bed and chamber](https://docs.v
 
 ### Step 13.36 — `Z_ENDSTOP_CALIBRATE` and the paper test
 
+![The paper under the nozzle, the three TESTZ step sizes, and the three feels: slides free, light drag to ACCEPT at, pinned](assets/diagrams/1304-paper-test-testz.svg)
 ![Mainsail manual probe dialog](assets/remote/13-initial-startup/voron-startup-mainsail-manual-probe.png)
 
 **What you're looking at:** `Z_ENDSTOP_CALIBRATE` steps the nozzle down in known amounts until a sheet of paper just drags under it, then records that height as Z=0; the screenshot is its manual-probe dialog. The paper is ~0.1 mm thick, so this Z=0 sits one paper-thickness above the plate.
@@ -1164,9 +1170,9 @@ The first print is the last check in this chapter, not the start of tuning. You 
 
 ### Step 13.40 — Set the extruder rotation distance (Ch 14 procedure)
 
-(no image — see text)
+![The top of the Clockwork 2.5 with the PTFE lifted off: tape on the bare filament 120 mm above the collet, and after G1 E100 F60 the tape at R, about 20 mm](assets/diagrams/1302-rotation-distance-tape.svg)
 
-**What you're looking at:** `rotation_distance` is how far the filament moves per turn of the extruder motor. Until it is right, every later flow number is wrong by the same percentage.
+**What you're looking at:** `rotation_distance` is how far the filament moves per extruder motor turn. Until it is right, every later flow number is wrong by the same percentage.
 
 **Parts:**
 
@@ -1177,19 +1183,19 @@ The first print is the last check in this chapter, not the start of tuning. You 
 **Do:**
 
 1. Add `max_extrude_only_distance: 150` to `[extruder]`. Send `G0 Z30` if still homed, put a hand under the gantry, then `RESTART`.
-2. Feed filament from the spool on its holder arm through the PTFE reverse-bowden, tip cut square, to the Clockwork 2.5 gears. Send `G28`, then `LOAD_FILAMENT TEMP=260`; wipe the blob off the nozzle.
-3. Park with `G0 X175 Y10 Z50 F6000`. Tape the filament at the **120 mm** mark, extrude 100 mm with the lines below, then measure to the tape again: R.
+2. Feed filament from the spool through the PTFE reverse-bowden, tip cut square, to the Clockwork 2.5 gears. Send `G28`, then `LOAD_FILAMENT TEMP=260`; wipe the blob off the nozzle.
+3. Park with `G0 X175 Y10 Z50 F6000`. Unclip the collet, pull the PTFE out and slide it up. Tape the filament **120 mm** above the collet, extrude 100 mm with the lines below, then measure to the tape again: R.
 
 ```
 M83
 G1 E100 F60
 ```
 
-**Check:** R reads ≈20 mm, within **0.5 %** of target: 99.5 to 100.5 mm extruded for a 100 mm request.
+**Check:** R reads about 20 mm: 99.5 to 100.5 mm went in, within **0.5 %**.
 
-⚠ Watch the gears. If the filament is pushed *back up* the tube, invert `[extruder] dir_pin` by adding or removing the `!` on `nhk:PB9`; hand under the gantry, `RESTART`, `G28`, and send the macro again. That is the extruder direction test. If the gears do not grab, open the CW2 latch, push the filament past them by hand, close it and repeat.
+⚠ Watch the gears. If the filament is pushed *back up* the tube, invert `[extruder] dir_pin` by adding or removing the `!` on `nhk:PB9`; hand under the gantry, `RESTART`, `G28`, and send the macro again. That is the extruder direction test. If the gears do not grab, open the Clockwork 2.5 latch, push the filament past them by hand, close it and repeat.
 
-Klipper's default limit is **50 mm**, so without that config line a single `G1 E100` errors out with "Extrude only move too long". The load macro heats and waits. Park still at 260 °C, measure the 120 mm and R from where the filament enters the extruder, and extrude slowly, in relative mode, at 1 mm/s. The rule reads the **remaining** distance R, not the amount extruded.
+Klipper's default limit is **50 mm**, so without that config line a single `G1 E100` errors out with "Extrude only move too long". The load macro heats and waits. Park still at 260 °C and extrude slowly, in relative mode, at 1 mm/s. The tape must sit on bare filament, and the reverse-bowden covers it right up to the collet, so the tube comes off for this measurement; push it back in and refit the clip afterwards. [src](https://ellis3dp.com/Print-Tuning-Guide/articles/extruder_calibration.html)
 
 Write the value you end on into `[extruder] rotation_distance`; hand under the gantry, `RESTART`, and commit. Get it right before the first print: extrusion error looks like a first-layer problem.
 
@@ -1214,8 +1220,12 @@ Write the value you end on into `[extruder] rotation_distance`; hand under the g
     introduces. If you would rather not raise `max_extrude_only_distance`, the Voron
     guide's way is to extrude 50 mm twice instead.
 
-    Starting value for Clockwork 2.5, which keeps Clockwork 2's Bondtech gears, is
-    `rotation_distance: 22.6789511` with `gear_ratio: 50:10`; expect to land within
+    The published starting value for Clockwork 2.5, which keeps Clockwork 2's Bondtech
+    gears, is `rotation_distance: 22.6789511` with `gear_ratio: 50:10`, in both LDO's
+    config and Voron's
+    ([src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L244-L249),
+    [src](https://github.com/VoronDesign/Voron-2/blob/7b32e40/firmware/klipper_configurations/Octopus/Voron2_Octopus_Config.cfg#L241-L246));
+    expect to land within
     about ±2 % of that. If you are 5 %+ off, you have the wrong `gear_ratio` (50:17
     is Clockwork **1**), not a calibration problem.
 
@@ -1250,15 +1260,15 @@ The cube is [`Voron_Design_Cube_v7.stl`](https://github.com/VoronDesign/Voron-2/
 
 If export is refused with "Machine limits cannot be emitted to G-Code when Klipper firmware flavor is used", set **How to apply limits** back to **Use for time estimate**. A `.bgcode` file instead of `.gcode` means **Supports binary G-code** is still ticked.
 
-??? note "Where each setting is, and why"
+Where things are: pick `Prusa CORE One HF0.4 nozzle` again from the printer list and **discard** changes, because a plate project leaves it "(modified)" with this project's `z_offset` **+0.08**, which a Save as would carry onto the Voron. Then **Printer Settings** → **Save as…**, bed origin **0, 0**, **General → Z offset 0**; **G-code flavor: Klipper** under General → Firmware, then OK its dialog; **Supports binary G-code** under General → Firmware in Expert mode; **Emit temperature commands automatically** under Custom G-code. The Start and End G-code each replace everything in their box. The physical printer is the icon next to the printer preset → *Add physical printer*, no API key.
 
-    Where things are: pick `Prusa CORE One HF0.4 nozzle` again from the printer list and **discard** changes, because a plate project leaves it "(modified)" with this project's `z_offset` **+0.08**, which a Save as would carry onto the Voron. Then **Printer Settings** → **Save as…**, bed origin **0, 0**, **General → Z offset 0**; **G-code flavor: Klipper** under General → Firmware, then OK its dialog; **Supports binary G-code** under General → Firmware in Expert mode; **Emit temperature commands automatically** under Custom G-code. The Start and End G-code each replace everything in their box. The physical printer is the icon next to the printer preset → *Add physical printer*, no API key.
+??? note "Why each setting"
 
     Why: the flavor dialog switches **Machine limits → How to apply limits** to **Use for time estimate**, because Klipper takes no machine limits from G-code. The Core One preset ships binary G-code ticked, and Klipper reads only plain `.gcode`. Unticking the automatic temperature commands stops PrusaSlicer adding `M104`/`M190` before `PRINT_START`, which would heat the hotend before homing and home Z on the nozzle-probe pin through hot ooze. `FILAMENT=` passes the filament type, so `PRINT_START` runs the Nevermore only for materials that need it. Saving as a copy keeps the Prusament ASA and STRUCTURAL presets from [print/00-slicer-setup.md](print/00-slicer-setup.md) compatible with it. **Extruder 1**: nozzle **0.4** stays; leave retraction at the copied value and tune it with Ellis' retraction section after Ch 14 `(verify on bench)`.
 
     The Voron slicer guide's own starting point is 240 °C / 100 °C / 92 % flow for ABS. Use 260/110 here anyway: it is the Prusament ASA figure, and it makes this cube comparable with the B00 reference you caliper it against at [Ch 14 Step 14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one).
 
-    Host type **Moonraker** if your PrusaSlicer lists it, else **OctoPrint**: Moonraker answers OctoPrint's upload API through `[octoprint_compat]`. Already made the profile during the 13.31 soak? Just run the Check.
+Host type **Moonraker** if your PrusaSlicer lists it, else **OctoPrint**: Moonraker answers OctoPrint's upload API through `[octoprint_compat]`. Already made the profile during the 13.31 soak? Just run the Check.
 
 Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints) · [Voron docs — first print](https://docs.vorondesign.com/build/slicer/first_print.html) · [Voron docs — slicer setup](https://docs.vorondesign.com/build/slicer/) · [Moonraker configuration § octoprint_compat](https://moonraker.readthedocs.io/en/latest/configuration/#octoprint_compat) · [PrusaSlicer 2.9 `LabelObjects.cpp`](https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.2/src/libslic3r/GCode/LabelObjects.cpp) (Firmware-specific labels are `EXCLUDE_OBJECT_DEFINE` under Klipper) · [print/00-slicer-setup.md](print/00-slicer-setup.md) (the project's +0.08 `z_offset`) · [Ch 12 Step 12.36](12-software.md#step-1236-replace-print_start-with-a-skeleton-that-waits-on-the-chamber)
 
@@ -1266,9 +1276,10 @@ Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tre
 
 ### Step 13.42 — Print it, and set the first-layer squish
 
+![First-layer lines cut across: round with gaps when too high, touching but each still visible when right, a ridged glassy sheet when too low](assets/diagrams/1307-first-layer-squish.svg)
 ![Voron cereal](assets/remote/13-initial-startup/voron-slicer-cereal-test-print.png)
 
-**What you're looking at:** The photo is Voron's own example of correct first-layer squish: lines that touch with no gaps but stay visible. Babystepping moves Z live while the layer prints; `Z_OFFSET_APPLY_ENDSTOP` saves that live change.
+**What you're looking at:** Aim for the middle picture: lines that touch with no gaps but stay visible. Babystepping moves Z live while the layer prints; `Z_OFFSET_APPLY_ENDSTOP` saves that live change. The cereal is Voron's reward for a first print.
 
 **Parts:**
 
@@ -1279,7 +1290,7 @@ Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tre
 **Do:**
 
 1. Upload from the slicer using the physical printer from 13.41, start it, and **watch the whole first layer**.
-2. Adjust Z live in 0.01 mm steps while it lays down, with the lines below; Mainsail's "Z Offset" babystep control does the same.
+2. Adjust Z live in 0.01 mm steps with the lines below; Mainsail's "Z Offset" babystep control does the same.
 3. Note the total you end on and **let the cube finish.** Only then save it: `Z_OFFSET_APPLY_ENDSTOP`, then, a hand under the gantry, `SAVE_CONFIG`.
 
 ```
@@ -1357,7 +1368,7 @@ Source: [Printables 796563 — jinetix, nozzle scrubber w/ sheet stops](https://
 
 ### Step 13.45 — Measure the sheet height and the wiper
 
-(no image — see text)
+![Behind the plate, seen from the side: H from the left bed extrusion top to the flex plate top, the nozzle O past the plate edge, the Omron face d above the nozzle tip and G above the extrusion top, and the wiper height w](assets/diagrams/1305-scrubber-measurements.svg)
 
 **What you're looking at:** The printed parts are drawn from the bed-extrusion top up. The author's LDO stack puts the flex plate's top 20.05 mm above it; yours sets how far the brush stands above the sheet, and the wiper's own height adds to that. The wiper must be in hand for this step.
 
@@ -1383,7 +1394,7 @@ Source: [Printables 796563 — height notes and BOM](https://www.printables.com/
 
 ### Step 13.46 — Measure the Omron height and the reach past the plate
 
-(no image — see text)
+![Behind the plate, seen from the side: H from the left bed extrusion top to the flex plate top, the nozzle O past the plate edge, the Omron face d above the nozzle tip and G above the extrusion top, and the wiper height w](assets/diagrams/1305-scrubber-measurements.svg)
 
 **What you're looking at:** The Omron rides 25 mm behind the nozzle, so it sweeps the strip behind the plate whenever the rear rows print. d and G are its height; O is how far the nozzle travels past the plate's rear edge.
 

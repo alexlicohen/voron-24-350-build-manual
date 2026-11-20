@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1240" width="1200" height="1240" role="img" aria-label="Door hinges on the left front vertical, pins up" style="color:#14181D">
+<title>Door hinges on the left front vertical, pins up</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="1240" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Hang the door hinges</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="300.0" y="172.0" width="60.0" height="415.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3"/>
+<line x1="320.7" y1="175.0" x2="320.7" y2="584.0" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<line x1="339.3" y1="175.0" x2="339.3" y2="584.0" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<rect x="369.0" y="172.0" width="60.0" height="415.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3"/>
+<line x1="389.7" y1="175.0" x2="389.7" y2="584.0" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<line x1="408.3" y1="175.0" x2="408.3" y2="584.0" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<rect x="360.0" y="172.0" width="9.0" height="415.0" rx="0" fill="#F4E7B5" stroke="#C9A227" stroke-width="1.5"/>
+<path d="M 290.0 577.0 L 314.8 597.0 L 339.7 577.0 L 364.5 597.0 L 389.3 577.0 L 414.2 597.0 L 439.0 577.0" fill="none" stroke="#5C6675" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="300.0" y="717.0" width="60.0" height="415.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3"/>
+<line x1="320.7" y1="720.0" x2="320.7" y2="1129.0" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<line x1="339.3" y1="720.0" x2="339.3" y2="1129.0" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<rect x="369.0" y="717.0" width="60.0" height="415.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3"/>
+<line x1="389.7" y1="720.0" x2="389.7" y2="1129.0" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<line x1="408.3" y1="720.0" x2="408.3" y2="1129.0" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<rect x="360.0" y="717.0" width="9.0" height="415.0" rx="0" fill="#F4E7B5" stroke="#C9A227" stroke-width="1.5"/>
+<path d="M 290.0 707.0 L 314.8 727.0 L 339.7 707.0 L 364.5 727.0 L 389.3 707.0 L 414.2 727.0 L 439.0 707.0" fill="none" stroke="#5C6675" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40.0" y="172.0" width="260.0" height="60.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3"/>
+<line x1="43.0" y1="192.7" x2="297.0" y2="192.7" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<line x1="43.0" y1="211.3" x2="297.0" y2="211.3" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<rect x="40.0" y="1072.0" width="260.0" height="60.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3"/>
+<line x1="43.0" y1="1092.7" x2="297.0" y2="1092.7" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<line x1="43.0" y1="1111.3" x2="297.0" y2="1111.3" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<rect x="274.0" y="158.0" width="99.0" height="50.0" rx="8" fill="#E2E4E8" stroke="#3E4550" stroke-width="3"/>
+<rect x="274.0" y="1096.0" width="99.0" height="50.0" rx="8" fill="#E2E4E8" stroke="#3E4550" stroke-width="3"/>
+<rect x="355.5" y="217.0" width="63.0" height="165.0" rx="8" fill="#E2E4E8" stroke="#3E4550" stroke-width="3"/>
+<rect x="310.5" y="382.0" width="63.0" height="165.0" rx="8" fill="#3E4550" stroke="#14181D" stroke-width="3"/>
+<circle cx="399.0" cy="266.5" r="9.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<circle cx="399.0" cy="266.5" r="3.8" fill="#7E8794" stroke="none" stroke-width="0"/>
+<circle cx="330.0" cy="431.5" r="9.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<circle cx="330.0" cy="431.5" r="3.8" fill="#7E8794" stroke="none" stroke-width="0"/>
+<circle cx="399.0" cy="332.5" r="9.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<circle cx="399.0" cy="332.5" r="3.8" fill="#7E8794" stroke="none" stroke-width="0"/>
+<circle cx="330.0" cy="497.5" r="9.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<circle cx="330.0" cy="497.5" r="3.8" fill="#7E8794" stroke="none" stroke-width="0"/>
+<line x1="364.5" y1="322.0" x2="364.5" y2="539.0" stroke="#B6BDC6" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 7"/>
+<rect x="355.5" y="757.0" width="63.0" height="165.0" rx="8" fill="#E2E4E8" stroke="#3E4550" stroke-width="3"/>
+<rect x="310.5" y="922.0" width="63.0" height="165.0" rx="8" fill="#3E4550" stroke="#14181D" stroke-width="3"/>
+<circle cx="399.0" cy="806.5" r="9.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<circle cx="399.0" cy="806.5" r="3.8" fill="#7E8794" stroke="none" stroke-width="0"/>
+<circle cx="330.0" cy="971.5" r="9.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<circle cx="330.0" cy="971.5" r="3.8" fill="#7E8794" stroke="none" stroke-width="0"/>
+<circle cx="399.0" cy="872.5" r="9.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<circle cx="399.0" cy="872.5" r="3.8" fill="#7E8794" stroke="none" stroke-width="0"/>
+<circle cx="330.0" cy="1037.5" r="9.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<circle cx="330.0" cy="1037.5" r="3.8" fill="#7E8794" stroke="none" stroke-width="0"/>
+<line x1="364.5" y1="862.0" x2="364.5" y2="1079.0" stroke="#B6BDC6" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 7"/>
+<line x1="457.0" y1="208.0" x2="493.0" y2="208.0" stroke="#14181D" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="457.0" y1="217.0" x2="493.0" y2="217.0" stroke="#14181D" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M 475.0 164.0 L 475.0 206.0" fill="none" stroke="#14181D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arw)"/>
+<path d="M 475.0 261.0 L 475.0 219.0" fill="none" stroke="#14181D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arw)"/>
+<text x="505.0" y="220.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">small gap</text>
+<path d="M 475.0 541.0 L 475.0 408.0" fill="none" stroke="#E8751A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwo)"/>
+<text x="501.0" y="470.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#E8751A" letter-spacing="0">pin up</text>
+<circle cx="535.0" cy="530.5" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="535.0" y="542.3" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">3</text>
+<text x="453.0" y="303.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">door half</text>
+<line x1="425.0" y1="291.5" x2="447.0" y2="291.5" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="425.0" cy="291.5" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<text x="266.0" y="416.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">printer</text>
+<text x="266.0" y="454.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">half</text>
+<circle cx="240.0" cy="508.5" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="240.0" y="520.3" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<circle cx="240.0" cy="1004.5" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="240.0" y="1016.3" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<rect x="260.0" y="635.0" width="209.0" height="34.0" rx="0" fill="#3B7DD8" stroke="#3B7DD8" stroke-width="1" opacity="0.85"/>
+<circle cx="216.0" cy="652.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="216.0" y="663.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
+<text x="489.0" y="639.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#2A6FB5" letter-spacing="0">door frame</text>
+<text x="489.0" y="677.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#2A6FB5" letter-spacing="0">in front</text>
+<text x="60.0" y="282.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#2A6FB5" letter-spacing="0">printer's front</text>
+<text x="60.0" y="320.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#2A6FB5" letter-spacing="0">left vertical</text>
+<text x="270.0" y="142.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">top corner clip</text>
+<text x="40.0" y="1182.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">bottom corner clip</text>
+<text x="499.0" y="1182.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="start" fill="#2A6FB5" letter-spacing="0">FRONT →</text>
+<circle cx="808.0" cy="425.8" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="808.0" y="437.6" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
+<text x="852.0" y="437.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">tape the door</text>
+<text x="852.0" y="475.4" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">in place</text>
+<circle cx="808.0" cy="542.6" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="808.0" y="554.4" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<text x="852.0" y="553.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">two T-nuts per half:</text>
+<text x="852.0" y="592.2" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">4 in the vertical,</text>
+<text x="852.0" y="630.6" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">4 in the door frame</text>
+<circle cx="808.0" cy="697.8" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="808.0" y="709.6" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">3</text>
+<text x="852.0" y="709.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">pins up,</text>
+<text x="852.0" y="747.4" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">door half on top</text>
+<text x="780.0" y="849.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">seen from the left side</text>
+</svg>

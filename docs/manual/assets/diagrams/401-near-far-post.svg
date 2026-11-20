@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 725" width="1200" height="725" role="img" aria-label="Near post and far post on the A and B drive frames" style="color:#14181D">
+<title>Near post and far post on the A and B drive frames</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="725" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Near post, far post</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="30.0" y="110.0" width="555.0" height="545.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<text x="54.0" y="164.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="700" text-anchor="start" fill="#0E8F86" letter-spacing="0">A drive</text>
+<path d="M 65.2 460.4 L 71.8 467.9 L 82.8 471.0 L 444.5 471.0 L 457.2 468.4 L 468.2 459.6 L 474.8 445.5 L 475.3 363.2 L 478.4 353.5 L 482.8 350.0 L 488.9 347.8 L 559.8 347.8 L 564.6 345.6 L 568.1 341.2 L 568.1 235.6 L 564.6 231.2 L 559.8 229.0 L 493.8 229.0 L 474.4 244.0 L 458.1 252.8 L 437.4 259.4 L 413.7 261.1 L 391.7 274.3 L 368.8 280.9 L 239.9 281.8 L 228.0 283.6 L 219.2 287.5 L 213.0 294.1 L 210.8 301.6 L 210.0 333.7 L 205.1 341.2 L 197.2 344.3 L 159.8 344.3 L 151.4 342.1 L 147.0 337.7 L 144.4 332.0 L 143.5 299.0 L 119.3 298.5 L 118.0 300.7 L 117.1 376.8 L 114.0 378.6 L 72.2 378.6 L 67.0 381.2 L 63.4 386.5 L 63.0 451.2 Z" fill="#E2E4E8" stroke="#3E4550" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 331.4 323.2 L 320.8 320.1 L 308.5 319.2 L 298.0 321.0 L 287.4 324.9 L 278.6 330.6 L 269.8 339.4 L 264.1 348.7 L 260.1 358.8 L 258.8 372.0 L 259.7 381.7 L 262.8 392.2 L 268.0 401.9 L 276.8 411.6 L 291.4 415.6 L 306.8 424.4 L 326.6 422.6 L 342.0 415.1 L 355.6 401.0 L 362.6 384.8 L 364.0 365.4 L 358.2 347.8 L 346.4 332.0 Z" fill="#FFFFFF" stroke="#3E4550" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="299.6" y1="372.0" x2="323.6" y2="372.0" stroke="#14181D" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="311.6" y1="360.0" x2="311.6" y2="384.0" stroke="#14181D" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="311.6" y1="372.0" x2="281.7" y2="440.2" stroke="#5C6675" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 6"/>
+<line x1="311.6" y1="372.0" x2="444.5" y2="440.2" stroke="#5C6675" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 6"/>
+<circle cx="281.7" cy="440.2" r="33.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<circle cx="281.7" cy="440.2" r="28.6" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<circle cx="281.7" cy="440.2" r="11.0" fill="#7E8794" stroke="#14181D" stroke-width="2"/>
+<circle cx="444.5" cy="440.2" r="33.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="5"/>
+<circle cx="444.5" cy="440.2" r="28.6" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<circle cx="444.5" cy="440.2" r="11.0" fill="#7E8794" stroke="#14181D" stroke-width="2"/>
+<text x="311.6" y="212.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">motor bore</text>
+<line x1="311.6" y1="318.3" x2="311.6" y2="222.0" stroke="#5C6675" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="311.6" cy="318.3" r="2.4" fill="#5C6675" stroke="none" stroke-width="0"/>
+<line x1="281.7" y1="473.2" x2="281.7" y2="500.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="281.7" cy="473.2" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<line x1="281.7" y1="500.0" x2="120.0" y2="500.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<text x="60.0" y="540.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">near post</text>
+<text x="60.0" y="582.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="#0E8F86" letter-spacing="0">2 bearings</text>
+<text x="60.0" y="622.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="#5C6675" letter-spacing="0">about 17 mm</text>
+<line x1="444.5" y1="473.2" x2="444.5" y2="500.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="444.5" cy="473.2" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<line x1="444.5" y1="500.0" x2="495.0" y2="500.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<text x="555.0" y="540.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">far post</text>
+<text x="555.0" y="582.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="end" fill="#0E8F86" letter-spacing="0">4 bearings</text>
+<text x="555.0" y="622.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="end" fill="#5C6675" letter-spacing="0">about 34 mm</text>
+<rect x="615.0" y="110.0" width="555.0" height="545.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<text x="639.0" y="164.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="700" text-anchor="start" fill="#7A4FD6" letter-spacing="0">B drive</text>
+<path d="M 1143.4 459.1 L 1136.4 467.9 L 1125.4 471.0 L 763.7 471.0 L 751.4 468.4 L 740.0 459.6 L 733.4 445.5 L 732.9 363.2 L 729.8 353.5 L 725.9 350.0 L 719.7 347.8 L 648.9 347.8 L 643.6 345.6 L 640.1 341.2 L 640.1 235.2 L 643.6 231.2 L 648.9 229.0 L 713.6 229.0 L 718.4 231.2 L 734.2 243.5 L 750.5 252.8 L 771.2 259.4 L 794.5 261.1 L 814.8 273.4 L 835.4 280.0 L 852.6 281.8 L 971.4 281.8 L 985.9 285.8 L 998.2 294.1 L 1080.1 375.1 L 1090.6 378.6 L 1136.0 378.6 L 1142.1 381.7 L 1145.2 389.6 L 1145.2 451.2 Z" fill="#E2E4E8" stroke="#3E4550" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 874.2 324.5 L 890.9 319.6 L 910.2 321.0 L 927.4 328.9 L 941.0 343.0 L 948.1 358.8 L 949.4 378.6 L 942.8 398.4 L 931.4 411.6 L 915.1 416.4 L 902.8 424.4 L 889.6 424.4 L 878.6 421.7 L 868.9 416.9 L 861.0 410.7 L 852.6 401.0 L 847.8 390.9 L 844.7 380.4 L 844.2 368.5 L 846.0 357.9 L 850.0 347.4 L 856.1 338.6 L 864.5 330.2 Z" fill="#FFFFFF" stroke="#3E4550" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="884.6" y1="372.0" x2="908.6" y2="372.0" stroke="#14181D" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="896.6" y1="360.0" x2="896.6" y2="384.0" stroke="#14181D" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="896.6" y1="372.0" x2="926.5" y2="440.2" stroke="#5C6675" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 6"/>
+<line x1="896.6" y1="372.0" x2="763.7" y2="440.2" stroke="#5C6675" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 6"/>
+<circle cx="926.5" cy="440.2" r="33.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<circle cx="926.5" cy="440.2" r="28.6" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<circle cx="926.5" cy="440.2" r="11.0" fill="#7E8794" stroke="#14181D" stroke-width="2"/>
+<circle cx="763.7" cy="440.2" r="33.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="5"/>
+<circle cx="763.7" cy="440.2" r="28.6" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<circle cx="763.7" cy="440.2" r="11.0" fill="#7E8794" stroke="#14181D" stroke-width="2"/>
+<text x="896.6" y="212.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">motor bore</text>
+<line x1="896.6" y1="318.3" x2="896.6" y2="222.0" stroke="#5C6675" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="896.6" cy="318.3" r="2.4" fill="#5C6675" stroke="none" stroke-width="0"/>
+<line x1="926.5" y1="473.2" x2="926.5" y2="500.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="926.5" cy="473.2" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<line x1="926.5" y1="500.0" x2="1080.0" y2="500.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<text x="1140.0" y="540.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">near post</text>
+<text x="1140.0" y="582.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="end" fill="#7A4FD6" letter-spacing="0">2 bearings</text>
+<text x="1140.0" y="622.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="end" fill="#5C6675" letter-spacing="0">about 17 mm</text>
+<line x1="763.7" y1="473.2" x2="763.7" y2="500.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="763.7" cy="473.2" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<line x1="763.7" y1="500.0" x2="705.0" y2="500.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<text x="645.0" y="540.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">far post</text>
+<text x="645.0" y="582.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="#7A4FD6" letter-spacing="0">4 bearings</text>
+<text x="645.0" y="622.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="#5C6675" letter-spacing="0">about 34 mm</text>
+<text x="600.0" y="691.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">Upper frame flat face down. Measure from the bore's centre.</text>
+</svg>

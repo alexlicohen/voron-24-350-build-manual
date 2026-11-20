@@ -1178,7 +1178,7 @@ def d06_harness_map() -> Doc:
             ("Omron inductive probe", "JST-PH2.0 3P", "PROBE",
              "GND / SIG PC15 / 24V — 24 V only"),
             ("Chamber thermistor", "JST-PH2.0 2P", "CT", "PB2"),
-            ("Clockwork 2 extruder motor", "JST-XH2.5 4P", "E MOTOR",
+            ("Clockwork 2.5 extruder motor", "JST-XH2.5 4P", "E MOTOR",
              "reverse side · B2 B1 A1 A2"),
             ("— nothing —", "JST-PH2.0 4P", "XY ENDSTOP",
              "unused — that PCB wires to the Leviathan"),
@@ -2962,6 +2962,33 @@ DIAGRAMS = [
 ]
 
 
+# ------------------------------------------------- per-chapter step diagrams ---
+# Chapters 02 onwards keep their step-column diagrams in scripts/step_diagrams/chNN.py.
+# Each module does `import draw_diagrams as dd` and defines DIAGRAMS in the format above,
+# numbered NN01, NN02, ... (Ch 02 = 201..., Ch 14 = 1401...), file "<n>-<slug>.svg".
+def _load_step_diagrams() -> None:
+    import importlib
+    sys.modules.setdefault("draw_diagrams", sys.modules[__name__])
+    pkg = Path(__file__).resolve().parent / "step_diagrams"
+    if str(pkg.parent) not in sys.path:
+        sys.path.insert(0, str(pkg.parent))
+    have = {s["n"] for s in DIAGRAMS}
+    for mod in sorted(pkg.glob("ch*.py")):
+        try:
+            specs = list(importlib.import_module(f"step_diagrams.{mod.stem}").DIAGRAMS)
+        except Exception as e:                       # a half-written module must not block the rest
+            print(f"  skipped {mod.name}: {type(e).__name__}: {e}", file=sys.stderr)
+            continue
+        for spec in specs:
+            if spec["n"] in have:
+                raise SystemExit(f"{mod.name}: diagram number {spec['n']} is already taken")
+            have.add(spec["n"])
+            DIAGRAMS.append(spec)
+
+
+_load_step_diagrams()
+
+
 # =================================================================== output ===
 def write_manifest() -> Path:
     """MANIFEST.md is generated from the registry above so the two cannot drift.
@@ -2978,10 +3005,12 @@ def write_manifest() -> Path:
         len(DIAGRAMS), str(len(DIAGRAMS)))
     L.append(f"{nw.capitalize()} generated SVGs covering the things the official manual states in "
              "prose but never draws. Regenerate with `python3 scripts/draw_diagrams.py`; "
-             "the geometry and every label live in that script, not here.")
+             "the geometry and every label live in the scripts, not here.")
     L.append("")
-    L.append("No chapter has been edited. The **Insert at** column is the proposal: the "
-             "chapter file and the step whose image block the diagram belongs in.")
+    L.append("The **Insert at** column names the chapter file and the step whose image block "
+             "carries the diagram. Diagrams 1 to 18 are drawn in the script itself; the "
+             "step-column diagrams of Chapters 02 to 14 (numbered by chapter, 201 onwards) "
+             "live in `scripts/step_diagrams/chNN.py`.")
     L.append("")
     L.append(f"All {nw} are 1200 px wide, legible at 800 px, and safe on a dark page — "
              "each carries its own light background rect and pins `color` on the `<svg>` "
@@ -3063,6 +3092,8 @@ def main() -> int:
     ap.add_argument("--only", nargs="*", type=int, default=None,
                     help="diagram numbers to (re)generate")
     ap.add_argument("--out", type=Path, default=OUT)
+    ap.add_argument("--no-manifest", action="store_true",
+                    help="leave MANIFEST.md alone (parallel work on step_diagrams/)")
     args = ap.parse_args()
 
     out = args.out
@@ -3081,9 +3112,12 @@ def main() -> int:
         path.write_text(doc.render(), encoding="utf-8")
         written.append((path, doc.w, doc.h))
 
-    man = write_manifest()
     for p, w, h in written:
         print(f"  {p.relative_to(REPO)}  {w}x{h}  {p.stat().st_size / 1024:.1f} kB")
+    if args.no_manifest:
+        print(f"{len(written)} SVG(s) -> {out.relative_to(REPO)}")
+        return 0
+    man = write_manifest()
     print(f"  {man.relative_to(REPO)}")
     print(f"{len(written)} SVG(s) + manifest -> {out.relative_to(REPO)}")
     return 0

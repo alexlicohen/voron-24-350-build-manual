@@ -555,7 +555,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 ### Step 10.18 — Colour groups are shorted
 
-(no image — see text)
+![Mains bus, unplugged: one probe parked on a C14 pin, the other walked to every point of that colour; every point beeps](assets/diagrams/1001-mains-bus-probe-points.svg)
 
 **What you're looking at:** You are proving that each wire colour is one node, one connected path, from the inlet pin to its last destination: out to the PSU screws, the relay, the bed and the frame. A core that never seated in its lever looks perfect from outside.
 
@@ -616,7 +616,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 ### Step 10.19 — L, N and PE are isolated from each other
 
-(no image — see text)
+![L, N and PE, unplugged: no pair beeps, at the WAGO blocks with the rocker on and off, and at the PSU screws 1 L, 2 N and 3 FG](assets/diagrams/1006-mains-isolation-pairs.svg)
 
 **What you're looking at:** The mirror image of the last check: the three buses must have no path between them at all. Live touching Neutral is a short circuit across the mains; Live touching earth is what makes the metalwork deadly.
 
@@ -866,7 +866,7 @@ Pause: ~25 min since the last pause — probe tape confirmed, XY endstop cable r
 
 ### Step 10.35 — Assemble the eight COB light-strip mounts
 
-(no image — see [COB README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip))
+![COB mount, front view with the lid lifted: two inserts in the base half's ends, the lid closed onto them with two M3×6 FHCS; the base half's two holes are for Step 10.36](assets/diagrams/1002-cob-mount-inserts.svg)
 
 **What you're looking at:** [COB light strips](16-glossary.md#c) are the chamber lighting: a continuous line of LEDs under one phosphor coating rather than separate dots. Each printed mount is a two-piece clamshell that grips the strip and screws to a frame extrusion.
 
@@ -885,6 +885,8 @@ Pause: ~25 min since the last pause — probe tape confirmed, XY endstop cable r
 2. Close the halves with two M3×6 FHCS. Four mounts per strip: three 100 mm plus one 50 mm.
 
 **Check:** The halves close **flush** and no mount rocks on glass. The bracket and TFT inserts sit flush, and an M3 screw starts by hand in each.
+
+⚠ The press tip and a freshly set insert both burn. Raise and park the head between inserts, keep the bench ventilated, hold parts by the far edge until they cool, and switch the press off between sessions.
 
 Source: [LDOVoron2 `STLs/COB Light Strip`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs/COB%20Light%20Strip) · [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#routing-the-led-strips)
 
@@ -1010,7 +1012,9 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 
 **Check:** Your batch BOM tells you whether the part is in the kit, and the Klipper config's `[temperature_sensor chamber_temp]` reads `nhk:PB2`, the toolboard, not the mainboard.
 
-It is tempting to put the chamber sensor on one of the Leviathan's four thermistor inputs. Do not: `leviathan-printer-rev-d-sbv2.cfg` expects it on the toolboard, anchored by the zip-tie loop on the CW2 cable cover. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
+It is tempting to put the chamber sensor on one of the Leviathan's four thermistor inputs. Do not: `leviathan-printer-rev-d-sbv2.cfg` expects it on the toolboard. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
+
+LDO's guide hangs it from a holder on LDO's Clockwork 2 cable door. The Clockwork 2.5 `cable_cover` on this build has no holder, so the tip leads out of the cover into free air, as Step 08.51 sets it. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#printed-parts)
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg) · [Nitehawk-SB V2 doc § Port and pin definitions](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#port-and-pin-definitions) · [Video: Part 9 @1:36:20](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5780s)
 
@@ -1036,7 +1040,7 @@ Pause: ~35 min since the last pause, ~45 with the camera cable — eight COB mou
 **Do:**
 
 1. Cut the chain to length. Slide the T-nut into the top slot of the X extrusion.
-2. Fix the chain's fixed end to it with one M3×6 FHCS, and the moving end to the CW2 chain anchor with two.
+2. Fix the chain's fixed end to it with one M3×6 FHCS, and the moving end to LDO's tilted chain anchor on the toolhead with two.
 
 **Check:** The chain rolls, never drags on the extrusion and never reaches full stretch as you push the toolhead through its full X travel by hand.
 
@@ -2001,7 +2005,7 @@ Pause: ~30 min since the last pause — below-deck runs dressed, mains in the AC
 
 ### Step 10.73 — Confirm dead
 
-(no image — see text)
+![24 V probe points, unplugged: on the PSU strip the black probe on −V and the red on +V, never on 1 L, 2 N or 3 FG; then each 24 V input, + to −](assets/diagrams/1004-24v-probe-points.svg)
 
 **What you're looking at:** A PSU holds charge in its large (bulk) capacitors after the cord comes out. Reading 0 V across its DC output, and watching it stay there for ten seconds, is what proves the machine is safe to probe.
 
@@ -2024,7 +2028,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 ### Step 10.74 — 24 V rails
 
-(no image — see text)
+![24 V probe points, unplugged: on the PSU strip the black probe on −V and the red on +V, never on 1 L, 2 N or 3 FG; then each 24 V input, + to −](assets/diagrams/1004-24v-probe-points.svg)
 
 **What you're looking at:** The final 24 V table, now that the umbilical and toolboard are on the rail too. A healthy rail reads a resistance that rises; a shorted one behaves like a piece of wire. The last two rows check the rail against **earth**.
 
@@ -2055,15 +2059,15 @@ Source: [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron
 
 ### Step 10.75 — 5 V rail
 
-(no image — see text)
+![The Pi's GPIO edge, unplugged: the HAT adapter over pins 1 to 24, the red probe on the board-edge pad over pin 2, 5 V, the black on the pad over pin 6, GND, at the microSD end](assets/diagrams/1003-hat-adapter-5v-pads.svg)
 
-**What you're looking at:** There is no 5 V power supply in this kit: the Leviathan makes 5 V itself and sends it to the Pi through the 5-pin power/UART port and the HAT adapter. This check confirms that rail is not shorted.
+**What you're looking at:** There is no 5 V power supply in this kit: the Leviathan makes 5 V itself and sends it to the Pi through the 6-pin power/UART port and the HAT adapter. This check confirms that rail is not shorted.
 
 **Parts:**
 
 - tool: multimeter on Ω
 
-**Do:** The HAT adapter covers GPIO pins 2, 4 and 6, so leave it seated and probe its top pads instead: over **pin 2**, 5 V, to over **pin 6**, GND, the edge row's first and third at the microSD end `(verify on bench)`.
+**Do:** The HAT adapter covers GPIO pins 1 to 24, so leave it seated and probe the bare pads on its top: the pad over **pin 2**, 5 V, to the pad over **pin 6**, GND. They are the first and third pads of the row along the board edge, at the microSD end. [src](https://pinout.xyz/)
 
 **Check:** The reading is finite and **not** 0 Ω, and there are exactly two jumpers on the board, Fan2 and Fan3, both on the 24 V pins.
 
@@ -2071,7 +2075,7 @@ Source: [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron
 
 ⚠ Rev D+ / LDO: LDO notes p.152, p.172 and p.190 are all **SKIP**: the manual's 5 V PSU does not exist in this kit, and the Pi is never powered over its own USB-C. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-The same rail is on the Leviathan's Pi power port J9: pins 1–2 are 5 V, pin 6 GND. EXP1's 5 V is a separate regulator. [src](https://github.com/MotorDynamicsLab/Leviathan/blob/878c3c4/Schematic/Leviathan_V1.3.pdf)
+The same rail is on the Leviathan's Pi power port J9: pins 1–2 are 5 V, pins 3 and 6 GND, pins 4 and 5 the UART. EXP1's 5 V is a separate regulator. [src](https://github.com/MotorDynamicsLab/Leviathan/blob/878c3c4/Schematic/Leviathan_V1.3.pdf)
 
 Source: [LDO Build Notes p.152, p.172, p.190](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) (manual p.5) · [LDO photo `rpi4_installed_V1.3.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/Leviathan/878c3c4893ea353552c957f574509f9890e1e37a/Media/rpi4_installed_V1.3.jpg), the adapter over pins 1–24 · [Leviathan V1.3 schematic](https://github.com/MotorDynamicsLab/Leviathan/blob/878c3c4/Schematic/Leviathan_V1.3.pdf), J9 PWR/UART
 
@@ -2118,6 +2122,7 @@ Source: [Klipper `temperature_sensors.cfg`](https://github.com/Klipper3d/klipper
 
 ### Step 10.77 — Protective-earth bonding
 
+![Earth bonding, unplugged: one probe stays on the C14 earth pin, the other goes to the PE WAGO, PSU 3 FG, the frame lug, the plate screw and a far frame corner, on bare metal; a probe on an anodised face reads OL](assets/diagrams/1005-earth-bonding-points.svg)
 ![Layout v3: the frame PE lug fitted at 10.16, magenta ring, between the WAGO-mount screw and the Z-chain notch](assets/b11/v3-lead-10-16-frame-pe.jpg)
 
 **What you're looking at:** The last earth check. Every piece of metal a hand can reach must have a low-resistance path back to the inlet's earth pin, and nothing that carries current may have any path at all.

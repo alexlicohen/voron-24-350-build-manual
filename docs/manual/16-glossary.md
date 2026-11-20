@@ -93,11 +93,11 @@ Source: [Ch 05 Step 05.16](05-gantry.md#step-0516-unpack-and-identify-the-titani
 | **Clicky-Clack** | The magnetic-latch front door kit (LDO, blue frame) fitted instead of the stock Voron doors | [11.44](11-skirts-panels-door.md#step-1144-assemble-the-clicky-clack-door-frame) |
 | **Clockwork 2.5 (CW2.5)** | The Voron extruder that mounts to the Stealthburner r2 — BMG drive, printed body with a push-in Bowden collet, its own insert pass. Successor to Clockwork 2 (CW2), with no anti-squish screw | [08.3](08-toolhead.md#step-083-inserts-clockwork-25-main-body) |
 | **COB light strip** | The chamber lighting: two strips on printed mounts, joined by a splitter PCB, on the Leviathan's `LED-Strip` port | [12.32](12-software.md#step-1232-fans-and-lighting-nevermore-cob-strips-bay-fans) |
-| **CoreXY** | The motion system: two fixed motors drive two crossed belts; neither motor moves the bed or itself. Diagonal motion means A and B are wrong | [04 — A/B drives](04-ab-drives.md) |
+| **CoreXY** | The motion system: two fixed motors drive two belts, stacked one above the other so they never cross (the Voron leaves out the crossing many CoreXY printers have, p.125); neither motor moves the bed or itself. One motor alone moves the head diagonally, so a diagonal move when you asked for X or Y means A and B are wrong | [04 — A/B drives](04-ab-drives.md) |
 | **Counterbore** | A wider recess round a hole that a screw head sinks into, so the head sits below the surface | [02.04](02-z-drives.md) |
 | **Cross-threaded** | Said of a screw started at an angle, so its threads bind and cut a new, wrong thread | [03.15](03-build-plate.md) |
 | **Clearance hole** | A hole slightly wider than its screw, so the screw slides through without threading | [04.4](04-ab-drives.md) |
-| **Cable bridge** | The blue arch on the right XY joint that holds the moving end of the toolhead drag chain clear of the belts | [05.3](05-gantry.md) |
+| **Cable bridge** | The blue arch on the right XY joint that holds the moving end of the toolhead drag chain clear of the belts; manual p.83 labels it *XY Bridge* | [05.3](05-gantry.md) |
 | **Countersink** | A cone-shaped hole that lets a flat-head screw (FHCS) sit flush | [05.17](05-gantry.md) |
 | **Captive nut** | A nut held in a printed pocket so that a screw can thread into it | [07.26](07-ab-belts.md) |
 | **Conduit** | A printed channel stuck to the deck that carries the bay's wires, with snap-on lids | [09.6](09-electronics-bay.md) |
@@ -298,6 +298,7 @@ Source: [Ch 12 Step 12.5](12-software.md#step-125-reach-mainsail-and-open-an-ssh
 | **Nozzle probe** | LDO's mechanical Z endstop — a pin the nozzle presses. This, not the inductive probe, sets Z=0 | [09.27](09-electronics-bay.md#step-0927-confirm-the-collar-in-the-ldo-nozzle-probe-body) |
 | **Node** | Everything that is electrically joined together. Every point in a node reads the same on the meter | [10.12](10-wiring.md) |
 | **Normally closed** | Said of a switch whose circuit is complete until it is pressed. Voron endstops are wired this way | [13.17](13-initial-startup.md) |
+| **Needle bearing** | A bearing that runs on thin steel rollers instead of balls; the BMG idler gear turns on them | [08.9](08-toolhead.md#step-089-build-the-bmg-idler-assembly-and-grease-it) |
 
 Source: [Ch 11 Step 11.26](11-skirts-panels-door.md#step-1126-break-out-the-nevermore-printed-supports) · [Ch 00 Step 00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) · [Ch 09 Step 09.27](09-electronics-bay.md#step-0927-confirm-the-collar-in-the-ldo-nozzle-probe-body)
 
@@ -420,7 +421,7 @@ Source: [Ch 00 Steps 00.22](00-before-you-start.md#step-0022-understand-the-rail
 | **T-slot** | The groove down each face of an extrusion. Nuts and screw heads slide along it, so parts can bolt on anywhere | [01.3](01-frame.md#step-013-inspect-the-ends-and-test-fit-a-t-nut) |
 | **Thermal fuse** | The 125 °C one-shot cut-out already bonded to the bed heater pad. Verify it, never try to re-seat it | [03.5](03-build-plate.md#step-035-verify-the-thermal-fuse-do-not-fit-one) |
 | **Threadlocker** | A thread glue that stops a screw shaking loose. Loctite 243 is the one this build uses | [02.17](02-z-drives.md) |
-| **Thumb nut** | The knurled nut used as a **bed spacer** under the build plate, letting it float and expand | [03.13](03-build-plate.md#step-0313-fit-the-four-thumb-nuts-as-spacers) |
+| **Thumb nut** | An M4 nut with a wide knurled rim and a narrow collar, used as a **bed spacer** under the build plate: it stands rim down, collar up, and the M3 screw passes through it, letting the plate float and expand | [03.13](03-build-plate.md#step-0313-fit-the-four-thumb-nuts-as-spacers) |
 | **Toolboard** | The PCB on the toolhead that drives the hotend, fans, LEDs, probe and accelerometer over one umbilical. Here: Nitehawk-SB V2, over USB | [00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) |
 | **"Snug, not torqued"** | This manual's instruction to close a joint without setting it, so a later squaring pass can still move it. No Voron or LDO source publishes a torque figure for any fastener in this build | [00.8](00-before-you-start.md#step-008-settle-the-tool-list-owned-vs-buy) |
 | **Thermistor** | A temperature sensor. The build plate has one, and its lead is labelled BED TH | [03.6](03-build-plate.md) |

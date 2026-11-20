@@ -29,7 +29,7 @@ caption: Two drive units, two idlers, all handed. Lay them out left and right. C
 - Nutopress Pro insert press with its M3 tip, for the four heat-set inserts (Steps 04.3–04.4). Use the X-Tronic iron with the LDO brass tip only if a part will not fit under the press.
 - The printed `pulley_jig.stl` (Voron-2 `STLs/Tools/`).
 - Digital caliper: the fallback for pulley height, and to confirm that both drives match.
-- The free end of the kit's 6 mm A/B belt reel, **uncut**, to check that each belt path is straight. Cutting belt waits for Ch 07, where both belts are cut to match.
+- The free end of the kit's 6 mm A/B belt reel, **uncut**, to check that each belt runs level through its drive. Cutting belt waits for Ch 07, where both belts are cut to match.
 - Tweezers or a small screwdriver, to place spacers in the stacks without dropping them.
 - Masking tape and a marker, to label every assembly **A** or **B** as it is finished.
 
@@ -184,6 +184,8 @@ Source: [Voron manual p.63](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** both inserts sit flush and square. `b_drive_frame_upper` takes **no** inserts: a frame with bosses is the A frame.
 
+⚠ The press tip and a freshly set insert both burn. Raise and park the head between inserts, keep the bench ventilated, and hold parts by the far edge until they cool.
+
 If you ran the B03 insert pass that Step 00.16 plans, just confirm the two inserts are there and move on.
 
 Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=64) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
@@ -192,6 +194,7 @@ Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 04.4 — Heat-set one insert into each tension arm
 
+![The tension arm cut along its hole: the insert goes into the 4.7 mm end, the 3.5 mm part stays clear](assets/diagrams/404-tensioner-insert.svg)
 ![Voron manual p.64](assets/manual-pages/manual-p064.png){ crop="0.43 0.445 0.81 0.83" }
 
 **What you're looking at:** The blue **tension arms** are C-shaped levers that carry each front idler's bearing stack; pulling one forward tightens a belt. Each has a top boss with a **counterbore**, a wider recess for the M5×40 head, a foot with a pocket for the M5 nut, and a back wall with one stepped hole.
@@ -206,6 +209,8 @@ Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:** Each arm has one hole straight through, stepping from 3.5 mm to 4.7 mm. Press the insert into the **4.7 mm end**, the wider opening. The 3.5 mm part is the M3×40's clearance hole and must stay clear.
 
 **Check:** an M3×40 SHCS, pushed in by hand from the plain 3.5 mm end, slides through freely and catches a thread only at the insert.
+
+⚠ The press tip and a freshly set insert both burn. Raise and park the head between inserts, keep the bench ventilated, hold parts by the far edge until they cool, and switch the press off between sessions.
 
 Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=64) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
@@ -422,7 +427,7 @@ Source: [Voron manual p.69](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![Voron manual p.69](assets/manual-pages/manual-p069.png){ crop="0.60 0.17 0.82 0.64" }
 ![the two upper idler frames: LEFT (tall) and RIGHT (short)](assets/parts/pair-front_idler_upper.png)
 
-**What you're looking at:** `front_idler_left_upper` is the tall upper frame, 21.6 mm, where the A idler's upper frame was short. The uppers are handed the opposite way to the lowers, so two that look alike means two of the same hand.
+**What you're looking at:** `front_idler_left_upper` is the tall upper frame, 21.6 mm, where the A idler's upper frame was short. Each idler pairs one tall half with one short half, so two tall halves, or two short ones, on one idler means the uppers are swapped.
 
 **Parts:**
 
@@ -518,6 +523,7 @@ Pause: ~35 min since the last pause — the B (front left) idler is complete and
 
 ### Step 04.20 — A drive: upper frame face down, two M5×30 BHCS
 
+![Upper drive frame: screws dropped in flat face up, then turned over holding the heads so the threads stand up](assets/diagrams/405-flip-upper-frame.svg)
 ![Voron manual p.73](assets/manual-pages/manual-p073.png)
 ![`a_drive_frame_upper` (left, with the cutout lobe and insert bosses) vs `b_drive_frame_upper` (right, without)](assets/parts/pair-a_drive_frame_upper.png)
 
@@ -541,6 +547,7 @@ Source: [Voron manual p.73](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 04.21 — A drive: two-bearing stack on the near post
 
+![Both upper drive frames from above, flat face down: the near post beside the motor bore takes 2 bearings, the far post 4](assets/diagrams/401-near-far-post.svg)
 ![Voron manual p.74](assets/manual-pages/manual-p074.png){ crop="0.12 0.17 0.52 0.805" }
 
 **What you're looking at:** The post **nearer** the motor bore takes one bearing pair: spacer, two F695 flanges outward, spacer. This post carries only one belt, so it takes half the stack of the other one.
@@ -565,6 +572,7 @@ Source: [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 04.22 — A drive: four-bearing stack on the far post
 
+![Both upper drive frames from above, flat face down: the near post beside the motor bore takes 2 bearings, the far post 4](assets/diagrams/401-near-far-post.svg)
 ![Voron manual p.74](assets/manual-pages/manual-p074.png){ crop="0.12 0.17 0.52 0.805" }
 ![The six A/B bearing stacks](assets/diagrams/01-ab-bearing-stacks.svg)
 
@@ -617,10 +625,11 @@ Pause: ~25 min since the last pause — the A drive frames are closed snug over 
 
 ### Step 04.24 — A drive: set the pulley on the A motor at 16.5 mm
 
+![Setting the pulley with the jig: A hub down at 16.5 mm, B hub up at 6.5 mm, the tab's underside level with the teeth underside, and two wrong ways](assets/diagrams/402-pulley-jig.svg)
 ![Voron manual p.75](assets/manual-pages/manual-p075.png){ crop="0.08 0.54 0.43 0.86" }
 ![A/B handedness and pulley height](assets/diagrams/02-ab-pulley-height-handedness.svg)
 
-**What you're looking at:** The A motor gets its 20-tooth, 6 mm-wide **pulley**, the toothed wheel that drives the belt. Its height lines the belt up with the A idler's bearings; the jig's **A** tab underside repeats it without a caliper.
+**What you're looking at:** The A motor gets its 20-tooth, 6 mm-wide **pulley**, the toothed wheel that drives the belt. Its height lines the belt up with the A idler's bearings; the jig's **A** tab sets it.
 
 **Parts:**
 
@@ -635,11 +644,11 @@ Pause: ~25 min since the last pause — the A drive frames are closed snug over 
 2. Stand the jig on the motor face beside the pulley, letters upright, **A** tab toward it.
 3. Slide the pulley down until its teeth underside is level with the **A** tab underside.
 
-**Check:** the caliper reads 16.5 mm, motor face to teeth underside, hub down. About 23 mm means the pulley sat on the tab; about 19.5 mm, the jig stood on its feet.
+**Check:** the caliper reads 16.5 mm, motor face to teeth underside, hub down. About 23 mm means the teeth matched the tab's top, not its underside; about 19.5 mm, the jig stood on its feet.
 
 **Helper:** Reads the caliper aloud while you slide the pulley along the shaft.
 
-Stand the jig beside the pulley, never over the boss. Its two feet hang past the motor face, so if it stands on its feet every height reads 3 mm high. Without the jig, set 16.5 mm with a caliper.
+Stand the jig on its long bottom edge on the flat of the motor face, beside the raised ring round the shaft (the boss), never on that ring. The two short feet by the jig's slot hang off the edge of the motor; if the jig stands on them, every height reads 3 mm high. Without the jig, set 16.5 mm with a caliper.
 
 The two A/B motors are **0.9°** (`LDO-42STH48-2004MAH(VRN)`); the four Z motors are 1.8° and look the same. Read the label: **-2004MAH** is A/B (0.9°), **-2004AC** is Z (1.8°), so take an A/B motor, not a spare Z motor. This is why the LDO config carries `full_steps_per_rotation: 400` in `[stepper_x]` and `[stepper_y]`, set in Ch 12. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
@@ -649,6 +658,7 @@ Source: [Voron manual p.75](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 04.25 — A drive: threadlock and lock the pulley set screws
 
+![The pulley hub cut across: the first set screw lands on the flat of the shaft, the second on the round](assets/diagrams/406-set-screw-flat.svg)
 ![Voron manual p.75](assets/manual-pages/manual-p075.png){ crop="0.15 0.17 0.54 0.52" }
 
 **What you're looking at:** Two **set screws**, small headless screws in the hub, lock the pulley to the shaft. If one backs out, the pulley slips on the shaft, and a slipping A or B pulley shows up as prints that drift diagonally, not as an obvious failure.
@@ -703,9 +713,9 @@ Source: [Voron manual p.75](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 1. Line the motor's mounting holes up with the three clearance holes around the motor bore.
 2. Start all three M3×30 SHCS by hand, down through both frames into the motor.
-3. Tighten them evenly, so the motor face pulls in square against the frame.
+3. Tighten them evenly, so they draw the motor up flat against the underside of the frame.
 
-**Check:** three screws are in, not four, and the fourth motor hole stays empty. All three are pulled down evenly and the motor face sits flat against the frame.
+**Check:** three screws are in, not four, and the fourth motor hole stays empty. All three are tightened evenly and the motor face sits flat against the frame.
 
 Source: [Voron manual p.76](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=76) · [Video: Part 3 @1:13:34](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4414s)
 
@@ -713,9 +723,10 @@ Source: [Voron manual p.76](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 04.28 — A drive: check your work and the belt path
 
+![The belt end run round the near pair, the pulley and the far pair, from above and from behind: A on the upper level, B on the lower](assets/diagrams/403-belt-through-drive.svg)
 ![Voron manual p.76](assets/manual-pages/manual-p076.png){ crop="0.58 0.30 0.90 0.80" }
 
-**What you're looking at:** The side view on p.76 and the belt's free end, used as a straightedge, check the belt path. The A pulley runs on the **upper** belt level, in line with the near pair and the far post's upper pair.
+**What you're looking at:** The side view on p.76 and the belt's free end check the belt path. The A pulley runs on the **upper** belt level, in line with the near pair and the far post's upper pair.
 
 **Parts:**
 
@@ -726,10 +737,10 @@ Source: [Voron manual p.76](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. Motor at the bottom, compare the drive with the side view on p.76: pulley on the upper level, in line with the near pair.
-2. Lay the end of the belt across the pulley teeth, the near pair and the far post's **upper** pair.
+2. Run the end of the belt the way it will go: round the near pair, teeth round the pulley, and round the far post's **upper** pair.
 3. Label the drive **A: REAR RIGHT**.
 
-**Check:** the belt path is straight: the belt lies flat on the pulley, the near pair and the far post's **upper** pair, with no tilt and no flange contact.
+**Check:** the belt runs level: it lies flat on the pulley, the near pair and the far post's **upper** pair, with no tilt and no flange contact.
 
 **Helper:** Sights along the belt at eye level and says if it tilts.
 
@@ -743,6 +754,7 @@ Pause: ~25 min since the last pause — the A drive is finished: a 2-bearing nea
 
 ### Step 04.29 — B drive: upper frame face down, two M5×30 BHCS
 
+![Upper drive frame: screws dropped in flat face up, then turned over holding the heads so the threads stand up](assets/diagrams/405-flip-upper-frame.svg)
 ![Voron manual p.77](assets/manual-pages/manual-p077.png)
 ![the B upper frame (right) has no cutout lobe and no insert bosses](assets/parts/pair-a_drive_frame_upper.png)
 
@@ -753,7 +765,10 @@ Pause: ~25 min since the last pause — the A drive is finished: a 2-bearing nea
 - `b_drive_frame_upper` ×1
 - M5×30 BHCS ×2
 
-**Do:** As at Step 04.20: with the flat face up, drop an M5×30 BHCS into each of the two 5.4 mm holes, then turn the frame over so the heads are underneath and the threads stand up.
+**Do:**
+
+1. As at Step 04.20, with the flat face up, drop an M5×30 BHCS into each of the two 5.4 mm holes.
+2. Turn the frame over, holding the heads, so they are underneath and the threads stand up.
 
 **Check:** the frame is a B part, with **no cutout** and **no heat-set inserts**. Either one means you picked up the A frame.
 
@@ -763,6 +778,7 @@ Source: [Voron manual p.77](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 04.30 — B drive: four-bearing stack on the far post
 
+![Both upper drive frames from above, flat face down: the near post beside the motor bore takes 2 bearings, the far post 4](assets/diagrams/401-near-far-post.svg)
 ![Voron manual p.78](assets/manual-pages/manual-p078.png){ crop="0.12 0.30 0.55 0.78" }
 
 **What you're looking at:** On the B frame the four-bearing post is drawn on the **left**, because the B frame mirrors the A frame. It is still the post farther from the motor bore: its place on the page changed, the rule did not.
@@ -789,6 +805,7 @@ Source: [Voron manual p.78](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 04.31 — B drive: two-bearing stack on the near post
 
+![Both upper drive frames from above, flat face down: the near post beside the motor bore takes 2 bearings, the far post 4](assets/diagrams/401-near-far-post.svg)
 ![Voron manual p.78](assets/manual-pages/manual-p078.png){ crop="0.12 0.30 0.55 0.78" }
 
 **What you're looking at:** The two-bearing post, nearer the motor bore, is drawn on the right. With it, each drive holds six bearings and six spacers.
@@ -831,6 +848,7 @@ Source: [Voron manual p.78](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 04.33 — B drive: set the pulley on the B motor at 6.5 mm — flipped
 
+![Setting the pulley with the jig: A hub down at 16.5 mm, B hub up at 6.5 mm, the tab's underside level with the teeth underside, and two wrong ways](assets/diagrams/402-pulley-jig.svg)
 ![Voron manual p.79](assets/manual-pages/manual-p079.png){ crop="0.11 0.53 0.47 0.85" }
 ![A/B handedness and pulley height](assets/diagrams/02-ab-pulley-height-handedness.svg)
 
@@ -849,7 +867,7 @@ Source: [Voron manual p.78](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. Stand the jig on the motor face beside the pulley, **B** tab toward it.
 3. Push the pulley down until the underside of its teeth is level with the underside of the **B** tab: 6.5 mm.
 
-**Check:** the caliper reads 6.5 mm from motor face to the underside of the teeth, hub **up**. About 13 mm means the pulley sat on the tab. Side by side, A sits high and B low.
+**Check:** the caliper reads 6.5 mm, motor face to teeth underside, hub **up**. About 13 mm means the teeth matched the tab's top, not its underside. Side by side, A sits high and B low.
 
 **Helper:** Reads the caliper aloud and says whether the pulley is the flipped one.
 
@@ -917,6 +935,7 @@ Source: [Voron manual p.80](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 04.37 — B drive: check your work and the belt path
 
+![The belt end run round the near pair, the pulley and the far pair, from above and from behind: A on the upper level, B on the lower](assets/diagrams/403-belt-through-drive.svg)
 ![Voron manual p.80](assets/manual-pages/manual-p080.png){ crop="0.53 0.35 0.85 0.83" }
 
 **What you're looking at:** The side view on p.80 and the free end of the belt again. The B pulley runs on the **lower** belt level, in line with the near pair and the far post's lower pair.
@@ -927,9 +946,13 @@ Source: [Voron manual p.80](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 - consumable: masking tape
 - tool: marker
 
-**Do:** With the motor at the bottom, compare the drive with the side view on p.80: the pulley sits on the lower level. Lay the end of the belt across the pulley teeth, the near pair and the far post's **lower** pair. Label the drive **B: REAR LEFT**.
+**Do:**
 
-**Check:** the belt path is straight: the belt lies flat on the pulley, the near pair and the far post's **lower** pair, with no tilt and no flange contact.
+1. With the motor at the bottom, compare the drive with the side view on p.80: the pulley sits on the lower level.
+2. Run the end of the belt the way it will go: round the near pair, teeth round the pulley, and round the far post's **lower** pair.
+3. Label the drive **B: REAR LEFT**.
+
+**Check:** the belt runs level: it lies flat on the pulley, the near pair and the far post's **lower** pair, with no tilt and no flange contact.
 
 **Helper:** Sights along the belt at eye level and says if it tilts.
 

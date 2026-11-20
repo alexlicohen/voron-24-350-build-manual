@@ -3168,9 +3168,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "XY bridge screwed to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting.",
+     "leave_state": "E extrusion screwed to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting.",
      "helpers": [],
-     "text": "Step 05.5 → Step 05.9 · ~30 min · leave-state: XY bridge screwed to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting."
+     "text": "Step 05.5 → Step 05.9 · ~30 min · leave-state: E extrusion screwed to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting."
     },
     {
      "id": "05-gantry#2",
@@ -6342,14 +6342,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the serial request is posted and the nameplate generated. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front verticals are only 20 mm wide; do not screw anything to the left vertical, which carries the door hinges.",
+     "leave_state": "the serial request is posted; the nameplate is generated, printed and fitted once the serial arrives, since the plate carries it. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front verticals are only 20 mm wide; do not screw anything to the left vertical, which carries the door hinges.",
      "helpers": [
       [
        "14.24",
        "Reads the serial back from the post and checks every character on the printed plate."
       ]
      ],
-     "text": "Step 14.24 · ~20 min · leave-state: the serial request is posted and the nameplate generated. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front verticals are only 20 mm wide; do not screw anything to the left vertical, which carries the door hinges."
+     "text": "Step 14.24 · ~20 min · leave-state: the serial request is posted; the nameplate is generated, printed and fitted once the serial arrives, since the plate carries it. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front verticals are only 20 mm wide; do not screw anything to the left vertical, which carries the door hinges."
     },
     {
      "id": "14-calibration#15",

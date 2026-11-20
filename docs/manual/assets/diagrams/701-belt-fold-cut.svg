@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Cutting both belts to the same length by folding" style="color:#14181D">
+<title>Cutting both belts to the same length by folding</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Fold, then cut both at once</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="30.0" y="108.0" width="1140.0" height="450.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<rect x="150.0" y="274.0" width="710.0" height="16.0" rx="0" fill="#3E4550" stroke="#3E4550" stroke-width="1"/>
+<rect x="150.0" y="320.0" width="890.0" height="16.0" rx="0" fill="#3E4550" stroke="#3E4550" stroke-width="1"/>
+<path d="M 150 274.0 A 31.0 31.0 0 0 0 150 336.0 L 150 320.0 A 15.0 15.0 0 0 1 150 290.0 Z" fill="#3E4550" stroke="#3E4550" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1080.0" cy="322.0" r="56.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="4"/>
+<circle cx="1080.0" cy="322.0" r="16.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="3"/>
+<text x="1080.0" y="248.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#5C6675" letter-spacing="0">reel</text>
+<text x="854.0" y="260.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">free end</text>
+<text x="154.0" y="260.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">fold</text>
+<line x1="119.0" y1="190.0" x2="119.0" y2="268.0" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="860.0" y1="190.0" x2="860.0" y2="268.0" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<path d="M 415.0 204.0 L 122.0 204.0" fill="none" stroke="#5C6675" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwm)"/>
+<path d="M 595.0 204.0 L 857.0 204.0" fill="none" stroke="#5C6675" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwm)"/>
+<text x="505.0" y="215.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">2000 mm</text>
+<circle cx="655.0" cy="202.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="655.0" y="213.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
+<line x1="127.0" y1="242.0" x2="127.0" y2="372.0" stroke="#C0392B" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 8"/>
+<line x1="860.0" y1="238.0" x2="860.0" y2="372.0" stroke="#C0392B" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 8"/>
+<text x="876.0" y="398.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#C0392B" letter-spacing="0">cut level</text>
+<text x="876.0" y="436.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#C0392B" letter-spacing="0">with the end</text>
+<text x="157.0" y="418.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#C0392B" letter-spacing="0">cut the fold</text>
+<circle cx="127.0" cy="478.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="127.0" y="489.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<circle cx="860.0" cy="478.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="860.0" y="489.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<rect x="30.0" y="578.0" width="1140.0" height="306.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<rect x="150.0" y="680.0" width="710.0" height="16.0" rx="0" fill="#3E4550" stroke="#3E4550" stroke-width="1"/>
+<rect x="150.0" y="770.0" width="710.0" height="16.0" rx="0" fill="#3E4550" stroke="#3E4550" stroke-width="1"/>
+<line x1="150.0" y1="648.0" x2="150.0" y2="818.0" stroke="#2E7D32" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+<line x1="860.0" y1="648.0" x2="860.0" y2="818.0" stroke="#2E7D32" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+<circle cx="190.0" cy="688.0" r="9.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="2"/>
+<circle cx="820.0" cy="688.0" r="9.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="2"/>
+<text x="126.0" y="699.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="800" text-anchor="end" fill="#0E8F86" letter-spacing="0">A</text>
+<text x="126.0" y="789.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="800" text-anchor="end" fill="#7A4FD6" letter-spacing="0">B</text>
+<circle cx="260.0" cy="636.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="260.0" y="647.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">3</text>
+<text x="900.0" y="694.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">dot near</text>
+<text x="900.0" y="732.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">each end</text>
+<text x="505.0" y="854.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#2E7D32" letter-spacing="0">ends flush at both ends</text>
+</svg>

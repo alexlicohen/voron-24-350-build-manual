@@ -178,7 +178,7 @@ steps:
   subtitle_a: "The four gantry extrusions with all their T-nuts. The drive and idler blocks cap these slots later - nothing can be added afterwards."
   subtitle_b: "Where the four extrusions end up; rest of the machine ghosted at 20%."
   select:
-    - label: "E (XY bridge), C x2 (Y axes), D (X axis)"
+    - label: "E (rear beam), C x2 (Y axes), D (X axis)"
       resolve: 'Gantry Extrusions:1/HFSB5-2020-(240|350)[^/]*:1/=>|X Axis:1/HFSB5-20-330:1/=>'
       ids: [299, 388, 415, 441]
     - label: "M5 and M3 T-nuts - the six faces this chapter loads; none can be added later"
@@ -424,7 +424,7 @@ steps:
   subtitle_a: "One corner. The M5x40 joins the lower and upper halves of the Z joint; light, so the joint still articulates."
   subtitle_b: "All four Z joints in the frame; rest of the machine ghosted at 20%."
   select:
-    - label: "M5x40 SHCS x4 - light only, the joint must still articulate"
+    - label: "M5x40 SHCS x4 - up from below, tip shown; light only"
       resolve: 'Z_Joints:1/[^/]+/M5x40 SHCS'
       ids: [451, 457, 469, 484]
     - label: "z_joint_lower - bolted to the Z rail carriage"
@@ -725,7 +725,7 @@ chapters:
   out: ch-08-after
   title: "End of Chapter 08 - toolhead on the carriage"
   subtitle: "Orange: added in this chapter. Grey: already built."
-  caption: "The Stealthburner body, Clockwork 2 extruder and Revo HF hotend, hung on the X carriage. The stock CAD also shows an ADXL mount; yours has none."
+  caption: "The Stealthburner body, extruder and Revo HF hotend, hung on the X carriage. The stock CAD shows the older Clockwork 2 extruder and an ADXL mount; yours is a Clockwork 2.5 with no ADXL mount."
   note_350: "Nothing here is size-dependent. The CAD toolhead is the stock Voron one: no Nitehawk-SB V2, no LDO chain anchor."
   select:
     - label: "Stealthburner, Clockwork 2, Revo hotend, ADXL"  # 96 parts

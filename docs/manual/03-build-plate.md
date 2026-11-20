@@ -123,11 +123,11 @@ Source: [Voron manual p.52](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Find the four mounting holes near the corners. The face where they are counterbored is the top.
+1. Find the four mounting holes, two by the front edge and two by the back. The face where they are counterbored is the top.
 2. The face with the heater, thermal fuse and earth screw holes is the bottom.
 3. Mark the back edge, where the cables leave, with masking tape.
 
-**Check:** An M3×20 SHCS (socket head cap screw) dropped into a mounting hole from the top sinks its head into the counterbore, and from the other side its head sits above the surface.
+**Check:** An M3×20 SHCS (socket head cap screw) dropped in from the top sinks its head into the counterbore, and from the other side its head sits above the surface.
 
 **Helper:** Points to the magnet side and the heater side and names each one.
 
@@ -171,7 +171,7 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. Check the pad is flat and centred, with no lifted corner, wrinkle or trapped air, and every pad screw there.
 3. Do not tighten the screws, add adhesive or press down a lifted edge.
 
-**Check:** The pad is flat and centred, every pad screw, head type (verify on bench), is present and untouched, and nothing is peeling at the cable exit.
+**Check:** The pad is flat and centred, every pad screw is present and untouched (head type not published: verify on bench), and nothing is peeling at the cable exit.
 
 **Helper:** Counts the pad screws aloud and points out any lifted corner.
 
@@ -268,9 +268,9 @@ Source: [Voron manual p.53](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Wipe the whole top face with IPA.
-2. Let it dry off completely, so no solvent is trapped under the adhesive.
-3. Wear nitrile gloves from here on.
+1. Put on nitrile gloves first, and keep them on from here on.
+2. Wipe the whole top face with IPA.
+3. Let it dry off completely, so no solvent is trapped under the adhesive.
 
 **Check:** The surface is dry, with no lint and no residue in the counterbores.
 
@@ -282,6 +282,7 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 03.9 — Apply the magnet sheet
 
+![The magnet laid with a tape hinge: lined up and taped at the back edge, folded back to cut off a 40 to 50 mm liner strip, then pressed down while the liner is pulled out to the front](assets/diagrams/301-magnet-hinge.svg)
 ![Voron manual p.54](assets/manual-pages/manual-p054.png)
 
 **What you're looking at:** The **magnetic pad** is magnetised rubber with an adhesive back under a liner; it holds the flex plate down. LDO lists it separately; Fabreeko says it ships fitted [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [Fabreeko](https://www.fabreeko.com/products/ldo-voron-v2-4-kit). If it is on, skip to 03.10; check its holes are cut.
@@ -311,6 +312,7 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 03.10 — Trim the magnet at the four bolt holes
 
+![One screw hole from above with the knife cutting round the dimple, and cut through: the screw head flush below the magnet, the hex key in it](assets/diagrams/302-trim-counterbore.svg)
 ![Voron manual p.54](assets/manual-pages/manual-p054.png)
 
 **What you're looking at:** The four screws go down through the plate's counterbored holes, and the hex key has to reach their heads, so the magnet is cut away over each hole. Do it now: the screws go in only at manual p.59, and finding the holes covered then costs the magnet [src](https://docs.ldomotors.com/voron/voron2/build-faq).
@@ -360,6 +362,7 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 03.12 — Load the eight bed extrusion T-nuts
 
+![The bed extrusions from above: four M3 T-nuts in the top slots, the front pair 25 mm behind the front extrusion, and in the rear half two M3 in the right extrusion's inner slot and two M5 in the left's](assets/diagrams/305-tnut-plan.svg)
 ![Voron manual p.58](assets/manual-pages/manual-p058.png){ crop="0.15 0.18 0.51 0.71" }
 ![Voron manual p.58, plan view: the front T-nuts 25 mm behind the front rail](assets/manual-pages/manual-p058.png){ crop="0.46 0.68 0.84 0.90" }
 ![LDO build-plate mapping, seen from above, rear at the top: the nozzle probe on the right bed extrusion's inner face and the bed WAGO mount on the left one's, both in the rear half](assets/remote/10-wiring/ldo-build-plate-mapping.png)
@@ -379,7 +382,7 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** Four T-nuts sit in the top slots, two M3 in the right extrusion's inner slot and two M5 in the left's, and none can fall out.
 
-⚠ Never force a T-nut. Extrusions and roll-in T-nuts fit tightly in this kit, and a forced nut galls the slot, tearing up its metal. Test-fit each nut, and if a slot is stiff, use the extrusion face that takes it best. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+⚠ Never force a T-nut. Extrusions and roll-in T-nuts fit tightly in this kit, and a forced nut galls the slot, tearing up its metal. Test-fit each nut, and if one is stiff, try another nut: the bed extrusions are fastened now, so you cannot turn them to an easier face. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=58) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [Voron manual p.161: probe T-nuts](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161) · [LDO wiring guide § Wiring the bed heater: two M5×10 BHCS](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png)
 
@@ -387,6 +390,7 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 03.13 — Fit the four thumb nuts as spacers
 
+![One plate screw cut through: magnet, 10 mm plate, M3×20 head flush in its counterbore, thumb nut collar up and knurled rim down, T-nut in the extrusion's top slot](assets/diagrams/303-plate-stack.svg)
 ![Voron manual p.58](assets/manual-pages/manual-p058.png){ crop="0.56 0.22 0.96 0.59" }
 
 **What you're looking at:** A **thumb nut** has a ridged (knurled) rim you turn by hand. These four M4 ones are spacers, not nuts: they hold the plate a fixed height above the extrusions, and the M3 screw passes through each one's hole into the T-nut below. A substitute must be the same length and heat-resistant.
@@ -397,7 +401,7 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Stand one M4 thumb nut over each top-slot T-nut, knurled end up, its hole centred on the T-nut's thread.
+1. Stand one M4 thumb nut over each top-slot T-nut, its wide knurled rim down and narrow collar up, its hole centred on the T-nut's thread.
 2. Do not screw anything into the thumb nut: the M3 screw passes straight through it.
 
 **Check:** Four thumb nuts stand on the extrusions, none tipped, each lined up with the T-nut under it, and all four are the same height.
@@ -435,9 +439,10 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 03.15 — Start the four bolts
 
+![One plate screw cut through: the M3×20 passes through the plate and the thumb nut and threads only the T-nut in the top slot](assets/diagrams/303-plate-stack.svg)
 ![Voron manual p.59](assets/manual-pages/manual-p059.png){ crop="0.11 0.18 0.64 0.56" }
 
-**What you're looking at:** Four M3×20 SHCS hold the plate. The Voron manual uses M3×16, but this plate is 10 mm thick and the spacer stack is taller, so an M3×16 will not reach enough thread [src](https://docs.ldomotors.com/voron/voron2/build-faq). Start them by hand, so the T-nuts can still slide to meet each hole.
+**What you're looking at:** Four M3×20 SHCS hold the plate. The Voron manual uses M3×16, but this plate is 10 mm thick and the spacer stack is taller, so an M3×16 is too short [src](https://docs.ldomotors.com/voron/voron2/build-faq). Start them by hand so the T-nuts can slide to meet them.
 
 **Parts:**
 
@@ -447,7 +452,7 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 1. Start an M3×20 by hand through each trimmed hole and thumb nut into the T-nut below.
 2. If a screw misses the thread, nudge the T-nut along its slot.
-3. Turn all four down only until they just take up the slack.
+3. Stop turning each one when its head touches the plate: the plate must still slide next.
 
 **Check:** All four screws are engaged and turn freely, the plate still sits flat on its spacers, and none is cross-threaded, started at an angle so the threads bind.
 
@@ -482,6 +487,7 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 03.17 — Tighten one bolt only
 
+![The plate from above: the front-left screw tight, the other three slightly loose, and the plate growing away from the tight one as it heats](assets/diagrams/306-one-screw-tight.svg)
 ![Voron manual p.59](assets/manual-pages/manual-p059.png){ crop="0.12 0.57 0.83 0.89" }
 
 **What you're looking at:** The manual's DON'T TIGHTEN rule holds for this kit. One screw fixes the plate's position; the other three stay slightly loose so the aluminium can grow as it heats against the steel-screwed frame. Clamped at all four corners and taken to 110 °C, a plate this size buckles for good.
@@ -507,6 +513,7 @@ Pause: ~40 min since the last pause — the plate sits on its four thumb-nut spa
 
 ### Step 03.18 — Verify the plate floats level
 
+![Side view at a front screw: the caliper's inside jaws in the gap between the extrusion top and the plate underside, and an eye sighting along the plate](assets/diagrams/304-gap-caliper.svg)
 ![CAD render — the four gaps that have to match](assets/cad/03-18-a.png)
 ![CAD render — the four gaps that have to match, in place](assets/cad/03-18-b.png)
 
@@ -528,7 +535,7 @@ Pause: ~40 min since the last pause — the plate sits on its four thumb-nut spa
 
 Do not level the plate to the gantry by hand. QGL does that in software in Ch 13; this step only proves the plate floats evenly.
 
-The CAD bed in the pictures is the 10 in (254 mm) MIC6 plate on 370 mm bed extrusions (250). Yours is the 350 plate on the 350 frame: four screws, four gaps.
+The CAD pictures show the smaller 250 printer: a 254 mm (10 in) cast plate on 370 mm bed extrusions. Yours is a 355 mm plate on 470 mm ones, with the same four screws and four gaps.
 
 Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=59) · [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=58) · CAD: Voron 2.4r2 STEP @ de7e89d
 
@@ -605,7 +612,7 @@ Pause: ~20 min since the last pause — the four corner gaps are checked, the pl
 - **Tightening all four screws because three loose ones feel wrong.** The plate bends into a curve the first time it heats fast to 110 °C, and it never comes flat again.
 - **Trying to "fix" the factory-fitted heater or fuse.** Peeling a bonded heater pad to re-seat it ruins it. Inspect only, and ask in `#ldo_motors` if something looks wrong.
 - **Wiring the bed here, or feeding its leads through the deck.** The plate's leads end at the bed WAGO mount above the deck (Ch 09) and are connected in Ch 10. Connecting or threading them now means undoing them later.
-- **Building on the bare magnet, or leaving it uncovered.** The magnet sheet is not a print surface, and everything you drop over the next six chapters lands on it.
+- **Leaving the magnet uncovered while you build above it.** The gantry and belts of the next six chapters go together right over it, so dropped hex keys, metal shavings and threadlocker land on it, and the shavings cling. Keep the cardboard on. The magnet is not a print surface either: you print on the flex plate.
 
 ## Next
 

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Belt clamp slots in section: A upper, B lower" style="color:#14181D">
+<title>Belt clamp slots in section: A upper, B lower</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Belt slots: A upper, B lower</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<path d="M 866.5 265.5 L 939.0 265.5 L 939.0 284.4 L 913.8 284.4 L 913.8 301.2 L 941.0 329.6 L 1002.0 329.6 L 1029.2 301.2 L 1029.2 284.4 L 1004.0 284.4 L 1004.0 265.5 L 1076.5 265.5 L 1076.5 337.9 L 1057.6 337.9 L 1057.6 312.8 L 1040.8 312.8 L 1012.5 340.1 L 1012.5 400.9 L 1040.8 428.2 L 1057.6 428.2 L 1057.6 403.1 L 1076.5 403.1 L 1076.5 475.5 L 1004.0 475.5 L 1004.0 456.6 L 1029.2 456.6 L 1029.2 439.8 L 1002.0 411.4 L 941.0 411.4 L 913.8 439.8 L 913.8 456.6 L 939.0 456.6 L 939.0 475.5 L 866.5 475.5 L 866.5 403.1 L 885.4 403.1 L 885.4 428.2 L 902.2 428.2 L 930.5 400.9 L 930.5 340.1 L 902.2 312.8 L 885.4 312.8 L 885.4 337.9 L 866.5 337.9 Z" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="971.5" cy="370.5" r="22.1" fill="#FFFFFF" stroke="#2A6FB5" stroke-width="2"/>
+<rect x="782.5" y="307.5" width="84.0" height="126.0" rx="0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2.5"/>
+<rect x="729.0" y="229.8" width="106.0" height="283.5" rx="4" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<rect x="556.8" y="139.5" width="156.5" height="630.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="3"/>
+<rect x="704.8" y="286.5" width="25.2" height="63.0" rx="0" fill="#0E8F86" stroke="#0E8F86" stroke-width="1"/>
+<line x1="704.8" y1="294.5" x2="690.8" y2="294.5" stroke="#0E8F86" stroke-width="6" stroke-linecap="butt"/>
+<line x1="704.8" y1="310.2" x2="690.8" y2="310.2" stroke="#0E8F86" stroke-width="6" stroke-linecap="butt"/>
+<line x1="704.8" y1="325.8" x2="690.8" y2="325.8" stroke="#0E8F86" stroke-width="6" stroke-linecap="butt"/>
+<line x1="704.8" y1="341.5" x2="690.8" y2="341.5" stroke="#0E8F86" stroke-width="6" stroke-linecap="butt"/>
+<rect x="704.8" y="391.5" width="25.2" height="63.0" rx="0" fill="#7A4FD6" stroke="#7A4FD6" stroke-width="1"/>
+<line x1="704.8" y1="399.5" x2="690.8" y2="399.5" stroke="#7A4FD6" stroke-width="6" stroke-linecap="butt"/>
+<line x1="704.8" y1="415.2" x2="690.8" y2="415.2" stroke="#7A4FD6" stroke-width="6" stroke-linecap="butt"/>
+<line x1="704.8" y1="430.8" x2="690.8" y2="430.8" stroke="#7A4FD6" stroke-width="6" stroke-linecap="butt"/>
+<line x1="704.8" y1="446.5" x2="690.8" y2="446.5" stroke="#7A4FD6" stroke-width="6" stroke-linecap="butt"/>
+<rect x="682.8" y="460.8" width="84.0" height="31.5" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
+<rect x="651.2" y="447.7" width="31.5" height="57.8" rx="0" fill="#7E8794" stroke="#14181D" stroke-width="2"/>
+<rect x="682.8" y="250.8" width="84.0" height="31.5" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
+<rect x="651.2" y="237.7" width="31.5" height="57.8" rx="0" fill="#7E8794" stroke="#14181D" stroke-width="2"/>
+<line x1="688.8" y1="318.0" x2="470.0" y2="314.0" stroke="#0E8F86" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="688.8" cy="318.0" r="2.4" fill="#0E8F86" stroke="none" stroke-width="0"/>
+<text x="40.0" y="310.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="start" fill="#0E8F86" letter-spacing="0">A belt:</text>
+<text x="170.0" y="310.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">upper slot</text>
+<line x1="688.8" y1="423.0" x2="470.0" y2="419.0" stroke="#7A4FD6" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="688.8" cy="423.0" r="2.4" fill="#7A4FD6" stroke="none" stroke-width="0"/>
+<text x="40.0" y="427.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="start" fill="#7A4FD6" letter-spacing="0">B belt:</text>
+<text x="170.0" y="427.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">lower slot</text>
+<path d="M 709.0 559.5 L 482.0 559.5" fill="none" stroke="#E8751A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwo)"/>
+<text x="40.0" y="619.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="start" fill="#E8751A" letter-spacing="0">teeth face away from</text>
+<text x="40.0" y="657.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="start" fill="#E8751A" letter-spacing="0">the extrusion</text>
+<text x="866.5" y="239.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#2A6FB5" letter-spacing="0">extrusion</text>
+<text x="750.0" y="557.3" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#5C6675" letter-spacing="0">rail carriage</text>
+<text x="556.8" y="813.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">X carriage half</text>
+<text x="40.0" y="158.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#5C6675" letter-spacing="0">FRONT to the left</text>
+</svg>

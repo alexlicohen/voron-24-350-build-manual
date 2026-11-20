@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" width="1200" height="780" role="img" aria-label="First-layer lines in section: too high, right, too low" style="color:#14181D">
+<title>First-layer lines in section: too high, right, too low</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="780" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">First layer, cut across the lines</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="40.0" y="122.0" width="360.0" height="600.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<rect x="60.0" y="462.0" width="320.0" height="40.0" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<circle cx="107.5" cy="432.0" r="28.0" fill="#1F2329" stroke="#14181D" stroke-width="2"/>
+<circle cx="182.5" cy="432.0" r="28.0" fill="#1F2329" stroke="#14181D" stroke-width="2"/>
+<circle cx="257.5" cy="432.0" r="28.0" fill="#1F2329" stroke="#14181D" stroke-width="2"/>
+<circle cx="332.5" cy="432.0" r="28.0" fill="#1F2329" stroke="#14181D" stroke-width="2"/>
+<text x="220.0" y="212.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">gaps</text>
+<text x="220.0" y="254.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">too high</text>
+<text x="220.0" y="582.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">closer:</text>
+<text x="220.0" y="624.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Z_ADJUST=-0.01</text>
+<rect x="420.0" y="122.0" width="360.0" height="600.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<rect x="440.0" y="462.0" width="320.0" height="40.0" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<ellipse cx="487.5" cy="446.0" rx="39.5" ry="21" fill="#1F2329" stroke="#FFFFFF" stroke-width="2.5"/>
+<ellipse cx="562.5" cy="446.0" rx="39.5" ry="21" fill="#1F2329" stroke="#FFFFFF" stroke-width="2.5"/>
+<ellipse cx="637.5" cy="446.0" rx="39.5" ry="21" fill="#1F2329" stroke="#FFFFFF" stroke-width="2.5"/>
+<ellipse cx="712.5" cy="446.0" rx="39.5" ry="21" fill="#1F2329" stroke="#FFFFFF" stroke-width="2.5"/>
+<text x="600.0" y="212.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#2E7D32" letter-spacing="0">touching, each</text>
+<text x="600.0" y="254.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#2E7D32" letter-spacing="0">line still shows</text>
+<text x="600.0" y="602.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#2E7D32" letter-spacing="0">keep this</text>
+<rect x="800.0" y="122.0" width="360.0" height="600.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<rect x="820.0" y="462.0" width="320.0" height="40.0" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<rect x="829.0" y="442.0" width="77.0" height="20.0" rx="0" fill="#1F2329" stroke="#1F2329" stroke-width="1"/>
+<ellipse cx="905.0" cy="440.0" rx="13" ry="12" fill="#1F2329" stroke="none"/>
+<rect x="904.0" y="442.0" width="77.0" height="20.0" rx="0" fill="#1F2329" stroke="#1F2329" stroke-width="1"/>
+<ellipse cx="980.0" cy="440.0" rx="13" ry="12" fill="#1F2329" stroke="none"/>
+<rect x="979.0" y="442.0" width="77.0" height="20.0" rx="0" fill="#1F2329" stroke="#1F2329" stroke-width="1"/>
+<ellipse cx="1055.0" cy="440.0" rx="13" ry="12" fill="#1F2329" stroke="none"/>
+<rect x="1054.0" y="442.0" width="77.0" height="20.0" rx="0" fill="#1F2329" stroke="#1F2329" stroke-width="1"/>
+<ellipse cx="1130.0" cy="440.0" rx="13" ry="12" fill="#1F2329" stroke="none"/>
+<text x="980.0" y="212.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">ridged, glassy</text>
+<text x="980.0" y="254.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">too low</text>
+<text x="980.0" y="582.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">further:</text>
+<text x="980.0" y="624.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Z_ADJUST=0.01</text>
+</svg>

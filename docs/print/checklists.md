@@ -62,7 +62,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 - [ ] All four Z rails run their full length with no notch, tight spot or grinding, and every carriage is taped or stoppered.
 - [ ] The rails are clean and dry on the outside, with grease inside the carriages only: done in Ch 00 Steps 00.18–00.21 and checked again at Step 02.05.
-- [ ] All four rails are centred on their extrusions, each facing the rail on its own side of the machine (front-left and rear-left, front-right and rear-right), with the same 3 mm gap at the bottom and the same nine holes used: 2 to 18, no end holes.
+- [ ] All four rails are centred on their extrusions, each facing the rail on its own side of the machine (front-left and rear-left, front-right and rear-right), with the same 3 mm gap at the bottom and the same nine holes used: 2 to 18 counted from the bottom, no end holes.
 - [ ] The deck panel's notch is at the **back**. The panel sits inside the frame opening under the bed extrusions, held up by eight clip ledges, without rocking. Four M5 T-nuts sit under its four holes, left unscrewed for Ch 09 Step 09.5.
 - [ ] `_a` parts are at Z0 and Z2 and `_b` at Z1 and Z3, or the reverse if the Step 02.29 dry-fit said so and you wrote it in the build log. Each idler has the same hand as the drive below it.
 - [ ] The measured deck panel thickness is written down, and the eight fitted deck supports match it.

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" role="img" aria-label="Mains bus: each colour beeps from its C14 pin to every point" style="color:#14181D">
+<title>Mains bus: each colour beeps from its C14 pin to every point</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="1000" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Mains bus: one colour at a time</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="40.0" y="108.0" width="1120.0" height="70.0" rx="10" fill="#FBE3E0" stroke="#C0392B" stroke-width="3"/>
+<rect x="72.0" y="125.0" width="40.0" height="36.0" rx="6" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<line x1="112.0" y1="134.0" x2="132.0" y2="134.0" stroke="#14181D" stroke-width="5" stroke-linecap="butt"/>
+<line x1="112.0" y1="152.0" x2="132.0" y2="152.0" stroke="#14181D" stroke-width="5" stroke-linecap="butt"/>
+<path d="M 72 143.0 C 52 143.0 58 169.0 48 173.0" fill="none" stroke="#14181D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="76.0" y1="117.0" x2="128.0" y2="169.0" stroke="#C0392B" stroke-width="6" stroke-linecap="round"/>
+<line x1="76.0" y1="169.0" x2="128.0" y2="117.0" stroke="#C0392B" stroke-width="6" stroke-linecap="round"/>
+<text x="152.0" y="155.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="800" text-anchor="start" fill="#C0392B" letter-spacing="0">Unplugged: cord out of the room</text>
+<rect x="30.0" y="198.0" width="1140.0" height="786.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<circle cx="78.0" cy="242.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="78.0" y="253.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
+<text x="120.0" y="254.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#5C6675" letter-spacing="0">park one probe</text>
+<text x="560.0" y="254.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#2E7D32" letter-spacing="0">walk the other along: beeps</text>
+<rect x="60.0" y="327.0" width="150.0" height="474.0" rx="12" fill="#FFFFFF" stroke="#C0392B" stroke-width="4"/>
+<text x="135.0" y="843.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">C14 inlet</text>
+<text x="86.0" y="408.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="start" fill="currentColor" letter-spacing="0">E</text>
+<line x1="176.0" y1="397.0" x2="320.0" y2="397.0" stroke="#2E7D32" stroke-width="8" stroke-linecap="round"/>
+<line x1="176.0" y1="397.0" x2="320.0" y2="397.0" stroke="#E3C21B" stroke-width="3.6" stroke-linecap="butt" stroke-dasharray="14 14"/>
+<circle cx="176.0" cy="397.0" r="11.0" fill="#14181D" stroke="#FFFFFF" stroke-width="2"/>
+<rect x="320.0" y="363.0" width="120.0" height="68.0" rx="8" fill="#FFFFFF" stroke="#C0392B" stroke-width="4"/>
+<text x="380.0" y="408.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">PE</text>
+<line x1="440.0" y1="397.0" x2="540.0" y2="328.0" stroke="#2E7D32" stroke-width="6" stroke-linecap="round"/>
+<line x1="440.0" y1="397.0" x2="540.0" y2="328.0" stroke="#E3C21B" stroke-width="2.7" stroke-linecap="butt" stroke-dasharray="14 14"/>
+<circle cx="548.0" cy="328.0" r="10.0" fill="#2E7D32" stroke="#FFFFFF" stroke-width="2"/>
+<text x="574.0" y="339.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">PSU screw 3 FG</text>
+<line x1="440.0" y1="397.0" x2="540.0" y2="374.0" stroke="#2E7D32" stroke-width="6" stroke-linecap="round"/>
+<line x1="440.0" y1="397.0" x2="540.0" y2="374.0" stroke="#E3C21B" stroke-width="2.7" stroke-linecap="butt" stroke-dasharray="14 14"/>
+<circle cx="548.0" cy="374.0" r="10.0" fill="#2E7D32" stroke="#FFFFFF" stroke-width="2"/>
+<text x="574.0" y="385.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">bed plate screw</text>
+<line x1="440.0" y1="397.0" x2="540.0" y2="420.0" stroke="#2E7D32" stroke-width="6" stroke-linecap="round"/>
+<line x1="440.0" y1="397.0" x2="540.0" y2="420.0" stroke="#E3C21B" stroke-width="2.7" stroke-linecap="butt" stroke-dasharray="14 14"/>
+<circle cx="548.0" cy="420.0" r="10.0" fill="#2E7D32" stroke="#FFFFFF" stroke-width="2"/>
+<text x="574.0" y="431.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">frame lug screw</text>
+<line x1="440.0" y1="397.0" x2="540.0" y2="466.0" stroke="#2E7D32" stroke-width="6" stroke-linecap="round"/>
+<line x1="440.0" y1="397.0" x2="540.0" y2="466.0" stroke="#E3C21B" stroke-width="2.7" stroke-linecap="butt" stroke-dasharray="14 14"/>
+<circle cx="548.0" cy="466.0" r="10.0" fill="#2E7D32" stroke="#FFFFFF" stroke-width="2"/>
+<text x="574.0" y="477.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">far frame corner</text>
+<text x="86.0" y="598.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="start" fill="currentColor" letter-spacing="0">L</text>
+<line x1="176.0" y1="587.0" x2="320.0" y2="587.0" stroke="#8A5A2B" stroke-width="8" stroke-linecap="round"/>
+<circle cx="176.0" cy="587.0" r="11.0" fill="#14181D" stroke="#FFFFFF" stroke-width="2"/>
+<rect x="320.0" y="553.0" width="120.0" height="68.0" rx="8" fill="#FFFFFF" stroke="#C0392B" stroke-width="4"/>
+<text x="380.0" y="598.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">L</text>
+<line x1="440.0" y1="587.0" x2="540.0" y2="564.0" stroke="#8A5A2B" stroke-width="6" stroke-linecap="round"/>
+<circle cx="548.0" cy="564.0" r="10.0" fill="#2E7D32" stroke="#FFFFFF" stroke-width="2"/>
+<text x="574.0" y="575.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">PSU screw 1 L</text>
+<line x1="440.0" y1="587.0" x2="540.0" y2="610.0" stroke="#8A5A2B" stroke-width="6" stroke-linecap="round"/>
+<circle cx="548.0" cy="610.0" r="10.0" fill="#2E7D32" stroke="#FFFFFF" stroke-width="2"/>
+<text x="574.0" y="621.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">SSR LOAD 2</text>
+<text x="86.0" y="742.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="start" fill="currentColor" letter-spacing="0">N</text>
+<line x1="176.0" y1="731.0" x2="320.0" y2="731.0" stroke="#1F5FBF" stroke-width="8" stroke-linecap="round"/>
+<circle cx="176.0" cy="731.0" r="11.0" fill="#14181D" stroke="#FFFFFF" stroke-width="2"/>
+<rect x="320.0" y="697.0" width="120.0" height="68.0" rx="8" fill="#FFFFFF" stroke="#C0392B" stroke-width="4"/>
+<text x="380.0" y="742.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">N</text>
+<line x1="440.0" y1="731.0" x2="540.0" y2="708.0" stroke="#1F5FBF" stroke-width="6" stroke-linecap="round"/>
+<circle cx="548.0" cy="708.0" r="10.0" fill="#2E7D32" stroke="#FFFFFF" stroke-width="2"/>
+<text x="574.0" y="719.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">PSU screw 2 N</text>
+<line x1="440.0" y1="731.0" x2="540.0" y2="754.0" stroke="#1F5FBF" stroke-width="6" stroke-linecap="round"/>
+<circle cx="548.0" cy="754.0" r="10.0" fill="#2E7D32" stroke="#FFFFFF" stroke-width="2"/>
+<text x="574.0" y="765.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">bed N lead</text>
+<line x1="176.0" y1="393.0" x2="190.6" y2="372.1" stroke="#B6BDC6" stroke-width="3.75" stroke-linecap="round"/>
+<polygon points="186.3,369.1 184.6,362.4 187.2,358.7 204.4,370.8 201.8,374.4 194.9,375.1" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<polygon points="189.6,360.4 234.4,296.5 246.7,305.1 201.9,369.0" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<line x1="240.5" y1="300.8" x2="262.0" y2="270.1" stroke="#14181D" stroke-width="3.75" stroke-linecap="round"/>
+<line x1="548.0" y1="470.0" x2="531.9" y2="483.5" stroke="#B6BDC6" stroke-width="3.1" stroke-linecap="round"/>
+<polygon points="534.6,486.9 534.6,492.6 531.7,495.0 520.6,481.7 523.4,479.3 529.1,480.2" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<polygon points="530.1,493.1 480.7,534.5 472.8,525.0 522.2,483.6" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<line x1="476.8" y1="529.8" x2="453.0" y2="549.7" stroke="#C0392B" stroke-width="3.1" stroke-linecap="round"/>
+<circle cx="82.0" cy="906.5" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="82.0" y="918.3" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<text x="126.0" y="917.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Rocker ON for L and N; PE beeps either way</text>
+<circle cx="82.0" cy="972.5" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="82.0" y="984.3" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">3</text>
+<text x="126.0" y="983.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ω rows: subtract the probes-together reading</text>
+</svg>

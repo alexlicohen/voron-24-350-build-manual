@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1060" width="1200" height="1060" role="img" aria-label="Where the Leviathan says which version it is" style="color:#14181D">
+<title>Where the Leviathan says which version it is</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="1060" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Which Leviathan: read the chip</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="78.0" y="162.0" width="1044.9" height="627.8" rx="16" fill="#262B31" stroke="#11151A" stroke-width="3"/>
+<rect x="148.0" y="174.0" width="74.0" height="34.0" rx="3" fill="#F2F2F2" stroke="#7E8794" stroke-width="2"/>
+<rect x="288.0" y="174.0" width="74.0" height="34.0" rx="3" fill="#F2F2F2" stroke="#7E8794" stroke-width="2"/>
+<rect x="428.0" y="174.0" width="74.0" height="34.0" rx="3" fill="#F2F2F2" stroke="#7E8794" stroke-width="2"/>
+<rect x="568.0" y="174.0" width="74.0" height="34.0" rx="3" fill="#F2F2F2" stroke="#7E8794" stroke-width="2"/>
+<rect x="708.0" y="174.0" width="74.0" height="34.0" rx="3" fill="#F2F2F2" stroke="#7E8794" stroke-width="2"/>
+<rect x="848.0" y="174.0" width="74.0" height="34.0" rx="3" fill="#F2F2F2" stroke="#7E8794" stroke-width="2"/>
+<rect x="988.0" y="174.0" width="74.0" height="34.0" rx="3" fill="#F2F2F2" stroke="#7E8794" stroke-width="2"/>
+<rect x="130.2" y="300.1" width="574.7" height="43.9" rx="0" fill="#3A4048" stroke="#14181D" stroke-width="2"/>
+<rect x="98.9" y="369.2" width="62.7" height="188.3" rx="0" fill="#3A4048" stroke="#14181D" stroke-width="2"/>
+<circle cx="130.2" cy="385.2" r="11.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<circle cx="130.2" cy="414.6" r="11.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<circle cx="130.2" cy="444.0" r="11.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<circle cx="130.2" cy="473.5" r="11.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<circle cx="130.2" cy="502.9" r="11.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<circle cx="130.2" cy="532.3" r="11.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<rect x="417.6" y="444.5" width="156.7" height="125.6" rx="0" fill="#4A5059" stroke="#E8751A" stroke-width="5"/>
+<text x="496.0" y="517.3" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">STM32…</text>
+<circle cx="460.4" cy="419.7" r="10.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<circle cx="529.4" cy="419.7" r="10.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2"/>
+<text x="652.7" y="684.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="start" fill="#FFFFFF" letter-spacing="0">VORON</text>
+<text x="652.7" y="720.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#FFFFFF" letter-spacing="0">Leviathan V1.x</text>
+<rect x="600.5" y="369.2" width="522.5" height="370.4" rx="10" fill="#D7EEDD" stroke="#2F8F4E" stroke-width="5" stroke-dasharray="16 10" opacity="0.55"/>
+<text x="891.7" y="439.2" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#2F8F4E" letter-spacing="0">the Pi covers it</text>
+<line x1="496.0" y1="576.1" x2="250.0" y2="823.8" stroke="#E8751A" stroke-width="3" stroke-linecap="round"/>
+<circle cx="496.0" cy="576.1" r="5.0" fill="#E8751A" stroke="none" stroke-width="0"/>
+<text x="60.0" y="859.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#E8751A" letter-spacing="0">Read the chip:</text>
+<text x="60.0" y="909.8" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="34" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">STM32F446…</text>
+<text x="330.0" y="909.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">= V1.1 or V1.2</text>
+<text x="60.0" y="955.8" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="34" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">STM32H743…</text>
+<text x="330.0" y="955.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">= V1.3</text>
+<line x1="772.7" y1="730.5" x2="900.0" y2="823.8" stroke="#5C6675" stroke-width="3" stroke-linecap="round"/>
+<circle cx="772.7" cy="730.5" r="5.0" fill="#5C6675" stroke="none" stroke-width="0"/>
+<text x="1140.0" y="859.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="#5C6675" letter-spacing="0">Version line:</text>
+<text x="1140.0" y="909.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="end" fill="#5C6675" letter-spacing="0">hidden once the</text>
+<text x="1140.0" y="955.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="end" fill="#5C6675" letter-spacing="0">Pi is mounted</text>
+</svg>

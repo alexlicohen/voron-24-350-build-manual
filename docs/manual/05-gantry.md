@@ -2,9 +2,9 @@
 
 <!-- style: plain -->
 
-You build the whole gantry on the bench: the XY bridge, both Y axes with their MGN9 rails, both XY joints, the X extrusion with its MGN12 rail, and the titanium extrusion backers. The chapter ends with the X axis riding on the Y carriages, and it unlocks Ch 06 (gantry install, Z belts, squaring).
+You build the whole gantry on the bench: the rear E extrusion with both drives, both Y axes with their MGN9 rails, both XY joints, the X extrusion with its MGN12 rail, and the titanium extrusion backers. The chapter ends with the X axis riding on the Y carriages, and it unlocks Ch 06 (gantry install, Z belts, squaring).
 
-**What you're building in this chapter:** The **gantry** is the whole moving upper half of the printer: a rectangle of aluminium extrusion that later hangs on four belts and slides up and down, with the toolhead riding inside it. Its back edge is the **XY bridge**, the cross-beam that carries the A and B motors you built in Ch 04. Two side extrusions, the **Y axes**, run forward from that bridge. Each has a linear rail along one face and a **front idler** block at its front end that turns its belt back. Spanning the two sides is the **X beam**, capped at each end by an **XY joint**: the printed blocks that ride on the Y carriages and turn each belt from its Y run to its X run. Screwed to the face opposite every rail are the **titanium backers**, flat strips that stop a steel rail bowing its aluminium extrusion as the chamber heats. Nothing in this chapter gets belts or squaring: both belong to Ch 06 and Ch 07, and doing either now would undo work done here.
+**What you're building in this chapter:** The **gantry** is the whole moving upper half of the printer: a rectangle of aluminium extrusion that later hangs on four belts and slides up and down, with the toolhead riding inside it. Its back edge is the **E extrusion**, the rear cross-beam that carries the A and B motors you built in Ch 04. Voron calls it the rear gantry extrusion (p.122). The manual's "XY Bridge" label on p.83 means something else: the blue cable bridge on the right XY joint. Two side extrusions, the **Y axes**, run forward from that bridge. Each has a linear rail along one face and a **front idler** block at its front end that turns its belt back. Spanning the two sides is the **X beam**, capped at each end by an **XY joint**: the printed blocks that ride on the Y carriages and turn each belt from its Y run to its X run. Screwed to the face opposite every rail are the **titanium backers**, flat strips that stop a steel rail bowing its aluminium extrusion as the chamber heats. Nothing in this chapter gets belts or squaring: both belong to Ch 06 and Ch 07, and doing either now would undo work done here.
 
 ```mascot
 pose: hexkey
@@ -66,7 +66,7 @@ Do **not** print `[a]_endstop_pod_hall_effect.stl`, `[a]_xy_joint_cable_bridge_3
 
 | Fastener / part | Qty | Where |
 |---|---|---|
-| E extrusion (XY bridge) | 1 | p.85 |
+| E extrusion (rear beam) | 1 | p.85 |
 | C extrusion (Y axis) | 2 | p.88 |
 | D extrusion (X axis) | 1 | p.101 |
 | MGN9H 400 mm rail | 2 | Y axes, p.88; carriage ships on the rail |
@@ -152,13 +152,13 @@ Source: [Voron manual p.82](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.83](assets/manual-pages/manual-p083.png)
 
-**What you're looking at:** The same rectangle, now labelled. **A** and **B** are the two CoreXY motors; neither one on its own "is" an axis. The XY bridge holds the drives apart, the XY joints cap the ends of the X beam, and the front idlers turn each belt back.
+**What you're looking at:** The same rectangle, now labelled. **A** and **B** are the two CoreXY motors; neither one on its own "is" an axis. The E extrusion across the back holds the drives apart, the XY joints cap the ends of the X beam, and the front idlers turn each belt back.
 
 **Parts:** none.
 
 **Do:**
 
-1. Learn the names: B Drive rear left, A Drive rear right, XY Bridge, both XY Joints, X Linear Rail, B Idler front left, A Idler front right.
+1. Learn the names: B Drive rear left, A Drive rear right, XY Bridge (the blue cable bridge on the right joint), both XY Joints, X Linear Rail, B Idler front left, A Idler front right.
 2. Check the **A** and **B** labels you put on the Ch 04 parts.
 
 **Check:** You can point at the A drive, the B idler and the right XY joint without hesitating.
@@ -210,9 +210,11 @@ Source: [Voron manual p.84](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. Mark any face that binds with tape.
 3. Count the fasteners out into labelled trays, following the chapter's Hardware table.
 
-**Check:** Every T-nut you will use rolls in without force. A forced nut galls the slot, scraping and tearing the aluminium.
+**Check:** Every T-nut you will use rolls in without force, and every stiff face is marked.
 
 **Helper:** Counts the T-nuts and bolts into their piles and checks them against the list.
+
+⚠ Never force a T-nut. Extrusions and roll-in T-nuts fit tightly in this kit, and a nut forced along a slot scrapes and tears the aluminium, which cannot be undone. If one will not turn, try another face. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
 The CAD shows the 250-size extrusions (E 240, C 350, D 330 mm); yours are the 350 set. What carries over is which faces take nuts, and how many.
 
@@ -222,11 +224,11 @@ Pause: ~25 min since the last pause — bench cleared, sub-assemblies laid out l
 
 ---
 
-### Step 05.5 — Load the E extrusion (XY bridge)
+### Step 05.5 — Load the E extrusion (rear beam)
 
 ![Voron manual p.85](assets/manual-pages/manual-p085.png){ crop="0.18 0.14 0.73 0.48" }
 
-**What you're looking at:** The E extrusion is the **XY bridge**: the beam across the back of the gantry that holds the two drive blocks a fixed distance apart, and so sets the gantry's width. The eight M5 T-nuts are what those blocks screw down onto.
+**What you're looking at:** The E extrusion is the rear beam of the gantry: it holds the two drive blocks a fixed distance apart, and so sets the gantry's width. It is not the "XY Bridge": on p.83 that label means the cable bridge. The eight M5 T-nuts are what those blocks screw down onto.
 
 **Parts:**
 
@@ -312,7 +314,7 @@ Source: [Voron manual p.86](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.87](assets/manual-pages/manual-p087.png){ crop="0.11 0.18 0.79 0.81" }
 
-**What you're looking at:** With both drives screwed on, the bridge and drives become a single rear beam: the fixed back edge of the gantry, and the reference everything else is built to. The lower drawing in the picture is your alignment check.
+**What you're looking at:** With both drives screwed on, the E extrusion and drives become a single rear beam: the fixed back edge of the gantry, and the reference everything else is built to. The lower drawing in the picture is your alignment check.
 
 **Parts:**
 
@@ -329,7 +331,7 @@ The lower drawing is seen from behind, so A is on the left: A's pulley sits high
 
 Source: [Voron manual p.87](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=87)
 
-Pause: ~30 min since the last pause — XY bridge screwed to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting.
+Pause: ~30 min since the last pause — E extrusion screwed to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting.
 
 ---
 
@@ -435,6 +437,7 @@ Source: [Voron manual p.89](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 05.14 — Load the reserved M5 + M3 pair at each end
 
+![One end of a Y extrusion the way it sits in the machine: two M5 already in the top slot, and in the rail's slot beyond the rail end an M5 outermost and an M3 just inside it](assets/diagrams/502-y-extrusion-end-tnuts.svg)
 ![Voron manual p.90](assets/manual-pages/manual-p090.png)
 
 **What you're looking at:** One more M5 and one more M3 T-nut go in at each end, this time in the **rail's own slot**, the underside of the Y axis. Both anchor the Ch 06 Z joint bearing block and lower belt clip, and the idler and drive frames close these slots for good.
@@ -514,9 +517,10 @@ Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whoppin
 
 ### Step 05.17 — Fit the first Y backer
 
+![End views: the Y extrusion with its rail underneath and the backer on top, the X extrusion with its rail at the front and the backer at the rear](assets/diagrams/506-rail-and-backer-faces.svg)
 ![Backer faces for a 1×MGN12 gantry — backers (magenta) on the top of both Y extrusions and the rear of the X extrusion](assets/remote/05-gantry/ti-backer-face-layout.jpeg)
 
-(no image of this kit's toolhead: the drawing shows the older Afterburner; only the magenta backer faces matter)
+(no image of this kit's toolhead: the dark drawing shows the older Afterburner; only its magenta backer faces matter)
 
 **What you're looking at:** This bare face of the first Y extrusion becomes the top of the right Y axis. FHCS are countersunk screws whose heads sink flush into the backer's cone-shaped holes; a hex key slips out of them, so use the T10 Torx.
 
@@ -647,7 +651,7 @@ Source: [Voron manual p.93](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Parts:**
 
 - reused: both Y assemblies
-- reused: the bridge and drives assembly
+- reused: the E extrusion and drives assembly
 
 **Do:**
 
@@ -732,6 +736,7 @@ Source: [Voron manual p.96](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 05.26 — Start the right XY joint bearing stack
 
+![The XY joint bearing stack from the bottom: the M5×40 up through the thin plate, then spacer, F695 flange down, F695 flange up, spacer, with the flanges facing out](assets/diagrams/505-xy-joint-bearing-stack.svg)
 ![Voron manual p.97](assets/manual-pages/manual-p097.png){ crop="0.12 0.165 0.62 0.83" }
 ![Upper XY joint plates — left and right; the right-hand plate carries the endstop wire channel](assets/parts/pair-xy_joint_upper_MGN12.png)
 ![The six A/B bearing stacks — the XY joint stack is the same four-item sandwich as the two idler columns](assets/diagrams/01-ab-bearing-stacks.svg)
@@ -828,6 +833,7 @@ Pause: ~25 min since the last pause — right XY joint fully built and screwed t
 
 ### Step 05.30 — Build the left XY joint
 
+![The XY joint bearing stack from the bottom: the M5×40 up through the thin plate, then spacer, F695 flange down, F695 flange up, spacer, with the flanges facing out](assets/diagrams/505-xy-joint-bearing-stack.svg)
 ![Voron manual p.99](assets/manual-pages/manual-p099.png)
 
 **What you're looking at:** The left joint is built exactly as the right was. The tell is the wire channel: only the right-hand pair has one, so if the parts in your hand have a channel, put them down; they belong to the right joint.
@@ -890,7 +896,7 @@ Pause: ~20 min since the last pause — both XY joints built, screwed together a
 **Do:**
 
 1. The **400 mm** MGN12H rail, `LDO-SLR12H-400Z1`, has 16 holes. Mark holes **2, 4 … 14**: every other hole from the second, so both end holes stay open.
-2. Slide in **7** M3 T-nuts, about 15 mm clear of each end.
+2. Slide in **7** M3 T-nuts, about 15 mm clear of each end. Page 101 draws six because its rail is a shorter 12-hole one.
 
 **Check:** Seven nuts lie flat, one per marked hole, with holes 1, 15 and 16 unmarked and the slot clear at both ends.
 
@@ -924,6 +930,7 @@ Source: [Voron manual p.101](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 05.34 — Fit the X backer to the rear face
 
+![End views: the Y extrusion with its rail underneath and the backer on top, the X extrusion with its rail at the front and the backer at the rear](assets/diagrams/506-rail-and-backer-faces.svg)
 ![Titanium X backer on the rear face of the X extrusion, with the cable-chain pilot holes](assets/remote/05-gantry/ti-backer-x-rear-face.png)
 
 **What you're looking at:** The X backer goes on the rear face, the one opposite the rail, just as on the Y axes: steel rail on one face, titanium on the other, so the bows cancel. The top face stays bare for the XY joints and the cable bridge.
@@ -977,6 +984,7 @@ Pause: ~35 min since the last pause — MGN12 rail centred and screwed down on t
 
 ### Step 05.36 — Load the D extrusion's M5 T-nuts
 
+![The X extrusion end on and from the front: two M5 T-nuts in the top slot at each end, one in the bottom slot at each end, rail at the front and backer at the rear](assets/diagrams/501-x-extrusion-m5-tnuts.svg)
 ![Voron manual p.102](assets/manual-pages/manual-p102.png){ crop="0.17 0.18 0.86 0.88" }
 
 **What you're looking at:** Six M5 T-nuts go into two slots of the X beam: four in the top face the XY joints screw onto, and two in the bottom face for the screws that come up from underneath. They clamp each joint from both sides so it cannot rock.
@@ -1094,6 +1102,7 @@ Pause: ~35 min since the last pause — both XY joints screwed to the X extrusio
 
 ### Step 05.41 — Turn the gantry upside down
 
+![Two top views from the idler end: motors down with A on your right, then upside down with A on your left and the right XY joint, the one with the cable bridge, landing on that side](assets/diagrams/503-gantry-flip.svg)
 ![Voron manual p.106](assets/manual-pages/manual-p106.png){ crop="0.11 0.15 0.76 0.465" }
 
 **What you're looking at:** So far the gantry has been built the way it runs: motors hanging below the bridge, Y rails underneath. Now it goes **upside down**, motors up and both Y rails facing up, so the X axis can be lowered onto the carriages.
@@ -1116,6 +1125,7 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 05.42 — Insert the X axis at an angle
 
+![Two top views from the idler end: motors down with A on your right, then upside down with A on your left and the right XY joint, the one with the cable bridge, landing on that side](assets/diagrams/503-gantry-flip.svg)
 ![Voron manual p.106](assets/manual-pages/manual-p106.png){ crop="0.25 0.16 0.76 0.465" }
 
 **What you're looking at:** The X axis drops onto the two Y carriages, the sliding blocks on the Y rails. Tilting it lets you land one joint at a time; lowering it flat means fighting both carriages at once, and a carriage shoved off its rail is ruined.
@@ -1150,10 +1160,10 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 **Do:**
 
 1. Fit all four M3×16 SHCS in the **left** joint.
-2. Fit **two only** in the **right** joint. The page says: *"2X BOLT ONLY: the remaining bolts will be installed during the end-stop installation."*
+2. Fit **two only** in the **right** joint, in the two holes nearer the drives. [src](https://github.com/VoronDesign/Voron-2/blob/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip) The page says: *"2X BOLT ONLY: the remaining bolts will be installed during the end-stop installation."*
 3. Tighten all six firm: nothing later tightens them.
 
-**Check:** One joint has 4 screws and the other 2, no M3×16 is left over, and the two empty holes wait for the pod's M3×30 in the next step.
+**Check:** One joint has 4 screws and the other 2, no M3×16 is left over, and the two empty holes, the pair nearer you, wait for the pod's M3×30.
 
 Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106)
 
@@ -1161,10 +1171,11 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 05.49 — Fit the XY endstop pod to the right joint
 
+![The gantry upside down, seen from the front: the endstop pod on top of the right XY joint and two M3×30 going down through pod and joint into the Y carriage's two holes nearer you](assets/diagrams/504-endstop-pod-on-joint.svg)
 ![Voron manual p.163](assets/manual-pages/manual-p163.png){ crop="0.08 0.17 0.48 0.90" }
 ![Voron manual p.164](assets/manual-pages/manual-p164.png){ crop="0.17 0.18 0.46 0.74" }
 
-**What you're looking at:** The XY endstop board carries both limit switches, which give `G28` (homing) a repeatable starting point. It screws into the blue pod, and the pod fills the right joint's two empty holes, so that joint has all four screws before Ch 06 and Ch 07 load it.
+**What you're looking at:** The XY endstop board carries both limit switches, which give `G28` (homing) a repeatable starting point. It screws into the blue pod, which fills the right joint's two empty holes, so that joint has all four screws before Ch 06 and Ch 07 load it.
 
 **Parts:**
 
@@ -1175,14 +1186,14 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. Use only p.163's left-hand option, as LDO says; this kit has no hall-effect endstops: the board on the pod as drawn, two M3×8 SHCS. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
-2. Set the pod under the **right** XY joint, the bridge one, on your left. Drive two M3×30 SHCS through it into the empty holes, firm.
+1. Use only p.163's left-hand option; this kit has no hall-effect endstops: the board on the pod as drawn, two M3×8 SHCS. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+2. The gantry is upside down, so set the pod **on top** of the **right** XY joint, the bridge one, on your left. Drive two M3×30 SHCS down through both into the empty holes, firm.
 
-**Check:** The board is flat, both switches click, the pod is solid with no rotation, and the right joint now holds four screws.
+**Check:** The board is flat, both switches click, the pod cannot turn, and the right joint holds four screws.
 
 **Helper:** Presses both switches on the fitted board and says whether each one clicks cleanly.
 
-LDO's note for p.163: *"Follow only the step for the XY Endstop board."* Ignore the hall-effect half of the page. The endstop cable stays bagged until Ch 10.
+LDO's note for p.163: *"Follow only the step for the XY Endstop board."* Ignore the hall-effect half of the page. Page 164 draws the pod hanging under the joint because it shows the machine the right way up; on the bench it sits on top. The endstop cable stays bagged until Ch 10.
 
 Source: [Voron manual p.163](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=163) · [Voron manual p.164](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=164) · [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [Video: Part 6 @1:30:12](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5412s) (differs: fitted with the gantry in the frame)
 
@@ -1217,7 +1228,7 @@ Pause: ~40 min since the last pause — gantry upside down (motors up), X axis i
 ![CAD render — stage the X-carriage frame halves](assets/cad/05-45-a.png)
 ![CAD render — stage the X-carriage frame halves, in place](assets/cad/05-45-b.png)
 
-**What you're looking at:** The X carriage is the two-part frame that clamps onto the MGN12 carriage and becomes the mounting plate for the whole toolhead. These are the Clockwork 2 halves, handed so they fit together only one way; older X-carriage parts look the same and will not fit. LDO says to double-check you have the correct X carriage for Clockwork 2 and to follow the Stealthburner manual. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+**What you're looking at:** The X carriage is the two-part frame that clamps onto the MGN12 carriage and becomes the mounting plate for the whole toolhead. These are the Stealthburner halves for the Voron 2.4, which the Clockwork 2.5 toolhead mounts on, handed so they fit together only one way; older X-carriage parts look the same and will not fit. The Stealthburner manual says to pick the carriage made for your printer. [src](https://github.com/VoronDesign/Voron-Stealthburner/blob/1572a42e6df5d2f0ddf04a2145be4dc9c3693723/Manual/Assembly_Manual_SB.pdf#page=67)
 
 **Parts:**
 
@@ -1232,7 +1243,7 @@ Pause: ~40 min since the last pause — gantry upside down (motors up), X axis i
 
 **Check:** The screw pattern matches the MGN12 carriage, and both halves and the probe retainer are bagged and labelled for Ch 07.
 
-LDO's note for p.129–130: *"If you are building Clockwork 2 double-check that you have the correct X-Carriage and follow the instructions in the Stealthburner manual."* The carriage goes on with the belts in Ch 07; the toolhead itself is Ch 08.
+LDO's note for p.129–130, written for Clockwork 2 and true for 2.5: *"If you are building Clockwork 2 double-check that you have the correct X-Carriage and follow the instructions in the Stealthburner manual."* [src](https://docs.ldomotors.com/en/voron/voron2/build-faq) The carriage goes on with the belts in Ch 07; the toolhead itself is Ch 08.
 
 Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [Video: Part 5 @1:05:47](https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3947s) (differs: substitutes Trident-repo parts still in beta at the time · MGN12 X was a mod then; it is stock on this kit) · CAD: Voron 2.4r2 STEP @ de7e89d
 
