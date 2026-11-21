@@ -26,5 +26,5 @@
 <rect x="323.0" y="610.0" width="84.0" height="84.0" rx="8" fill="#FFFFFF" stroke="#14181D" stroke-width="4"/>
 <text x="365.0" y="669.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="48" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">4</text>
 <text x="600.0" y="772.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Go corner 1, 3, 2, 4.</text>
-<text x="600.0" y="824.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">Never tighten round the frame in order.</text>
+<text x="600.0" y="824.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">Across each time, not round the frame.</text>
 </svg>

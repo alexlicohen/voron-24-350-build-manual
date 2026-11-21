@@ -41,7 +41,7 @@ caption: Mains can kill. Unplug at the wall and prove it dead before you touch a
 - **Mains is the only irreversible hazard in this build.** Every other safety fact in this manual is stated at the step that needs it. This one cannot be, because the decisions — who wires it, what meter, which outlet — are made weeks earlier. [src](https://docs.vorondesign.com/build/electrical/)
 - **There is no step in this manual where a 13-year-old touches mains wiring.** [Step 00a.2](#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall) names the exact stretches she is not present for, and what she does instead.
 - **The meter is not optional and it is not a formality.** Ch 10's Checkpoint #1 is meter checks on an unplugged machine, then one plug-in, and it is the hard gate before the bay closes (survey §5.2 W8).
-- **If your local rules say a certified person must make the mains connections, that is the whole of Ch 10 Section 1.** Decide it now, not with the printer on its back and the WAGOs half-populated.
+- **LDO: *"Mains wiring should only be performed by certified personnel trained in local regulations and safety standards."*** If that is not you, the whole of Ch 10 Section 1 goes to someone who is. Decide it now, not with the printer on its back and the WAGOs half-populated.
 - **Nothing in this chapter overrides a step.** Where this chapter and a step disagree, the step wins and the disagreement is a bug — log it in the corrections table in [00-index.md](00-index.md).
 - Mirrored images in this chapter are LDO Motors' (LDOVoron2 wiring guide, docs.ldomotors.com), used with attribution; see `assets/remote/00a-mains-safety/SOURCES.txt`. Each step keeps the original URL on its `Source:` line.
 
@@ -57,13 +57,15 @@ caption: Mains can kill. Unplug at the wall and prove it dead before you touch a
 
 **Parts:** none.
 
-**Do:** Read your local rules for who may make mains connections in a dwelling. If the answer is not you, write that down today: build the machine, mount every part, and hand over at [10.8](10-wiring.md#step-108-inlet-wago-bus).
+**Do:** LDO asks for a certified person, quoted below; read your local rules for mains connections in a dwelling too. If that is not you, write it down today: build the machine, mount every part, and hand over at [10.8](10-wiring.md#step-108-inlet-wago-bus).
 
-The one region that can kill you is **Ch 10 Section 1, [10.1](10-wiring.md#step-101-empty-the-bay-and-set-the-end-state)–[10.16](10-wiring.md#step-1016-frame-pe)**: the C14 inlet, the three-way WAGO bus, the Meanwell LRS-200-24's AC terminal block, the Omron SSR's LOAD pair, and the bed heater's live lead. The Voron community's standard advice is *"install the parts and then find a qualified electrician to do the connecting up."* Ch 10's own **Read first** says the same and names the same stopping line. Writing the decision down changes nothing else in the build order.
+LDO's wiring guide opens with the rule: *"Mains wiring should only be performed by certified personnel trained in local regulations and safety standards."*
+
+The one region that can kill you is **Ch 10 Sections 1, 2 and 2b, [10.1](10-wiring.md#step-101-empty-the-bay-and-set-the-end-state)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again) and [10.82](10-wiring.md#step-1082-earth-the-ssrs-din-rail)**: the C14 inlet, the three-way WAGO bus, the Meanwell LRS-200-24's AC terminal block, the two earth leads, the Omron SSR's LOAD pair, and the bed heater's live lead. The Voron community's standard advice is *"install the parts and then find a qualified electrician to do the connecting up."* Ch 10's own **Read first** says the same and names the same stopping line. Writing the decision down changes nothing else in the build order.
 
 **Check:** One line in the build log naming who lands the mains conductors, dated before the kit ships.
 
-Source: [Ch 10 — Read first](10-wiring.md) · [Voron forum — Mains Wiring Safety](https://forum.vorondesign.com/threads/mains-wiring-safety.1998/) · [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/)
+Source: [LDO wiring guide, Rev D (opening note)](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) · [Ch 10 — Read first](10-wiring.md) · [Voron forum — Mains Wiring Safety](https://forum.vorondesign.com/threads/mains-wiring-safety.1998/) · [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/)
 
 ---
 
@@ -80,7 +82,7 @@ Source: [Ch 10 — Read first](10-wiring.md) · [Voron forum — Mains Wiring Sa
 [Step 00.30](00-before-you-start.md#step-0030-start-the-measurement-log) gives her the measurement log, and that assignment has no carve-out for mains. The rule, in these words:
 
 - She does not strip, land, tighten or unplug any conductor that is or has been connected to the wall.
-- She is not in the room while the mains conductors are being worked on, or while the machine is plugged in with the bay open — **Ch 10 Section 1 ([10.1](10-wiring.md#step-101-empty-the-bay-and-set-the-end-state)–[10.16](10-wiring.md#step-1016-frame-pe))**, the whole of **Checkpoint #1 ([10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again))**, the firmware gate at [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) through Checkpoint 12 with the recovery-only button presses at [12.15](12-software.md#step-1215-flash-the-leviathan-through-katapult) and [12.19](12-software.md#step-1219-fallback-flash-the-nitehawk-through-katapult), the shut-downs at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead) and, for the exhaust fan, [14.30](14-calibration.md#step-1430-shut-down-unplug-and-prove-it-dead), and Ch 13's look-only window from [13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch) until [13.8](13-initial-startup.md#step-138-short-heat-test-bed-to-50-c-and-watch-the-ssr) has read 0 V. Those are adult-only.
+- She is not in the room while the mains conductors are being worked on, or while the machine is plugged in with the bay open — **Ch 10 Sections 1, 2 and 2b ([10.1](10-wiring.md#step-101-empty-the-bay-and-set-the-end-state)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again) and [10.82](10-wiring.md#step-1082-earth-the-ssrs-din-rail))**: every mains lead, the whole of **Checkpoint #1 ([10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again))** and the SSR and bed leads wired after it, up to [10.30](10-wiring.md#step-1030-confirm-the-inductive-probes-tape); the firmware gate at [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) through Checkpoint 12 with the recovery-only button presses at [12.15](12-software.md#step-1215-flash-the-leviathan-through-katapult) and [12.19](12-software.md#step-1219-fallback-flash-the-nitehawk-through-katapult), the shut-downs at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead) and, for the exhaust fan, [14.30](14-calibration.md#step-1430-shut-down-unplug-and-prove-it-dead), and Ch 13's look-only window from [13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch) until [13.8](13-initial-startup.md#step-138-short-heat-test-bed-to-50-c-and-watch-the-ssr) has read 0 V. Those are adult-only.
 - She is not beside the machine at any power-on — [10.23](10-wiring.md#step-1023-first-power-on-then-off-again), [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate), [13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch), [13.9](13-initial-startup.md#step-139-hotend-fan-stealthburner-bottom-fan) and every later one. One adult, standing to the side, hand on the switch — nobody else within reach of the machine.
 - What she *does* own on those days: the record, and only with the printer **unplugged**. In the post-power sweeps at [10.74](10-wiring.md#step-1074-24-v-rails)–[10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time), once [10.73](10-wiring.md#step-1073-confirm-dead) has read 0 V and the cord is out of the room, you hold the probes and read each value aloud, and she records it in the log. She never holds a probe. Recording every row is a real job: it is how you catch a row you skipped.
 
@@ -88,7 +90,7 @@ Source: [Ch 10 — Read first](10-wiring.md) · [Voron forum — Mains Wiring Sa
 
 ⚠ This rule is not about competence. It is about there being only one pair of hands near a live conductor, and about that pair belonging to the person who can also reach the breaker.
 
-Source: [Ch 00 Step 00.30](00-before-you-start.md#step-0030-start-the-measurement-log) · [Ch 10 Sections 1–2](10-wiring.md#section-1-mains-inlet-switch-psu-ssr-bed-heater) · [Ch 10 Section 8](10-wiring.md#section-8-pre-power-on-meter-sweep) · [Ch 12 Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) · [Ch 13 Step 13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch)
+Source: [Ch 00 Step 00.30](00-before-you-start.md#step-0030-start-the-measurement-log) · [Ch 10 Sections 1–2b](10-wiring.md#section-1-mains-inlet-switch-psu-then-the-earth-leads) · [Ch 10 Section 8](10-wiring.md#section-8-pre-power-on-meter-sweep) · [Ch 12 Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) · [Ch 13 Step 13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch)
 
 ---
 
@@ -106,16 +108,16 @@ A meter's **CAT rating** says what size transient it can survive where you are u
 
 | Function | Why this build needs it | Used at |
 |---|---|---|
-| Continuity / beeper | every Checkpoint #1 measurement | [10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.21](10-wiring.md#step-1021-the-ssr-is-open-when-unpowered) |
+| Continuity / beeper | every Checkpoint #1 measurement, and the SSR check after it | [10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.21](10-wiring.md#step-1021-the-ssr-is-open-when-unpowered) |
 | Resistance (Ω) | bed heater, thermistors, PE bonding, 24 V shorts | [10.13](10-wiring.md#step-1013-measure-the-bed-heater-before-you-connect-it), [10.74](10-wiring.md#step-1074-24-v-rails), [10.76](10-wiring.md#step-1076-thermistors-at-room-temperature), [10.77](10-wiring.md#step-1077-protective-earth-bonding) |
 | DC volts | confirm dead — 0 V across the PSU's +V/−V, held ten seconds, before the DC side is touched; never a live reading | [10.24](10-wiring.md#step-1024-psu-leviathan-board-supply), [10.73](10-wiring.md#step-1073-confirm-dead) |
 | AC volts, 600 V range | the meter self-test in [00a.4](#step-00a4-test-the-meter-before-you-trust-it-and-again-after); never used inside the machine | this chapter only |
 
-Two details worth getting right. **Resistance range:** Ch 10's tool list asks for *"a 2 MΩ or 20 MΩ resistance range you can select by hand"*. [10.19](10-wiring.md#step-1019-l-n-and-pe-are-isolated-from-each-other) and [10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time) read L↔N as a number on the 2 MΩ range, 100 kΩ or more, because the PSU input bridges L and N; [10.13](10-wiring.md#step-1013-measure-the-bed-heater-before-you-connect-it) wants the bed heater to read `OL` to earth *"on your meter's highest Ω range"*; and [10.76](10-wiring.md#step-1076-thermistors-at-room-temperature) reads thermistors up to 162 kΩ. A meter that only autoranges may not let you hold the 2 MΩ range. **Leads:** they carry their own CAT rating and it is the *lower* of meter and lead that governs. Do not put unrated leads on a rated meter.
+Two details worth getting right. **Resistance range:** Ch 10's tool list asks for *"a 2 MΩ or 20 MΩ resistance range you can select by hand"*. [10.19](10-wiring.md#step-1019-l-n-and-pe-are-isolated-from-each-other) and [10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time) read L↔N on the 2 MΩ range as 100 kΩ or more, or `OL`, because the PSU input sits across L and N; [10.13](10-wiring.md#step-1013-measure-the-bed-heater-before-you-connect-it) wants the bed heater to read `OL` to earth *"on your meter's highest Ω range"*; and [10.76](10-wiring.md#step-1076-thermistors-at-room-temperature) reads thermistors up to 162 kΩ. A meter that only autoranges may not let you hold the 2 MΩ range. **Leads:** they carry their own CAT rating, and Fluke's rule is leads that match or exceed the meter's category: the pair is only as safe as its lower-rated half. Do not put unrated leads on a rated meter. [src](https://www.fluke.com/en-us/learn/blog/digital-multimeters/testing-your-test-leads)
 
 **Check:** Meter on the bench with a printed category rating, leads rated to at least that category, fresh battery, and all four functions tried once.
 
-Source: [Fluke — IEC category ratings](https://www.fluke.com/en-us/learn/blog/safety/iec-category-ratings-use-the-right-tools-for-the-job) · [Ch 00 Step 00.8](00-before-you-start.md#step-008-settle-the-tool-list-owned-vs-buy) · [Ch 10 — Tools](10-wiring.md)
+Source: [Fluke — IEC category ratings](https://www.fluke.com/en-us/learn/blog/safety/iec-category-ratings-use-the-right-tools-for-the-job) · [Fluke — testing your test leads](https://www.fluke.com/en-us/learn/blog/digital-multimeters/testing-your-test-leads) · [Ch 00 Step 00.8](00-before-you-start.md#step-008-settle-the-tool-list-owned-vs-buy) · [Ch 10 — Tools](10-wiring.md)
 
 ---
 
@@ -154,21 +156,21 @@ Source: [NFPA 70E live–dead–live practice](https://www.70econsultants.com/li
 
 **What you're looking at:** The wall outlet the printer will live on, and the breaker that feeds it. An **[RCD](16-glossary.md#g)**, a GFCI receptacle or GFCI breaker in a US house, compares the current on live with the current on neutral and cuts the supply when they differ.
 
-A residual-current device compares live and neutral current and cuts the supply when they differ, which is what happens when current is leaving through a person or through the frame. RepRap's safety page is blunt about it: *"If not compulsory in your country, a 20mA resident current device (RCD) shall be installed on your electrical installation."* In a US house that is a **GFCI receptacle or a GFCI breaker**, and monthly TEST/RESET is for the life of the printer: a GFCI that does not trip on its own test button is a dead GFCI. The PSU alone draws about **4 A at 115 VAC**, and the AC bed heater is a much larger load again — the Omron SSR that switches it is rated **10 A**.
+A residual-current device compares live and neutral current and cuts the supply when they differ, which is what happens when current is leaving through a person or through the frame. RepRap's safety page is blunt about it: *"If not compulsory in your country, a 20mA resident current device (RCD) shall be installed on your electrical installation."* In a US house that is a **GFCI receptacle or a GFCI breaker**, and the US Consumer Product Safety Commission says to test every GFCI at least once a month and after a power failure, for the life of the printer: a GFCI that does not trip on its own test button is a dead GFCI. The PSU alone draws about **4 A at 115 VAC** at full load (Mean Well's datasheet), and the AC bed heater is a further load on top — the Omron SSR that switches it is rated **10 A**.
 
 **Parts:** none.
 
 **Do:**
 
-1. Press **TEST**, confirm power cuts, then **RESET**. Repeat monthly.
+1. Lamp on: **TEST** kills it, **RESET** restores it. Monthly.
 2. Label the breaker that feeds it, so the circuit can be killed from outside the room.
 3. Do not share the circuit with a space heater or microwave.
 
 **Check:** Outlet trips on TEST and resets. Breaker identified and labelled. You can reach that breaker without passing the machine.
 
-⚠ **No working GFCI, no plug-in.** The printer runs only on a GFCI receptacle or GFCI breaker. One that does not trip on its own TEST button is dead: replace it before the machine is plugged in. The PSU draws about 4 A and the AC bed heater far more, so nothing else heavy shares the circuit.
+⚠ **No working GFCI, no plug-in.** The printer runs only on a GFCI receptacle or GFCI breaker. One that does not trip on its own TEST button is dead: replace it before the machine is plugged in. The PSU draws up to about 4 A and the AC bed heater more on top, so nothing else heavy shares the circuit.
 
-Source: [RepRap — Safety](https://reprap.org/wiki/Safety) · [Mean Well LRS-200 spec sheet](https://www.meanwell.com/Upload/PDF/LRS-200/LRS-200-SPEC.PDF) · [Ch 09 Step 09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-metal-din-bracket)
+Source: [RepRap — Safety](https://reprap.org/wiki/Safety) · [CPSC GFCI fact sheet (testing)](https://www.cpsc.gov/s3fs-public/099_0.pdf) · [Mean Well LRS-200 spec sheet](https://www.meanwell.com/Upload/PDF/LRS-200/LRS-200-SPEC.PDF) · [Ch 09 Step 09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-metal-din-bracket)
 
 ---
 
@@ -183,13 +185,13 @@ Pause: ~30 min since the last pause — this is the chapter's first segment. Dec
 ![LDO Rev D — the finished electronics bay, every earth branch in one frame](assets/remote/00a-mains-safety/VS9_Final.jpg)
 ![Mains path and the protective-earth chain](assets/diagrams/05-mains-and-pe-chain.svg)
 
-**What you're looking at:** LDO's photo of the finished bay. Every branch of the **[protective earth](16-glossary.md#p)** chain is in this one frame: the inlet, the yellow/green WAGO block, the PSU's earth screw, the ring terminal on a frame extrusion, and the lead to the build plate.
+**What you're looking at:** LDO's finished bay. Five branches of the **[protective earth](16-glossary.md#p)** chain are in this frame: the inlet, the PE WAGO, the PSU's earth screw, the frame ring terminal and the build-plate lead. This build adds a sixth: a lead to the SSR's DIN rail.
 
 **Parts:** none.
 
-**Do:** Learn the five protective-earth branches in the table below, and where each is verified, before you meet them in Ch 09 and Ch 10.
+**Do:** Learn the six protective-earth branches in the table below, and where each is verified, before you meet them in Ch 09 and Ch 10.
 
-Protective earth (PE) is the conductor that makes the machine safe to *touch*: if a live conductor ever reaches the frame, the bed or a motor can, PE gives that current a path with far less resistance than you, and the fault current trips the breaker or the RCD. The diagram lays out the whole mains path end to end alongside all five PE branches, and which pole the fuse and rocker switch each sit in. Voron's electrical page is explicit that this is not optional on an AC-bed machine — *"If using an AC powered bed, be sure to ground the bed regardless of if the assembly manual specifies it or not"*, and *"Grounding the frame is recommended."* RepRap adds the constraint people get wrong: *"Earth shall be connected to a valid earth, never on plumbing."*
+Protective earth (PE) is the conductor that makes the machine safe to *touch*: if a live conductor ever reaches the frame, the bed or a motor can, PE gives that current a path with far less resistance than you, and the fault current trips the breaker or the RCD. The diagram lays out the whole mains path end to end alongside the PE branches, and which pole the fuse and rocker switch each sit in. Voron's electrical page is explicit that this is not optional on an AC-bed machine — *"If using an AC powered bed, be sure to ground the bed regardless of if the assembly manual specifies it or not"*, and *"Grounding the frame is recommended."* RepRap adds the constraint people get wrong: *"Earth shall be connected to a valid earth, never on plumbing."*
 
 | Branch | Runs from → to | Made at |
 |---|---|---|
@@ -197,13 +199,14 @@ Protective earth (PE) is the conductor that makes the machine safe to *touch*: i
 | Bus | C14 **E** → the yellow **PE** WAGO (one of three 5-way blocks) | [10.7](10-wiring.md#step-107-populate-and-label-the-wago-bus), [10.8](10-wiring.md#step-108-inlet-wago-bus) |
 | PSU | PE WAGO → the Meanwell's **⏚** terminal — the **innermost** of its three AC screws, next to −V. Order from the outer end is **L, N, ⏚** (LRS-200 datasheet: 1 AC/L, 2 AC/N, 3 FG) | [10.9](10-wiring.md#step-109-wago-bus-psu) |
 | Frame | PE WAGO → the rear frame extrusion between the mains WAGO mount and the deck notch (layout v3; on LDO's layout, right of the notch), ring terminal sandwiched between two M5 locking washers on **bare** metal | [10.16](10-wiring.md#step-1016-frame-pe) |
+| Rail | PE WAGO → the rear DIN rail that carries the SSR, ring terminal and serrated washer under one of the rail's screws, on bare steel. Our addition: LDO runs no lead to the rail, and the kit has none | [10.82](10-wiring.md#step-1082-earth-the-ssrs-din-rail) |
 | Bed | build plate → PE WAGO, ring terminal on the plate's own **M4×6 BHCS + serrated washer** | [03.6](03-build-plate.md#step-036-verify-the-pe-screw-and-identify-the-three-cables), [10.12](10-wiring.md#step-1012-bed-harness-into-the-bed-wago-breakout), [10.15](10-wiring.md#step-1015-bed-neutral-and-bed-pe-the-wago-bus) |
 
-A sixth path is not protective earth but ends on the earthed frame: the **ESD path**. The Extruder Motor Ground Wire runs from the extruder motor body to the toolboard (08.43, 08.53), the umbilical carries it to the USB adapter, and the DC Ground Wire runs from the adapter (ring at 09.25) to the frame, landed at [10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path). It is why the extruder can appears in the earth-bonding table.
+A seventh path is not protective earth but ends on the earthed frame: the **ESD path**. The Extruder Motor Ground Wire runs from the extruder motor body to the toolboard (08.43, 08.53), the umbilical carries it to the USB adapter, and the DC Ground Wire runs from the adapter (ring at 09.25) to the frame, landed at [10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path). It is why the extruder can appears in the earth-bonding table.
 
-The whole chain is proved in one sweep at [10.77](10-wiring.md#step-1077-protective-earth-bonding): from the C14 earth pin, the PE WAGO and PSU ⏚ read **< 1 Ω**, the frame PE lug and the plate's M4×6 PE screw read **< 1 Ω**, a far frame corner **< 2–3 Ω**, and the extruder motor body **a few Ω or less** — while the bed heater's L and N read `OL`. The rail's **−V / GND** side reads a few Ω on purpose — that is the ESD bond from [10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path), and [10.74](10-wiring.md#step-1074-24-v-rails) and 10.77 both expect it; do not go hunting a reversed ferrule for it. Because −V sits on PE, the **+24 V** side reads about your 10.74 **+V → −V** figure to earth, through the loads and that bond, and never 0 Ω.
+The whole chain is proved in one sweep at [10.77](10-wiring.md#step-1077-protective-earth-bonding): from the C14 earth pin, the PE WAGO and PSU ⏚ read **< 1 Ω**, the frame PE lug, the DIN rail and the plate's M4×6 PE screw read **< 1 Ω**, a far frame corner **< 2–3 Ω**, and the extruder motor body **a few Ω or less** — while the bed heater's L and N read `OL`. Those Ω limits are our own working figures, not LDO's or Voron's; LDO asks only for continuity. The rail's **−V / GND** side reads a few Ω on purpose — that is the ESD bond from [10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path), and [10.74](10-wiring.md#step-1074-24-v-rails) and 10.77 both expect it; do not go hunting a reversed lead for it. Because −V sits on PE, the **+24 V** side reads about your 10.74 **+V → −V** figure to earth, through the loads and that bond, and never 0 Ω.
 
-**Check:** You can draw the five branches from memory and say where each is verified.
+**Check:** You can draw the six branches from memory and say where each is verified.
 
 ⚠ **Rev D+ / LDO:** the bed's PE screw is **already fitted to the plate** and is an **M4×6 BHCS**, not the M3×6 the official manual asks you to supply. Verify it is tight at [Step 03.6](03-build-plate.md#step-036-verify-the-pe-screw-and-identify-the-three-cables); do not remove it and refit it. Its serrated washer is what bites through the surface to make the bond. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -211,7 +214,9 @@ Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/el
 
 ---
 
-### Step 00a.7 — The SSR is marked "earth the mounting rail" and this build does not
+<a id="step-00a7-the-ssr-is-marked-earth-the-mounting-rail-and-this-build-does-not"></a>
+
+### Step 00a.7 — The SSR is marked "earth the mounting rail", so this build adds a lead
 
 ![LDO — the SSR on its bracket; the body reads EARTH THE MOUNTING RAIL (Rev C photo: 20 A G3NB-220B-1, DIN terminal bus)](assets/remote/00a-mains-safety/SSR_Close_Up.jpg)
 
@@ -219,46 +224,46 @@ Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/el
 
 **Parts:** none.
 
-**Do:** Before Ch 09, settle who decides whether the SSR's *EARTH THE MOUNTING RAIL* marking must be honoured on this build. LDO's build does not run a PE conductor to the DIN rail.
+**Do:** Treat the SSR's *EARTH THE MOUNTING RAIL* marking as an instruction. LDO runs no PE conductor to the rail, so this build adds one at [10.82](10-wiring.md#step-1082-earth-the-ssrs-din-rail), before the first power-on. Buy its parts before Ch 10.
 
 The photo is from LDO's Rev C guide, so the relay in it is the 20 A G3NB-220B-1 and the bus behind it is DIN terminal blocks; your Rev D kit ships the 10 A G3NB-210B-1 and WAGO 221 blocks, and carries the same marking. [10.10](10-wiring.md#step-1010-read-the-ssr-terminal-numbers-before-you-wire-it) records the marking as you read it off the body. Understand the gap before you are standing in front of it:
 
 - The SSR is an **Omron G3NB-210B-1** — 24–220 VAC 10 A on the **1 / 2 LOAD** pair, 5–24 VDC on the **3 + / 4 − INPUT** pair ([09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-metal-din-bracket)). It bolts to a stamped metal bracket which clips to a DIN rail, and that rail bolts to a frame extrusion at [09.5](09-electronics-bay.md#step-095-fit-the-two-din-rails-running-left-to-right).
-- So the rail *is* bonded to the frame, and the frame *is* earthed at [10.16](10-wiring.md#step-1016-frame-pe) — but through anodised aluminium and steel screws, incidentally. Ch 10.16 tells you to scrape the anodising under the frame PE washer precisely because anodising is an insulator. An incidental bond through two more anodised interfaces is not the same thing as a PE conductor, and it is not a compliance argument.
-- Ch 10 states the consequence plainly: if your local rules require an earthed rail, **that is a mains change** and it belongs to whoever signs off your mains work — not to a decision you make at the bench.
+- So the rail *is* bonded to the frame, and the frame *is* earthed at [10.16](10-wiring.md#step-1016-frame-pe) — but through anodised aluminium and steel screws, incidentally. Ch 10.16 tells you to scrape the anodising under the frame PE washer precisely because anodising is an insulator. An incidental bond through two more anodised interfaces may or may not conduct, and it is not a dedicated PE conductor, so this build does not rely on it.
+- Ch 10 makes the marking unconditional. [10.82](10-wiring.md#step-1082-earth-the-ssrs-din-rail) runs a green/yellow lead, at least 0.75 mm² (18 AWG) and no thinner than the kit's FRAME PE lead, from the PE WAGO's fourth port to an M5 ring terminal and serrated washer under the rail screw between the SSR and the PSU, on bare steel; that screw becomes an M5×12 to make room (verify on bench). [10.18](10-wiring.md#step-1018-colour-groups-are-shorted) and [10.77](10-wiring.md#step-1077-protective-earth-bonding) then meter bare rail steel to the C14 earth pin. A silent rail means **no power-on** until the lead is re-seated. Fitting it is mains work, for the person named at [00a.1](#step-00a1-decide-who-is-doing-the-mains-work).
 
 Two more facts from Omron's own datasheet that change how you handle this part. The standard G3NB **has no terminal cover** — Omron's note is that *"If you need a terminal cover, please use the G3NA-240B or similar product"* — so four mains-carrying screw terminals sit exposed in your bay until Ch 11 closes it. And the relay's internal snubber leaks: *"A leakage current flows through a snubber circuit in the G3NB even when there is no power input. Therefore, always turn OFF the power to the input or load and check that it is safe before replacing or wiring the G3NB."*
 
-**Check:** You can state what the marking asks for, what this build does, and who decides whether that is acceptable where you live.
+**Check:** You know what the marking asks for, which step fits the rail lead, where Ch 10 meters it, and the parts are bought.
 
 ⚠ Omron's caution for this relay: *"Be sure to conduct wiring with the power supply turned OFF"* and *"Do not touch the G3NB's main circuit terminals immediately after the power is turned OFF."* Ch 10 already sequences it that way: every mains connection is made with the cord in another room, and [10.73](10-wiring.md#step-1073-confirm-dead) measures 0 V for ten seconds first.
 
-Source: [Omron — Solid State Relays G3NB datasheet (J164-E1)](https://www.omron-ap.com/data_pdf/cat/g3nb-1_j164-e1_4_3_csm1013815.pdf) · [image: LDO `SSR_Close_Up.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevC/SSR_Close_Up.jpg) · [Ch 10 Step 10.10](10-wiring.md#step-1010-read-the-ssr-terminal-numbers-before-you-wire-it) · [Ch 09 Step 09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-metal-din-bracket)
+Source: [Omron — Solid State Relays G3NB datasheet (J164-E1)](https://www.omron-ap.com/data_pdf/cat/g3nb-1_j164-e1_4_3_csm1013815.pdf) · [image: LDO `SSR_Close_Up.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevC/SSR_Close_Up.jpg) · [Ch 10 Step 10.82](10-wiring.md#step-1082-earth-the-ssrs-din-rail) · [Ch 10 Step 10.18](10-wiring.md#step-1018-colour-groups-are-shorted) · [Ch 09 Step 09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-metal-din-bracket)
 
 ---
 
 ### Step 00a.8 — Ferrules and the no-whisker rule
 
-![LDO Rev D — ferrules in the PSU's screw terminals, WAGO 221 levers below](assets/remote/00a-mains-safety/S3_wago_PSU.jpg)
+![LDO Rev D — insulated red fork lugs under the PSU's L / N / earth screws, WAGO 221 levers below](assets/remote/00a-mains-safety/S3_wago_PSU.jpg)
 
-**What you're looking at:** Two kinds of mains terminal. The PSU's three **screw terminals** each take a stranded core crimped into a red **[ferrule](16-glossary.md#f)**, a sleeve that turns loose strands into one tube the screw can clamp. The orange **WAGO 221** lever blocks need no ferrule.
+**What you're looking at:** Two kinds of mains terminal. The PSU's three **screw terminals** each take a lead crimped into a red insulated **fork lug**, a U-shaped tag clamped flat under the screw so no loose strand reaches it. The orange **WAGO 221** lever blocks take bare stripped core.
 
-Two kinds of terminal carry mains in this machine and they want opposite things. **Screw terminals** — the Meanwell's L/N/⏚ block, L, N, ⏚ from the outer end, and the SSR's LOAD 1 / LOAD 2 — clamp a stranded core against a metal plate; strands splay, one escapes the clamp, and you are left with a reduced contact area that heats. The kit's pre-made leads arrive with a **VE0508** ferrule already crimped on every screw-terminal end; the five loose ones in the bag are spares, laid out at Ch 09 Step 09.35. **WAGO 221 lever terminals** — the three 5-way N / L / PE blocks — clamp the core themselves; the failure there is not splaying but *escaping*, and [10.8](10-wiring.md#step-108-inlet-wago-bus) gives the test: tug each core hard, and confirm **no copper is visible outside any port**. A whisker of exposed strand next to a live terminal is the failure mode.
+Two kinds of terminal carry mains in this machine and they want opposite things. **Screw terminals** — the Meanwell's L/N/⏚ block, L, N, ⏚ from the outer end, and the SSR's LOAD 1 / LOAD 2 — clamp a stranded core against a metal plate; strands splay, one escapes the clamp, and you are left with a reduced contact area that heats. The kit's pre-made mains leads arrive with an insulated fork lug already crimped on every PSU and SSR screw-terminal end, as LDO's Rev D photos show. The five loose **VE0508** [ferrules](16-glossary.md#f) in the bag are not for those: LDO's guide names the E0508 ferrule for a hotend heater lead re-terminated for the toolhead board's heater screw terminal ([08.33](08-toolhead.md#step-0833-terminate-the-hotend-leads-for-the-nitehawk-v2)), and they are laid out at Ch 09 Step 09.35. The 24 V leads into the plug-type terminals on the Leviathan and the USB adapter are not mains; how their ends are finished is not visible in LDO's photos (verify on bench). **WAGO 221 lever terminals** — the three 5-way N / L / PE blocks — clamp the core themselves; the failure there is not splaying but *escaping*, and [10.8](10-wiring.md#step-108-inlet-wago-bus) gives the test: tug each core hard, and confirm **no copper is visible outside any port**. A whisker of exposed strand next to a live terminal is the failure mode.
 
 On conductor size, Voron's electrical page sets the floor: *"Use at least 18 AWG (0.75 mm²) for mains AC wiring, even better would be 16 AWG (1.25 mm²)."* Every mains conductor in this kit arrives pre-made; the number matters if you ever lengthen or replace one.
 
 **Parts:** none.
 
-**Do:** Learn which terminal takes which, from the two rows below. Screw terminals get a crimped **VE0508** ferrule; WAGO 221 lever terminals take bare stranded or ferruled core to the stop, with **no copper visible outside any port**.
+**Do:** Learn which terminal takes which, from the two rows below. Screw terminals take the crimped fork lug each lead arrives with; WAGO 221 lever terminals take bare stranded core to the stop, with **no copper visible outside any port**.
 
-**Check:** Ferrules found in the kit before Ch 10 starts, and you know which terminals take one, which take bare core, and the pull-and-look test.
+**Check:** The five loose ferrules found, and you know which terminals take a fork lug, which take bare core, and the pull-and-look test.
 
-- **Screw terminals** (the PSU's L / N / ⏚ block, the SSR's LOAD 1 / LOAD 2): a crimped VE0508 ferrule on every stranded core, so no strand escapes the clamp.
+- **Screw terminals** (the PSU's L / N / ⏚ block, the SSR's LOAD 1 / LOAD 2): the lead's crimped, insulated fork lug, fully under its screw, so no strand escapes the clamp.
 - **WAGO 221 levers** (the three 5-way N / L / PE blocks): core to the stop, lever shut, then tug each core hard and look: no copper outside any port ([10.8](10-wiring.md#step-108-inlet-wago-bus)).
 
 ⚠ **No whiskers.** A strand of exposed copper beside a live terminal is the failure mode: if one shows, re-terminate that core. Mains conductors are at least 18 AWG (0.75 mm²); every one in this kit arrives pre-made, so this matters only if you lengthen or replace one.
 
-Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [image: LDO `S3_wago_PSU.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S3_wago_PSU.jpg) · [Ch 09 — Hardware](09-electronics-bay.md) · [Ch 10 Step 10.8](10-wiring.md#step-108-inlet-wago-bus), [Step 10.9](10-wiring.md#step-109-wago-bus-psu)
+Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [LDO wiring guide § Wiring the toolhead PCB (E0508 ferrules)](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb) · [image: LDO `S3_wago_PSU.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S3_wago_PSU.jpg) · [Ch 09 — Hardware](09-electronics-bay.md) · [Ch 10 Step 10.8](10-wiring.md#step-108-inlet-wago-bus), [Step 10.9](10-wiring.md#step-109-wago-bus-psu)
 
 ---
 
@@ -268,7 +273,7 @@ Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/el
 
 **What you're looking at:** No parts: a routing rule. Everything here keeps load off a termination: the wire ducts that carry the mains run below deck, the anchor at the deck opening, and the zip ties at both ends of every drag chain.
 
-A terminal is a connection, not an anchor. RepRap's rule is the one to hold: *"all wires ends of moving wires and static power wires shall be secured just aside the connection, in order to release any load on connexion."* In this build that means the mains run goes inside a wire duct, not across open deck ([10.8](10-wiring.md#step-108-inlet-wago-bus)), the deck opening is strain-relieved ([10.69](10-wiring.md#step-1069-strain-relieve-the-deck-opening)), and every drag chain is zip-tied at both ends so the chain — not the connector — takes the motion ([10.66](10-wiring.md#step-1066-zip-tie-both-ends-of-every-chain)). Ch 10's own warning is that cables pulled tight *"will survive assembly and fail in three months"*.
+A terminal is a connection, not an anchor. RepRap's rule is the one to hold: *"all wires ends of moving wires and static power wires shall be secured just aside the connection, in order to release any load on connexion."* In this build that means the mains run goes inside a wire duct, not across open deck ([10.8](10-wiring.md#step-108-inlet-wago-bus)), the deck opening is strain-relieved ([10.69](10-wiring.md#step-1069-strain-relieve-the-deck-opening)), and every drag chain is zip-tied at both ends so the chain — not the connector — takes the motion ([10.66](10-wiring.md#step-1066-zip-tie-both-ends-of-every-chain)). LDO's note for the cable chains (manual p.194–195) says why: *"Pulling the wires tight inside the cable chain will result to excessive wire fatigue and possible pre-mature wire breaks."*
 
 The same page sets the end state for the whole electronics bay: *"All connections of mains (110/230V) shall be physically protected and you shall not be capable to access them even if you try."* That is what the bottom panel and the skirts in **Ch 11 Part A** are for, the AC conduit's lids just before the dead meter sweep ([10.80](10-wiring.md#step-1080-fit-the-strip-fin-and-close-the-ac-lids)), and the DC duct covers once Ch 13 has driven every motor, heater and fan ([Step 10.71](10-wiring.md#step-1071-leave-the-duct-covers-off)). Closing the machine is a safety step, not a cosmetic one — which is exactly why Ch 11 is not allowed to start until Checkpoint #1 has passed.
 
@@ -282,9 +287,9 @@ The same page sets the end state for the whole electronics bay: *"All connection
 - **Deck opening** strain-relieved: [10.69](10-wiring.md#step-1069-strain-relieve-the-deck-opening).
 - **Every drag chain** zip-tied at both ends, so the chain takes the motion: [10.66](10-wiring.md#step-1066-zip-tie-both-ends-of-every-chain).
 
-⚠ **A terminal is a connection, not an anchor.** A cable pulled tight survives assembly and fails in three months. The end state is mains you cannot touch even if you try: AC lids at [10.80](10-wiring.md#step-1080-fit-the-strip-fin-and-close-the-ac-lids), bottom panel and skirts in Ch 11 Part A. Ch 11 does not start before Checkpoint #1 passes.
+⚠ **A terminal is a connection, not an anchor.** A cable pulled tight survives assembly, then fatigues and breaks early. The end state is mains you cannot touch even if you try: AC lids at [10.80](10-wiring.md#step-1080-fit-the-strip-fin-and-close-the-ac-lids), bottom panel and skirts in Ch 11 Part A. Ch 11 does not start before Checkpoint #1 passes.
 
-Source: [RepRap — Safety](https://reprap.org/wiki/Safety) · [Ch 10 Step 10.69](10-wiring.md#step-1069-strain-relieve-the-deck-opening) · [Ch 11 — Read first](11-skirts-panels-door.md)
+Source: [RepRap — Safety](https://reprap.org/wiki/Safety) · [LDO Build Notes p.194–195](https://docs.ldomotors.com/voron/voron2/build-faq) · [Ch 10 Step 10.69](10-wiring.md#step-1069-strain-relieve-the-deck-opening) · [Ch 11 — Read first](11-skirts-panels-door.md)
 
 ---
 
@@ -328,7 +333,7 @@ Why the rituals are written this way. Nothing is measured live: the PSU's +V/−
 
 **Check:** You can recite both rituals, the three live open-bay windows, and the two live touches allowed: Leviathan SW1/SW2 and Nitehawk RESET/BOOT0, recovery only.
 
-- **Ritual 1 · Checkpoint #1** ([10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again)): Cord out of the room, meter the dead machine: colour groups shorted, L / N / PE isolated, switch switching, SSR open, selector re-read. Then one plug-in: rocker off, inlet, then wall, step back, rocker on. One hand on the switch, the other behind your back, **no meter**. Rocker lit, PSU LED green, ten seconds of look, listen, smell. Off, unplug, cord out of the room.
+- **Ritual 1 · Checkpoint #1** ([10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again)), with only the inlet, the WAGO bus and the PSU on the mains, as LDO orders it; the SSR and bed are wired after it, dead. Cord out of the room, meter the dead machine: colour groups shorted, L / N / PE isolated, switch switching, selector re-read. Then one plug-in: rocker off, inlet, then wall, step back, rocker on. One hand on the switch, the other behind your back, **no meter**. Rocker lit, PSU LED green, ten seconds of look, listen, smell. Off, unplug, cord out of the room.
 - **Ritual 2 · Hand on the switch** ([12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate), again at [13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch) and, bay closed, at [13.9](13-initial-startup.md#step-139-hotend-fan-stealthburner-bottom-fan)): Chamber clear, extinguisher within arm's reach. Stand to the **side**, hand on the rocker, switch on, hand stays ten seconds: PSU LED green, Pi and toolboard LEDs lit (bay closed at 13.9: toolboard LEDs and the touchscreen), no click-cycling, buzz or smell. Anything wrong: rocker off at once, then unplug at the wall.
 - **Eyes only, whenever the bay is open and the machine is live** (10.23; 12.11 to Checkpoint 12; 13.3 to 13.8): set the machine's position and open the bay **before** the cord goes in, with the machine unplugged and proven dead. While it is live, look, listen and smell: no hand, tool or probe in the bay, and the machine is not moved, tilted or closed up. Each window ends the same way: rocker off, unplug, 0 V held ten seconds as at [10.73](10-wiring.md#step-1073-confirm-dead), and only then does the panel close or a hand go in. She is out of the room for all three.
 - **Exception 1 of 2 · LDO's Leviathan buttons, recovery only** ([12.15](12-software.md#step-1215-flash-the-leviathan-through-katapult) and [12.16](12-software.md#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu)): the Leviathan arrives pre-programmed, and Ch 12 flashes it only if the host's Klipper reports a protocol error. That flash needs no button: Katapult's `flashtool.py` asks the running firmware for its bootloader over USB. The buttons are left for recovery, when no Klipper is running on the board to ask: a bad build, or a board that does not enumerate. There LDO's own procedure puts the board into its bootloader by pressing buttons on the **powered** board, double-clicking **SW1 (RESET)**, or **SW2 (BOOT)** and SW1 together for DFU. Both are small tact switches beside the Leviathan's processor, on the **front** DIN rail; the PSU's terminal block, the SSR and the mains WAGO blocks sit on the rear rail and the rear frame. 12.11 sets the machine on its side, bay toward you, before the plug-in, so SW1 is in reach without your arm passing the rear rail. One fingertip on the button, the other hand behind your back, nothing else touched, hand out the moment the press is done: the hand is in the bay for the press and no longer. Nothing else is done live. Unplugging a USB lead from the Pi for DFU, for example, waits for a dead machine.
@@ -352,7 +357,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 | What happens | Do this first | Then |
 |---|---|---|
-| Breaker or RCD trips the moment you switch on | **Unplug at the wall** and leave it unplugged | RCD tripping is an L-or-N-to-earth fault; a breaker is L-to-N. Redo [10.18](10-wiring.md#step-1018-colour-groups-are-shorted)–[10.19](10-wiring.md#step-1019-l-n-and-pe-are-isolated-from-each-other) |
+| Breaker or RCD trips the moment you switch on | **Unplug at the wall** and leave it unplugged | An RCD trip is current leaking to earth (L or N to PE); a breaker trip alone is an overload or a hard short, L to N or L to earth. Redo [10.18](10-wiring.md#step-1018-colour-groups-are-shorted)–[10.19](10-wiring.md#step-1019-l-n-and-pe-are-isolated-from-each-other) |
 | Smoke, a hot smell, buzzing or click-cycling | **Rocker off** at once, your hand is already on it, then unplug at the wall. Smoke at the inlet or cord itself: the rocker does not isolate them, so kill the breaker you labelled in [00a.5](#step-00a5-put-the-printer-on-an-rcdgfci-outlet-you-can-reach) | Do not open the bay until [10.73](10-wiring.md#step-1073-confirm-dead) reads 0 V held ten seconds. Suspect a strand outside a terminal, or the PSU selector ([10.2](10-wiring.md#step-102-set-the-psu-input-voltage-selector), [10.22](10-wiring.md#step-1022-re-check-the-voltage-selector)) |
 | A temperature climbs with nothing commanded | Cut power at the switch | Ch 13's what-if table calls this a heater energised through a wiring fault — back to Ch 10, do not *"just watch it"* |
 | SSR reads short **LOAD 1 → LOAD 2** unpowered | Do not energise the machine | A solid-state relay that reads short is dead and the bed would be permanently live. Replace it ([10.21](10-wiring.md#step-1021-the-ssr-is-open-when-unpowered), [10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time)) |
@@ -377,14 +382,14 @@ Pause: ~25 min since the last pause — the chapter is read and nothing is half-
 Do not open Ch 09 until every line is ticked.
 
 - [ ] Decided and written down who lands the mains conductors in Ch 10 Section 1, and whether that is a certified person.
-- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 through Checkpoint 12, Ch 11 Step 11.67, the exhaust fan's 14.30, and Ch 13 Steps 13.3–13.8 and the 13.9 power-on; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
+- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.23 and 10.82 (Sections 1, 2 and 2b), Ch 12 Step 12.11 through Checkpoint 12, Ch 11 Step 11.67, the exhaust fan's 14.30, and Ch 13 Steps 13.3–13.8 and the 13.9 power-on; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
 - [ ] Multimeter on the bench with a printed CAT rating (CAT III 600 V or better), matching leads, continuity, Ω, DC V and AC V all found.
 - [ ] Meter proved live–dead–live once, probes shorted to a beep, both leads continuous, battery good.
 - [ ] Printer's outlet is RCD/GFCI protected, trips on its TEST button, and its breaker is identified and labelled.
 - [ ] Both of you have walked to the labelled breaker once and know which switch is the printer's.
-- [ ] The five PE branches can be named from memory, and the M4×6 bed PE screw was confirmed present at Ch 03 Step 03.6.
-- [ ] The SSR "earth the mounting rail" gap is understood and, if local rules require an earthed rail, it has been raised with whoever signs off the mains work.
-- [ ] VE0508 ferrules located in the kit; the pull-and-look test at Ch 10 Step 10.8 is understood.
+- [ ] The six PE branches can be named from memory, and the M4×6 bed PE screw was confirmed present at Ch 03 Step 03.6.
+- [ ] The SSR "earth the mounting rail" marking is understood: Ch 10 Step 10.82 fits a PE lead to the rail, 10.18 meters it, and the lead, an M5×12 BHCS and an M5 serrated washer are bought before Ch 10.
+- [ ] The five VE0508 ferrules located in the kit, for the toolhead heater lead, not the mains; fork lugs on every PSU and SSR lead end; the pull-and-look test at Ch 10 Step 10.8 is understood.
 - [ ] Both power-on rituals read end to end; the three eyes-only windows where the machine may be live with the bay open (10.23, 12.11 to Checkpoint 12, 13.3 to 13.8) and the two recovery-only button exceptions, Leviathan SW1/SW2 at 12.15–12.16 and Nitehawk RESET/BOOT0 at 12.19, are known, and the hand-on-the-switch ritual is understood to apply at 12.11, 13.3 and 13.9.
 - [ ] The five failure responses are agreed out loud; extinguisher in reach; nobody re-energises a tripped circuit without a cause.
 
@@ -393,7 +398,7 @@ Do not open Ch 09 until every line is ticked.
 - **Reading this chapter after Ch 09.** By then the inlet, PSU and SSR are already mounted and the only decisions left are the ones you should have made first. Ch 09 is where the mains parts enter the machine; Ch 10 is only where they get connected.
 - **Buying a meter on price and range instead of on category.** Display range tells you what it can show; the CAT rating tells you what it can survive. An unrated meter on a receptacle circuit is the wrong tool, not a cheap one.
 - **Trusting a "no voltage" reading from a meter you have not just proved.** A flat battery, a broken lead or a blown internal fuse all read as *dead*. Live–dead–live costs fifteen seconds.
-- **Treating the frame PE bond as automatic.** Anodising is an insulator. Ch 10 Step 10.16 says to scrape it under the washer for a reason, and the same logic is why the DIN rail's incidental bond is not a substitute for an earthed rail.
+- **Treating the frame PE bond as automatic.** Anodising is an insulator. Ch 10 Step 10.16 says to scrape it under the washer for a reason, and the same logic is why the DIN rail gets its own PE lead at Ch 10 Step 10.82 and is metered at 10.18, never assumed earthed.
 - **Enlarging the inlet fuse because it blew.** The fuse is reporting a short. Fitting a bigger one removes the report and leaves the short.
 - **Letting the "who is in the room" rule become implicit.** An unwritten rule gets bent at 22:00 by whoever is holding the probes. Write it, post it, say it once.
 

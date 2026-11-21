@@ -1,10 +1,10 @@
 # Diagram manifest
 
-104 generated SVGs covering the things the official manual states in prose but never draws. Regenerate with `python3 scripts/draw_diagrams.py`; the geometry and every label live in the scripts, not here.
+105 generated SVGs covering the things the official manual states in prose but never draws. Regenerate with `python3 scripts/draw_diagrams.py`; the geometry and every label live in the scripts, not here.
 
 The **Insert at** column names the chapter file and the step whose image block carries the diagram. Diagrams 1 to 18 are drawn in the script itself; the step-column diagrams of Chapters 02 to 14 (numbered by chapter, 201 onwards) live in `scripts/step_diagrams/chNN.py`.
 
-All 104 are 1200 px wide, legible at 800 px, and safe on a dark page — each carries its own light background rect and pins `color` on the `<svg>` root, so `currentColor` text stays dark whether the file is referenced with `<img>` or inlined. Style is uniform: 2 px strokes, orange for `[a]_` accent parts, blue for the frame and extrusions, grey for hardware, teal and violet for the A and B belts.
+All 105 are 1200 px wide, legible at 800 px, and safe on a dark page — each carries its own light background rect and pins `color` on the `<svg>` root, so `currentColor` text stays dark whether the file is referenced with `<img>` or inlined. Style is uniform: 2 px strokes, orange for `[a]_` accent parts, blue for the frame and extrusions, grey for hardware, teal and violet for the A and B belts.
 
 ## Index
 
@@ -86,6 +86,7 @@ All 104 are 1200 px wide, legible at 800 px, and safe on a dark page — each ca
 | 1003 | 5 V check on the HAT adapter | [`1003-hat-adapter-5v-pads.svg`](1003-hat-adapter-5v-pads.svg) | `10-wiring.md` — Step 10.75 |
 | 1004 | 24 V probe points | [`1004-24v-probe-points.svg`](1004-24v-probe-points.svg) | `10-wiring.md` — Step 10.73 (+1 more) |
 | 1005 | Earth: one probe stays on C14 E | [`1005-earth-bonding-points.svg`](1005-earth-bonding-points.svg) | `10-wiring.md` — Step 10.77 |
+| 1007 | Earth the SSR's DIN rail | [`1007-din-rail-earth-lead.svg`](1007-din-rail-earth-lead.svg) | `10-wiring.md` — Step 10.82 |
 | 1101 | Door hinges on the left front vertical, pins up | [`1101-door-hinges-pins-up.svg`](1101-door-hinges-pins-up.svg) | `11-skirts-panels-door.md` — Step 11.62 |
 | 1102 | Handle and latch on the right side, lined up with a paper shim | [`1102-handle-latch-shim.svg`](1102-handle-latch-shim.svg) | `11-skirts-panels-door.md` — Step 11.64 |
 | 1103 | 3 mm foam on the front face of the front opening, corners butted | [`1103-front-opening-foam.svg`](1103-front-opening-foam.svg) | `11-skirts-panels-door.md` — Step 11.51 |
@@ -415,12 +416,12 @@ All 104 are 1200 px wide, legible at 800 px, and safe on a dark page — each ca
 
 **What it shows**
 
-- Three sections after p.10, looking down the vertical, titled rather than numbered because two steps with different Do numbers use them: the M5×16 BHCS started in the horizontal's end, head about 2 mm off the end face; the head slid into the vertical's slot; the 3 mm hex key straight through the access hole in the opposite face into the head.
+- Three sections after p.10, looking down the vertical, titled rather than numbered because two steps with different Do numbers use them: the M5×16 BHCS started in the horizontal's end, head 2 to 3 mm off the end face; the head slid into the vertical's slot; the 3 mm hex key straight through the access hole in the opposite face into the head.
 
 **Insert at**
 
 - `docs/manual/01-frame.md` — **Step 01.5**: the whole sheet.
-- `docs/manual/01-frame.md` — **Step 01.4**: the top row, for the 2 mm.
+- `docs/manual/01-frame.md` — **Step 01.4**: the top row, for the 2 to 3 mm.
 
 **Drawn schematically / left unlabelled (verify)**
 
@@ -455,12 +456,16 @@ All 104 are 1200 px wide, legible at 800 px, and safe on a dark page — each ca
 
 **What it shows**
 
-- Top view of a square with its corners numbered 1–4 going round, and the order 1, 3, 2, 4: always across to the opposite corner. The red line says never tighten round the frame in order; fitting the corners in turn (Step 01.8) is not tightening.
+- Top view of a square with its corners numbered 1–4 going round, and the order 1, 3, 2, 4: always across to the opposite corner. The red line says go across, not round the frame; fitting the corners in turn (Step 01.8) is not tightening.
 
 **Insert at**
 
 - `docs/manual/01-frame.md` — **Step 01.9**: the bottom square, snug pass.
 - `docs/manual/01-frame.md` — **Step 01.12**: the torque pass; Steps 01.11 and 01.13 repeat the order without the picture.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- The order is our own habit, as Step 01.9 says: no Voron or LDO page gives a tightening order.
 
 ---
 
@@ -1465,7 +1470,7 @@ All 104 are 1200 px wide, legible at 800 px, and safe on a dark page — each ca
 **What it shows**
 
 - The precondition in the picture: unplugged, cord out of the room.
-- The inlet module: its C14 E, L and N pins, the fuse in series with L, the rocker breaking L and N together (drawn ON), E neither fused nor switched; each wire in its colour to its WAGO block and on to every point the 10.18 tables list: PE to PSU 3 FG, the bed plate screw, the frame lug and a far frame corner; L to PSU 1 L and SSR LOAD 2; N to PSU 2 N and the bed N lead. One probe parked on the pin, the other walked along.
+- The inlet module: its C14 E, L and N pins, the fuse in series with L, the rocker breaking L and N together (drawn ON), E neither fused nor switched; each wire in its colour to its WAGO block and on to every point the 10.18 tables list: PE to PSU 3 FG, the frame lug, the DIN-rail lead's screw (10.82) and a far frame corner; L to PSU 1 L; N to PSU 2 N. One probe parked on the pin, the other walked along.
 - Callouts 1 to 3 are the Do numbers of Step 10.18.
 
 **Insert at**
@@ -1474,7 +1479,7 @@ All 104 are 1200 px wide, legible at 800 px, and safe on a dark page — each ca
 
 **Drawn schematically / left unlabelled (verify)**
 
-- A wiring schematic, not a layout: block positions do not match the bay. Fuse and rocker placement inside the module from LDO's inlet_layout.png. The Bed L branch (SSR LOAD 1) stays in the step's table.
+- A wiring schematic, not a layout: block positions do not match the bay. Fuse and rocker placement inside the module from LDO's inlet_layout.png. The SSR and bed are not drawn: as in LDO's order, they are wired after this checkpoint (Section 2b).
 
 ---
 
@@ -1557,7 +1562,7 @@ All 104 are 1200 px wide, legible at 800 px, and safe on a dark page — each ca
 
 **What it shows**
 
-- The C14 inlet seen from outside with the black probe on its E pin, and the five bonding points from the 10.77 table with their limits: PE WAGO, PSU 3 FG, the frame lug's screw head, the plate's M4×6 screw head (< 1 Ω each) and a far frame corner's screw head or T-nut (< 2–3 Ω).
+- The C14 inlet seen from outside with the black probe on its E pin, and the six bonding points from the 10.77 table with their limits: PE WAGO, PSU 3 FG, the frame lug's screw head, the DIN rail (its lead's screw head from 10.82, then bare rail), the plate's M4×6 screw head (< 1 Ω each) and a far frame corner's screw head or T-nut (< 2–3 Ω), labelled as our own limits, not LDO's.
 - Callout 1: probes touched together, the reading to subtract. Callout 2: the probe on the earth pin. A small Wrong panel: a probe on an anodised face reads OL.
 
 **Insert at**
@@ -1566,7 +1571,27 @@ All 104 are 1200 px wide, legible at 800 px, and safe on a dark page — each ca
 
 **Drawn schematically / left unlabelled (verify)**
 
-- A checklist picture, not a layout. The extruder, heater and 24 V rows of the 10.77 table stay in the table.
+- A checklist picture, not a layout. The extruder, heater, C14 L/N and 24 V rows of the 10.77 table stay in the table.
+
+---
+
+## 1007. Earth the SSR's DIN rail
+
+`docs/manual/assets/diagrams/1007-din-rail-earth-lead.svg`
+
+**What it shows**
+
+- The precondition in the picture: unplugged, cord out of the room.
+- Plan view of the rear DIN rail with the SSR on the left and the PSU on the right; the rail screw in the gap between them carries the ring terminal (callout 1), and the green/yellow lead runs along the PSU leads to the PE WAGO, whose five ports are inlet, PSU, frame, rail and one left free for the bed (callout 2).
+- Section through the screw, head up: M5×12 BHCS, ring terminal, serrated washer, the rail's bare steel, the deck panel and the T-nut in the bed extrusion. Callouts 1 and 2 are the Do numbers of Step 10.82.
+
+**Insert at**
+
+- `docs/manual/10-wiring.md` — **Step 10.82**: first image: what the hands do.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- This lead is this build's addition; LDO runs no wire to the rail. The screw in the SSR-PSU gap is from LDO's S0 placement photo and CAD (two M5×10 BHCS per rail into deck T-nuts); its spot and the M5×12 length are drawn as bench checks. Proportions are schematic.
 
 ---
 
@@ -2134,7 +2159,7 @@ From `00-index.md` the path is the same; from a print-batch chapter under `docs/
 ## Regenerating
 
 ```
-python3 scripts/draw_diagrams.py            # all 104 + this file
+python3 scripts/draw_diagrams.py            # all 105 + this file
 python3 scripts/draw_diagrams.py --only 3 7 # just those two
 ```
 

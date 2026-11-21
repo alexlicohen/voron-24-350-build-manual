@@ -74,7 +74,7 @@ All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idle
 | F695 flanged bearing (5×13×4 mm) | 16 | 6 per drive (p.74, p.78) + 2 per front idler (p.65, p.69). The A/B side uses **F695 only** — 625-2RS is the Z-drive bearing (Ch 02) |
 | **M5 precision spacer, brass** — the manual's "M5 shim" | 16 | one above and one below every bearing pair |
 | M5×30 BHCS | 4 | 2 per drive, upper frame → lower frame (p.73, p.77) |
-| M5×40 SHCS | 2 | 1 per front idler — the idler **axle**: first the stack-building aid, then refitted from the top through the tension arm into its M5 nut and clamped firm (p.65–66, p.69–70) |
+| M5×40 SHCS | 2 | 1 per front idler — the idler **axle**: first the stack-building aid, then refitted from the top through the tension arm into its M5 nut until the head seats, not clamped hard (p.65–66, p.69–70) |
 | M3×30 SHCS | 6 | 3 per motor (p.76, p.80) |
 | M3×40 SHCS | 2 | 1 per front idler — the belt **tensioner** screw, through the frame's front wall into the arm's heat-set insert (p.67, p.71); set with the belt on in Ch 07 Step 07.5 |
 | M3 washer | 2 | under each M3×40 head (p.67, p.71) |
@@ -219,7 +219,7 @@ Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.64](assets/manual-pages/manual-p064.png){ crop="0.53 0.58 0.81 0.83" }
 
-**What you're looking at:** An M5 hex nut drops into a pocket in the foot of each tension arm. The upright M5×40 axle later threads into that trapped nut, so the bearing stack is clamped inside the arm and moves with it.
+**What you're looking at:** An M5 hex nut drops into a pocket in the foot of each tension arm. The upright M5×40 axle later threads into that trapped nut, so the bearing stack rides on it inside the arm and moves with it.
 
 **Parts:**
 
@@ -227,7 +227,7 @@ Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 - reused: both tension arms
 - tool: small flat screwdriver
 
-**Do:** Drop an M5 nut into the hex pocket on the underside of each arm's foot. Seat it fully with a flat screwdriver. It must sit below the surface, never sticking out, or the arm will not lie flat.
+**Do:** Drop an M5 nut into the hex pocket on the underside of each arm's foot. Seat it fully with a flat screwdriver. It must sit flush with the surface or below it, never sticking out, or the arm will not lie flat.
 
 **Check:** each nut sits without rocking and does not stand above the foot. Nothing holds it in yet, so keep the arms lying flat.
 
@@ -322,15 +322,17 @@ Source: [Voron manual p.66](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.66](assets/manual-pages/manual-p066.png){ crop="0.62 0.17 0.93 0.75" }
 
-**What you're looking at:** The same M5×40 goes back in from the top as the idler's **axle**. Its head sits in the arm's top boss and its thread runs into the nut in the foot, clamping screw, spacers, bearings and arm into one unit that slides as a piece. It is not the tensioner.
+**What you're looking at:** The same M5×40 goes back in from the top as the idler's **axle**. Its head sits in the arm's top boss and its thread runs into the nut in the foot, so the bearing stack rides on it and slides with the arm. It is not the tensioner.
 
 **Parts:**
 
 - reused: the same M5×40 SHCS
 
-**Do:** Drop the M5×40 SHCS in from the **top**, through the arm's top boss, and screw it down into the M5 nut in the foot until the head seats and the stack is clamped **firm**. It threads into steel, not plastic.
+**Do:** Drop the M5×40 SHCS in from the **top**, through the arm's top boss, and screw it into the M5 nut in the foot until the head seats, then stop. If the arm will not slide, back it off a quarter turn.
 
 **Check:** the head is seated in the arm's top boss, both bearings spin freely, and the arm still slides forward and back in the frame's slots (verify on bench).
+
+The manual gives no torque for this screw. In the Voron CAD model the arm wraps round the two frames with only about 0.2 mm to spare each side, so cranking the screw pinches them and the arm cannot slide.
 
 Source: [Voron manual p.66](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=66)
 
@@ -353,6 +355,8 @@ Source: [Voron manual p.66](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. Turn it in only until the arm meets the wall and the screw is snug. Step 07.5 sets the tension.
 
 **Check:** the screw is snug, not torqued (not specified — snug), with the arm against the wall, the washer trapped and the head flat on the frame.
+
+Drawing the arm to the wall only parks it so it cannot slide about. It is not the belt tension, which is set with the belt on after the screw is backed out.
 
 Source: [Voron manual p.67](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=67) · [Video: Part 3 @1:07:00](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4020s)
 
@@ -377,7 +381,7 @@ Source: [Voron manual p.67](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Source: [Voron manual p.68](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=68)
 
-Pause: ~40 min since the last pause — the A (front right) idler is complete and checked against p.68: bearings flange-out, the M5×40 axle in from the top and clamped firm into the arm's nut, and the M3×40 tensioner with its washer snug. An idler is a self-contained unit; never stop with the temporary screw pulled out and the stack unsupported.
+Pause: ~40 min since the last pause — the A (front right) idler is complete and checked against p.68: bearings flange-out, the M5×40 axle in from the top and seated in the arm's nut, and the M3×40 tensioner with its washer snug. An idler is a self-contained unit; never stop with the temporary screw pulled out and the stack unsupported.
 
 ---
 
@@ -464,13 +468,13 @@ Source: [Voron manual p.70](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.70](assets/manual-pages/manual-p070.png){ crop="0.59 0.155 0.84 0.66" }
 
-**What you're looking at:** The M5×40 axle goes back in from the top, through the arm's top boss into its trapped nut, the mirror of the A idler. It is clamped firm, because it is the axle, not the tensioner.
+**What you're looking at:** The M5×40 axle goes back in from the top, through the arm's top boss into its trapped nut, the mirror of the A idler. It is the axle, not the tensioner, and it is seated, not cranked.
 
 **Parts:**
 
 - reused: the same M5×40 SHCS
 
-**Do:** Drop it in from the top, through the arm's top boss, and screw it down into the M5 nut in the arm's foot until the head seats and the stack is clamped firm. It threads into steel.
+**Do:** Drop it in from the top, through the arm's top boss, and screw it into the M5 nut in the arm's foot until the head seats, then stop, as on the A idler. If the arm will not slide, back it off a quarter turn.
 
 **Check:** the head is seated in the top boss, both bearings spin freely, and the arm still slides forward and back in the frame's slots (verify on bench).
 
@@ -489,7 +493,7 @@ Source: [Voron manual p.70](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 - 1× M3 washer
 - 1× M3×40 SHCS
 
-**Do:** Put the washer under the head and push the screw in through the frame's front wall, the face away from the extrusion, into the arm's insert. Turn it until the arm is drawn up to the wall and the screw is snug. Step 07.5 sets the tension.
+**Do:** Put the washer under the head and push the screw in through the frame's front wall, the face away from the extrusion, into the arm's insert. Turn it until the arm is drawn up to the wall and the screw is snug: a parking spot only, which Step 07.5 backs out before the belt is tensioned.
 
 **Check:** the screw is snug, not torqued (not specified — snug), with its head flat and the washer trapped.
 
@@ -674,6 +678,8 @@ Source: [Voron manual p.75](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 3. Do the same with the second screw where it lands, then check the height again.
 
 **Check:** the pulley will not twist or slide under firm hand pressure and reads 16.5 mm.
+
+Page 75 asks only for threadlocker. The flat rule is the manual's own, from its Z motor page: at least one set screw must touch the flat section of the shaft. [src](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=38)
 
 Source: [Voron manual p.75](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=75)
 
@@ -890,6 +896,8 @@ Source: [Voron manual p.79](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** the pulley does not slip under hand pressure and still reads 6.5 mm.
 
+The flat rule comes from the manual's Z motor page, as on the A drive. [src](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=38)
+
 Source: [Voron manual p.79](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=79)
 
 ---
@@ -995,7 +1003,7 @@ Pause: ~15 min since the last pause — all four assemblies are bagged and label
 - [ ] Every F695 pair is flange-out, plain faces touching, with one brass M5 precision spacer above and one below each pair.
 - [ ] Each drive's far post holds 4 bearings and 4 spacers, with two spacers meeting in the middle. Each drive's near post and both idlers hold 2 bearings and 2 spacers.
 - [ ] All six bearing groups spin freely with the frames closed and screwed together.
-- [ ] On both idlers, the M5×40 axle is clamped firm into the arm's nut, and the M3×40 tensioner is snug in the arm's insert with the arm drawn against the front wall. The arm slid freely in the frame's slots before the M3×40 went in.
+- [ ] On both idlers, the M5×40 axle head is seated in the arm's top boss, not cranked, and the M3×40 tensioner is snug in the arm's insert with the arm drawn against the front wall. The arm slid freely in the frame's slots before the M3×40 went in.
 - [ ] `a_drive_frame_upper` has its two heat-set inserts; `b_drive_frame_upper` has none.
 - [ ] Both motor pulleys are the **6 mm-wide** 20T (`5mm ID 6mm W`), not one of the four 9 mm Z-drive pulleys.
 - [ ] The A pulley is hub down at 16.5 mm and the B pulley hub up at 6.5 mm, so the two look visibly different.
@@ -1011,7 +1019,7 @@ Pause: ~15 min since the last pause — all four assemblies are bagged and label
 - **Four bearings on the near post and two on the far post.** The frames will not close square, or they close and pinch a bearing. Fix: the four-bearing stack always goes on the post farther from the motor bore, drawn on the right on p.74 and on the left on p.78.
 - **A 9 mm 20T pulley on an A/B motor.** It looks right, but it is a Z-drive part and will not sit in the 6 mm belt level that a flange-out F695 pair makes. The kit ships exactly two 6 mm 20T pulleys and four 9 mm ones: count them before you start, and keep the four 9 mm ones with the Ch 02 Z bin.
 - **Both pulleys at the same height, or the B pulley fitted hub-down.** The A and B belts then try to share one level and rub, and this cannot be fixed when the belts go on. Fix: A at 16.5 mm hub down, B at 6.5 mm hub up, both checked again after the set screws are tight, first with the jig (tab underside level with the underside of the teeth), then with the caliper.
-- **Leaving the idler's M5×40 loose because "it is the tensioner".** It is the axle; the M3×40 through the frame's front wall is the tensioner (Ch 07 Step 07.5). Left loose, the stack rattles and the bearings tilt on the screw, which shows up in Ch 07 as a belt that will not track straight. Fix: screw it down firm into the arm's M5 nut.
+- **Cranking the idler's M5×40 down hard.** It is the axle; the M3×40 through the frame's front wall is the tensioner (Ch 07 Step 07.5). The arm wraps round the frames with only about 0.2 mm to spare each side in the Voron CAD, so a hard pull squeezes them and the arm cannot slide when the belt is tensioned. Fix: back it off until the head just seats and the arm slides.
 - **Motor cable exits pointing outboard.** The cables will not reach the drag chain, and the drive has to come apart with the gantry in the machine. Fix: before the three M3×30 go in, check that the exits face each other.
 - **M5×30 BHCS tightened hard.** They thread into plastic (p.74, p.78) and strip for good, and a stripped post means reprinting a drive frame. Fix: stop at closed and snug.
 - **A parts and B parts swapped.** The A frames have a cutout and `a_drive_frame_upper` has two heat-set inserts; the B frames have neither. On the idlers, the tall lower frame belongs to the A (right) idler.

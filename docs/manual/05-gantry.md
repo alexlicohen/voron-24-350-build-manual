@@ -20,7 +20,7 @@ caption: Build the gantry on the bench, not in the frame. Clear the whole table,
 - **Ch 04** is done: the A drive, the B drive and both front idler assemblies are built and checked (manual p.62–81). This chapter uses them whole.
 - **Ch 00** is done: all seven rails are cleaned and packed with grease *before* they go on an extrusion ([LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)), and the rail guides `Tools/MGN9_rail_guide_x2.stl` and `Tools/MGN12_rail_guide_x2.stl` are printed (batch **B00**). The rails still wear their Ch 00 end bands (Step 00.17); they come off at Steps 05.11 and 05.33.
 - **Printed parts:** batch **B04** (XY joints and X carriage, plate B04-P1, 8.8 h, black) and batch **B02**, blue plates P1, P2 and P4: the endstop pod is on P1, the 2-hole cable bridge on P2 and the raised cable bridge on P4, and the four upper Z-belt clips are one each on P1 and P2 and two on P4 ([print plan §B04](../voron-print-plan.md)). B04 needs Gate B (Step B00.7).
-- **The titanium backer set** (Fabreeko/LDO, 350 size) is unpacked and counted, and **58 M3 roll-in T-nuts** are counted out from the kit bag: 29 for the rails and extrusion ends, 29 for the backers. The backer set ships none.
+- **The titanium backer set** (Fabreeko/LDO, 350 size) is unpacked and counted, and **61 M3 roll-in T-nuts** are counted out from the kit bag: 32 for the rails and extrusion ends, 29 for the backers. The backer set ships none.
 - **Extrusions:** the **C ×2, D ×1 and E ×1** you bagged in Ch 01.
 
 **Tools**
@@ -59,6 +59,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/probe_retainer_bracket.png){ width=96 } | `probe_retainer_bracket.stl` | 07-X | 1 | Black — *staged here, fitted in Ch 07/08* |
 | ![](assets/parts/%5Ba%5D_endstop_pod_D2F_switch.png){ width=96 } | `[a]_endstop_pod_D2F_switch.stl` | 05-XY | 1 | Blue — *fitted here, Step 05.49* |
 | ![](assets/parts/%5Ba%5D_z_belt_clip_upper_x4.png){ width=96 } | `[a]_z_belt_clip_upper_x4.stl` | 05-XY | 4 | Blue — *fitted here under the idler and drive M5×16 (p.91, p.93, p.95), loaded with belt in Ch 06* |
+| ![](assets/parts/%5Ba%5D_cable_cover.png){ width=96 } | `[a]_cable_cover.stl` | 07-X | 1 | Blue — *batch B02; bagged here at Step 05.46, dry-fitted in Ch 07, screwed on in Ch 10* |
 
 Do **not** print `[a]_endstop_pod_hall_effect.stl`, `[a]_xy_joint_cable_bridge_3hole.stl`, or any `xy_joint_*_MGN9` — wrong variants for this kit ([print plan §7](../voron-print-plan.md)).
 
@@ -72,13 +73,14 @@ Do **not** print `[a]_endstop_pod_hall_effect.stl`, `[a]_xy_joint_cable_bridge_3
 | MGN9H 400 mm rail | 2 | Y axes, p.88; carriage ships on the rail |
 | MGN12H 400 mm rail | 1 | X axis, p.101; carriage ships on the rail |
 | M5 roll-in T-nut | 26 | 8 in E (p.85), 12 in the C pair (p.89, p.90), 6 in D (p.102) |
-| M3 roll-in T-nut | 29: 18 Y rails, 4 C-pair ends, 7 X rail | 9 per 20-hole MGN9 (p.88), 4 in the C pair (p.90), 7 for the 16-hole MGN12 (p.101) |
+| M3 roll-in T-nut | 32: 20 Y rails, 4 C-pair ends, 8 X rail | 10 per 20-hole MGN9 (p.88, LDO's second hole from each end: holes 2, 4 … 18 and 19), 4 in the C pair (p.90), 8 for the 16-hole MGN12 (p.101, both end holes) |
 | M3 roll-in T-nut, backers | 29: 10 per Y backer, 9 on the X backer | from the kit's M3 roll-in bag; the backer set ships no T-nuts |
+| M3×5×4 heat-set insert | 2 | cable bridge pad, for the Y chain's moving end (05.35, p.84) |
 | M5×10 BHCS | 10 | 8 E extrusion to drives (p.86–87), 2 left XY joint (p.104) |
 | M5×16 BHCS | 10 | 4 front idlers, through the upper Z-belt clips (p.91, p.93), 4 rear drive joints, same (p.95), 2 right XY joint + cable bridge (p.104) |
 | M5×30 BHCS | 2 | XY joints from below (p.104) |
 | M5×40 SHCS | 8 | 4 per XY joint (p.97–100) |
-| M3×8 SHCS | 27: 18 Y rails, 7 X rail, 2 XY endstop PCB | one per marked rail hole (p.88, p.101): every other hole from the second, both end holes empty; 2 hold the PCB in its pod (p.163) |
+| M3×8 SHCS | 30: 20 Y rails, 8 X rail, 2 XY endstop PCB | one per marked rail hole: Y rails the second hole from each end and every second hole between, holes 2, 4 … 18 and 19, both end holes empty (p.88, LDO note); X rail every other hole from both end holes (p.101); 2 hold the PCB in its pod (p.163) |
 | M3×16 SHCS | 6 | XY joints to the Y carriages (p.106): 4 left joint, 2 right joint; all six fitted, none spare |
 | M3×30 SHCS | 2 | XY endstop pod to the right XY joint at 05.49: p.164 fits it through its body with 2× M3×30, not the M3×16 of p.106 |
 | XY endstop PCB | 1 | in the pod (p.163), at 05.49; its cable plugs in at Ch 10 |
@@ -99,7 +101,7 @@ The West3D/Fabreeko titanium set ships **22× M3×8 FHCS and 10× M3×6 FHCS**, 
 - **The titanium backers go on during this chapter, not after it.** Fitting them once the gantry is assembled or installed means a teardown (survey §5.2 W2). They mount on the face **opposite the rail** — top of the Y extrusions, rear of the X extrusion. *"If you have a single MGN12 but decide to put a backer on top, you will be actively contributing to the problem of bimetallic expansion!"* [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers)
 - **Do not tension the A/B belts and do not square the gantry here.** Both are Ch 06/07, and the official squaring procedure begins by *releasing* A/B tension — tension it now and you undo it (survey §4.4 #2, §5.2 W1). Several joints in this chapter are deliberately left "slightly loose".
 - **Every T-nut this chapter needs must go in before the drive and idler frames cap the extrusion ends.** LDO: *"Due to the tight tolerances of the extrusions and roll-in t-nuts it is advisable to either test fit before assembly … or to pre-load the t-nuts into the extrusions."* [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
-- **Short a part?** This chapter needs exact counts: 4 F695, 4 spacers, 2 20T idlers, the backer screws. Recount against your Ch 00 inventory sheet, then contact Fabreeko support; do not borrow from another chapter's bag.
+- **Short a part?** This chapter needs exact counts: 4 F695, 4 spacers, 2 20T idlers, the backer screws, and 61 M3 roll-in T-nuts (the build uses 134 of the kit's 135). Recount against your Ch 00 inventory sheet, then contact Fabreeko support; do not borrow from another chapter's bag.
 - **Rails ship dry.** If Ch 00's clean-and-pack pass has not been done, stop and do it — the flip-and-pack method needs access to the back of the rail (survey §4.4 #5).
 - **Carriages slide off rails and are ruined by a drop** (manual p.88, p.101). Tape or stopper every carriage the moment its rail is on an extrusion.
 - **Orientation.** Through p.105 the gantry is built the way it runs — motors hanging **down** below the E extrusion, Y rails **underneath** (p.85, p.116). p.106 turns it **upside down** (motors up, rails up) so the X axis can be lowered onto the Y carriages; it stays that way to the end of this chapter and is turned back in Ch 06 (Step 06.11). Every step that turns it over says so.
@@ -111,7 +113,7 @@ The West3D/Fabreeko titanium set ships **22× M3×8 FHCS and 10× M3×6 FHCS**, 
 - [LDO printed-parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) — 2-hole cable bridge, D2F endstop pod
 - [Voron 2.4r2 assembly manual, p.163–164](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=163) — the XY endstop pod, fitted early at Step 05.49 so the right XY joint has all four screws before Ch 06
 - [LDO rail-grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) — rail clean-and-pack, done in Ch 00
-- [LDO cable-chain guide](https://docs.ldomotors.com/guides/cable_chain_guide) — chain-end clearance over the backers
+- [LDO cable-chain guide](https://docs.ldomotors.com/guides/cable_chain_guide) — chain sizing, latches and end links (Ch 10); the 2-hole pattern comes from the printed-parts guide
 - [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) — which face the backers go on, and why; source of the two backer images (GPL-3.0)
 - [Fabreeko](https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers) and [West3D](https://west3d.com/products/titanium-backers-for-voron-2-4-trident-3-pack) backer sets — supplied screw counts
 - [Voron docs § V2 Gantry Squaring](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) — why nothing is squared or tensioned in this chapter
@@ -173,7 +175,7 @@ Source: [Voron manual p.83](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.84](assets/manual-pages/manual-p084.png){ crop="0.50 0.18 0.82 0.68" }
 
-**What you're looking at:** The cable bridge is the blue arch on the right XY joint that lifts the toolhead's drag chain (the hinged track carrying its cables) clear of the belts. It comes in two printed versions: three holes for generic chains, or two for the IGUS chains this kit ships. LDO's chain ends use two, so every chain part here is the 2-hole version. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
+**What you're looking at:** The cable bridge is the blue arch on the right XY joint that lifts the toolhead's drag chain (the hinged track carrying its cables) clear of the belts. It comes in two printed versions: three holes or two. LDO's printed-parts guide picks the 2-hole configuration for this kit's chains, so every chain part here is the 2-hole version. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 **Parts:**
 
@@ -202,7 +204,7 @@ Source: [Voron manual p.84](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Parts:**
 
 - staged: M5 roll-in T-nut ×26
-- staged: M3 roll-in T-nut ×58
+- staged: M3 roll-in T-nut ×61
 
 **Do:**
 
@@ -339,21 +341,22 @@ Pause: ~30 min since the last pause — E extrusion screwed to both drive units,
 
 ![Voron manual p.88](assets/manual-pages/manual-p088.png){ crop="0.13 0.285 0.60 0.68" }
 
-**What you're looking at:** The two C extrusions are the **Y axes**, the side beams the X beam slides along. Each carries an MGN9 linear rail on one face. The M3 T-nuts anchor every rail screw, and once the rail is down, no more can go in.
+**What you're looking at:** The two C extrusions are the **Y axes**, each with an MGN9 linear rail on one face. Its M3 T-nuts anchor every rail screw; once the rail is down, no more can go in.
 
 **Parts:**
 
 - C extrusion ×1
-- M3 T-nut ×9
+- M3 T-nut ×10
 
 **Do:**
 
-1. The 400 mm MGN9H rail, `LDO-SLR9H-400Z0`, has 20 holes. Mark holes **2, 4 … 18**: every other hole from the second, so both end holes stay open, as p.88 asks.
-2. Slide **9** M3 T-nuts into the extrusion, about 25 mm clear of each end.
+1. Count the holes on rail `LDO-SLR9H-400Z0`: LDO's drawing spaces them 20 mm apart, so expect 20. [src](https://www.onetwo3d.co.uk/wp-content/uploads/2021/04/LDO-MGN9_Linear_Rail_RevA.pdf)
+2. Mark the second hole from each end, as LDO asks, then every second hole between: **2, 4, 6 … 18 and 19** on 20 holes. Two marks side by side at one end is expected.
+3. Slide in one M3 T-nut per mark, **10** on 20 holes, about 25 mm clear of each end.
 
-**Check:** Nine nuts sit one per marked hole, all turned flat in the slot, with holes 1, 19 and 20 unmarked and about 25 mm clear at both ends.
+**Check:** One nut sits flat under each mark, and both end holes are unmarked.
 
-**Helper:** Counts nine T-nuts into the slot and checks one sits under each marked hole.
+**Helper:** Counts ten T-nuts into the slot and checks one sits under each marked hole.
 
 Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=88) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
@@ -363,23 +366,23 @@ Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.88](assets/manual-pages/manual-p088.png){ crop="0.11 0.15 0.97 0.58" }
 
-**What you're looking at:** The rail is a hardened steel track; its carriage slides along it on tiny balls. The printed guides are U-shaped clips that hold the rail centred on the extrusion while you start the screws. LDO skips the end holes on every build, not only the 300 mm builds the manual names. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+**What you're looking at:** The rail is a hardened steel track; its carriage slides along it on tiny balls. The printed guides are U-shaped clips that hold the rail centred on the extrusion while you start the screws. LDO skips the end holes on every build, not only on 300 mm builds. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
 **Parts:**
 
 - MGN9H 400 mm rail ×1
-- M3×8 SHCS ×9
+- M3×8 SHCS ×10
 - tool: `MGN9_rail_guide_x2` jig ×2
 
 **Do:**
 
 1. Tape the carriage mid-rail, then peel off the Ch 00 end bands with the rail flat.
 2. Sit the rail on the extrusion, centred by an MGN9 guide at each end.
-3. Start holes **2** and **18**, then the rest. Hole 19 stays empty too.
+3. Start holes **2** and **19**, then the rest.
 
 **Check:** The rail is centred by both guides, with **25 mm** from extrusion end to rail end, measured equal at both ends.
 
-**Helper:** Holds both rail jigs steady on the extrusion while you start holes 2 and 18.
+**Helper:** Holds both rail jigs steady on the extrusion while you start holes 2 and 19.
 
 Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=88) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [LDO rail-grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) · [Video: Part 3 @1:34:58](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5698s)
 
@@ -393,7 +396,7 @@ Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:**
 
-- reused: M3×8 SHCS ×9
+- reused: M3×8 SHCS ×10
 
 **Do:**
 
@@ -403,7 +406,7 @@ Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** No gap shows under the rail, the guide slides on at both ends and mid-span, and the carriage runs the full length freely.
 
-Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=88) · [LDO rail-grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)
+Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=88) · [Voron manual p.24](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=24) (centre outward)
 
 Pause: ~30 min since the last pause — first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stop the carriage before you walk away.
 
@@ -419,8 +422,8 @@ Pause: ~30 min since the last pause — first Y rail centred, all its M3×8 scre
 
 - C extrusion ×1
 - MGN9H 400 mm rail ×1
-- M3 T-nut ×9
-- M3×8 SHCS ×9
+- M3 T-nut ×10
+- M3×8 SHCS ×10
 - M5 T-nut ×8
 - tool: `MGN9_rail_guide_x2` jig ×2
 
@@ -891,14 +894,14 @@ Pause: ~20 min since the last pause — both XY joints built, screwed together a
 **Parts:**
 
 - D extrusion ×1
-- M3 T-nut ×7
+- M3 T-nut ×8
 
 **Do:**
 
-1. The **400 mm** MGN12H rail, `LDO-SLR12H-400Z1`, has 16 holes. Mark holes **2, 4 … 14**: every other hole from the second, so both end holes stay open.
-2. Slide in **7** M3 T-nuts, about 15 mm clear of each end. Page 101 draws six on a shorter 12-hole rail, end holes included.
+1. The **400 mm** MGN12H rail, `LDO-SLR12H-400Z1`, has 16 holes. Mark holes **1, 3, 5, 7, 10, 12, 14, 16**: every other hole from each end, as p.101 draws it on a shorter rail.
+2. Slide in **8** M3 T-nuts, about 15 mm clear of each end.
 
-**Check:** Seven nuts lie flat, one per marked hole, with holes 1, 15 and 16 unmarked and the slot clear at both ends.
+**Check:** Eight nuts lie flat, one per marked hole, end holes included, and the slot is clear at both ends.
 
 Source: [Voron manual p.101](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=101)
 
@@ -908,19 +911,19 @@ Source: [Voron manual p.101](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.101](assets/manual-pages/manual-p101.png){ crop="0.09 0.38 0.81 0.88" }
 
-**What you're looking at:** The MGN12 goes on like the Y rails, with the larger guides. It sets print quality across X. LDO's end-hole note covers only p.88's Y rails, and p.101 uses both end holes; this build keeps the Y pattern anyway, every other hole from the second. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+**What you're looking at:** The MGN12 goes on like the Y rails, with the larger guides. Unlike the Y rails, it uses both end holes: LDO's end-hole note covers only p.88's Y rails, where T-nuts must pass the rail ends, and p.101 screws both ends here. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
 **Parts:**
 
 - MGN12H 400 mm rail ×1
-- M3×8 SHCS ×7
+- M3×8 SHCS ×8
 - tool: `MGN12_rail_guide_x2` jig ×2
 
 **Do:**
 
 1. Tape the carriage mid-rail and peel off its Ch 00 bands with the rail flat.
 2. Sit the rail on the D extrusion, centred by a guide at each end.
-3. Start holes **2** and **14**, then the rest, and tighten from the centre outwards.
+3. Start holes **1** and **16**, then the rest, and tighten from the centre outwards.
 
 **Check:** **15 mm** of bare extrusion shows beyond each rail end, equal at both ends; the carriage runs with no tight spot, and no gap shows underneath.
 
@@ -966,17 +969,20 @@ Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whoppin
 
 - staged: cable-chain end link, for a dry fit
 - staged: `XY_cable_chain_bridge-Igus-3mm_backer` ×1
+- M3×5×4 heat-set insert ×2
 
 **Do:**
 
 1. Lay a chain end link on the right Y backer's pilot holes and check that the holes line up.
-2. Set out the raised bridge, 3 mm taller than the stock one. Do not fit the chain.
+2. Press a heat-set insert into each of the two holes on the raised bridge's top pad, where the chain's moving end screws on (p.84). Do not fit the chain.
 
-**Check:** The raised bridge is set out, and the stock 2-hole bridge is put aside as the fallback.
+**Check:** Both inserts sit flush in the raised bridge's pad, and the stock 2-hole bridge is put aside as the fallback.
 
-"Igus" in the file name means the 2-hole chain-end pattern LDO ships. Both bridges have the same 5 mm foot, so the same M5×16 fit either one. [src](https://docs.ldomotors.com/guides/cable_chain_guide)
+⚠ The press tip and a freshly set insert both burn. Raise and park the head between inserts, and hold the part by its far edge until it cools.
 
-Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) · [LDO cable-chain guide](https://docs.ldomotors.com/guides/cable_chain_guide) · CAD: Voron 2.4r2 STEP @ de7e89d
+"Igus" in the file name means the 2-hole chain-end pattern, the one LDO's printed-parts guide picks for this kit. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) Both bridge STLs have the same 5 mm foot, so the same M5×16 fit either one.
+
+Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) · [LDO printed-parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · both bridge STLs (foot) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 Pause: ~35 min since the last pause — MGN12 rail centred and screwed down on the X extrusion, titanium X backer on the rear face, cable-chain clearance checked. Carriage taped so it cannot run off.
 
@@ -1136,7 +1142,7 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. Stand at the idler end. The right joint, with the cable bridge, goes on the **A drive** side, now on your **left**.
+1. Stand at the idler end. The right joint, with the cable bridge, goes on the **A drive** side, now on your **left**, cable bridge pointing **down** as p.106 draws it.
 2. Tilt the X axis in and land that joint on its Y carriage, then the other.
 
 **Check:** Both joints sit square on their carriages with the screw holes lined up, nothing fouls the Y extrusion, and the MGN12 rail faces the idler end.
@@ -1251,10 +1257,12 @@ Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 05.46 — Bag what belongs to later chapters
 
-![CAD render — the two Rev D+ variant choices, pulled apart](assets/cad/05-46-a.png)
-![CAD render — where the two parts you keep end up](assets/cad/05-46-b.png)
+![CAD render — the two Rev D+ variant choices, pulled apart: D2F pod fitted, stock 2-hole bridge bagged as the spare, hall-effect pod and 3-hole bridge never printed](assets/cad/05-46-a.png)
+![CAD render — where the endstop pod and the cable bridge sit on the right XY joint](assets/cad/05-46-b.png)
 
-**What you're looking at:** The renders show both either-or choices: the D2F XY endstop pod you fitted, never the hall-effect pod, and a 2-hole cable bridge, the raised one included, never a 3-hole one. LDO's kit includes the XY microswitch board, so the D2F pod is the one to print. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
+(no image of the raised bridge: the CAD has only the stock 2-hole bridge. The one on your right joint is the raised version from Step 05.38, same two holes, 3 mm taller)
+
+**What you're looking at:** The renders show both either-or choices: the D2F XY endstop pod you fitted, never the hall-effect pod, and the stock 2-hole cable bridge you bag as the spare, never a 3-hole one. LDO's kit includes the XY microswitch board, so the D2F pod is the one to print. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 **Parts:**
 
@@ -1320,7 +1328,7 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Helper:** Writes each gantry measurement into the log as you call it out.
 
-Source: [Voron manual p.107](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=107) · [survey §7.5](../voron-build-instructions-survey.md)
+Source: [survey §7.5](../voron-build-instructions-survey.md) (our own log; the official manual has no measurement page here)
 
 Pause: ~25 min since the last pause — gantry complete and still upside down (motors up), measurements written down, Ch 06 and Ch 07 parts bagged and labelled. Do not tension belts and do not square the gantry: both belong to Ch 06 and Ch 07, and both would be undone.
 
@@ -1331,8 +1339,8 @@ Pause: ~25 min since the last pause — gantry complete and still upside down (m
 **Built:** a complete gantry with the X axis riding on both Y rails
 
 - [ ] The E extrusion is joined to both drive units with 8 M5×10 BHCS; the drives are parallel, with no twist
-- [ ] Both MGN9 rails are centred and tightened on holes **2, 4 … 18**, both end holes open, with equal overhang at both ends
-- [ ] The MGN12 rail is centred and tightened on holes **2, 4 … 14**, both end holes open, with equal overhang at both ends
+- [ ] Both MGN9 rails are centred and tightened on holes **2, 4, 6 … 18 and 19**, both end holes open, with equal overhang at both ends
+- [ ] The MGN12 rail is centred and tightened on holes **1, 3, 5, 7, 10, 12, 14, 16**, both end holes used, with equal overhang at both ends
 - [ ] Every carriage is held by a stopper or tape, and none was dropped
 - [ ] Each of the four C-extrusion ends has 2 M5 in the top (backer) slot, and 1 M5 plus 1 M3 in the rail slot beyond the rail end
 - [ ] **The titanium backers are on the face opposite the rail**: the top of both Y extrusions and the rear of the X extrusion. They are flat, every screw is seated, none is chewed by a slipping driver, and the pilot-hole Y backer is on the right with its pilots at the rear
@@ -1349,7 +1357,7 @@ Pause: ~25 min since the last pause — gantry complete and still upside down (m
 
 - **Fitting the backers after the gantry is built.** The idler and drive frames cap their T-nut slots, and the backer face is buried once the gantry is in the frame. Fixing it is a teardown of about 3 h (survey §5.2 W2).
 - **Putting the X backer on top of the X extrusion.** With a single MGN12 on the front face, a top backer adds to the bimetallic bow (two metals expanding at different rates) instead of cancelling it, and it blocks the top slot the XY joints and cable bridge screw into.
-- **Using the Y rails' end holes.** The manual forbids it only on 300 mm builds; LDO's note forbids it on the Y rails of every build, and this build skips them on the X rail too. Caught late, the rail comes off and goes back on.
+- **Using the Y rails' end holes.** The manual forbids it only on 300 mm builds; LDO's note forbids it on the Y rails of every build and uses the second hole from each end. The X rail is different: p.101 screws both of its end holes. Caught late, the rail comes off and goes back on.
 - **Swapping the two Y backers.** Only one has the cable-chain pilot holes, and the Y chain's fixed end needs them at the rear of the right Y. Found in Ch 10, it means unscrewing a backer that the drive and idler frames already cap.
 - **Forgetting the reserved T-nuts from p.90.** Nothing in this chapter uses them, so they are easy to skip, and then the screws of Ch 06's Z bearing blocks have nowhere to go. Count per slot before the idlers go on: 2 M5 in the top slot, 1 M5 and 1 M3 in the rail slot.
 - **One spacer in an XY joint stack, or a flange facing inward.** Either the pair drops 1 mm and its inner rings are never clamped, or there is no belt channel at all. It shows up in Ch 07 as belt rub, and both joints come apart again (3 M5×40 and the idler each). The fix: spacer, flange down, flange up, spacer, read from the side before you close the joint (p.97, p.99).

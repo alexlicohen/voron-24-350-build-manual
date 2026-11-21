@@ -22,6 +22,7 @@ caption: Mount everything before wiring anything. A board you move later takes s
 - **Ch 03** parked four T-nuts in the bed extrusions' inner slots: two M3 on the right for the probe, two M5 on the left for the bed WAGO mount.
 - **Ch 05–06** are done: the gantry is installed, with the XY endstop pod on its right joint since Ch 05. Steps 09.32–09.33 check it.
 - **Ch 08** bagged the USB-adapter stack at Step 08.64; it is clipped on at 09.25.
+- **Ch 12 Part 1** is done on the bench (the build index runs it on kit day): Step 09.22 seats the microSD card it imaged. If it is not done yet, mount the Pi without its card and seat the card after Ch 12 Part 1.
 - **Batch B07 — Electronics bay + lighting.** Plate **B07-P1** carries `power_inlet_IECGS_1mm` (moved out of B08, index correction #11). The manual fits the inlet panel at p.156/167, in this chapter, so B07-P1 must be printed before you start or steps 09.10–09.12 stall. The PSU brackets and the stabiliser come off B07-P3. The COB light-strip mounts on all three B07 plates are *not* used here; they are Ch 10. **No part of B08 is needed in this chapter.**
 - **Ch 08's insert pass (optional).** The inlet panel and the bed WAGO mount both need heat-set inserts before assembly (survey §5.2 W3). Do them in the same press session as Steps 08.3–08.7 so Steps 09.10 and 09.34 start with a confirm, or set them in the step instead.
 - **Batch B11 — Bay ducting, all seven plates.** B11-P4, P5 and P7 print after the kit-day bay measurements ([B11.10](print/B11-bay-ducting.md#after-the-kit-day-measurements)). An A/B motor lead that measures short at B11.9 gets a longer replacement lead; layout v3 stays. The **LDO layout** notes below are only for a build without B11.
@@ -36,14 +37,14 @@ caption: Mount everything before wiring anything. A board you move later takes s
 - Hacksaw or fine-tooth saw and a file, for the DIN rail. Side cutters or a fine saw for PVC wire duct, needed only for the LDO layout or the fallback middle run.
 - Steel rule 300 mm or longer, a marker and the digital caliper.
 - Multimeter: it is used properly in Ch 10, but keep it on the bench from now on.
-- Ferrule crimp tool, square, for VE0508: optional. Every kit lead ships with its ferrules on, so you need it only if a lead is re-terminated in Ch 10.
+- Ferrule crimp tool, square, for VE0508: optional. The kit's mains leads arrive with fork lugs (insulated U-shaped crimp tags) on their PSU and SSR ends; LDO names the VE0508 ferrules for a re-terminated hotend heater lead (Ch 08), so you need the tool only for that.
 
 **Consumables:** 3M VHB tape (supplied, for the printed conduits), IPA and a lint-free cloth, masking tape and a marker for labelling.
 
 **Read first**
 
 - **Pull every voltage-selection jumper off the Leviathan before it goes near the rail** (Step 09.19). Each jumper picks 5 V or 24 V for one output, and mixing voltages on the shared 24 V supply permanently destroys the board and whatever is plugged into it. They go back in Ch 10, one at a time, after each part's voltage is confirmed.
-- **Nothing is wired in this chapter, and the bay stays open.** Mains wiring is the one job in this build that can kill you, so Ch 10 does it as one deliberate sequence that ends at LDO's **Checkpoint #1**: continuity within each colour group, no continuity between L, N and PE, PSU selector confirmed, all with the cord unplugged. Leave the C13 cord in its bag. Skirts and the bottom panel go on in Ch 11, only after Checkpoint #1 passes.
+- **Nothing is wired in this chapter, and the bay stays open.** Mains wiring is the one job in this build that can kill you, so Ch 10 does it as one deliberate sequence in LDO's order, gated by LDO's **Checkpoint #1**: continuity within each colour group, no continuity between L, N and PE, PSU selector confirmed, all with the cord unplugged. Leave the C13 cord in its bag. Skirts and the bottom panel go on in Ch 11, only after Checkpoint #1 passes.
 - **Manual pages p.148–172 describe a different machine**, with a BTT Octopus board, a mini12864 display, a 5 V PSU and a separate Pi bracket. Use them only for the DIN-rail method and the mounting positions; each step says where your kit differs.
 - **Left and right are always the printer's own,** as you would say them standing at the front of the upright machine. With the printer on its head, stand at its **rear** (the edge the deck notch points to) and look down into the bay: your left is then the printer's left, the same view as LDO's placement photo and the manual's p.169/p.171 insets. From the front everything is mirrored, and the bay is not symmetric.
 - **Test-fit every roll-in T-nut and never force one.** The fit in this kit is tight, and a forced nut galls the slot (tears up its metal).
@@ -113,7 +114,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 **Left and right in this chapter** are always the printer's own — the way you would say them standing at the front of the upright machine, display towards you. With the printer on its head, work from the printer's **rear** (the edge the deck notch points to — 09.4 — with the A/B motors hanging from the gantry's rear corners above it) and look down into the bay: the front edge is far from you, and your left is the printer's left. That is exactly the view in LDO's placement photo (display at the top of the frame) and in the manual's p.169/p.171 insets (labelled *Front* at the top). Stand at the front of the inverted printer instead and everything below is mirrored — and the bay is not symmetric.
 
 - **Remove *every* voltage-selection jumper from the Leviathan before it goes anywhere near the rail** (step 09.19). Mixing voltages on the shared 24 V supply permanently destroys the controller and whatever is plugged into it. Jumpers go back in Ch 10, one at a time, after each component's voltage is confirmed. [src](https://ldomotion.com/guides/voron-leviathan-v1-3)
-- **Nothing is wired in this chapter.** Mains wiring is the one step in this build that can kill you, and it is done as one deliberate sequence in Ch 10 that ends at LDO's **Checkpoint #1** — continuity within each colour group, no continuity between L, N and PE, PSU selector confirmed, all with the cord unplugged. Leave the C13 cord in its bag. (survey §4.4 #8)
+- **Nothing is wired in this chapter.** Mains wiring is the one step in this build that can kill you, and it is done as one deliberate sequence in Ch 10, in LDO's order, gated by LDO's **Checkpoint #1** — continuity within each colour group, no continuity between L, N and PE, PSU selector confirmed, all with the cord unplugged. Leave the C13 cord in its bag. (survey §4.4 #8)
 - **The manual pages p.148–172 describe a different machine** — a BTT Octopus, a mini12864, a 5 V PSU and a separate Pi bracket. Use them for the DIN-rail technique and the mounting geometry only; where your kit differs, the step's opening lines say so. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 - **Do not close the bay.** Skirts and the bottom panel go on in Ch 11, only after Checkpoint #1 passes. Fitting them now costs an hour of re-opening plus the safety check you skipped (survey §5.2 W8).
 - **Test-fit every roll-in T-nut.** Extrusion and T-nut tolerances on this kit are tight; a forced nut galls the slot. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
@@ -191,7 +192,7 @@ Source: [Voron manual p.149](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 **Do:**
 
 1. Strap the gantry at the top, or clamp the four Z belts.
-2. Take the flex plate off and turn the printer upside down onto a blanket, with two people.
+2. Lift the cardboard off the bed and turn the printer upside down onto a blanket, with two people.
 3. Drop two M3 T-nuts into the rear extrusion's upward slot.
 
 **Check:** The printer stands stable on its top, the gantry is strapped with no load on the belts, and two M3 T-nuts slide freely in the rear slot.
@@ -230,7 +231,7 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.29](assets/manual-pages/manual-p029.png){ crop="0.08 0.48 0.90 0.92" }
 
-**What you're looking at:** The two DIN rails are 35 mm slotted steel. Every electronic part clips onto one of them, so a board can slide along or lift off without touching the deck.
+**What you're looking at:** The two DIN rails are 35 mm slotted steel. Every electronic part clips onto one of them and can slide or lift off without touching the deck.
 
 **Parts:**
 
@@ -241,11 +242,11 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Cut both rails to the same length, inside the deck edges, and file the cut ends smooth.
-2. Slide each deck T-nut under one of the deck's four holes, then lay each rail across **both** extrusions over two holes, front rail and rear rail.
+1. Check each rail fits across both bed extrusions inside the deck edges. Shorten one only if it overhangs or a slot misses its T-nut, as p.29 allows, and file the cut smooth.
+2. Slide each deck T-nut under one of the deck's four holes, then lay each rail across **both** extrusions over two holes.
 3. Screw each rail down with M5×10 BHCS, snug, then fit the end caps.
 
-**Check:** Both rails run parallel, left to right, two screws each through the deck holes, inside the deck edges, clear of the Z belts, four end caps on.
+**Check:** Both rails run parallel, two screws each through the deck holes, inside the deck edges, clear of the Z belts, four end caps on.
 
 ⚠ LDO publishes no **cut length** for a 350's rails **(verify on bench)**. If a rail slot does not land on a T-nut, use p.29's way out: shorten the rail by a few mm rather than moving the nut off the extrusion.
 
@@ -396,7 +397,7 @@ Source: [Voron manual p.156](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ### Step 09.11 — Fit the combined IEC inlet module
 
 ![The inlet module pressed into the panel from outside until its tabs snap behind the wall, nothing on its spades; the panel from outside on the bench, the module's switch end at the panel's curved cut-out and the socket with its fuse drawer at the other end](assets/diagrams/905-inlet-press-in.svg)
-![LDO Rev D — inlet fitted, its switch end toward the Z motor, shown after Ch 10 has wired it; yours has bare spades (© LDO Motors)](assets/remote/09-electronics-bay/iec-inlet-module-fitted.jpg)
+![LDO Rev D — inlet fitted, its switch end toward the Z motor, shown after Ch 10 has wired it; LDO ships yours pre-wired or with its inlet cable to push on at 10.5 (© LDO Motors)](assets/remote/09-electronics-bay/iec-inlet-module-fitted.jpg)
 ![LDO inlet layout — L through the fuse, then the rocker; N through the rocker only; earth straight out (© LDO Motors)](assets/remote/00a-mains-safety/inlet_layout.png)
 
 **What you're looking at:** The **IEC inlet** is where mains enters the machine. The manual fits **two** parts here, a filtered inlet *and* a separate rocker switch; yours is **one module** combining the C14 socket, the on/off rocker and the fuse holder. It is live the moment a cord is in, so nothing touches its spade terminals until Ch 10.
@@ -591,11 +592,11 @@ Source: [Voron manual p.157](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** The SSR is latched square with no rocking, about 30 mm from the PSU, and both terminal pairs are reachable with a PH2 driver.
 
-⚠ The SSR body is stamped **"EARTH THE MOUNTING RAIL"**. LDO's build runs no PE wire to the rail: it touches the frame only through steel screws into anodised extrusion, which is not a PE bond. Do not count the rail as earthed. Who decides whether that is acceptable was settled at [00a.7](00a-mains-safety.md#step-00a7-the-ssr-is-marked-earth-the-mounting-rail-and-this-build-does-not). [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe)
+⚠ The SSR body is stamped **"EARTH THE MOUNTING RAIL"**. LDO runs no PE wire to the rail; it meets the frame only through screws into anodised extrusion. Do not count it as earthed: Ch 10 adds a PE lead to this rail at [10.82](10-wiring.md#step-1082-earth-the-ssrs-din-rail), before the first power-on, and a silent rail means no power-on, as [00a.7](00a-mains-safety.md#step-00a7-the-ssr-is-marked-earth-the-mounting-rail-so-this-build-adds-a-lead) explains. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe)
 
 LDO flags the SSR wiring as *"critical — an incorrect connection can cause catastrophic damage"*. Getting the orientation right now makes Ch 10 unambiguous (survey §4.4 #8).
 
-Source: [Voron manual p.171](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=171) · [LDO wiring guide § Frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe) · [Ch 00a Step 00a.7](00a-mains-safety.md#step-00a7-the-ssr-is-marked-earth-the-mounting-rail-and-this-build-does-not)
+Source: [Voron manual p.171](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=171) · [LDO wiring guide § Frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe) · [Ch 00a Step 00a.7](00a-mains-safety.md#step-00a7-the-ssr-is-marked-earth-the-mounting-rail-so-this-build-adds-a-lead)
 
 Pause: ~30 min since the last pause — the PSU voltage selector is confirmed at 115 V, and the PSU and SSR are both on their DIN brackets and clipped to the rear rail. The mains terminals are still bare; leave the PSU cover on and the cord bagged.
 
@@ -635,7 +636,7 @@ Source: [LDO Leviathan V1.3 board guide](https://ldomotion.com/guides/voron-levi
 
 ![Voron manual p.154](assets/manual-pages/manual-p154.png){ crop="0.50 0.60 0.92 0.88" }
 
-**What you're looking at:** p.154 shows the **Octopus** bracket set. You use `Leviathan_bracket_set`, two brackets supplied printed by LDO (do not print them), one for each short end of the board, each carrying one of **two** DIN clips; the method is the same. The M2 self-tapping screws cut their own thread in ASA, so a screw run in and out a few times strips the boss. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-mainboard-ldo-voron-leviathan-board)
+**What you're looking at:** p.154 shows the **Octopus** bracket set. You use `Leviathan_bracket_set`, two brackets supplied printed by LDO (do not print them), one for each short end of the board, each carrying one of **two** DIN clips. The M2 self-tapping screws cut their own thread in ASA, so a screw run in and out a few times strips the boss. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-mainboard-ldo-voron-leviathan-board)
 
 **Parts:**
 
@@ -646,8 +647,8 @@ Source: [LDO Leviathan V1.3 board guide](https://ldomotion.com/guides/voron-levi
 
 **Do:**
 
-1. Sit a DIN clip on each bracket.
-2. Drive two M2×10 self-tapping screws through the clip into the bracket with a PH1.
+1. Sit each bracket on a DIN clip, as p.154 draws it.
+2. Drive two M2×10 self-tapping screws down through the bracket into the clip's pilot holes, with a PH1.
 3. Go slowly and stop the moment the head seats.
 
 **Check:** Two bracket-and-clip assemblies are done, mirror images of each other, with the clips square and both hooks facing the same direction.
@@ -1042,7 +1043,7 @@ Pause: ~20 min since the last pause — the XY endstop pod is checked and its ca
 
 (no image — see text)
 
-**What you're looking at:** A laying-out step. A **[ferrule](16-glossary.md#f)** is a metal sleeve crimped over a stranded wire so it enters a screw terminal as one solid pin. Every kit lead ships with its ferrule crimped on, so the five loose ones and a crimp tool matter only if a lead has to be re-terminated in Ch 10.
+**What you're looking at:** A laying-out step. A **[ferrule](16-glossary.md#f)** is a metal sleeve crimped over a stranded wire so a screw terminal clamps one solid pin. The mains leads end in fork lugs instead; LDO names these five for re-terminating a hotend heater lead.
 
 **Parts:**
 
@@ -1055,12 +1056,14 @@ Pause: ~20 min since the last pause — the XY endstop pod is checked and its ca
 **Do:**
 
 1. Lay out five spare **VE0508 ferrules**, the FRAME PE cable's ring terminal and tags.
-2. Find the frame PE point between the WAGO mount and the notch.
-3. Find the inlet's strain relief and confirm the C13 cord is bagged.
+2. Find the frame PE point: layout v3, between the WAGO-mount screw and the notch; LDO layout, right of the notch.
+3. Confirm the C13 cord is bagged.
 
 **Check:** Five spare ferrules are present, a clean metal-to-metal frame PE point is identified, the cord is bagged and the inlet switch is off.
 
 ⚠ **No wiring happens in this chapter and no plug goes in a socket.** LDO: *"Mains wiring should only be performed by certified personnel…"* Ch 10 gates on **Checkpoint #1** before anything is switched on: cord unplugged, continuity within each colour group, **no** continuity between L, N and PE, PSU selector at 115 V. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
+
+The frame PE point is fixed at [10.16](10-wiring.md#step-1016-frame-pe), where the v3 spot is drawn; the LDO spot is LDO's VS8 photo. [LDO § Frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe)
 
 Source: [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [survey §7.5](../voron-build-instructions-survey.md)
 

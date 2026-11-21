@@ -391,7 +391,7 @@ NOTES: dict[str, str] = {
     "[a]_z_belt_clip_upper_x4.stl": "fitted at 05.19–05.23 under the idler and drive tops",
     "usb_adapter_mount_partial_cover.stl": "closes the USB adapter stack at 08.64, bagged for Ch 09",
     "mount.stl": "TFT module built at 10.50 (Ch 11 Steps 11.5–11.6)",
-    "[a]_z_chain_retainer_bracket_x2.stl": "1 fitted, 1 spare (verify on bench)",
+    "[a]_z_chain_retainer_bracket_x2.stl": "both fitted: Z chain bottom anchor and A drive (10.62, 10.64, p.202)",
     "[a]_keystone_blank_insert.stl": "1 used, 1 spare",
     "ldo_bestagon_insert.stl": "optional trim (11.19)",
     "[a]_pcb_spacer.stl": "kit supplies one printed — this is the spare",

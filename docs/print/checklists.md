@@ -15,7 +15,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Height stop set on the press and its working temperature written on tape on it.
-- [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
+- [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed out of the carriage, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore row passed before the kit, its insert row before Ch 02's first insert (Step B00.7); its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
 - [ ] 36 bins labelled from the [bin-labels sheet](bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](../manual/print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
@@ -26,14 +26,14 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 00a — Mains safety: read before Chapter 09
 
 - [ ] Decided and written down who lands the mains conductors in Ch 10 Section 1, and whether that is a certified person.
-- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 through Checkpoint 12, Ch 11 Step 11.67, the exhaust fan's 14.30, and Ch 13 Steps 13.3–13.8 and the 13.9 power-on; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
+- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.23 and 10.82 (Sections 1, 2 and 2b), Ch 12 Step 12.11 through Checkpoint 12, Ch 11 Step 11.67, the exhaust fan's 14.30, and Ch 13 Steps 13.3–13.8 and the 13.9 power-on; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
 - [ ] Multimeter on the bench with a printed CAT rating (CAT III 600 V or better), matching leads, continuity, Ω, DC V and AC V all found.
 - [ ] Meter proved live–dead–live once, probes shorted to a beep, both leads continuous, battery good.
 - [ ] Printer's outlet is RCD/GFCI protected, trips on its TEST button, and its breaker is identified and labelled.
 - [ ] Both of you have walked to the labelled breaker once and know which switch is the printer's.
-- [ ] The five PE branches can be named from memory, and the M4×6 bed PE screw was confirmed present at Ch 03 Step 03.6.
-- [ ] The SSR "earth the mounting rail" gap is understood and, if local rules require an earthed rail, it has been raised with whoever signs off the mains work.
-- [ ] VE0508 ferrules located in the kit; the pull-and-look test at Ch 10 Step 10.8 is understood.
+- [ ] The six PE branches can be named from memory, and the M4×6 bed PE screw was confirmed present at Ch 03 Step 03.6.
+- [ ] The SSR "earth the mounting rail" marking is understood: Ch 10 Step 10.82 fits a PE lead to the rail, 10.18 meters it, and the lead, an M5×12 BHCS and an M5 serrated washer are bought before Ch 10.
+- [ ] The five VE0508 ferrules located in the kit, for the toolhead heater lead, not the mains; fork lugs on every PSU and SSR lead end; the pull-and-look test at Ch 10 Step 10.8 is understood.
 - [ ] Both power-on rituals read end to end; the three eyes-only windows where the machine may be live with the bay open (10.23, 12.11 to Checkpoint 12, 13.3 to 13.8) and the two recovery-only button exceptions, Leviathan SW1/SW2 at 12.15–12.16 and Nitehawk RESET/BOOT0 at 12.19, are known, and the hand-on-the-switch ritual is understood to apply at 12.11, 13.3 and 13.9.
 - [ ] The five failure responses are agreed out loud; extinguisher in reach; nobody re-energises a tripped circuit without a cause.
 
@@ -88,7 +88,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Four **M3×20** SHCS are fitted, not M3×16: **one** tight, three loose on purpose.
 - [ ] The plate's front edge is 38 mm behind the front edge of the frame at both corners.
 - [ ] The gap is equal under all four corners, the plate does not rock, and it clears every vertical and Z rail.
-- [ ] The straightedge check was done before the magnet went on, with no gap you could slide paper under.
+- [ ] The straightedge check was done before the magnet went on, with no gap you could slide paper under, or the magnet came factory-fitted and the check was skipped.
 - [ ] The three bed leads lie loose **above** the deck with slack, none through it, nothing connected, pinched or tied.
 - [ ] The flex plate was tried and taken off, and the bed is covered for the rest of the build.
 
@@ -100,7 +100,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Every F695 pair is flange-out, plain faces touching, with one brass M5 precision spacer above and one below each pair.
 - [ ] Each drive's far post holds 4 bearings and 4 spacers, with two spacers meeting in the middle. Each drive's near post and both idlers hold 2 bearings and 2 spacers.
 - [ ] All six bearing groups spin freely with the frames closed and screwed together.
-- [ ] On both idlers, the M5×40 axle is clamped firm into the arm's nut, and the M3×40 tensioner is snug in the arm's insert with the arm drawn against the front wall. The arm slid freely in the frame's slots before the M3×40 went in.
+- [ ] On both idlers, the M5×40 axle head is seated in the arm's top boss, not cranked, and the M3×40 tensioner is snug in the arm's insert with the arm drawn against the front wall. The arm slid freely in the frame's slots before the M3×40 went in.
 - [ ] `a_drive_frame_upper` has its two heat-set inserts; `b_drive_frame_upper` has none.
 - [ ] Both motor pulleys are the **6 mm-wide** 20T (`5mm ID 6mm W`), not one of the four 9 mm Z-drive pulleys.
 - [ ] The A pulley is hub down at 16.5 mm and the B pulley hub up at 6.5 mm, so the two look visibly different.
@@ -115,8 +115,8 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
 
 - [ ] The E extrusion is joined to both drive units with 8 M5×10 BHCS; the drives are parallel, with no twist
-- [ ] Both MGN9 rails are centred and tightened on holes **2, 4 … 18**, both end holes open, with equal overhang at both ends
-- [ ] The MGN12 rail is centred and tightened on holes **2, 4 … 14**, both end holes open, with equal overhang at both ends
+- [ ] Both MGN9 rails are centred and tightened on holes **2, 4, 6 … 18 and 19**, both end holes open, with equal overhang at both ends
+- [ ] The MGN12 rail is centred and tightened on holes **1, 3, 5, 7, 10, 12, 14, 16**, both end holes used, with equal overhang at both ends
 - [ ] Every carriage is held by a stopper or tape, and none was dropped
 - [ ] Each of the four C-extrusion ends has 2 M5 in the top (backer) slot, and 1 M5 plus 1 M3 in the rail slot beyond the rail end
 - [ ] **The titanium backers are on the face opposite the rail**: the top of both Y extrusions and the rear of the X extrusion. They are flat, every screw is seated, none is chewed by a slipping driver, and the pilot-hole Y backer is on the right with its pilots at the rear
@@ -155,8 +155,8 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] At every XY joint, only the three joint-to-extrusion screws (Steps 05.38–05.39) were loosened. At the A/B drives and front idlers, both Z belt-clamp pairs were eased only enough to slide, no Z belt end slipped, and all were tightened again at 06b.12.
 - [ ] Both A/B joints are checked for rotation against the good and bad reference pictures.
 - [ ] At all four Z joints, the M5×40 starts by hand with the joint raised, with no coaxing.
-- [ ] **The four-point gantry-to-frame gaps are recorded**: same-side front and rear within 0.5 mm, left and right within 1 mm.
-- [ ] The machinist square shows no light at **both** front corners: the Y extrusions are square to the frame (Step 06b.11).
+- [ ] **The four-point gantry-to-frame gaps are recorded**: same-side front and rear within 0.5 mm, left and right within 1 mm (our working limits, not Voron's).
+- [ ] Where the square can sit on both extrusions (verify on bench), it shows no light at **both** front corners: the Y extrusions are square to the frame (Step 06b.11).
 - [ ] De-racked (Step 06b.14): pushed back, both XY joints touch their drives at once, and near the front, the gap from the X extrusion to the front frame extrusion is equal at both ends.
 - [ ] The A/B belts are re-tensioned to a provisional **110 Hz** over a 150 mm span and matched to each other. The final value is Ch 14 Step 14.4.
 - [ ] The four Z joint M5×40 screws are **still light**: they are tightened hot in Ch 14, not here.
@@ -184,7 +184,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 - [ ] **Heater resistance.** Across the two `HE0` ferrules, the meter shows a low, steady reading that is not zero. A 60 W 24 V Revo HF cartridge is roughly **9.6 Ω** (24²/60). Anything near 0 Ω is a short, and an open reading is a broken lead. `(verify against the value E3D prints on your cartridge)`
 - [ ] **Heater isolation.** No continuity between either heater lead and the heatsink, the nozzle, the frame or the toolboard `GND` pad.
-- [ ] **Thermistor at room temperature.** Across the `TH0` lead, about **100 kΩ at 25 °C** for the Semitec 104NT-4-R025H42G. Warm the HeaterCore with your fingers and watch the resistance **fall**. An NTC whose reading rises is the wrong part or a bad connection.
+- [ ] **Thermistor at room temperature.** Unplug the thermistor from `TH0` and measure across its plug, then plug it back in fully: plugged in, the meter also reads through the board's own circuit on that port (a 2.2 kΩ pull-up, [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#port-and-pin-definitions)), so the number is not the thermistor's alone. Expect about **100 kΩ at 25 °C** for the Semitec 104NT-4-R025H42G. Warm the HeaterCore with your fingers and watch the resistance **fall**. An NTC whose reading rises is the wrong part or a bad connection.
 - [ ] **Probe.** Continuity from each `PROBE` pin to the matching probe wire, and none between `24V` and `GND`.
 - [ ] **LED chain.** No short between 5 V and GND at the chain connector, and continuity along the chain in the order logo, right, left.
 - [ ] **Fan direction, checked by eye.** The hotend fan's moulded arrow points **into** the heatsink and its wires leave at the top. The 5015 blows down into the ducts. Both impellers spin freely with a flick of a finger and no rub. Ch 13 *Verify Fans* confirms the powered spin-up.
@@ -218,16 +218,16 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 10 — Wiring and Checkpoint #1
 
 - [ ] PSU voltage switch matches your mains, checked twice (10.2, 10.22)
-- [ ] LDO's **Checkpoint #1** passed in full: every node of each colour traced end to end, from the C14 pin to the PSU screw, SSR, bed and frame; L, N and PE isolated from each other at the WAGOs and at the PSU screws; the switch switches; the SSR is open; then one hand-on-the-switch power-on and off again (10.17–10.23)
+- [ ] LDO's **Checkpoint #1** passed in full with only the inlet, WAGO bus and PSU on the mains: every node of each colour traced from the C14 pin to the PSU screws, and earth to the frame and the DIN rail; L, N and PE isolated from each other at the WAGOs and at the PSU screws; the switch switches; then one hand-on-the-switch power-on and off again (10.17–10.23)
 - [ ] Bed heater reads tens of ohms L→N and `OL` to the plate (10.13)
-- [ ] SSR: bed on **LOAD 1**, mains L on **LOAD 2**, red on **INPUT 3**, black on **INPUT 4**; load and control sides isolated (10.14, 10.27, 10.78)
-- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin; the frame lug fitted at 10.16 was probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
+- [ ] SSR and bed wired dead after Checkpoint #1: bed on **LOAD 1**, mains L on **LOAD 2**, red on **INPUT 3**, black on **INPUT 4**; the SSR open and L, N and PE still isolated with them on the bus; load and control sides isolated (10.11, 10.14, 10.21, 10.27, 10.78)
+- [ ] Protective earth reaches the frame, the SSR's DIN rail, the build plate and the extruder motor body from the C14 earth pin; the frame lug fitted at 10.16 was probed on bare metal, never anodising (10.16, 10.82, 10.58, 10.67, 10.77)
 - [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads about the same as +V → −V, never 0 Ω, and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
 - [ ] Bed thermistor reads within ±15 % of the room-temperature table (10.44, 10.76)
 - [ ] Six steppers on their mapped ports and tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
 - [ ] All three Rev D+ toolhead deviations checked: PH2.0 sensor connectors, the keyed 2×5 (10-pin) fan header seated with no gap, and the V2 partial cover with the DC Ground Wire fitted (10.55–10.58)
 - [ ] Every cable in every chain slides by hand; all six chain ends zip-tied; the gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
-- [ ] Strip fin between PSU **3 FG** and **4 −V**, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80). Touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
+- [ ] Strip fin between PSU **3 FG** and **4 −V**, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80). Touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7; if the mount was not printed, the screen end only, with the Pi end's contacts taped for 11.8 (10.50)
 - [ ] Bay walked against LDO's finished photo with every difference explained (10.72). Cord out of the room; the next plug-in is Ch 12 Step 12.11, with the bay still open
 
 <div class="print-page-break"></div>
@@ -248,7 +248,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 **Part B — after Ch 13**
 
 - [ ] **Ch 12 and Ch 13 complete**, including the Ch 06b gantry-squaring pass, before any panel went on.
-- [ ] Clips test-fitted for thickness before all 31 were committed: 4 mm on back and top with M3×8, 6 mm on both sides with M3×12, two screws in every corner clip, none left over and none short. The foam tape is right for each panel: 1 mm on back and top, 3 mm on both sides.
+- [ ] Clips test-fitted for thickness before all 31 were committed: 4 mm on back and top with M3×8, 6 mm on both sides with M3×12, two screws in every corner clip, none short, and the one 6 mm midspan clip displaced at 11.63 bagged as a spare. The foam tape is right for each panel: 1 mm on back and top, 3 mm on both sides.
 - [ ] The gantry runs through full XY travel with the side panels on and touches nothing. The exhaust cover and grill seal the back panel, the cover tabs are screwed to the top rear extrusion, and the PTFE goes through the cover's coupler; no Voron filter housing is fitted. Both handlebars sit on their printed spacers.
 - [ ] No stock door parts are fitted. The Clicky-Clack latches with a click and pulls the door onto the 3 mm foam, no daylight shows at any seam, and threadlocker is on the panel-clip hammerhead nuts.
 
@@ -287,11 +287,11 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] `grep -c gpio ~/printer_data/config/printer.cfg` returns 0, so this is the `-sbv2` config.
 - [ ] `M112` tested once (Step 13.22) and typed-and-unsent, alone on the line, before every first move; everyone in the room knows it is the stop and `RESTART` is not.
 - [ ] Extruder, bed and chamber (three sensors) all read room temperature at rest, and none of them creeps upward untouched.
-- [ ] Both heaters heat and cool on command; the toolboard HE0 LED follows the hotend, at 13.8 the SSR LED, watched eyes-only, followed the bed, and the meter held 0 V before the bottom door closed.
+- [ ] Both heaters heat on command and switch off at **Off**; the toolboard HE0 LED follows the hotend, at 13.8 the SSR LED, watched eyes-only, followed the bed on and off, and the meter held 0 V before the bottom door closed.
 - [ ] All four fan outputs checked and on the right fan: hotend (SB bottom), part cooling (SB top), bay PCB fan pair, Nevermore filter fan; plus the chamber LEDs and all three Stealthburner LEDs.
 - [ ] All seven motors pass `STEPPER_BUZZ`: correct motor, clean motion, and correct direction for the four Z motors (A/B at 13.22–13.23, extruder at 13.40).
 - [ ] `QUERY_ENDSTOPS` reads `stepper_x:open stepper_y:open stepper_z:open` at rest and each endstop triggers alone; the nozzle probe shaft springs back freely.
-- [ ] `QUERY_PROBE` switches between `open` and `TRIGGERED` with metal, and the probe's fibreglass tape is on the front and sides only.
+- [ ] `QUERY_PROBE` switches between `open` and `TRIGGERED` with metal and fires with the nozzle still clear of the plate (13.28), and the probe's fibreglass tape is on the front and sides only.
 - [ ] `G28` completes on all three axes; 0,0 lands within 5 mm of the front-left corner of the plate with no skipping.
 - [ ] `[safe_z_home] home_xy_position` holds your measured Z-endstop position, not `-10,-10`.
 - [ ] Bed and hotend PID tuned and `SAVE_CONFIG`-ed; `PROBE_ACCURACY` hot shows σ < 0.003 mm with no trend, and you wrote down the soak time.
@@ -299,7 +299,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] `Z_ENDSTOP_CALIBRATE` done hot at the paper-drag height (no extra step down) and saved; bed mesh taken hot **after** QGL and saved.
 - [ ] Filament loaded, extruder direction confirmed, `rotation_distance` measured here (Step 13.40) and written into `[extruder]`.
 - [ ] PrusaSlicer has a `Voron 2.4 350` printer preset (350×350, Klipper flavour, limits for time estimate only, plain `.gcode`, `PRINT_START … FILAMENT=`/`PRINT_END`, physical printer test OK), and the Voron cube printed from it; first-layer squish saved with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG` **after** the print ended, and the cube kept for Ch 14's measurement.
-- [ ] `~/printer_data/config` committed after every `SAVE_CONFIG` and copied off the Pi.
+- [ ] `~/printer_data/config` committed at each point the steps name (13.26, 13.39, 13.40, 13.43) and copied off the Pi.
 - [ ] Part L, if fitted: H, w, d, G and O written down and the Step 13.47 decision kept (L, T, sheet stops, or NO-GO); only the files it wrote were printed, both inspection readings within 0.2 mm; the cold dry-run touched nothing but silicone; `NOZZLE_CLEAN` runs in `PRINT_START` before the final `G28 Z`.
 
 <div class="print-page-break"></div>
@@ -313,7 +313,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] `QUAD_GANTRY_LEVEL` settles in 3 retries or fewer, hot, after the lock; `PROBE_ACCURACY` σ < 0.003 mm with no trend.
 - [ ] `rotation_distance` checked against the Ch 13 value: 100 mm requested measures 99.5–100.5 mm, and `22.6789511` appears nowhere in `printer.cfg`.
 - [ ] `PRINT_START` (Ch 12 Step 12.36, with Step 14.9's purge line) homes, heats the bed, soaks, runs QGL, re-homes Z, meshes, heats the nozzle and purges, tested on its own from the console with `CHAMBER=0`.
-- [ ] The chamber reaches the 50–60 °C band with the panels and door closed.
+- [ ] The chamber reaches this manual's 50–60 °C band with the panels and door closed.
 - [ ] The Voron cube (printed in Ch 13) measured: X and Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm.
 - [ ] Both cubes (Prusa and Voron) measured into the comparison table.
 - [ ] `MEASURE_AXES_NOISE` in the 1–100 range; `[resonance_tester] probe_points: 175, 175, 20` confirmed live (Ch 12 Step 12.27).
@@ -325,7 +325,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Extrusion multiplier set in `Voron ASA`, one cube per print, and recorded.
 - [ ] First-layer squish checked again *after* the extrusion-multiplier change, and saved with `Z_OFFSET_APPLY_ENDSTOP`.
 - [ ] Every fastener the shaper run could have loosened checked again.
-- [ ] `~/printer_data/config` committed (one commit per `SAVE_CONFIG`) and copied off the Pi.
+- [ ] `~/printer_data/config` committed at Step 14.22, after the last `SAVE_CONFIG`, and copied off the Pi.
 - [ ] Tuning log filled in, with initials.
 - [ ] Serial request posted to r/voroncorexy (Step 14.24); the nameplate goes on the front top rail once the serial arrives.
 - [ ] Part H, if fitted: Step 14.25's calculator passed before Part A; exactly three jumpers, Fan0, Fan2 and Fan3, all at 24 V; the ASA soak still settles at 50–60 °C with the housing closed; a PLA print held `chamber_temp` at or under 37 °C, then purged and stopped; config committed.

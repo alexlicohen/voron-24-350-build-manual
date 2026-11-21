@@ -126,7 +126,11 @@ def d802_ground_lug() -> Doc:
     # ring lug: barrel bent up along the can, ring on the screw
     d.path(f"M {lx + 30} {ly - 70} L {lx + 10} {ly - 22}", stroke=STEEL, sw=14, cap="butt")
     d.circle(lx, ly, 22, fill=STEEL, stroke=GREY, sw=3)
-    d.circle(lx, ly, 11, fill=GREY, stroke=INK, sw=2)
+    # M3 hex nut on the screw tip clamps the ring (LDO's ground-routing photo)
+    nut = [(lx + 17 * math.cos(math.radians(60 * i + 30)), ly + 17 * math.sin(math.radians(60 * i + 30)))
+           for i in range(6)]
+    d.poly(nut, fill=GREY_F, stroke=INK, sw=2.5)
+    d.circle(lx, ly, 6, fill=GREY, stroke=INK, sw=1.5)
     callout(d, lx + 72, ly + 34, 1)
     callout(d, lx + 96, ly - 110, 2)
 
@@ -141,9 +145,9 @@ def d802_ground_lug() -> Doc:
     cross(d, wx + 120, wy + 80)
     d.text(834, top + 336, "hits the anchor", size=T_MIN, weight=700, fill=RED)
 
-    y = legend_row(d, 810, top + 420, 1, ["lug on the", "motor's lower", "ear"])
+    y = legend_row(d, 810, top + 420, 1, ["lug under a nut", "on the lower", "motor screw's tip"])
     y = legend_row(d, 810, y + 24, 2, ["bend it clear", "of the anchor"])
-    bench_tag(d, 990, y + 70, "fixing: on the bench", anchor="middle")
+    bench_tag(d, 990, y + 70, "nut fit: on the bench", anchor="middle")
     return d
 
 

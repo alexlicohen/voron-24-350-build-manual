@@ -959,11 +959,11 @@ def d04_z_drive() -> Doc:
 
 # =============================================================== diagram 5 ===
 def d05_mains_pe() -> Doc:
-    d = Doc(996, "Voron 2.4r2 — mains path and protective-earth chain")
+    d = Doc(1040, "Voron 2.4r2 — mains path and protective-earth chain")
     header(d, "Mains path and the protective-earth chain",
            "inlet + switch + fuse → WAGO bus → PSU · SSR → bed heater. PE is never "
            "switched and never fused.",
-           "Ch 00a, Steps 00a.6 · 00a.10 · Ch 10, Steps 10.5 · 10.10 · 10.27")
+           "Ch 00a, Steps 00a.6 · 00a.10 · Ch 10, Steps 10.5 · 10.10 · 10.27 · 10.82")
 
     def box(x, y, w, h, title, lines, stroke=INK, fill=PANEL, tsize=15):
         d.rect(x, y, w, h, fill=fill, stroke=stroke, sw=2.4, rx=8)
@@ -1067,14 +1067,16 @@ def d05_mains_pe() -> Doc:
 
     # ---- PE chain ----
     yp = 626
-    d.rect(40, yp, 440, 290, fill=PANEL, stroke=GREEN, sw=2.4, rx=10)
-    d.text(58, yp + 28, "The protective-earth chain — five branches", size=16, weight=700,
+    d.rect(40, yp, 440, 330, fill=PANEL, stroke=GREEN, sw=2.4, rx=10)
+    d.text(58, yp + 28, "The protective-earth chain — six branches", size=16, weight=700,
            fill=GREEN)
     rows = [("Supply", "wall socket earth → C14 E pin, through the C13 cord"),
             ("Bus", "C14 E → the yellow PE WAGO"),
             ("PSU", "PE WAGO → Meanwell screw 3 FG (innermost AC screw)"),
             ("Frame", "PE WAGO → frame extrusion; ring terminal between"),
             ("", "two M5 locking washers, on scraped bare metal"),
+            ("Rail", "PE WAGO → the SSR's DIN rail; ring + serrated"),
+            ("", "washer under a rail screw (10.82, our addition)"),
             ("Bed", "build plate → PE WAGO, on the plate's own"),
             ("", "M4x6 BHCS and its serrated washer"),
             ("ESD", "USB-adapter GND (24 V −V) → frame, 10.58:"),
@@ -1099,20 +1101,20 @@ def d05_mains_pe() -> Doc:
            marker="arwg")
     d.text(716, y0 + 206, "PE bus continues to the", size=11.5, fill=GREEN, weight=600)
     d.text(716, y0 + 222, "frame, the PSU and the", size=11.5, fill=GREEN, weight=600)
-    d.text(716, y0 + 238, "bed — five branches below", size=11.5, fill=GREEN, weight=600)
+    d.text(716, y0 + 238, "bed — six branches below", size=11.5, fill=GREEN, weight=600)
 
     d.rect(516, yp + 84, 644, 148, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=10)
-    d.text(534, yp + 112, "Two things the marking on the SSR does not mean", size=15,
+    d.text(534, yp + 112, "The marking on the SSR, and what the fuse does not do", size=15,
            weight=700)
     d.wrap(534, yp + 136,
-           "The SSR body reads EARTH THE MOUNTING RAIL and this build does not run a PE "
-           "conductor to the DIN rail — the rail is not earthed. If your local rules require an earthed rail that is a mains change, "
-           "not a bench decision. And the inlet fuse protects the SSR against a short; it "
+           "The SSR body reads EARTH THE MOUNTING RAIL and LDO runs no PE conductor to the "
+           "DIN rail, so this build adds one at 10.82, before the first power-on, and meters "
+           "it at 10.18 and 10.77. And the inlet fuse protects the SSR against a short; it "
            "does not protect a person — that is the RCD and this PE chain.",
            size=12.3, width_chars=78, lh=17.5, fill=INK)
 
     footer(d, "Every mains connection is made with the C13 cord in another room. Screw "
-              "terminals (PSU 1 L / 2 N / 3 FG, SSR LOAD 1/2) get VE0508 ferrules; WAGO 221 "
+              "terminals (PSU 1 L / 2 N / 3 FG, SSR LOAD 1/2) take the leads' crimped fork lugs; WAGO 221 "
               "levers take bare stranded core stripped to 11 mm. Fuse rating: (verify on "
               "bench) — LDO does not publish the value.")
     return d
@@ -2260,7 +2262,8 @@ def d15_blind_joint() -> Doc:
         d.text(44, ry + 50, title, size=36, weight=700)
         return ry + 186
 
-    # the screw started, its head about 2 mm off the end face. The three rows carry
+    # the screw started, its head 2 to 3 mm off the end face (Voron CAD: 2.0 mm lip,
+    # 2.75 mm head, 6 mm cavity, so the head enters at 2.0-3.25 mm). The three rows carry
     # titles, not letters or numbers: two steps with different Do numbers use the sheet.
     cy = row(0, "Screw started")
     horizontal(cy, "horizontal (A)")
@@ -2271,7 +2274,7 @@ def d15_blind_joint() -> Doc:
     d.path(f"M {vx1 - 2 * k - 60} {dy} L {vx1 - 2 * k - 2} {dy}", stroke=MUTED, sw=2.5,
            marker="arwm")
     d.path(f"M {vx1 + 60} {dy} L {vx1 + 2} {dy}", stroke=MUTED, sw=2.5, marker="arwm")
-    d.text(vx1 + 70, dy + 11, "about 2 mm", size=T_LAB, weight=700, fill=MUTED)
+    d.text(vx1 + 70, dy + 11, "2 to 3 mm", size=T_LAB, weight=700, fill=MUTED)
 
     # the head slides into the vertical's slot
     cy = row(1, "Head slides into the slot")
@@ -2393,7 +2396,7 @@ def d17_tightening_order() -> Doc:
         d.text(x, y + 17, str(i + 1), size=48, anchor="middle", weight=800)
     d.text(d.w / 2, y0 + s + 120, "Go corner 1, 3, 2, 4.", size=40, anchor="middle",
            weight=700)
-    d.text(d.w / 2, y0 + s + 172, "Never tighten round the frame in order.", size=40,
+    d.text(d.w / 2, y0 + s + 172, "Across each time, not round the frame.", size=40,
            anchor="middle", weight=700, fill=RED)
     return d
 
@@ -2894,13 +2897,13 @@ DIAGRAMS = [
         "shows": [
             "Three sections after p.10, looking down the vertical, titled rather than "
             "numbered because two steps with different Do numbers use them: the M5×16 "
-            "BHCS started in the horizontal's end, head about 2 mm off the end face; the "
+            "BHCS started in the horizontal's end, head 2 to 3 mm off the end face; the "
             "head slid into the vertical's slot; the 3 mm hex key straight through the "
             "access hole in the opposite face into the head.",
         ],
         "insert": [
             ("01-frame.md", "Step 01.5", "the whole sheet"),
-            ("01-frame.md", "Step 01.4", "the top row, for the 2 mm"),
+            ("01-frame.md", "Step 01.4", "the top row, for the 2 to 3 mm"),
         ],
         "verify": [
             "The three stages are stacked top to bottom, not left to right, so the "
@@ -2938,7 +2941,7 @@ DIAGRAMS = [
         "shows": [
             "Top view of a square with its corners numbered 1–4 going round, and the "
             "order 1, 3, 2, 4: always across to the opposite corner. The red line says "
-            "never tighten round the frame in order; fitting the corners in turn "
+            "go across, not round the frame; fitting the corners in turn "
             "(Step 01.8) is not tightening.",
         ],
         "insert": [
@@ -2946,7 +2949,10 @@ DIAGRAMS = [
             ("01-frame.md", "Step 01.12", "the torque pass; Steps 01.11 and 01.13 "
              "repeat the order without the picture"),
         ],
-        "verify": [],
+        "verify": [
+            "The order is our own habit, as Step 01.9 says: no Voron or LDO page gives "
+            "a tightening order.",
+        ],
     },
     {
         "n": 18,

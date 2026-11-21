@@ -33,8 +33,14 @@ def entry_opt(e, d, key, mode=None):
 
 
 def build_selection(scene, e):
-    """(selections, shift) in manifest order; boxes last, as main() does."""
-    pats, labels, offsets = [], [], []
+    """(selections, shift, anchors, label_ys) in manifest order; boxes last, as
+    main() does. `anchor: 'x,y,z'` on a select group (CAD world mm, before the
+    group's `offset`) puts that group's leader on its visible pixel nearest the
+    point - for a long part whose pixel median is not the run the label names.
+    `label_y: 0..1` centres the group's label box at that fraction of the image
+    height instead of its evenly spaced slot, when the slot covers a part."""
+    pats, labels, offsets, anchors = [], [], [], []
+    label_ys = [s.get("label_y") for s in e.get("select", [])]
     for s in e.get("select", []):
         if "ids" in s:
             pats.append("ids:" + ",".join(str(i) for i in s["ids"]))
@@ -42,6 +48,7 @@ def build_selection(scene, e):
             pats.append(s["resolve"])
         labels.append(s.get("label", pats[-1]))
         offsets.append(s.get("offset", ""))
+        anchors.append(s.get("anchor"))
     sel = scene.select(pats)
     shift = {}
     for k, off in enumerate(offsets):
@@ -49,11 +56,22 @@ def build_selection(scene, e):
             d = [float(x) for x in off.split(",")]
             for i in sel[k][1]:
                 shift[i] = d
+    pts = []
+    for k, a in enumerate(anchors):
+        if not a:
+            pts.append(None)
+            continue
+        p = [float(x) for x in a.split(",")]
+        if offsets[k]:
+            p = [p[j] + float(x) for j, x in enumerate(offsets[k].split(","))]
+        pts.append(p)
     sel = [(labels[i], ids) for i, (_, ids) in enumerate(sel)]
     for b in e.get("boxes", []):
         pids = [scene.add_box(g) for g in b["geom"].split(";") if g.strip()]
         sel.append((b["label"], pids))
-    return sel, shift
+        pts.append(None)
+        label_ys.append(b.get("label_y"))
+    return sel, shift, pts, label_ys
 
 
 def reset_boxes(scene):
@@ -356,7 +374,7 @@ def main():
     for e in entries:
         stem = os.path.join(a.out, e["out"])
         reset_boxes(scene)
-        sel, shift = build_selection(scene, e)
+        sel, shift, anchors, label_ys = build_selection(scene, e)
         print(f"\n== {e['step']}  -> {e['out']}", flush=True)
         for label, ids in sel:
             print(f"   {label}: {len(ids)} part(s)", flush=True)
@@ -377,6 +395,8 @@ def main():
                 subtitle=entry_opt(e, d, "subtitle", mode),
                 note=entry_opt(e, d, "note", mode),
                 shift=shift,
+                anchors=anchors,
+                label_ys=label_ys,
                 ghost_exclude=re.compile(ge, re.I) if ge else None,
                 frame=(np.array([float(x) for x in frame.split(",")])
                        if frame else None),

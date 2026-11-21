@@ -19,11 +19,11 @@ caption: The mirrored pair will happily go on the wrong sides. Check the letter 
 
 - **Ch 01** is done: the frame is square, re-checked after the final tightening, and the bed extrusions sit **65 mm either side of the printer's centreline** (130 mm clear between their inner faces, 150 mm centre to centre), as set in Step 01.19.
 - **Ch 00** is done: all seven rails are cleaned, packed with grease, wiped and labelled (Steps 00.18–00.21). This chapter uses the four marked Z0–Z3.
-- **Printed parts:** batch **B00** for the rail guides (`MGN9_rail_guide_x2`). Batch **B01** for the drive bodies, retainers, motor mounts, Z-tensioner brackets and deck supports. Batch **B02**, plates P1 to P3, for the blue baseplates, belt tensioners and Z tensioners, which are spread across those three plates; P4 carries nothing for this chapter.
+- **Printed parts:** batch **B00** for the rail guides (`MGN9_rail_guide_x2`), the `pulley_jig` and the first `z_drive_retainer_a`, the Gate B retainer. Batch **B01** for the drive bodies, the other retainers, motor mounts, Z-tensioner brackets and deck supports. Batch **B02**, plates P1 to P3, for the blue baseplates, belt tensioners and Z tensioners, which are spread across those three plates; P4 carries nothing for this chapter.
 - **Optional:** batch **B05** for the rail stops (`z_rail_stop_x4`, Step 02.10). You can skip them and keep the tape.
 - **Kit boxes open:** Motion, Linear Rail Kit and Motor Kit, with hardware trays A to C out.
 - **You can work ahead.** Steps 02.17–02.28 and 02.39–02.40 are bench work that needs only B01, B02 and the Motion and Motor kits. If you can, build all four drives, motor units and idler cages straight after Step 02.04, so the frame goes upside down only for the deck and the corner work (02.11–02.16, 02.29–02.38).
-- **Earliest of all:** Steps 02.27–02.28 (16T pulleys, motors onto their mounts) need only B01-P2 and the Motor Kit, and B01-P2 is on the shelf as soon as B01 is printed. Do them the moment the Motor Kit box is open, and mark each motor cable a or b then.
+- **Earliest of all:** Steps 02.27–02.28 (16T pulleys, motors onto their mounts) need only B01-P2, the B00 `pulley_jig` and the Motor Kit, and B01-P2 is on the shelf as soon as B01 is printed. Do them the moment the Motor Kit box is open, and mark each motor cable a or b then.
 
 **Tools**
 
@@ -157,7 +157,7 @@ Quantities cross-checked against the LDO Rev D+ 350 BOM ([350_BOM/Rev_D+](https:
 
 To tell the hands apart, lay the parts with their cradles (the half-round bearing seats) facing up. The `z_drive_main` cut corner and its two 9 mm screw wells sit far from you on `_a` and near you on `_b`. The retainer's cut corner is near-left on `_a`.
 
-Reprint a warped `z_drive_main` rather than forcing it: it holds the shaft in line for the whole Z axis. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
+Reprint a warped `z_drive_main` rather than forcing it: it holds the shaft in line for the whole Z axis. That is our own quality rule; LDO's printed parts guide does not say it.
 
 Source: [Voron manual p.22](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=22) · [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [print plan](../voron-print-plan.md) · [Video: Part 1 @3:08:47](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11327s)
 
@@ -206,7 +206,7 @@ Source: [Voron manual p.23](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ⚠ The press tip and a freshly set insert both burn. Raise and park the head between inserts, keep the bench ventilated, hold parts by the far edge until they cool, and switch the press off between sessions.
 
-A bulge means the next insert needs the press 10 °C cooler and a slower push, and the retainer gets reprinted. The kit supplies 153 inserts for the whole build. This one is the first of the 36 in the drive parts, and none go into a coupon. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
+LDO's guide asks for plastic that goes very soft but not runny. A bulge means it got too hot: our rule of thumb, not LDO's, is 10 °C cooler and a slower push for the next insert, and the retainer gets reprinted. The kit supplies 153 inserts for the whole build. This one is the first of the 36 in the drive parts, and none go into a coupon. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
@@ -261,7 +261,7 @@ Pause: ~40 min since the last pause — the printed parts are sorted into `a` an
 
 **Helper:** Runs each carriage end to end over the bench and says smooth or notchy.
 
-If a rail was missed, do Ch 00 Steps 00.18–00.20 on it now and let it dry completely before it goes near the frame. The kit includes **no** grease, and the rails ship with a shipping oil, not a lubricant. If you have to prep a rail here, use NLGI 0 or NLGI 1 grease: Super Lube 21030, Mobilux EP1/EP2, or white lithium. Never use a thin oil or a PTFE dry lube. [src](https://docs.ldomotors.com/guides/rail_grease_guide)
+If a rail was missed, do Ch 00 Steps 00.18–00.20 on it now and let it dry completely before it goes near the frame. The kit includes **no** grease, and the rails ship with a shipping oil, not a lubricant. If you have to prep a rail here, use NLGI 0 or NLGI 1 grease: Super Lube 21030, Mobilux EP1/EP2, or white lithium. [src](https://docs.ldomotors.com/guides/rail_grease_guide)
 
 Source: [Voron manual p.24](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=24) · [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -288,9 +288,11 @@ Source: [Voron manual p.24](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** The rail is centred, standing on the key, carriage taped, nine screws started, and holes 1, 19 and 20 empty.
 
-Why holes 2 to 18: manual p.25 draws the smaller printer's 15-hole rail with a screw in every other hole, both end holes included. LDO's note for manual p.88 says not to use the holes on the ends of the rails but the second ones in, and this manual applies it to every rail (survey §4.4 #6). Your 400 mm rail has 20 holes, an even number, so one end keeps two empty holes. No source says which end, and it makes no difference to the rail: count from the bottom so all four rails match. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+Why holes 2 to 18: manual p.25 draws the smaller printer's 15-hole rail with a screw in every other hole, both end holes included. LDO's note for manual p.88 says not to use the holes on the ends of the rails but the second ones in, and this manual applies it to the Z rails too, though LDO's note is written for the Y rails (survey §4.4 #6). Your 400 mm rail has 20 holes, an even number, so one end keeps two empty holes. No source says which end, and it makes no difference to the rail: count from the bottom so all four rails match. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 On the two rear verticals the rail goes on the vertical's front-facing side instead.
+
+Manual p.25 starts with the rear-right vertical; this manual starts at Z0. All four rails are the same, so any corner can go first: what matters is the face each rail goes on.
 
 Source: [Voron manual p.25](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=25) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -459,13 +461,13 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.14 — Fit the deck support clips
 
 ![A deck clip seen along the extrusion, printer upside down: in thin edge first with its 20 mm length along the slot, then turned 90 degrees so its short end lies over the panel's edge](assets/diagrams/205-deck-clip-twist.svg)
-![`deck_support_3mm` — the printed clip; the manual never draws it](assets/parts/deck_support_3mm_x8.png){ width=240 }
+![`deck_support_4mm` — the printed clip; the manual never draws it](assets/parts/deck_support_4mm_x8.png){ width=240 }
 
 **What you're looking at:** The Voron manual never shows these clips; LDO adds them here. [src](https://docs.ldomotors.com/voron/voron2/build-faq) Each `deck_support` is a small T-shaped tab, about 20 × 14.5 × 5.8 mm, with a ledge. Upright, the panel hangs on the eight ledges until Ch 09 screws it down.
 
 **Parts:**
 
-- `deck_support_3mm_x8` ×8
+- `deck_support_4mm_x8` ×8
 
 **Do:**
 
@@ -474,6 +476,8 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 3. Fit two per side, evenly spaced (verify on bench).
 
 **Check:** Eight ledges of the same thickness set lie over the panel's edge, and the panel cannot be lifted out.
+
+The parts list names the 4 mm set, which LDO's notes and the kit's paper sheet call for. If your caliper read 3 mm, take the 3 mm set instead.
 
 The clips twist in, so a wrong set can still be swapped later with the printer upside down, as Ch 09 allows.
 
@@ -496,7 +500,7 @@ Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** You can see the four T-nuts through the four deck holes, free to nudge but not lost inside an extrusion, and the panel lies flat, unscrewed, notch at the back.
 
-If a DIN rail's own slots will not line up when you get there, Ch 09 shortens the DIN rail rather than moving the panel. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts)
+If a DIN rail's own slots will not line up when you get there, Ch 09 shortens the DIN rail by a few mm rather than moving the panel. [src](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=29)
 
 Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=29) · [LDO wiring guide § Installing the DIN Rails and Wire Ducts](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts)
 
@@ -778,7 +782,7 @@ The jig's **Z** tab is its short tab; the letter is printed sideways, so it can 
 
 The pulley may sit better flipped, depending on the motor. What matters is where the teeth end up, not which way its collar faces.
 
-When all four are done, take every remaining 16T pulley off the bench, so one cannot end up on an A or B motor in Ch 04. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+When all four are done, take every remaining 16T pulley off the bench, so one cannot end up on an A or B motor in Ch 04. [src](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=38)
 
 Source: [Voron manual p.38](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=38) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [Video: Part 2 @1:15:06](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4506s)
 

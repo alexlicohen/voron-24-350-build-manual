@@ -29,7 +29,7 @@ caption: Belts that sound alike are not alike. Measure both. My ears are excelle
 - Needle-nose pliers and tweezers for threading the belts (the manual suggests them on p.132)
 - Flush cutters or sharp scissors for the belt; a steel rule or tape of at least 2.2 m; a 150 mm steel rule for the tension span; a marker
 - A phone with a spectrum app, which shows the pitch of a sound: **Spectroid** (Android), **Sound Spectrum Analysis** (iOS), or **Gates Carbon Drive** (both; use its "motorcycle" option) ([Voron tuning docs](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html))
-- Nutopress Pro insert press with its M3 tip, only if the heat-set inserts on p.129 were not done in the batch insert pass. Use the X-Tronic iron with the LDO brass tip only if a part will not fit under the press
+- Nutopress Pro insert press with its M3 tip, only if the heat-set inserts on p.129 and SB p.68 were not done in the batch insert pass. Use the X-Tronic iron with the LDO brass tip only if a part will not fit under the press
 
 **Read first**
 
@@ -63,7 +63,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | M3×12 SHCS | 2 | 1 per X carriage half, in the plain hole beside the belt slot, head 3 mm off the plastic (p.130) |
 | M3×30 SHCS | 4 | 2 carriage bolts (p.140) + 2 probe retainer bracket (p.143) |
 | M3 nut | 2 | right X carriage half, capture the M3×30 carriage bolts (p.129) |
-| M3 heat-set insert | 4 | 1 per X carriage half, in the bottom hole + 2 in `probe_retainer_bracket` (p.129); the M3×12 stop screws do not use them |
+| M3 heat-set insert | 6 | 2 per X carriage half, top and bottom (SB p.68 and the V2TR STLs; p.129 draws only the bottom one) + 2 in `probe_retainer_bracket` (p.129); the M3×12 stop screws do not use them |
 | Inductive probe, Omron TL-Q5MC | 1 | X carriage (p.143) |
 | Fibreglass tape (LDO-supplied) | as needed | probe insulation, front + sides only (LDO note p.143) |
 
@@ -74,7 +74,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - **There is no sourced deflection number.** The official manual gives *no* tension figure at all — only the equal-length rule. The one sourced number in this build's document set is **110 Hz over a 150 mm span** ([Voron secondary tuning](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)). voronldo.com's 80–100 Hz is discarded ([survey §4.3](../voron-build-instructions-survey.md)). Do not substitute a "push it 2 mm with your finger" test — nothing here calibrates it.
 - **Nothing in this chapter is torqued.** The left half clamps the first belt ends at p.131. The right half's belt clamps and the carriage bolts go on lightly, the belts get pulled tight by hand, then those screws are fully tightened (p.140–141; p.141's middle panel highlights only the right half's two M3×8). The manual specifies no torque values; don't invent one.
 - Three LDO deviations land in this page range: the X-carriage variant check (p.129–130), probe insulation (p.143), and p.145 skipped entirely.
-- **The inductive probe is built once, here.** Insulation, fitting, the 6 mm height and the cable route are Steps 07.34–07.37 (manual p.143–144). The tape goes on here and nowhere else: Ch 10 Step 10.30 only confirms it. The lead is never cut: it arrives pre-terminated for the toolhead board, and Ch 08 Step 08.50 plugs it in. Ch 08 otherwise only confirms the decision and bags the Klicky set. The `probe_retainer_bracket` and the fibreglass tape are counted in this chapter's totals, not Ch 08's.
+- **The inductive probe is built once, here.** Insulation, fitting, the 6 mm height and the cable route are Steps 07.34–07.37 (manual p.143–144). The tape goes on here and nowhere else: Ch 10 Step 10.30 only confirms it. The lead is never cut: it arrives pre-terminated for the toolhead board, and Ch 08 Step 08.60 plugs it in. Ch 08 otherwise only confirms the decision and bags the Klicky set. The `probe_retainer_bracket` and the fibreglass tape are counted in this chapter's totals, not Ch 08's.
 
 **Sources for this chapter:**
 
@@ -194,22 +194,23 @@ Pause: ~25 min since the last pause — both belt paths traced against p.126–1
 ### Step 07.6 — Fit the heat-set inserts and M3 nuts
 
 ![Voron manual p.129](assets/manual-pages/manual-p129.png){ crop="0.16 0.22 0.76 0.78" }
+![Stealthburner manual p.68 — two heat-set inserts in each carriage half, two in the retainer bracket, two M3 nuts](assets/sb-pages/sb-p068.png){ crop="0.12 0.24 0.86 0.84" }
 ![X carriage halves — the handed left/right pair](assets/parts/pair-x_frame_V2TR_MGN12.png)
 
-**What you're looking at:** Four heat-set inserts go in here: one in each X carriage half and two in the probe retainer bracket. A heat-set insert is a knurled brass sleeve melted into the plastic to give a screw metal threads.
+**What you're looking at:** Six heat-set inserts (brass sleeves melted into the plastic) go in: **two** in each X carriage half and two in the probe retainer bracket. p.129 draws one per half; SB p.68 adds the second, for the Clockwork's mounting screws.
 
 **Parts:**
 
 - `x_frame_V2TR_MGN12_left` ×1
 - `x_frame_V2TR_MGN12_right` ×1
 - `probe_retainer_bracket` ×1
-- M3 heat-set insert ×4
+- M3 heat-set insert ×6
 - M3 nut ×2
 
 **Do:**
 
 1. Confirm you printed `x_frame_V2TR_MGN12_left` and `x_frame_V2TR_MGN12_right`, the R2 / Stealthburner halves, not the ones for the older Afterburner toolhead.
-2. If the inserts went in during the Ch 00 pass, check them; otherwise set all four flush and square to the face.
+2. If the inserts went in during the Ch 00 pass, check all six; otherwise set them flush and square to the face.
 3. Press the two M3 nuts into their pockets in the right carriage half.
 
 **Check:** inserts flush and square, nuts fully seated with no gap behind them, and an M3 screw starting by hand in every insert.
@@ -218,7 +219,7 @@ Pause: ~25 min since the last pause — both belt paths traced against p.126–1
 
 This is LDO's kit note for these pages: *"If you are building Clockwork 2 double-check that you have the correct X-Carriage and follow the instructions in the Stealthburner manual."* [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.129–130)
 
-Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129) · [SB manual p.68](https://github.com/VoronDesign/Voron-Stealthburner/blob/1572a42e6df5d2f0ddf04a2145be4dc9c3693723/Manual/Assembly_Manual_SB.pdf#page=68) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
 ### Step 07.7 — Set the two carriage stop screws to 3 mm
 
@@ -232,7 +233,7 @@ Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. In each carriage half, thread one M3×12 into the plain hole beside the belt slot shown on p.130, not into the heat-set insert at the bottom.
+1. In each carriage half, thread one M3×12 into the plain hole beside the belt slot shown on p.130, not into either heat-set insert.
 2. Stop when the head stands 3 mm off the plastic. Measure it with the caliper's depth blade.
 
 **Check:** both screws at 3 mm ±0.5 mm, and the same on both halves.
@@ -706,8 +707,8 @@ This tension is provisional: the squaring procedure starts by releasing it compl
 ### Step 07.30 — Set the 150 mm measuring span
 
 ![Top view of the right front corner: the run to pluck, 150 mm centre to centre between the XY joint's toothed idler and the front idler, and the tensioner screw, clockwise from the front for tighter, anticlockwise for looser](assets/diagrams/702-belt-span-150.svg)
-![CAD render — the two centres the 150 mm is measured between](assets/cad/07-30-a.png)
-![CAD render — the two centres the 150 mm is measured between, in place](assets/cad/07-30-b.png)
+![CAD render — left side: the XY joint idler, the front idler and the belt run between them that you pluck](assets/cad/07-30-a.png)
+![CAD render — both sides in place: on each side the run you pluck goes from the XY joint idler to the front idler](assets/cad/07-30-b.png)
 
 **What you're looking at:** A plucked belt's pitch depends on the length of free belt that vibrates, its span, so a frequency means nothing without it. The span runs between the idler in the XY joint and the idler in the front idler block.
 
@@ -721,8 +722,6 @@ This tension is provisional: the squaring procedure starts by releasing it compl
 **Check:** 150 mm on the left and 150 mm on the right, measured to the same features.
 
 **Helper:** Holds the rule between the two idler centres and reads the number aloud on each side.
-
-The two CAD pictures show a parked 250 machine, not the measuring position. Take which two centres to use from them, and take the number from the rule.
 
 Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [Voron manual p.141](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=141) · [Video: Part 6 @0:10:08](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=608s) · CAD: Voron 2.4r2 STEP @ de7e89d
 

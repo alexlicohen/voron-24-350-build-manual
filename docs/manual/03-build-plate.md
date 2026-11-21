@@ -4,7 +4,7 @@
 
 You prepare the heated build plate, 355 × 355 × 10 mm, and fasten it to the bed extrusions. That gives the frame its datum, the flat surface everything else is measured from, and leaves the plate's three leads loose above the deck, ready for the bed WAGO mount in Ch 09.
 
-**What you're building in this chapter:** The heated bed, a stack of four parts. The **build plate** is a cast aluminium slab, ground flat, 355 × 355 × 10 mm. Fitted to its underside are a silicone **heater pad**, bonded and screwed, that runs on mains power, and a 125 °C **thermal fuse** screwed to a bare strip of aluminium by the cable exit. Both come fitted at the factory on this kit, so two pages of the Voron manual become inspections. On top goes the **magnetic pad**, a magnetised sheet with an adhesive back, which you stick down here unless it arrives already on. The **flex plate** drops onto the magnet: a removable sheet of spring steel that prints stick to, and that you flex to pop a finished part off. The stack rests on four **thumb nuts**, used as spacers, on the two bed extrusions from Ch 01, and four screws hold it. Only one of them is ever tightened: the other three let a 355 mm aluminium plate grow as it heats instead of buckling. Nothing is wired here. The plate's three short leads stay loose **above** the deck, ready for the bed WAGO mount that Ch 09 fits on the left bed extrusion.
+**What you're building in this chapter:** The heated bed, a stack of four parts. The **build plate** is a cast aluminium slab, ground flat, 355 × 355 × 10 mm. Fitted to its underside are a silicone **heater pad**, bonded and screwed, that runs on mains power, and a 125 °C **thermal fuse** screwed to a bare strip of aluminium by the cable exit. Both come fitted at the factory on this kit, so two pages of the Voron manual become inspections. On top goes the **magnetic pad**, a magnetised sheet with an adhesive back, which you stick down here unless it arrives already on. The **flex plate** drops onto the magnet: a removable sheet of spring steel that prints stick to, and that you flex to pop a finished part off. The stack rests on four **thumb nuts**, used as spacers, on the two bed extrusions from Ch 01, and four screws hold it. Only one of them is ever tightened: the other three let a 355 mm aluminium plate grow as it heats without extra stress. Nothing is wired here. The plate's three short leads stay loose **above** the deck, ready for the bed WAGO mount that Ch 09 fits on the left bed extrusion.
 
 ```mascot
 pose: check
@@ -37,7 +37,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 - **The heater pad and the thermal fuse are already on your plate.** Manual p.55 and p.56 become inspections: do not peel, re-seat or re-screw anything.
 - **You get one try at the magnet.** Read all of Step 03.9 before you peel anything, and cut it clear of the four screw holes straight after you press it down, before any screw goes in.
 - **Use M3×20 SHCS, not the manual's M3×16.** This plate and its spacers are thicker.
-- **Tighten only one of the four screws.** A plate clamped hard at all four corners while cold, then heated fast, bends into a curve for good.
+- **Tighten only one of the four screws.** The manual leaves the other three slightly loose so the plate can grow as it heats without extra stress.
 - **Wire nothing, and feed no lead through the deck.** The plate's three leads stay loose above the deck for Ch 09 and Ch 10. If a part is missing, damaged or wrong, stop and ask (see the notes below).
 
 <!-- reference -->
@@ -68,7 +68,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 - Trim the magnet at the four bolt holes **immediately after** you roll it down and **before** you bolt anything. Discovering it at p.59 means peeling the magnet or drilling through it (survey §5.2 W6).
 - Use **M3×20 SHCS**, not the manual's M3×16 — this plate and these spacers are thicker. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 - The magnet goes on with the hinge method at Step 03.9 — one shot; read the whole step before you peel anything.
-- Only one of the four bolts gets tightened (p.59). A bed clamped hard at all four corners while cold, then heated fast, tacos.
+- Only one of the four bolts gets tightened (p.59): the loose three let the plate expand as it heats "without putting additional stress on the plate".
 - A part missing, damaged or wrong: stop, photograph it and ask Fabreeko. Questions about LDO's own parts go to [`#ldo_motors`](https://discord.com/channels/460117602945990666/710952853514223617). Both are set up at [Step 00.31](00-before-you-start.md#step-0031-join-the-three-lifelines-now).
 - No wiring happens here, and **no bed lead goes through the deck**. Manual p.60 feeds the bed wires through the opening; this kit's plate leads end at the bed WAGO breakout above the deck (Ch 09), and only the kit's extension leads go below, in Ch 10. Leave the three leads loose above the deck. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
@@ -139,7 +139,7 @@ Source: [Voron manual p.53](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.54](assets/manual-pages/manual-p054.png)
 
-**What you're looking at:** The top face comes under a protective film. The Voron manual never mentions it; LDO adds this step [src](https://docs.ldomotors.com/voron/voron2/build-faq). It has to come off now, because the magnet's adhesive will not bond through it. Underneath, the aluminium is Blanchard-ground: machined flat by a spinning grinder, which leaves a swirl pattern.
+**What you're looking at:** The top face comes under a protective film. The Voron manual never mentions it; LDO adds this step [src](https://docs.ldomotors.com/voron/voron2/build-faq). It has to come off now, because the magnet's adhesive will not bond through it. Underneath, the aluminium is Blanchard-ground: machined flat by a spinning grinder, which leaves a swirl pattern. If your magnet came already fitted, skip this step, 03.7 and 03.8.
 
 **Parts:**
 
@@ -248,7 +248,9 @@ Pause: ~30 min since the last pause — the plate is unpacked, you know its top 
 
 **Helper:** Holds a torch behind the straightedge and says if any light shows under it.
 
-The plate is cast 5083 aluminium, Blanchard-ground, and deliberately thick and stress-relieved. A dish you can see here is one the mesh has to work around on every print. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
+If the magnet came already fitted, this check cannot be done: skip it.
+
+The plate is cast 5083 aluminium, 10 mm thick and Blanchard-ground. A dish you can see here is one the mesh has to work around on every print. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 Source: [Voron manual p.53](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=53) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
@@ -277,6 +279,8 @@ Source: [Voron manual p.53](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Helper:** Holds the plate flat on the towel and checks afterwards for missed patches.
 
+If the magnet came already fitted, skip this step: the cleaning is for the magnet's adhesive.
+
 Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=54)
 
 ---
@@ -303,9 +307,11 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** The pad lies square, with no bubbles or wrinkles, and the hinge tape is off.
 
-Past the first few centimetres the pad will not move. Bubbles worked out to an edge come out; ones in the middle do not.
+Expect the pad not to move once more than the first strip is stuck, and work bubbles out to the nearest edge as you go: one left in the middle tends to stay.
 
-Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=54) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [magnet lamination demo](https://voron.link/rm6tpld)
+Manual p.54 only says to press the magnet down firmly with a plastic edge or a small roller, and links a video guide. That video was not checked for this step, so nothing here rests on it: the tape hinge, the liner strip, the edge alignment and the notes on bubbles are our own way of doing what p.54 asks.
+
+Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=54) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [magnet lamination demo](https://voron.link/rm6tpld) (linked from p.54, not checked)
 
 ---
 
@@ -330,6 +336,8 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 3. Do not gouge the aluminium: a rough raised edge (a **burr**) stops the screw head sitting flush.
 
 **Check:** All four counterbores are fully open, each tested with an M3×20 SHCS and the hex key.
+
+A factory-fitted magnet may come with its holes already cut (verify on bench). Cut only where one is still covered.
 
 Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=54) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -489,7 +497,7 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![The plate from above: the front-left screw tight, the other three slightly loose, and the plate growing away from the tight one as it heats](assets/diagrams/306-one-screw-tight.svg)
 ![Voron manual p.59](assets/manual-pages/manual-p059.png){ crop="0.12 0.57 0.83 0.89" }
 
-**What you're looking at:** The manual's DON'T TIGHTEN rule holds for this kit. One screw fixes the plate's position; the other three stay slightly loose so the aluminium can grow as it heats while the frame under it stays cooler. Clamped at all four corners and taken to 110 °C, a plate this size buckles for good.
+**What you're looking at:** The manual's DON'T TIGHTEN rule holds for this kit. One screw fixes the plate's position; the other three stay slightly loose so the aluminium can grow as it heats while the frame under it stays cooler. The manual's reason: it expands "without putting additional stress on the plate".
 
 **Parts:**
 
@@ -581,6 +589,8 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** The flex plate sits flat with no rocking and does not overhang the magnet on any side, and the bed is covered.
 
+Lift the cardboard off before the printer is turned over in Ch 09, or it falls inside the frame.
+
 Source: [Voron manual p.52](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=52) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 Pause: ~20 min since the last pause — the four corner gaps are checked, the plate's leads lie loose above the deck with nothing tied or connected, and the flex plate has been tried, taken off, and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.
@@ -600,7 +610,7 @@ Pause: ~20 min since the last pause — the four corner gaps are checked, the pl
 - [ ] Four **M3×20** SHCS are fitted, not M3×16: **one** tight, three loose on purpose.
 - [ ] The plate's front edge is 38 mm behind the front edge of the frame at both corners.
 - [ ] The gap is equal under all four corners, the plate does not rock, and it clears every vertical and Z rail.
-- [ ] The straightedge check was done before the magnet went on, with no gap you could slide paper under.
+- [ ] The straightedge check was done before the magnet went on, with no gap you could slide paper under, or the magnet came factory-fitted and the check was skipped.
 - [ ] The three bed leads lie loose **above** the deck with slack, none through it, nothing connected, pinched or tied.
 - [ ] The flex plate was tried and taken off, and the bed is covered for the rest of the build.
 
@@ -608,7 +618,7 @@ Pause: ~20 min since the last pause — the four corner gaps are checked, the pl
 
 - **Sticking the magnet over the screw holes and noticing only at p.59.** Then the fix is peeling the magnet off for a new one or drilling through it, and both are bad. Cut the holes clear at Step 03.10.
 - **Using the M3×16 the manual calls for.** Through a 10 mm plate plus a spacer it catches barely any thread, and it strips the T-nut the first time you tighten it. Use M3×20.
-- **Tightening all four screws because three loose ones feel wrong.** The plate bends into a curve the first time it heats fast to 110 °C, and it never comes flat again.
+- **Tightening all four screws because three loose ones feel wrong.** The plate then cannot grow freely as it heats, and the manual leaves three loose to keep that stress off it (p.59). Loosen all but the front-left one.
 - **Trying to "fix" the factory-fitted heater or fuse.** Peeling a bonded heater pad to re-seat it ruins it. Inspect only, and ask in `#ldo_motors` if something looks wrong.
 - **Wiring the bed here, or feeding its leads through the deck.** The plate's leads end at the bed WAGO mount above the deck (Ch 09) and are connected in Ch 10. Connecting or threading them now means undoing them later.
 - **Leaving the magnet uncovered while you build above it.** The gantry and belts of the next six chapters go together right over it, so dropped hex keys, metal shavings and threadlocker land on it, and the shavings cling. Keep the cardboard on. The magnet is not a print surface either: you print on the flex plate.

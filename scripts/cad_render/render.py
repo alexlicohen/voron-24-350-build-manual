@@ -314,10 +314,22 @@ def outline(idbuf, mask, strength=0.55):
 
 def render(scene, sel, out_png, mode, azim, elev, W, H, ss, ctx_scale,
            labels=True, title=None, subtitle=None, note=None, shift=None,
-           ghost_exclude=None, frame=None, colours=None):
+           ghost_exclude=None, frame=None, colours=None, anchors=None,
+           label_ys=None):
     """`colours`, if given, is one RGB triple per `sel` group, replacing the
     PALETTE cycle. The chapter renders use it to say new-vs-already-built with
-    two colours instead of one colour per group."""
+    two colours instead of one colour per group.
+
+    `anchors`, if given, is one world point (x, y, z) or None per `sel` group.
+    A group with a point gets its leader on the visible pixel of the group
+    nearest that point, instead of the one nearest the group's pixel median.
+    The median is fine for a compact part; on a long one (a belt loop, a frame
+    rail) it lands on whichever run is most central, not the run or corner the
+    label names.
+
+    `label_ys`, if given, is one fraction of the image height or None per `sel`
+    group: that group's label box is centred there instead of in its evenly
+    spaced slot, for a slot that falls on a highlighted part."""
     t0 = time.time()
     hi_ids = [i for _, ids in sel for i in ids]
     hi_col = {}
@@ -393,11 +405,22 @@ def render(scene, sel, out_png, mode, azim, elev, W, H, ss, ctx_scale,
     img = img.reshape(H, ss, W, ss, 3).mean(axis=(1, 3))
     idsmall = idbuf[::ss, ::ss]
 
-    _annotate(img, idsmall, sel, hi_col, out_png, W, H, labels, title, subtitle, note)
+    hints = None
+    if anchors and any(a is not None for a in anchors):
+        hints = []
+        for a in anchors:
+            if a is None:
+                hints.append(None)
+                continue
+            p = project(np.array([a], float), M, centre, scale, Ws, Hs)[0]
+            hints.append((p[0] / ss, p[1] / ss))
+    _annotate(img, idsmall, sel, hi_col, out_png, W, H, labels, title, subtitle, note,
+              hints, label_ys)
     print(f"    wrote {out_png}  [{time.time()-t0:.1f}s]", flush=True)
 
 
-def _annotate(img, idsmall, sel, hi_col, out_png, W, H, labels, title, subtitle, note):
+def _annotate(img, idsmall, sel, hi_col, out_png, W, H, labels, title, subtitle, note,
+              hints=None, label_ys=None):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -411,19 +434,24 @@ def _annotate(img, idsmall, sel, hi_col, out_png, W, H, labels, title, subtitle,
 
     if labels:
         anchors = []
-        for pat, ids in sel:
+        for k, (pat, ids) in enumerate(sel):
             ys, xs = np.where(np.isin(idsmall, ids))
             if len(xs) == 0:
                 continue
-            mx, my = np.median(xs), np.median(ys)
+            if hints and hints[k] is not None:
+                mx, my = hints[k]                            # see render(anchors=)
+            else:
+                mx, my = np.median(xs), np.median(ys)
             j = np.argmin((xs - mx) ** 2 + (ys - my) ** 2)   # a pixel really on the part
-            anchors.append((float(xs[j]), float(ys[j]), pat, hi_col[ids[0]]))
+            anchors.append((float(xs[j]), float(ys[j]), pat, hi_col[ids[0]], k))
         left = sorted([a for a in anchors if a[0] < W / 2], key=lambda a: a[1])
         right = sorted([a for a in anchors if a[0] >= W / 2], key=lambda a: a[1])
         for col, xs_lab, ha in ((left, 16, "left"), (right, W - 16, "right")):
             n = len(col)
-            for i, (ax_, ay, txt, c) in enumerate(col):
+            for i, (ax_, ay, txt, c, k) in enumerate(col):
                 ly = H * (0.10 + 0.80 * ((i + 0.5) / max(n, 1)))
+                if label_ys and label_ys[k] is not None:
+                    ly = H * float(label_ys[k])              # see render(label_ys=)
                 ax.annotate(txt, xy=(ax_, ay), xytext=(xs_lab, ly), ha=ha,
                             va="center", fontsize=11.5, color="#101010",
                             arrowprops=dict(arrowstyle="-", color=c, lw=1.6,

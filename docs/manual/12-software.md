@@ -57,7 +57,7 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 **Notes behind "Read first"**
 
-- **Use `leviathan-printer-rev-d-sbv2.cfg`, never `leviathan-printer-rev-d.cfg`.** The Rev D wiring guide links the wrong one. Every `nhk:` pin differs because the toolboard MCU changed family. Klipper checks every pin name against the board it is sent to, so the V1 file does not mis-drive anything — it refuses to start at Step 12.37 with `Pin 'gpio23' is not a valid pin name on mcu 'nhk'`. The one-line identity check is `grep -c gpio printer.cfg`: **0** on the V2 file, **20** on the V1 file (survey §4.1 ①).
+- **Use `leviathan-printer-rev-d-sbv2.cfg`, never `leviathan-printer-rev-d.cfg`.** The Rev D wiring guide links the wrong one. Every `nhk:` pin differs because the toolboard MCU changed family. Klipper checks every pin name against the board it is sent to, so the V1 file does not mis-drive anything — it refuses to start at Step 12.37 with `Pin 'gpio21' is not a valid pin name on mcu 'nhk'`, or, before the 350 edits, with `Option 'probe_points' in section 'resonance_tester' must be specified`. The one-line identity check is `grep -c gpio printer.cfg`: **0** on the V2 file, **20** on the V1 file (survey §4.1 ①).
 - **The toolboard is an STM32G0B1, not an RP2040.** The wiring guide's sentence *"The Nitehawk uses an RP2040 MCU"* is stale. Its USB ID will read `usb-Klipper_stm32g0b1xx_…`. Match on that string, not on `rp2040` (survey §4.1 ②).
 - **The stock config ships with every build-size option commented out and no `[bed_mesh]` at all.** Six separate places need the 350 mm lines uncommented, and the mesh section has to be written from scratch (survey §4.4 #15). You do all of it on the bench as **`printer-350.cfg`**: 12.14 writes its own test `printer.cfg`, and 12.23 renames yours over it, so the test can never overwrite your edits.
 - **Confirm which Leviathan you have before you run `make menuconfig`.** LDO shipped an **STM32F446** Leviathan (V1.1/V1.2) and later an **STM32H743** one (V1.3). Processor model, clock reference and bootloader offset all differ; the wrong combination produces firmware that will not run. Step 12.13 settles it from the board itself.
@@ -154,6 +154,8 @@ Pause: ~15 min since the last pause (pre-kit) — the bought microSD carries Mai
 
 **Check:** You can find the Pi's SD slot and its Ethernet port, and you have a way to power it that is not the printer's mains.
 
+The build index runs Part 1 on kit day, before Ch 09 mounts the Pi. If yours is already on the Leviathan, unscrew it from its standoffs and lift off the HAT power adapter for Part 1, then refit both as at 09.22–09.23 before 12.11.
+
 ⚠ **Rev D+ / LDO:** the Leviathan feeds the Pi from its own dedicated Pi power rail, so on the assembled machine "power the Pi" means "switch on the printer". That first happens at Step 12.11, after Checkpoint #1. Part 1 never powers the printer: it is bench work on the Pi alone (survey §4.4 #8). [src](https://github.com/MotorDynamicsLab/Leviathan)
 
 Source: [MainsailOS install docs](https://docs.mainsail.xyz/mainsailos/getting-started/raspberry-pi/) · [LDO Leviathan repo](https://github.com/MotorDynamicsLab/Leviathan) · [Raspberry Pi docs image `4-model-b.jpg`](https://github.com/raspberrypi/documentation/blob/34dfb87/documentation/asciidoc/computers/raspberry-pi/images/4-model-b.jpg) (CC-BY-SA-4.0)
@@ -196,6 +198,8 @@ Source: [MainsailOS first boot](https://docs.mainsail.xyz/mainsailos/getting-sta
 2. In a terminal on your laptop, run `ssh <youruser>@voron.local`.
 
 **Check:** Mainsail's page loads, its error names the missing `printer.cfg`, and your SSH session lands at a shell prompt, the line where you type commands.
+
+Replace all of `<youruser>`, angle brackets included, with the username you set in Imager.
 
 Source: [LDO Rev D photo, Mainsail Machine page](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/mainsail_machine.png) · [MainsailOS first boot](https://docs.mainsail.xyz/mainsailos/getting-started/first-boot/) · [Video: Part 9 @1:06:04](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3964s)
 
@@ -607,7 +611,7 @@ grep -c '^probe_points:' printer-350.cfg            # 1  (resonance_tester)
 grep -c '^    G0 X175 Y175 Z30' printer-350.cfg     # 1  (G32)
 ```
 
-Expect `2 / 1 / 1 / 1 / 1`. A `0` means a block is still commented; a `2` where `1` is expected means a second size was uncommented as well.
+Expect `2 / 1 / 1 / 1 / 1`. A `0` means a block is still commented; a `2` where `1` is expected means a second size was uncommented as well. Run after 12.36, the last line prints 2, because `PRINT_START` repeats the same move.
 
 The config header calls this *"Homing end position — `[gcode_macro G32]` section"*. This kit does **not** use a `[homing_override]` block: homing behaviour lives in `[safe_z_home]` (Step 12.33) and this G32 macro. Do not add a `[homing_override]`: a wrong one drives the nozzle into the bed. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
@@ -689,7 +693,7 @@ samples_tolerance_retries: 3
 
 **Check:** Exactly one live `[probe]` section is left: `grep -c '^\[probe\]' printer-350.cfg` returns 1.
 
-The PROBE port on the Nitehawk-SB **V2** is **JST-PH2.0**, not the JST-XH2.5 the wiring guide describes, so a short lead (pigtail) crimped to XH2.5 will not fit (survey §4.1 ③). The fibreglass tape goes on the **front and sides** of the Omron only, never the back or bottom, or it will not sense. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) · [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
+The PROBE port on the Nitehawk-SB **V2** is a 3-pin **JST-PH2.0**. LDO's V2 change list says the Probe, TH0 and XY endstop ports moved from JST-XH2.5 to JST-PH2.0, so a short lead (pigtail) crimped to XH2.5 will not fit (survey §4.1 ③). The fibreglass tape goes on the **front and sides** of the Omron only, never the back or bottom, or it will not sense. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) · [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L308-326) · [Klipper docs § probe](https://www.klipper3d.org/Config_Reference.html#probe) · [Nitehawk-SB V2 doc § Port and pin definitions](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#port-and-pin-definitions) · [Video: More Extras! @3:24:00](https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12240s) (differs: Euclid probe (Klicky fitted later, Part 11); this kit uses the Omron inductive probe + LDO nozzle probe, Klicky bagged)
 
@@ -769,6 +773,8 @@ gcode_id: chamber_th
 **Check:** Mainsail's temperature panel, after Step 12.37, shows **bed** and **chamber** within about 2 °C of room temperature.
 
 If the chamber reads wrong while the bed and hotend read correctly, suspect the CT port's pull-up resistor. LDO's board-level config for that port specifies `pullup_resistor: 4700`, Klipper's default, which is why the kit config leaves the line out. Add an explicit value only if the reading is wrong.
+
+The two LDO files also disagree on the chamber thermistor's type: the kit config says `ATC Semitec 104NT-4-R025H42G`, LDO's board-level `nitehawk-sbv2.cfg` says `Generic 3950`. Both read alike at room temperature, so the check above cannot tell them apart; read the type off the thermistor or its bag and keep the matching name `(verify on bench)`. A 3950 read as a 104NT would read a few degrees low in the 45–60 °C chamber range, by our own estimate. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Configs/nitehawk-sbv2.cfg)
 
 `max_power: 0.6` on the bed is deliberate: a 355×355 heat pad at full power warps the plate. Do not raise it. The Leviathan README specifies *"4x Thermistor ports with 2k2 ohm pullup resistors"*, which is where the bed's `2200` comes from. [src](https://github.com/MotorDynamicsLab/Leviathan) · [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Configs/nitehawk-sbv2.cfg)
 
@@ -904,7 +910,7 @@ horizontal_move_z: 10
 ##  mesh_min / mesh_max are PROBE coordinates, not nozzle coordinates.
 ##  The Omron sits at y_offset +25, so the toolhead goes to (X, Y-25):
 ##  mesh_min Y 40 -> toolhead Y 15;  mesh_max Y 310 -> toolhead Y 285. Both legal.
-##  40/310 is the Voron reference inset for a 350 (keeps probe points off the bed clips).
+##  40/310 and 175,175 are the Voron docs' sample values for a 350 (Secondary Printer Tuning).
 mesh_min: 40, 40
 mesh_max: 310, 310
 probe_count: 7, 7
@@ -924,6 +930,8 @@ adaptive_margin: 5
 `zero_reference_position` is not optional here, because `[probe] z_offset: 0`: LDO's own comment says *"This probe is not used for Z height, only Quad Gantry Leveling"*. A mesh built with an uncalibrated probe carries the probe's trigger height as a constant offset on every point. `zero_reference_position` subtracts the mesh value at the named point from the whole mesh, which makes it purely relative and safe to apply on top of a nozzle-probe Z0. [src](https://www.klipper3d.org/Config_Reference.html#bed_mesh)
 
 7×7 with `[probe] samples: 3` is 147 probes and takes a while. Use `BED_MESH_CALIBRATE SAMPLES=2` for routine meshes, and `ADAPTIVE=1` (as PRINT_START does below) to mesh only the area the print actually covers, which is what makes a mesh before every print practical on a 350 (survey §4.4 #15). [src](https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate)
+
+Where the other values come from: `mesh_min`, `mesh_max` and `zero_reference_position` are the Voron docs' sample for a 350. That sample probes `5,5` and starts the fade at `0.6`; the 7×7 grid here is our choice, denser on a big bed and odd, so one point lands on the centre. `fade_start: 1.0` is Klipper's default, `fade_target: 0` makes the fade converge on the homed Z, as Klipper's reference says, and `adaptive_margin: 5` probes 5 mm around the printed objects. [src](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [src](https://www.klipper3d.org/Config_Reference.html#bed_mesh)
 
 Source: [Klipper docs § bed_mesh](https://www.klipper3d.org/Config_Reference.html#bed_mesh) · [Klipper docs § BED_MESH_CALIBRATE](https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate)
 
@@ -991,7 +999,7 @@ gcode:
     {% set bed      = params.BED|default(100)|float %}
     {% set extruder = params.EXTRUDER|default(240)|float %}
     {% set chamber  = params.CHAMBER|default(0)|float %}
-    {% set soak     = params.SOAK|default(8)|int %}
+    {% set soak     = params.SOAK|default(10)|int %}
     {% set filament = params.FILAMENT|default("")|string|upper %}
     {% set filtered = ["ABS", "ASA", "HIPS", "PC", "PA", "PP", "FLEX"] %}
     {% set filter   = filament == "" or filament in filtered %}
@@ -1071,7 +1079,7 @@ gcode:
 
 `FILAMENT=` comes from the slicer profile Ch 13 makes. `filtered` is Prusa's own filtration list for the Core One (ASA, ABS, HIPS, PC, PP, FLEX) plus PA; PLA, PETG and PVB print with the Nevermore off, which spares its carbon. After a filtered print, `PRINT_END` keeps the Nevermore running for `scrub_min` minutes, then stops it; the next filtered print cancels that timer, and an unfiltered one lets it finish. `PRINT_END` already ends with `BED_MESH_CLEAR`, which pairs with the mesh you just added.
 
-The order is bed heat and soak first, then QGL hot, then the mesh. That matches the Voron wizard's own order and the rule that a machine still settling in temperature will not QGL repeatably (survey §3.3, §4.4 #16). `SET_DISPLAY_TEXT` needs `[display_status]`, which arrived with `[include mainsail.cfg]`. [src](https://docs.vorondesign.com/build/startup/)
+The order is bed heat and soak first, then QGL hot, then the mesh. That matches the Voron wizard's own order and the rule that a machine still settling in temperature will not QGL repeatably (survey §3.3, §4.4 #16). The timed soak defaults to 10 minutes, the low end of Voron's *"typically a cold printer takes 10-20 minutes to stabilize at temperature"*; pass `SOAK=` with the minutes your own machine needs once Ch 14's soak has shown it. `SET_DISPLAY_TEXT` needs `[display_status]`, which arrived with `[include mainsail.cfg]`. [src](https://docs.vorondesign.com/build/startup/)
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L621-628) · [Klipper docs § TEMPERATURE_WAIT](https://www.klipper3d.org/G-Codes.html#temperature_wait) · [Voron startup wizard](https://docs.vorondesign.com/build/startup/)
 
@@ -1120,7 +1128,9 @@ grep -H . /sys/class/drm/card*-*/status | grep :connected
     No `DSI-1` line or no picture: switch off and check the ribbon first, with both latches
     closed, contacts facing up at the screen and forward at the Pi. Then check
     `display_auto_detect=1` again. If both are right and the panel is still missing, add
-    `dtoverlay=vc4-kms-dsi-7inch` to `config.txt` and reboot. Each layer is turned in its own
+    `dtoverlay=vc4-kms-dsi-7inch` to `config.txt`, delete its `display_auto_detect=1` line, as the
+    Raspberry Pi docs say for that overlay, and reboot. Whether this panel takes the official
+    display's overlay is `(verify on bench)`: if it still shows nothing, undo both. Each layer is turned in its own
     file. Boot text upside down for the way the module is mounted: change `rotate=180` to
     `rotate=0` in `cmdline.txt` and reboot; the valid rotations are 0, 90, 180 and 270.
     KlipperScreen upside down: in 12.10's `90-monitor.conf` change `"inverted"` to `"normal"`
@@ -1227,6 +1237,8 @@ grep -E "Loaded MCU|Protocol error|mismatch|Unknown command|Unable to" ~/printer
 | `MCU Protocol error`, with `mcu` under *MCU(s) which should be updated* and a last line `mcu 'mcu': Command format mismatch` or `Unknown command` | build below, flash at 12.15 |
 | `Unable to connect`, or 12.12 found no `usb-Klipper_` Leviathan line | build below, flash at 12.15 |
 
+Replace all of `<id>`, angle brackets included. `Unable to connect` with `<id>` still in the file is that slip, not the board: fix the line and restart before you build anything.
+
 This test file never touches your bench `printer-350.cfg`; 12.23 renames that over it. To build: stop Klipper so it lets go of the serial ports, then configure. `KCONFIG_CONFIG=` keeps this board's settings in `~/klipper/config.leviathan` instead of the shared `.config`, so the toolboard build cannot overwrite them:
 
 ```bash
@@ -1265,7 +1277,7 @@ make KCONFIG_CONFIG=config.leviathan
 cp config.leviathan ~/printer_data/config/
 ```
 
-**Check:** Either Mainsail showed Ready and you skip to 12.17, or the screen showed `Clock Reference (12 MHz crystal)` or `25 MHz` before saving, the build ends `Creating hex file out/klipper.bin`, and `config.leviathan` is in Mainsail.
+**Check:** Either Mainsail showed Ready and you skip to 12.17, or the screen showed `Clock Reference (12 MHz crystal)` or `25 MHz` before saving, the build ends `Creating bin file out/klipper.bin`, and `config.leviathan` is in Mainsail.
 
 ⚠ **Rev D+ / LDO:** the bootloader offset is dangerous: build with **no** offset and the Katapult flash wipes the bootloader, recoverable only through DFU at Step 12.16. The clock is the sneaky one: a wrong clock or processor flashes cleanly, then the board never returns as `usb-Klipper_…`. Recover at 12.15, fix menuconfig, rebuild, flash again. [src](https://ldomotion.com/p/guide/VORON-Leviathan-V12) · [src](https://ldomotion.com/guides/voron-leviathan-v1-3) · [src](https://github.com/Klipper3d/klipper/blob/f0892d8/src/stm32/Kconfig#L351)
 
@@ -1433,7 +1445,7 @@ Source: [Nitehawk-SB V2 doc § Uploading Klipper via make flash](https://docs.ld
 
 **Parts:** none.
 
-**Do:** Only if `make flash` failed.
+**Do:** Only if `make flash` failed. If you skipped 12.15, run its first three lines first: they install `~/katapult` and `~/katapult-env`, which this step uses.
 
 1. Move the toolhead to the front and open its cover, so you can reach **RESET** and **BOOT0** and see the five LEDs: 3V3, 24V, HE0, ACT, HUB.
 2. **Double-click RESET quickly**; the ACT LED blinks slowly.
@@ -1492,7 +1504,7 @@ Copy both full paths, including the `-if00` ending, somewhere you can paste from
 
 **Check:** Exactly two lines are listed, both containing `usb-Klipper_`, one `stm32g0b1xx` and one `stm32f446xx`/`stm32h743xx`, and no `katapult` entries are left.
 
-If `ls /dev/serial/by-id/*` comes back empty on a machine that was working a moment ago, investigate that first: it is a known `udev` failure mode on older Pi OS releases. On MainsailOS 3.x you should not hit it; if you do, check `dmesg | tail` for USB enumeration errors, where the Pi failed to recognise a device, before touching the config (survey §4.3). [src](https://docs.ldomotors.com/guides/klipper_id)
+If `ls /dev/serial/by-id/*` comes back empty on a machine that was working a moment ago, investigate that first: check `dmesg | tail` for USB enumeration errors, where the Pi failed to recognise a device, before touching the config (survey §4.3).
 
 Source: [LDO Klipper-ID guide](https://docs.ldomotors.com/guides/klipper_id) · [LDO wiring guide § Determining the USB ID of your mainboard and toolboards](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#determining-the-usb-id-of-your-mainboard-and-toolboards)
 
@@ -1502,7 +1514,7 @@ Source: [LDO Klipper-ID guide](https://docs.ldomotors.com/guides/klipper_id) · 
 
 ![The stm32f446xx line goes into the mcu section, the stm32g0b1xx line into mcu nhk](assets/diagrams/1204-serial-paths.svg)
 
-**What you're looking at:** `[mcu]` is the mainboard and `[mcu nhk]` is the toolboard; every pin name starting `nhk:` is looked up on the second one. Klipper checks each pin name against the board it is sent to, so swapping the two paths stops Klipper with a pin-name error instead of driving the wrong pins.
+**What you're looking at:** `[mcu]` is the mainboard and `[mcu nhk]` is the toolboard; every pin name starting `nhk:` is looked up on the second one. Klipper checks each pin name against the board it is sent to, so swapping the two paths stops Klipper with a config error instead of driving the wrong pins.
 
 **Parts:** none.
 
@@ -1530,7 +1542,7 @@ restart_method: command
 
 **Check:** The two paths differ from each other, both start `/dev/serial/by-id/usb-Klipper_`, and both end `-if00`.
 
-Swapping these two is the most common Rev D+ mistake: the guide primes you to look for `rp2040`, and there isn't one. `[mcu nhk]` gets the **`stm32g0b1xx`** path. At Step 12.37, `Pin 'PG0' is not a valid pin name on mcu 'mcu'` means the two serial paths are swapped (the toolboard has no port G); `Pin 'gpio23' is not a valid pin name on mcu 'nhk'` means you loaded `leviathan-printer-rev-d.cfg`, not the `-sbv2` file. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [src](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/pins.py)
+Swapping these two is the most common Rev D+ mistake: the guide primes you to look for `rp2040`, and there isn't one. `[mcu nhk]` gets the **`stm32g0b1xx`** path. At Step 12.37, `Unknown spi_bus 'spi4'` means the two serial paths are swapped: the X and Y drivers sit on the Leviathan's SPI bus 4, which the toolboard's chip does not have. `Pin 'gpio21' is not a valid pin name on mcu 'nhk'` means you loaded `leviathan-printer-rev-d.cfg`, not the `-sbv2` file. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [src](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/pins.py)
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L18-31) · [LDO wiring guide § Klipper configuration](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#klipper-configuration)
 
@@ -1570,7 +1582,7 @@ The `git config` line gives git a name and address to stamp on each version; a f
 
 Commit again after each `SAVE_CONFIG` (`git add -A && git commit -m "13.29 bed PID"` and so on); `git log` then answers "which of the saved blocks do I have".
 
-If you get *MCU Protocol error* ending *"mcu 'nhk': Command format mismatch"*, the toolboard firmware and the host Klipper were built from different commits: rebuild the toolboard firmware from the current `~/klipper`. A `Pin '…' is not a valid pin name on mcu '…'` error is the mistake described at Step 12.23: the wrong config file (`gpio…` on `nhk`) or swapped serial paths (`PG0` on `mcu`). [src](https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/)
+If you get *MCU Protocol error* ending *"mcu 'nhk': Command format mismatch"*, the toolboard firmware and the host Klipper were built from different commits: rebuild the toolboard firmware from the current `~/klipper`. The two mistakes described at Step 12.23 show as `Pin 'gpio…' is not a valid pin name on mcu 'nhk'`, the wrong config file, or `Unknown spi_bus 'spi4'`, swapped serial paths. [src](https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/)
 
 ⚠ **Ending `mcu 'mcu': …` instead, after 12.14 kept the factory firmware:** the full config uses commands the six-line test never asked for, and the factory build lacks one. Build and flash the Leviathan at [12.14](#step-1214-build-klipper-firmware-for-the-leviathan)–12.15, starting at its `systemctl stop`: its test file would overwrite this `printer.cfg`. Then come back here. [src](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/error_mcu.py#L96-L122)
 

@@ -1,7 +1,7 @@
 # CAD render manifest
 
 15 manual steps illustrated from the official Voron 2.4r2 STEP
-(18 manifest entries, 28 PNGs).
+(19 manifest entries, 28 PNGs).
 Generated from `steps.yml` by `scripts/cad_render/render_steps.py --manifest` —
 edit that file, not this one.
 
@@ -35,9 +35,9 @@ Two standing caveats apply to every image and are printed in every footer:
 | Step | Chapter | Images | Currently shows | Ready |
 |---|---|---|---|---|
 | 01.15 | `01-frame.md` | 01-15-a.png | assets/cad/01-15-a.png | yes |
-| 02.09 | `02-z-drives.md` | 02-09-a.png, 02-09-b.png | assets/manual-pages/manual-p027.png + assets/cad/02-09-a.png + assets/cad/02-09-b.png | **no** |
+| 02.09 | `02-z-drives.md` | 02-09-a.png, 02-09-b.png | assets/diagrams/208-z-rail-faces.svg + assets/manual-pages/manual-p027.png + assets/cad/02-09-a.png + assets/cad/02-09-b.png | **no** |
 | 02.10 | `02-z-drives.md` | 02-10-a.png, 02-10-b.png | assets/parts/z_rail_stop_x4.png + assets/cad/02-10-b.png | yes |
-| 03.18 | `03-build-plate.md` | 03-18-a.png, 03-18-b.png | assets/cad/03-18-a.png + assets/cad/03-18-b.png | yes |
+| 03.18 | `03-build-plate.md` | 03-18-a.png, 03-18-b.png | assets/diagrams/304-gap-caliper.svg + assets/cad/03-18-a.png + assets/cad/03-18-b.png | yes |
 | 05.4 | `05-gantry.md` | 05-04-a.png, 05-04-b.png | assets/cad/05-04-a.png + assets/cad/05-04-b.png | yes |
 | 05.15 | `05-gantry.md` | 05-15-a.png, 05-15-b.png | assets/cad/05-15-a.png + assets/cad/05-15-b.png | yes |
 | 05.18 | `05-gantry.md` | 05-18-a.png, 05-18-b.png | assets/cad/05-18-a.png + assets/cad/05-18-b.png | yes |
@@ -47,7 +47,7 @@ Two standing caveats apply to every image and are printed in every footer:
 | 06b.7 | `06-z-axis-and-gantry-squaring.md` | 06b-07-b.png | assets/cad/06b-07-b.png | yes |
 | 06b.13 | `06-z-axis-and-gantry-squaring.md` | 06b-13-a.png, 06b-13-b.png | assets/cad/06b-13-a.png + assets/cad/06b-13-b.png | yes |
 | 06b.14 | `06-z-axis-and-gantry-squaring.md` | 06b-14-a.png, 06b-14-b.png | assets/diagrams/09-gantry-racking.svg + assets/cad/06b-14-a.png + assets/cad/06b-14-b.png | yes |
-| 07.30 | `07-ab-belts.md` | 07-30-a.png, 07-30-b.png | assets/cad/07-30-a.png + assets/cad/07-30-b.png | yes |
+| 07.30 | `07-ab-belts.md` | 07-30-a.png, 07-30-b.png | assets/diagrams/702-belt-span-150.svg + assets/cad/07-30-a.png + assets/cad/07-30-b.png | yes |
 | 09.26 | `09-electronics-bay.md` | 09-26-a.png, 09-26-b.png | assets/cad/09-26-a.png + assets/cad/09-26-b.png | yes |
 
 ## Per-step detail
@@ -66,7 +66,7 @@ Already in the chapter, do not add again: `01-15-a.png`
 
 ### 02.09 — Install the remaining three Z rails
 
-Chapter `02-z-drives.md` · currently shows: assets/manual-pages/manual-p027.png + assets/cad/02-09-a.png + assets/cad/02-09-b.png
+Chapter `02-z-drives.md` · currently shows: assets/diagrams/208-z-rail-faces.svg + assets/manual-pages/manual-p027.png + assets/cad/02-09-a.png + assets/cad/02-09-b.png
 
 **`02-09-a.png`** (parts alone) and **`02-09-b.png`** (in place, rest of the machine ghosted) — Plan view of the four Z rails. Rear rails occupy y 345.5-352 on verticals at y 352-372 (facing forward); front rails occupy y -18 to -11.5 on verticals at y -38 to -18 (facing rearward). All four normals are +/-Y.
 
@@ -98,7 +98,7 @@ Image line(s) to add, immediately after the step heading:
 
 ### 03.18 — Verify the plate floats level
 
-Chapter `03-build-plate.md` · currently shows: assets/cad/03-18-a.png + assets/cad/03-18-b.png
+Chapter `03-build-plate.md` · currently shows: assets/diagrams/304-gap-caliper.svg + assets/cad/03-18-a.png + assets/cad/03-18-b.png
 
 **`03-18-a.png`** (parts alone) and **`03-18-b.png`** (in place, rest of the machine ghosted) — The plate floating on its four bolts above the two bed extrusions: four gaps, all equal to the thumb-nut height.
 
@@ -164,15 +164,15 @@ Already in the chapter, do not add again: `05-45-a.png`, `05-45-b.png`
 
 Chapter `05-gantry.md` · currently shows: assets/cad/05-46-a.png + assets/cad/05-46-b.png
 
-**`05-46-a.png`** (parts alone) — Both Rev D+ alternates pulled apart along Z and labelled: the D2F pod you print, the hall-effect pod you skip, the 2-hole bridge you keep, the 3-hole one you do not.
+**`05-46-a.png`** (parts alone) — Both Rev D+ alternates pulled apart along Z and labelled: the D2F pod already fitted, the hall-effect pod never printed, the stock 2-hole bridge you bag as the spare, the 3-hole bridge never printed.
 
-**`05-46-b.png`** (in place, rest of the machine ghosted) — The two parts you keep, shown where they will eventually sit on the right XY joint.
+**`05-46-b.png`** (in place, rest of the machine ghosted) — The endstop pod and the cable bridge on the right XY joint, where Steps 05.49 and 05.38 fitted them.
 
 **350 caveat:** none - nothing in this image is size-dependent.
 
 Already in the chapter, do not add again: `05-46-a.png`, `05-46-b.png`
 
-**What you're looking at:** The two either/or choices on the right XY joint, pulled apart so you can see both at once - print the D2F endstop pod and keep the 2-hole cable bridge; the hall-effect pod and the 3-hole bridge are not used in this kit. Where the endstop pod and the cable bridge you kept eventually live - both on the right-hand XY joint, fitted in later chapters.
+**What you're looking at:** The two either/or choices on the right XY joint, pulled apart so you can see both at once - the D2F endstop pod is fitted and the stock 2-hole cable bridge is bagged as the spare; the hall-effect pod and the 3-hole bridge were never printed. Where the endstop pod and the cable bridge sit on the right-hand XY joint. The CAD draws the stock 2-hole bridge; yours is the raised version, 3 mm taller.
 
 ### 06.23 — Even the four belts by hand
 
@@ -228,15 +228,17 @@ Already in the chapter, do not add again: `06b-14-a.png`, `06b-14-b.png`
 
 ### 07.30 — Set the 150 mm measuring span
 
-Chapter `07-ab-belts.md` · currently shows: assets/cad/07-30-a.png + assets/cad/07-30-b.png
+Chapter `07-ab-belts.md` · currently shows: assets/diagrams/702-belt-span-150.svg + assets/cad/07-30-a.png + assets/cad/07-30-b.png
 
-**`07-30-a.png`** (parts alone) and **`07-30-b.png`** (in place, rest of the machine ghosted) — The XY joint idler and the front idler on each side, and the belt span between them that the 150 mm figure refers to.
+**`07-30-a.png`** (parts alone) — The XY joint idler and the front idler on the left, and the belt run between them that you pluck at 150 mm.
+
+**`07-30-b.png`** (in place, rest of the machine ghosted) — The same idlers and runs on both sides, with the rest of the machine ghosted.
 
 **350 caveat:** The 150 mm is set by moving the gantry, and the CAD shows a parked 250 machine, not the measuring pose. Take which two centres from the picture, take the number from the rule.
 
 Already in the chapter, do not add again: `07-30-a.png`, `07-30-b.png`
 
-**What you're looking at:** The two idlers a belt runs between on each side - one in the XY joint at the back of the Y beam, one in the front idler block - and the free length of belt between them that you pluck.
+**What you're looking at:** The two idlers a belt runs between on each side - one in the XY joint at the back of the Y beam, one in the front idler block - and the free length of belt between them that you pluck. The right side is the same, on the other belt.
 
 ### 09.26 — Clip the USB adapter to the front rail
 

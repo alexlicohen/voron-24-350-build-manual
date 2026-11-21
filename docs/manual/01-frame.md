@@ -22,7 +22,7 @@ caption: Square the frame once, properly. Everything above copies this frame, in
 
 **Tools**
 
-- 3 mm hex key with a straight end, long arm: the kit's 3 mm L-shaped key, if the kit has one (verify on bench). The Fabreeko set is ball-end, which is fine for the first loose pass but slips out under final tightening
+- 3 mm hex key with a straight end, long arm: the kit's 3 mm hex key, which LDO's kit list includes. Whether its long arm ends straight or in a ball is a bench check (verify on bench). The Fabreeko set is ball-end, which is fine for the first loose pass but slips out under final tightening
 - Machinist square, 150 mm: a precise L-shaped ruler for checking right angles
 - Steel rule, 300 mm, and a steel tape measure of 1 m or more (the longest measurement is about 735 mm)
 - Straightedge and feeler gauges, 0.02–0.10 mm: thin metal leaves for measuring small gaps
@@ -152,11 +152,13 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Check both ends of every A and B extrusion. File only a burr off the edge, never the flat face.
+1. Check both ends of every A and B extrusion. File off only a burr, never the flat face.
 2. Roll the M5 T-nut into all four slots of each A. Tape the slot it fits best; mark any slot where it sticks with an X.
-3. Roll the M3 T-nut into the two slots of each B that have no access holes.
+3. Roll the M3 T-nut into each B slot without an access hole, or all four if all have one.
 
-**Check:** Every end sits flat against the square, each A has a taped slot, and the M3 T-nut turns by finger in both tested B slots.
+**Check:** Every end sits flat against the square, each A has a taped slot, and the M3 T-nut turns by finger in every tested B slot.
+
+The Voron CAD drills the access holes through all four faces of each vertical, while the manual draws only two. Count the faces with holes on one of your B extrusions (verify on bench).
 
 ⚠ Never force a T-nut. LDO warns that the fit is tight in this kit. If one will not turn, try another slot or another extrusion. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
@@ -179,10 +181,12 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. Take 8 of the 10 A extrusions. Set the other 2 aside for the bed.
-2. Thread an M5×16 BHCS into the hole in each end, 16 screws in all. Stop when about 2 mm of the screw still shows under its head.
+2. Thread an M5×16 BHCS into the hole in each end, 16 screws in all. Stop when 2 to 3 mm of the screw still shows under its head.
 3. Leave them finger-loose. If a screw is hard to turn, try a fresh one. If that is stiff too, the extrusion's thread is damaged: stop and ask your kit vendor.
 
 **Check:** All 16 screws went in smoothly and stick out by the same amount.
+
+No Voron page gives this gap. The 2 to 3 mm comes from the Voron CAD model: the vertical's slot has a 2 mm lip, and the head slides past it only with a gap of 2 to about 3.25 mm. Aim for the middle, about 2.5 mm.
 
 Source: [Voron manual p.14](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=14)
 
@@ -302,6 +306,8 @@ Source: [Voron manual p.16](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Helper:** Holds the square in each inside corner and calls out any light under the blade.
 
+No Voron or LDO page gives a tightening order. Going across to the opposite corner is our own habit: it spreads the pull, so one corner cannot drag the square round.
+
 Source: [Voron manual p.16](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=16)
 
 ---
@@ -320,7 +326,7 @@ Source: [Voron manual p.16](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. With one person at each end, lower each of the four remaining A extrusions between two verticals so both screw heads enter the slots from the top.
-2. If one will not go in, check its screws: about 2 mm should show under each head. Back out one that shows less, turn in one that shows more. Never pull the verticals apart.
+2. If one will not go in, check its screws: 2 to 3 mm should show under each head. Back out one that shows less, turn in one that shows more. Never pull the verticals apart.
 3. Snug only.
 
 **Check:** The top square is closed, so all 16 blind joints are made, and no end has a visible gap.
@@ -392,6 +398,8 @@ Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Check:** The two top diagonals match each other and are within about a millimetre of the bottom pair.
 
 **Helper:** Reads both top diagonals aloud and says which one is longer.
+
+The one-millimetre limit is our own working figure; no Voron page gives one.
 
 Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [Voron manual p.17](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=17)
 
@@ -558,7 +566,7 @@ Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 (no image — see text)
 
-**What you're looking at:** The kit includes thin titanium strips called backers. In Ch 05 they bolt to the gantry, on the face opposite a steel rail, to stop the aluminium bowing as the two metals warm up. They look like frame parts. They are not.
+**What you're looking at:** Thin titanium strips called backers came with the kit order, though they are not on LDO's kit list. In Ch 05 they bolt to the gantry, on the face opposite a steel rail, to stop the aluminium bowing as the two metals warm up. They look like frame parts. They are not.
 
 **Parts:** none.
 

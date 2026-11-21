@@ -86,7 +86,7 @@ def bench_tag(d: Doc, x, y, s, anchor="start", size=T_MIN):
 
 # ============================================================ diagram 1001 ===
 def d1001_mains_bus() -> Doc:
-    d = Doc(1060, "Mains bus: each colour beeps from its C14 pin to every point")
+    d = Doc(975, "Mains bus: each colour beeps from its C14 pin to every point")
     top = step_header(d, "Mains bus: one colour at a time")
     unplugged(d, 40, top + 16, 1120)
 
@@ -97,9 +97,9 @@ def d1001_mains_bus() -> Doc:
     d.text(660, ay + 56, "walk the other along: beeps", size=T_MIN, weight=700, fill=OK)
 
     rows = [  # (bus label, wire colour, destinations)
-        ("PE", "PE", ["PSU screw 3 FG", "bed plate screw", "frame lug screw", "far frame corner"]),
-        ("L", BROWN, ["PSU screw 1 L", "SSR LOAD 2"]),
-        ("N", WIRE_N, ["PSU screw 2 N", "bed N lead"]),
+        ("PE", "PE", ["PSU screw 3 FG", "frame lug screw", "DIN-rail lead's screw", "far frame corner"]),
+        ("L", BROWN, ["PSU screw 1 L"]),
+        ("N", WIRE_N, ["PSU screw 2 N"]),
     ]
     pin_label = {"PE": "E", "L": "L", "N": "N"}
     lh, gap = 46, 52
@@ -381,12 +381,12 @@ def d1004_24v_points() -> Doc:
 
 # ============================================================ diagram 1005 ===
 def d1005_earth_points() -> Doc:
-    d = Doc(1060, "Earth bonding: one probe on the C14 earth pin, the other on bare metal")
+    d = Doc(1075, "Earth bonding: one probe on the C14 earth pin, the other on bare metal")
     top = step_header(d, "Earth: one probe stays on C14 E")
     unplugged(d, 40, top + 16, 1120)
 
     py = top + 106
-    d.panel(30, py, 1140, 530)
+    d.panel(30, py, 1140, 560)
     # C14 inlet, seen from outside: E pin centred above L and N
     ix, iy = 170, py + 290
     d.rect(ix - 110, iy - 120, 220, 240, fill=PANEL, stroke=RED, sw=4, rx=18)
@@ -403,10 +403,11 @@ def d1005_earth_points() -> Doc:
         ("PE WAGO, any port", None, "< 1 Ω"),
         ("PSU screw 3 FG", None, "< 1 Ω"),
         ("frame PE lug", "its screw head", "< 1 Ω"),
+        ("DIN rail", "its lead's screw head, bare rail", "< 1 Ω"),
         ("build plate", "the M4×6 screw head", "< 1 Ω"),
         ("far frame corner", "screw head or T-nut", "< 2–3 Ω"),
     ]
-    y = py + 120
+    y = py + 108
     for name, sub, val in targets:
         d.circle(460, y - 10, 13, fill=OK, stroke=PANEL, sw=2)
         d.text(490, y, name, size=T_LAB, weight=700)
@@ -415,28 +416,121 @@ def d1005_earth_points() -> Doc:
         w = len(val) * 19 + 30
         d.rect(1140 - w, y - 34, w, 50, fill=OK_F, stroke=OK, sw=2.5, rx=8)
         d.text(1140 - w / 2, y + 2, val, size=T_LAB, anchor="middle", weight=800, fill=OK)
-        y += 96 if sub else 74
-    d.text(470, py + 50, "touch the other probe to each, on bare metal", size=T_MIN,
+        y += 86 if sub else 64
+    d.text(470, py + 50, "other probe on bare metal; limits ours, not LDO's", size=T_MIN,
            weight=600, fill=MUTED)
 
     # ---- callout 1: probes together; and the wrong way, small
-    by = py + 546
+    by = py + 576
     d.panel(30, by, 560, d.h - by - 16)
-    probe(d, 300, by + 120, -150, INK, 0.9)
-    probe(d, 310, by + 120, -30, RED, 0.9)
-    callout(d, 305, by + 180, 1)
-    d.text(305, by + 240, "probes together:", size=T_MIN, anchor="middle", weight=700)
-    d.text(305, by + 276, "subtract this reading", size=T_MIN, anchor="middle", weight=700)
+    probe(d, 300, by + 110, -150, INK, 0.9)
+    probe(d, 310, by + 110, -30, RED, 0.9)
+    callout(d, 305, by + 170, 1)
+    d.text(305, by + 226, "probes together:", size=T_MIN, anchor="middle", weight=700)
+    d.text(305, by + 260, "subtract this reading", size=T_MIN, anchor="middle", weight=700)
     d.panel(610, by, 560, d.h - by - 16)
     d.text(634, by + 54, "Wrong", size=36, weight=700, fill=RED)
-    d.rect(660, by + 140, 460, 60, fill=dd.BLUE_F, stroke=BLUE, sw=4, rx=4)
-    d.text(890, by + 180, "anodised face", size=T_MIN, anchor="middle", weight=700, fill=BLUE)
-    probe(d, 860, by + 140, -60, RED, 0.6)
-    cross(d, 790, by + 92, r=20, sw=7)
-    d.text(890, by + 240, "reads OL: the oxide", size=T_MIN, anchor="middle", weight=700,
+    d.rect(660, by + 130, 460, 60, fill=dd.BLUE_F, stroke=BLUE, sw=4, rx=4)
+    d.text(890, by + 170, "anodised face", size=T_MIN, anchor="middle", weight=700, fill=BLUE)
+    probe(d, 860, by + 130, -60, RED, 0.6)
+    cross(d, 790, by + 84, r=20, sw=7)
+    d.text(890, by + 226, "reads OL: the oxide", size=T_MIN, anchor="middle", weight=700,
            fill=RED)
-    d.text(890, by + 276, "does not conduct", size=T_MIN, anchor="middle", weight=700,
+    d.text(890, by + 260, "does not conduct", size=T_MIN, anchor="middle", weight=700,
            fill=RED)
+    return d
+
+
+# ============================================================ diagram 1007 ===
+def d1007_din_rail_earth() -> Doc:
+    d = Doc(1075, "DIN-rail earth lead: a ring under the rear rail's screw, its lead to the PE WAGO")
+    top = step_header(d, "Earth the SSR's DIN rail")
+    unplugged(d, 40, top + 16, 1120)
+
+    # ---- plan view: the rear rail, SSR left, PSU right, the screw in the gap
+    ay = top + 106
+    d.panel(30, ay, 1140, 440)
+    d.text(54, ay + 50, "The rear rail, looking into the bay", size=T_MIN, weight=700,
+           fill=MUTED)
+    ry0, ry1 = ay + 120, ay + 220
+    d.rect(50, ry0, 1100, ry1 - ry0, fill=GREY_F, stroke=STEEL, sw=3, rx=4)        # rail
+    for x in range(90, 1130, 110):                                                 # slots
+        d.rect(x, (ry0 + ry1) / 2 - 10, 70, 20, fill=PANEL, stroke=STEEL, sw=2, rx=10)
+    d.rect(120, ry0 - 40, 230, ry1 - ry0 + 80, fill=BLACKPART_F, stroke=BLACKPART, sw=4,
+           rx=8)
+    d.text(235, (ry0 + ry1) / 2 + 12, "SSR", size=T_LAB, anchor="middle", weight=800)
+    d.rect(560, ry0 - 40, 580, ry1 - ry0 + 80, fill=PANEL, stroke=INK, sw=4, rx=8)
+    d.text(850, (ry0 + ry1) / 2 + 12, "PSU", size=T_LAB, anchor="middle", weight=800)
+    sx, sy = 455, (ry0 + ry1) / 2                                                  # the screw
+    d.circle(sx, sy, 40, fill=YELLOW, stroke=GREEN, sw=6)                          # ring
+    d.circle(sx, sy, 24, fill=STEEL, stroke=INK, sw=3)                             # head
+    d.poly([(sx - 9, sy - 5), (sx, sy - 10), (sx + 9, sy - 5), (sx + 9, sy + 5),
+            (sx, sy + 10), (sx - 9, sy + 5)], fill=INK, stroke=INK, sw=1)
+    callout(d, sx + 72, ry0 - 18, 1)
+    bench_tag(d, 850, ry1 + 84, "screw spot: check on the bench", anchor="middle")
+    # the lead: down from the ring to the PE WAGO
+    wy = ay + 360
+    pe_wire(d, sx - 30, sy + 30, sx - 30, wy - 70, sw=10)
+    ports = ["inlet", "PSU", "frame", "rail", "bed"]
+    px0, pw = 70, 52
+    rx = px0 + 3 * pw + pw / 2                                                     # rail port
+    pe_wire(d, sx - 30, wy - 70, rx, wy - 70, sw=10)
+    pe_wire(d, rx, wy - 70, rx, wy - 16, sw=10)
+    d.rect(px0 - 14, wy - 30, len(ports) * pw + 28, 70, fill=PANEL, stroke=RED, sw=4, rx=8)
+    for i, lab in enumerate(ports):
+        x = px0 + i * pw + pw / 2
+        free = lab == "bed"
+        d.rect(x - 18, wy - 16, 36, 42, fill=PANEL if free else GREEN, stroke=INK, sw=2,
+               rx=4)
+    d.text(px0 + len(ports) * pw + 40, wy + 14, "PE WAGO: one port left for the bed",
+           size=T_MIN, weight=700)
+    callout(d, rx - 70, wy - 76, 2)
+
+    # ---- section through the screw
+    by = ay + 456
+    d.panel(30, by, 1140, d.h - by - 16)
+    d.text(54, by + 50, "Section through the screw, head up", size=T_MIN, weight=700,
+           fill=MUTED)
+    bench_tag(d, 1150, by + 50, "M5×12 length: check on the bench", anchor="end")
+    cx = 300
+    layers = [  # (label, top, height, fill, stroke)
+        ("serrated washer", 186, 12, STEEL, INK),
+        ("DIN rail, bare steel", 198, 16, GREY_F, STEEL),
+        ("deck panel", 214, 40, PANEL, GREY),
+    ]
+    # extrusion with its slot and T-nut
+    ey = by + 254
+    d.rect(90, ey, 420, 110, fill=GREY_F, stroke=GREY, sw=3)
+    d.rect(cx - 34, ey, 68, 18, fill=PANEL, stroke=GREY, sw=2)                    # slot lip gap
+    d.rect(cx - 70, ey + 18, 140, 70, fill=PANEL, stroke=GREY, sw=2)               # slot cavity
+    d.rect(cx - 60, ey + 30, 120, 34, fill=STEEL, stroke=INK, sw=2.5, rx=4)        # T-nut
+    # screw shank
+    d.rect(cx - 13, by + 150, 26, ey + 52 - (by + 150), fill=STEEL, stroke=INK, sw=2)
+    # stack layers, drawn over the shank
+    for lab, t0, h, fill, stroke in layers:
+        d.rect(cx - 150, by + t0, 300, h, fill=fill, stroke=stroke, sw=2.5)
+        d.rect(cx - 13, by + t0, 26, h, fill=STEEL, stroke=INK, sw=1.5)
+    # washer teeth
+    for k in range(-5, 6):
+        if abs(k) > 0:
+            d.line(cx + k * 24, by + 186, cx + k * 24 + 8, by + 198, stroke=INK, sw=2)
+    # ring terminal tongue, with the lead leaving to the left
+    d.rect(cx - 70, by + 174, 140, 12, fill=YELLOW, stroke=GREEN, sw=2.5, rx=3)
+    pe_wire(d, cx - 70, by + 180, 70, by + 180, sw=10)
+    d.rect(cx - 13, by + 174, 26, 12, fill=STEEL, stroke=INK, sw=1.5)
+    # BHCS head
+    d.path(f"M {cx - 50} {by + 174} C {cx - 46} {by + 120} {cx + 46} {by + 120} "
+           f"{cx + 50} {by + 174} Z", fill=STEEL, stroke=INK, sw=3)
+    callout(d, cx, by + 104, 1)
+    # labels with leaders
+    labs = [("M5×12 BHCS", by + 150), ("ring terminal", by + 180),
+            ("serrated washer", by + 192), ("DIN rail, bare steel", by + 206),
+            ("deck panel", by + 234), ("T-nut, bed extrusion", ey + 47)]
+    ly = by + 130
+    for s, yy in labs:
+        d.leader(cx + 160, yy, 640, ly - 10, col=MUTED)
+        d.text(650, ly, s, size=T_MIN, weight=700)
+        ly += 44
     return d
 
 
@@ -451,9 +545,9 @@ DIAGRAMS = [
             "The precondition in the picture: unplugged, cord out of the room.",
             "The inlet module: its C14 E, L and N pins, the fuse in series with L, the rocker "
             "breaking L and N together (drawn ON), E neither fused nor switched; each wire in "
-            "its colour to its WAGO block and on to every point the 10.18 tables list: PE to PSU 3 FG, the bed plate screw, the "
-            "frame lug and a far frame corner; L to PSU 1 L and SSR LOAD 2; N to PSU 2 N and "
-            "the bed N lead. One probe parked on the pin, the other walked along.",
+            "its colour to its WAGO block and on to every point the 10.18 tables list: PE to PSU 3 FG, the "
+            "frame lug, the DIN-rail lead's screw (10.82) and a far frame corner; L to PSU 1 L; N to PSU 2 N. "
+            "One probe parked on the pin, the other walked along.",
             "Callouts 1 to 3 are the Do numbers of Step 10.18.",
         ],
         "insert": [
@@ -461,8 +555,8 @@ DIAGRAMS = [
         ],
         "verify": [
             "A wiring schematic, not a layout: block positions do not match the bay. Fuse and "
-            "rocker placement inside the module from LDO's inlet_layout.png. The Bed L branch "
-            "(SSR LOAD 1) stays in the step's table.",
+            "rocker placement inside the module from LDO's inlet_layout.png. The SSR and bed are "
+            "not drawn: as in LDO's order, they are wired after this checkpoint (Section 2b).",
         ],
     },
     {
@@ -555,10 +649,11 @@ DIAGRAMS = [
         "title": "Earth: one probe stays on C14 E",
         "fn": d1005_earth_points,
         "shows": [
-            "The C14 inlet seen from outside with the black probe on its E pin, and the five "
+            "The C14 inlet seen from outside with the black probe on its E pin, and the six "
             "bonding points from the 10.77 table with their limits: PE WAGO, PSU 3 FG, the "
-            "frame lug's screw head, the plate's M4×6 screw head (< 1 Ω each) and a far frame "
-            "corner's screw head or T-nut (< 2–3 Ω).",
+            "frame lug's screw head, the DIN rail (its lead's screw head from 10.82, then bare "
+            "rail), the plate's M4×6 screw head (< 1 Ω each) and a far frame corner's screw "
+            "head or T-nut (< 2–3 Ω), labelled as our own limits, not LDO's.",
             "Callout 1: probes touched together, the reading to subtract. Callout 2: the probe "
             "on the earth pin. A small Wrong panel: a probe on an anodised face reads OL.",
         ],
@@ -566,8 +661,33 @@ DIAGRAMS = [
             ("10-wiring.md", "Step 10.77", "first image: what the hands do"),
         ],
         "verify": [
-            "A checklist picture, not a layout. The extruder, heater and 24 V rows of the "
-            "10.77 table stay in the table.",
+            "A checklist picture, not a layout. The extruder, heater, C14 L/N and 24 V rows "
+            "of the 10.77 table stay in the table.",
+        ],
+    },
+    {
+        "n": 1007,
+        "file": "1007-din-rail-earth-lead.svg",
+        "title": "Earth the SSR's DIN rail",
+        "fn": d1007_din_rail_earth,
+        "shows": [
+            "The precondition in the picture: unplugged, cord out of the room.",
+            "Plan view of the rear DIN rail with the SSR on the left and the PSU on the right; "
+            "the rail screw in the gap between them carries the ring terminal (callout 1), and "
+            "the green/yellow lead runs along the PSU leads to the PE WAGO, whose five ports "
+            "are inlet, PSU, frame, rail and one left free for the bed (callout 2).",
+            "Section through the screw, head up: M5×12 BHCS, ring terminal, serrated washer, "
+            "the rail's bare steel, the deck panel and the T-nut in the bed extrusion. "
+            "Callouts 1 and 2 are the Do numbers of Step 10.82.",
+        ],
+        "insert": [
+            ("10-wiring.md", "Step 10.82", "first image: what the hands do"),
+        ],
+        "verify": [
+            "This lead is this build's addition; LDO runs no wire to the rail. The screw in "
+            "the SSR-PSU gap is from LDO's S0 placement photo and CAD (two M5×10 BHCS per "
+            "rail into deck T-nuts); its spot and the M5×12 length are drawn as bench "
+            "checks. Proportions are schematic.",
         ],
     },
 ]

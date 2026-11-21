@@ -20,6 +20,14 @@
 # Voron CAD does not model (LDO Rev D+ parts, titanium backers).  They are
 # always labelled "(schematic)".
 #
+# A leader ends on the group's visible pixel nearest the group's pixel median,
+# which on a long part (a belt loop, a frame rail) can be the wrong run.  Two
+# optional keys on a select group override the layout: `anchor: 'x,y,z'` (CAD
+# world mm, before `offset`) ends the leader on the group's visible pixel
+# nearest that point, and `label_y: 0..1` centres the label box at that
+# fraction of the image height instead of its evenly spaced slot.  A label
+# goes in the right column when its anchor pixel is right of centre.
+#
 # Every entry carries `note_350` where a length in the picture is the 250
 # machine's and differs on this 350 kit, and `insert:` telling the chapter-side
 # pass whether the image is ready to place.
@@ -62,15 +70,23 @@ steps:
     - label: "four bottom corners - all four must stay in contact"
       resolve: 'Frame:1/Bottom Extrusions:1/[^/]+/=>'
       ids: [1012, 1027, 1045, 1056]
-    - label: "press each TOP corner in turn; rock between diagonals = twist"
+      anchor: '-78,-38,-48'         # front-left bottom corner; the pixel median
+                                    # sat mid-way along the front rail
+      label_y: 0.90                 # under the frame, clear of the left vertical
+    - label: "press each TOP corner in turn;\nrock between diagonals = twist"
       resolve: 'Frame:1/Top Extrusions:1/[^/]+/=>'
       ids: [987, 994, 997, 1002]
+      anchor: '332,372,362'         # rear-right top corner, likewise
+      label_y: 0.13
     - label: "B verticals x4"
       resolve: 'Frame:1/Verticals Extrusions:1/HFSB5-2020-430-LCP-RCP[^/]*/=>\['
       ids: [1075, 1094, 1113, 1132]
-    - label: "bed extrusions (Step 01.16) - not a contact point"
+      label_y: 0.50
+    - label: "bed extrusions (Step 01.16):\nnot a contact point"
       resolve: 'Frame:1/Bed Supports:1/HFSB5[^/]*/=>'
       ids: [1141, 1148]
+      anchor: '202,330,-28'         # rear end of the right one, so the label
+      label_y: 0.66                 # sits right of the frame, not over it
   caption: "The squared frame on its reference surface: the four bottom corners that must all touch, and the four top corners you press."
   looking_at: "The finished frame standing on the stone - the four bottom corners are the only things that should touch it, and the four top corners are where you press to find a rock."
   note_350: "CAD frame is the 250: 370 mm horizontals on 430 mm verticals. Yours is the 350 set. The contact geometry is the same."
@@ -300,22 +316,28 @@ steps:
   title: "Step 05.46 - the two Rev D+ variant choices, pulled apart"
   subtitle_a: "Both alternates are modelled in the same place in the CAD; separated here along Z."
   select:
-    - label: "PRINT: [a]_endstop_pod_D2F_switch + XY PCB"
+    # Labels say what each part is AT this step (2026-11-21): the D2F pod is
+    # already on the joint (05.49 comes first in the chapter), the joint
+    # carries the raised Igus-3mm_backer bridge from 05.38 (not in the CAD;
+    # same 2-hole pattern, 3 mm taller), the stock 2-hole bridge drawn here is
+    # the spare this step bags, and the hall pod and 3-hole bridge were never
+    # printed.  No "BIN": in this manual a bin is a storage bin.
+    - label: "FITTED at Step 05.49: [a]_endstop_pod_D2F_switch\n+ XY endstop board"
       resolve: 'XY Joint - Right:1/D2F Microswitch Pod'
       ids: [230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243]
-    - label: "SKIP: hall-effect pod (no hall endstops in this kit)"
+    - label: "NOT PRINTED: hall-effect pod\n(this kit has no hall endstops)"
       resolve: 'XY Joint - Right:1/Hall Effect Endstop'
       ids: [244, 245, 246, 247]
       offset: '0,0,-70'
-    - label: "KEEP: xy_joint_cable_bridge_2hole"
+    - label: "2-hole bridge, stock: BAG it as the spare.\nYour joint carries the raised one (Step 05.38)"
       resolve: 'XY Cable Chain Bridge - 2 Hole:1'
       ids: [229]
-    - label: "BIN: 3-hole bridge"
+    - label: "NOT PRINTED: 3-hole bridge\n(LDO's chain ends are 2-hole)"
       resolve: 'XY Cable Chain Bridge - 3 Hole'
       ids: [225, 226, 227, 228]
       offset: '0,0,70'
-  caption: "Both Rev D+ alternates pulled apart along Z and labelled: the D2F pod you print, the hall-effect pod you skip, the 2-hole bridge you keep, the 3-hole one you do not."
-  looking_at: "The two either/or choices on the right XY joint, pulled apart so you can see both at once - print the D2F endstop pod and keep the 2-hole cable bridge; the hall-effect pod and the 3-hole bridge are not used in this kit."
+  caption: "Both Rev D+ alternates pulled apart along Z and labelled: the D2F pod already fitted, the hall-effect pod never printed, the stock 2-hole bridge you bag as the spare, the 3-hole bridge never printed."
+  looking_at: "The two either/or choices on the right XY joint, pulled apart so you can see both at once - the D2F endstop pod is fitted and the stock 2-hole cable bridge is bagged as the spare; the hall-effect pod and the 3-hole bridge were never printed."
   note_350: null
   insert: true
 
@@ -325,17 +347,17 @@ steps:
   modes: [b]
   ghost_exclude: 'Panels|Skirt'
   context_scale: 2.4
-  title: "Step 05.46 - where the two parts you keep end up"
-  subtitle_b: "Right XY joint; rest of the gantry ghosted at 20%."
+  title: "Step 05.46 - where the pod and the cable bridge sit"
+  subtitle_b: "Right XY joint, machine the right way up (on your bench the gantry is upside down); rest ghosted at 20%."
   select:
     - label: "[a]_endstop_pod_D2F_switch (fitted at Step 05.49)"
       resolve: 'XY Joint - Right:1/D2F Microswitch Pod'
       ids: [230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243]
-    - label: "xy_joint_cable_bridge_2hole"
+    - label: "cable bridge (Step 05.38): yours is the raised\n2-hole one, 3 mm taller than drawn"
       resolve: 'XY Cable Chain Bridge - 2 Hole:1'
       ids: [229]
-  caption: "The two parts you keep, shown where they will eventually sit on the right XY joint."
-  looking_at: "Where the endstop pod and the cable bridge you kept eventually live - both on the right-hand XY joint, fitted in later chapters."
+  caption: "The endstop pod and the cable bridge on the right XY joint, where Steps 05.49 and 05.38 fitted them."
+  looking_at: "Where the endstop pod and the cable bridge sit on the right-hand XY joint. The CAD draws the stock 2-hole bridge; yours is the raised version, 3 mm taller."
   note_350: null
   insert: true
 
@@ -476,28 +498,63 @@ steps:
     joints") - it identifies exactly the bolts that step tells you to leave.
 
 # ---------------------------------------------------------------- chapter 07
+# Two entries, one per mode, because the belt leader needs a different
+# `anchor:` in each (2026-11-21).  The run you pluck is the belt's INNER run on
+# each side: it leaves the XY joint's toothed idler and ends on the front idler
+# (CAD: B belt x -42, A belt x 296, y -8..153).  The outer run beside it goes on
+# to the rear drive.  The belt is one mesh per loop, so the old pixel-median
+# leader landed on an X run (audit 2026-11-20, ch07 finding 1).
 - step: "07.30"
   out: 07-30
   chapter: 07-ab-belts.md
-  modes: [a, b]
+  modes: [a]
   frame_a: '-90,-38,38,-4,202,112'
-  frame_b: '-92,-46,18,346,214,124'
   ghost_exclude: 'Panels|Skirt'
   title: "Step 07.30 - the two centres the 150 mm is measured between"
   subtitle_a: "Left side. Centre of the XY joint idler to centre of the front idler."
+  select:
+    - label: "X/Y joint idler - measure from this centre"
+      resolve: 'XY Joint - (Left|Right):1/GT2 20T Idler[^/]*:1$'
+      ids: [212, 213, 252, 253]
+      label_y: 0.60                 # the default slot sat on the X runs
+    - label: "front idler - to this centre. 150 mm, both sides"
+      resolve: 'Front Idler [AB]:1/Tensioner [AB]:1/Idler Assembly[^/]*/F695'
+      ids: [332, 333, 346, 347]
+    - label: "the 150 mm run you pluck: joint idler to front idler"
+      resolve: 'Gantry:1/(A|B) Belt:1$'
+      ids: [377, 378]
+      anchor: '-41.8,85,73'         # on the left (B) inner run, just past
+                                    # mid-length so the label goes right
+      label_y: 0.80                 # below the runs: the leader reaches the
+                                    # inner run without crossing the outer one
+  caption: "The XY joint idler and the front idler on the left, and the belt run between them that you pluck at 150 mm."
+  looking_at: "The two idlers a belt runs between on each side - one in the XY joint at the back of the Y beam, one in the front idler block - and the free length of belt between them that you pluck."
+  note_350: "The 150 mm is set by moving the gantry, and the CAD shows a parked 250 machine, not the measuring pose. Take which two centres from the picture, take the number from the rule."
+  insert: true
+
+- step: "07.30"
+  out: 07-30
+  chapter: 07-ab-belts.md
+  modes: [b]
+  frame_b: '-92,-46,18,346,214,124'
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 07.30 - the two centres the 150 mm is measured between"
   subtitle_b: "Both sides at once; rest of the machine ghosted at 20%."
   select:
     - label: "X/Y joint idler - measure from this centre"
       resolve: 'XY Joint - (Left|Right):1/GT2 20T Idler[^/]*:1$'
       ids: [212, 213, 252, 253]
+      label_y: 0.53                 # clear of the left front idler above it
     - label: "front idler - to this centre. 150 mm, both sides"
       resolve: 'Front Idler [AB]:1/Tensioner [AB]:1/Idler Assembly[^/]*/F695'
       ids: [332, 333, 346, 347]
-    - label: "the free belt span you pluck"
+    - label: "the 150 mm run you pluck: joint idler to front idler"
       resolve: 'Gantry:1/(A|B) Belt:1$'
       ids: [377, 378]
-  caption: "The XY joint idler and the front idler on each side, and the belt span between them that the 150 mm figure refers to."
-  looking_at: "The two idlers a belt runs between on each side - one in the XY joint at the back of the Y beam, one in the front idler block - and the free length of belt between them that you pluck."
+      anchor: '295.8,72,83'         # mid-length of the right (A) inner run
+      label_y: 0.15                 # above the rear run; the default slot sat on it
+  caption: "The same idlers and runs on both sides, with the rest of the machine ghosted."
+  looking_at: "The right side is the same, on the other belt."
   note_350: "The 150 mm is set by moving the gantry, and the CAD shows a parked 250 machine, not the measuring pose. Take which two centres from the picture, take the number from the rule."
   insert: true
 
