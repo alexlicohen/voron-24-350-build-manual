@@ -11,7 +11,7 @@ caption: Twelve hours for the toolhead. Start it after dinner, inspect at breakf
 
 **Time:** 11.7 h (2 plates) — PrusaSlicer 2.9.7 estimates.
 
-**Sessions:** 2 plate starts (~5 min hands-on each, 7.6 / 4.0 h unattended) + ~20 min inspect and bin.
+**Sessions:** 2 plate starts (~5 min hands-on each, 7.6 / 4.1 h unattended) + ~20 min inspect and bin.
 
 **Prerequisites:** **Gate B passed** (Step B00.7 — the hotend seat and the Clockwork 2.5 gear bores; the caliper and insert rows run early, on what is already on the bench). B02 (SB
 main body, guidler and latch off B02-P5, latch shuttle, pcb spacer) and B04 feed the same assembly chapter and

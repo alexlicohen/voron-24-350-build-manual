@@ -8,9 +8,11 @@ nothing else.
 
     python3 slicer/build_config.py
 
-Three bundles: voron-coreone-asa.ini and voron-accent-blue.ini (the 20-plate ASA run)
-and bay-ducts-petg.ini (batch B11, the PETG V0 bay ducts; its own base filament and
-print overrides, the same printer settings and cold start).
+Four bundles: voron-coreone-asa.ini and voron-accent-blue.ini (the ASA run),
+bay-ducts-petg.ini (batch B11, the PETG V0 bay ducts; its own base filament and
+print overrides, the same printer settings and cold start) and voron-petg-black.ini
+(plate B12-P1, the side spool frame: B11's bundle on ordinary Prusament PETG with the
+ASA plates' walls, shells and infill).
 """
 from __future__ import annotations
 
@@ -238,9 +240,10 @@ def _append_gcode(value: str, line: str) -> str:
     return value + "\\n" + line
 
 
-def bay_overrides(sections: dict) -> list[tuple[str, str, str, str]]:
-    """(key, value, section, why) for bay-ducts-petg.ini."""
-    fil = resolve(sections, "filament", BAY_FILAMENT)
+def bay_overrides(sections: dict, filament: str = BAY_FILAMENT) -> list[tuple[str, str, str, str]]:
+    """(key, value, section, why) for bay-ducts-petg.ini (`filament`: the preset whose own
+    start/end filament G-code the flap lines are appended to)."""
+    fil = resolve(sections, "filament", filament)
     return [
         ("layer_height", "0.2", "print", "0.20 mm layers (already the base value)"),
         ("perimeters", "3", "print", "3 walls: stiff enough for a snap lid, no load to carry"),
@@ -262,25 +265,133 @@ def bay_overrides(sections: dict) -> list[tuple[str, str, str, str]]:
     ]
 
 
-def build_bay() -> tuple[dict[str, str], list[tuple[str, str, str, str]]]:
+def _build_petg(filament: str, settings_id: str, rows, notes: str) -> dict[str, str]:
+    """A PETG bundle: the ASA bundles' print and printer presets, `filament`, then `rows`."""
     sections = load_bundle()
     cfg: dict[str, str] = {}
     cfg.update(resolve(sections, "print", BASE_PRINT))
-    cfg.update(resolve(sections, "filament", BAY_FILAMENT))
+    cfg.update(resolve(sections, "filament", filament))
     cfg.update(resolve(sections, "printer", BASE_PRINTER))
     cfg["print_settings_id"] = BASE_PRINT
-    cfg["filament_settings_id"] = f"{BAY_FILAMENT} - Voron bay ducts"
+    cfg["filament_settings_id"] = settings_id
     cfg["printer_settings_id"] = BASE_PRINTER
-    rows = bay_overrides(sections)
     for key, value, _sec, _why in rows:
         cfg[key] = value
     cfg["filament_colour"] = "#1A1A1A"
-    cfg["filament_notes"] = ("Prusament PETG V0 Jet Black - B11 bay ducting only. "
-                             "Textured sheet: PETG can bond to smooth PEI and tear it.")
+    cfg["filament_notes"] = notes
     for junk in ("renamed_from", "compatible_prints", "compatible_printers",
                  "compatible_printers_condition", "compatible_prints_condition"):
         cfg.pop(junk, None)
+    return cfg
+
+
+def build_bay() -> tuple[dict[str, str], list[tuple[str, str, str, str]]]:
+    rows = bay_overrides(load_bundle())
+    cfg = _build_petg(BAY_FILAMENT, f"{BAY_FILAMENT} - Voron bay ducts", rows,
+                      "Prusament PETG V0 Jet Black - B11 bay ducting only. "
+                      "Textured sheet: PETG can bond to smooth PEI and tear it.")
     return cfg, rows
+
+
+# ------------------------------------------- B12-P1: the side spool frame (Prusament PETG)
+# Alex 2026-11-21: the side spool frame (212 x 212 mm, corners ~4 mm from the bed's front and back
+# edges) prints in ordinary Prusament PETG Jet Black, not ASA: PETG warps less, the frame hangs
+# outside the enclosure, and it saves black ASA. It carries a 1 kg spool, so it is B11's bundle
+# with the wall, shell and infill rows of the ASA plates; every other B11 row is kept as it is.
+PETG_DOC = "docs/manual/print/B12-side-spool-and-camera.md"
+PETG_FILAMENT = "Prusament PETG @COREONE HF0.4"   # the preset Alex's storage PETG prints ran on
+PETG_VS_BAY = {
+    "perimeters": ("4", "4 walls, as the ASA plates (Voron spec): the frame carries a 1 kg spool"),
+    "top_solid_layers": ("5", "5 top layers, as the ASA plates (the print preset's value)"),
+    "bottom_solid_layers": ("5", "5 bottom layers, as the ASA plates (Voron spec)"),
+    "fill_density": ("40%", "40 % infill, as the ASA plates (Voron spec)"),
+    "fill_pattern": ("gyroid", "gyroid, the build's default (Alex 2026-10-31), as the ASA plates. B11's grid "
+                     "answered infill curl in the 2026-09-22 PETG V0 sweep; ordinary Prusament PETG has "
+                     "printed gyroid cleanly since (storage prints, 25 %)"),
+}
+
+
+def petg_overrides(sections: dict) -> list[tuple[str, str, str, str]]:
+    """(key, value, section, why) for voron-petg-black.ini: bay_overrides() on the ordinary
+    PETG preset, with PETG_VS_BAY's rows replaced."""
+    rows = []
+    for key, value, sec, why in bay_overrides(sections, PETG_FILAMENT):
+        if key in PETG_VS_BAY:
+            value, why = PETG_VS_BAY[key]
+        rows.append((key, value, sec, why))
+    return rows
+
+
+def build_petg_black() -> tuple[dict[str, str], list[tuple[str, str, str, str]]]:
+    rows = petg_overrides(load_bundle())
+    cfg = _build_petg(PETG_FILAMENT, f"{PETG_FILAMENT} - Voron side spool frame", rows,
+                      "Prusament PETG Jet Black (ordinary PETG, not B11's PETG V0) - "
+                      "B12-P1, the side spool frame, only. Textured sheet: PETG can bond to "
+                      "smooth PEI and tear it.")
+    return cfg, rows
+
+
+PETG_HEADER = """\
+# PrusaSlicer 2.9.7 configuration for plate B12-P1, the side spool frame: Prusament PETG Jet Black.
+# GENERATED by slicer/build_config.py - edit that script, not this file.
+#
+# Base system presets, read from the PrusaResearch.ini shipped with the
+# installed PrusaSlicer ({bundle_version}) and flattened through `inherits`:
+#   print    = {base_print}
+#   filament = {base_filament}
+#   printer  = {base_printer}
+#
+# The B11 bay-duct bundle on the ordinary PETG preset, with the ASA plates' walls, shells and
+# infill. Overrides: slicer/OVERRIDES.md § PETG frame bundle; the page that uses it is {doc}.
+#
+# Use:  PrusaSlicer --load slicer/voron-petg-black.ini --export-3mf ...
+"""
+
+
+def write_petg_ini(path: Path, cfg: dict[str, str], version: str) -> None:
+    head = PETG_HEADER.format(bundle_version=version, base_print=BASE_PRINT,
+                              base_filament=PETG_FILAMENT, base_printer=BASE_PRINTER, doc=PETG_DOC)
+    body = "\n".join(f"{k} = {v}" for k, v in sorted(cfg.items()))
+    path.write_text(head + "\n" + body + "\n")
+
+
+def petg_overrides_md(bay: dict[str, str], petg: dict[str, str]) -> list[str]:
+    """OVERRIDES.md § PETG frame bundle: every key that differs from bay-ducts-petg.ini."""
+    why = {k: w for k, _v, _s, w in petg_overrides(load_bundle())}
+    diff = sorted(k for k in set(bay) | set(petg) if bay.get(k) != petg.get(k))
+    out = [
+        "## PETG frame bundle (B12-P1)",
+        "",
+        f"`slicer/voron-petg-black.ini` prints plate B12-P1, the side spool frame "
+        f"([`{PETG_DOC}`](../{PETG_DOC})), in ordinary Prusament PETG Jet Black (Alex 2026-11-21: "
+        "it warps less than ASA on a 212 mm part, the frame hangs outside the enclosure, and it",
+        "takes the frame off the black ASA). It is the bay-duct bundle above on the ordinary PETG preset",
+        f"`{PETG_FILAMENT}` (the preset Alex's storage PETG prints ran on), with the ASA plates' walls,",
+        "shells and infill, because the frame carries a 1 kg spool. Every key that differs from",
+        "`slicer/bay-ducts-petg.ini`:",
+        "",
+        "| ini key | bay-ducts-petg.ini | voron-petg-black.ini | Why |",
+        "|---|---|---|---|",
+    ]
+    for key in diff:
+        cell = lambda v: ("*(unset)*" if v is None else
+                          "`" + (v if len(v) <= 60 else v[:57] + "...").replace("|", "\\|") + "`")
+        reason = why.get(key) or {
+            "filament_settings_id": "label: names the ordinary PETG preset",
+            "filament_notes": "label only",
+        }.get(key, f"`{PETG_FILAMENT}`'s own value: ordinary PETG, not PETG V0")
+        if key.endswith("filament_gcode"):
+            reason = "the ordinary PETG preset's own block, with the same `M106 P3` flap line"
+        out.append(f"| `{key}` | {cell(bay.get(key))} | {cell(petg.get(key))} | {reason} |")
+    out += [
+        "",
+        "Kept from the bay-duct bundle: the print preset's speeds and 0.45 mm widths, aligned seam,",
+        "no supports, no skirt, no brim (`plates.brim_for` gives PETG none), the cold-probe start with",
+        "no `z_offset` and no first-layer flow line, and the AFS flap lines. The plate's own part-fan",
+        "setting (`plates.PLATE_CONFIG`, minimum fan 0 %) is written into its 3MF on top.",
+        "",
+    ]
+    return out
 
 
 BAY_HEADER = """\
@@ -348,7 +459,7 @@ def bay_overrides_md(rows, version: str) -> list[str]:
 
 
 def write_overrides_md(black: dict[str, str], accent: dict[str, str], version: str,
-                       bay_rows=None) -> None:
+                       bay_rows=None, petg_md=None) -> None:
     sections = load_bundle()
     base = {}
     base.update(resolve(sections, "print", BASE_PRINT))
@@ -515,6 +626,8 @@ def write_overrides_md(black: dict[str, str], accent: dict[str, str], version: s
     ]
     if bay_rows:
         out += bay_overrides_md(bay_rows, version)
+    if petg_md:
+        out += petg_md
     (ROOT / "OVERRIDES.md").write_text("\n".join(out) + "\n")
 
 
@@ -529,11 +642,14 @@ def main() -> None:
     write_ini(ROOT / "voron-accent-blue.ini", blue, "voron-accent-blue", version)
     bay, bay_rows = build_bay()
     write_bay_ini(ROOT / "bay-ducts-petg.ini", bay, version)
-    write_overrides_md(black, blue, version, bay_rows)
+    petg, _petg_rows = build_petg_black()
+    write_petg_ini(ROOT / "voron-petg-black.ini", petg, version)
+    write_overrides_md(black, blue, version, bay_rows, petg_overrides_md(bay, petg))
     diff = [k for k in black if black[k] != blue.get(k)]
     print(f"wrote voron-coreone-asa.ini ({len(black)} keys), "
           f"voron-accent-blue.ini (differs in {len(diff)}: {', '.join(sorted(diff))}), "
-          f"bay-ducts-petg.ini ({len(bay)} keys), OVERRIDES.md")
+          f"bay-ducts-petg.ini ({len(bay)} keys), voron-petg-black.ini ({len(petg)} keys), "
+          "OVERRIDES.md")
 
 
 if __name__ == "__main__":

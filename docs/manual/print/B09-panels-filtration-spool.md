@@ -7,7 +7,7 @@ caption: Panels, filtration and a spool holder. Five plates, back to back, and n
 
 **Time:** 20.8 h (5 plates) — PrusaSlicer 2.9.7 estimates.
 
-**Sessions:** 5 plate starts (~5 min hands-on each, 3.3–5.0 h unattended) + ~15 min inspect and bin, plus the
+**Sessions:** 5 plate starts (~5 min hands-on each, 3.3–5.1 h unattended) + ~15 min inspect and bin, plus the
 panel-clip test on kit day.
 
 **Prerequisites:** **Gate A** (as for B08, on the current GT2 belts) and B08: the run ends B08 → B09 → B10 → B12 → B13
@@ -43,9 +43,9 @@ kit day (it needs an extrusion, a panel offcut and the foam tape). The ways it f
 its panel-plus-tape → the panel rattles; too tight → it will not seat. Worst case a wrong guess costs a reprint
 of one clip set: the 6 mm set alone is about 4.3 h and 56 g.
 
-You are **not** building the Voron exhaust filter (76 g, 4.5 h saved). Use `exhaust_cover.stl` (LDO) +
-`exhaust_filter_grill.stl` (Voron) to seal the back panel. Skip `exhaust_filter_housing`,
-`[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill`.
+`exhaust_cover.stl` (LDO) + `exhaust_filter_grill.stl` (Voron) seal the back panel at Ch 11 Step 11.54. The Voron
+exhaust housing set (`exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`,
+`[a]_exhaust_fan_grill`) is not on these plates: it prints in [B13](B13-exhaust-housing.md) for Ch 14 Part H.
 
 **Nevermore, exactly which files:** it prints across P2, P3 and P4 (cartridge, plenum with the cartridge lid, plenum lid). The plenum/lid are STLs; the cartridge and its lid are **3MF files** in
 the same folder (PrusaSlicer imports them fine). Use the **Regular** cartridge, not XL — XL wants a larger
@@ -281,7 +281,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - [ ] Nevermore plenum lid slides freely in its groove
 - [ ] Nevermore cartridge seats square on the plenum with no gap at the joint (magnets go in at Ch 11)
 - [ ] Cartridge built-in support pushed out clean
-- [ ] Exhaust sealed with `exhaust_cover` + `exhaust_filter_grill` only — no Voron exhaust-filter parts printed
+- [ ] `exhaust_cover` and `exhaust_filter_grill` in 11-finish (the exhaust housing set is B13's)
 - [ ] All 31 panel clips counted — 15 in 11-clips-4mm, 16 in 11-clips-6mm
 
 ## Common mistakes
@@ -290,4 +290,4 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - Cutting instead of pushing out the cartridge's built-in support.
 
 ## Next
-Assembly: bottom panel and Z belt covers (p.232–236, Ch 11 Part A), the Nevermore install, then back, side and top panels and the spool holder (p.238–259, Part B). Printing: [B10 — Clicky-Clack door](B10-clicky-clack-door.md).
+Assembly: bottom panel, Z belt covers, the Nevermore install and the spool holder (Ch 11 Part A), then back, side and top panels (p.238–259, Part B). Printing: [B10 — Clicky-Clack door](B10-clicky-clack-door.md).

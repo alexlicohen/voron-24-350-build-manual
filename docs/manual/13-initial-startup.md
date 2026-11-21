@@ -17,7 +17,7 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 
 **Prerequisites:**
 
-- **Ch 10 (Wiring):** **Checkpoint #1 passed** with a multimeter, machine unplugged. This is a hard gate: if you have not done it, stop and do it. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
+- **Ch 10 (Wiring):** **Checkpoint 10 passed**, LDO's Checkpoint #1 and the dead meter sweep, with a multimeter, machine unplugged. This is a hard gate: if you have not done it, stop and do it. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
 - **Ch 12 (Software):** Klipper, Moonraker and Mainsail installed; `leviathan-printer-rev-d-sbv2.cfg` fetched as `printer.cfg` (`grep -c gpio printer.cfg` → 0); both MCU serial IDs filled in; the 350 mm options uncommented. The boards were first powered at Ch 12 Step 12.11, with the hand-on-switch drill; Step 13.3 repeats it.
 - **[Ch 06 Part A, Z axis](06-z-axis-and-gantry-squaring.md)** (gantry in, Z belts on) and **[Ch 07, A/B belts](07-ab-belts.md)** at provisional tension. The gantry is *not* squared yet: that is Ch 06 Part B (06b), which runs from the middle of this chapter at Step 13.34, with cold squaring and a provisional A/B re-tension only. Final tension, the closed-chamber soak and the hot Z-joint lock are Ch 14 Steps 14.4–14.6.
 - **Ch 11 (Skirts and panels):** bottom panel and skirts on (Ch 11 Part A). The bottom door swings down once, with the machine dead, at Step 13.2 for an eyes-only look at the bay's LEDs, and closes, dead, at 13.8. **Back, side and top panels off**, and they stay off (Ch 11 Part B comes after this chapter, before Ch 14): you need to reach the gantry for Ch 06b, and you want to see and smell everything at power-up. So the heat soaks in this chapter run with the front open, and their gate is probe repeatability, not a chamber temperature.
@@ -118,8 +118,8 @@ Source: [Voron docs image v2render.png](https://raw.githubusercontent.com/VoronD
 
 **Do:**
 
-1. Take the cord out of the room. Lay the machine on its **right** side, bay toward you, inlet rocker at the top left. Swing the door down and hold the meter at 0 V for ten seconds, as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead).
-2. Re-read the PSU selector, the SSR terminals and the Leviathan jumpers against the table.
+1. Once 11.21's VHB has had a day, take the cord out of the room and lay the machine on its **right** side, bay toward you, inlet rocker at the top left. Swing the door down and hold the meter at 0 V for ten seconds, as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead).
+2. Re-read all three against the table.
 
 | Item | Must be |
 |---|---|
@@ -293,17 +293,17 @@ Source: [Voron docs image heaters.gif](https://raw.githubusercontent.com/VoronDe
 
 ![LDO close-up of the SSR and its indicator LED (Rev C bay — terminal blocks instead of your WAGOs)](assets/remote/13-initial-startup/SSR_Close_Up.jpg)
 
-**What you're looking at:** The same test on the bed, plus the bay's SSR LED, which splits a bed fault into mains side or control side.
+**What you're looking at:** The same test on the bed, plus the SSR's LED, which tells a mains-side bed fault from a control-side one.
 
 **Parts:** none.
 
 **Do:**
 
-1. Eyes only: set the **Bed** target to 50 and watch the SSR's LED and the graph.
+1. Eyes only: set the **Bed** target to 50; watch the SSR's LED and the graph.
 2. Set the bed to **Off**. Press Mainsail's **Shutdown**; once the Pi's green LED has flashed its last (red stays lit), switch the rocker off, unplug, and take the cord out of the room. [src](https://github.com/raspberrypi/documentation/blob/master/documentation/asciidoc/computers/configuration/led_blink_warnings.adoc)
-3. Hold the meter at 0 V for ten seconds, then close the door and stand the machine upright.
+3. Hold the meter at 0 V for ten seconds, then close the door, stand the machine upright and refit a bagged probe shaft.
 
-**Check:** The SSR LED came on and went out at **Off**, the bed climbed, and the meter held 0 V, as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), before the door closed.
+**Check:** The SSR LED lit and went out at **Off**, the bed climbed, and the meter held 0 V, as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), before the door closed.
 
 ⚠ **The eyes-only window ends here.** No hand goes into the bay, and the machine is not stood up, until the meter has held 0 V. From here the bay stays closed for the rest of the chapter; the next power-on is 13.9's, with the door shut. She may come back in once the cord is out.
 
@@ -1890,7 +1890,7 @@ Pause: ~30 min since the last pause — the scrubber runs inside `PRINT_START`, 
 
 Tick every line before you start Ch 14.
 
-- [ ] Checkpoint #1 (Ch 10) was passed before this chapter began, with a multimeter, unplugged.
+- [ ] Checkpoint 10, with LDO's Checkpoint #1 in it, was passed before this chapter began, with a multimeter, unplugged.
 - [ ] `STATUS` returns `Klipper state: Ready`, and both MCUs are present: `stm32f446xx` (or `stm32h743xx` on a V1.3 board) and `stm32g0b1xx`.
 - [ ] `grep -c gpio ~/printer_data/config/printer.cfg` returns 0, so this is the `-sbv2` config.
 - [ ] `M112` tested once (Step 13.22) and typed-and-unsent, alone on the line, before every first move; everyone in the room knows it is the stop and `RESTART` is not.

@@ -446,6 +446,7 @@ Source: [Voron startup wizard § Probe accuracy check](https://docs.vorondesign.
 - reused: the four M5×40 Z joint SHCS
 - tool: 4 mm ball-end hex key
 - tool: 150 mm machinist square
+- tool: IR thermometer
 
 **Do:**
 
@@ -460,6 +461,8 @@ Source: [Voron startup wizard § Probe accuracy check](https://docs.vorondesign.
 | 3 | **Fully tighten the four M5×40 Z joint bolts while the machine is still hot**, rear pair first, door open as briefly as you can. If a rear joint is out of reach, take that side panel off | First and only full torque on these four bolts |
 | 4 | Refit any side panel you took off, its M3×12 clip screws back in, door shut. Still hot: `G28`, one more `QUAD_GANTRY_LEVEL`, then `PROBE_ACCURACY`, then `BED_MESH_CALIBRATE` and open Mainsail's **Heightmap**. Only then heaters off and `SET_IDLE_TIMEOUT TIMEOUT=1800` | QGL converging in ≤3 retries within `retry_tolerance: 0.0075`, `PROBE_ACCURACY` σ < 0.003 mm with no trend, the mesh **Range** from the Heightmap panel and whether the map reads 0 at the bed centre in the log, for 14.22, idle timeout back at the config's 1800 |
 
+After row 4, take one bench reading of the bed relay (the SSR) while it is still warm. Omron rates it 10 A only on its own heat sink, and LDO's bracket has no published rating ([00a.7](00a-mains-safety.md#step-00a7-the-ssr-is-marked-earth-the-mounting-rail-so-this-build-adds-a-lead)), so there is no pass mark: you are recording a number. Once the hotend is under 50 °C and the bed under 60 °C, so nothing you handle can burn, shut down as at [13.43](13-initial-startup.md#step-1343-shut-down-properly), then unplug and prove it dead as at [14.30](#step-1430-shut-down-unplug-and-prove-it-dead): cord out of the room, the machine on its side with two people, the bottom panel down and the meter holding 0 V. Within about two minutes of the panel opening, aim an IR thermometer at the SSR's metal bracket, touching nothing, and write the reading in the tuning log `(verify on bench)`. Close the panel and stand the machine up; the next power-on, before 14.7, is [14.32](#step-1432-close-the-bay-and-power-on-hand-on-the-switch)'s, with a hand on the rocker.
+
 **Check:** `chamber_temp` was level for at least 20 minutes before the QGL runs, and each run's correction got smaller rather than bouncing around.
 
 ⚠ Everything you reach past is hot: the bed at 110 °C, the nozzle at 150 °C, and the frame and printed parts warm from the soak. Keep your arm off the bed and clear of the toolhead, and keep your hands out of the chamber whenever QGL, homing, the probe or the mesh is moving the gantry.
@@ -470,7 +473,7 @@ If the QGL runs need all 5 retries where Ch 13 settled in 2, or throw new tolera
 
 Source: [Voron docs § V2 Gantry Squaring, steps 14–17](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · [Voron startup wizard § Quad gantry level](https://docs.vorondesign.com/build/startup/startup.html#quad-gantry-level) · [Klipper docs § QUAD_GANTRY_LEVEL](https://www.klipper3d.org/G-Codes.html#quad_gantry_level) · [Klipper docs § SET_IDLE_TIMEOUT](https://www.klipper3d.org/G-Codes.html#set_idle_timeout) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L471-524) · [Ch 06b Part B](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring) · [Video: Part 9 @2:49:16](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10156s)
 
-Pause: ~25 min since the last pause (plus the 1½–2 h soak) — all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint screws locked hot, `PROBE_ACCURACY` checked hot again afterwards, the hot mesh Range logged and the idle timeout set back to 1800. The whole belt-and-shape item is closed, and the heaters can go off. Thirty minutes after the last move the restored timeout lets go of every motor, and the gantry may sink onto the bed: clear the plate before you walk away, and `G28` when you come back. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder.
+Pause: ~25 min since the last pause (plus the 1½–2 h soak) — all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint screws locked hot, `PROBE_ACCURACY` checked hot again afterwards, the hot mesh Range logged and the idle timeout set back to 1800, then the heaters off, the machine shut down and proved dead for the SSR bracket reading, which is in the tuning log, and stood up again, unplugged. The whole belt-and-shape item is closed. Shutting down lets go of every motor, and the gantry may sink onto the bed: clear the plate before you shut down, and `G28` after the next power-on. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder.
 
 ---
 
@@ -1610,6 +1613,7 @@ Fill this in as you go: one row per change, both of you initialling. It is the r
 | | Extrusion multiplier (ASA) | ___ % | Ellis 30×30×3 cubes, centre of the top surface by eye | top smooth, no gaps, no ridging? | |
 | | Z offset (final) | `position_endstop` ______ | `Z_OFFSET_APPLY_ENDSTOP` | | |
 | | Bed mesh Range | ___ mm | `BED_MESH_CALIBRATE`, end of the 14.6 soak | 0 at the bed centre? | |
+| | SSR bracket after the 14.6 soak | ___ °C, ___ min after the bed went off | IR thermometer, machine dead, panel just opened, nothing touched | no published limit: a record only | |
 | | Part H: ASA soak with the housing (14.34) | ___ °C in ___ min | `chamber_temp`, bed 110, ceiling 0 | still 50–60 °C? | |
 | | Part H: fan stop at ceiling 45 (14.34) | ___ °C | bed off, `chamber_temp` | 43 ±1.5? | |
 | | Part H: PLA under a 35 ceiling (14.36) | ___ to ___ °C | every 15 min, door shut | fan on at ___ of ___ readings | |

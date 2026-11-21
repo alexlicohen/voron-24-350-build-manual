@@ -13,10 +13,13 @@
  *                   marks the plate printed
  *   row 1's gate    closed once any step after B00's "Before B00" section is
  *                   ticked (B00.8 on) or B00-P1 is printed
+ *   declared needs  a segment whose `needs` (plates, steps) are not done waits:
+ *                   never offered; its print row steps aside for the next batch
  *
  * The planner below is a line-for-line port of build_tonight.py's
  * (_plan_for_budget, _next_segment, _live_rows, _pre_kit_rows,
- * plan_sections, done_segments, gate_is_closed, plan_state). The JSON
+ * plan_sections, done_segments, waiting_segments, gate_is_closed,
+ * plan_state). The JSON
  * carries the Python planner's own answers for seeded states (`cases`);
  * scripts/check_tonight.mjs replays them through this file and fails on any
  * difference. Without JS, or without the JSON, the static plan stays.
@@ -34,9 +37,13 @@
 
   /* ---------------------------------------------------------------- planner */
 
-  function planForBudget(rows, budget, stopAtKit, benchFirst, psm) {
+  /* `waiting`: {segment id: true} for segments whose declared needs are not met
+   * (build_tonight.py § Declared needs). Never picked; a Print row stopped by one
+   * does not hold the later print rows. */
+  function planForBudget(rows, budget, stopAtKit, benchFirst, psm, waiting) {
     var picked = [], total = 0, plateStarted = false;
     var i, j, row, seg;
+    waiting = waiting || {};
     if (benchFirst) {
       for (i = 0; i < rows.length; i++) {
         row = rows[i];
@@ -44,17 +51,18 @@
         if (row.kind === 'Print' || row.kind === 'Both') continue;
         for (j = 0; j < row.segments.length; j++) {
           seg = row.segments[j];
-          if (total + seg.minutes > budget) break;
+          if (waiting[seg.id] || total + seg.minutes > budget) break;
           picked.push([row, seg]);
           total += seg.minutes;
         }
       }
       var firstPrint = null;
       for (i = 0; i < rows.length; i++) {
-        if (rows[i].kind === 'Print' && rows[i].segments.length) { firstPrint = rows[i]; break; }
+        if (rows[i].kind === 'Print' && rows[i].segments.length &&
+            !waiting[rows[i].segments[0].id]) { firstPrint = rows[i]; break; }
       }
       if (firstPrint !== null && budget - total >= psm) {
-        var rest = planForBudget([firstPrint], budget - total, stopAtKit, false, psm);
+        var rest = planForBudget([firstPrint], budget - total, stopAtKit, false, psm, waiting);
         picked = picked.concat(rest[0]);
         total += rest[1];
       }
@@ -69,9 +77,10 @@
       /* **KIT** build rows are sequential, like print rows (build_tonight.py). */
       var kitBuild = row.kind === 'Build' && !!row.kit;
       if (kitBuild && buildsBlocked) continue;
-      var finished = true;
+      var finished = true, held = false;
       for (j = 0; j < row.segments.length; j++) {
         seg = row.segments[j];
+        if (waiting[seg.id]) { finished = false; held = true; break; }
         if (seg.kind === 'print') {
           finished = false;
           if (!plateStarted && total + seg.minutes <= budget) {
@@ -85,18 +94,23 @@
         picked.push([row, seg]);
         total += seg.minutes;
       }
-      if (row.kind === 'Print' && !finished) printsBlocked = true;
+      if (row.kind === 'Print' && !finished && !held) printsBlocked = true;
       if (kitBuild && !finished) buildsBlocked = true;
       if (budget - total < psm) break;
     }
     return [picked, total];
   }
 
-  function nextSegment(rows) {
+  function nextSegment(rows, waiting) {
+    var first = null;
+    waiting = waiting || {};
     for (var i = 0; i < rows.length; i++) {
-      if (rows[i].segments.length) return [rows[i], rows[i].segments[0]];
+      if (!rows[i].segments.length) continue;
+      var seg = rows[i].segments[0];
+      if (!waiting[seg.id]) return [rows[i], seg];
+      if (first === null) first = [rows[i], seg];
     }
-    return [null, null];
+    return first || [null, null];
   }
 
   function withSegments(row, segs) {
@@ -121,7 +135,7 @@
     return out;
   }
 
-  function planSections(data, kitArrived, done, gateClosed) {
+  function planSections(data, kitArrived, done, gateClosed, waiting) {
     var live = liveRows(data.rows, done);
     var pre = preKitRows(live);
     var gateOpen = !!data.gate && !gateClosed;
@@ -133,9 +147,9 @@
       return {
         id: sp[0], rows: srows, gate: gateOpen, bench_first: sp[3],
         buckets: data.budgets.map(function (budget) {
-          var r = planForBudget(srows, budget, sp[2], sp[3], data.plate_start_min);
+          var r = planForBudget(srows, budget, sp[2], sp[3], data.plate_start_min, waiting);
           return { budget: budget, picked: r[0], total: r[1],
-                   next: r[0].length ? null : nextSegment(srows) };
+                   next: r[0].length ? null : nextSegment(srows, waiting) };
         })
       };
     });
@@ -164,6 +178,30 @@
       });
     });
     return { ids: done, count: n };
+  }
+
+  /* Segments whose declared needs (seg.needs: {steps: [[slug, id]], plates: [id]})
+   * are not met: a plate as its own print segment is done, a step when ticked. */
+  function waitingSegments(rows, ticks, printed, done) {
+    var plateSeg = {}, waiting = {};
+    rows.forEach(function (row) {
+      row.segments.forEach(function (seg) {
+        if (seg.kind === 'print' && seg.plate != null) plateSeg[seg.plate] = seg.id;
+      });
+    });
+    rows.forEach(function (row) {
+      row.segments.forEach(function (seg) {
+        var needs = seg.needs;
+        if (!needs) return;
+        var ok = (needs.steps || []).every(function (n) {
+          return !!(ticks[n[0] || ''] || {})[n[1]];
+        }) && (needs.plates || []).every(function (p) {
+          return !!printed[p] || (plateSeg[p] != null && !!done[plateSeg[p]]);
+        });
+        if (!ok) waiting[seg.id] = true;
+      });
+    });
+    return waiting;
   }
 
   function gateIsClosed(gate, ticks, printed) {
@@ -217,7 +255,8 @@
     var p = Array.isArray(printed) ? asSet(printed) : (printed || {});
     var done = doneSegments(data.rows, t, p);
     var closed = gateIsClosed(data.gate, t, p);
-    var plan = planSections(data, kitArrived, done.ids, closed);
+    var waiting = waitingSegments(data.rows, t, p, done.ids);
+    var plan = planSections(data, kitArrived, done.ids, closed, waiting);
     plan.summary = summary(plan, done.count, closed);
     return plan;
   }

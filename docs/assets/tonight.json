@@ -305,9 +305,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine on its back and the bay open.",
+     "leave_state": "the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine upside down and the bay open.",
      "helpers": [],
-     "text": "Step 00a.6 → Step 00a.12 · ~25 min · leave-state: the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine on its back and the bay open."
+     "text": "Step 00a.6 → Step 00a.12 · ~25 min · leave-state: the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine upside down and the bay open."
     }
    ]
   },
@@ -1080,7 +1080,7 @@
      "run": "bay",
      "leave_state": "plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P1 (Step B11.3) · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P1 (Step B11.3) · PETG on the textured sheet · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#1",
@@ -1118,7 +1118,7 @@
      "run": "bay",
      "leave_state": "plate B11-P2 running, 4.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 4.3 h unattended · leave-state: plate B11-P2 running, 4.3 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P2 (Step B11.5) · PETG on the textured sheet · ~5 min hands-on, then 4.3 h unattended · leave-state: plate B11-P2 running, 4.3 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#3",
@@ -1137,7 +1137,7 @@
      "run": "bay",
      "leave_state": "plate B11-P3 running, 3.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P3 (Step B11.6) · ~5 min hands-on, then 3.2 h unattended · leave-state: plate B11-P3 running, 3.2 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P3 (Step B11.6) · PETG on the textured sheet · ~5 min hands-on, then 3.2 h unattended · leave-state: plate B11-P3 running, 3.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#4",
@@ -1156,7 +1156,7 @@
      "run": "bay",
      "leave_state": "plate B11-P6 running, 4.0 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P6 (Step B11.15) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B11-P6 running, 4.0 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P6 (Step B11.15) · PETG on the textured sheet · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B11-P6 running, 4.0 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#5",
@@ -1200,6 +1200,182 @@
       ]
      ],
      "text": "Step B11.8 · ~10 min · leave-state: B11-P1 to P3 and P6 are binned. Swap the satin sheet back on and set Adv. Filtration for B08."
+    }
+   ]
+  },
+  {
+   "n": 33,
+   "label": "B11 — Bay ducting, part 2, after the kit-day measurements",
+   "kind": "Print",
+   "kit": true,
+   "segments": [
+    {
+     "id": "b11-bay-ducting#7",
+     "chapter": "b11-bay-ducting",
+     "kind": "build",
+     "steps": [
+      "B11.10"
+     ],
+     "first_step": "B11.10",
+     "last_step": "B11.10",
+     "href": "../manual/steps/b11-bay-ducting/b11-10/",
+     "minutes": 20,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "the bay is dry-laid and measured; nothing is stuck down or fastened.",
+     "helpers": [
+      [
+       "B11.10",
+       "Reads each caliper number back aloud and writes it into the log."
+      ]
+     ],
+     "text": "Step B11.10 · ~20 min · waits for Steps 00.3, 00.4 and plates B11-P2, B11-P3 · leave-state: the bay is dry-laid and measured; nothing is stuck down or fastened.",
+     "needs": {
+      "steps": [
+       [
+        "00-before-you-start",
+        "00.3"
+       ],
+       [
+        "00-before-you-start",
+        "00.4"
+       ]
+      ],
+      "plates": [
+       "B11-P2",
+       "B11-P3"
+      ]
+     }
+    },
+    {
+     "id": "b11-bay-ducting#8",
+     "chapter": "b11-bay-ducting",
+     "kind": "build",
+     "steps": [
+      "B11.11"
+     ],
+     "first_step": "B11.11",
+     "last_step": "B11.11",
+     "href": "../manual/steps/b11-bay-ducting/b11-11/",
+     "minutes": 15,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "every piece that needed it is regenerated, back on B11-P4 and re-sliced; `check_docs.py` is green.",
+     "helpers": [],
+     "text": "Step B11.11 · ~15 min · leave-state: every piece that needed it is regenerated, back on B11-P4 and re-sliced; `check_docs.py` is green."
+    },
+    {
+     "id": "b11-bay-ducting#9",
+     "chapter": "b11-bay-ducting",
+     "kind": "print",
+     "steps": [
+      "B11.12"
+     ],
+     "first_step": "B11.12",
+     "last_step": "B11.12",
+     "href": "../manual/steps/b11-bay-ducting/b11-12/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B11-P4",
+     "print_hours": 6.3,
+     "run": "bay",
+     "leave_state": "plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [],
+     "text": "Start plate B11-P4 (Step B11.12) · PETG on the textured sheet · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b11-bay-ducting#10",
+     "chapter": "b11-bay-ducting",
+     "kind": "print",
+     "steps": [
+      "B11.13"
+     ],
+     "first_step": "B11.13",
+     "last_step": "B11.13",
+     "href": "../manual/steps/b11-bay-ducting/b11-13/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B11-P5",
+     "print_hours": 4.2,
+     "run": "bay",
+     "leave_state": "plate B11-P5 running, 4.2 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [],
+     "text": "Start plate B11-P5 (Step B11.13) · PETG on the textured sheet · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B11-P5 running, 4.2 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b11-bay-ducting#11",
+     "chapter": "b11-bay-ducting",
+     "kind": "print",
+     "steps": [
+      "B11.16"
+     ],
+     "first_step": "B11.16",
+     "last_step": "B11.16",
+     "href": "../manual/steps/b11-bay-ducting/b11-16/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B11-P7",
+     "print_hours": 2.7,
+     "run": "bay",
+     "leave_state": "plate B11-P7 running, 2.7 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [],
+     "text": "Start plate B11-P7 (Step B11.16) · PETG on the textured sheet · ~5 min hands-on, then 2.7 h unattended · leave-state: plate B11-P7 running, 2.7 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b11-bay-ducting#12",
+     "chapter": "b11-bay-ducting",
+     "kind": "build",
+     "steps": [
+      "B11.14"
+     ],
+     "first_step": "B11.14",
+     "last_step": "B11.14",
+     "href": "../manual/steps/b11-bay-ducting/b11-14/",
+     "minutes": 10,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration.",
+     "helpers": [
+      [
+       "B11.14",
+       "Reads each bin label aloud and checks the count against the diagram."
+      ]
+     ],
+     "text": "Step B11.14 · ~10 min · leave-state: all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration."
+    },
+    {
+     "id": "b11-bay-ducting#13",
+     "chapter": "b11-bay-ducting",
+     "kind": "build",
+     "steps": [
+      "B11.9"
+     ],
+     "first_step": "B11.9",
+     "last_step": "B11.9",
+     "href": "../manual/steps/b11-bay-ducting/b11-9/",
+     "minutes": 15,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4, P5 and P7 are unaffected.",
+     "helpers": [],
+     "text": "Step B11.9 · ~15 min · waits for Step 06.26 · leave-state: both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4, P5 and P7 are unaffected.",
+     "needs": {
+      "steps": [
+       [
+        "06-z-axis-and-gantry-squaring",
+        "06.26"
+       ]
+      ],
+      "plates": []
+     }
     }
    ]
   },
@@ -1639,16 +1815,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B12-P1",
-     "print_hours": 6.9,
-     "run": "asa",
-     "leave_state": "plate B12-P1 running, 6.9 h unattended — door shut; come back for the next step when it ends",
+     "print_hours": 6.7,
+     "run": "petg",
+     "leave_state": "plate B12-P1 running, 6.7 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B12.2",
        "Reads the plate's hours and grams off the slicer and checks them against this step."
       ]
      ],
-     "text": "Start plate B12-P1 (Step B12.2) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B12-P1 running, 6.9 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B12-P1 (Step B12.2) · PETG on the textured sheet · ~5 min hands-on, then 6.7 h unattended · leave-state: plate B12-P1 running, 6.7 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b12-side-spool-and-camera#1",
@@ -4222,7 +4398,17 @@
        "Practises hook, rotate and snap on the spare clip until it clicks on first time."
       ]
      ],
-     "text": "Step 09.6 → Step 09.7 · ~25 min · leave-state: both DIN rails are on and the DC loop is laid out on its tape marks, not stuck; the VHB, lids and AC parts wait for 09.36. A piece knocked out of place goes back to its marks. Slide the middle run aside if a board needs room to clip on, since 09.36 centres it again. Nothing is clipped to a rail yet. Leave the printer where it is if you can: standing it back up costs you the T-nut access."
+     "text": "Step 09.6 → Step 09.7 · ~25 min · waits for plates B11-P2, B11-P4, B11-P5, B11-P6, B11-P7 · leave-state: both DIN rails are on and the DC loop is laid out on its tape marks, not stuck; the VHB, lids and AC parts wait for 09.36. A piece knocked out of place goes back to its marks. Slide the middle run aside if a board needs room to clip on, since 09.36 centres it again. Nothing is clipped to a rail yet. Leave the printer where it is if you can: standing it back up costs you the T-nut access.",
+     "needs": {
+      "steps": [],
+      "plates": [
+       "B11-P2",
+       "B11-P4",
+       "B11-P5",
+       "B11-P6",
+       "B11-P7"
+      ]
+     }
     },
     {
      "id": "09-electronics-bay#2",
@@ -4381,20 +4567,27 @@
      "chapter": "09-electronics-bay",
      "kind": "build",
      "steps": [
-      "09.35",
-      "09.36"
+      "09.36",
+      "09.35"
      ],
-     "first_step": "09.35",
-     "last_step": "09.36",
-     "href": "../manual/steps/09-electronics-bay/09-35/",
+     "first_step": "09.36",
+     "last_step": "09.35",
+     "href": "../manual/steps/09-electronics-bay/09-36/",
      "minutes": 45,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. Do not start Ch 10 in a leftover ten minutes: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.",
+     "leave_state": "both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. Ch 10 starts above the deck: two people stand the printer upright before 10.30. Its mains work comes after the chains, in a fresh session of its own.",
      "helpers": [],
-     "text": "Step 09.35 → Step 09.36 · ~45 min · leave-state: both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. Do not start Ch 10 in a leftover ten minutes: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1."
+     "text": "Step 09.36 → Step 09.35 · ~45 min · waits for plates B11-P3, B11-P4 · leave-state: both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. Ch 10 starts above the deck: two people stand the printer upright before 10.30. Its mains work comes after the chains, in a fresh session of its own.",
+     "needs": {
+      "steps": [],
+      "plates": [
+       "B11-P3",
+       "B11-P4"
+      ]
+     }
     }
    ]
   },
@@ -4406,102 +4599,6 @@
    "segments": [
     {
      "id": "10-wiring#0",
-     "chapter": "10-wiring",
-     "kind": "build",
-     "steps": [
-      "10.1",
-      "10.2",
-      "10.3",
-      "10.4"
-     ],
-     "first_step": "10.1",
-     "last_step": "10.4",
-     "href": "../manual/steps/10-wiring/10-1/",
-     "minutes": 15,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "printer on its right side, PSU switch set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. No mains wiring started. Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain connected at both ends.",
-     "helpers": [],
-     "text": "Step 10.1 → Step 10.4 · ~15 min · leave-state: printer on its right side, PSU switch set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. No mains wiring started. Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain connected at both ends."
-    },
-    {
-     "id": "10-wiring#1",
-     "chapter": "10-wiring",
-     "kind": "build",
-     "steps": [
-      "10.5",
-      "10.6",
-      "10.7",
-      "10.8",
-      "10.9"
-     ],
-     "first_step": "10.5",
-     "last_step": "10.9",
-     "href": "../manual/steps/10-wiring/10-5/",
-     "minutes": 30,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "inlet checked, plug panel confirmed on the frame, WAGO bus labelled N/L/PE, and the inlet→WAGO→PSU run connected at both ends. Nothing plugged in, cord out of the room. Do not walk away with a stripped mains core outside a WAGO lever. The next segment fits the two earth leads and then runs LDO's Checkpoint #1 to its one power-on: start it only when you have an uninterrupted 40 minutes.",
-     "helpers": [],
-     "text": "Step 10.5 → Step 10.9 · ~30 min · leave-state: inlet checked, plug panel confirmed on the frame, WAGO bus labelled N/L/PE, and the inlet→WAGO→PSU run connected at both ends. Nothing plugged in, cord out of the room. Do not walk away with a stripped mains core outside a WAGO lever. The next segment fits the two earth leads and then runs LDO's Checkpoint #1 to its one power-on: start it only when you have an uninterrupted 40 minutes."
-    },
-    {
-     "id": "10-wiring#2",
-     "chapter": "10-wiring",
-     "kind": "build",
-     "steps": [
-      "10.16",
-      "10.82",
-      "10.17",
-      "10.18",
-      "10.19",
-      "10.20",
-      "10.22",
-      "10.23"
-     ],
-     "first_step": "10.16",
-     "last_step": "10.23",
-     "href": "../manual/steps/10-wiring/10-16/",
-     "minutes": 40,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "both earth leads fitted, Checkpoint #1 passed end to end, and the machine was powered once and switched off. Cord unplugged and back out of the room. Everything from here is done dead. The SSR and bed are still unwired: Section 2b wires them next, with the printer still on its right side.",
-     "helpers": [],
-     "text": "Step 10.16 → Step 10.23 · ~40 min · leave-state: both earth leads fitted, Checkpoint #1 passed end to end, and the machine was powered once and switched off. Cord unplugged and back out of the room. Everything from here is done dead. The SSR and bed are still unwired: Section 2b wires them next, with the printer still on its right side."
-    },
-    {
-     "id": "10-wiring#3",
-     "chapter": "10-wiring",
-     "kind": "build",
-     "steps": [
-      "10.10",
-      "10.11",
-      "10.12",
-      "10.13",
-      "10.14",
-      "10.15",
-      "10.21"
-     ],
-     "first_step": "10.10",
-     "last_step": "10.21",
-     "href": "../manual/steps/10-wiring/10-10/",
-     "minutes": 30,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "SSR LOAD 1/2 and bed L, N and PE wired dead and pull-tested, each proved in its own Check, the SSR open and the bus still isolated. Cord out of the room, DC side untouched. Stand the printer upright for Sections 3 and 4, the work above the deck and the chains; it goes back on its side after 10.66.",
-     "helpers": [],
-     "text": "Step 10.10 → Step 10.21 · ~30 min · leave-state: SSR LOAD 1/2 and bed L, N and PE wired dead and pull-tested, each proved in its own Check, the SSR open and the bus still isolated. Cord out of the room, DC side untouched. Stand the printer upright for Sections 3 and 4, the work above the deck and the chains; it goes back on its side after 10.66."
-    },
-    {
-     "id": "10-wiring#4",
      "chapter": "10-wiring",
      "kind": "build",
      "steps": [
@@ -4533,7 +4630,7 @@
      "text": "Step 10.30 → Step 10.34 · ~25 min · leave-state: probe tape confirmed, XY endstop cable read (and repinned if needed) and plugged into the gantry PCB, nozzle-probe lead run to the Z-chain notch. Both cables are loose on the gantry, not yet in a chain."
     },
     {
-     "id": "10-wiring#5",
+     "id": "10-wiring#1",
      "chapter": "10-wiring",
      "kind": "build",
      "steps": [
@@ -4566,7 +4663,7 @@
      "text": "Step 10.35 → Step 10.39 · ~35 min · leave-state: eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead routed, the camera cable too if fitted, and every occupied extrusion slot covered. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good."
     },
     {
-     "id": "10-wiring#6",
+     "id": "10-wiring#2",
      "chapter": "10-wiring",
      "kind": "build",
      "steps": [
@@ -4590,7 +4687,7 @@
      "text": "Step 10.59 → Step 10.64 · ~35 min · leave-state: X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. Chains are empty and latched. Do not part-fill a chain and walk away: the next segment fills all three in one go."
     },
     {
-     "id": "10-wiring#7",
+     "id": "10-wiring#3",
      "chapter": "10-wiring",
      "kind": "build",
      "steps": [
@@ -4605,14 +4702,110 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all three chains filled and every end zip-tied, every latch clicked shut, the cable cover over the Z bundle; the gantry moves through full X, Y and Z travel by hand. The umbilical is still unplugged at the bay. Now lay the printer on its right side, bay towards you, for the rest of the chapter.",
+     "leave_state": "all three chains filled and every end zip-tied, every latch clicked shut, the cable cover over the Z bundle; the gantry moves through full X, Y and Z travel by hand. The umbilical, A/B, XY endstop, LED, nozzle-probe and camera leads hang through the deck into the bay, every one unplugged. Before you stop, with two people, lay the printer on its right side on a blanket, the underside of the deck facing you: it stays there for the rest of the chapter. Then the helper leaves the room; Sections 1, 2 and 2b are one adult alone. Do not start Section 1 in a leftover ten minutes: mains work is a fresh session with a clear head, through LDO's Checkpoint #1 to the SSR and bed leads after it.",
      "helpers": [
       [
        "10.65",
        "Holds each chain latch open with the flat screwdriver while the adult lays the cables in."
       ]
      ],
-     "text": "Step 10.65 → Step 10.66 · ~20 min · leave-state: all three chains filled and every end zip-tied, every latch clicked shut, the cable cover over the Z bundle; the gantry moves through full X, Y and Z travel by hand. The umbilical is still unplugged at the bay. Now lay the printer on its right side, bay towards you, for the rest of the chapter."
+     "text": "Step 10.65 → Step 10.66 · ~20 min · leave-state: all three chains filled and every end zip-tied, every latch clicked shut, the cable cover over the Z bundle; the gantry moves through full X, Y and Z travel by hand. The umbilical, A/B, XY endstop, LED, nozzle-probe and camera leads hang through the deck into the bay, every one unplugged. Before you stop, with two people, lay the printer on its right side on a blanket, the underside of the deck facing you: it stays there for the rest of the chapter. Then the helper leaves the room; Sections 1, 2 and 2b are one adult alone. Do not start Section 1 in a leftover ten minutes: mains work is a fresh session with a clear head, through LDO's Checkpoint #1 to the SSR and bed leads after it."
+    },
+    {
+     "id": "10-wiring#4",
+     "chapter": "10-wiring",
+     "kind": "build",
+     "steps": [
+      "10.1",
+      "10.2",
+      "10.3",
+      "10.4"
+     ],
+     "first_step": "10.1",
+     "last_step": "10.4",
+     "href": "../manual/steps/10-wiring/10-1/",
+     "minutes": 15,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "printer on its right side, PSU switch set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. No mains wiring started. Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain connected at both ends.",
+     "helpers": [],
+     "text": "Step 10.1 → Step 10.4 · ~15 min · leave-state: printer on its right side, PSU switch set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. No mains wiring started. Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain connected at both ends."
+    },
+    {
+     "id": "10-wiring#5",
+     "chapter": "10-wiring",
+     "kind": "build",
+     "steps": [
+      "10.5",
+      "10.6",
+      "10.7",
+      "10.8",
+      "10.9"
+     ],
+     "first_step": "10.5",
+     "last_step": "10.9",
+     "href": "../manual/steps/10-wiring/10-5/",
+     "minutes": 30,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "inlet checked, plug panel confirmed on the frame, WAGO bus labelled N/L/PE, and the inlet→WAGO→PSU run connected at both ends. Nothing plugged in, cord out of the room. Do not walk away with a stripped mains core outside a WAGO lever. The next segment fits the two earth leads and then runs LDO's Checkpoint #1 to its one power-on: start it only when you have an uninterrupted 40 minutes.",
+     "helpers": [],
+     "text": "Step 10.5 → Step 10.9 · ~30 min · leave-state: inlet checked, plug panel confirmed on the frame, WAGO bus labelled N/L/PE, and the inlet→WAGO→PSU run connected at both ends. Nothing plugged in, cord out of the room. Do not walk away with a stripped mains core outside a WAGO lever. The next segment fits the two earth leads and then runs LDO's Checkpoint #1 to its one power-on: start it only when you have an uninterrupted 40 minutes."
+    },
+    {
+     "id": "10-wiring#6",
+     "chapter": "10-wiring",
+     "kind": "build",
+     "steps": [
+      "10.16",
+      "10.82",
+      "10.17",
+      "10.18",
+      "10.19",
+      "10.20",
+      "10.22",
+      "10.23"
+     ],
+     "first_step": "10.16",
+     "last_step": "10.23",
+     "href": "../manual/steps/10-wiring/10-16/",
+     "minutes": 40,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "both earth leads fitted, Checkpoint #1 passed end to end, and the machine was powered once and switched off. Cord unplugged and back out of the room. Everything from here is done dead. The SSR and bed are still unwired: Section 2b wires them next, with the printer still on its right side.",
+     "helpers": [],
+     "text": "Step 10.16 → Step 10.23 · ~40 min · leave-state: both earth leads fitted, Checkpoint #1 passed end to end, and the machine was powered once and switched off. Cord unplugged and back out of the room. Everything from here is done dead. The SSR and bed are still unwired: Section 2b wires them next, with the printer still on its right side."
+    },
+    {
+     "id": "10-wiring#7",
+     "chapter": "10-wiring",
+     "kind": "build",
+     "steps": [
+      "10.10",
+      "10.11",
+      "10.12",
+      "10.13",
+      "10.14",
+      "10.15",
+      "10.21"
+     ],
+     "first_step": "10.10",
+     "last_step": "10.21",
+     "href": "../manual/steps/10-wiring/10-10/",
+     "minutes": 30,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "SSR LOAD 1/2 and bed L, N and PE wired dead and pull-tested, each proved in its own Check, the SSR open and the bus still isolated. Cord out of the room, the DC leads still parked at the notch, nothing on the DC side connected. The printer stays on its right side, bay toward you, for Section 5 and the rest of the chapter; the helper can come back for 10.40.",
+     "helpers": [],
+     "text": "Step 10.10 → Step 10.21 · ~30 min · leave-state: SSR LOAD 1/2 and bed L, N and PE wired dead and pull-tested, each proved in its own Check, the SSR open and the bus still isolated. Cord out of the room, the DC leads still parked at the notch, nothing on the DC side connected. The printer stays on its right side, bay toward you, for Section 5 and the rest of the chapter; the helper can come back for 10.40."
     },
     {
      "id": "10-wiring#8",
@@ -4833,9 +5026,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's processor marking. Nothing has been flashed yet. Do not start a firmware build you cannot finish and flash in the same sitting.",
+     "leave_state": "the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's processor marking. Nothing has been flashed yet. Do not start a firmware build you cannot finish and flash in the same sitting. To stop here, never leave the bay live: Mainsail Shutdown, rocker off, unplug wall then inlet, cord out of the room and 0 V held ten seconds, as at 11.67; resume with 12.11's hand-on-the-switch power-on.",
      "helpers": [],
-     "text": "Step 12.11 → Step 12.13 · ~15 min · leave-state: the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's processor marking. Nothing has been flashed yet. Do not start a firmware build you cannot finish and flash in the same sitting."
+     "text": "Step 12.11 → Step 12.13 · ~15 min · leave-state: the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's processor marking. Nothing has been flashed yet. Do not start a firmware build you cannot finish and flash in the same sitting. To stop here, never leave the bay live: Mainsail Shutdown, rocker off, unplug wall then inlet, cord out of the room and 0 V held ten seconds, as at 11.67; resume with 12.11's hand-on-the-switch power-on."
     },
     {
      "id": "12-software#7",
@@ -4854,9 +5047,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the Leviathan passed the factory-firmware test or is running your own Klipper build, and still shows up by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on. That is one `make`, but do it before touching the toolboard.",
+     "leave_state": "the Leviathan passed the factory-firmware test or is running your own Klipper build, and still shows up by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on. That is one `make`, but do it before touching the toolboard. To stop here, never leave the bay live: Mainsail Shutdown, rocker off, unplug wall then inlet, cord out of the room and 0 V held ten seconds, as at 11.67; resume with 12.11's hand-on-the-switch power-on.",
      "helpers": [],
-     "text": "Step 12.14 → Step 12.16 · ~20 min · leave-state: the Leviathan passed the factory-firmware test or is running your own Klipper build, and still shows up by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on. That is one `make`, but do it before touching the toolboard."
+     "text": "Step 12.14 → Step 12.16 · ~20 min · leave-state: the Leviathan passed the factory-firmware test or is running your own Klipper build, and still shows up by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on. That is one `make`, but do it before touching the toolboard. To stop here, never leave the bay live: Mainsail Shutdown, rocker off, unplug wall then inlet, cord out of the room and 0 V held ten seconds, as at 11.67; resume with 12.11's hand-on-the-switch power-on."
     },
     {
      "id": "12-software#8",
@@ -4878,9 +5071,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both boards flashed and re-read, your bench `printer-350.cfg` is now `printer.cfg` with both serial paths pasted in, and the config compiles with no error and no warning. Ready for Checkpoint 12, then 11.67 shuts the machine down.",
+     "leave_state": "both boards flashed and re-read, your bench `printer-350.cfg` is now `printer.cfg` with both serial paths pasted in, and the config compiles with no error and no warning. Ready for Checkpoint 12, then 11.67 shuts the machine down. To stop before Checkpoint 12, never leave the bay live: shut down as at 11.67 now, Pi first, and resume with 12.11's hand-on-the-switch power-on.",
      "helpers": [],
-     "text": "Step 12.17 → Step 12.37 · ~30 min · leave-state: both boards flashed and re-read, your bench `printer-350.cfg` is now `printer.cfg` with both serial paths pasted in, and the config compiles with no error and no warning. Ready for Checkpoint 12, then 11.67 shuts the machine down."
+     "text": "Step 12.17 → Step 12.37 · ~30 min · leave-state: both boards flashed and re-read, your bench `printer-350.cfg` is now `printer.cfg` with both serial paths pasted in, and the config compiles with no error and no warning. Ready for Checkpoint 12, then 11.67 shuts the machine down. To stop before Checkpoint 12, never leave the bay live: shut down as at 11.67 now, Pi first, and resume with 12.11's hand-on-the-switch power-on."
     }
    ]
   },
@@ -4909,7 +5102,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, and inserts melted into the segments, both bay fans and the two grill retainers. The mini12864 parts are set aside unbuilt, and nothing is screwed to the frame yet.",
+     "leave_state": "machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, and inserts melted into the segments, both bay fans and the two grill retainers. The mini12864 parts are set aside unbuilt, nothing is screwed to the frame yet, and the machine is still on its right side, as Ch 12 left it.",
      "helpers": [
       [
        "11.1",
@@ -4920,7 +5113,7 @@
        "Looks through the skirt bins for any mini12864 part and reads out what is there."
       ]
      ],
-     "text": "Step 11.67 → Step 11.4 · ~25 min · leave-state: machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, and inserts melted into the segments, both bay fans and the two grill retainers. The mini12864 parts are set aside unbuilt, and nothing is screwed to the frame yet."
+     "text": "Step 11.67 → Step 11.4 · ~25 min · leave-state: machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, and inserts melted into the segments, both bay fans and the two grill retainers. The mini12864 parts are set aside unbuilt, nothing is screwed to the frame yet, and the machine is still on its right side, as Ch 12 left it."
     },
     {
      "id": "11-skirts-panels-door#1",
@@ -4930,17 +5123,21 @@
       "11.5",
       "11.6",
       "11.7",
-      "11.8"
+      "11.8",
+      "11.9",
+      "11.10",
+      "11.11",
+      "11.12"
      ],
      "first_step": "11.5",
-     "last_step": "11.8",
+     "last_step": "11.12",
      "href": "../manual/steps/11-skirts-panels-door/11-5/",
-     "minutes": 10,
+     "minutes": 20,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the touchscreen module (built at 10.50) is screwed into the front of the ring, snug, and its FFC run is checked end to end and latched at both ends. Do not leave an FFC half-latched: the latch is what holds the contacts.",
+     "leave_state": "the machine is on its head with the gantry strapped; the touchscreen module (built at 10.50) is screwed into the front of the ring, snug, and its FFC run is checked end to end and latched at both ends; three belt guards are on their segments (the fourth waits for the plug panel at 11.14), the keystone panel is filled, the right-hand fan support is built with both fans and the left one with its two retainers, and every skirt T-nut is pre-loaded in the right slot. The rest of the ring is still off the machine. Do not leave an FFC half-latched: the latch is what holds the contacts.",
      "helpers": [
       [
        "11.6",
@@ -4949,30 +5146,7 @@
       [
        "11.7",
        "Holds the module level and centred on the front extrusion while you drive its three screws."
-      ]
-     ],
-     "text": "Step 11.5 → Step 11.8 · ~10 min · leave-state: the touchscreen module (built at 10.50) is screwed into the front of the ring, snug, and its FFC run is checked end to end and latched at both ends. Do not leave an FFC half-latched: the latch is what holds the contacts."
-    },
-    {
-     "id": "11-skirts-panels-door#2",
-     "chapter": "11-skirts-panels-door",
-     "kind": "build",
-     "steps": [
-      "11.9",
-      "11.10",
-      "11.11",
-      "11.12"
-     ],
-     "first_step": "11.9",
-     "last_step": "11.12",
-     "href": "../manual/steps/11-skirts-panels-door/11-9/",
-     "minutes": 15,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "three belt guards are on their segments (the fourth waits for the plug panel at 11.14), the keystone panel is filled, the right-hand fan support is built with both fans and the left one with its two retainers, and every skirt T-nut is pre-loaded in the right slot. The ring is still off the machine.",
-     "helpers": [
+      ],
       [
        "11.9",
        "Sorts the guards into an a pile and a b pile and hands over the one each corner needs."
@@ -4986,10 +5160,10 @@
        "Counts twelve M3 and two M5 T-nuts into a tray and hands them over one at a time."
       ]
      ],
-     "text": "Step 11.9 → Step 11.12 · ~15 min · leave-state: three belt guards are on their segments (the fourth waits for the plug panel at 11.14), the keystone panel is filled, the right-hand fan support is built with both fans and the left one with its two retainers, and every skirt T-nut is pre-loaded in the right slot. The ring is still off the machine."
+     "text": "Step 11.5 → Step 11.12 · ~20 min · leave-state: the machine is on its head with the gantry strapped; the touchscreen module (built at 10.50) is screwed into the front of the ring, snug, and its FFC run is checked end to end and latched at both ends; three belt guards are on their segments (the fourth waits for the plug panel at 11.14), the keystone panel is filled, the right-hand fan support is built with both fans and the left one with its two retainers, and every skirt T-nut is pre-loaded in the right slot. The rest of the ring is still off the machine. Do not leave an FFC half-latched: the latch is what holds the contacts."
     },
     {
-     "id": "11-skirts-panels-door#3",
+     "id": "11-skirts-panels-door#2",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5007,7 +5181,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "front, rear and both side skirt runs are mounted, both bay fans in the right-hand run and grills on retainers in the left. The ring is complete all the way round, and no run is half-fastened.",
+     "leave_state": "front, rear and both side skirt runs are mounted, both bay fans in the right-hand run and grills on retainers in the left. The ring is complete all the way round, and no run is half-fastened. The machine is still on its head, the gantry strapped.",
      "helpers": [
       [
        "11.13",
@@ -5030,10 +5204,10 @@
        "Holds the right fan support in its gap while you close the run."
       ]
      ],
-     "text": "Step 11.13 → Step 11.17 · ~20 min · leave-state: front, rear and both side skirt runs are mounted, both bay fans in the right-hand run and grills on retainers in the left. The ring is complete all the way round, and no run is half-fastened."
+     "text": "Step 11.13 → Step 11.17 · ~20 min · leave-state: front, rear and both side skirt runs are mounted, both bay fans in the right-hand run and grills on retainers in the left. The ring is complete all the way round, and no run is half-fastened. The machine is still on its head, the gantry strapped."
     },
     {
-     "id": "11-skirts-panels-door#4",
+     "id": "11-skirts-panels-door#3",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5050,7 +5224,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "bay-fan wiring checked against Ch 10, bestagon insert decided, VHB pads pressed on, and the bottom panel fixed by its rear hinges and front clips, the machine upright. Leave the VHB to cure undisturbed: do not swing the door open for a day (3M: about 90 % strength after 24 hours). Do not press a pad on and walk away before the panel is on it.",
+     "leave_state": "bay-fan wiring checked against Ch 10, bestagon insert decided, VHB pads pressed on, and the bottom panel fixed by its rear hinges and front clips, the machine upright again and the gantry strap off. Leave the VHB to cure undisturbed: do not swing the door open for a day (3M: about 90 % strength after 24 hours). Do not press a pad on and walk away before the panel is on it.",
      "helpers": [
       [
        "11.19",
@@ -5065,10 +5239,10 @@
        "Holds the panel square to the frame while you press it onto the pads."
       ]
      ],
-     "text": "Step 11.18 → Step 11.21 · ~20 min · leave-state: bay-fan wiring checked against Ch 10, bestagon insert decided, VHB pads pressed on, and the bottom panel fixed by its rear hinges and front clips, the machine upright. Leave the VHB to cure undisturbed: do not swing the door open for a day (3M: about 90 % strength after 24 hours). Do not press a pad on and walk away before the panel is on it."
+     "text": "Step 11.18 → Step 11.21 · ~20 min · leave-state: bay-fan wiring checked against Ch 10, bestagon insert decided, VHB pads pressed on, and the bottom panel fixed by its rear hinges and front clips, the machine upright again and the gantry strap off. Leave the VHB to cure undisturbed: do not swing the door open for a day (3M: about 90 % strength after 24 hours). Do not press a pad on and walk away before the panel is on it."
     },
     {
-     "id": "11-skirts-panels-door#5",
+     "id": "11-skirts-panels-door#4",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5103,7 +5277,7 @@
      "text": "Step 11.22 → Step 11.25 · ~15 min · leave-state: all four Z belt covers are on, each with its hammerhead nut, and the gantry runs its full Z travel without touching one."
     },
     {
-     "id": "11-skirts-panels-door#6",
+     "id": "11-skirts-panels-door#5",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5125,7 +5299,7 @@
      "text": "Step 11.26 → Step 11.29 · ~15 min · leave-state: Nevermore supports broken off, both 5015 housings trimmed, inserts melted in, and the long-wire fan's connector cut off. Nothing is glued and nothing is soldered to the bridge PCB yet."
     },
     {
-     "id": "11-skirts-panels-door#7",
+     "id": "11-skirts-panels-door#6",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5147,7 +5321,7 @@
      "text": "Step 11.30 → Step 11.33 · ~20 min · leave-state: both fans seated in the plenum, leads trimmed to length and soldered to the bridge PCB, and the pair metered for a short. The plenum is open and unglued."
     },
     {
-     "id": "11-skirts-panels-door#8",
+     "id": "11-skirts-panels-door#7",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5182,12 +5356,11 @@
      "text": "Step 11.34 → Step 11.37 · ~20 min · leave-state: plenum and cartridge magnets glued in matching polarity, both lids closed, and the cartridge's fill state written on its lid. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went."
     },
     {
-     "id": "11-skirts-panels-door#9",
+     "id": "11-skirts-panels-door#8",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
       "11.38",
-      "11.39",
       "11.40",
       "11.41",
       "11.42",
@@ -5201,7 +5374,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "Nevermore mounted in the chamber, cartridge on, filter fan connected to the Ch 10 lead, and bowden retainer and spool holder arm fitted. Its config is `[fan_generic nevermore]` on PF9 (11.41), which Ch 12 Step 12.32 already wrote; check it against your Ch 12 notes or Checkpoint 12, not a live Mainsail, because the machine stays unplugged until 13.3.",
+     "leave_state": "Nevermore plenum mounted in the chamber (its cartridge waits on the bench for 11.39, after Ch 13), filter fan connected to the Ch 10 lead, and bowden retainer and spool holder arm fitted. Its config is `[fan_generic nevermore]` on PF9 (11.41), which Ch 12 Step 12.32 already wrote; check it against your Ch 12 notes or Checkpoint 12, not a live Mainsail, because the machine stays unplugged until 13.3.",
      "helpers": [
       [
        "11.40",
@@ -5212,10 +5385,10 @@
        "Writes the tag and tapes it to the plenum."
       ]
      ],
-     "text": "Step 11.38 → Step 11.43 · ~15 min · leave-state: Nevermore mounted in the chamber, cartridge on, filter fan connected to the Ch 10 lead, and bowden retainer and spool holder arm fitted. Its config is `[fan_generic nevermore]` on PF9 (11.41), which Ch 12 Step 12.32 already wrote; check it against your Ch 12 notes or Checkpoint 12, not a live Mainsail, because the machine stays unplugged until 13.3."
+     "text": "Step 11.38 → Step 11.43 · ~15 min · leave-state: Nevermore plenum mounted in the chamber (its cartridge waits on the bench for 11.39, after Ch 13), filter fan connected to the Ch 10 lead, and bowden retainer and spool holder arm fitted. Its config is `[fan_generic nevermore]` on PF9 (11.41), which Ch 12 Step 12.32 already wrote; check it against your Ch 12 notes or Checkpoint 12, not a live Mainsail, because the machine stays unplugged until 13.3."
     },
     {
-     "id": "11-skirts-panels-door#10",
+     "id": "11-skirts-panels-door#9",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5242,7 +5415,7 @@
      "text": "Step 11.44 → Step 11.47 · ~20 min · leave-state: the door frame is squared with its blind joints tightened, the rubber retainer strip is in, and both hinges have their dowels and bushings. The acrylic is held in the frame and nothing is glued."
     },
     {
-     "id": "11-skirts-panels-door#11",
+     "id": "11-skirts-panels-door#10",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5748,11 +5921,12 @@
    "kit": true,
    "segments": [
     {
-     "id": "11-skirts-panels-door#12",
+     "id": "11-skirts-panels-door#11",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
       "11.52",
+      "11.39",
       "11.53",
       "11.54",
       "11.55"
@@ -5765,7 +5939,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down, cover tabs screwed on, and the PTFE through the cover's coupler. A panel is either fully clipped or off the machine: never leave one hanging on half its clips.",
+     "leave_state": "DC lids on, the filter cartridge on its plenum, back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down, cover tabs screwed on, and the PTFE through the cover's coupler. A panel is either fully clipped or off the machine: never leave one hanging on half its clips.",
      "helpers": [
       [
        "11.53",
@@ -5776,10 +5950,10 @@
        "Holds the panel square in the clips while you tighten opposite corners."
       ]
      ],
-     "text": "Step 11.52 → Step 11.55 · ~25 min · leave-state: back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down, cover tabs screwed on, and the PTFE through the cover's coupler. A panel is either fully clipped or off the machine: never leave one hanging on half its clips."
+     "text": "Step 11.52 → Step 11.55 · ~25 min · leave-state: DC lids on, the filter cartridge on its plenum, back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down, cover tabs screwed on, and the PTFE through the cover's coupler. A panel is either fully clipped or off the machine: never leave one hanging on half its clips."
     },
     {
-     "id": "11-skirts-panels-door#13",
+     "id": "11-skirts-panels-door#12",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5813,7 +5987,7 @@
      "text": "Step 11.56 → Step 11.58 · ~25 min · leave-state: both side panels foam-taped, clipped and screwed, all twenty-four M3×12 in. Both sides are fully on."
     },
     {
-     "id": "11-skirts-panels-door#14",
+     "id": "11-skirts-panels-door#13",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5847,7 +6021,7 @@
      "text": "Step 11.59 → Step 11.61 · ~15 min · leave-state: top panel on its eight clips, handlebars screwed down through their spacers, and the stock front doors confirmed as not fitted. The machine is closed on five faces; the front is still open."
     },
     {
-     "id": "11-skirts-panels-door#15",
+     "id": "11-skirts-panels-door#14",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5877,7 +6051,7 @@
      "text": "Step 11.62 → Step 11.64 · ~25 min · leave-state: door hinges hung, latch fitted, handle on, and the door swings and closes on its magnets. Do not stop with the door hanging on one hinge; it will twist the frame and the acrylic."
     },
     {
-     "id": "11-skirts-panels-door#16",
+     "id": "11-skirts-panels-door#15",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5902,7 +6076,7 @@
      "text": "Step 11.65 → Step 11.66 · ~15 min · leave-state: hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Part C, then Checkpoint 11."
     },
     {
-     "id": "11-skirts-panels-door#17",
+     "id": "11-skirts-panels-door#16",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5927,7 +6101,7 @@
      "text": "Step 11.68 → Step 11.69 · ~20 min · leave-state: stack and board measured; a frame reprint started only if the stack was thick. Leave a reprint on the sheet until it has cooled."
     },
     {
-     "id": "11-skirts-panels-door#18",
+     "id": "11-skirts-panels-door#17",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -5962,7 +6136,7 @@
      "text": "Step 11.70 → Step 11.73 · ~40 min · leave-state: puck screwed to the frame, frame on the right side, tube holder on, one new PTFE from the spool to the CW2.5, and a spool loaded. Nothing is half-fastened."
     },
     {
-     "id": "11-skirts-panels-door#19",
+     "id": "11-skirts-panels-door#18",
      "chapter": "11-skirts-panels-door",
      "kind": "build",
      "steps": [
@@ -6094,14 +6268,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint screws locked hot, `PROBE_ACCURACY` checked hot again afterwards, the hot mesh Range logged and the idle timeout set back to 1800. The whole belt-and-shape item is closed, and the heaters can go off. Thirty minutes after the last move the restored timeout lets go of every motor, and the gantry may sink onto the bed: clear the plate before you walk away, and `G28` when you come back. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder.",
+     "leave_state": "all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint screws locked hot, `PROBE_ACCURACY` checked hot again afterwards, the hot mesh Range logged and the idle timeout set back to 1800, then the heaters off, the machine shut down and proved dead for the SSR bracket reading, which is in the tuning log, and stood up again, unplugged. The whole belt-and-shape item is closed. Shutting down lets go of every motor, and the gantry may sink onto the bed: clear the plate before you shut down, and `G28` after the next power-on. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder.",
      "helpers": [
       [
        "14.5",
        "Holds the phone by each Z belt and reads the lowest peak aloud after each pluck."
       ]
      ],
-     "text": "Step 14.5 → Step 14.6 · ~25 min · leave-state: all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint screws locked hot, `PROBE_ACCURACY` checked hot again afterwards, the hot mesh Range logged and the idle timeout set back to 1800. The whole belt-and-shape item is closed, and the heaters can go off. Thirty minutes after the last move the restored timeout lets go of every motor, and the gantry may sink onto the bed: clear the plate before you walk away, and `G28` when you come back. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder."
+     "text": "Step 14.5 → Step 14.6 · ~25 min · leave-state: all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint screws locked hot, `PROBE_ACCURACY` checked hot again afterwards, the hot mesh Range logged and the idle timeout set back to 1800, then the heaters off, the machine shut down and proved dead for the SSR bracket reading, which is in the tuning log, and stood up again, unplugged. The whole belt-and-shape item is closed. Shutting down lets go of every motor, and the gantry may sink onto the bed: clear the plate before you shut down, and `G28` after the next power-on. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder."
     },
     {
      "id": "14-calibration#4",
@@ -6462,157 +6636,6 @@
       ]
      ],
      "text": "Step 14.35 → Step 14.36 · ~30 min · leave-state: PLA printed under the ceiling with the chamber logged, the purge run and stopped, the config committed and copied off the Pi, and the machine shut down properly."
-    }
-   ]
-  },
-  {
-   "n": 33,
-   "label": "B11 — Bay ducting, part 2, after the kit-day measurements",
-   "kind": "Print",
-   "kit": true,
-   "segments": [
-    {
-     "id": "b11-bay-ducting#7",
-     "chapter": "b11-bay-ducting",
-     "kind": "build",
-     "steps": [
-      "B11.9"
-     ],
-     "first_step": "B11.9",
-     "last_step": "B11.9",
-     "href": "../manual/steps/b11-bay-ducting/b11-9/",
-     "minutes": 15,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4, P5 and P7 are unaffected.",
-     "helpers": [],
-     "text": "Step B11.9 · ~15 min · leave-state: both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4, P5 and P7 are unaffected."
-    },
-    {
-     "id": "b11-bay-ducting#8",
-     "chapter": "b11-bay-ducting",
-     "kind": "build",
-     "steps": [
-      "B11.10"
-     ],
-     "first_step": "B11.10",
-     "last_step": "B11.10",
-     "href": "../manual/steps/b11-bay-ducting/b11-10/",
-     "minutes": 20,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "the bay is dry-laid and measured; nothing is stuck down or fastened.",
-     "helpers": [
-      [
-       "B11.10",
-       "Reads each caliper number back aloud and writes it into the log."
-      ]
-     ],
-     "text": "Step B11.10 · ~20 min · leave-state: the bay is dry-laid and measured; nothing is stuck down or fastened."
-    },
-    {
-     "id": "b11-bay-ducting#9",
-     "chapter": "b11-bay-ducting",
-     "kind": "build",
-     "steps": [
-      "B11.11"
-     ],
-     "first_step": "B11.11",
-     "last_step": "B11.11",
-     "href": "../manual/steps/b11-bay-ducting/b11-11/",
-     "minutes": 15,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "every piece that needed it is regenerated, back on B11-P4 and re-sliced; `check_docs.py` is green.",
-     "helpers": [],
-     "text": "Step B11.11 · ~15 min · leave-state: every piece that needed it is regenerated, back on B11-P4 and re-sliced; `check_docs.py` is green."
-    },
-    {
-     "id": "b11-bay-ducting#10",
-     "chapter": "b11-bay-ducting",
-     "kind": "print",
-     "steps": [
-      "B11.12"
-     ],
-     "first_step": "B11.12",
-     "last_step": "B11.12",
-     "href": "../manual/steps/b11-bay-ducting/b11-12/",
-     "minutes": 5,
-     "pre_kit": false,
-     "plate": "B11-P4",
-     "print_hours": 6.3,
-     "run": "bay",
-     "leave_state": "plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends",
-     "helpers": [],
-     "text": "Start plate B11-P4 (Step B11.12) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends"
-    },
-    {
-     "id": "b11-bay-ducting#11",
-     "chapter": "b11-bay-ducting",
-     "kind": "print",
-     "steps": [
-      "B11.13"
-     ],
-     "first_step": "B11.13",
-     "last_step": "B11.13",
-     "href": "../manual/steps/b11-bay-ducting/b11-13/",
-     "minutes": 5,
-     "pre_kit": false,
-     "plate": "B11-P5",
-     "print_hours": 4.2,
-     "run": "bay",
-     "leave_state": "plate B11-P5 running, 4.2 h unattended — door shut; come back for the next step when it ends",
-     "helpers": [],
-     "text": "Start plate B11-P5 (Step B11.13) · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B11-P5 running, 4.2 h unattended — door shut; come back for the next step when it ends"
-    },
-    {
-     "id": "b11-bay-ducting#12",
-     "chapter": "b11-bay-ducting",
-     "kind": "print",
-     "steps": [
-      "B11.16"
-     ],
-     "first_step": "B11.16",
-     "last_step": "B11.16",
-     "href": "../manual/steps/b11-bay-ducting/b11-16/",
-     "minutes": 5,
-     "pre_kit": false,
-     "plate": "B11-P7",
-     "print_hours": 2.7,
-     "run": "bay",
-     "leave_state": "plate B11-P7 running, 2.7 h unattended — door shut; come back for the next step when it ends",
-     "helpers": [],
-     "text": "Start plate B11-P7 (Step B11.16) · ~5 min hands-on, then 2.7 h unattended · leave-state: plate B11-P7 running, 2.7 h unattended — door shut; come back for the next step when it ends"
-    },
-    {
-     "id": "b11-bay-ducting#13",
-     "chapter": "b11-bay-ducting",
-     "kind": "build",
-     "steps": [
-      "B11.14"
-     ],
-     "first_step": "B11.14",
-     "last_step": "B11.14",
-     "href": "../manual/steps/b11-bay-ducting/b11-14/",
-     "minutes": 10,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration.",
-     "helpers": [
-      [
-       "B11.14",
-       "Reads each bin label aloud and checks the count against the diagram."
-      ]
-     ],
-     "text": "Step B11.14 · ~10 min · leave-state: all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration."
     }
    ]
   }
@@ -7870,13 +7893,13 @@
      "B11.15",
      "B11.7",
      "B11.8",
-     "B11.9",
      "B11.10",
      "B11.11",
      "B11.12",
      "B11.13",
      "B11.16",
-     "B11.14"
+     "B11.14",
+     "B11.9"
     ]
    },
    "printed": [],
@@ -8033,6 +8056,8 @@
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#6",
+     "b11-bay-ducting#7",
+     "b11-bay-ducting#12",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -8117,9 +8142,9 @@
      "09-electronics-bay#4",
      "09-electronics-bay#5",
      "09-electronics-bay#6",
-     "10-wiring#4",
-     "10-wiring#5",
-     "10-wiring#7",
+     "10-wiring#0",
+     "10-wiring#1",
+     "10-wiring#3",
      "10-wiring#8",
      "10-wiring#12",
      "10-wiring#13",
@@ -8128,11 +8153,10 @@
      "11-skirts-panels-door#2",
      "11-skirts-panels-door#3",
      "11-skirts-panels-door#4",
-     "11-skirts-panels-door#5",
+     "11-skirts-panels-door#7",
      "11-skirts-panels-door#8",
      "11-skirts-panels-door#9",
      "11-skirts-panels-door#10",
-     "11-skirts-panels-door#11",
      "13-initial-startup#1",
      "13-initial-startup#2",
      "13-initial-startup#3",
@@ -8144,6 +8168,7 @@
      "13-initial-startup#12",
      "13-initial-startup#13",
      "06-z-axis-and-gantry-squaring#8",
+     "11-skirts-panels-door#11",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
      "11-skirts-panels-door#14",
@@ -8151,7 +8176,6 @@
      "11-skirts-panels-door#16",
      "11-skirts-panels-door#17",
      "11-skirts-panels-door#18",
-     "11-skirts-panels-door#19",
      "14-calibration#0",
      "14-calibration#1",
      "14-calibration#2",
@@ -8163,9 +8187,7 @@
      "14-calibration#14",
      "14-calibration#16",
      "14-calibration#18",
-     "14-calibration#19",
-     "b11-bay-ducting#8",
-     "b11-bay-ducting#13"
+     "14-calibration#19"
     ]
    }
   },
@@ -8294,6 +8316,8 @@
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#6",
+     "b11-bay-ducting#7",
+     "b11-bay-ducting#12",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -8378,9 +8402,9 @@
      "09-electronics-bay#4",
      "09-electronics-bay#5",
      "09-electronics-bay#6",
-     "10-wiring#4",
-     "10-wiring#5",
-     "10-wiring#7",
+     "10-wiring#0",
+     "10-wiring#1",
+     "10-wiring#3",
      "10-wiring#8",
      "10-wiring#12",
      "10-wiring#13",
@@ -8389,11 +8413,10 @@
      "11-skirts-panels-door#2",
      "11-skirts-panels-door#3",
      "11-skirts-panels-door#4",
-     "11-skirts-panels-door#5",
+     "11-skirts-panels-door#7",
      "11-skirts-panels-door#8",
      "11-skirts-panels-door#9",
      "11-skirts-panels-door#10",
-     "11-skirts-panels-door#11",
      "13-initial-startup#1",
      "13-initial-startup#2",
      "13-initial-startup#3",
@@ -8405,6 +8428,7 @@
      "13-initial-startup#12",
      "13-initial-startup#13",
      "06-z-axis-and-gantry-squaring#8",
+     "11-skirts-panels-door#11",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
      "11-skirts-panels-door#14",
@@ -8412,7 +8436,6 @@
      "11-skirts-panels-door#16",
      "11-skirts-panels-door#17",
      "11-skirts-panels-door#18",
-     "11-skirts-panels-door#19",
      "14-calibration#0",
      "14-calibration#1",
      "14-calibration#2",
@@ -8424,9 +8447,7 @@
      "14-calibration#14",
      "14-calibration#16",
      "14-calibration#18",
-     "14-calibration#19",
-     "b11-bay-ducting#8",
-     "b11-bay-ducting#13"
+     "14-calibration#19"
     ]
    }
   },
@@ -8704,6 +8725,8 @@
     ],
     "helpers": [
      "b11-bay-ducting#6",
+     "b11-bay-ducting#7",
+     "b11-bay-ducting#12",
      "12-software#2",
      "01-frame#0",
      "01-frame#1",
@@ -8759,9 +8782,9 @@
      "09-electronics-bay#4",
      "09-electronics-bay#5",
      "09-electronics-bay#6",
-     "10-wiring#4",
-     "10-wiring#5",
-     "10-wiring#7",
+     "10-wiring#0",
+     "10-wiring#1",
+     "10-wiring#3",
      "10-wiring#8",
      "10-wiring#12",
      "10-wiring#13",
@@ -8770,11 +8793,10 @@
      "11-skirts-panels-door#2",
      "11-skirts-panels-door#3",
      "11-skirts-panels-door#4",
-     "11-skirts-panels-door#5",
+     "11-skirts-panels-door#7",
      "11-skirts-panels-door#8",
      "11-skirts-panels-door#9",
      "11-skirts-panels-door#10",
-     "11-skirts-panels-door#11",
      "13-initial-startup#1",
      "13-initial-startup#2",
      "13-initial-startup#3",
@@ -8786,6 +8808,7 @@
      "13-initial-startup#12",
      "13-initial-startup#13",
      "06-z-axis-and-gantry-squaring#8",
+     "11-skirts-panels-door#11",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
      "11-skirts-panels-door#14",
@@ -8793,7 +8816,6 @@
      "11-skirts-panels-door#16",
      "11-skirts-panels-door#17",
      "11-skirts-panels-door#18",
-     "11-skirts-panels-door#19",
      "14-calibration#0",
      "14-calibration#1",
      "14-calibration#2",
@@ -8805,9 +8827,7 @@
      "14-calibration#14",
      "14-calibration#16",
      "14-calibration#18",
-     "14-calibration#19",
-     "b11-bay-ducting#8",
-     "b11-bay-ducting#13"
+     "14-calibration#19"
     ]
    }
   },
@@ -9234,10 +9254,29 @@
      "09.32",
      "09.33",
      "09.34",
-     "09.35",
-     "09.36"
+     "09.36",
+     "09.35"
     ],
     "10-wiring": [
+     "10.30",
+     "10.31",
+     "10.32",
+     "10.33",
+     "10.34",
+     "10.35",
+     "10.36",
+     "10.37",
+     "10.81",
+     "10.38",
+     "10.39",
+     "10.59",
+     "10.60",
+     "10.61",
+     "10.62",
+     "10.63",
+     "10.64",
+     "10.65",
+     "10.66",
      "10.1",
      "10.2",
      "10.3",
@@ -9262,25 +9301,6 @@
      "10.14",
      "10.15",
      "10.21",
-     "10.30",
-     "10.31",
-     "10.32",
-     "10.33",
-     "10.34",
-     "10.35",
-     "10.36",
-     "10.37",
-     "10.81",
-     "10.38",
-     "10.39",
-     "10.59",
-     "10.60",
-     "10.61",
-     "10.62",
-     "10.63",
-     "10.64",
-     "10.65",
-     "10.66",
      "10.40",
      "10.41",
      "10.42",
@@ -9361,7 +9381,6 @@
      "11.36",
      "11.37",
      "11.38",
-     "11.39",
      "11.40",
      "11.41",
      "11.42",
@@ -9375,6 +9394,7 @@
      "11.50",
      "11.51",
      "11.52",
+     "11.39",
      "11.53",
      "11.54",
      "11.55",
@@ -9663,13 +9683,13 @@
      "B11.15",
      "B11.7",
      "B11.8",
-     "B11.9",
      "B11.10",
      "B11.11",
      "B11.12",
      "B11.13",
      "B11.16",
-     "B11.14"
+     "B11.14",
+     "B11.9"
     ],
     "b12-side-spool-and-camera": [
      "B12.1",
@@ -9694,7 +9714,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 238,
+    "done": 237,
     "gate_closed": true,
     "start": null,
     "sections": [
@@ -9750,6 +9770,2682 @@
      }
     ],
     "helpers": []
+   }
+  },
+  {
+   "name": "kit day, B12 and B13 unprinted: B12-P1 (PETG) is the next plate, B11.10 waits for the inventory",
+   "kit_arrived": true,
+   "ticks": {
+    "b00-calibration-and-jigs": [
+     "B00.0",
+     "B00.8",
+     "B00.1",
+     "B00.2",
+     "B00.5",
+     "B00.6",
+     "B00.7"
+    ],
+    "00a-mains-safety": [
+     "00a.1",
+     "00a.2",
+     "00a.3",
+     "00a.4",
+     "00a.5",
+     "00a.6",
+     "00a.7",
+     "00a.8",
+     "00a.9",
+     "00a.10",
+     "00a.11",
+     "00a.12"
+    ],
+    "b01-z-drive-assemblies": [
+     "B01.2",
+     "B01.5",
+     "B01.7",
+     "B01.8"
+    ],
+    "b02-accent-parts-orange": [
+     "B02.2",
+     "B02.4",
+     "B02.6",
+     "B02.10",
+     "B02.8",
+     "B02.9",
+     "B02.13"
+    ],
+    "b03-ab-drive-units-and-front-idlers": [
+     "B03.2",
+     "B03.6",
+     "B03.4",
+     "B03.5"
+    ],
+    "b04-xy-joints-and-x-carriage": [
+     "B04.2",
+     "B04.5",
+     "B04.6"
+    ],
+    "b05-z-joints-and-z-chain": [
+     "B05.2",
+     "B05.4",
+     "B05.5"
+    ],
+    "b06-toolhead-sb-cw2-klicky": [
+     "B06.2",
+     "B06.6",
+     "B06.4",
+     "B06.5"
+    ],
+    "b07-electronics-bay-and-lighting": [
+     "B07.2",
+     "B07.4",
+     "B07.8",
+     "B07.6",
+     "B07.7"
+    ],
+    "b11-bay-ducting": [
+     "B11.3",
+     "B11.4",
+     "B11.5",
+     "B11.6",
+     "B11.15",
+     "B11.7",
+     "B11.8"
+    ],
+    "b08-skirts-and-front-modules": [
+     "B08.2",
+     "B08.4",
+     "B08.6",
+     "B08.8",
+     "B08.12",
+     "B08.10",
+     "B08.11"
+    ],
+    "b09-panels-filtration-spool": [
+     "B09.2",
+     "B09.4",
+     "B09.6",
+     "B09.14",
+     "B09.16",
+     "B09.12",
+     "B09.13"
+    ],
+    "b10-clicky-clack-door": [
+     "B10.2",
+     "B10.5",
+     "B10.6"
+    ]
+   },
+   "printed": [],
+   "expect": {
+    "done": 66,
+    "gate_closed": true,
+    "start": "B12.2",
+    "sections": [
+     {
+      "id": "tonight",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 5,
+        "items": [
+         "b12-side-spool-and-camera#0"
+        ],
+        "next": null
+       },
+       {
+        "budget": 60,
+        "total": 55,
+        "items": [
+         "b12-side-spool-and-camera#0",
+         "00-before-you-start#0",
+         "00-before-you-start#1"
+        ],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 80,
+        "items": [
+         "b12-side-spool-and-camera#0",
+         "00-before-you-start#0",
+         "00-before-you-start#1",
+         "00-before-you-start#2"
+        ],
+        "next": null
+       }
+      ]
+     },
+     {
+      "id": "before-kit",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 30,
+        "items": [
+         "b12-side-spool-and-camera#0",
+         "00-before-you-start#2"
+        ],
+        "next": null
+       },
+       {
+        "budget": 60,
+        "total": 30,
+        "items": [
+         "b12-side-spool-and-camera#0",
+         "00-before-you-start#2"
+        ],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 90,
+        "items": [
+         "b12-side-spool-and-camera#0",
+         "00-before-you-start#2",
+         "00-before-you-start#4",
+         "00-before-you-start#7"
+        ],
+        "next": null
+       }
+      ]
+     }
+    ],
+    "helpers": [
+     "b11-bay-ducting#7",
+     "b11-bay-ducting#12",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
+     "00-before-you-start#0",
+     "00-before-you-start#1",
+     "00-before-you-start#2",
+     "00-before-you-start#3",
+     "00-before-you-start#5",
+     "00-before-you-start#6",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
+     "12-software#2",
+     "01-frame#0",
+     "01-frame#1",
+     "01-frame#2",
+     "01-frame#3",
+     "02-z-drives#0",
+     "02-z-drives#1",
+     "02-z-drives#2",
+     "02-z-drives#3",
+     "02-z-drives#4",
+     "02-z-drives#5",
+     "02-z-drives#6",
+     "02-z-drives#7",
+     "02-z-drives#8",
+     "02-z-drives#10",
+     "03-build-plate#0",
+     "03-build-plate#1",
+     "03-build-plate#2",
+     "03-build-plate#3",
+     "04-ab-drives#0",
+     "04-ab-drives#1",
+     "04-ab-drives#2",
+     "04-ab-drives#3",
+     "04-ab-drives#4",
+     "04-ab-drives#5",
+     "04-ab-drives#6",
+     "05-gantry#0",
+     "05-gantry#2",
+     "05-gantry#3",
+     "05-gantry#4",
+     "05-gantry#5",
+     "05-gantry#9",
+     "05-gantry#10",
+     "05-gantry#11",
+     "06-z-axis-and-gantry-squaring#2",
+     "06-z-axis-and-gantry-squaring#3",
+     "06-z-axis-and-gantry-squaring#4",
+     "06-z-axis-and-gantry-squaring#6",
+     "07-ab-belts#0",
+     "07-ab-belts#2",
+     "07-ab-belts#3",
+     "07-ab-belts#4",
+     "08-toolhead#0",
+     "08-toolhead#1",
+     "08-toolhead#3",
+     "08-toolhead#5",
+     "08-toolhead#6",
+     "08-toolhead#7",
+     "08-toolhead#8",
+     "08-toolhead#9",
+     "09-electronics-bay#0",
+     "09-electronics-bay#1",
+     "09-electronics-bay#4",
+     "09-electronics-bay#5",
+     "09-electronics-bay#6",
+     "10-wiring#0",
+     "10-wiring#1",
+     "10-wiring#3",
+     "10-wiring#8",
+     "10-wiring#12",
+     "10-wiring#13",
+     "11-skirts-panels-door#0",
+     "11-skirts-panels-door#1",
+     "11-skirts-panels-door#2",
+     "11-skirts-panels-door#3",
+     "11-skirts-panels-door#4",
+     "11-skirts-panels-door#7",
+     "11-skirts-panels-door#8",
+     "11-skirts-panels-door#9",
+     "11-skirts-panels-door#10",
+     "13-initial-startup#1",
+     "13-initial-startup#2",
+     "13-initial-startup#3",
+     "13-initial-startup#4",
+     "13-initial-startup#5",
+     "13-initial-startup#9",
+     "13-initial-startup#10",
+     "13-initial-startup#11",
+     "13-initial-startup#12",
+     "13-initial-startup#13",
+     "06-z-axis-and-gantry-squaring#8",
+     "11-skirts-panels-door#11",
+     "11-skirts-panels-door#12",
+     "11-skirts-panels-door#13",
+     "11-skirts-panels-door#14",
+     "11-skirts-panels-door#15",
+     "11-skirts-panels-door#16",
+     "11-skirts-panels-door#17",
+     "11-skirts-panels-door#18",
+     "14-calibration#0",
+     "14-calibration#1",
+     "14-calibration#2",
+     "14-calibration#3",
+     "14-calibration#6",
+     "14-calibration#7",
+     "14-calibration#8",
+     "14-calibration#10",
+     "14-calibration#14",
+     "14-calibration#16",
+     "14-calibration#18",
+     "14-calibration#19"
+    ]
+   }
+  },
+  {
+   "name": "kit day, every pre-kit row done: B11.10 waits for 00.3 and 00.4",
+   "kit_arrived": true,
+   "ticks": {
+    "b00-calibration-and-jigs": [
+     "B00.0",
+     "B00.8",
+     "B00.1",
+     "B00.2",
+     "B00.5",
+     "B00.6",
+     "B00.7"
+    ],
+    "00a-mains-safety": [
+     "00a.1",
+     "00a.2",
+     "00a.3",
+     "00a.4",
+     "00a.5",
+     "00a.6",
+     "00a.7",
+     "00a.8",
+     "00a.9",
+     "00a.10",
+     "00a.11",
+     "00a.12"
+    ],
+    "b01-z-drive-assemblies": [
+     "B01.2",
+     "B01.5",
+     "B01.7",
+     "B01.8"
+    ],
+    "b02-accent-parts-orange": [
+     "B02.2",
+     "B02.4",
+     "B02.6",
+     "B02.10",
+     "B02.8",
+     "B02.9",
+     "B02.13"
+    ],
+    "b03-ab-drive-units-and-front-idlers": [
+     "B03.2",
+     "B03.6",
+     "B03.4",
+     "B03.5"
+    ],
+    "b04-xy-joints-and-x-carriage": [
+     "B04.2",
+     "B04.5",
+     "B04.6"
+    ],
+    "b05-z-joints-and-z-chain": [
+     "B05.2",
+     "B05.4",
+     "B05.5"
+    ],
+    "b06-toolhead-sb-cw2-klicky": [
+     "B06.2",
+     "B06.6",
+     "B06.4",
+     "B06.5"
+    ],
+    "b07-electronics-bay-and-lighting": [
+     "B07.2",
+     "B07.4",
+     "B07.8",
+     "B07.6",
+     "B07.7"
+    ],
+    "b11-bay-ducting": [
+     "B11.3",
+     "B11.4",
+     "B11.5",
+     "B11.6",
+     "B11.15",
+     "B11.7",
+     "B11.8"
+    ],
+    "b08-skirts-and-front-modules": [
+     "B08.2",
+     "B08.4",
+     "B08.6",
+     "B08.8",
+     "B08.12",
+     "B08.10",
+     "B08.11"
+    ],
+    "b09-panels-filtration-spool": [
+     "B09.2",
+     "B09.4",
+     "B09.6",
+     "B09.14",
+     "B09.16",
+     "B09.12",
+     "B09.13"
+    ],
+    "b10-clicky-clack-door": [
+     "B10.2",
+     "B10.5",
+     "B10.6"
+    ],
+    "b12-side-spool-and-camera": [
+     "B12.2",
+     "B12.4",
+     "B12.6",
+     "B12.8",
+     "B12.9"
+    ],
+    "b13-exhaust-housing": [
+     "B13.2",
+     "B13.4",
+     "B13.6",
+     "B13.7"
+    ]
+   },
+   "printed": [],
+   "expect": {
+    "done": 75,
+    "gate_closed": true,
+    "start": "00.1",
+    "sections": [
+     {
+      "id": "tonight",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 0,
+        "items": [],
+        "next": "00-before-you-start#0"
+       },
+       {
+        "budget": 60,
+        "total": 50,
+        "items": [
+         "00-before-you-start#0",
+         "00-before-you-start#1"
+        ],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 75,
+        "items": [
+         "00-before-you-start#0",
+         "00-before-you-start#1",
+         "00-before-you-start#2"
+        ],
+        "next": null
+       }
+      ]
+     },
+     {
+      "id": "before-kit",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 25,
+        "items": [
+         "00-before-you-start#2"
+        ],
+        "next": null
+       },
+       {
+        "budget": 60,
+        "total": 60,
+        "items": [
+         "00-before-you-start#2",
+         "00-before-you-start#4"
+        ],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 85,
+        "items": [
+         "00-before-you-start#2",
+         "00-before-you-start#4",
+         "00-before-you-start#7"
+        ],
+        "next": null
+       }
+      ]
+     }
+    ],
+    "helpers": [
+     "b11-bay-ducting#7",
+     "b11-bay-ducting#12",
+     "00-before-you-start#0",
+     "00-before-you-start#1",
+     "00-before-you-start#2",
+     "00-before-you-start#3",
+     "00-before-you-start#5",
+     "00-before-you-start#6",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
+     "12-software#2",
+     "01-frame#0",
+     "01-frame#1",
+     "01-frame#2",
+     "01-frame#3",
+     "02-z-drives#0",
+     "02-z-drives#1",
+     "02-z-drives#2",
+     "02-z-drives#3",
+     "02-z-drives#4",
+     "02-z-drives#5",
+     "02-z-drives#6",
+     "02-z-drives#7",
+     "02-z-drives#8",
+     "02-z-drives#10",
+     "03-build-plate#0",
+     "03-build-plate#1",
+     "03-build-plate#2",
+     "03-build-plate#3",
+     "04-ab-drives#0",
+     "04-ab-drives#1",
+     "04-ab-drives#2",
+     "04-ab-drives#3",
+     "04-ab-drives#4",
+     "04-ab-drives#5",
+     "04-ab-drives#6",
+     "05-gantry#0",
+     "05-gantry#2",
+     "05-gantry#3",
+     "05-gantry#4",
+     "05-gantry#5",
+     "05-gantry#9",
+     "05-gantry#10",
+     "05-gantry#11",
+     "06-z-axis-and-gantry-squaring#2",
+     "06-z-axis-and-gantry-squaring#3",
+     "06-z-axis-and-gantry-squaring#4",
+     "06-z-axis-and-gantry-squaring#6",
+     "07-ab-belts#0",
+     "07-ab-belts#2",
+     "07-ab-belts#3",
+     "07-ab-belts#4",
+     "08-toolhead#0",
+     "08-toolhead#1",
+     "08-toolhead#3",
+     "08-toolhead#5",
+     "08-toolhead#6",
+     "08-toolhead#7",
+     "08-toolhead#8",
+     "08-toolhead#9",
+     "09-electronics-bay#0",
+     "09-electronics-bay#1",
+     "09-electronics-bay#4",
+     "09-electronics-bay#5",
+     "09-electronics-bay#6",
+     "10-wiring#0",
+     "10-wiring#1",
+     "10-wiring#3",
+     "10-wiring#8",
+     "10-wiring#12",
+     "10-wiring#13",
+     "11-skirts-panels-door#0",
+     "11-skirts-panels-door#1",
+     "11-skirts-panels-door#2",
+     "11-skirts-panels-door#3",
+     "11-skirts-panels-door#4",
+     "11-skirts-panels-door#7",
+     "11-skirts-panels-door#8",
+     "11-skirts-panels-door#9",
+     "11-skirts-panels-door#10",
+     "13-initial-startup#1",
+     "13-initial-startup#2",
+     "13-initial-startup#3",
+     "13-initial-startup#4",
+     "13-initial-startup#5",
+     "13-initial-startup#9",
+     "13-initial-startup#10",
+     "13-initial-startup#11",
+     "13-initial-startup#12",
+     "13-initial-startup#13",
+     "06-z-axis-and-gantry-squaring#8",
+     "11-skirts-panels-door#11",
+     "11-skirts-panels-door#12",
+     "11-skirts-panels-door#13",
+     "11-skirts-panels-door#14",
+     "11-skirts-panels-door#15",
+     "11-skirts-panels-door#16",
+     "11-skirts-panels-door#17",
+     "11-skirts-panels-door#18",
+     "14-calibration#0",
+     "14-calibration#1",
+     "14-calibration#2",
+     "14-calibration#3",
+     "14-calibration#6",
+     "14-calibration#7",
+     "14-calibration#8",
+     "14-calibration#10",
+     "14-calibration#14",
+     "14-calibration#16",
+     "14-calibration#18",
+     "14-calibration#19"
+    ]
+   }
+  },
+  {
+   "name": "kit day, inventory and B11.10-B11.11 done, B12 and B13 unprinted: B11-P4 goes ahead of B12-P1",
+   "kit_arrived": true,
+   "ticks": {
+    "b00-calibration-and-jigs": [
+     "B00.0",
+     "B00.8",
+     "B00.1",
+     "B00.2",
+     "B00.5",
+     "B00.6",
+     "B00.7"
+    ],
+    "00a-mains-safety": [
+     "00a.1",
+     "00a.2",
+     "00a.3",
+     "00a.4",
+     "00a.5",
+     "00a.6",
+     "00a.7",
+     "00a.8",
+     "00a.9",
+     "00a.10",
+     "00a.11",
+     "00a.12"
+    ],
+    "b01-z-drive-assemblies": [
+     "B01.2",
+     "B01.5",
+     "B01.7",
+     "B01.8"
+    ],
+    "b02-accent-parts-orange": [
+     "B02.2",
+     "B02.4",
+     "B02.6",
+     "B02.10",
+     "B02.8",
+     "B02.9",
+     "B02.13"
+    ],
+    "b03-ab-drive-units-and-front-idlers": [
+     "B03.2",
+     "B03.6",
+     "B03.4",
+     "B03.5"
+    ],
+    "b04-xy-joints-and-x-carriage": [
+     "B04.2",
+     "B04.5",
+     "B04.6"
+    ],
+    "b05-z-joints-and-z-chain": [
+     "B05.2",
+     "B05.4",
+     "B05.5"
+    ],
+    "b06-toolhead-sb-cw2-klicky": [
+     "B06.2",
+     "B06.6",
+     "B06.4",
+     "B06.5"
+    ],
+    "b07-electronics-bay-and-lighting": [
+     "B07.2",
+     "B07.4",
+     "B07.8",
+     "B07.6",
+     "B07.7"
+    ],
+    "b11-bay-ducting": [
+     "B11.3",
+     "B11.4",
+     "B11.5",
+     "B11.6",
+     "B11.15",
+     "B11.7",
+     "B11.8",
+     "B11.10",
+     "B11.11"
+    ],
+    "b08-skirts-and-front-modules": [
+     "B08.2",
+     "B08.4",
+     "B08.6",
+     "B08.8",
+     "B08.12",
+     "B08.10",
+     "B08.11"
+    ],
+    "b09-panels-filtration-spool": [
+     "B09.2",
+     "B09.4",
+     "B09.6",
+     "B09.14",
+     "B09.16",
+     "B09.12",
+     "B09.13"
+    ],
+    "b10-clicky-clack-door": [
+     "B10.2",
+     "B10.5",
+     "B10.6"
+    ],
+    "00-before-you-start": [
+     "00.1",
+     "00.2",
+     "00.3",
+     "00.4",
+     "00.5",
+     "00.6"
+    ]
+   },
+   "printed": [],
+   "expect": {
+    "done": 69,
+    "gate_closed": true,
+    "start": "B11.12",
+    "sections": [
+     {
+      "id": "tonight",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 15,
+        "items": [
+         "b11-bay-ducting#9",
+         "00-before-you-start#1"
+        ],
+        "next": null
+       },
+       {
+        "budget": 60,
+        "total": 40,
+        "items": [
+         "b11-bay-ducting#9",
+         "00-before-you-start#1",
+         "00-before-you-start#2"
+        ],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 65,
+        "items": [
+         "b11-bay-ducting#9",
+         "00-before-you-start#1",
+         "00-before-you-start#2",
+         "00-before-you-start#3"
+        ],
+        "next": null
+       }
+      ]
+     },
+     {
+      "id": "before-kit",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 30,
+        "items": [
+         "b12-side-spool-and-camera#0",
+         "00-before-you-start#2"
+        ],
+        "next": null
+       },
+       {
+        "budget": 60,
+        "total": 30,
+        "items": [
+         "b12-side-spool-and-camera#0",
+         "00-before-you-start#2"
+        ],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 90,
+        "items": [
+         "b12-side-spool-and-camera#0",
+         "00-before-you-start#2",
+         "00-before-you-start#4",
+         "00-before-you-start#7"
+        ],
+        "next": null
+       }
+      ]
+     }
+    ],
+    "helpers": [
+     "b11-bay-ducting#12",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
+     "00-before-you-start#1",
+     "00-before-you-start#2",
+     "00-before-you-start#3",
+     "00-before-you-start#5",
+     "00-before-you-start#6",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
+     "12-software#2",
+     "01-frame#0",
+     "01-frame#1",
+     "01-frame#2",
+     "01-frame#3",
+     "02-z-drives#0",
+     "02-z-drives#1",
+     "02-z-drives#2",
+     "02-z-drives#3",
+     "02-z-drives#4",
+     "02-z-drives#5",
+     "02-z-drives#6",
+     "02-z-drives#7",
+     "02-z-drives#8",
+     "02-z-drives#10",
+     "03-build-plate#0",
+     "03-build-plate#1",
+     "03-build-plate#2",
+     "03-build-plate#3",
+     "04-ab-drives#0",
+     "04-ab-drives#1",
+     "04-ab-drives#2",
+     "04-ab-drives#3",
+     "04-ab-drives#4",
+     "04-ab-drives#5",
+     "04-ab-drives#6",
+     "05-gantry#0",
+     "05-gantry#2",
+     "05-gantry#3",
+     "05-gantry#4",
+     "05-gantry#5",
+     "05-gantry#9",
+     "05-gantry#10",
+     "05-gantry#11",
+     "06-z-axis-and-gantry-squaring#2",
+     "06-z-axis-and-gantry-squaring#3",
+     "06-z-axis-and-gantry-squaring#4",
+     "06-z-axis-and-gantry-squaring#6",
+     "07-ab-belts#0",
+     "07-ab-belts#2",
+     "07-ab-belts#3",
+     "07-ab-belts#4",
+     "08-toolhead#0",
+     "08-toolhead#1",
+     "08-toolhead#3",
+     "08-toolhead#5",
+     "08-toolhead#6",
+     "08-toolhead#7",
+     "08-toolhead#8",
+     "08-toolhead#9",
+     "09-electronics-bay#0",
+     "09-electronics-bay#1",
+     "09-electronics-bay#4",
+     "09-electronics-bay#5",
+     "09-electronics-bay#6",
+     "10-wiring#0",
+     "10-wiring#1",
+     "10-wiring#3",
+     "10-wiring#8",
+     "10-wiring#12",
+     "10-wiring#13",
+     "11-skirts-panels-door#0",
+     "11-skirts-panels-door#1",
+     "11-skirts-panels-door#2",
+     "11-skirts-panels-door#3",
+     "11-skirts-panels-door#4",
+     "11-skirts-panels-door#7",
+     "11-skirts-panels-door#8",
+     "11-skirts-panels-door#9",
+     "11-skirts-panels-door#10",
+     "13-initial-startup#1",
+     "13-initial-startup#2",
+     "13-initial-startup#3",
+     "13-initial-startup#4",
+     "13-initial-startup#5",
+     "13-initial-startup#9",
+     "13-initial-startup#10",
+     "13-initial-startup#11",
+     "13-initial-startup#12",
+     "13-initial-startup#13",
+     "06-z-axis-and-gantry-squaring#8",
+     "11-skirts-panels-door#11",
+     "11-skirts-panels-door#12",
+     "11-skirts-panels-door#13",
+     "11-skirts-panels-door#14",
+     "11-skirts-panels-door#15",
+     "11-skirts-panels-door#16",
+     "11-skirts-panels-door#17",
+     "11-skirts-panels-door#18",
+     "14-calibration#0",
+     "14-calibration#1",
+     "14-calibration#2",
+     "14-calibration#3",
+     "14-calibration#6",
+     "14-calibration#7",
+     "14-calibration#8",
+     "14-calibration#10",
+     "14-calibration#14",
+     "14-calibration#16",
+     "14-calibration#18",
+     "14-calibration#19"
+    ]
+   }
+  },
+  {
+   "name": "Ch 00-08 built, B11 part 2 untouched",
+   "kit_arrived": true,
+   "ticks": {
+    "b00-calibration-and-jigs": [
+     "B00.0",
+     "B00.8",
+     "B00.1",
+     "B00.2",
+     "B00.5",
+     "B00.6",
+     "B00.7"
+    ],
+    "00a-mains-safety": [
+     "00a.1",
+     "00a.2",
+     "00a.3",
+     "00a.4",
+     "00a.5",
+     "00a.6",
+     "00a.7",
+     "00a.8",
+     "00a.9",
+     "00a.10",
+     "00a.11",
+     "00a.12"
+    ],
+    "b01-z-drive-assemblies": [
+     "B01.2",
+     "B01.5",
+     "B01.7",
+     "B01.8"
+    ],
+    "b02-accent-parts-orange": [
+     "B02.2",
+     "B02.4",
+     "B02.6",
+     "B02.10",
+     "B02.8",
+     "B02.9",
+     "B02.13"
+    ],
+    "b03-ab-drive-units-and-front-idlers": [
+     "B03.2",
+     "B03.6",
+     "B03.4",
+     "B03.5"
+    ],
+    "b04-xy-joints-and-x-carriage": [
+     "B04.2",
+     "B04.5",
+     "B04.6"
+    ],
+    "b05-z-joints-and-z-chain": [
+     "B05.2",
+     "B05.4",
+     "B05.5"
+    ],
+    "b06-toolhead-sb-cw2-klicky": [
+     "B06.2",
+     "B06.6",
+     "B06.4",
+     "B06.5"
+    ],
+    "b07-electronics-bay-and-lighting": [
+     "B07.2",
+     "B07.4",
+     "B07.8",
+     "B07.6",
+     "B07.7"
+    ],
+    "b11-bay-ducting": [
+     "B11.3",
+     "B11.4",
+     "B11.5",
+     "B11.6",
+     "B11.15",
+     "B11.7",
+     "B11.8"
+    ],
+    "b08-skirts-and-front-modules": [
+     "B08.2",
+     "B08.4",
+     "B08.6",
+     "B08.8",
+     "B08.12",
+     "B08.10",
+     "B08.11"
+    ],
+    "b09-panels-filtration-spool": [
+     "B09.2",
+     "B09.4",
+     "B09.6",
+     "B09.14",
+     "B09.16",
+     "B09.12",
+     "B09.13"
+    ],
+    "b10-clicky-clack-door": [
+     "B10.2",
+     "B10.5",
+     "B10.6"
+    ],
+    "b12-side-spool-and-camera": [
+     "B12.2",
+     "B12.4",
+     "B12.6",
+     "B12.8",
+     "B12.9"
+    ],
+    "b13-exhaust-housing": [
+     "B13.2",
+     "B13.4",
+     "B13.6",
+     "B13.7"
+    ],
+    "00-before-you-start": [
+     "00.1",
+     "00.2",
+     "00.3",
+     "00.4",
+     "00.5",
+     "00.6",
+     "00.7",
+     "00.8",
+     "00.9",
+     "00.10",
+     "00.11",
+     "00.12",
+     "00.13",
+     "00.14",
+     "00.15",
+     "00.16",
+     "00.17",
+     "00.18",
+     "00.19",
+     "00.20",
+     "00.21",
+     "00.22",
+     "00.23",
+     "00.24",
+     "00.25",
+     "00.26",
+     "00.27",
+     "00.28",
+     "00.29",
+     "00.30",
+     "00.31",
+     "00.32"
+    ],
+    "12-software": [
+     "12.2",
+     "12.3",
+     "12.1",
+     "12.4",
+     "12.5",
+     "12.6",
+     "12.7",
+     "12.8",
+     "12.9",
+     "12.10",
+     "12.21",
+     "12.22",
+     "12.24",
+     "12.25",
+     "12.26",
+     "12.27",
+     "12.28",
+     "12.29",
+     "12.30",
+     "12.31",
+     "12.32",
+     "12.33",
+     "12.34",
+     "12.35",
+     "12.36"
+    ],
+    "01-frame": [
+     "01.1",
+     "01.2",
+     "01.3",
+     "01.4",
+     "01.5",
+     "01.6",
+     "01.7",
+     "01.8",
+     "01.9",
+     "01.10",
+     "01.11",
+     "01.12",
+     "01.13",
+     "01.14",
+     "01.15",
+     "01.16",
+     "01.17",
+     "01.18",
+     "01.19",
+     "01.20",
+     "01.21",
+     "01.22",
+     "01.23"
+    ],
+    "02-z-drives": [
+     "02.01",
+     "02.02",
+     "02.03",
+     "02.04",
+     "02.05",
+     "02.06",
+     "02.07",
+     "02.08",
+     "02.09",
+     "02.10",
+     "02.11",
+     "02.12",
+     "02.13",
+     "02.14",
+     "02.15",
+     "02.16",
+     "02.17",
+     "02.18",
+     "02.19",
+     "02.20",
+     "02.21",
+     "02.22",
+     "02.23",
+     "02.24",
+     "02.25",
+     "02.26",
+     "02.27",
+     "02.28",
+     "02.29",
+     "02.30",
+     "02.31",
+     "02.32",
+     "02.33",
+     "02.34",
+     "02.35",
+     "02.36",
+     "02.37",
+     "02.38",
+     "02.39",
+     "02.40",
+     "02.41",
+     "02.42",
+     "02.43",
+     "02.44"
+    ],
+    "03-build-plate": [
+     "03.1",
+     "03.2",
+     "03.3",
+     "03.4",
+     "03.5",
+     "03.6",
+     "03.7",
+     "03.8",
+     "03.9",
+     "03.10",
+     "03.11",
+     "03.12",
+     "03.13",
+     "03.14",
+     "03.15",
+     "03.16",
+     "03.17",
+     "03.18",
+     "03.19",
+     "03.20"
+    ],
+    "04-ab-drives": [
+     "04.1",
+     "04.2",
+     "04.3",
+     "04.4",
+     "04.5",
+     "04.6",
+     "04.7",
+     "04.8",
+     "04.9",
+     "04.10",
+     "04.11",
+     "04.12",
+     "04.13",
+     "04.14",
+     "04.15",
+     "04.16",
+     "04.17",
+     "04.18",
+     "04.19",
+     "04.20",
+     "04.21",
+     "04.22",
+     "04.23",
+     "04.24",
+     "04.25",
+     "04.26",
+     "04.27",
+     "04.28",
+     "04.29",
+     "04.30",
+     "04.31",
+     "04.32",
+     "04.33",
+     "04.34",
+     "04.35",
+     "04.36",
+     "04.37",
+     "04.38"
+    ],
+    "05-gantry": [
+     "05.1",
+     "05.2",
+     "05.3",
+     "05.4",
+     "05.5",
+     "05.6",
+     "05.7",
+     "05.8",
+     "05.9",
+     "05.10",
+     "05.11",
+     "05.12",
+     "05.13",
+     "05.14",
+     "05.15",
+     "05.16",
+     "05.17",
+     "05.18",
+     "05.19",
+     "05.20",
+     "05.21",
+     "05.22",
+     "05.23",
+     "05.24",
+     "05.25",
+     "05.26",
+     "05.27",
+     "05.28",
+     "05.29",
+     "05.30",
+     "05.31",
+     "05.32",
+     "05.33",
+     "05.34",
+     "05.35",
+     "05.36",
+     "05.37",
+     "05.38",
+     "05.39",
+     "05.40",
+     "05.41",
+     "05.42",
+     "05.43",
+     "05.49",
+     "05.44",
+     "05.45",
+     "05.46",
+     "05.47",
+     "05.48"
+    ],
+    "06-z-axis-and-gantry-squaring": [
+     "06.1",
+     "06.2",
+     "06.3",
+     "06.4",
+     "06.5",
+     "06.6",
+     "06.7",
+     "06.8",
+     "06.9",
+     "06.10",
+     "06.11",
+     "06.12",
+     "06.13",
+     "06.14",
+     "06.15",
+     "06.16",
+     "06.17",
+     "06.18",
+     "06.19",
+     "06.20",
+     "06.21",
+     "06.22",
+     "06.23",
+     "06.24",
+     "06.25",
+     "06.26"
+    ],
+    "07-ab-belts": [
+     "07.1",
+     "07.2",
+     "07.3",
+     "07.4",
+     "07.5",
+     "07.6",
+     "07.7",
+     "07.8",
+     "07.9",
+     "07.10",
+     "07.11",
+     "07.12",
+     "07.13",
+     "07.14",
+     "07.15",
+     "07.16",
+     "07.17",
+     "07.18",
+     "07.19",
+     "07.20",
+     "07.21",
+     "07.22",
+     "07.23",
+     "07.24",
+     "07.25",
+     "07.26",
+     "07.27",
+     "07.28",
+     "07.29",
+     "07.30",
+     "07.31",
+     "07.32",
+     "07.33",
+     "07.34",
+     "07.35",
+     "07.36",
+     "07.37",
+     "07.38",
+     "07.39"
+    ],
+    "08-toolhead": [
+     "08.1",
+     "08.2",
+     "08.3",
+     "08.4",
+     "08.5",
+     "08.6",
+     "08.7",
+     "08.8",
+     "08.9",
+     "08.10",
+     "08.11",
+     "08.12",
+     "08.13",
+     "08.14",
+     "08.15",
+     "08.16",
+     "08.17",
+     "08.18",
+     "08.19",
+     "08.20",
+     "08.21",
+     "08.22",
+     "08.23",
+     "08.24",
+     "08.25",
+     "08.26",
+     "08.27",
+     "08.28",
+     "08.29",
+     "08.30",
+     "08.31",
+     "08.32",
+     "08.33",
+     "08.34",
+     "08.35",
+     "08.36",
+     "08.37",
+     "08.38",
+     "08.39",
+     "08.40",
+     "08.41",
+     "08.42",
+     "08.43",
+     "08.44",
+     "08.45",
+     "08.46",
+     "08.47",
+     "08.48",
+     "08.49",
+     "08.50",
+     "08.51",
+     "08.52",
+     "08.53",
+     "08.54",
+     "08.55",
+     "08.56",
+     "08.57",
+     "08.58",
+     "08.59",
+     "08.60",
+     "08.61",
+     "08.62",
+     "08.63",
+     "08.64",
+     "08.65"
+    ]
+   },
+   "printed": [],
+   "expect": {
+    "done": 151,
+    "gate_closed": true,
+    "start": "B11.10",
+    "sections": [
+     {
+      "id": "tonight",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 20,
+        "items": [
+         "b11-bay-ducting#7"
+        ],
+        "next": null
+       },
+       {
+        "budget": 60,
+        "total": 40,
+        "items": [
+         "b11-bay-ducting#7",
+         "b11-bay-ducting#8",
+         "b11-bay-ducting#9"
+        ],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 70,
+        "items": [
+         "b11-bay-ducting#7",
+         "b11-bay-ducting#8",
+         "b11-bay-ducting#9",
+         "09-electronics-bay#0"
+        ],
+        "next": null
+       }
+      ]
+     },
+     {
+      "id": "before-kit",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 0,
+        "items": [],
+        "next": null
+       },
+       {
+        "budget": 60,
+        "total": 0,
+        "items": [],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 0,
+        "items": [],
+        "next": null
+       }
+      ]
+     }
+    ],
+    "helpers": [
+     "b11-bay-ducting#7",
+     "b11-bay-ducting#12",
+     "09-electronics-bay#0",
+     "09-electronics-bay#1",
+     "09-electronics-bay#4",
+     "09-electronics-bay#5",
+     "09-electronics-bay#6",
+     "10-wiring#0",
+     "10-wiring#1",
+     "10-wiring#3",
+     "10-wiring#8",
+     "10-wiring#12",
+     "10-wiring#13",
+     "11-skirts-panels-door#0",
+     "11-skirts-panels-door#1",
+     "11-skirts-panels-door#2",
+     "11-skirts-panels-door#3",
+     "11-skirts-panels-door#4",
+     "11-skirts-panels-door#7",
+     "11-skirts-panels-door#8",
+     "11-skirts-panels-door#9",
+     "11-skirts-panels-door#10",
+     "13-initial-startup#1",
+     "13-initial-startup#2",
+     "13-initial-startup#3",
+     "13-initial-startup#4",
+     "13-initial-startup#5",
+     "13-initial-startup#9",
+     "13-initial-startup#10",
+     "13-initial-startup#11",
+     "13-initial-startup#12",
+     "13-initial-startup#13",
+     "06-z-axis-and-gantry-squaring#8",
+     "11-skirts-panels-door#11",
+     "11-skirts-panels-door#12",
+     "11-skirts-panels-door#13",
+     "11-skirts-panels-door#14",
+     "11-skirts-panels-door#15",
+     "11-skirts-panels-door#16",
+     "11-skirts-panels-door#17",
+     "11-skirts-panels-door#18",
+     "14-calibration#0",
+     "14-calibration#1",
+     "14-calibration#2",
+     "14-calibration#3",
+     "14-calibration#6",
+     "14-calibration#7",
+     "14-calibration#8",
+     "14-calibration#10",
+     "14-calibration#14",
+     "14-calibration#16",
+     "14-calibration#18",
+     "14-calibration#19"
+    ]
+   }
+  },
+  {
+   "name": "Ch 00-08 built, 09.1-09.5 done, B11-P4 loaded, P5 and P7 not: 09.6 waits",
+   "kit_arrived": true,
+   "ticks": {
+    "b00-calibration-and-jigs": [
+     "B00.0",
+     "B00.8",
+     "B00.1",
+     "B00.2",
+     "B00.5",
+     "B00.6",
+     "B00.7"
+    ],
+    "00a-mains-safety": [
+     "00a.1",
+     "00a.2",
+     "00a.3",
+     "00a.4",
+     "00a.5",
+     "00a.6",
+     "00a.7",
+     "00a.8",
+     "00a.9",
+     "00a.10",
+     "00a.11",
+     "00a.12"
+    ],
+    "b01-z-drive-assemblies": [
+     "B01.2",
+     "B01.5",
+     "B01.7",
+     "B01.8"
+    ],
+    "b02-accent-parts-orange": [
+     "B02.2",
+     "B02.4",
+     "B02.6",
+     "B02.10",
+     "B02.8",
+     "B02.9",
+     "B02.13"
+    ],
+    "b03-ab-drive-units-and-front-idlers": [
+     "B03.2",
+     "B03.6",
+     "B03.4",
+     "B03.5"
+    ],
+    "b04-xy-joints-and-x-carriage": [
+     "B04.2",
+     "B04.5",
+     "B04.6"
+    ],
+    "b05-z-joints-and-z-chain": [
+     "B05.2",
+     "B05.4",
+     "B05.5"
+    ],
+    "b06-toolhead-sb-cw2-klicky": [
+     "B06.2",
+     "B06.6",
+     "B06.4",
+     "B06.5"
+    ],
+    "b07-electronics-bay-and-lighting": [
+     "B07.2",
+     "B07.4",
+     "B07.8",
+     "B07.6",
+     "B07.7"
+    ],
+    "b11-bay-ducting": [
+     "B11.3",
+     "B11.4",
+     "B11.5",
+     "B11.6",
+     "B11.15",
+     "B11.7",
+     "B11.8",
+     "B11.10",
+     "B11.11",
+     "B11.12"
+    ],
+    "b08-skirts-and-front-modules": [
+     "B08.2",
+     "B08.4",
+     "B08.6",
+     "B08.8",
+     "B08.12",
+     "B08.10",
+     "B08.11"
+    ],
+    "b09-panels-filtration-spool": [
+     "B09.2",
+     "B09.4",
+     "B09.6",
+     "B09.14",
+     "B09.16",
+     "B09.12",
+     "B09.13"
+    ],
+    "b10-clicky-clack-door": [
+     "B10.2",
+     "B10.5",
+     "B10.6"
+    ],
+    "b12-side-spool-and-camera": [
+     "B12.2",
+     "B12.4",
+     "B12.6",
+     "B12.8",
+     "B12.9"
+    ],
+    "b13-exhaust-housing": [
+     "B13.2",
+     "B13.4",
+     "B13.6",
+     "B13.7"
+    ],
+    "00-before-you-start": [
+     "00.1",
+     "00.2",
+     "00.3",
+     "00.4",
+     "00.5",
+     "00.6",
+     "00.7",
+     "00.8",
+     "00.9",
+     "00.10",
+     "00.11",
+     "00.12",
+     "00.13",
+     "00.14",
+     "00.15",
+     "00.16",
+     "00.17",
+     "00.18",
+     "00.19",
+     "00.20",
+     "00.21",
+     "00.22",
+     "00.23",
+     "00.24",
+     "00.25",
+     "00.26",
+     "00.27",
+     "00.28",
+     "00.29",
+     "00.30",
+     "00.31",
+     "00.32"
+    ],
+    "12-software": [
+     "12.2",
+     "12.3",
+     "12.1",
+     "12.4",
+     "12.5",
+     "12.6",
+     "12.7",
+     "12.8",
+     "12.9",
+     "12.10",
+     "12.21",
+     "12.22",
+     "12.24",
+     "12.25",
+     "12.26",
+     "12.27",
+     "12.28",
+     "12.29",
+     "12.30",
+     "12.31",
+     "12.32",
+     "12.33",
+     "12.34",
+     "12.35",
+     "12.36"
+    ],
+    "01-frame": [
+     "01.1",
+     "01.2",
+     "01.3",
+     "01.4",
+     "01.5",
+     "01.6",
+     "01.7",
+     "01.8",
+     "01.9",
+     "01.10",
+     "01.11",
+     "01.12",
+     "01.13",
+     "01.14",
+     "01.15",
+     "01.16",
+     "01.17",
+     "01.18",
+     "01.19",
+     "01.20",
+     "01.21",
+     "01.22",
+     "01.23"
+    ],
+    "02-z-drives": [
+     "02.01",
+     "02.02",
+     "02.03",
+     "02.04",
+     "02.05",
+     "02.06",
+     "02.07",
+     "02.08",
+     "02.09",
+     "02.10",
+     "02.11",
+     "02.12",
+     "02.13",
+     "02.14",
+     "02.15",
+     "02.16",
+     "02.17",
+     "02.18",
+     "02.19",
+     "02.20",
+     "02.21",
+     "02.22",
+     "02.23",
+     "02.24",
+     "02.25",
+     "02.26",
+     "02.27",
+     "02.28",
+     "02.29",
+     "02.30",
+     "02.31",
+     "02.32",
+     "02.33",
+     "02.34",
+     "02.35",
+     "02.36",
+     "02.37",
+     "02.38",
+     "02.39",
+     "02.40",
+     "02.41",
+     "02.42",
+     "02.43",
+     "02.44"
+    ],
+    "03-build-plate": [
+     "03.1",
+     "03.2",
+     "03.3",
+     "03.4",
+     "03.5",
+     "03.6",
+     "03.7",
+     "03.8",
+     "03.9",
+     "03.10",
+     "03.11",
+     "03.12",
+     "03.13",
+     "03.14",
+     "03.15",
+     "03.16",
+     "03.17",
+     "03.18",
+     "03.19",
+     "03.20"
+    ],
+    "04-ab-drives": [
+     "04.1",
+     "04.2",
+     "04.3",
+     "04.4",
+     "04.5",
+     "04.6",
+     "04.7",
+     "04.8",
+     "04.9",
+     "04.10",
+     "04.11",
+     "04.12",
+     "04.13",
+     "04.14",
+     "04.15",
+     "04.16",
+     "04.17",
+     "04.18",
+     "04.19",
+     "04.20",
+     "04.21",
+     "04.22",
+     "04.23",
+     "04.24",
+     "04.25",
+     "04.26",
+     "04.27",
+     "04.28",
+     "04.29",
+     "04.30",
+     "04.31",
+     "04.32",
+     "04.33",
+     "04.34",
+     "04.35",
+     "04.36",
+     "04.37",
+     "04.38"
+    ],
+    "05-gantry": [
+     "05.1",
+     "05.2",
+     "05.3",
+     "05.4",
+     "05.5",
+     "05.6",
+     "05.7",
+     "05.8",
+     "05.9",
+     "05.10",
+     "05.11",
+     "05.12",
+     "05.13",
+     "05.14",
+     "05.15",
+     "05.16",
+     "05.17",
+     "05.18",
+     "05.19",
+     "05.20",
+     "05.21",
+     "05.22",
+     "05.23",
+     "05.24",
+     "05.25",
+     "05.26",
+     "05.27",
+     "05.28",
+     "05.29",
+     "05.30",
+     "05.31",
+     "05.32",
+     "05.33",
+     "05.34",
+     "05.35",
+     "05.36",
+     "05.37",
+     "05.38",
+     "05.39",
+     "05.40",
+     "05.41",
+     "05.42",
+     "05.43",
+     "05.49",
+     "05.44",
+     "05.45",
+     "05.46",
+     "05.47",
+     "05.48"
+    ],
+    "06-z-axis-and-gantry-squaring": [
+     "06.1",
+     "06.2",
+     "06.3",
+     "06.4",
+     "06.5",
+     "06.6",
+     "06.7",
+     "06.8",
+     "06.9",
+     "06.10",
+     "06.11",
+     "06.12",
+     "06.13",
+     "06.14",
+     "06.15",
+     "06.16",
+     "06.17",
+     "06.18",
+     "06.19",
+     "06.20",
+     "06.21",
+     "06.22",
+     "06.23",
+     "06.24",
+     "06.25",
+     "06.26"
+    ],
+    "07-ab-belts": [
+     "07.1",
+     "07.2",
+     "07.3",
+     "07.4",
+     "07.5",
+     "07.6",
+     "07.7",
+     "07.8",
+     "07.9",
+     "07.10",
+     "07.11",
+     "07.12",
+     "07.13",
+     "07.14",
+     "07.15",
+     "07.16",
+     "07.17",
+     "07.18",
+     "07.19",
+     "07.20",
+     "07.21",
+     "07.22",
+     "07.23",
+     "07.24",
+     "07.25",
+     "07.26",
+     "07.27",
+     "07.28",
+     "07.29",
+     "07.30",
+     "07.31",
+     "07.32",
+     "07.33",
+     "07.34",
+     "07.35",
+     "07.36",
+     "07.37",
+     "07.38",
+     "07.39"
+    ],
+    "08-toolhead": [
+     "08.1",
+     "08.2",
+     "08.3",
+     "08.4",
+     "08.5",
+     "08.6",
+     "08.7",
+     "08.8",
+     "08.9",
+     "08.10",
+     "08.11",
+     "08.12",
+     "08.13",
+     "08.14",
+     "08.15",
+     "08.16",
+     "08.17",
+     "08.18",
+     "08.19",
+     "08.20",
+     "08.21",
+     "08.22",
+     "08.23",
+     "08.24",
+     "08.25",
+     "08.26",
+     "08.27",
+     "08.28",
+     "08.29",
+     "08.30",
+     "08.31",
+     "08.32",
+     "08.33",
+     "08.34",
+     "08.35",
+     "08.36",
+     "08.37",
+     "08.38",
+     "08.39",
+     "08.40",
+     "08.41",
+     "08.42",
+     "08.43",
+     "08.44",
+     "08.45",
+     "08.46",
+     "08.47",
+     "08.48",
+     "08.49",
+     "08.50",
+     "08.51",
+     "08.52",
+     "08.53",
+     "08.54",
+     "08.55",
+     "08.56",
+     "08.57",
+     "08.58",
+     "08.59",
+     "08.60",
+     "08.61",
+     "08.62",
+     "08.63",
+     "08.64",
+     "08.65"
+    ],
+    "09-electronics-bay": [
+     "09.1",
+     "09.2",
+     "09.3",
+     "09.4",
+     "09.5"
+    ]
+   },
+   "printed": [],
+   "expect": {
+    "done": 155,
+    "gate_closed": true,
+    "start": "B11.13",
+    "sections": [
+     {
+      "id": "tonight",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 5,
+        "items": [
+         "b11-bay-ducting#10"
+        ],
+        "next": null
+       },
+       {
+        "budget": 60,
+        "total": 5,
+        "items": [
+         "b11-bay-ducting#10"
+        ],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 5,
+        "items": [
+         "b11-bay-ducting#10"
+        ],
+        "next": null
+       }
+      ]
+     },
+     {
+      "id": "before-kit",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 0,
+        "items": [],
+        "next": null
+       },
+       {
+        "budget": 60,
+        "total": 0,
+        "items": [],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 0,
+        "items": [],
+        "next": null
+       }
+      ]
+     }
+    ],
+    "helpers": [
+     "b11-bay-ducting#12",
+     "09-electronics-bay#1",
+     "09-electronics-bay#4",
+     "09-electronics-bay#5",
+     "09-electronics-bay#6",
+     "10-wiring#0",
+     "10-wiring#1",
+     "10-wiring#3",
+     "10-wiring#8",
+     "10-wiring#12",
+     "10-wiring#13",
+     "11-skirts-panels-door#0",
+     "11-skirts-panels-door#1",
+     "11-skirts-panels-door#2",
+     "11-skirts-panels-door#3",
+     "11-skirts-panels-door#4",
+     "11-skirts-panels-door#7",
+     "11-skirts-panels-door#8",
+     "11-skirts-panels-door#9",
+     "11-skirts-panels-door#10",
+     "13-initial-startup#1",
+     "13-initial-startup#2",
+     "13-initial-startup#3",
+     "13-initial-startup#4",
+     "13-initial-startup#5",
+     "13-initial-startup#9",
+     "13-initial-startup#10",
+     "13-initial-startup#11",
+     "13-initial-startup#12",
+     "13-initial-startup#13",
+     "06-z-axis-and-gantry-squaring#8",
+     "11-skirts-panels-door#11",
+     "11-skirts-panels-door#12",
+     "11-skirts-panels-door#13",
+     "11-skirts-panels-door#14",
+     "11-skirts-panels-door#15",
+     "11-skirts-panels-door#16",
+     "11-skirts-panels-door#17",
+     "11-skirts-panels-door#18",
+     "14-calibration#0",
+     "14-calibration#1",
+     "14-calibration#2",
+     "14-calibration#3",
+     "14-calibration#6",
+     "14-calibration#7",
+     "14-calibration#8",
+     "14-calibration#10",
+     "14-calibration#14",
+     "14-calibration#16",
+     "14-calibration#18",
+     "14-calibration#19"
+    ]
+   }
+  },
+  {
+   "name": "Ch 00-05 built, B11 part 2 binned, Checkpoint 06 not: B11.9 waits for 06.26",
+   "kit_arrived": true,
+   "ticks": {
+    "b00-calibration-and-jigs": [
+     "B00.0",
+     "B00.8",
+     "B00.1",
+     "B00.2",
+     "B00.5",
+     "B00.6",
+     "B00.7"
+    ],
+    "00a-mains-safety": [
+     "00a.1",
+     "00a.2",
+     "00a.3",
+     "00a.4",
+     "00a.5",
+     "00a.6",
+     "00a.7",
+     "00a.8",
+     "00a.9",
+     "00a.10",
+     "00a.11",
+     "00a.12"
+    ],
+    "b01-z-drive-assemblies": [
+     "B01.2",
+     "B01.5",
+     "B01.7",
+     "B01.8"
+    ],
+    "b02-accent-parts-orange": [
+     "B02.2",
+     "B02.4",
+     "B02.6",
+     "B02.10",
+     "B02.8",
+     "B02.9",
+     "B02.13"
+    ],
+    "b03-ab-drive-units-and-front-idlers": [
+     "B03.2",
+     "B03.6",
+     "B03.4",
+     "B03.5"
+    ],
+    "b04-xy-joints-and-x-carriage": [
+     "B04.2",
+     "B04.5",
+     "B04.6"
+    ],
+    "b05-z-joints-and-z-chain": [
+     "B05.2",
+     "B05.4",
+     "B05.5"
+    ],
+    "b06-toolhead-sb-cw2-klicky": [
+     "B06.2",
+     "B06.6",
+     "B06.4",
+     "B06.5"
+    ],
+    "b07-electronics-bay-and-lighting": [
+     "B07.2",
+     "B07.4",
+     "B07.8",
+     "B07.6",
+     "B07.7"
+    ],
+    "b11-bay-ducting": [
+     "B11.3",
+     "B11.4",
+     "B11.5",
+     "B11.6",
+     "B11.15",
+     "B11.7",
+     "B11.8",
+     "B11.10",
+     "B11.11",
+     "B11.12",
+     "B11.13",
+     "B11.16",
+     "B11.14"
+    ],
+    "b08-skirts-and-front-modules": [
+     "B08.2",
+     "B08.4",
+     "B08.6",
+     "B08.8",
+     "B08.12",
+     "B08.10",
+     "B08.11"
+    ],
+    "b09-panels-filtration-spool": [
+     "B09.2",
+     "B09.4",
+     "B09.6",
+     "B09.14",
+     "B09.16",
+     "B09.12",
+     "B09.13"
+    ],
+    "b10-clicky-clack-door": [
+     "B10.2",
+     "B10.5",
+     "B10.6"
+    ],
+    "b12-side-spool-and-camera": [
+     "B12.2",
+     "B12.4",
+     "B12.6",
+     "B12.8",
+     "B12.9"
+    ],
+    "b13-exhaust-housing": [
+     "B13.2",
+     "B13.4",
+     "B13.6",
+     "B13.7"
+    ],
+    "00-before-you-start": [
+     "00.1",
+     "00.2",
+     "00.3",
+     "00.4",
+     "00.5",
+     "00.6",
+     "00.7",
+     "00.8",
+     "00.9",
+     "00.10",
+     "00.11",
+     "00.12",
+     "00.13",
+     "00.14",
+     "00.15",
+     "00.16",
+     "00.17",
+     "00.18",
+     "00.19",
+     "00.20",
+     "00.21",
+     "00.22",
+     "00.23",
+     "00.24",
+     "00.25",
+     "00.26",
+     "00.27",
+     "00.28",
+     "00.29",
+     "00.30",
+     "00.31",
+     "00.32"
+    ],
+    "12-software": [
+     "12.2",
+     "12.3",
+     "12.1",
+     "12.4",
+     "12.5",
+     "12.6",
+     "12.7",
+     "12.8",
+     "12.9",
+     "12.10",
+     "12.21",
+     "12.22",
+     "12.24",
+     "12.25",
+     "12.26",
+     "12.27",
+     "12.28",
+     "12.29",
+     "12.30",
+     "12.31",
+     "12.32",
+     "12.33",
+     "12.34",
+     "12.35",
+     "12.36"
+    ],
+    "01-frame": [
+     "01.1",
+     "01.2",
+     "01.3",
+     "01.4",
+     "01.5",
+     "01.6",
+     "01.7",
+     "01.8",
+     "01.9",
+     "01.10",
+     "01.11",
+     "01.12",
+     "01.13",
+     "01.14",
+     "01.15",
+     "01.16",
+     "01.17",
+     "01.18",
+     "01.19",
+     "01.20",
+     "01.21",
+     "01.22",
+     "01.23"
+    ],
+    "02-z-drives": [
+     "02.01",
+     "02.02",
+     "02.03",
+     "02.04",
+     "02.05",
+     "02.06",
+     "02.07",
+     "02.08",
+     "02.09",
+     "02.10",
+     "02.11",
+     "02.12",
+     "02.13",
+     "02.14",
+     "02.15",
+     "02.16",
+     "02.17",
+     "02.18",
+     "02.19",
+     "02.20",
+     "02.21",
+     "02.22",
+     "02.23",
+     "02.24",
+     "02.25",
+     "02.26",
+     "02.27",
+     "02.28",
+     "02.29",
+     "02.30",
+     "02.31",
+     "02.32",
+     "02.33",
+     "02.34",
+     "02.35",
+     "02.36",
+     "02.37",
+     "02.38",
+     "02.39",
+     "02.40",
+     "02.41",
+     "02.42",
+     "02.43",
+     "02.44"
+    ],
+    "03-build-plate": [
+     "03.1",
+     "03.2",
+     "03.3",
+     "03.4",
+     "03.5",
+     "03.6",
+     "03.7",
+     "03.8",
+     "03.9",
+     "03.10",
+     "03.11",
+     "03.12",
+     "03.13",
+     "03.14",
+     "03.15",
+     "03.16",
+     "03.17",
+     "03.18",
+     "03.19",
+     "03.20"
+    ],
+    "04-ab-drives": [
+     "04.1",
+     "04.2",
+     "04.3",
+     "04.4",
+     "04.5",
+     "04.6",
+     "04.7",
+     "04.8",
+     "04.9",
+     "04.10",
+     "04.11",
+     "04.12",
+     "04.13",
+     "04.14",
+     "04.15",
+     "04.16",
+     "04.17",
+     "04.18",
+     "04.19",
+     "04.20",
+     "04.21",
+     "04.22",
+     "04.23",
+     "04.24",
+     "04.25",
+     "04.26",
+     "04.27",
+     "04.28",
+     "04.29",
+     "04.30",
+     "04.31",
+     "04.32",
+     "04.33",
+     "04.34",
+     "04.35",
+     "04.36",
+     "04.37",
+     "04.38"
+    ],
+    "05-gantry": [
+     "05.1",
+     "05.2",
+     "05.3",
+     "05.4",
+     "05.5",
+     "05.6",
+     "05.7",
+     "05.8",
+     "05.9",
+     "05.10",
+     "05.11",
+     "05.12",
+     "05.13",
+     "05.14",
+     "05.15",
+     "05.16",
+     "05.17",
+     "05.18",
+     "05.19",
+     "05.20",
+     "05.21",
+     "05.22",
+     "05.23",
+     "05.24",
+     "05.25",
+     "05.26",
+     "05.27",
+     "05.28",
+     "05.29",
+     "05.30",
+     "05.31",
+     "05.32",
+     "05.33",
+     "05.34",
+     "05.35",
+     "05.36",
+     "05.37",
+     "05.38",
+     "05.39",
+     "05.40",
+     "05.41",
+     "05.42",
+     "05.43",
+     "05.49",
+     "05.44",
+     "05.45",
+     "05.46",
+     "05.47",
+     "05.48"
+    ]
+   },
+   "printed": [],
+   "expect": {
+    "done": 134,
+    "gate_closed": true,
+    "start": "06.1",
+    "sections": [
+     {
+      "id": "tonight",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 30,
+        "items": [
+         "06-z-axis-and-gantry-squaring#0"
+        ],
+        "next": null
+       },
+       {
+        "budget": 60,
+        "total": 30,
+        "items": [
+         "06-z-axis-and-gantry-squaring#0"
+        ],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 70,
+        "items": [
+         "06-z-axis-and-gantry-squaring#0",
+         "06-z-axis-and-gantry-squaring#1"
+        ],
+        "next": null
+       }
+      ]
+     },
+     {
+      "id": "before-kit",
+      "gate": false,
+      "bench_first": false,
+      "buckets": [
+       {
+        "budget": 30,
+        "total": 0,
+        "items": [],
+        "next": null
+       },
+       {
+        "budget": 60,
+        "total": 0,
+        "items": [],
+        "next": null
+       },
+       {
+        "budget": 90,
+        "total": 0,
+        "items": [],
+        "next": null
+       }
+      ]
+     }
+    ],
+    "helpers": [
+     "06-z-axis-and-gantry-squaring#2",
+     "06-z-axis-and-gantry-squaring#3",
+     "06-z-axis-and-gantry-squaring#4",
+     "06-z-axis-and-gantry-squaring#6",
+     "07-ab-belts#0",
+     "07-ab-belts#2",
+     "07-ab-belts#3",
+     "07-ab-belts#4",
+     "08-toolhead#0",
+     "08-toolhead#1",
+     "08-toolhead#3",
+     "08-toolhead#5",
+     "08-toolhead#6",
+     "08-toolhead#7",
+     "08-toolhead#8",
+     "08-toolhead#9",
+     "09-electronics-bay#0",
+     "09-electronics-bay#1",
+     "09-electronics-bay#4",
+     "09-electronics-bay#5",
+     "09-electronics-bay#6",
+     "10-wiring#0",
+     "10-wiring#1",
+     "10-wiring#3",
+     "10-wiring#8",
+     "10-wiring#12",
+     "10-wiring#13",
+     "11-skirts-panels-door#0",
+     "11-skirts-panels-door#1",
+     "11-skirts-panels-door#2",
+     "11-skirts-panels-door#3",
+     "11-skirts-panels-door#4",
+     "11-skirts-panels-door#7",
+     "11-skirts-panels-door#8",
+     "11-skirts-panels-door#9",
+     "11-skirts-panels-door#10",
+     "13-initial-startup#1",
+     "13-initial-startup#2",
+     "13-initial-startup#3",
+     "13-initial-startup#4",
+     "13-initial-startup#5",
+     "13-initial-startup#9",
+     "13-initial-startup#10",
+     "13-initial-startup#11",
+     "13-initial-startup#12",
+     "13-initial-startup#13",
+     "06-z-axis-and-gantry-squaring#8",
+     "11-skirts-panels-door#11",
+     "11-skirts-panels-door#12",
+     "11-skirts-panels-door#13",
+     "11-skirts-panels-door#14",
+     "11-skirts-panels-door#15",
+     "11-skirts-panels-door#16",
+     "11-skirts-panels-door#17",
+     "11-skirts-panels-door#18",
+     "14-calibration#0",
+     "14-calibration#1",
+     "14-calibration#2",
+     "14-calibration#3",
+     "14-calibration#6",
+     "14-calibration#7",
+     "14-calibration#8",
+     "14-calibration#10",
+     "14-calibration#14",
+     "14-calibration#16",
+     "14-calibration#18",
+     "14-calibration#19"
+    ]
    }
   }
  ]

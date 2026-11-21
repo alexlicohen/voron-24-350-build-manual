@@ -25,7 +25,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint 00a — Mains safety: read before Chapter 09
 
-- [ ] Decided and written down who lands the mains conductors in Ch 10 Section 1, and whether that is a certified person.
+- [ ] Decided and written down who lands the mains conductors in Ch 10 Sections 1, 2 and 2b, and whether that is a certified person.
 - [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.23 and 10.82 (Sections 1, 2 and 2b), Ch 12 Step 12.11 through Checkpoint 12, Ch 11 Step 11.67, the exhaust fan's 14.30, and Ch 13 Steps 13.3–13.8 and the 13.9 power-on; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
 - [ ] Multimeter on the bench with a printed CAT rating (CAT III 600 V or better), matching leads, continuity, Ω, DC V and AC V all found.
 - [ ] Meter proved live–dead–live once, probes shorted to a beep, both leads continuous, battery good.
@@ -208,7 +208,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] The Leviathan is on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
 - [ ] The USB adapter is on the front rail with the partial cover, and the DC Ground Wire is attached to its bare mounting point; the frame end is left loose for Ch 10.
 - [ ] The IEC inlet module (one part, not two) is in `power_inlet_IECGS_1mm`, the panel is screwed to the rear extrusion hard against the rear-left Z-motor mount, and three WAGO 221-415 clamps sit in the mains WAGO mount on the extrusion's inner face, just inboard of the panel.
-- [ ] The nozzle probe is assembled (collar fully in, PCB on two M2×10, shaft free) and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin 2–3 mm behind the plate's straight rear edge; its lead is not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
+- [ ] The nozzle probe is assembled (collar fully in, PCB on two M2×10, shaft free) and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin 2–3 mm behind the plate's straight rear edge; its lead is not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — in for 10.34's check, then out; refit at 13.8`.
 - [ ] The XY endstop pod from Ch 05 is tight on the right XY joint, its cable labels read XES / YES or are repinned, and through full X and Y travel it touches nothing.
 - [ ] The bed WAGO breakout is built and mounted **above** the deck on the left bed extrusion, under the plate's rear half; the plate's three leads reach it with slack, and the plate still lifts off from above.
 - [ ] No mains is wired and nothing is powered; the only connections are the Pi adapter's lead and the USB adapter's ground ring. Duct lids, skirts and the bottom panel are off. The multimeter is on the bench.
@@ -220,7 +220,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] PSU voltage switch matches your mains, checked twice (10.2, 10.22)
 - [ ] LDO's **Checkpoint #1** passed in full with only the inlet, WAGO bus and PSU on the mains: every node of each colour traced from the C14 pin to the PSU screws, and earth to the frame and the DIN rail; L, N and PE isolated from each other at the WAGOs and at the PSU screws; the switch switches; then one hand-on-the-switch power-on and off again (10.17–10.23)
 - [ ] Bed heater reads tens of ohms L→N and `OL` to the plate (10.13)
-- [ ] SSR and bed wired dead after Checkpoint #1: bed on **LOAD 1**, mains L on **LOAD 2**, red on **INPUT 3**, black on **INPUT 4**; the SSR open and L, N and PE still isolated with them on the bus; load and control sides isolated (10.11, 10.14, 10.21, 10.27, 10.78)
+- [ ] SSR and bed wired dead after Checkpoint #1: bed on **LOAD 1**, mains L on **LOAD 2**, red on **INPUT 3**, black on **INPUT 4**; the SSR open and L, N and PE still isolated with them on the bus; load and control sides isolated; the SSR's clear terminal cover back on (10.11, 10.14, 10.21, 10.27, 10.78)
 - [ ] Protective earth reaches the frame, the SSR's DIN rail, the build plate and the extruder motor body from the C14 earth pin; the frame lug fitted at 10.16 was probed on bare metal, never anodising (10.16, 10.82, 10.58, 10.67, 10.77)
 - [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads about the same as +V → −V, never 0 Ω, and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
 - [ ] Bed thermistor reads within ±15 % of the room-temperature table (10.44, 10.76)
@@ -236,7 +236,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 **Part A — before Ch 13**
 
-- [ ] Checkpoint #1 passed and Ch 12 Part 2 (12.11–12.20, 12.23, 12.37, Checkpoint 12) done **before** any of this started. The deck panel is calipered and the Ch 02 deck supports match it.
+- [ ] Checkpoint 10 passed and Ch 12 Part 2 (12.11–12.20, 12.23, 12.37, Checkpoint 12) done **before** any of this started. The deck panel is calipered and the Ch 02 deck supports match it.
 - [ ] All twelve skirt segments checked for rock on the flat reference. The ring is closed with flush, tight joints all round, and no mini12864 parts are anywhere on the machine.
 - [ ] The BTT TFT4.3 module is in the front-centre position. Its FFC is seated at both ends the right way round (contacts up at the screen, forward at the Pi), with a service loop.
 - [ ] Two 60×20 bay fans, both in the **right-hand** fan support and both blowing the same way, joined by the 3×2 splicer PCB **on its printed spacer** and landing on FAN2/PF7. The left support's grills are on the two retainers.
@@ -282,7 +282,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint 13 — Initial startup
 
-- [ ] Checkpoint #1 (Ch 10) was passed before this chapter began, with a multimeter, unplugged.
+- [ ] Checkpoint 10, with LDO's Checkpoint #1 in it, was passed before this chapter began, with a multimeter, unplugged.
 - [ ] `STATUS` returns `Klipper state: Ready`, and both MCUs are present: `stm32f446xx` (or `stm32h743xx` on a V1.3 board) and `stm32g0b1xx`.
 - [ ] `grep -c gpio ~/printer_data/config/printer.cfg` returns 0, so this is the `-sbv2` config.
 - [ ] `M112` tested once (Step 13.22) and typed-and-unsent, alone on the line, before every first move; everyone in the room knows it is the stop and `RESTART` is not.
@@ -446,7 +446,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Nevermore plenum lid slides freely in its groove
 - [ ] Nevermore cartridge seats square on the plenum with no gap at the joint (magnets go in at Ch 11)
 - [ ] Cartridge built-in support pushed out clean
-- [ ] Exhaust sealed with `exhaust_cover` + `exhaust_filter_grill` only — no Voron exhaust-filter parts printed
+- [ ] `exhaust_cover` and `exhaust_filter_grill` in 11-finish (the exhaust housing set is B13's)
 - [ ] All 31 panel clips counted — 15 in 11-clips-4mm, 16 in 11-clips-6mm
 
 <div class="print-page-break"></div>
@@ -475,7 +475,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint B12 — Side spool holder and camera
 
-- [ ] Side spool frame flat on the reference, both feet whole, brim off clean
+- [ ] Side spool frame (PETG) flat on the reference, both feet whole
 - [ ] Camera body's supports out of the cable exit; its three locating pegs whole
 - [ ] Puck and spindle printed in the blue accent, brims off
 - [ ] Six parts sorted: four in 11-side-spool, two in 11-camera
@@ -558,7 +558,7 @@ _Generated by `scripts/build_printables.py` from `slicer/plates.py` and `slicer/
 
 **Batch B12**
 
-- [ ] B12-P1 — ASA, satin sheet, no glue, black · 6.9 h · 105 g
+- [ ] B12-P1 — PETG, textured sheet, black · 6.7 h · 127 g
 - [ ] B12-P2 — ASA, satin sheet, no glue, black · 1.8 h · 28 g
 - [ ] B12-P3 — ASA, satin sheet, no glue, blue · 5.7 h · 83 g
 

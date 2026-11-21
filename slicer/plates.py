@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Single source of truth for what goes on each plate: the plates of the ASA run
-(B00-B10, B12 and B13) and the separate PETG V0 bay-ducting batch B11.
+(B00-B10, B12 and B13), the separate PETG V0 bay-ducting batch B11, and B12-P1, the side
+spool frame, in ordinary PETG outside the run.
 
 Mirrors `docs/voron-print-plan.md` §3 (per-batch parts tables and the plate
 packing lists) and §5.1 (orientation and brim). Every path here was verified to
@@ -10,7 +11,8 @@ A plate's `run` is "asa" unless it says otherwise. Every total the manual prints
 for "the run" is over the "asa" plates only (B12, Ch 11 Part C's side spool holder and
 camera, and B13, Ch 14 Part H's exhaust housing set, joined the run 2026-11-12); B11 ("bay") is
 added up on its own
-(slicer/check_docs.py § B11).
+(slicer/check_docs.py § B11), and so is B12-P1 ("petg", Alex 2026-11-21), so batch B12 has one
+plate outside the run and two in it.
 """
 from __future__ import annotations
 
@@ -200,13 +202,26 @@ BIG_PART_BRIM = 3.0  # every part of BRIM_MIN_MM or more gets at least this (Ale
 BRIM_MIN_MM = 30.0
 
 
+# Plate colour key -> the ini bundle (slicer/) that prints it; build_plates.py and
+# sync_start_gcode.py read this. "petg" is B11's PETG V0 (not Voron spec, the ducts carry no
+# load); "petgblack" is ordinary Prusament PETG Jet Black with the ASA plates' walls and infill
+# (B12-P1, the side spool frame, Alex 2026-11-21).
+INI: dict[str, str] = {
+    "black": "voron-coreone-asa.ini",
+    "blue": "voron-accent-blue.ini",
+    "petg": "bay-ducts-petg.ini",
+    "petgblack": "voron-petg-black.ini",
+}
+PETG_COLOURS = frozenset({"petg", "petgblack"})
+
+
 def brim_for(path: str, footprint: float = 0.0, colour: str = "") -> float:
     """Brim width in mm for one STL: by filename, and at least BIG_PART_BRIM when the
     footprint's longest side (`footprint`, mm) is BRIM_MIN_MM or more. Lift-map 2: unbrimmed
     bars lifted at the corners even 20 mm in; brimmed ones stayed flat. ASA only: the
-    "petg" plates (B11) print brimless, as reviewed, since bay-ducts-petg.ini's 0.1 mm
+    PETG plates (B11, B12-P1) print brimless, as reviewed, since the PETG bundles' 0.1 mm
     brim gap fuses PETG (a 0.3 gap already fused on the storage prints)."""
-    if colour == "petg":
+    if colour in PETG_COLOURS:
         return 0.0
     name = path.rsplit("/", 1)[-1]
     if name in BRIM_5MM:
@@ -227,7 +242,8 @@ def footprint_of(bb) -> float:
 # plate here only on Alex's ruling, with the reason; nothing else relaxes the rule.
 EDGE_EXEMPT: dict[str, str] = {
     "B12-P1": ("the side spool frame is 212 x 212 mm on the 250 x 220 bed, so no rotation keeps "
-               "part + brim 25 mm from every edge; it prints alone, centred (B12 integration 2026-11-12)"),
+               "it 25 mm from every edge; it prints alone, centred, brimless in PETG "
+               "(B12 integration 2026-11-12; PETG 2026-11-21)"),
 }
 
 
@@ -582,8 +598,11 @@ PLATES: dict[str, dict] = {
     # these were add-ons printed outside the plates after Step 11.68 measured. The three plates are
     # the jobs sliced that day, laid out by hand. P1's frame feet are 6.5 mm, for a 3 mm panel on
     # 3 mm foam; a thicker stack measured at 11.68 means a frame-only reprint (remix.scad -D stack=).
+    # Alex 2026-11-21: P1 prints in ordinary Prusament PETG Jet Black on the textured sheet, not
+    # ASA (less warp on a 212 mm part; it hangs outside the enclosure; saves black ASA), so it is
+    # outside the run's totals with its own spool line; its reprint at 11.69 is PETG too.
     "B12-P1": dict(
-        batch="B12", colour="black",
+        batch="B12", colour="petgblack", run="petg",
         note="The side spool frame alone, centred: 212 x 212 mm, inside the edge rule only by exemption.",
         parts=[
             ("addons", "side-spool-608769/side_spool_frame_puck.stl", 1),
@@ -731,7 +750,7 @@ def all_sources() -> list[tuple[str, str]]:
 
 
 def run_of(plate_id: str) -> str:
-    """"asa" for the plate run (B00-B10, B12, B13), "bay" for B11."""
+    """"asa" for the plate run (B00-B10, B12-P2/P3, B13), "bay" for B11, "petg" for B12-P1."""
     return PLATES[plate_id].get("run", "asa")
 
 

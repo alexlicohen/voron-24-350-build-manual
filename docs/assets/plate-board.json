@@ -239,7 +239,8 @@
    "spool": "#2",
    "remaining": 487,
    "diagram": "../../manual/assets/plates/B07-P2.png",
-   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/"
+   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/",
+   "milestone": "Halfway: plate 16 of 32."
   },
   {
    "id": "B07-P3",
@@ -254,8 +255,7 @@
    "spool": "#2",
    "remaining": 429,
    "diagram": "../../manual/assets/plates/B07-P3.png",
-   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/",
-   "milestone": "Halfway: plate 17 of 33."
+   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/"
   },
   {
    "id": "B08-P1",
@@ -423,21 +423,6 @@
    "chapter": "../../manual/steps/b10-clicky-clack-door/"
   },
   {
-   "id": "B12-P1",
-   "batch": "B12",
-   "batch_title": "Side spool holder and camera",
-   "run": "asa",
-   "hours": 6.9,
-   "grams": 105,
-   "colour": "black",
-   "slot": "day",
-   "note": "after Gate A",
-   "spool": "#3",
-   "remaining": 352,
-   "diagram": "../../manual/assets/plates/B12-P1.png",
-   "chapter": "../../manual/steps/b12-side-spool-and-camera/"
-  },
-  {
    "id": "B12-P2",
    "batch": "B12",
    "batch_title": "Side spool holder and camera",
@@ -446,9 +431,9 @@
    "grams": 28,
    "colour": "black",
    "slot": "day",
-   "note": "",
+   "note": "after Gate A",
    "spool": "#3",
-   "remaining": 324,
+   "remaining": 429,
    "diagram": "../../manual/assets/plates/B12-P2.png",
    "chapter": "../../manual/steps/b12-side-spool-and-camera/"
   },
@@ -478,7 +463,7 @@
    "slot": "day",
    "note": "after Gate A",
    "spool": "#3",
-   "remaining": 258,
+   "remaining": 363,
    "diagram": "../../manual/assets/plates/B13-P1.png",
    "chapter": "../../manual/steps/b13-exhaust-housing/"
   },
@@ -496,7 +481,22 @@
    "remaining": 355,
    "diagram": "../../manual/assets/plates/B13-P2.png",
    "chapter": "../../manual/steps/b13-exhaust-housing/",
-   "milestone": "Last ASA plate off the bed: all 33 plates of the run are done."
+   "milestone": "Last ASA plate off the bed: all 32 plates of the run are done."
+  },
+  {
+   "id": "B12-P1",
+   "batch": "B12",
+   "batch_title": "Side spool holder and camera",
+   "run": "petg",
+   "hours": 6.7,
+   "grams": 127,
+   "colour": "petgblack",
+   "slot": "day",
+   "note": "after B10-P1, before B12-P2",
+   "spool": "J1",
+   "remaining": 1673,
+   "diagram": "../../manual/assets/plates/B12-P1.png",
+   "chapter": "../../manual/steps/b12-side-spool-and-camera/"
   },
   {
    "id": "B11-P1",
@@ -607,9 +607,15 @@
  "runs": [
   {
    "run": "asa",
-   "plates": 33,
-   "hours": 176.0,
-   "label": "33-plate run"
+   "plates": 32,
+   "hours": 169.1,
+   "label": "32-plate run"
+  },
+  {
+   "run": "petg",
+   "plates": 1,
+   "hours": 6.7,
+   "label": "B12-P1 (PETG)"
   },
   {
    "run": "bay",
@@ -620,9 +626,9 @@
  ],
  "totals": {
   "plates": 40,
-  "hours": 201.1,
+  "hours": 200.9,
   "overnight": 6,
-  "run_plates": 33,
-  "run_hours": 176.0
+  "run_plates": 32,
+  "run_hours": 169.1
  }
 }

@@ -29,6 +29,25 @@ rows that carry no **KIT** marker, plus any `Pause: ~NN min since the last pause
 (pre-kit) — …` segment inside a row that does carry one (Ch 00's reading, log
 and Discord steps are real bench work weeks before the kit ships).
 
+Declared needs. A step may carry one hidden line anywhere in its body,
+
+    <!-- needs: B11-P4 B11-P5 B11-P7 06.26 (free text is allowed and ignored) -->
+
+naming plates (`Bnn-Pn`) and steps (`NN.M`, `Bnn.M`; bare ids, no "Step", so the lint does
+not count a cross-reference) that must be done first. A segment needs what its steps need.
+A plate counts as done exactly as its own print segment does (Load step ticked, or the plate
+board marks it printed); a step when it is ticked. The planner never offers a segment that
+waits on a need: in a Build row it ends the row as a misfit does (a **KIT** build row then
+holds the later ones); in a Print row it ends the row WITHOUT holding later print rows, so
+the printer runs the next batch meanwhile. So index order is print priority: a batch that
+waits on the kit (row 33) sits where its parts are needed, ahead of batches listed later,
+and steps aside until its needs are met. The build fails (`needs_problems`) on a token that
+names no plate or step on the timeline, a marker on a step no segment spans, a plate needed
+by a row listed before the plate's own row, or a step need that can never clear (later in
+its own row, or in a later **KIT** build row while the need sits in a **KIT** build row).
+Needs are hand-declared for the few steps that need them, not derived from Parts lines:
+29 STLs sit on more than one plate and some parts are optional where they are listed.
+
 A `## With a helper` section after the planner lists every segment that holds a
 `**Helper:**` step (CONVENTIONS.md § "Helper steps") with its jobs, under the
 same before-the-kit filter the buckets ran with; each bucket line carrying one
@@ -63,7 +82,7 @@ except ImportError:  # pragma: no cover - standalone fallback
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "slicer"))
-from plates import PLATES, run_of  # noqa: E402  (slicer/plates.py — which run a plate belongs to)
+from plates import PLATES, PETG_COLOURS, run_of  # noqa: E402  (slicer/plates.py — run and colour per plate)
 MANUAL = REPO / "docs" / "manual"
 PRINT = MANUAL / "print"
 INDEX = MANUAL / "00-index.md"
@@ -98,6 +117,10 @@ _PAUSE_RE = re.compile(
     re.MULTILINE,
 )
 _PAUSE_LINE_RE = re.compile(r"^>?\s*Pause:.*$", re.MULTILINE)   # any Pause line, parsed or not
+# A step's declared needs (module docstring § Declared needs): plate ids and step ids.
+_NEEDS_RE = re.compile(r"^<!--\s*needs:\s*(.*?)\s*-->\s*$", re.MULTILINE)
+_NEED_PLATE_RE = re.compile(r"\bB\d\d-P\d+\b")
+_NEED_STEP_RE = re.compile(r"(?<![\w.-])((?:B\d\d|\d\d[a-z]?)\.\d+)(?!\w)(?!\.\d)")
 
 
 def unparsed_pause_lines():
@@ -201,6 +224,20 @@ def _helper_jobs(text, steps):
     return jobs
 
 
+def _step_needs(text, steps, section_starts):
+    """step id -> (step ids, plate ids) from its `<!-- needs: … -->` lines, searched from
+    the heading to the next h2/h3 heading of any kind (not into Checkpoint or Next)."""
+    out = {}
+    for pos, sid, _t, end in steps:
+        stop = next((p for p in section_starts if p > pos), len(text))
+        for m in _NEEDS_RE.finditer(text, end, stop):
+            body = m.group(1)
+            st, pl = out.setdefault(sid, ([], []))
+            st.extend(x for x in _NEED_STEP_RE.findall(body) if x not in st)
+            pl.extend(x for x in _NEED_PLATE_RE.findall(body) if x not in pl)
+    return out
+
+
 def _parse_chapter(path):
     text = path.read_text(encoding="utf-8")
     is_print = path.parent == PRINT
@@ -213,6 +250,7 @@ def _parse_chapter(path):
     steps = [(m.start(), m.group(1), m.group(2), m.end()) for m in _STEP_HEADING_RE.finditer(text)]
     sections = [(m.start(), _slug(m.group(1))) for m in _SECTION_RE.finditer(text)]
     helpers = _helper_jobs(text, steps)
+    step_needs = _step_needs(text, steps, [p for p, _s in sections])
     segments = []
     print_hours = 0.0
 
@@ -295,6 +333,7 @@ def _parse_chapter(path):
         "print_hours": print_hours if is_print else None, "is_print": is_print,
         "segments": segments, "sections": sections, "slug": slug,
         "step_positions": [(pos, sid) for pos, sid, _t, _e in steps],
+        "step_needs": step_needs,
     }
 
 
@@ -343,7 +382,8 @@ def _assign(rows, chapters):
 #
 # docs/javascripts/tonight.js carries a line-for-line port of everything from
 # here to the rendering section (_plan_for_budget, _next_segment, _live_rows,
-# _pre_kit_rows, plan_sections, done_segments, gate_is_closed, plan_state).
+# _pre_kit_rows, plan_sections, done_segments, waiting_segments, gate_is_closed,
+# plan_state).
 # Change one, change both: scripts/check_tonight.mjs replays the `cases` this
 # file writes into docs/assets/tonight.json through the JS and fails on drift.
 # --------------------------------------------------------------------------
@@ -351,9 +391,14 @@ def _assign(rows, chapters):
 BUDGETS = (30, 60, 90)
 
 
-def _plan_for_budget(rows, budget, stop_at_kit=False, bench_first=False):
+def _plan_for_budget(rows, budget, stop_at_kit=False, bench_first=False, waiting=frozenset()):
     """Greedy pack in timeline order. One plate start per plan; a segment
     that does not fit takes the rest of its row with it (sequential work).
+
+    `waiting` holds the ids of segments whose declared needs are not met. Such a
+    segment is never picked and ends its row like a misfit, except that a Print
+    row stopped by one does not hold the later print rows: the printer runs the
+    next batch while this one waits (B11 part 2 on the kit-day measurements).
 
     Print rows are sequential too: a batch waits on the one before it (B01 on
     B00's Gate B, B11 on B10 off the bed). Once a Print row is left unfinished,
@@ -383,17 +428,20 @@ def _plan_for_budget(rows, budget, stop_at_kit=False, bench_first=False):
             if row["kind"] in ("Print", "Both"):
                 continue
             for seg in row["segments"]:
-                if total + seg["minutes"] > budget:
+                if seg["id"] in waiting or total + seg["minutes"] > budget:
                     break
                 picked.append((row, seg))
                 total += seg["minutes"]
         # Pass 2: the print rows, exactly as the plain packer treats them,
         # with whatever budget is left.
         # Print rows are sequential (B01 waits on B00's gate), so only the
-        # first print row with work left is eligible for the remaining budget.
-        first_print = next((r for r in rows if r["kind"] == "Print" and r["segments"]), None)
+        # first print row with work left is eligible for the remaining budget;
+        # one whose next segment waits on a declared need steps aside.
+        first_print = next((r for r in rows if r["kind"] == "Print" and r["segments"]
+                            and r["segments"][0]["id"] not in waiting), None)
         if first_print is not None and budget - total >= PLATE_START_MIN:
-            rest, extra = _plan_for_budget([first_print], budget - total, stop_at_kit)
+            rest, extra = _plan_for_budget([first_print], budget - total, stop_at_kit,
+                                           waiting=waiting)
             picked.extend(rest)
             total += extra
         return picked, total
@@ -408,8 +456,11 @@ def _plan_for_budget(rows, budget, stop_at_kit=False, bench_first=False):
         kit_build = row["kind"] == "Build" and row["kit"]
         if kit_build and builds_blocked:
             continue
-        finished = True
+        finished, held = True, False
         for seg in row["segments"]:
+            if seg["id"] in waiting:
+                finished, held = False, True  # waits on a declared need
+                break
             if seg["kind"] == "print":
                 finished = False  # the plate runs; the rest of this batch waits for it
                 if not plate_started and total + seg["minutes"] <= budget:
@@ -422,7 +473,7 @@ def _plan_for_budget(rows, budget, stop_at_kit=False, bench_first=False):
                 break
             picked.append((row, seg))
             total += seg["minutes"]
-        if row["kind"] == "Print" and not finished:
+        if row["kind"] == "Print" and not finished and not held:
             prints_blocked = True
         if kit_build and not finished:
             builds_blocked = True
@@ -431,11 +482,18 @@ def _plan_for_budget(rows, budget, stop_at_kit=False, bench_first=False):
     return picked, total
 
 
-def _next_segment(rows):
+def _next_segment(rows, waiting=frozenset()):
+    """The first row's next segment, passing over rows that wait on a declared need;
+    if every row waits, the first one's."""
+    first = None
     for row in rows:
         for seg in row["segments"]:
-            return row, seg
-    return None, None
+            if seg["id"] not in waiting:
+                return row, seg
+            if first is None:
+                first = (row, seg)
+            break
+    return first or (None, None)
 
 
 def _live_rows(rows, done):
@@ -457,7 +515,8 @@ def _pre_kit_rows(rows):
     return out
 
 
-def plan_sections(rows, gate, kit_arrived, done=frozenset(), gate_closed=False):
+def plan_sections(rows, gate, kit_arrived, done=frozenset(), gate_closed=False,
+                  waiting=frozenset()):
     """Every planner section the page shows, in page order, plus the helper list.
 
     `gate` is row 1 (or None). While it is open the Before-the-kit section packs
@@ -476,9 +535,10 @@ def plan_sections(rows, gate, kit_arrived, done=frozenset(), gate_closed=False):
     for sid, srows, stop_at_kit, bench_first in specs:
         buckets = []
         for budget in BUDGETS:
-            picked, total = _plan_for_budget(srows, budget, stop_at_kit, bench_first=bench_first)
+            picked, total = _plan_for_budget(srows, budget, stop_at_kit, bench_first=bench_first,
+                                             waiting=waiting)
             buckets.append({"budget": budget, "picked": picked, "total": total,
-                            "next": None if picked else _next_segment(srows)})
+                            "next": None if picked else _next_segment(srows, waiting)})
         sections.append({"id": sid, "rows": srows, "gate": gate_open,
                          "bench_first": bench_first, "buckets": buckets})
     source = live if kit_arrived else pre
@@ -502,6 +562,24 @@ def done_segments(rows, ticks, printed):
             if ok:
                 done.add(seg["id"])
     return done
+
+
+def waiting_segments(rows, ticks, printed, done):
+    """Ids of the segments whose declared needs are not met. A plate need is met as the
+    plate's own print segment is done (`done`, or the plate board's printed mark); a
+    step need when the step is ticked."""
+    plate_seg = {s["plate"]: s["id"] for r in rows for s in r["segments"] if s["kind"] == "print"}
+    waiting = set()
+    for row in rows:
+        for seg in row["segments"]:
+            needs = seg.get("needs")
+            if not needs:
+                continue
+            ok = (all(sid in ticks.get(slug or "", ()) for slug, sid in needs["steps"])
+                  and all(p in printed or plate_seg.get(p) in done for p in needs["plates"]))
+            if not ok:
+                waiting.add(seg["id"])
+    return waiting
 
 
 def gate_is_closed(gate, ticks, printed):
@@ -541,7 +619,9 @@ def plan_state(data, ticks, printed, kit_arrived):
     printed = set(printed)
     done = done_segments(data["rows"], ticks, printed)
     closed = gate_is_closed(data["gate"], ticks, printed)
-    sections, helpers = plan_sections(data["rows"], data["gate"], kit_arrived, done, closed)
+    waiting = waiting_segments(data["rows"], ticks, printed, done)
+    sections, helpers = plan_sections(data["rows"], data["gate"], kit_arrived, done, closed,
+                                      waiting)
     return _summary(sections, helpers, done, closed)
 
 
@@ -555,17 +635,36 @@ def _row_label(row):
     return row["title"]
 
 
+def _waits_text(seg):
+    """` · waits for …` naming a segment's declared needs, or ""."""
+    needs = seg.get("needs")
+    if not needs:
+        return ""
+    parts = []
+    if needs["steps"]:
+        ids = [sid for _slug, sid in needs["steps"]]
+        parts.append(("Steps " if len(ids) > 1 else "Step ") + ", ".join(ids))
+    if needs["plates"]:
+        parts.append(("plates " if len(needs["plates"]) > 1 else "plate ")
+                     + ", ".join(needs["plates"]))
+    return " · waits for " + " and ".join(parts)
+
+
 def _segment_text(seg):
     if seg["kind"] == "print":
         hrs = f"{seg['print_hours']:.1f} h" if seg["print_hours"] is not None else "?"
-        return (f"Start plate {seg['plate']} (Step {seg['first_step']}) · "
-                f"~{seg['minutes']} min hands-on, then {hrs} unattended · "
+        # a PETG plate (B11, B12-P1) prints from its own spool on the textured sheet: the
+        # bench reader sees the swap in the plan, not only on the Load step's page
+        petg = (" · PETG on the textured sheet"
+                if PLATES.get(seg["plate"], {}).get("colour") in PETG_COLOURS else "")
+        return (f"Start plate {seg['plate']} (Step {seg['first_step']}){petg} · "
+                f"~{seg['minutes']} min hands-on, then {hrs} unattended{_waits_text(seg)} · "
                 f"leave-state: {seg['leave_state']}")
     if seg["first_step"] == seg["last_step"]:
         label = f"Step {seg['first_step']}"
     else:
         label = f"Step {seg['first_step']} → Step {seg['last_step']}"
-    return f"{label} · ~{seg['minutes']} min · leave-state: {seg['leave_state']}"
+    return f"{label} · ~{seg['minutes']} min{_waits_text(seg)} · leave-state: {seg['leave_state']}"
 
 
 def _segment_span(seg):
@@ -647,10 +746,75 @@ def _emit_section(lines, section, gate):
     lines.append("")
 
 
+def _resolve_needs(chapters):
+    """Give every segment whose steps declare needs a `needs` entry in tonight.json's
+    shape: {"steps": [[chapter slug, step id], …], "plates": [plate id, …]}. A step id
+    no chapter has keeps slug None, for needs_problems to name."""
+    slug_of = {sid: ch["slug"] for ch in chapters.values() for _p, sid in ch["step_positions"]}
+    for ch in chapters.values():
+        for seg in ch["segments"]:
+            st, pl = [], []
+            for sid in seg["steps"]:
+                s_ids, p_ids = ch["step_needs"].get(sid, ((), ()))
+                st.extend(x for x in s_ids if x not in st)
+                pl.extend(x for x in p_ids if x not in pl)
+            if st or pl:
+                seg["needs"] = {"steps": [[slug_of.get(x), x] for x in st], "plates": pl}
+
+
 def _model():
     chapters = {f.name: _parse_chapter(f) for f in _chapter_files()}
+    _resolve_needs(chapters)
     rows = _assign(_timeline_rows(), chapters)
     return chapters, rows
+
+
+def needs_problems(chapters, rows):
+    """Why the declared needs cannot work on this timeline (module docstring § Declared
+    needs); empty when they can. The build fails on any of these."""
+    bad = []
+    order = {id(r): i for i, r in enumerate(rows)}
+    seg_row, seg_at, step_seg, plate_row = {}, {}, {}, {}
+    for r in rows:
+        for k, s in enumerate(r["segments"]):
+            seg_row[s["id"]], seg_at[s["id"]] = r, k
+            for sid in s["steps"]:
+                step_seg.setdefault(sid, s)
+            if s["kind"] == "print":
+                plate_row.setdefault(s["plate"], r)
+    for ch in chapters.values():
+        for sid in ch["step_needs"]:
+            if sid not in step_seg:
+                bad.append(f"{ch['path'].name}: Step {sid} declares needs but no timeline "
+                           f"segment spans it")
+    for r in rows:
+        kit_build = r["kind"] == "Build" and r["kit"]
+        for k, s in enumerate(r["segments"]):
+            needs = s.get("needs")
+            if not needs:
+                continue
+            where = f"Step {s['first_step']} (row {r['n']})"
+            for plate in needs["plates"]:
+                pr = plate_row.get(plate)
+                if pr is None:
+                    bad.append(f"{where} needs plate {plate}, which no timeline row prints")
+                elif order[id(pr)] >= order[id(r)]:
+                    bad.append(f"{where} needs plate {plate}, but its row {pr['n']} is listed "
+                               f"after row {r['n']}: move the batch up in 00-index.md")
+            for slug, sid in needs["steps"]:
+                ns = step_seg.get(sid)
+                if slug is None or ns is None:
+                    bad.append(f"{where} needs step {sid}, which no timeline segment spans")
+                    continue
+                nr = seg_row[ns["id"]]
+                if nr is r and seg_at[ns["id"]] >= k:
+                    bad.append(f"{where} needs step {sid}, which comes at or after it in its "
+                               f"own row: the row would wait for ever")
+                elif (kit_build and nr["kind"] == "Build" and nr["kit"]
+                      and order[id(nr)] > order[id(r)]):
+                    bad.append(f"{where} needs step {sid} from row {nr['n']}, a later KIT build "
+                               f"row that waits on this one: neither could start")
+    return bad
 
 
 # The Tonight page is served from manual/00-tonight/, the JSON from assets/.
@@ -673,9 +837,17 @@ def build_tonight_markdown(model=None):
     n_plates = len(run_segs)
     extra_print = ""
     if outside:
-        batches = sorted({s["plate"][:3] for s in outside})
+        # a batch wholly outside the run by its id (B11), else the plate's own id (B12-P1:
+        # B12-P2 and P3 are in the run)
+        names = []
+        for s in outside:
+            b = s["plate"][:3]
+            whole = all(o in outside for o in plate_segs if o["plate"][:3] == b)
+            name = b if whole else s["plate"]
+            if name not in names:
+                names.append(name)
         extra_print = (f", plus {sum(s['print_hours'] or 0 for s in outside):.1f} h across "
-                       f"{len(outside)} plates of {', '.join(batches)}, outside the run")
+                       f"{len(outside)} plates outside the run, {' and '.join(sorted(names))}")
 
     lines = [
         "# Tonight",
@@ -691,7 +863,9 @@ def build_tonight_markdown(model=None):
     ]
 
     gate = _gate_row(rows)
-    sections, helpers = plan_sections(rows, gate, KIT_ARRIVED)
+    # as if nothing were ticked: every segment with a declared need waits
+    sections, helpers = plan_sections(rows, gate, KIT_ARRIVED,
+                                      waiting=waiting_segments(rows, {}, set(), frozenset()))
     by_id = {s["id"]: s for s in sections}
 
     def emit_before_the_kit():
@@ -814,6 +988,13 @@ def _href(step_urls, step_id):
 
 
 def _seg_json(seg, step_urls):
+    out = _seg_json_base(seg, step_urls)
+    if seg.get("needs"):  # additive: only segments that declare needs carry it
+        out["needs"] = seg["needs"]
+    return out
+
+
+def _seg_json_base(seg, step_urls):
     return {
         "id": seg["id"], "chapter": seg["chapter"], "kind": seg["kind"],
         "steps": seg["steps"], "first_step": seg["first_step"], "last_step": seg["last_step"],
@@ -855,13 +1036,58 @@ def _merge(*tick_maps):
     return out
 
 
-def _cases_spec(chapters):
+def _row_ticks(rows, keep):
+    """{slug: [step ids]}: every step of every segment of the rows `keep(row)` accepts
+    (their plates count as printed through their ticked Load steps)."""
+    ticks = {}
+    for r in rows:
+        if keep(r):
+            for s in r["segments"]:
+                ticks.setdefault(s["chapter"], []).extend(
+                    x for x in s["steps"] if x not in ticks.get(s["chapter"], []))
+    return ticks
+
+
+# Kit-day states for the declared needs (review round 3): which rows are done, by index row
+# number. Rows 34 and 35 are B12 and B13; rows 14-23 are Ch 00, Ch 12 Part 1 and Ch 01-08.
+_KIT_DAY_BUILT = tuple(range(14, 24))
+
+
+def _kit_day_cases(chapters, rows):
+    by = {n.split("-")[0]: n for n in chapters}
+    pre = lambda r: r["n"] is not None and not r["kit"]
+    no_b12_b13 = lambda r: pre(r) and r["n"] not in (34, 35)
+    built = lambda r: pre(r) or r["n"] in _KIT_DAY_BUILT
+    step = lambda key, a, b=None: _case_ticks(chapters, (by[key], a, b or a))
+    inventory = _case_ticks(chapters, (by["00"], "00.1", "00.6"))
+    measured = step("B11", "B11.10", "B11.11")
+    return [
+        ("kit day, B12 and B13 unprinted: B12-P1 (PETG) is the next plate, "
+         "B11.10 waits for the inventory", True, _row_ticks(rows, no_b12_b13), []),
+        ("kit day, every pre-kit row done: B11.10 waits for 00.3 and 00.4", True,
+         _row_ticks(rows, pre), []),
+        ("kit day, inventory and B11.10-B11.11 done, B12 and B13 unprinted: "
+         "B11-P4 goes ahead of B12-P1", True,
+         _merge(_row_ticks(rows, no_b12_b13), inventory, measured), []),
+        ("Ch 00-08 built, B11 part 2 untouched", True, _row_ticks(rows, built), []),
+        ("Ch 00-08 built, 09.1-09.5 done, B11-P4 loaded, P5 and P7 not: 09.6 waits", True,
+         _merge(_row_ticks(rows, built), measured, step("B11", "B11.12"),
+                _case_ticks(chapters, (by["09"], "09.1", "09.5"))), []),
+        ("Ch 00-05 built, B11 part 2 binned, Checkpoint 06 not: B11.9 waits for 06.26", True,
+         _merge(_row_ticks(rows, lambda r: pre(r) or 14 <= (r["n"] or 0) <= 20), measured,
+                step("B11", "B11.12"), step("B11", "B11.13"), step("B11", "B11.16"),
+                step("B11", "B11.14")), []),
+    ]
+
+
+def _cases_spec(chapters, rows=None):
     """Seeded device states: (name, kit_arrived, ticks, printed)."""
     by = {n.split("-")[0]: n for n in chapters}  # "00a" -> "00a-mains-safety.md", "B00" -> ...
     assert len(by) == len(chapters), "two chapter files share a number"
     whole = lambda *keys: _case_ticks(chapters, *[(by[k], None, None) for k in keys])
     ch00_pre = _pre_kit_steps(chapters, by["00"])
     run = ["B%02d" % i for i in range(11)] + ["B12", "B13"]   # the ASA run: B00-B10, then B12, B13
+    kit_day = _kit_day_cases(chapters, rows) if rows is not None else []
     return [
         ("none ticked", False, {}, []),
         ("Ch 00a done", False, whole("00a"), []),
@@ -887,7 +1113,7 @@ def _cases_spec(chapters):
          whole("00a", "00", *run), []),
         ("kit arrived, everything done", True,
          whole(*sorted(by)), []),
-    ]
+    ] + kit_day
 
 
 def tonight_json(model=None, step_urls=None):
@@ -911,12 +1137,20 @@ def tonight_json(model=None, step_urls=None):
     data["cases"] = [{
         "name": name, "kit_arrived": kit, "ticks": ticks, "printed": printed,
         "expect": plan_state(plain, ticks, printed, kit),
-    } for name, kit, ticks, printed in _cases_spec(chapters)]
+    } for name, kit, ticks, printed in _cases_spec(chapters, rows)]
     return data
 
 
 def on_pre_build(config, **kwargs):
     model = _model()
+    bad = needs_problems(*model)
+    if bad:
+        msg = "build_tonight: declared needs cannot work:\n  " + "\n  ".join(bad)
+        try:
+            from mkdocs.exceptions import PluginError
+        except ImportError:  # pragma: no cover
+            raise SystemExit(msg)
+        raise PluginError(msg)
     OUT.write_text(build_tonight_markdown(model), encoding="utf-8")
     TONIGHT_JSON.parent.mkdir(parents=True, exist_ok=True)
     TONIGHT_JSON.write_text(json.dumps(tonight_json(model), ensure_ascii=False, indent=1) + "\n",
@@ -1012,6 +1246,67 @@ def _self_test():
     check("real timeline: no build chapter is offered ahead of the frame", not skipped, skipped)
     b30 = case["expect"]["sections"][0]["buckets"][0]["items"]
     check("real timeline: the 30-min bucket is Gate A + sort", len(b30) == 2, b30)
+
+    # Declared needs (module docstring § Declared needs).
+    rows5 = [{"kind": "Print", "kit": True, "segments": [seg("H.measure", "build", 20),
+                                                         seg("H.plate", "print", 5)]},
+             {"kind": "Print", "kit": False, "segments": [seg("I.plate", "print", 5)]},
+             {"kind": "Build", "kit": True, "segments": [seg("J.1", "build", 20)]},
+             {"kind": "Build", "kit": True, "segments": [seg("K.1", "build", 20)]}]
+    got = ids(_plan_for_budget(rows5, 90, waiting={"H.measure"})[0])
+    check("a print row waiting on a need steps aside; the next batch prints",
+          got == ["I.plate", "J.1", "K.1"], got)
+    got = ids(_plan_for_budget(rows5, 90)[0])
+    check("the same row with its need met goes first and holds the next batch",
+          got == ["H.measure", "H.plate", "J.1", "K.1"], got)
+    got = ids(_plan_for_budget(rows5, 90, waiting={"J.1"})[0])
+    check("a KIT build row waiting on a need holds the later KIT build rows",
+          got == ["H.measure", "H.plate"], got)
+    got = _next_segment(rows5, {"H.measure"})[1]["id"]
+    check("the next segment passes over a waiting row", got == "I.plate", got)
+    bad = needs_problems(*model)
+    check("declared needs resolve and respect the row order", not bad, "\n  " + "\n  ".join(bad))
+    import copy
+    chs, rws = copy.deepcopy(model)
+    segs = {s["first_step"]: s for r in rws for s in r["segments"]}
+    slug = {s["first_step"]: s["chapter"] for s in segs.values()}
+    segs["B11.3"]["needs"] = {"steps": [], "plates": ["B13-P1", "B99-P9"]}
+    segs["B11.10"]["needs"] = {"steps": [[slug["B11.14"], "B11.14"]], "plates": []}
+    ch10 = next(s for r in rws for s in r["segments"] if s["chapter"].startswith("10-"))
+    segs["09.6"]["needs"] = {"steps": [[ch10["chapter"], ch10["first_step"]]], "plates": []}
+    got = needs_problems(chs, rws)
+    want = ("its row 35 is listed after row 32", "B99-P9, which no timeline row prints",
+            "B11.14, which comes at or after it", "a later KIT build row")
+    check("needs_problems names each impossible need",
+          len(got) == 4 and all(any(w in g for g in got) for w in want), got)
+    declared = {sid for ch in model[0].values() for sid in ch["step_needs"]}
+    check("the review-round-3 needs are declared (B11.9, B11.10, 09.6, 09.36)",
+          {"B11.9", "B11.10", "09.6", "09.36"} <= declared, sorted(declared))
+
+    seg_of = {s["first_step"]: s["id"] for r in data["rows"] for s in r["segments"]}
+
+    def offered(name_start, first_step, section=0):
+        case = next(c for c in data["cases"] if c["name"].startswith(name_start))
+        return [b["budget"] for b in case["expect"]["sections"][section]["buckets"]
+                if seg_of[first_step] in b["items"]]
+
+    def first_items(name_start):
+        case = next(c for c in data["cases"] if c["name"].startswith(name_start))
+        return case["expect"]["sections"][0]["buckets"][0]["items"]
+
+    for name in ("kit day, B12 and B13 unprinted", "kit day, every pre-kit row done"):
+        got = offered(name, "B11.10")
+        check(f"real timeline, {name}: B11.10 is not offered before the inventory", not got, got)
+    got = first_items("kit day, B12 and B13 unprinted")
+    check("real timeline, kit day, B12/B13 unprinted: 30 min starts B12-P1",
+          got == [seg_of["B12.2"]], got)
+    got = first_items("kit day, inventory and B11.10")
+    check("real timeline: once measured, B11-P4 goes ahead of B12-P1",
+          seg_of["B11.12"] in got and seg_of["B12.2"] not in got, got)
+    got = offered("Ch 00-08 built, 09.1-09.5 done", "09.6")
+    check("real timeline: B11-P4 loaded, P5 and P7 not: 09.6 is not offered", not got, got)
+    got = offered("Ch 00-05 built, B11 part 2 binned", "B11.9")
+    check("real timeline: B11.9 waits for Checkpoint 06 (06.26)", not got, got)
 
     none = data["cases"][0]["expect"]
     check("static page = the none-ticked case", none["done"] == 0 and not none["gate_closed"])

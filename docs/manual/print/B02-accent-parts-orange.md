@@ -34,7 +34,7 @@ before assembly.
 | `[a]_z_chain_retainer_bracket_x2.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 2 | Blue | 0.6 | 10-chains |
 | `[a]_endstop_pod_D2F_switch.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Blue | 8.1 | 05-XY |
 | `[a]_xy_joint_cable_bridge_2hole.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Blue | 9.2 | 05-XY |
-| `XY_cable_chain_bridge-Igus-3mm_backer.stl` | whopping_Voron_mods `extrusion_backers/STLs/` | 1 Note: alternate to the above — fit whichever clears the Ti backers, see §Read first | Blue | 9.1 | 05-XY |
+| `XY_cable_chain_bridge-Igus-3mm_backer.stl` | whopping_Voron_mods `extrusion_backers/STLs/` | 1 Note: the bridge fitted (Ch 05 Steps 05.35, 05.38); the 2-hole bridge above is its fallback | Blue | 9.1 | 05-XY |
 | `[a]_z_belt_clip_lower_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Blue | 2.3 | 06-Z-joints |
 | `[a]_z_belt_clip_upper_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Blue | 2.4 | 05-XY |
 | `[a]_stealthburner_main_body.stl` | Stealthburner `STLs/Stealthburner/` | 2 *(r2 body off B02-P5 is fitted; the B02-P2 body is superseded)* | Blue | 46.5 | 08-SB, 08-superseded |
@@ -56,10 +56,9 @@ before assembly.
 The g ea figures for the Stealthburner body, guidlers and latch are the Clockwork 2 copies'; the four
 Clockwork 2.5 parts on B02-P5 weigh 48 g together, brims included.
 
-⚠ **Cable-chain bridge, conditional:** one long titanium backer and the short X backer carry pilot holes for
-the cable chain's end links, drilled and tapped M3 by LDO `(verify on bench)`, which may make the printed
-bridge unnecessary. Print **both** `[a]_xy_joint_cable_bridge_2hole` and
-`XY_cable_chain_bridge-Igus-3mm_backer` (18 g total) and fit whichever clears at assembly. "Igus" = the
+**Cable-chain bridge:** the Y chain's fixed end screws onto the right titanium Y backer, 3 mm higher than stock, so
+Ch 05 fits the raised `XY_cable_chain_bridge-Igus-3mm_backer` (Steps 05.35, 05.38) and bags the stock
+`[a]_xy_joint_cable_bridge_2hole` as the fallback (Step 05.46). Both print, 18 g together. "Igus" = the
 2-hole chain pattern, which is what LDO ships.
 
 **Hardware:** none.

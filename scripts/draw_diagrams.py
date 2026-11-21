@@ -1039,7 +1039,7 @@ def d05_mains_pe() -> Doc:
         ("LOAD 1  →  bed L", RED),
         ("INPUT 3 +  ←  red, Leviathan HEATBED +", RED),
         ("INPUT 4 −  ←  black", INK),
-        ("no terminal cover on this part", MUTED)])
+        ("clear terminal cover: off 10.11, on 10.27", MUTED)])
 
     box(842, ys, 318, 240, "Build plate", [
         ("AC bed heater pad, mains-voltage", MUTED),
@@ -1079,7 +1079,7 @@ def d05_mains_pe() -> Doc:
             ("", "washer under a rail screw (10.82, our addition)"),
             ("Bed", "build plate → PE WAGO, on the plate's own"),
             ("", "M4x6 BHCS and its serrated washer"),
-            ("ESD", "USB-adapter GND (24 V −V) → frame, 10.58:"),
+            ("ESD", "not PE: USB-adapter GND (24 V −V) → frame, 10.58;"),
             ("", "−V → PE reads a few Ω on purpose")]
     yy = yp + 56
     for a, b in rows:
@@ -1100,7 +1100,7 @@ def d05_mains_pe() -> Doc:
     d.path(f"M {706} {y0 + 190} L {706} {ys - 4}", stroke=GREEN, sw=2.4, dash="7 5",
            marker="arwg")
     d.text(716, y0 + 206, "PE bus continues to the", size=11.5, fill=GREEN, weight=600)
-    d.text(716, y0 + 222, "frame, the PSU and the", size=11.5, fill=GREEN, weight=600)
+    d.text(716, y0 + 222, "frame, rail, PSU and", size=11.5, fill=GREEN, weight=600)
     d.text(716, y0 + 238, "bed — six branches below", size=11.5, fill=GREEN, weight=600)
 
     d.rect(516, yp + 84, 644, 148, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=10)
@@ -1733,6 +1733,14 @@ def _run_batches() -> set[str]:
     return {spec["batch"] for pid, spec in PLATES.items() if run_of(pid) == "asa"}
 
 
+def _mixed_batches() -> set[str]:
+    """Run batches with a plate outside the run (B12: P1 prints in PETG). print/README's batch
+    table counts only their ASA plates, so their timeline bar shows the index row's own whole-
+    batch "N h print" (slicer/check_docs.py § 6 checks that figure against estimates.csv)."""
+    from plates import PLATES, run_of
+    return _run_batches() & {spec["batch"] for pid, spec in PLATES.items() if run_of(pid) != "asa"}
+
+
 # --- diagram 11 rows: read straight out of 00-index.md ------------------------
 # The index's timeline is the single source of execution order. build_tonight.py
 # already parses those rows for the planner; this reuses that parser so the
@@ -1833,6 +1841,7 @@ def _index_facts() -> dict[str, str]:
 
 def d11_timeline() -> Doc:
     hours, total_print = _print_hours()
+    mixed = _mixed_batches()
     rows = timeline_rows()
     facts_src = _index_facts()
 
@@ -1862,8 +1871,10 @@ def d11_timeline() -> Doc:
         y = top + i * ROW_H
         row["y"] = y
         # A run batch's hours come from print/README's batch table; B11 (outside the run, two
-        # rows) has no row there, so its duration is the "N h print" its index row states.
-        row["dur"] = ((f"{hours[row['label'][:3]]:.1f} h print" if row["label"][:3] in hours
+        # rows) has no row there, and B12's row there counts its ASA plates only, so their
+        # duration is the "N h print" the index row states.
+        row["dur"] = ((f"{hours[row['label'][:3]]:.1f} h print"
+                       if row["label"][:3] in hours and row["label"][:3] not in mixed
                        else row["seg"]) if row["kind"] == "P"
                       else _row_duration(row["kind"], row["seg"], row["marker"]))
         x0, x1 = (PL, BR) if row["kind"] == "G" else \
@@ -1908,10 +1919,18 @@ def d11_timeline() -> Doc:
             continue
         x0, x1 = pos[n][0], pos[n][1]
         col, fill = (ORANGE, ORANGE_F) if kind == "P" else (BLUE, BLUE_F)
-        label = _fit(row["label"], x1 - x0 - 40 - len(dur) * 6.1)
+        # A print row that waits on the kit (B11 part 2) is listed by priority, above
+        # batches it goes ahead of; its KIT tag sits apart from the "N h print" text,
+        # which slicer/check_docs.py matches whole.
+        tag = row["marker"] if kind == "P" and row["marker"] else ""
+        tag_w = len(tag) * 7.4 + 10 if tag else 0
+        label = _fit(row["label"], x1 - x0 - 40 - len(dur) * 6.1 - tag_w)
         d.rect(x0, y + 4, x1 - x0, 30, fill=fill, stroke=col, sw=2.2, rx=6)
         d.text(x0 + 12, y + 24, label, size=12.8, weight=600)
         d.text(x1 - 12, y + 24, dur, size=11.8, anchor="end", fill=MUTED)
+        if tag:
+            d.text(x1 - 12 - len(dur) * 6.1 - 8, y + 24, tag, size=11.8, anchor="end",
+                   fill=col, weight=700)
 
     fy = top + len(rows) * ROW_H + 34
     d.rect(60, fy, 1100, 62, fill=PANEL, stroke=RULE, sw=1.5, rx=8)

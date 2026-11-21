@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build one PrusaSlicer project per plate, slice it, and record the numbers.
 
-For each plate in `plates.py` (the 20 of the ASA run and B11's bay-ducting plates):
+For each plate in `plates.py` (the ASA run's, B11's bay-ducting plates and B12-P1 in PETG):
   1. arrange the parts on the 250 x 220 bed (see geom.py - the CLI cannot),
   2. write the arranged meshes and merge them into `slicer/plates/<id>.3mf`,
   3. inject the print/filament/printer config and the per-object brim widths
@@ -58,8 +58,9 @@ import zipfile
 from pathlib import Path
 
 from geom import BED_X, BED_Y, Piece, bbox, convex_hull, pack, read_stl
-from plates import (AS_PRINTED, EDGE_EXEMPT, MODEL_ESTIMATE, OBJECT_SETTINGS, PLATE_CONFIG, PLATES,
-                    brim_for, check_orient, footprint_of, local_path, orient_of, run_of)
+from plates import (AS_PRINTED, EDGE_EXEMPT, INI as INI_FILE, MODEL_ESTIMATE, OBJECT_SETTINGS,
+                    PETG_COLOURS, PLATE_CONFIG, PLATES, brim_for, check_orient, footprint_of,
+                    local_path, orient_of, run_of)
 from threemf import read_plate
 
 ROOT = Path(__file__).resolve().parent
@@ -70,9 +71,7 @@ OUT_PNG = REPO / "docs" / "manual" / "assets" / "plates"
 ESTIMATES = ROOT / "estimates.csv"
 RENDERER = REPO / "scripts" / "render_plate_bins.py"
 PRUSA = "/Applications/Original Prusa Drivers/PrusaSlicer.app/Contents/MacOS/PrusaSlicer"  # 2.9.7 (Alex 2026-11-05)
-INI = {"black": ROOT / "voron-coreone-asa.ini",
-       "blue": ROOT / "voron-accent-blue.ini",
-       "petg": ROOT / "bay-ducts-petg.ini"}     # B11 only; not Voron spec (ducts carry no load)
+INI = {colour: ROOT / name for colour, name in INI_FILE.items()}   # plates.INI owns the mapping
 
 # "geom" packs bounding boxes (geom.py), "nest" packs the real outlines (nest.py) and
 # fits appreciably more on a plate, "platearrange" packs outlines at any Z rotation toward
@@ -334,6 +333,13 @@ REQUIRED_CFG_PETG = (("perimeters", "3"), ("top_solid_layers", "4"),
                      ("bottom_solid_layers", "4"), ("fill_density", "20%"),
                      ("fill_pattern", "grid"), ("layer_height", "0.2"),
                      ("support_material", "0"), ("filament_type", "PETG"))
+# B12-P1 (voron-petg-black.ini): ordinary PETG with the ASA plates' walls, shells and infill.
+REQUIRED_CFG_PETG_BLACK = (("perimeters", "4"), ("top_solid_layers", "5"),
+                           ("bottom_solid_layers", "5"), ("fill_density", "40%"),
+                           ("fill_pattern", "gyroid"), ("layer_height", "0.2"),
+                           ("support_material", "0"), ("filament_type", "PETG"),
+                           ("temperature", "255"))
+REQUIRED = {"petg": REQUIRED_CFG_PETG, "petgblack": REQUIRED_CFG_PETG_BLACK}
 
 
 def slice_project(plate_id: str, project: Path, tmp: Path) -> tuple[float, float, str]:
@@ -343,14 +349,14 @@ def slice_project(plate_id: str, project: Path, tmp: Path) -> tuple[float, float
     run([PRUSA, "--dont-arrange", "--binary-gcode=0",
          "--export-gcode", "-o", str(gcode), str(project)])
     hours, grams, raw_time, cfg = read_footer(gcode)
-    petg = PLATES[plate_id]["colour"] == "petg"
-    if petg:
+    colour = PLATES[plate_id]["colour"]
+    if colour in PETG_COLOURS:
         text = gcode.read_text(errors="replace")
         for code in ("M106 P3 S160", "M106 P3 R"):
             if code not in text:
                 raise SystemExit(f"{plate_id}: `{code}` is not in the G-code - the filament "
-                                 "start/end G-code of bay-ducts-petg.ini did not take")
-    for key, want in (REQUIRED_CFG_PETG if petg else REQUIRED_CFG):
+                                 f"start/end G-code of {INI[colour].name} did not take")
+    for key, want in REQUIRED.get(colour, REQUIRED_CFG):
         if cfg.get(key) != want:
             raise SystemExit(f"{plate_id}: sliced with {key} = {cfg.get(key)!r}, "
                              f"expected {want!r} - the 3MF config did not take")
@@ -490,7 +496,7 @@ CSV_HEADER = ["plate", "batch", "colour", "parts", "raw_time", "hours", "grams",
               "delta_hours", "delta_grams", "brim_mm", "size_kb"]
 # One total row per run, after the plate rows. Consumers skip every row whose plate cell
 # starts with "TOTAL". "TOTAL" keeps its old meaning: the 20-plate ASA run only.
-TOTAL_LABEL = {"asa": "TOTAL", "bay": "TOTAL B11"}
+TOTAL_LABEL = {"asa": "TOTAL", "bay": "TOTAL B11", "petg": "TOTAL PETG"}
 
 
 def _csv_row(r: dict) -> dict[str, str]:
@@ -508,8 +514,9 @@ def _csv_row(r: dict) -> dict[str, str]:
 def write_estimates(path: Path, built: list[dict]) -> None:
     """Merge the plates just built into estimates.csv: their rows are replaced, every other
     plate's row is kept byte for byte, rows follow plates.py order. A run's total row is
-    recomputed only if one of its plates was rebuilt; otherwise the old one is kept, so
-    slicing B11 cannot move a digit of the ASA run's TOTAL."""
+    recomputed only if one of its plates was rebuilt or a plate joined or left it (its parts
+    count no longer matches); otherwise the old one is kept, so slicing B11 cannot move a digit
+    of the ASA run's TOTAL."""
     old: dict[str, dict[str, str]] = {}
     old_tot: dict[str, dict[str, str]] = {}
     if path.exists():
@@ -528,7 +535,8 @@ def write_estimates(path: Path, built: list[dict]) -> None:
         rs = [r for pid, r in merged.items() if run_of(pid) == run_key]
         if not rs:
             continue
-        if run_key not in touched and label in old_tot:
+        if (run_key not in touched and label in old_tot
+                and old_tot[label]["parts"] == str(sum(int(r["parts"]) for r in rs))):
             totals.append(old_tot[label])
             continue
         th = sum(float(r["hours"]) for r in rs)

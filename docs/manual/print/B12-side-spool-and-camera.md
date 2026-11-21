@@ -5,14 +5,15 @@ pose: print
 caption: A spool on the side and a camera on top. Three plates, then the exhaust housing.
 ```
 
-**Time:** 14.4 h (3 plates) — PrusaSlicer 2.9.7 estimates.
+**Time:** 14.2 h (3 plates) — PrusaSlicer 2.9.7 estimates.
 
-**Sessions:** 3 plate starts (~5 min hands-on each, 6.9 / 1.8 / 5.7 h unattended) + ~15 min inspect and bin, plus
-one spool swap to the blue accent for P3.
+**Sessions:** 3 plate starts (~5 min hands-on each, 6.7 / 1.8 / 5.7 h unattended) + ~15 min inspect and bin, plus
+a spool and sheet swap to PETG for P1 and back for P2, and one spool swap to the blue accent for P3.
 
 **Prerequisites:** **Gate A** (as for B08, on the current GT2 belts) and B10: B12 prints straight after it, and only
 B13 follows. No bearing seat here, so Gate B is not needed. Nothing in the build needs these parts before
-[Ch 11 Part C](../11-skirts-panels-door.md#part-c-add-ons), so a B11 plate still waiting may go first.
+[Ch 11 Part C](../11-skirts-panels-door.md#part-c-add-ons), so a B11 plate still waiting may go first. P1 needs
+the **textured** sheet and spool **J1**, Prusament PETG Jet Black (not B11's PETG V0).
 
 **What this batch is.** Ch 11 Part C's two fittings, part of this build since 2026-11-12 (Alex): until then they
 were add-ons printed after Step 11.68. The **side spool holder** is Maltasrc's side-mount frame, remixed here for
@@ -20,12 +21,17 @@ Prusa's Universal Puck, with his tube holder and Prusa's puck and 1 kg spindle; 
 Zemistr's HappyCam remix, a 350 body with a light cover. Licences and credits:
 `slicer/addons/side-spool-608769/README.md` and `slicer/addons/happycam-488020/README.md`.
 
+**Why P1 is PETG.** The frame is the one part printed in Prusament PETG Jet Black, not ASA (Alex 2026-11-21).
+PETG warps less, and this 212 mm part sits about 4 mm from the bed's front and back edges; the frame hangs
+outside the chamber, so it never meets chamber heat; and it saves 105 g of black ASA. It is outside the run's
+totals, on its own spool ([print/README § B12-P1](README.md#b12-p1-side-spool-frame-petg)).
+
 **Printed parts**
 
 
 | STL | Repo path | Qty | Colour | g ea | Bin |
 |---|---|---:|---|---:|---|
-| `side_spool_frame_puck.stl` | this repo, `slicer/addons/side-spool-608769/` (remix of Printables 608769) | 1 | Black | 105.3 | 11-side-spool |
+| `side_spool_frame_puck.stl` | this repo, `slicer/addons/side-spool-608769/` (remix of Printables 608769) | 1 | Black PETG | 127.2 | 11-side-spool |
 | `Bowden Tube Holder_Long.stl` | Printables 608769 (Maltasrc) | 1 | Black | 7.9 | 11-side-spool |
 | `HappyCam_main-350.stl` | Printables 527904 (Zemistr, remix of 488020) | 1 | Black | 18.6 | 11-camera |
 | `HappyCam_cover_with_light.stl` | Printables 527904 (Zemistr) | 1 | Black | 1.5 | 11-camera |
@@ -43,19 +49,23 @@ body's figure includes its supports.
   [Step 11.68](../11-skirts-panels-door.md#step-1168-confirm-the-panel-stack-and-the-camera-board) calipers
   the real stack on the machine; over 6.2 mm, Step 11.69 regenerates the frame and reprints B12-P1 alone.
 - **B12-P1 is the one plate exempt from the 25 mm edge rule.** The frame is 212 × 212 mm on the 250 × 220 bed, so
-  no rotation keeps part and brim 25 mm from every edge; it sits centred, brim under 1 mm from the front and
-  rear edges (`plates.EDGE_EXEMPT`; the audit lists it, the gap and brim rules still apply).
+  no rotation keeps it 25 mm from every edge; it sits centred, about 4 mm from the front and rear edges
+  (`plates.EDGE_EXEMPT`; the audit lists it, the gap and brim rules still apply).
+- **B12-P1 is PETG: textured sheet, no brim.** A PETG brim fuses to the part at the profile's brim gap, so the
+  project has none. Let the bed cool fully before you lift the frame off.
 - **Supports on one part only.** B12-P2's HappyCam body lies on its top face with build-plate-only supports
   under the cable exit, set on that object in the project; the profile stays support-free for everything else.
-- Brims already in the projects: 3 mm on every part. Verify the outline in the preview; never add one.
+- Brims already in the projects: 3 mm on every part of P2 and P3, none on P1. Verify the outline in the
+  preview; never add one.
 - The puck and spindle print in the blue accent: Prusa prints them in PETG or PC, and ASA at the Voron spec is
   stronger than that and keeps the machine in two colours.
 
 ## Step B12.1 — Filament prep
 
-**Do:** Galaxy Black, spool #3 after B10. The ledger has 457 g on it here, 352 g after P1 and 324 g after P2. The
-blue accent spool A1 comes back for P3. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge; ≥135 g on spool #3 for P1 and P2.
+**Do:** P1 prints from J1, the PETG spool, on the textured sheet; black ASA #3 waits in the drybox. P2 is back
+on #3: 457 g here, 429 g after. Blue A1 returns for P3. Sheet per
+[00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Check:** Clean purge; ≥130 g on J1 for P1 and ≥30 g on spool #3 for P2.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -65,10 +75,13 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B12.9.*
 
-**Do:** Open `slicer/plates/B12-P1.3mf` with **File → Open Project**. The frame, its brim and the overrides are already
-in it, centred; never Arrange.
-**Parts:** `side_spool_frame_puck`, **3 mm brim** · 1 file, 1 object — 6.9 h, 105 g (PrusaSlicer 2.9.7 estimate).
-**Check:** The frame lies front face down, centred, with a brim outline all round and no supports.
+**Do:**
+
+1. Fit the textured sheet; load J1, the PETG spool, and purge until the line runs clean.
+2. Open `slicer/plates/B12-P1.3mf` with **File → Open Project**. The frame and its PETG profile are already in
+   it, centred; never Arrange.
+**Parts:** `side_spool_frame_puck` · 1 file, 1 object — 6.7 h, 127 g (PrusaSlicer 2.9.7 estimate) · no brim.
+**Check:** The frame lies front face down, centred, with no brim and no supports; the filament reads Prusament PETG.
 
 **Helper:** Reads the plate's hours and grams off the slicer and checks them against this step.
 
@@ -76,8 +89,9 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B12.3 — Print plate B12-P1
 
-**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
-**Check:** Settings → Chamber Filtration reads **Adv. Filtration**; the first layer lays down clean along the front and rear edges, where the brim runs close.
+**Do:** Door closed, Chamber Filtration left on Adv. Filtration: the profile lifts the bypass flaps for PETG.
+When it finishes, let the bed cool fully before you lift the frame off; then flex the sheet, never pry.
+**Check:** The first layer lays down clean along the front and rear edges; the rear bypass flaps lift once the plate starts.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -91,8 +105,11 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B12.9.*
 
-**Do:** Open `slicer/plates/B12-P2.3mf` with **File → Open Project**. The arrangement, brims, the body's own
-supports and the overrides are already in it.
+**Do:**
+
+1. Satin sheet back on; black spool #3 back on, purged clean.
+2. Open `slicer/plates/B12-P2.3mf` with **File → Open Project**. The arrangement, brims, the body's own
+   supports and the overrides are already in it.
 **Parts:** `Bowden Tube Holder_Long`, **3 mm brim** · `HappyCam_main-350`, **3 mm brim**, build-plate supports · `HappyCam_cover_with_light`, **3 mm brim** · 3 files, 3 objects — 1.8 h, 28 g (PrusaSlicer 2.9.7 estimate).
 **Check:** The preview shows supports under the camera body only, and a brim outline on all three parts.
 
@@ -103,7 +120,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B12.5 — Print plate B12-P2
 
 **Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
-**Check:** The supports under the camera body build up cleanly; no lift on the 74 mm light cover.
+**Check:** Settings → Chamber Filtration reads **Adv. Filtration**; the supports under the camera body build up cleanly; no lift on the 74 mm light cover.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -187,13 +204,14 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 ---
 
 ## Checkpoint B12
-- [ ] Side spool frame flat on the reference, both feet whole, brim off clean
+- [ ] Side spool frame (PETG) flat on the reference, both feet whole
 - [ ] Camera body's supports out of the cable exit; its three locating pegs whole
 - [ ] Puck and spindle printed in the blue accent, brims off
 - [ ] Six parts sorted: four in 11-side-spool, two in 11-camera
 
 ## Common mistakes
 - Pressing **Arrange** on B12-P1: the GUI pushes the frame toward the 25 mm rule it cannot meet. Open the project as saved.
+- Printing B12-P1 from black ASA or on the satin sheet: it is PETG, from J1, on the textured sheet.
 - Adding supports to the whole of B12-P2: only the camera body takes them, and they are already in the project.
 - Reprinting the frame before Step 11.68 has measured: the 6.5 mm feet fit a stack up to 6.2 mm.
 

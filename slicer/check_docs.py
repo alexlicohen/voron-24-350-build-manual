@@ -18,6 +18,9 @@ a stale count in prose. Dated lines and 00-index.md's corrections log are histor
 B11 (the PETG V0 bay ducting, `run="bay"` in slicer/plates.py) is outside the ASA
 run: every run total above excludes it, and § 8 checks B11's own numbers the same way (batch
 page, print/README's B11 tables, plan §3 header and §9 B11 CSV, 00-index.md's two B11 rows).
+So is B12-P1, the side spool frame in ordinary PETG (`run="petg"`, 2026-11-21): batch B12 keeps
+all three plates on its page, in the index and in diagram 11, while the run's per-batch rows and
+totals count only its two ASA plates; § 11 checks the PETG plate's own table and ledger.
 
 Rounding is **additive**: plate values are rounded half-up for display, a batch
 is the sum of its displayed plates, and the total is the sum of the displayed
@@ -56,12 +59,17 @@ def load():
             if not r["plate"].startswith("TOTAL")]
     plate = {r["plate"]: (r1(r["hours"]), r0(r["grams"]), r["batch"], r["colour"])
              for r in rows}
+    colours = {spec["colour"] for spec in PLATES.values()} | {"black", "blue", "petg"}
     batch = collections.OrderedDict()
     for pid, (h, g, b, c) in plate.items():
-        d = batch.setdefault(b, {"plates": 0, "h": 0.0, "black": 0, "blue": 0, "petg": 0})
+        d = batch.setdefault(b, {"plates": 0, "h": 0.0, "run_plates": 0, "run_h": 0.0,
+                                 **{k: 0 for k in sorted(colours)}})
         d["plates"] += 1
         d["h"] = round(d["h"] + h, 1)
         d[c] += g
+        if run_of(pid) == "asa":            # a batch may hold a plate outside the run (B12-P1)
+            d["run_plates"] += 1
+            d["run_h"] = round(d["run_h"] + h, 1)
     return plate, batch
 
 
@@ -80,8 +88,14 @@ CHAPTER = {
     "B12": "B12-side-spool-and-camera",
     "B13": "B13-exhaust-housing",
 }
-# Batches outside the ASA run (slicer/plates.py run="bay"): no run total includes them.
-SEPARATE = {spec["batch"] for pid, spec in PLATES.items() if run_of(pid) != "asa"}
+# Batches wholly outside the ASA run (slicer/plates.py run="bay"): no run total includes them.
+# A batch with only some plates outside (B12: P1 is "petg") is not SEPARATE; its run rows count
+# its ASA plates only (load()'s run_plates / run_h).
+SEPARATE = ({spec["batch"] for pid, spec in PLATES.items() if run_of(pid) != "asa"}
+            - {spec["batch"] for pid, spec in PLATES.items() if run_of(pid) == "asa"})
+# Plates outside the run inside a batch that is in it: checked by § 11.
+OUTSIDE = [pid for pid, spec in PLATES.items()
+           if run_of(pid) != "asa" and spec["batch"] not in SEPARATE]
 
 
 def _batch_bins() -> dict[str, dict[str, set[str]]]:
@@ -350,6 +364,24 @@ def check_b11(plate, plan: str, readme: str) -> list[str]:
     return bad
 
 
+def check_outside(plate, plan: str, readme: str) -> list[str]:
+    """§ 11: the plates outside the run inside a run batch (OUTSIDE: B12-P1, ordinary PETG) are
+    added up on their own; print/README's ledger total and intro and the plan's at-a-glance
+    line must agree with estimates.csv (each plate's own row is checked by § 1 and §§ 2/9)."""
+    if not OUTSIDE:
+        return []
+    n = len(OUTSIDE)
+    h = round(sum(plate[pid][0] for pid in OUTSIDE), 1)
+    g = sum(plate[pid][1] for pid in OUTSIDE)
+    wanted = [
+        ("print/README PETG ledger total", readme, rf"^\| \*\*TOTAL PETG\*\* \| \*\*{g}\*\* \|"),
+        ("print/README intro", readme, rf"\b{h} h and {g} g from its own spool"),
+        ("plan header", plan, rf"\b{n} plates? · {h} h · {g} g\b"),
+    ]
+    return [f"{'/'.join(OUTSIDE)} — {name}: expected /{pat}/ — not found"
+            for name, text, pat in wanted if not re.search(pat, text, re.M | re.S)]
+
+
 def _sort_row_ok(page: str, gen: str) -> bool:
     """Page row == generated row, or the generated row plus `, <note>` with no backtick."""
     if page == gen:
@@ -477,11 +509,13 @@ def check_prose_counts(batch, n: int, th: float, files=None) -> list[str]:
     """
     bad: list[str] = []
     sep = {b: d for b, d in batch.items() if b in SEPARATE}
-    n_sep = sum(d["plates"] for d in sep.values())
-    h_all = round(th + sum(d["h"] for d in sep.values()), 1)
+    # every plate outside the run: the separate batches' and B12-P1 (a run batch's PETG plate)
+    n_sep = sum(d["plates"] - d["run_plates"] for d in batch.values())
+    h_all = round(th + sum(round(d["h"] - d["run_h"], 1) for d in batch.values()), 1)
     n_batches = len(batch) - len(sep)
     assert max(d["plates"] for d in batch.values()) < 10, "a batch reached ten plates: fix § 10"
-    with_sep = f" ({n + n_sep} with {'/'.join(sep)})" if sep else ""
+    outside = sorted(sep) + [pid for pid in OUTSIDE]
+    with_sep = f" ({n + n_sep} with {'/'.join(outside)})" if outside else ""
     for path, text in (_prose_files() if files is None else files):
         rel = path.relative_to(REPO)
         own = re.match(r"(B\d\d)-", path.name)
@@ -503,7 +537,7 @@ def check_prose_counts(batch, n: int, th: float, files=None) -> list[str]:
                     or "throughput model" in paragraph(m.start())):
                 continue
             bad.append(f"{rel}:{i}: \"{m.group(0)}\" is not the run's {th} h"
-                       + (f" (or {h_all} h with {'/'.join(sep)})" if sep else ""))
+                       + (f" (or {h_all} h with {'/'.join(outside)})" if outside else ""))
         for m in _SPLIT_RE.finditer(flat):
             i, line = where(m.start())
             if not _DATED_RE.search(line) and _num(m.group(1)) + _num(m.group(2)) != n:
@@ -625,7 +659,9 @@ def main() -> int:
                            f"{plate[pid][0]} h / {plate[pid][1]} g")
 
     # 3. totals, everywhere they are stated - the ASA run only (B11 is § 8)
-    run = {b: d for b, d in batch.items() if b not in SEPARATE}
+    # the run's plates only: a run batch's PETG plate (B12-P1) is in neither (load()'s run_*)
+    run = {b: dict(d, plates=d["run_plates"], h=d["run_h"])
+           for b, d in batch.items() if b not in SEPARATE}
     th = round(sum(d["h"] for d in run.values()), 1)
     tb = sum(d["black"] for d in run.values())
     to = sum(d["blue"] for d in run.values())
@@ -669,6 +705,9 @@ def main() -> int:
     if "B11" in batch:
         bad += check_b11(plate, plan, readme)
 
+    # 11. B12-P1, a run batch's PETG plate: its own ledger total and summary lines
+    bad += check_outside(plate, plan, readme)
+
     # 7. every plate id named anywhere in docs/ exists (a merged/renumbered plate
     #    leaves stale ids in prose that nothing else catches). The corrections log
     #    in 00-index.md is history and exempt; generated step pages are skipped.
@@ -696,6 +735,8 @@ def main() -> int:
           + (f"B11 {batch['B11']['plates']} plates, {batch['B11']['h']} h, {batch['B11']['petg']} g "
              f"PETG V0 on its own, consistent across its page, print/README, the plan and the index"
              if "B11" in batch else "")
+          + (f"; {'/'.join(OUTSIDE)} in PETG on its own, consistent across print/README and the plan"
+             if OUTSIDE else "")
           + f"; {n_sort} plates' sort tables match render_plate_bins --markdown")
     return 0
 

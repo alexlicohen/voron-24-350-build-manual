@@ -1211,20 +1211,20 @@ def _batch_caption(batch: str, where: str) -> str:
     if not mine:
         raise BuildStepsError("%s: Checkpoint %s names no batch in slicer/plates.py"
                               % (where, batch))
-    run_of_batch = {PLATES[pid]["batch"]: run_of(pid) for pid in ids}
     _plate, batches = check_docs.load()
     run = [pid for pid in ids if run_of(pid) == "asa"]
     done = total = 0.0
     for b, d in batches.items():            # additive, as check_docs sums the run
-        if run_of_batch.get(b) == "asa":
-            total = round(total + d["h"], 1)
+        if d["run_plates"]:                 # its ASA plates only (B12-P1 is PETG, outside)
+            total = round(total + d["run_h"], 1)
             if b <= batch:
-                done = round(done + d["h"], 1)
+                done = round(done + d["run_h"], 1)
     worms = _worms(len(mine))
-    if run_of(mine[0]) != "asa":
+    mine_run = [pid for pid in mine if run_of(pid) == "asa"]
+    if not mine_run:
         return "Batch %s printed: %d plate%s, %.1f h, outside the %.1f h run. %s" % (
             batch, len(mine), "" if len(mine) == 1 else "s", batches[batch]["h"], total, worms)
-    first, last = run.index(mine[0]) + 1, run.index(mine[-1]) + 1
+    first, last = run.index(mine_run[0]) + 1, run.index(mine_run[-1]) + 1
     plates = ("plate %d" % first) if first == last else ("plates %d to %d" % (first, last))
     return "Batch %s printed: %s of %d, %.1f of %.1f h. %s" % (
         batch, plates, len(run), done, total, worms)

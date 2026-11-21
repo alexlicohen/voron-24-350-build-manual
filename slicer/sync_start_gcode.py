@@ -30,7 +30,8 @@ and needs plate ids: it is never applied to every plate by default. An unknown f
 is an error, not a full run.
 
 The value comes from the matching ini (`voron-coreone-asa.ini` for black plates,
-`voron-accent-blue.ini` for the blue accent plates, `bay-ducts-petg.ini` for B11's), so the
+`voron-accent-blue.ini` for the blue accent plates, `bay-ducts-petg.ini` for B11's,
+`voron-petg-black.ini` for B12-P1's: `plates.INI`), so the
 inis stay the single source of truth. The one exception is a key listed for the plate in
 `plates.PLATE_CONFIG` (a per-plate setting such as the part fan): that value wins over the ini's. With no plate ids it runs over every plate in
 plates.py: the ASA run's and B11's.
@@ -50,14 +51,12 @@ import sys
 import zipfile
 from pathlib import Path
 
-from plates import PLATE_CONFIG, PLATES
+from plates import INI as INI_FILE, PLATE_CONFIG, PLATES
 
 ROOT = Path(__file__).resolve().parent
 PLATE_DIR = ROOT / "plates"
 CONFIG_MEMBER = "Metadata/Slic3r_PE.config"
-INI = {"black": ROOT / "voron-coreone-asa.ini",
-       "blue": ROOT / "voron-accent-blue.ini",
-       "petg": ROOT / "bay-ducts-petg.ini"}     # B11, the bay ducts
+INI = {colour: ROOT / name for colour, name in INI_FILE.items()}   # plates.INI owns the mapping
 
 
 def ini_value(ini: Path, key: str) -> str:

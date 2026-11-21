@@ -5,7 +5,7 @@ pose: print
 caption: Ducts carry wires, not load. Same printer, different spool, gentler rules.
 ```
 
-**Time:** 25.1 h (7 plates) — PrusaSlicer 2.9.7 estimates: 11.9 h before kit (B11-P1 to P3 and P6, 173 g), 13.2 h after the kit-day measurements (B11-P4, P5 and P7, 176 g). 349 g of Jet Black PETG V0 in all. **Not part of the 176.0 h ASA run**, and none of its numbers are in the run's totals.
+**Time:** 25.1 h (7 plates) — PrusaSlicer 2.9.7 estimates: 11.9 h before kit (B11-P1 to P3 and P6, 173 g), 13.2 h after the kit-day measurements (B11-P4, P5 and P7, 176 g). 349 g of Jet Black PETG V0 in all. **Not part of the 169.1 h ASA run**, and none of its numbers are in the run's totals.
 
 **Sessions:** 7 plate starts (~5 min hands-on each, all day plates), ~10 min for the coupon test, ~30 min to inspect and bin; ~35 min of bay measuring on kit day, before P4, P5 and P7, and ~15 min for the A/B lead check after Checkpoint 06.
 
@@ -225,44 +225,6 @@ Source: [print/README § Bins](README.md#bins) · [print plan §9 — B11 plates
 
 ## After the kit-day measurements
 
-## Step B11.9 — Confirm the A/B motor leads after Checkpoint 06
-
-<a id="step-b119-kit-day-gono-go-the-ab-motor-leads"></a>
-
-**What you're looking at:** Layout v3 routes the A and B leads through the notch, right run and middle run: about 195 mm more for A, 129 mm for B, than LDO's route. The leads reach the deck only once the gantry hangs.
-
-**Do:** After Checkpoint 06, printer upright, gantry low:
-
-1. Run each lead along the extrusion between the drives, then down the Z chain's path to the deck notch. Tape-mark it there.
-2. Measure mark to plug tip, minus B11.10's LDO length.
-
-**Check:** A has at least 215 mm spare and B at least 150 mm. Either way, print P4, P5 and P7 on schedule.
-
-```gate-calc
-id: b11-ab-leads
-title: B11 confirmation — A and B motor lead spare length
-inputs:
-  - key: a
-    label: A motor lead, notch mark to plug tip, minus B11.10's notch-to-HV-STEPPER-1 length (mm)
-    min: 215
-    low: Short by the v3 route's ~195 mm. Make a longer A motor lead (4-pin JST-XH, same wire gauge `(verify on bench)`) before Ch 10 fits it. Layout v3 stands; print P4, P5 and P7 on schedule.
-    why: The v3 route adds about 195 mm to A, so 215 mm spare leaves about 20 mm of slack at the header.
-  - key: b
-    label: B motor lead, notch mark to plug tip, minus B11.10's notch-to-HV-STEPPER-0 length (mm)
-    min: 150
-    low: Short by the v3 route's ~129 mm. Make a longer B motor lead (4-pin JST-XH, same wire gauge `(verify on bench)`) before Ch 10 fits it. Layout v3 stands; print P4, P5 and P7 on schedule.
-    why: The v3 route adds about 129 mm to B, so 150 mm spare leaves about 20 mm of slack at the header.
-pass: Confirmed. Both leads reach as is; print P4, then P5 and P7 if the gap allows, while Ch 07 and Ch 08 run.
-```
-
-⚠ **If a lead is short:** make a longer replacement lead — a 4-pin JST-XH cable, same wire gauge as the stock lead `(verify on bench)` — rather than dropping back to layout v1; Ch 10 fits it with the motor. P4, P5 and P7 print now regardless.
-
-Tip: The Z chain hangs at the rear from the A drive down to its guide by the deck, as p.201 shows. Hold the kit's chain there and follow it `(verify on bench)`.
-
-Pause: ~15 min since the last pause — both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4, P5 and P7 are unaffected.
-
-Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and bench checks, check 1 · `layout-v2/layout-v2.md` § Component shifts · [Voron manual p.201](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=201) · [Ch 10 Step 10.41](../10-wiring.md#step-1041-a-motor-hv-stepper-1) · [Ch 10 Step 10.42](../10-wiring.md#step-1042-b-motor-hv-stepper-0) · [Ch 10 Step 10.61](../10-wiring.md#step-1061-secure-the-a-and-b-motor-cables)
-
 ## Step B11.10 — Measure the gaps the custom pieces fill
 
 **Do:** Kit day, deck panel loose:
@@ -309,6 +271,8 @@ pass: Measured. Regenerate any piece whose gap differs, then print P4, and P5 an
 Tip: The bed TH, probe, filter-fan leads and Bed L route in Ch 10; the probe and filter fan aren't built until Ch 09 and Ch 11. Fit confirms then.
 
 Pause: ~20 min since the last pause — the bay is dry-laid and measured; nothing is stuck down or fastened.
+
+<!-- needs: 00.3 00.4 (both cartons inventoried, deck panel out) B11-P2 B11-P3 (the pieces it dry-lays); read by scripts/build_tonight.py -->
 
 Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and bench checks, checks 3, 5, 7 and 16 · `layout-v2/layout-v2.md` bench check 2 · `layout-v3/overlay-v3.jpg`
 
@@ -452,6 +416,46 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run · [pr
 Pause: ~10 min since the last pause — all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration.
 
 Source: [print/README § Bins](README.md#bins)
+
+## Step B11.9 — Confirm the A/B motor leads after Checkpoint 06
+
+<a id="step-b119-kit-day-gono-go-the-ab-motor-leads"></a>
+
+**What you're looking at:** Layout v3 routes the A and B leads through the notch, right run and middle run: about 195 mm more for A, 129 mm for B, than LDO's route. The leads reach the deck only once the gantry hangs.
+
+**Do:** After Checkpoint 06, printer upright, gantry low:
+
+1. Run each lead along the extrusion between the drives, then down the Z chain's path to the deck notch. Tape-mark it there.
+2. Measure mark to plug tip, minus B11.10's LDO length.
+
+**Check:** A has at least 215 mm spare and B at least 150 mm. Either way, print P4, P5 and P7 on schedule.
+
+```gate-calc
+id: b11-ab-leads
+title: B11 confirmation — A and B motor lead spare length
+inputs:
+  - key: a
+    label: A motor lead, notch mark to plug tip, minus B11.10's notch-to-HV-STEPPER-1 length (mm)
+    min: 215
+    low: Short by the v3 route's ~195 mm. Make a longer A motor lead (4-pin JST-XH, same wire gauge `(verify on bench)`) before Ch 10 fits it. Layout v3 stands; print P4, P5 and P7 on schedule.
+    why: The v3 route adds about 195 mm to A, so 215 mm spare leaves about 20 mm of slack at the header.
+  - key: b
+    label: B motor lead, notch mark to plug tip, minus B11.10's notch-to-HV-STEPPER-0 length (mm)
+    min: 150
+    low: Short by the v3 route's ~129 mm. Make a longer B motor lead (4-pin JST-XH, same wire gauge `(verify on bench)`) before Ch 10 fits it. Layout v3 stands; print P4, P5 and P7 on schedule.
+    why: The v3 route adds about 129 mm to B, so 150 mm spare leaves about 20 mm of slack at the header.
+pass: Confirmed. Both leads reach as is; print P4, then P5 and P7 if the gap allows, while Ch 07 and Ch 08 run.
+```
+
+⚠ **If a lead is short:** make a longer replacement lead — a 4-pin JST-XH cable, same wire gauge as the stock lead `(verify on bench)` — rather than dropping back to layout v1; Ch 10 fits it with the motor. P4, P5 and P7 print now regardless.
+
+Tip: The Z chain hangs at the rear from the A drive down to its guide by the deck, as p.201 shows. Hold the kit's chain there and follow it `(verify on bench)`.
+
+Pause: ~15 min since the last pause — both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4, P5 and P7 are unaffected.
+
+<!-- needs: 06.26 (Checkpoint 06: the gantry hangs, so the leads reach the deck); read by scripts/build_tonight.py -->
+
+Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and bench checks, check 1 · `layout-v2/layout-v2.md` § Component shifts · [Voron manual p.201](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=201) · [Ch 10 Step 10.41](../10-wiring.md#step-1041-a-motor-hv-stepper-1) · [Ch 10 Step 10.42](../10-wiring.md#step-1042-b-motor-hv-stepper-0) · [Ch 10 Step 10.61](../10-wiring.md#step-1061-secure-the-a-and-b-motor-cables)
 
 ---
 

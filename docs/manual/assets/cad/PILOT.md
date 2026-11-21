@@ -158,14 +158,21 @@ the ghosted Stealthburner and X beam. This is the case CAD is unambiguously bett
 photo: the two halves are handed, they nest, and the render shows the bolt pattern the step tells
 you to check.
 
-### Step 05.46 — Which endstop pod, which cable bridge
+### Step 05.46 — Bag what belongs to later chapters (which endstop pod, which cable bridge)
 
 ![05.46 alternates](05-46-a.png)
 ![05.46 in place](05-46-b.png)
 
 The strongest result of the pilot. The CAD contains **both** alternates of both Rev D+ choices, so
-view `a` pulls them apart along Z and labels them PRINT / SKIP / KEEP / BIN. No official manual
-page shows the two side by side; the LDO printed-parts guide only names them in prose.
+view `a` pulls them apart along Z. No official manual page shows the two side by side; the LDO
+printed-parts guide only names them in prose. The pilot labelled them PRINT / SKIP / KEEP / BIN;
+since 2026-11-21 the labels say what each part is *at this step*, because Step 05.49 (the pod) and
+Step 05.38 (the raised 2-hole bridge) come before it in the chapter: **FITTED at Step 05.49** (D2F
+pod + XY endstop board), **NOT PRINTED** (hall-effect pod; 3-hole bridge), and the stock 2-hole
+bridge drawn here is the spare you **BAG** — the joint carries the raised one, 3 mm taller, which
+the CAD does not model. "BIN" went because in this manual a bin is a storage bin. View `b`
+(retitled *where the pod and the cable bridge sit*) shows both on the right XY joint the right way
+up and says the gantry is upside down on the bench.
 
 ### Step 09.26 — Clip the USB adapter to the front DIN rail
 
@@ -268,12 +275,36 @@ bottom-extrusion top face at z = −38.1 — a 2.6 mm gap, which agrees with Ste
 
 ## 9. Scaled up — what §7 now looks like as built
 
-§7's pipeline is implemented. `docs/manual/assets/cad/steps.yml` holds 22 entries covering 18
-manual steps (33 PNGs, 4.1 MB); `scripts/cad_render/render_steps.py` loops over it in place of
-`pilot_steps.sh`, loading the mesh cache once for the whole run (33 images in ~6 min).
-Selections are pinned by leaf id per §3, with the regex that produced them kept alongside and
-re-checkable by `--check-ids`. `MANIFEST.md` is generated from the same file by `--manifest`,
-and reads each chapter to record what image line the step actually carries today.
+§7's pipeline is implemented. `docs/manual/assets/cad/steps.yml` (as of 2026-11-21) holds 19
+`steps:` entries covering 15 manual steps (28 PNGs, 3.3 MB) and 11 `chapters:` entries for the
+end-of-chapter images (10 PNGs, `ch-NN-after.png`; Ch 10 has none of its own).
+`scripts/cad_render/render_steps.py` loops over it in place of `pilot_steps.sh`, loading the mesh
+cache once for the whole run (all 28 step images plus the 10 chapter images in ~8 min). Selections
+are pinned by leaf id per §3, with the regex that produced them kept alongside and re-checkable by
+`--check-ids`. `MANIFEST.md` is generated from the same file by `--manifest`, and reads each
+chapter to record what image line the step actually carries today. Add-on renders live in their
+own yml (`exhaust-14h.yml`, Ch 14 Part H, 6 PNGs), rendered with `--yml` and never with
+`--manifest`, which would overwrite `MANIFEST.md` with that file's entries alone.
+
+Per entry: `modes` (`a`, `b` or both), camera `azim`/`elev`, `frame`, `context_scale`,
+`ghost_exclude`, `title`, `subtitle`; any of them can be given per mode as `key_a` / `key_b`, and
+the file's `defaults:` fill the rest. Where the two views need different leaders or labels, the
+step gets two entries with the same `out`, one per mode (05.18, 05.46, 06.23, 07.30). Per select
+group: `ids` (pinned), `resolve` (the regex they came from), `label`, `offset: 'dx,dy,dz'` (pull a
+part out of the assembly, as 05.46 does), and two layout keys added 2026-11-21:
+
+- `anchor: 'x,y,z'` — CAD world mm, before `offset`. The leader ends on the group's visible pixel
+  nearest that point instead of the pixel nearest the group's pixel median. The median is fine on
+  a compact part; on a long one (a frame rail, a belt loop) it lands on whichever run is most
+  central, not the one the label names. The label goes in the right-hand column when the anchor
+  pixel is right of the image centre. Used by 01.15 (frame corners) and 07.30 (the inner belt run
+  you pluck).
+- `label_y: 0..1` — centre the label box at that fraction of the image height instead of its
+  evenly spaced slot, when the slot sits on a highlighted part. Used by 01.15 and 07.30. Also
+  accepted on a `boxes:` entry.
+
+The hand-written CLI takes the same keys as repeatable flags, one per `--select` in order
+(`''` = none): `render.py --offset`, `--anchor`, `--label-y`.
 
 Coverage came out at the low end of §6's estimate, because the other passes filled many of the
 61 image-less steps with manual pages, parts renders and mirrored LDO images while this ran.
@@ -282,7 +313,8 @@ What was left and CAD-servable was 18 steps. Ruled out and why:
 - **length is the content** — 07.8 (cut the belts): the only number that matters is a length,
   and the CAD's is the 250's. A picture here would be actively misleading.
 - **motion is the content** (§6.2) — 05.4's roll-in test, 07.32/07.33 (tension and re-check),
-  06b.15.
+  06b.15. (05.4 did get a render later, of where the T-nuts end up and how many, not of the
+  rolling.)
 - **no geometry to show** — 01.22, 05.48, 09.35, 09.36, 10.72 (logs and photographs), 11.66
   (whole-enclosure inspection), and every 06b software/heat-soak step.
 - **already illustrated by another pass** — 06b.9/06b.10/06b.11 picked up LDO/Voron images, so
@@ -294,19 +326,38 @@ What was left and CAD-servable was 18 steps. Ruled out and why:
 ---
 
 Files: `scripts/cad_render/{step_extract.py,render.py,find_parts.py,render_steps.py,pilot_steps.sh}`,
-`docs/manual/assets/cad/{steps.yml,MANIFEST.md,SOURCES.txt}` and its 33 PNGs.
-`pilot_steps.sh` is kept as the five-image regression: it and `render_steps.py` produce
-`{02-10,05-18,05-45,05-46,09-26}-{a,b}.png` byte-for-byte identically to each other, which is how
-the manifest entries for those five were checked against the hand-written CLI they replace.
+`docs/manual/assets/cad/{steps.yml,exhaust-14h.yml,MANIFEST.md,SOURCES.txt}` and the PNGs above.
+`pilot_steps.sh` is kept as the CLI regression: the five pilot steps plus 01.15 (which exercises
+`--anchor` / `--label-y`), each block written to match its `steps.yml` entry. It and
+`render_steps.py` produce `{01-15-a,02-10-*,05-18-*,05-45-*,05-46-*,09-26-*}.png` byte-for-byte
+identically (11 PNGs, checked 2026-11-21 after 05.46's labels and the two layout keys changed),
+which is how those manifest entries are checked against the hand-written CLI they replace. When a
+`steps.yml` entry for one of those steps changes, change its block in `pilot_steps.sh` too.
+
+**The committed PNGs must be what `steps.yml` renders.** Same cache + same yml + the `venv-cq`
+below ⇒ byte-identical files; a different Python or matplotlib changes the font and the
+anti-aliasing, so the file differs everywhere although the picture says the same thing (05-04 and
+06b-13 were committed that way on 2026-11-20 and re-rendered on 2026-11-21). After editing an
+entry, render it, view it, and run the full compare below before committing.
 
 Reproduce:
 
 ```bash
 curl -sSLO https://raw.githubusercontent.com/VoronDesign/Voron-2/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip
 unzip -q Voron_2.4r2_Assembly_STEP.zip
-uv venv --python 3.12 venv-cq && uv pip install --python venv-cq/bin/python cadquery numpy pillow matplotlib
+uv venv --python 3.12 venv-cq && uv pip install --python venv-cq/bin/python cadquery numpy pillow matplotlib pyyaml
 venv-cq/bin/python scripts/cad_render/step_extract.py Voron_2.4r2_Assembly.step --out /tmp/voroncache
-CACHE=/tmp/voroncache venv-cq/bin/python scripts/cad_render/render_steps.py             # all 33
-CACHE=/tmp/voroncache venv-cq/bin/python scripts/cad_render/render_steps.py --check-ids # id drift
-venv-cq/bin/python scripts/cad_render/render_steps.py --manifest                        # MANIFEST.md
+export CACHE=/tmp/voroncache
+venv-cq/bin/python scripts/cad_render/render_steps.py                 # all 28 step PNGs
+venv-cq/bin/python scripts/cad_render/render_steps.py 05.46           # one step (ids as in the yml: 05.4, not 05.04)
+venv-cq/bin/python scripts/cad_render/render_steps.py --chapters      # the 10 ch-NN-after.png
+venv-cq/bin/python scripts/cad_render/render_steps.py --yml docs/manual/assets/cad/exhaust-14h.yml   # add-on
+venv-cq/bin/python scripts/cad_render/render_steps.py --check-ids     # id drift
+venv-cq/bin/python scripts/cad_render/render_steps.py --manifest      # MANIFEST.md (steps.yml only)
+# drift check: render into scratch and compare with the committed files
+venv-cq/bin/python scripts/cad_render/render_steps.py --out /tmp/cadcheck
+venv-cq/bin/python scripts/cad_render/render_steps.py --chapters --out /tmp/cadcheck
+for f in /tmp/cadcheck/*.png; do cmp -s "$f" docs/manual/assets/cad/"${f##*/}" || echo "differs: ${f##*/}"; done
+PY=venv-cq/bin/python OUT=/tmp/pilotcheck bash scripts/cad_render/pilot_steps.sh   # CLI regression
+for f in /tmp/pilotcheck/*.png; do cmp -s "$f" docs/manual/assets/cad/"${f##*/}" || echo "differs: ${f##*/}"; done
 ```

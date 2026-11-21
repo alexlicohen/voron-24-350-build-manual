@@ -17,7 +17,7 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 **Prerequisites:**
 
-- **Ch 10 (Electronics bay wiring)** is done, with **LDO Checkpoint #1 passed** (multimeter, unplugged) and the PSU powered on once at Step 10.23. The cord has been out since then. It goes back in at **Step 12.11**, the first time the Leviathan, the Pi and the toolboard get power, with the same hand-on-the-switch drill as 10.23. Both MCUs must be powered and connected to the Pi over USB before Steps 12.11 onward.
+- **Ch 10 (Electronics bay wiring)** is done, with **Checkpoint 10 passed**: LDO's Checkpoint #1, the SSR and bed re-check and the dead meter sweep (multimeter, unplugged), and the PSU powered on once at Step 10.23. The cord has been out since then. It goes back in at **Step 12.11**, the first time the Leviathan, the Pi and the toolboard get power, with the same hand-on-the-switch drill as 10.23. Both MCUs must be powered and connected to the Pi over USB before Steps 12.11 onward.
 - **Part 1** (Steps 12.1–12.10, then the `printer.cfg` edits 12.21–12.22 and 12.24–12.36) has **no hardware prerequisite** and can be done on the bench on day one: power the Pi from its own USB-C supply instead of the Leviathan's Pi power rail (survey §5.1, P12: "the whole flash+install can be bench-done on day one"). None of those edits needs a board, because they change a text file. Steps 12.2–12.3 need only the laptop and the bought card, so they run before the kit.
 - **Ch 11 Part A comes after this chapter's Part 2**, not before: the bay stays open through Part 2, Steps 12.11–12.20, 12.23 and 12.37 (index rows 24–26). The touchscreen module is already built and its DSI ribbon latched at both ends (Ch 10 Step 10.50), so 12.11 is the first time you see the panel light.
 - **Printed parts: none.** No print batch gates this chapter.
@@ -156,7 +156,7 @@ Pause: ~15 min since the last pause (pre-kit) — the bought microSD carries Mai
 
 The build index runs Part 1 on kit day, before Ch 09 mounts the Pi. If yours is already on the Leviathan, unscrew it from its standoffs and lift off the HAT power adapter for Part 1, then refit both as at 09.22–09.23 before 12.11.
 
-⚠ **Rev D+ / LDO:** the Leviathan feeds the Pi from its own dedicated Pi power rail, so on the assembled machine "power the Pi" means "switch on the printer". That first happens at Step 12.11, after Checkpoint #1. Part 1 never powers the printer: it is bench work on the Pi alone (survey §4.4 #8). [src](https://github.com/MotorDynamicsLab/Leviathan)
+⚠ **Rev D+ / LDO:** the Leviathan feeds the Pi from its own dedicated Pi power rail, so on the assembled machine "power the Pi" means "switch on the printer". That first happens at Step 12.11, after Checkpoint 10. Part 1 never powers the printer: it is bench work on the Pi alone (survey §4.4 #8). [src](https://github.com/MotorDynamicsLab/Leviathan)
 
 Source: [MainsailOS install docs](https://docs.mainsail.xyz/mainsailos/getting-started/raspberry-pi/) · [LDO Leviathan repo](https://github.com/MotorDynamicsLab/Leviathan) · [Raspberry Pi docs image `4-model-b.jpg`](https://github.com/raspberrypi/documentation/blob/34dfb87/documentation/asciidoc/computers/raspberry-pi/images/4-model-b.jpg) (CC-BY-SA-4.0)
 
@@ -1102,7 +1102,7 @@ Pause: ~15 min since the last pause — Part 1 is done: `printer-350.cfg` is com
 
 **Do:**
 
-1. **Go on only if Checkpoint #1 passed.** Clear the bay and chamber of tools.
+1. **Go on only if [Checkpoint 10](10-wiring.md#checkpoint-10) passed.** Clear the bay and chamber of tools.
 2. With the machine dead on its right side, bay toward you, rocker off and one adult present, plug the cord into the inlet, then the wall.
 3. Stand to the side, hand on the rocker, switch on, and keep it there ten seconds, watching the table. Then, over SSH:
 
@@ -1140,7 +1140,7 @@ grep -H . /sys/class/drm/card*-*/status | grep :connected
 
 The text after the USB ID reads `Klipper 3d-Printer Firmware` or an MCU name such as `stm32f446xx`, depending on the Pi's USB ID list, so match on `1d50:614e`. The V2 toolboard adds a **USB hub and a second USB port** the V1 lacks, so expect one more device than any Rev D photo shows ([src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)): the Nitehawk's onboard hub is a separate hub device, normal on the V2, and it is the "+" feature. Klipper has **no config yet**, so no heater or motor can be commanded by software: anything warming up now is a wiring fault, not a setting. A Leviathan listed as `1d50:6177`, Katapult, instead of `1d50:614e` is lit and wired but carries no Klipper. That is a firmware state, not a Ch 10 fault, so carry on: 12.14's test sends it to the flash.
 
-⚠ **Live, bay open: eyes only, [00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives).** The machine stays on, on its side, through Checkpoint 12. No hand, tool or probe in the bay, and no moving it. Two exceptions, recovery only: SW1 and SW2 at [12.15](#step-1215-flash-the-leviathan-through-katapult) and [12.16](#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu), RESET and BOOT0 at [12.19](#step-1219-fallback-flash-the-nitehawk-through-katapult). Anything else: rocker off, unplug, 0 V held ten seconds, as at [10.73](10-wiring.md#step-1073-confirm-dead).
+⚠ **Live, bay open: eyes only, [00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives).** It stays on, on its side, through Checkpoint 12 or a Pause's shutdown. No hand, tool or probe in the bay, and no moving it. Two exceptions, recovery only: SW1 and SW2 at [12.15](#step-1215-flash-the-leviathan-through-katapult) and [12.16](#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu), RESET and BOOT0 at [12.19](#step-1219-fallback-flash-the-nitehawk-through-katapult). Anything else: rocker off, unplug, 0 V held ten seconds, as at [10.73](10-wiring.md#step-1073-confirm-dead).
 
 ⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult, standing to the side, hand on the switch; nobody else within reach. Your helper is out of the room from here through Checkpoint 12, and until [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead) has proved the machine dead.
 
@@ -1204,7 +1204,7 @@ Do not settle this from paperwork. The Rev D wiring guide and the kit config hea
 
 Source: [LDO Leviathan repo](https://github.com/MotorDynamicsLab/Leviathan) · [LDO Leviathan V1.2 guide](https://ldomotion.com/p/guide/VORON-Leviathan-V12) · [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3)
 
-Pause: ~15 min since the last pause — the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's processor marking. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting.
+Pause: ~15 min since the last pause — the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's processor marking. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting. To stop here, never leave the bay live: Mainsail **Shutdown**, rocker off, unplug wall then inlet, cord out of the room and 0 V held ten seconds, as at 11.67; resume with 12.11's hand-on-the-switch power-on.
 
 ---
 
@@ -1359,7 +1359,7 @@ The chip stays in DFU after the write. LDO starts Katapult with one press of SW1
 
 Source: [LDO Leviathan V1.3 guide § Katapult Bootloader, DFU](https://ldomotion.com/guides/voron-leviathan-v1-3) · [LDO Leviathan V1.2 guide](https://ldomotion.com/p/guide/VORON-Leviathan-V12) · [Katapult README § Uploading Klipper: Katapult enters the bootloader when the application area is empty](https://github.com/Arksine/katapult/blob/3b973a4/README.md#uploading-klipper)
 
-Pause: ~20 min since the last pause — the Leviathan passed the factory-firmware test or is running your own Klipper build, and still shows up by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on. That is one `make`, but do it before touching the toolboard.
+Pause: ~20 min since the last pause — the Leviathan passed the factory-firmware test or is running your own Klipper build, and still shows up by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on. That is one `make`, but do it before touching the toolboard. To stop here, never leave the bay live: Mainsail **Shutdown**, rocker off, unplug wall then inlet, cord out of the room and 0 V held ten seconds, as at 11.67; resume with 12.11's hand-on-the-switch power-on.
 
 ---
 
@@ -1588,7 +1588,7 @@ If you get *MCU Protocol error* ending *"mcu 'nhk': Command format mismatch"*, t
 
 Source: [Klipper docs § Config checks](https://www.klipper3d.org/Config_checks.html) · [Klipper `error_mcu.py`, the `MCU Protocol error` text](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/error_mcu.py#L96-L122) · [Mainsail FAQ — command format mismatch](https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/)
 
-Pause: ~30 min since the last pause — both boards flashed and re-read, your bench `printer-350.cfg` is now `printer.cfg` with both serial paths pasted in, and the config compiles with no error and no warning. Ready for Checkpoint 12, then 11.67 shuts the machine down.
+Pause: ~30 min since the last pause — both boards flashed and re-read, your bench `printer-350.cfg` is now `printer.cfg` with both serial paths pasted in, and the config compiles with no error and no warning. Ready for Checkpoint 12, then 11.67 shuts the machine down. To stop before Checkpoint 12, never leave the bay live: shut down as at 11.67 now, Pi first, and resume with 12.11's hand-on-the-switch power-on.
 
 ---
 

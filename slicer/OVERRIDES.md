@@ -163,3 +163,32 @@ Kept at the preset value: nozzle 230 C, bed 85/90 C, chamber 35 C, fan 30-60 %,
 `filament_max_volumetric_speed` 16, `extrusion_multiplier` 1.04, seam aligned, no skirt,
 no brim. Colour `#1A1A1A` (Jet Black) and the notes line are labels only.
 
+## PETG frame bundle (B12-P1)
+
+`slicer/voron-petg-black.ini` prints plate B12-P1, the side spool frame ([`docs/manual/print/B12-side-spool-and-camera.md`](../docs/manual/print/B12-side-spool-and-camera.md)), in ordinary Prusament PETG Jet Black (Alex 2026-11-21: it warps less than ASA on a 212 mm part, the frame hangs outside the enclosure, and it
+takes the frame off the black ASA). It is the bay-duct bundle above on the ordinary PETG preset
+`Prusament PETG @COREONE HF0.4` (the preset Alex's storage PETG prints ran on), with the ASA plates' walls,
+shells and infill, because the frame carries a 1 kg spool. Every key that differs from
+`slicer/bay-ducts-petg.ini`:
+
+| ini key | bay-ducts-petg.ini | voron-petg-black.ini | Why |
+|---|---|---|---|
+| `bed_temperature` | `90` | `85` | `Prusament PETG @COREONE HF0.4`'s own value: ordinary PETG, not PETG V0 |
+| `bottom_solid_layers` | `4` | `5` | 5 bottom layers, as the ASA plates (Voron spec) |
+| `extrusion_multiplier` | `1.04` | `1` | `Prusament PETG @COREONE HF0.4`'s own value: ordinary PETG, not PETG V0 |
+| `filament_cost` | `54.99` | `29.99` | `Prusament PETG @COREONE HF0.4`'s own value: ordinary PETG, not PETG V0 |
+| `filament_max_volumetric_speed` | `16` | `24` | `Prusament PETG @COREONE HF0.4`'s own value: ordinary PETG, not PETG V0 |
+| `filament_notes` | `Prusament PETG V0 Jet Black - B11 bay ducting only. Textu...` | `Prusament PETG Jet Black (ordinary PETG, not B11's PETG V...` | label only |
+| `filament_settings_id` | `Prusament PETG V0 @COREONE HF0.4 - Voron bay ducts` | `Prusament PETG @COREONE HF0.4 - Voron side spool frame` | label: names the ordinary PETG preset |
+| `fill_density` | `20%` | `40%` | 40 % infill, as the ASA plates (Voron spec) |
+| `fill_pattern` | `grid` | `gyroid` | gyroid, the build's default (Alex 2026-10-31), as the ASA plates. B11's grid answered infill curl in the 2026-09-22 PETG V0 sweep; ordinary Prusament PETG has printed gyroid cleanly since (storage prints, 25 %) |
+| `first_layer_temperature` | `230` | `255` | `Prusament PETG @COREONE HF0.4`'s own value: ordinary PETG, not PETG V0 |
+| `perimeters` | `3` | `4` | 4 walls, as the ASA plates (Voron spec): the frame carries a 1 kg spool |
+| `temperature` | `230` | `255` | `Prusament PETG @COREONE HF0.4`'s own value: ordinary PETG, not PETG V0 |
+| `top_solid_layers` | `4` | `5` | 5 top layers, as the ASA plates (the print preset's value) |
+
+Kept from the bay-duct bundle: the print preset's speeds and 0.45 mm widths, aligned seam,
+no supports, no skirt, no brim (`plates.brim_for` gives PETG none), the cold-probe start with
+no `z_offset` and no first-layer flow line, and the AFS flap lines. The plate's own part-fan
+setting (`plates.PLATE_CONFIG`, minimum fan 0 %) is written into its 3MF on top.
+

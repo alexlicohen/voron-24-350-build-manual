@@ -486,6 +486,14 @@ def main():
                          "Voron CAD does not model (LDO/mod parts)")
     ap.add_argument("--offset", action="append", default=[],
                     help="'dx,dy,dz' per --select, in order; shifts that selection")
+    ap.add_argument("--anchor", action="append", default=[],
+                    help="'x,y,z' per --select, in order ('' = none): end that "
+                         "group's leader on its visible pixel nearest this CAD "
+                         "point (before --offset); steps.yml `anchor:`")
+    ap.add_argument("--label-y", action="append", default=[],
+                    help="0..1 per --select, in order ('' = none): centre that "
+                         "group's label at this fraction of the image height "
+                         "instead of its evenly spaced slot; steps.yml `label_y:`")
     ap.add_argument("--azim", type=float, default=-55.0)
     ap.add_argument("--elev", type=float, default=26.0)
     ap.add_argument("--width", type=int, default=1200)
@@ -529,12 +537,31 @@ def main():
         sel.append((lbl, pids))
         print(f"  {lbl}: {len(pids)} schematic box(es)", flush=True)
 
+    # Same rules as render_steps.build_selection: one value per --select in
+    # order, an anchor moves with its group's --offset, boxes get neither.
+    def per_select(vals, k):
+        return vals[k].strip() if k < len(args.select) and k < len(vals) else ""
+    anchors, label_ys = [], []
+    for k in range(len(sel)):
+        a = per_select(args.anchor, k)
+        if a:
+            p = [float(x) for x in a.split(",")]
+            off = per_select(args.offset, k)
+            if off:
+                p = [p[j] + float(x) for j, x in enumerate(off.split(","))]
+            anchors.append(p)
+        else:
+            anchors.append(None)
+        ly = per_select(args.label_y, k)
+        label_ys.append(float(ly) if ly else None)
+
     for mode, sub in (("a", args.subtitle_a), ("b", args.subtitle_b)):
         if args.only and args.only != mode:
             continue
         render(scene, sel, f"{args.out}-{mode}.png", mode, args.azim, args.elev,
                args.width, args.height, args.ss, args.context_scale,
                title=args.title, subtitle=sub, note=args.note, shift=shift,
+               anchors=anchors, label_ys=label_ys,
                ghost_exclude=(re.compile(args.ghost_exclude, re.I)
                               if args.ghost_exclude else None),
                frame=(np.array([float(x) for x in args.frame_a.split(",")])

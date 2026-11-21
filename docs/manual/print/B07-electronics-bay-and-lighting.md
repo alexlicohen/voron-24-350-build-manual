@@ -7,7 +7,7 @@ caption: The bay parts. Nothing here holds a bearing, so Gate A is enough. A rar
 
 **Time:** 15.3 h (3 plates) — PrusaSlicer 2.9.7 estimates.
 
-**Sessions:** 3 plate starts (~5 min hands-on each, 5.7 / 5.0 / 4.5 h unattended) + ~25 min inspect and bin.
+**Sessions:** 3 plate starts (~5 min hands-on each, 5.7 / 5.1 / 4.5 h unattended) + ~25 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5). Nothing here has a bearing seat or rail fit. It does not
 depend on B01–B06 (the electronics bay is independent of the mechanical gantry); the inlet panel's inserts go

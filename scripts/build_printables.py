@@ -78,7 +78,7 @@ import mascot  # noqa: E402  (hooks/mascot.py — the raven's markup and asset p
 
 sys.path.insert(0, str(REPO / "slicer"))
 import bins  # noqa: E402  (slicer/bins.py — the bin scheme)
-from plates import PLATES, run_of  # noqa: E402  (slicer/plates.py — what is on each plate)
+from plates import PETG_COLOURS, PLATES, run_of  # noqa: E402  (slicer/plates.py — what is on each plate)
 from check_docs import r0, r1  # noqa: E402  (same additive-rounding convention as the chapters)
 DOCS = REPO / "docs"
 MANUAL = DOCS / "manual"
@@ -865,10 +865,14 @@ def build_plate_plans_markdown():
     _check_batch_print_order(plates_by_batch, batches)
 
     asa = {pid: e for pid, e in estimates.items() if run_of(pid) == "asa"}
-    bay = {pid: e for pid, e in estimates.items() if run_of(pid) != "asa"}
+    bay = {pid: e for pid, e in estimates.items() if run_of(pid) == "bay"}
+    petg = {pid: e for pid, e in estimates.items() if run_of(pid) == "petg"}
     total_hours = sum(h for _c, _n, h, _g in asa.values())
     grams_black = sum(g for c, _n, _h, g in asa.values() if c == "black")
     grams_accent = sum(g for c, _n, _h, g in asa.values() if c == "blue")
+    petg_note = "".join(
+        f"{pid} ({h:.1f} h, {g:.0f} g Jet Black PETG) prints with its batch, outside the run's totals. "
+        for pid, (_c, _n, h, g) in petg.items())
 
     lines = [
         "# Plate plans",
@@ -882,6 +886,7 @@ def build_plate_plans_markdown():
         f"{' → '.join(b for b in _BATCH_PRINT_ORDER if b != 'B11')}), then B11, the bay ducting: "
         f"**{len(bay)} plates**, **{sum(h for _c, _n, h, _g in bay.values()):.1f} h**, "
         f"**{sum(g for _c, _n, _h, g in bay.values()):.0f} g Jet Black PETG V0**, outside the run's totals. "
+        f"{petg_note}"
         "Every diagram is drawn from the committed PrusaSlicer "
         "project `slicer/plates/<id>.3mf` (`python3 slicer/build_plates.py --from-3mf`). "
         "For paper at the bench: [plate sort sheets](plate-sort-sheets.md).",
@@ -950,13 +955,13 @@ def build_plate_review_markdown():
         lines.append("")
         for pid in pids:
             colour, _parts, hours, grams = estimates[pid]
-            asa = run_of(pid) == "asa"
-            material = "ASA" if asa else "PETG V0"
+            asa = colour not in PETG_COLOURS
+            material = "ASA" if asa else ("PETG V0" if colour == "petg" else "PETG")
             # sheet follows the material (00-slicer-setup § Print sheet): ASA satin, no glue
             sheet = "satin sheet, no glue" if asa else "textured sheet"
-            # `colour` is "petg" for every B11 plate (slicer/plates.py's colour key doubles
-            # as its ini/profile selector there) — the actual filament is Jet Black PETG V0.
-            shown_colour = "black" if colour == "petg" else colour
+            # `colour` is "petg" for every B11 plate and "petgblack" for B12-P1 (slicer/plates.py's
+            # colour key doubles as its ini selector) — both filaments are Jet Black.
+            shown_colour = "black" if not asa else colour
             lines.append(
                 f"- [ ] {pid} — {material}, {sheet}, {shown_colour} · "
                 f"{hours:.1f} h · {grams:.0f} g"
@@ -1037,7 +1042,11 @@ _LEDGER_ROW_RE = re.compile(
     r"^\|\s*(B\d\d-P\d)\s*\|\s*(\d+)\s*\|[^|]*\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*$",
     re.MULTILINE,
 )
-_SPOOL_HEAD_RE = re.compile(r"[#AV]\d+")   # #1-#3 black, A1 accent, V1 B11's PETG V0
+_SPOOL_HEAD_RE = re.compile(r"[#AVJ]\d+")   # #1-#3 black, A1 accent, V1 B11's PETG V0, J1 B12-P1's PETG
+# README sections that hold the schedule and ledger rows of the plates outside the ASA run,
+# by plates.py run key. One section may hold both tables (the row patterns cannot collide).
+_OUTSIDE_SECTIONS = {"bay": ("B11 run schedule", "B11 spool ledger"),
+                     "petg": ("B12-P1 — side spool frame (PETG)",) * 2}
 # A batch chapter's gate is the bold one its **Prerequisites:** line names ("**Gate B passed**",
 # "**Gate A**"); B11 names neither. The plate board shows it on the batch's first plate.
 _PREREQ_RE = re.compile(r"^\*\*Prerequisites:\*\*(.*)$", re.MULTILINE)
@@ -1104,9 +1113,9 @@ def build_plate_board_json():
     text = README.read_text(encoding="utf-8")
 
     run = {}
-    schedules = ["Run schedule"] + (["B11 run schedule"] if any(
-        run_of(p) != "asa" for p in estimates) else [])
-    ledgers = ["Spool ledger"] + (["B11 spool ledger"] if len(schedules) > 1 else [])
+    outside = [k for k in _OUTSIDE_SECTIONS if any(run_of(p) == k for p in estimates)]
+    schedules = ["Run schedule"] + [_OUTSIDE_SECTIONS[k][0] for k in outside]
+    ledgers = ["Spool ledger"] + [_OUTSIDE_SECTIONS[k][1] for k in outside]
     for m in (m for sec in schedules for m in _RUN_ROW_RE.finditer(_readme_section(text, sec))):
         order, pid, hours, colour, slot, spool = m.groups()
         run[pid] = {"order": int(order), "hours": float(hours), "colour": colour,
@@ -1193,8 +1202,11 @@ def build_plate_board_json():
         if p["batch"] not in r["batches"]:
             r["batches"].append(p["batch"])
     for r in runs:
+        ids = [p["id"] for p in plates if p["run"] == r["run"]]
+        whole = all(run_of(pid) == r["run"] for pid in PLATES if pid[:3] in r["batches"])
         r["label"] = (f"{r['plates']}-plate run" if r["run"] == "asa"
-                      else " + ".join(r["batches"]))
+                      else " + ".join(r["batches"]) if whole
+                      else " + ".join(ids) + " (PETG)")   # part of a batch: B12-P1
         del r["batches"]
 
     return {
@@ -1214,7 +1226,8 @@ def build_plate_board_json():
 
 # ---------------------------------------------------------------- plate sort sheets
 _SORT_MATERIAL = {"black": "Galaxy Black ASA, satin sheet", "blue": "ASA Blue, satin sheet",
-                  "petg": "Jet Black PETG V0, textured sheet"}
+                  "petg": "Jet Black PETG V0, textured sheet",
+                  "petgblack": "Jet Black PETG, textured sheet"}
 _SORT_CROP = 6            # px of diagram kept around the bed box
 _COPIES_RE = re.compile(r"_x\d+$")
 _SORT_DENSE_ABOVE = 18    # bin headings + part rows on one plate; above it the paper list shrinks

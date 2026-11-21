@@ -381,6 +381,7 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | Torque screwdriver 0.5–3 N·m | **Buy — optional.** No Voron or LDO source publishes a torque figure for any fastener in this build; this manual never invents one. Buy it for repeatability across the 283 M3×8, not to hit a spec | Ch 01 |
 | T10 Torx driver | **Buy** | Ch 05 (titanium backer FHCS cam out easily in countersinks) |
 | Multimeter | **Buy if not owned** | Ch 00a (bought and proved before the kit), then Ch 08; mandatory at Ch 10 Checkpoint #1 |
+| Infrared (non-contact) thermometer | **Buy if not owned** — one bench reading of the SSR bracket after the first closed soak, no pass/fail | Ch 14 (14.6) |
 | Ferrule crimp tool, square, for VE0508 | **Optional** — the kit leads ship terminated (fork lugs at the PSU and SSR), so buy it only if the hotend heater lead has to be re-terminated | Ch 08, only on a re-terminated heater lead |
 | Rubber or nylon mallet | **Buy if not owned** | Ch 01 (nudging the frame square) |
 | Steel tape measure ≥ 2.2 m | **Buy if not owned** — the 600 mm straightedge is too short for the frame diagonals and the 2000 mm belt cut | Ch 01 (diagonals), Ch 07 (07.8) |

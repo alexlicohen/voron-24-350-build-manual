@@ -1,6 +1,6 @@
 # Print batches — overview
 
-33 plates, **176.0 h**, **2017 g Galaxy Black + 445 g ASA Blue**. Every hour and gram on this page is a
+32 plates, **169.1 h**, **1912 g Galaxy Black + 445 g ASA Blue**. Every hour and gram on this page is a
 **PrusaSlicer 2.9.7 estimate**, sliced from the committed project for that plate (`slicer/plates/*.3mf`) —
 not a throughput model. Method and what these figures replaced:
 [print plan §4.1](../../voron-print-plan.md#41-how-these-numbers-were-produced). Per-plate detail with the
@@ -11,17 +11,19 @@ sums of the rounded plate figures, so they can differ from that file's TOTAL row
 **B11**, the PETG V0 bay ducting, is a separate batch outside this run: 7 plates, 25.1 h, 349 g of Jet Black
 PETG V0 on its own spool, cut into the order after B07 (P1–P3, P6) and after the kit-day bay measurements (P4, P5, P7).
 None of its numbers are in the run's totals; it has its own table, run schedule
-and ledger [at the end of this page](#b11-bay-ducting-petg-v0).
+and ledger [at the end of this page](#b11-bay-ducting-petg-v0). **B12-P1**, the side spool frame, is outside the
+run too: it prints in its batch's place but in Prusament PETG Jet Black, 6.7 h and 127 g from its own spool
+([below](#b12-p1-side-spool-frame-petg)).
 
 ```mascot
 pose: print
-caption: Thirty-three plates, start to finish. The printer works while the kit is still in transit.
+caption: Thirty-two plates, start to finish. The printer works while the kit is still in transit.
 ```
 
 **Print order.** The Voron kit is expected in **early November 2026**, before the run has finished, so printing overlaps the build.
 Print in numeric batch order: pre-B00 checks on the current Gen 1 belts, then **B00 → B01 → B02 → … → B10 → B12 → B13**
 (one exception: B02-P5, the Clockwork 2.5 catch-up plate, prints just before B06-P1)
-— 176.0 h, with B11's PETG V0 plates cut in ([B11 run schedule](#b11-run-schedule)). Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
+— 169.1 h, with B11's PETG V0 plates and B12-P1's PETG frame cut in ([B11 run schedule](#b11-run-schedule), [B12-P1](#b12-p1-side-spool-frame-petg)). Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
 (the "feeds" column below; numeric order is consumption order). **Gate A** (the cube, Step B00.5) releases the batches with no press fit;
 **Gate B** (Step B00.7) releases the bearing-seat and bore batches and now runs *early*: the inserts come
 from the KADRICK kit already on the bench and the bores are calipered against their STL nominals. Only the
@@ -37,17 +39,17 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | [B02](B02-accent-parts-orange.md) | 5 | 24.9 | 0 | 327 | accent for Ch 02, 04, 05, 06, 07, 08, 10, 11; `Handle` for B10 | Gate A |
 | [B03](B03-ab-drive-units-and-front-idlers.md) | 2 | 8.6 | 120 | 0 | Ch 04 A/B Drives and Idlers | Gate B |
 | [B04](B04-xy-joints-and-x-carriage.md) | 1 | 8.8 | 117 | 0 | Ch 05 Gantry | Gate B |
-| [B05](B05-z-joints-and-z-chain.md) | 1 | 6.2 | 78 | 0 | Ch 06 Z joints; Ch 10 (chain anchor, guide) | Gate B |
+| [B05](B05-z-joints-and-z-chain.md) | 1 | 6.2 | 78 | 0 | Ch 06 Z joints; Ch 10 (chain anchor, guide); Ch 02 (optional rail stops) | Gate B |
 | [B06](B06-toolhead-sb-cw2-klicky.md) | 2 | 11.7 | 146 | 0 | Ch 08 Stealthburner (Klicky set bagged, Ch 08.54) | Gate B |
-| [B07](B07-electronics-bay-and-lighting.md) | 3 | 15.3 | 225 | 0 | Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
-| [B08](B08-skirts-and-front-modules.md) | 5 | 26.5 | 397 | 0 | Ch 11 Part A Skirts | Gate A — on Gen 1 GT2 belts, like every other plate in the run |
+| [B07](B07-electronics-bay-and-lighting.md) | 3 | 15.3 | 225 | 0 | Ch 08 (USB adapter cover, 08.64); Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
+| [B08](B08-skirts-and-front-modules.md) | 5 | 26.5 | 397 | 0 | Ch 10 (TFT `mount`, 10.35 and 10.50); Ch 11 Part A Skirts | Gate A — on Gen 1 GT2 belts, like every other plate in the run |
 | [B09](B09-panels-filtration-spool.md) | 5 | 20.8 | 300 | 0 | Ch 11 Panels, Nevermore, spool | Gate A (after B08) |
 | [B10](B10-clicky-clack-door.md) | 1 | 5.7 | 75 | 0 | Ch 11 Clicky-Clack door | Gate A (after B09) |
-| [B12](B12-side-spool-and-camera.md) | 3 | 14.4 | 133 | 83 | Ch 11 Part C side spool holder and camera | Gate A (after B10) |
+| [B12](B12-side-spool-and-camera.md) | 2 | 7.5 | 28 | 83 | Ch 11 Part C side spool holder and camera; B12-P1, the frame, prints in PETG ([below](#b12-p1-side-spool-frame-petg)) | Gate A (after B10) |
 | [B13](B13-exhaust-housing.md) | 2 | 6.4 | 66 | 35 | Ch 14 Part H exhaust housing, if Step 14.25 passes | Gate A (after B12) |
-| **TOTAL** | **33** | **176.0** | **2017** | **445** | | |
+| **TOTAL** | **32** | **169.1** | **1912** | **445** | | |
 
-All 33 diagrams on one page: [Plate plans](../../print/plate-plans.md). Paper copy for sorting at the bench: [Plate sort sheets](../../print/plate-sort-sheets.md).
+Every plate's diagram on one page: [Plate plans](../../print/plate-plans.md). Paper copy for sorting at the bench: [Plate sort sheets](../../print/plate-sort-sheets.md).
 
 **Filament margin:** Black 2017 g needed / 2400 g on hand → **383 g margin (19 %)**. Blue 445 g needed /
 800 g on hand → **355 g margin (80 %)**. The optional scrubber add-on draws about 38 g black on this margin. Setup and the full override table:
@@ -55,11 +57,12 @@ All 33 diagrams on one page: [Plate plans](../../print/plate-plans.md). Paper co
 
 ## Run schedule
 
-All 33 plates in run order, at about two swaps a day: a plate of **7 h or more** starts in the evening and
+All 32 plates of the run in order, at about two swaps a day: a plate of **7 h or more** starts in the evening and
 runs overnight; anything shorter is a day plate, so two of them fit between breakfast and bedtime. The
 longest plate in the build, B01-P1 at 14.6 h, is the exception — start it in the morning so its first layer
 is watched, and let it run into the night. Spool column is the [ledger](#spool-ledger). B11-P1 to P3 and P6 print
-between #17 and #18 ([B11 run schedule](#b11-run-schedule)).
+between #17 and #18 ([B11 run schedule](#b11-run-schedule)); B12-P1, in PETG, between #28 and #29
+([B12-P1](#b12-p1-side-spool-frame-petg)).
 
 | # | plate | hours | colour | slot | spool |
 |---:|---|---:|---|---|---|
@@ -91,13 +94,12 @@ between #17 and #18 ([B11 run schedule](#b11-run-schedule)).
 | 26 | B09-P4 | 3.3 | black | day | #3 |
 | 27 | B09-P5 | 4.0 | black | day | #3 |
 | 28 | B10-P1 | 5.7 | black | day | #3 |
-| 29 | B12-P1 | 6.9 | black | day | #3 |
-| 30 | B12-P2 | 1.8 | black | day | #3 |
-| 31 | B12-P3 | 5.7 | blue | day | A1 |
-| 32 | B13-P1 | 4.5 | black | day | #3 |
-| 33 | B13-P2 | 1.9 | blue | day | A1 |
+| 29 | B12-P2 | 1.8 | black | day | #3 |
+| 30 | B12-P3 | 5.7 | blue | day | A1 |
+| 31 | B13-P1 | 4.5 | black | day | #3 |
+| 32 | B13-P2 | 1.9 | blue | day | A1 |
 
-Six overnight plates and twenty-seven day plates, 176.0 h in all: about 19 printer-days, close to three weeks
+Six overnight plates and twenty-six day plates, 169.1 h in all: about 19 printer-days, close to three weeks
 at two swaps a day. If Gate B's bore row is signed off after the morning swap, start B01-P2 (8.3 h) that
 evening and B01-P1 the next morning: B01-P1 then starts with ~640 g on spool #1, well over its 200 g rule.
 
@@ -143,7 +145,7 @@ and trims to fit inside an A5 bag, so a bag label reads through the mesh and a b
 
 | bin | label | chapter · steps | bag | parts (qty) | from batches |
 |---|---|---|---|---|---|
-| **00-jigs** | Jigs and coupons | Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 02.27, 04.24, 04.33; cube at 14.11) | A5 | `Voron_Design_Cube_v7`, `Heatset_Practice`, `MGN12_rail_guide` ×2, `MGN9_rail_guide` ×2, `pulley_jig` | B00 |
+| **00-jigs** | Jigs and coupons | Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.13, 05.33; pulley jig at 02.27, 04.24, 04.33; cube at 14.10–14.11) | A5 | `Voron_Design_Cube_v7`, `Heatset_Practice`, `MGN12_rail_guide` ×2, `MGN9_rail_guide` ×2, `pulley_jig` | B00 |
 | **02-Z0** | Z0 corner (front-left, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | A5 | `z_drive_retainer_a`, `z_drive_main_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B00, B01, B02, B05 |
 | **02-Z1** | Z1 corner (rear-left, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | A5 | `z_drive_main_b`, `z_drive_retainer_b`, `z_motor_mount_b`, `z_tensioner_bracket_b`, `[a]_z_drive_baseplate_b`, `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B01, B02, B05 |
 | **02-Z2** | Z2 corner (rear-right, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | A5 | `z_drive_main_a`, `z_drive_retainer_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B01, B02, B05 |
@@ -154,7 +156,7 @@ and trims to fit inside an A5 bag, so a bag label reads through the mesh and a b
 | **05-XY** | XY joints, endstop pod, upper Z belt clips | Ch 05 · 05.3–05.38 (upper Z belt clips 05.19–05.23; endstop pod 05.49) | B5 | `[a]_endstop_pod_D2F_switch`, `[a]_xy_joint_cable_bridge_2hole`, `XY_cable_chain_bridge-Igus-3mm_backer`, `[a]_z_belt_clip_upper` ×4, `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`, `xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12` | B02, B04 |
 | **06-Z-joints** | Z joints and lower Z belt clips | Ch 06 · 06.3–06.9 | A5 | `[a]_z_belt_clip_lower` ×4, `z_joint_lower` ×4, `z_joint_upper` ×4 | B02, B05 |
 | **07-X** | X carriage halves, probe bracket, cable cover | Ch 07 · 07.6–07.39 (staged at 05.45; probe 07.35; cover dry-fit 07.39, fitted 10.66) | A5 | `[a]_cable_cover`, `x_frame_V2TR_MGN12_left`, `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket` | B02, B04 |
-| **08-SB** | Stealthburner body, printhead, LEDs | Ch 08 · 08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62) | B5 | `[a]_stealthburner_main_body`, `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` | B02, B06 |
+| **08-SB** | Stealthburner body, printhead, LEDs | Ch 08 · 08.2–08.62 (printhead 08.7, 08.28–08.30, LEDs 08.35–08.37, body 08.62) | B5 | `[a]_stealthburner_main_body`, `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` | B02, B06 |
 | **08-CW2** | Clockwork 2.5 extruder, toolboard + USB covers | Ch 08 · 08.3–08.20 (toolboard cover 08.62, USB adapter cover 08.64) | A5 | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle`, `main_body_collet`, `motor_plate`, `cable_cover`, `usb_adapter_mount_partial_cover` | B02, B06, B07 |
 | **08-superseded** | Superseded Clockwork 2 parts: pulled out, not fitted | — · not fitted (replaced by B02-P5; pull-out in B02.12) | A5 | `[a]_stealthburner_main_body`, `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch` (the B02-P1, P2 and P4 copies) | B02 |
 | **09-bay** | Electronics bay: inlet, WAGO, PSU, DIN clips | Ch 09 · 09.7–09.16 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16) | A5 | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm` | B07 |
@@ -162,7 +164,7 @@ and trims to fit inside an A5 bag, so a bag label reads through the mesh and a b
 | **09-ducts-AC** | AC conduit, B11 | Ch 09 · 09.36 (dry-laid at B11.10) | A5 | `V3L_WIRE_BOX_PORT`, `V3L_90DEG_R15` ×2, `CMD_V3_1H_T_SHORT`, `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2, `V3L_10mm_DUCT` ×2, `V3L_34mm_DUCT_HOLE` | B11 |
 | **10-chains** | Z cable chain anchor, guide, retainer | Ch 10 · 10.35, 10.62–10.64 (bagged with the chain at 06.26; inserts 10.35) | A5 | `[a]_z_chain_retainer_bracket` ×2, `z_chain_bottom_anchor`, `z_chain_guide` | B02, B05 |
 | **10-lights** | COB light-strip mounts | Ch 10 · 10.35–10.36 | A5 | `cob_light_strip_mount_100mm` ×6, `cob_light_strip_mount_50mm` ×2 | B07 |
-| **10-tft** | Touchscreen faceplate + mount | Ch 10 · 10.50 (builds the module: Ch 11 Steps 11.5–11.6) | B5 | `[a]_faceplate`, `mount` | B02, B08 |
+| **10-tft** | Touchscreen faceplate + mount | Ch 10 · 10.35, 10.50 (mount inserts 10.35; builds the module: Ch 11 Steps 11.5–11.6) | B5 | `[a]_faceplate`, `mount` | B02, B08 |
 | **10-lids-AC** | AC lids + strip fin, B11 | Ch 10 · 10.80 | A5 | `CMD_V2_6B_WIRE_BOX_COVER`, `V3L_90DEG_R15_COVER` ×2, `CMD_V2_6B_T_SHORT_COVER`, `V2L_STRIP_FIN`, `V3L_10mm_DUCT_COVER` ×2, `V3L_34mm_DUCT_COVER` | B11 |
 | **11-skirts** | Skirt ring, keystone panel and inserts | Ch 11 · 11.1–11.19 (keystone 11.10, bestagon 11.19) | box | `[a]_keystone_blank_insert` ×2, `ldo_bestagon_insert`, `rear_center_skirt_350`, `side_fan_support` ×2, `front_skirt_a_350`, `front_skirt_b_350`, `side_skirt_a_350` ×2, `side_skirt_b_350` ×2, `keystone_panel` | B02, B08 |
 | **11-fans** | Fan grills, retainers, belt guards | Ch 11 · 11.3, 11.9, 11.11, 11.16 | A5 | `[a]_fan_grill_a` ×2, `[a]_fan_grill_b` ×2, `[a]_fan_grill_retainer` ×2, `[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2 | B02 |
@@ -252,13 +254,34 @@ Four rules that override the ledger:
 | B09-P4 | 47 | | #3 | 592 |
 | B09-P5 | 60 | | #3 | 532 |
 | B10-P1 | 75 | | #3 | 457 |
-| B12-P1 | 105 | | #3 | 352 |
-| B12-P2 | 28 | | #3 | 324 |
+| B12-P2 | 28 | | #3 | 429 |
 | B12-P3 | 83 | | A1 | 390 |
-| B13-P1 | 66 | | #3 | 258 |
+| B13-P1 | 66 | | #3 | 363 |
 | B13-P2 | 35 | | A1 | 355 |
-| **TOTAL black** | **2017** | | 3 × 800 g | **383 g margin** (258 on #3 + 125 on #1) |
+| **TOTAL black** | **1912** | | 3 × 800 g | **488 g margin** (363 on #3 + 125 on #1) |
 | **TOTAL blue** | **445** | | 1 × 800 g | **355 g margin** |
+
+## B12-P1 — side spool frame (PETG)
+
+[B12-P1](B12-side-spool-and-camera.md#step-b122-load-plate-b12-p1), the side spool frame alone, prints in
+**Prusament PETG Jet Black** on the **textured** sheet with no brim, from `slicer/voron-petg-black.ini`: B11's
+PETG bundle with the ASA plates' 4 walls, 5 top and bottom layers and 40 % gyroid, because the frame carries a
+1 kg spool. PETG warps less than ASA on a part this large, the frame hangs outside the chamber, and it leaves the
+black ASA for the run. It prints in its batch's place, after B10-P1 (#28) and before B12-P2 (#29), but outside
+the run's totals. The # column carries on from the run schedule so the plate board counts it as #33.
+
+| # | plate | hours | colour | slot | spool |
+|---:|---|---:|---|---|---|
+| 33 | B12-P1 | 6.7 | petgblack | day (after B10-P1, before B12-P2) | J1 |
+
+Spool **J1** is a 2 kg spool of ordinary Prusament PETG Jet Black with about 1.8 kg on it (not weighed), not
+B11's PETG V0 spool V1. Black ASA spool #3 comes off for it and goes back on for B12-P2: keep #3 in the drybox
+meanwhile; the ASA ledger's figures do not change.
+
+| plate | slicer g | actual g (weigh) | spool # | remaining |
+|---|---:|---:|---|---:|
+| B12-P1 | 127 | | J1 | 1673 |
+| **TOTAL PETG** | **127** | | 1 × 2 kg, ~1.8 kg on it | **~1673 g left** |
 
 ## When the printer stops
 
@@ -295,8 +318,8 @@ this table, the run schedule and the ledger below against `slicer/estimates.csv`
 
 | group | plates | hours | g PETG V0 | feeds (assembly chapter) | print gate |
 |---|---:|---:|---:|---|---|
-| [B11](B11-bay-ducting.md) before kit | 4 | 11.9 | 173 | Ch 09 ducts; Ch 10 strip fin | B07 off the bed, before B08; the coupon, B11-P1, prints first |
-| [B11](B11-bay-ducting.md) after the kit-day measurements | 3 | 13.2 | 176 | Ch 09 ducts | kit-day bay measurements, then ahead of any B08–B10 or B12 plate still waiting; B11-P5 and P7 only if the gap is ≥ 25 mm and the coupon passed |
+| [B11](B11-bay-ducting.md) before kit | 4 | 11.9 | 173 | Ch 09 ducts; Ch 10 AC lids and strip fin; Ch 11 DC lids | B07 off the bed, before B08; the coupon, B11-P1, prints first |
+| [B11](B11-bay-ducting.md) after the kit-day measurements | 3 | 13.2 | 176 | Ch 09 ducts; Ch 10 AC lids; Ch 11 DC lids | kit-day bay measurements, then ahead of any B08–B10 or B12 plate still waiting; B11-P5 and P7 only if the gap is ≥ 25 mm and the coupon passed |
 | **B11 total** | **7** | **25.1** | **349** | | |
 
 **Filament:** 349 g needed from one 1 kg spool, **V1**, bought 2026-10-13 → **651 g margin** if B11-P5 and P7 print.
@@ -304,7 +327,7 @@ this table, the run schedule and the ledger below against `slicer/estimates.csv`
 ## B11 run schedule
 
 All seven are day plates. **P1 to P3 and P6 print right after B07-P3 (#17), before B08-P1 (#18)**: Ch 09 needs them, and
-nothing needs B08–B10 until Ch 10.50. **P4, P5 and P7 print at the next free slot after the kit-day bay measurements**
+nothing needs B08–B10 until Ch 10.35. **P4, P5 and P7 print at the next free slot after the kit-day bay measurements**
 (Steps B11.10–B11.11), ahead of any B08–B10, B12 or B13 plate still waiting. The # column carries on from the run schedule
 above so the plate board counts 1 to 40; the slot column gives the place in the order.
 
@@ -351,7 +374,8 @@ CLI estimate, not GUI-arranged. Also needs one Bambu A1 nozzle wiper (Ch 00 Step
 Step 13.45 measures it.
 
 **The side spool holder, the camera mount and the exhaust housing** were add-ons here until 2026-11-12; they are
-batches [B12](B12-side-spool-and-camera.md) and [B13](B13-exhaust-housing.md) now, inside the run and its ledger.
+batches [B12](B12-side-spool-and-camera.md) and [B13](B13-exhaust-housing.md) now, inside the run and its ledger,
+except B12-P1, the frame, which prints in PETG on its own spool ([above](#b12-p1-side-spool-frame-petg)).
 
 ## Bench prints (outside the plates)
 

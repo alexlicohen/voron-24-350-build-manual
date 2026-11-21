@@ -57,7 +57,7 @@ BAG_THICK = 25.0
 BINS: dict[str, dict[str, str]] = {
     "00-jigs": dict(
         label="Jigs and coupons",
-        chapter="Ch 00", steps="00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 02.27, 04.24, 04.33; cube at 14.11)",
+        chapter="Ch 00", steps="00.14–00.22 (rail guides again at 02.06, 05.11, 05.13, 05.33; pulley jig at 02.27, 04.24, 04.33; cube at 14.10–14.11)",
         colour="#8a8f98"),
     "02-Z0": dict(label="Z0 corner (front-left, `_a` hand)", chapter="Ch 02", steps="02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43)", colour="#2457c5"),
     "02-Z1": dict(label="Z1 corner (rear-left, `_b` hand)", chapter="Ch 02", steps="02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43)", colour="#1a9c8c"),
@@ -71,7 +71,7 @@ BINS: dict[str, dict[str, str]] = {
                   colour="#c2185b"),
     "06-Z-joints": dict(label="Z joints and lower Z belt clips", chapter="Ch 06", steps="06.3–06.9", colour="#a0522d"),
     "07-X": dict(label="X carriage halves, probe bracket, cable cover", chapter="Ch 07", steps="07.6–07.39 (staged at 05.45; probe 07.35; cover dry-fit 07.39, fitted 10.66)", colour="#cd853f"),
-    "08-SB": dict(label="Stealthburner body, printhead, LEDs", chapter="Ch 08", steps="08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62)", colour="#d62839"),
+    "08-SB": dict(label="Stealthburner body, printhead, LEDs", chapter="Ch 08", steps="08.2–08.62 (printhead 08.7, 08.28–08.30, LEDs 08.35–08.37, body 08.62)", colour="#d62839"),
     "08-CW2": dict(label="Clockwork 2.5 extruder, toolboard + USB covers", chapter="Ch 08",
                    steps="08.3–08.20 (toolboard cover 08.62, USB adapter cover 08.64)", colour="#f28482"),
     "09-bay": dict(label="Electronics bay: inlet, WAGO, PSU, DIN clips", chapter="Ch 09", steps="09.7–09.16 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16)", colour="#e0a100"),
@@ -83,7 +83,7 @@ BINS: dict[str, dict[str, str]] = {
                         steps="09.36 (dry-laid at B11.10)", colour="#b4501a"),
     "10-chains": dict(label="Z cable chain anchor, guide, retainer", chapter="Ch 10", steps="10.35, 10.62–10.64 (bagged with the chain at 06.26; inserts 10.35)", colour="#6b8e23"),
     "10-lights": dict(label="COB light-strip mounts", chapter="Ch 10", steps="10.35–10.36", colour="#b8b62c"),
-    "10-tft": dict(label="Touchscreen faceplate + mount", chapter="Ch 10", steps="10.50 (builds the module: Ch 11 Steps 11.5–11.6)", colour="#4f6d7a"),
+    "10-tft": dict(label="Touchscreen faceplate + mount", chapter="Ch 10", steps="10.35, 10.50 (mount inserts 10.35; builds the module: Ch 11 Steps 11.5–11.6)", colour="#4f6d7a"),
     "10-lids-AC": dict(label="AC lids + strip fin, B11", chapter="Ch 10", steps="10.80", colour="#3d5a80"),
     "11-skirts": dict(label="Skirt ring, keystone panel and inserts", chapter="Ch 11", steps="11.1–11.19 (keystone 11.10, bestagon 11.19)", colour="#5c6b73"),
     "11-fans": dict(label="Fan grills, retainers, belt guards", chapter="Ch 11", steps="11.3, 11.9, 11.11, 11.16", colour="#9aa5ad"),
@@ -386,7 +386,8 @@ NOTES: dict[str, str] = {
     "z_drive_retainer_a_x2.stl": "B00 copy is the Gate B bore coupon",
     "deck_support_3mm_x8.stl": "both sets printed; the kit-day caliper (00.4, 02.12) picks one, the other is the spare",
     "deck_support_4mm_x8.stl": "both sets printed; the kit-day caliper (00.4, 02.12) picks one, the other is the spare",
-    "XY_cable_chain_bridge-Igus-3mm_backer.stl": "alternate to `[a]_xy_joint_cable_bridge_2hole` — fit whichever clears the backer (05.3)",
+    "XY_cable_chain_bridge-Igus-3mm_backer.stl": "the bridge fitted: inserts at 05.35, bolted at 05.38; matches the Ti Y backer",
+    "[a]_xy_joint_cable_bridge_2hole.stl": "stock fallback for the raised bridge, bagged at 05.46",
     "[a]_endstop_pod_D2F_switch.stl": "fitted with the XY endstop PCB at 05.49",
     "[a]_z_belt_clip_upper_x4.stl": "fitted at 05.19–05.23 under the idler and drive tops",
     "usb_adapter_mount_partial_cover.stl": "closes the USB adapter stack at 08.64, bagged for Ch 09",
@@ -412,7 +413,7 @@ NOTES: dict[str, str] = {
     "V3L_154N_DUCT.stl": "fitted only if the Leviathan-to-PSU gap measured ≥ 25 mm",
     "V3L_T_REG_N.stl": "fitted only if the Leviathan-to-PSU gap measured ≥ 25 mm",
     "V2L_STRIP_FIN.stl": "divider between PSU −V and FG, fitted as Ch 10 closes the AC lids",
-    "side_spool_frame_puck.stl": "feet for a side-panel stack up to 6.2 mm (11.68); thicker: reprint at 11.69",
+    "side_spool_frame_puck.stl": "PETG; feet for a side-panel stack up to 6.2 mm (11.68); thicker: reprint in PETG at 11.69",
     "HappyCam_main-350.stl": "Zemistr's 527904 body; snap off its build-plate supports",
 }
 

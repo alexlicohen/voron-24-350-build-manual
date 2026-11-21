@@ -55,8 +55,8 @@ rather than against them.
 
 ## Step B10.1 — Filament prep
 
-**Do:** Galaxy Black, spool #3 after B09: the ledger has 533 g on it here and 458 g after, and B12-P1 and P2
-follow on it. The blue `Handle` from B02 should already be set aside. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Do:** Galaxy Black, spool #3 after B09: the ledger has 532 g on it here and 457 g after; B12-P2 follows
+on it. The blue `Handle` from B02 should already be set aside. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; ≥75 g on spool #3.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
