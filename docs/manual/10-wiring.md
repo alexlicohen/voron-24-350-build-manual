@@ -630,19 +630,23 @@ Pause: ~20 min since the last pause — all three chains filled and every end zi
 
 **What you're looking at:** This photo is the target: LDO's finished Rev D bay, seen from below. Ch 09 placed it all: two [DIN rails](16-glossary.md#d), the [wire ducts](16-glossary.md#w) that hide cable runs, the Leviathan with the Raspberry Pi on top, the PSU, the SSR, the USB-adapter PCB and the 3×5 WAGO mount.
 
-**Parts:** none.
+**Parts:**
+
+- tool: multimeter
 
 **Do:**
 
-1. With the printer on its right side, bay toward you, press every lead hanging through the notch into the DC loop beside it. Tape their plugs there, clear of the WAGO blocks, PSU and SSR.
-2. Confirm the rest of the bay holds only Ch 09's work, nothing wired.
-3. Unplug the C13 power cord and put it in another room.
+1. Unplug the C13 power cord and put it in another room.
+2. With the printer on its right side, bay toward you, press every lead hanging through the notch into the DC loop beside it. Tape their plugs there, clear of the WAGO blocks, PSU and SSR.
+3. Confirm the rest of the bay holds only Ch 09's work, nothing wired.
 
 **Check:** Nothing is connected yet and no duct covers are on.
 
+Before the cord leaves the room: on Ω, its plug's earth pin to the earth contact in its C13 end reads under 1 Ω. Every later earth test starts at the inlet, so this is the only check of the cord itself (our addition).
+
 The parked leads stay there until each is plugged in, from Section 5 on. Tape the USB adapter's DC Ground Wire there too: its free ring, loose since 09.25, is bare metal and lands on the frame only at 10.58. **LDO layout:** the nozzle-probe lead hangs through the round hole instead; tape it to the nearest DC duct, clear of the WAGO blocks, PSU and SSR.
 
-⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine from 10.1 to the end of Section 2b. She helped lay the printer down, is out of the room for Sections 1, 2 and 2b, and is back for 10.40. In Section 8, with the printer unplugged, she records the readings you call out; you hold the probes.
+⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine from 10.1 to the end of Section 2b. The helper is out of the room for Sections 1, 2 and 2b, and is back for 10.40. In Section 8, with the printer unplugged, the helper records the readings you call out; you hold the probes.
 
 Source: [LDO Rev D photo VS9 finished bay](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS9_Final.jpg) · [LDO wiring guide § Finish line](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#finish-line)
 
@@ -740,7 +744,7 @@ Pause: ~15 min since the last pause — printer on its right side, PSU switch se
 
 | C14 pin → wire | rocker | expect |
 |---|---|---|
-| **E** → green/yellow | either | **beeps** |
+| **E** → green/yellow | ON, then OFF | **beeps** both times |
 | **L** → brown | ON only | **beeps** |
 | **N** → blue | ON only | **beeps** |
 | **L** → brown, fuse pulled | ON | **open**; refit the fuse |
@@ -831,7 +835,7 @@ Source: [LDO Rev D photo S2 inlet wired](https://raw.githubusercontent.com/Motor
 
 1. Feed the fork-lug ends (insulated U-shaped crimp tags) down the port stub, the short duct off the wire box, and the SSR run, the T-duct behind the SSR.
 2. Brown on **1 L**, blue on **2 N**, green/yellow on **3 FG**, PH2 tight.
-3. Strip the other ends to 11 mm and push each into its colour's WAGO: **N**, **L**, **PE**.
+3. Strip the other ends 11 mm; clamp each, lever down, in its colour's WAGO: **N**, **L**, **PE**.
 
 **Check:** Screw **1 L** is outermost, then **2 N**, then **3 FG** innermost beside −V, and all six ends pass a pull test.
 
@@ -932,7 +936,7 @@ LDO runs Checkpoint #1 with only the inlet, the WAGO bus and the PSU on the main
 
 ⚠ **LDO:** *"Incorrect wiring of AC/mains can be dangerous — therefore, always double check your work, and then triple check it once more."* Do the six steps of this section in order, to the power-on at 10.23. Wire nothing more until it has passed.
 
-⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine from here to the end of Section 2b. She is out of the room until 10.40, the first step of Section 5; at 10.23 nobody but the person with a hand on the switch is within reach of the machine.
+⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine from here to the end of Section 2b. The helper is out of the room until 10.40, the first step of Section 5; at 10.23 nobody but the person with a hand on the switch is within reach of the machine.
 
 Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
 
@@ -1023,7 +1027,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 (no image — see text)
 
-**What you're looking at:** The rocker in the inlet module is the machine's only mains isolator, the one switch that cuts it off from the wall, so it has to break both Live and Neutral, not just one. This check watches the meter change as you flip it.
+**What you're looking at:** The rocker in the inlet module is the machine's only mains switch, so it has to break both Live and Neutral, not just one. The inlet pins before it stay live until the cord is out. This check watches the meter change as you flip it.
 
 **Parts:**
 
@@ -1085,7 +1089,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 Everything from here to the end of the chapter is done dead, with the machine unplugged.
 
-⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult, standing to the side, hand on the switch. Nobody else within reach of the machine; she is out of the room.
+⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult, standing to the side, hand on the switch. Nobody else within reach of the machine; the helper is out of the room.
 
 ⚠ Rev D+ / LDO: this is the only power-on in the chapter. The Leviathan, Pi and toolboard stay unpowered: the PSU's DC terminals are empty. Never meter a live block: the PSU's +V/−V screws share an uncovered block with live N and L. Free hand behind your back; both hands off the bay until the cord is out. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
 
@@ -1104,7 +1108,7 @@ LDO wires the SSR and the bed after Checkpoint #1, and so does this chapter: eve
 ![LDO S4 mapping](assets/remote/10-wiring/ldo-revd-s4-24v-ssr-mapping.jpg)
 ![Mains path and the protective-earth chain](assets/diagrams/05-mains-and-pe-chain.svg)
 
-**What you're looking at:** The [SSR](16-glossary.md#s) is the black box on the DIN rail: a solid-state relay, an electronic switch that lets the mainboard turn a mains bed heater on and off with a small DC signal.
+**What you're looking at:** The [SSR](16-glossary.md#s), the black box on the DIN rail, is a solid-state relay: the mainboard switches the mains bed heater with a small DC signal.
 
 **Parts:**
 
@@ -1113,11 +1117,11 @@ LDO wires the SSR and the bed after Checkpoint #1, and so does this chapter: eve
 
 **Do:**
 
-1. Before a hand goes in, meter PSU +V to −V on DC volts: **0 V**, still 0 V ten seconds later.
-2. Read the SSR body: the pair printed **1 LOAD 2** is the AC switching side, and **3 + INPUT 4 −** is the DC control side.
+1. Before a hand goes in, meter PSU +V to −V on DC volts, then **1 L** to **2 N** on AC and DC volts: **0 V**, still 0 V ten seconds later.
+2. Read the SSR body: **1 LOAD 2** is the AC switching side, **3 + INPUT 4 −** the DC control side.
 3. Note which end the yellow indicator LED sits at, and match LDO's photo.
 
-**Check:** The PSU held 0 V. You can point at terminals 1 to 4 without hesitating, with the LED on the photo's side.
+**Check:** The PSU held 0 V on both pairs. You can point at terminals 1 to 4 without hesitating, with the LED on the photo's side.
 
 ⚠ Rev D+ / LDO: *"The SSR connection is **critical**, an incorrect connection can cause catastrophic damage."* Nothing else in this chapter carries that warning. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-24v)
 
@@ -1142,7 +1146,7 @@ Source: [LDO Rev D photo S4 24 V/SSR mapping](https://raw.githubusercontent.com/
 
 **Do:**
 
-1. Strip the **TO SSR** end to 11 mm and push it into a spare port of the brown **L** WAGO.
+1. Strip the **TO SSR** end to 11 mm, clamp it in a spare brown **L** WAGO port, lever down, and tug it.
 2. Feed the cable down the port stub and the SSR run.
 3. Take the SSR's clear terminal cover off `(verify on bench)` and keep it for 10.27. Put the fork-lug end under **LOAD 2**, PH2 tight.
 
@@ -1260,7 +1264,7 @@ Source: [LDO Rev D photo S5 build-plate mapping](https://raw.githubusercontent.c
 **Do:**
 
 1. Lay both leads round the two curves into the wire box.
-2. Push Bed N into a spare port of the blue **N** WAGO and Bed PE into the yellow **PE** WAGO's last free port, now full, 5 of 5.
+2. Clamp Bed N in a spare blue **N** WAGO port and Bed PE in the yellow **PE** WAGO's last free port, now full, 5 of 5. Levers down; tug.
 
 **Check:** From the C14 earth pin, the plate's M4×6 screw head reads under 1 Ω, our own limit. Rocker ON, on Ω, the C14 N pin reads under 1 Ω to the pad's N lead at its bed-WAGO port and about your 10.13 figure to its L lead.
 
@@ -1274,7 +1278,7 @@ Source: [LDO Rev D photo S5 bed wired](https://raw.githubusercontent.com/MotorDy
 
 ![LDO close-up of the SSR terminal numbering (Rev C bay — terminal blocks instead of your WAGOs)](assets/remote/10-wiring/SSR_Close_Up.jpg)
 
-**What you're looking at:** The SSR and the bed now sit on the mains bus. With nothing on terminals 3 and 4 the relay must be off, so its two mains terminals have no path between them, and the isolation you proved at 10.19 must still hold. The close-up is a Rev C bay: read only the SSR body.
+**What you're looking at:** The SSR and the bed now sit on the mains bus. With nothing on terminals 3 and 4 the relay must be off, so its two mains terminals have no low-resistance path between them (its snubber leaks a little), and the isolation you proved at 10.19 must still hold. The close-up is a Rev C bay: read only the SSR body.
 
 **Parts:**
 
@@ -2093,7 +2097,7 @@ Pause: ~30 min since the last pause — below-deck runs dressed, mains in the AC
 
 **Check:** The meter reads 0 V and stays at 0 V for ten seconds: the 24 V output is discharged. This does not measure the PSU's mains-side capacitors, so never open the PSU and probe only the points each step names.
 
-⚠ **Unplugged, AC lids on:** every step in this section is measured with the cord out; nothing here powers anything on. Every probe point is outside the AC lids, so the sweep re-checks the closed mains side. A row fails: lids off, trace and fix, refit, repeat that step. **LDO layout:** every lid is still off.
+⚠ **Unplugged, AC lids on:** nothing in this section powers anything on. Probe points are outside the AC lids, except PSU 3 FG and the SSR screws (10.77, 10.78), so the sweep re-checks the closed mains side. A row fails: lids off, trace and fix, refit, repeat that step. **LDO layout:** every lid is still off.
 
 Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
 
@@ -2246,15 +2250,16 @@ Source: [LDO wiring guide § Connecting the FFC cable, Ethernet cable, USB cable
 
 **Do:** Read the SSR terminals with the harness attached: **1** = bed L, **2** = mains L from the brown WAGO, **3** = red from the Leviathan HEATBED, **4** = black. If the cover blocks a probe, take it off for the readings and refit it after `(verify on bench)`.
 
-**Check:** All five rows of the table below read as expected, with the harness attached.
+**Check:** All six rows of the table below read as expected, with the harness attached.
 
-**Helper:** Records the five SSR readings the adult calls out; the adult holds both probes.
+**Helper:** Records the six readings the adult calls out; the adult holds both probes.
 
 | Measurement | Expected |
 |---|---|
 | SSR 1 → SSR 2 | 100 kΩ or more, or `OL`, on the 2 MΩ range, close to your 10.19 L↔N number: the bed pad and the PSU input bridge the open relay. Near 0 Ω is a shorted SSR |
-| SSR 3 → SSR 4 | the Leviathan's bed output impedance, a finite reading. Not 0 Ω |
-| SSR 1 or 2 → SSR 3 or 4 | `OL` — mains and DC control are galvanically isolated |
+| SSR 3 → SSR 4 | not 0 Ω. A high reading or `OL` is fine: it is the relay's input and the unpowered board |
+| SSR 1 → 3, 1 → 4, 2 → 3 and 2 → 4, all four | `OL` — mains and DC control are galvanically isolated |
+| C14 **L** pin → **N** pin, rocker **ON** | 100 kΩ or more, or `OL`, close to your 10.19 number. Near 0 Ω is a short across the mains: no power-on |
 | SSR 1 → SSR 2 wire colours | bed cable on 1, brown WAGO cable on 2 |
 | SSR 3 wire colour | **red** |
 
