@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1070" width="1200" height="1070" role="img" aria-label="Power-on: stand to the side, hand on the rocker, watch these" style="color:#14181D">
+<title>Power-on: stand to the side, hand on the rocker, watch these</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="1070" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Power on: where to stand and look</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="30.0" y="108.0" width="1140.0" height="946.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<line x1="50.0" y1="977.3" x2="1160.0" y2="977.3" stroke="#14181D" stroke-width="4" stroke-linecap="round"/>
+<line x1="60.0" y1="981.3" x2="44.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="94.0" y1="981.3" x2="78.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="128.0" y1="981.3" x2="112.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="162.0" y1="981.3" x2="146.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="196.0" y1="981.3" x2="180.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="230.0" y1="981.3" x2="214.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="264.0" y1="981.3" x2="248.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="298.0" y1="981.3" x2="282.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="332.0" y1="981.3" x2="316.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="366.0" y1="981.3" x2="350.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="400.0" y1="981.3" x2="384.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="434.0" y1="981.3" x2="418.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="468.0" y1="981.3" x2="452.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="502.0" y1="981.3" x2="486.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="536.0" y1="981.3" x2="520.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="570.0" y1="981.3" x2="554.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="604.0" y1="981.3" x2="588.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="638.0" y1="981.3" x2="622.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="672.0" y1="981.3" x2="656.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="706.0" y1="981.3" x2="690.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="740.0" y1="981.3" x2="724.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="774.0" y1="981.3" x2="758.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="808.0" y1="981.3" x2="792.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="842.0" y1="981.3" x2="826.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="876.0" y1="981.3" x2="860.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="910.0" y1="981.3" x2="894.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="944.0" y1="981.3" x2="928.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="978.0" y1="981.3" x2="962.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="1012.0" y1="981.3" x2="996.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="1046.0" y1="981.3" x2="1030.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="1080.0" y1="981.3" x2="1064.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="1114.0" y1="981.3" x2="1098.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<line x1="1148.0" y1="981.3" x2="1132.0" y2="999.3" stroke="#5C6675" stroke-width="2" stroke-linecap="round"/>
+<rect x="605.7" y="453.1" width="516.2" height="516.2" rx="6" fill="#E2E4E8" stroke="#2A6FB5" stroke-width="10.0"/>
+<rect x="646.3" y="493.7" width="435.0" height="435.0" rx="0" fill="#ECEDEF" stroke="#2A6FB5" stroke-width="3.0"/>
+<rect x="986.8" y="553.4" width="17.4" height="313.2" rx="0" fill="#FFFFFF" stroke="#B9C0C9" stroke-width="2.0"/>
+<rect x="847.6" y="553.4" width="17.4" height="313.2" rx="0" fill="#FFFFFF" stroke="#B9C0C9" stroke-width="2.0"/>
+<rect x="667.8" y="553.4" width="14.5" height="313.2" rx="0" fill="#FFFFFF" stroke="#B9C0C9" stroke-width="2.0"/>
+<rect x="902.7" y="541.8" width="17.4" height="330.6" rx="0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2.0"/>
+<rect x="778.0" y="553.4" width="23.2" height="127.6" rx="0" fill="#B6BDC6" stroke="#7E8794" stroke-width="2.0"/>
+<rect x="1082.5" y="652.0" width="52.2" height="116.0" rx="4" fill="#262B31" stroke="#14181D" stroke-width="2.0"/>
+<rect x="865.0" y="582.4" width="98.6" height="166.5" rx="6" fill="#262B31" stroke="#11151A" stroke-width="2.0"/>
+<rect x="899.8" y="556.3" width="60.3" height="107.3" rx="4" fill="#D7EEDD" stroke="#2F8F4E" stroke-width="3.0"/>
+<rect x="908.5" y="675.2" width="23.2" height="23.2" rx="0" fill="#4A5059" stroke="#14181D" stroke-width="2.0"/>
+<rect x="894.0" y="791.2" width="52.2" height="40.6" rx="3" fill="#262B31" stroke="#11151A" stroke-width="2.0"/>
+<rect x="728.7" y="681.0" width="113.1" height="208.8" rx="4" fill="#E7E9EC" stroke="#7E8794" stroke-width="3.0"/>
+<rect x="754.8" y="582.4" width="75.4" height="40.6" rx="4" fill="#F6D5D1" stroke="#C0392B" stroke-width="4.0"/>
+<rect x="731.6" y="681.0" width="107.3" height="14.5" rx="4" fill="#F6D5D1" stroke="#C0392B" stroke-width="4.0"/>
+<rect x="647.5" y="570.8" width="20.3" height="87.0" rx="4" fill="#F6D5D1" stroke="#C0392B" stroke-width="4.0"/>
+<rect x="605.7" y="536.0" width="41.8" height="69.6" rx="4" fill="#F6D5D1" stroke="#C0392B" stroke-width="4.0"/>
+<rect x="569.7" y="544.8" width="30.0" height="52.0" rx="6" fill="#F6D5D1" stroke="#C0392B" stroke-width="4"/>
+<rect x="555.7" y="552.8" width="16.0" height="36.0" rx="4" fill="#2E7D32" stroke="#14181D" stroke-width="2"/>
+<path d="M 589.74 600.8 C 559.74 730.8 569.74 967.26 459.74 969.26 L 70 969.26 L 70 857.26" fill="none" stroke="#14181D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="52.0" y="787.3" width="44.0" height="70.0" rx="6" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<circle cx="140.0" cy="827.3" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="140.0" y="839.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<circle cx="300.0" cy="290.0" r="42.0" fill="#FFFFFF" stroke="#14181D" stroke-width="6"/>
+<line x1="300.0" y1="332.0" x2="300.0" y2="697.3" stroke="#14181D" stroke-width="10" stroke-linecap="round"/>
+<line x1="300.0" y1="697.3" x2="250.0" y2="973.3" stroke="#14181D" stroke-width="10" stroke-linecap="round"/>
+<line x1="300.0" y1="697.3" x2="340.0" y2="973.3" stroke="#14181D" stroke-width="10" stroke-linecap="round"/>
+<line x1="300.0" y1="360.0" x2="240.0" y2="530.0" stroke="#14181D" stroke-width="10" stroke-linecap="round"/>
+<path d="M 300 360 L 410 460 L 545.74 566.8" fill="none" stroke="#14181D" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="545.7" cy="566.8" r="15.0" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<circle cx="515.7" cy="492.8" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="515.7" y="504.6" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">3</text>
+<text x="280.0" y="1029.3" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">stand to the side</text>
+<circle cx="832.5" cy="686.8" r="18.0" fill="#2E7D32" stroke="none" stroke-width="0"/>
+<circle cx="832.5" cy="686.8" r="11.0" fill="#FFFFFF" stroke="#2E7D32" stroke-width="4"/>
+<circle cx="954.9" cy="652.0" r="16.0" fill="#C0392B" stroke="none" stroke-width="0"/>
+<circle cx="954.9" cy="652.0" r="9.0" fill="#FFFFFF" stroke="#C0392B" stroke-width="4"/>
+<circle cx="954.9" cy="678.0" r="16.0" fill="#2E7D32" stroke="none" stroke-width="0"/>
+<circle cx="954.9" cy="678.0" r="9.0" fill="#FFFFFF" stroke="#2E7D32" stroke-width="4"/>
+<rect x="1076.5" y="646.0" width="64.2" height="128.0" rx="6" fill="none" stroke="#2E7D32" stroke-width="5"/>
+<text x="575.0" y="340.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#2E7D32" letter-spacing="0">PSU LED: green</text>
+<line x1="824.5" y1="664.8" x2="700.0" y2="352.0" stroke="#2E7D32" stroke-width="3" stroke-linecap="round"/>
+<circle cx="824.5" cy="664.8" r="5.0" fill="#2E7D32" stroke="none" stroke-width="0"/>
+<text x="1150.0" y="210.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">Pi: red PWR,</text>
+<text x="1150.0" y="248.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">green ACT flickers</text>
+<line x1="954.9" y1="630.0" x2="954.9" y2="260.0" stroke="#14181D" stroke-width="3" stroke-linecap="round"/>
+<circle cx="954.9" cy="630.0" r="5.0" fill="#14181D" stroke="none" stroke-width="0"/>
+<text x="1150.0" y="330.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="#2E7D32" letter-spacing="0">screen lights</text>
+<line x1="1108.6" y1="642.0" x2="1108.6" y2="342.0" stroke="#2E7D32" stroke-width="3" stroke-linecap="round"/>
+<circle cx="1108.6" cy="642.0" r="5.0" fill="#2E7D32" stroke="none" stroke-width="0"/>
+<rect x="50.0" y="116.0" width="250.0" height="120.0" rx="10" fill="#262B31" stroke="#11151A" stroke-width="2"/>
+<circle cx="88.0" cy="200.0" r="15.0" fill="#2E7D32" stroke="none" stroke-width="0"/>
+<circle cx="88.0" cy="200.0" r="8.0" fill="#FFFFFF" stroke="#2E7D32" stroke-width="4"/>
+<circle cx="132.0" cy="200.0" r="15.0" fill="#2E7D32" stroke="none" stroke-width="0"/>
+<circle cx="132.0" cy="200.0" r="8.0" fill="#FFFFFF" stroke="#2E7D32" stroke-width="4"/>
+<circle cx="176.0" cy="200.0" r="15.0" fill="#7E8794" stroke="none" stroke-width="0"/>
+<circle cx="176.0" cy="200.0" r="8.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="4"/>
+<circle cx="220.0" cy="200.0" r="15.0" fill="#7E8794" stroke="none" stroke-width="0"/>
+<circle cx="220.0" cy="200.0" r="8.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="4"/>
+<circle cx="264.0" cy="200.0" r="15.0" fill="#7E8794" stroke="none" stroke-width="0"/>
+<circle cx="264.0" cy="200.0" r="8.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="4"/>
+<text x="175.0" y="160.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">printhead</text>
+<text x="320.0" y="212.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#2E7D32" letter-spacing="0">3V3, 24V lit</text>
+<text x="865.0" y="1029.3" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">red: mains, eyes only</text>
+<text x="609.8" y="443.2" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="800" text-anchor="start" fill="#2A6FB5" letter-spacing="0">REAR</text>
+<text x="1120.2" y="443.2" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="800" text-anchor="end" fill="#2A6FB5" letter-spacing="0">FRONT</text>
+</svg>

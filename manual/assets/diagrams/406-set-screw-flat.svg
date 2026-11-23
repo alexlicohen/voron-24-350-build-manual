@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" width="1200" height="850" role="img" aria-label="The first set screw goes onto the flat of the motor shaft" style="color:#14181D">
+<title>The first set screw goes onto the flat of the motor shaft</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="850" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">First set screw on the flat</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="30.0" y="110.0" width="760.0" height="670.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<circle cx="290.0" cy="470.0" r="192.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<path d="M 338.5 505.3 L 334.6 510.1 L 330.1 514.6 L 325.3 518.5 L 320.0 522.0 L 314.4 524.8 L 308.5 527.1 L 302.5 528.7 L 296.3 529.7 L 290.0 530.0 L 283.7 529.7 L 277.5 528.7 L 271.5 527.1 L 265.6 524.8 L 260.0 522.0 L 254.7 518.5 L 249.9 514.6 L 245.4 510.1 L 241.5 505.3 L 238.0 500.0 L 235.2 494.4 L 232.9 488.5 L 231.3 482.5 L 230.3 476.3 L 230.0 470.0 L 230.3 463.7 L 231.3 457.5 L 232.9 451.5 L 235.2 445.6 L 238.0 440.0 L 241.5 434.7 L 245.4 429.9 L 249.9 425.4 L 254.7 421.5 L 260.0 418.0 L 265.6 415.2 L 271.5 412.9 L 277.5 411.3 L 283.7 410.3 L 290.0 410.0 L 296.3 410.3 L 302.5 411.3 L 308.5 412.9 L 314.4 415.2 L 320.0 418.0 L 325.3 421.5 L 330.1 425.4 L 334.6 429.9 L 338.0 434.0 Z" fill="#B6BDC6" stroke="#14181D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="347.6,434.0 483.2,434.0 483.2,506.0 347.6,506.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="2"/>
+<polygon points="338.0,434.0 424.4,434.0 424.4,506.0 338.0,506.0" fill="#7E8794" stroke="#14181D" stroke-width="2"/>
+<polygon points="424.4,452.0 410.0,452.0 410.0,488.0 424.4,488.0" fill="#FFFFFF" stroke="#14181D" stroke-width="1.5"/>
+<polygon points="254.0,412.4 254.0,276.8 326.0,276.8 326.0,412.4" fill="#FFFFFF" stroke="#7E8794" stroke-width="2"/>
+<polygon points="254.0,410.0 254.0,323.6 326.0,323.6 326.0,410.0" fill="#7E8794" stroke="#14181D" stroke-width="2"/>
+<polygon points="272.0,323.6 272.0,338.0 308.0,338.0 308.0,323.6" fill="#FFFFFF" stroke="#14181D" stroke-width="1.5"/>
+<line x1="338.0" y1="428.0" x2="338.0" y2="512.0" stroke="#2E7D32" stroke-width="7" stroke-linecap="round"/>
+<circle cx="532.0" cy="470.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="532.0" y="481.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<text x="574.0" y="462.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">first screw:</text>
+<text x="574.0" y="504.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="#2E7D32" letter-spacing="0">on the flat</text>
+<text x="386.0" y="238.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#5C6675" letter-spacing="0">second</text>
+<line x1="328.4" y1="302.0" x2="378.0" y2="228.0" stroke="#5C6675" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="328.4" cy="302.0" r="2.4" fill="#5C6675" stroke="none" stroke-width="0"/>
+<text x="54.0" y="732.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="start" fill="#5C6675" letter-spacing="0">the shaft's flat side</text>
+<line x1="338.0" y1="503.6" x2="200.0" y2="706.0" stroke="#5C6675" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="338.0" cy="503.6" r="2.4" fill="#5C6675" stroke="none" stroke-width="0"/>
+<text x="54.0" y="162.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the pulley hub, cut across</text>
+<rect x="810.0" y="110.0" width="360.0" height="670.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<text x="834.0" y="162.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="38" font-weight="700" text-anchor="start" fill="#C0392B" letter-spacing="0">Wrong</text>
+<circle cx="980.0" cy="410.0" r="104.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<path d="M 999.6 384.0 L 1002.2 386.2 L 1004.5 388.7 L 1006.6 391.4 L 1008.4 394.2 L 1009.9 397.3 L 1011.1 400.5 L 1011.9 403.8 L 1012.4 407.2 L 1012.5 410.6 L 1012.3 414.0 L 1011.7 417.3 L 1010.7 420.6 L 1009.5 423.7 L 1007.9 426.7 L 1006.0 429.6 L 1003.8 432.2 L 1001.3 434.5 L 998.6 436.6 L 995.8 438.4 L 992.7 439.9 L 989.5 441.1 L 986.2 441.9 L 982.8 442.4 L 979.4 442.5 L 976.0 442.3 L 972.7 441.7 L 969.4 440.7 L 966.3 439.5 L 963.3 437.9 L 960.4 436.0 L 957.8 433.8 L 955.5 431.3 L 953.4 428.6 L 951.6 425.8 L 950.1 422.7 L 948.9 419.5 L 948.1 416.2 L 947.6 412.8 L 947.5 409.4 L 947.7 406.0 L 948.3 402.7 L 949.3 399.4 L 950.5 396.3 L 952.1 393.3 L 954.0 390.4 L 956.2 387.8 L 958.7 385.5 L 960.5 384.0 Z" fill="#B6BDC6" stroke="#14181D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1011.2,390.5 1084.7,390.5 1084.7,429.5 1011.2,429.5" fill="#FFFFFF" stroke="#7E8794" stroke-width="2"/>
+<polygon points="1012.5,390.5 1059.3,390.5 1059.3,429.5 1012.5,429.5" fill="#7E8794" stroke="#14181D" stroke-width="2"/>
+<polygon points="1059.3,400.2 1051.5,400.2 1051.5,419.8 1059.3,419.8" fill="#FFFFFF" stroke="#14181D" stroke-width="1.5"/>
+<polygon points="960.5,378.8 960.5,305.4 999.5,305.4 999.5,378.8" fill="#FFFFFF" stroke="#7E8794" stroke-width="2"/>
+<polygon points="960.5,384.0 960.5,337.2 999.5,337.2 999.5,384.0" fill="#7E8794" stroke="#14181D" stroke-width="2"/>
+<polygon points="970.2,337.2 970.2,345.0 989.8,345.0 989.8,337.2" fill="#FFFFFF" stroke="#14181D" stroke-width="1.5"/>
+<line x1="1092.0" y1="328.0" x2="1136.0" y2="372.0" stroke="#C0392B" stroke-width="8" stroke-linecap="round"/>
+<line x1="1092.0" y1="372.0" x2="1136.0" y2="328.0" stroke="#C0392B" stroke-width="8" stroke-linecap="round"/>
+<text x="1092.7" y="462.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#C0392B" letter-spacing="0">1st</text>
+<text x="950.5" y="293.4" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="end" fill="#5C6675" letter-spacing="0">2nd</text>
+<text x="834.0" y="630.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#C0392B" letter-spacing="0">first screw on</text>
+<text x="834.0" y="670.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#C0392B" letter-spacing="0">the round part</text>
+<text x="600.0" y="816.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">Only if your motor shaft has a flat side.</text>
+</svg>

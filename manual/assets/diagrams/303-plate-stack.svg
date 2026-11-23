@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" role="img" aria-label="One plate screw, cut through: what stacks on what" style="color:#14181D">
+<title>One plate screw, cut through: what stacks on what</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="1000" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">What each screw goes through</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<path d="M 200.0 490.0 L 310.4 490.0 L 310.4 518.8 L 272.0 518.8 L 272.0 544.4 L 313.6 587.6 L 406.4 587.6 L 448.0 544.4 L 448.0 518.8 L 409.6 518.8 L 409.6 490.0 L 520.0 490.0 L 520.0 600.4 L 491.2 600.4 L 491.2 562.0 L 465.6 562.0 L 422.4 603.6 L 422.4 696.4 L 465.6 738.0 L 491.2 738.0 L 491.2 699.6 L 520.0 699.6 L 520.0 810.0 L 409.6 810.0 L 409.6 781.2 L 448.0 781.2 L 448.0 755.6 L 406.4 712.4 L 313.6 712.4 L 272.0 755.6 L 272.0 781.2 L 310.4 781.2 L 310.4 810.0 L 200.0 810.0 L 200.0 699.6 L 228.8 699.6 L 228.8 738.0 L 254.4 738.0 L 297.6 696.4 L 297.6 603.6 L 254.4 562.0 L 228.8 562.0 L 228.8 600.4 L 200.0 600.4 Z" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="360.0" cy="650.0" r="33.6" fill="#FFFFFF" stroke="#2A6FB5" stroke-width="2"/>
+<polygon points="313.6,512.4 406.4,512.4 406.4,518.8 421.6,518.8 421.6,557.2 401.6,581.2 318.4,581.2 298.4,557.2 298.4,518.8 313.6,518.8" fill="#7E8794" stroke="#14181D" stroke-width="2"/>
+<polygon points="456.0,490.0 456.0,442.0 441.6,442.0 422.4,426.0 412.0,410.0 414.4,394.0 424.0,386.0 424.0,362.0 296.0,362.0 296.0,386.0 305.6,394.0 308.0,410.0 297.6,426.0 278.4,442.0 264.0,442.0 264.0,490.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<line x1="276.0" y1="485.2" x2="276.0" y2="446.8" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="292.8" y1="485.2" x2="292.8" y2="446.8" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="309.6" y1="485.2" x2="309.6" y2="446.8" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="326.4" y1="485.2" x2="326.4" y2="446.8" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="343.2" y1="485.2" x2="343.2" y2="446.8" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="360.0" y1="485.2" x2="360.0" y2="446.8" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="376.8" y1="485.2" x2="376.8" y2="446.8" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="393.6" y1="485.2" x2="393.6" y2="446.8" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="410.4" y1="485.2" x2="410.4" y2="446.8" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="427.2" y1="485.2" x2="427.2" y2="446.8" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="444.0" y1="485.2" x2="444.0" y2="446.8" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<rect x="328.0" y="362.0" width="64.0" height="128.0" rx="0" fill="#FFFFFF" stroke="#7E8794" stroke-width="2"/>
+<polygon points="308.0,202.0 70.0,202.0 70.0,362.0 332.8,362.0 332.8,250.0 308.0,250.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<polygon points="308.0,178.0 70.0,178.0 70.0,202.0 308.0,202.0" fill="#3E4550" stroke="#14181D" stroke-width="2"/>
+<path d="M 63.0 172.0 L 77.0 221.0 L 63.0 270.0 L 77.0 319.0 L 63.0 368.0" fill="none" stroke="#5C6675" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="412.0,202.0 650.0,202.0 650.0,362.0 387.2,362.0 387.2,250.0 412.0,250.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<polygon points="412.0,178.0 650.0,178.0 650.0,202.0 412.0,202.0" fill="#3E4550" stroke="#14181D" stroke-width="2"/>
+<path d="M 643.0 172.0 L 657.0 221.0 L 643.0 270.0 L 657.0 319.0 L 643.0 368.0" fill="none" stroke="#5C6675" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="316.0" y="202.0" width="88.0" height="48.0" rx="3" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<rect x="340.0" y="202.0" width="40.0" height="25.6" rx="0" fill="#14181D" stroke="none" stroke-width="0"/>
+<rect x="336.0" y="250.0" width="48.0" height="320.0" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<text x="730.0" y="148.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">magnet</text>
+<line x1="590.0" y1="190.0" x2="718.0" y2="138.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="590.0" cy="190.0" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<text x="730.0" y="238.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">M3×20 screw</text>
+<line x1="404.0" y1="226.0" x2="718.0" y2="228.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="404.0" cy="226.0" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<text x="730.0" y="322.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#5C6675" letter-spacing="0">plate, 10 mm</text>
+<line x1="600.0" y1="314.0" x2="718.0" y2="312.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="600.0" cy="314.0" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<text x="730.0" y="410.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">thumb nut:</text>
+<line x1="424.0" y1="374.8" x2="718.0" y2="400.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="424.0" cy="374.8" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<text x="730.0" y="450.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">collar up,</text>
+<text x="730.0" y="490.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">knurled rim down</text>
+<text x="730.0" y="592.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">T-nut in the</text>
+<line x1="422.4" y1="546.0" x2="718.0" y2="582.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="422.4" cy="546.0" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<text x="730.0" y="632.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">top slot</text>
+<text x="730.0" y="762.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#2A6FB5" letter-spacing="0">bed extrusion</text>
+<text x="600.0" y="966.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">The screw passes through the thumb nut: it threads only the T-nut.</text>
+</svg>

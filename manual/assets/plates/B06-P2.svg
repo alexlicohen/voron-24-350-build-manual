@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" font-family="Arial, Helvetica, 'DejaVu Sans', sans-serif">
+<title>Plate B06-P2 — sorting diagram</title>
+<rect x="0" y="0" width="1600" height="940" fill="#fafaf9"/>
+<text x="24.0" y="45.9" font-size="26" fill="#1e1e20" text-anchor="start" font-weight="bold">Plate B06-P2</text>
+<text x="24.0" y="68.9" font-size="14" fill="#6e6e73" text-anchor="start">12 parts  ·  4.1 h  ·  51 g  ·  Galaxy Black ASA  ·  bed 250 × 220 mm  ·  PrusaSlicer 2.9.7 estimate</text>
+<rect x="24.0" y="90.0" width="900.0" height="792.0" fill="#e9e9e6" stroke="#96968f" stroke-width="1.5"/>
+<line x1="204.0" y1="90.0" x2="204.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="384.0" y1="90.0" x2="384.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="564.0" y1="90.0" x2="564.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="744.0" y1="90.0" x2="744.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="702.0" x2="924.0" y2="702.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="522.0" x2="924.0" y2="522.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="342.0" x2="924.0" y2="342.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="162.0" x2="924.0" y2="162.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<text x="30.0" y="876.1" font-size="11" fill="#6e6e73" text-anchor="start">front-left (0,0)</text>
+<text x="918.0" y="104.1" font-size="11" fill="#6e6e73" text-anchor="end">rear</text>
+<path d="M376.0,460.5 524.5,460.0 527.0,462.5 527.0,543.5 525.5,545.0 473.5,545.0 471.0,543.5 471.0,540.5 470.0,539.5 470.0,528.5 469.0,527.5 469.0,515.5 468.0,514.5 467.0,498.5 435.5,498.0 434.0,500.5 434.0,509.5 433.0,510.5 433.0,517.5 432.0,518.5 431.0,539.5 430.0,540.5 430.0,543.5 428.5,545.0 375.5,545.0 374.0,543.5 374.0,462.5Z" fill-rule="evenodd" fill="#dfdfdd" stroke="#7a7a80" stroke-width="0.8" stroke-linejoin="round" stroke-dasharray="4 3"><title>brim 3 mm — Probe_Dock_v2.1.stl</title></path>
+<path d="M259.0,262.5 379.5,262.0 381.5,263.0 386.0,268.5 386.0,352.5 384.0,356.5 380.5,359.0 258.5,359.0 256.5,357.0 255.5,357.0 253.0,351.5 253.0,268.5 254.0,266.5Z" fill-rule="evenodd" fill="#dfdfdd" stroke="#7a7a80" stroke-width="0.8" stroke-linejoin="round" stroke-dasharray="4 3"><title>brim 3 mm — Probe_magnet_holder.stl</title></path>
+<path d="M265.0,454.5 352.5,454.0 356.0,456.5 357.0,460.5 358.0,461.5 358.0,581.5 357.0,582.5 356.0,586.5 354.5,588.0 350.5,590.0 267.5,590.0 261.0,586.5 259.0,582.5 259.0,460.5 260.0,458.5Z" fill-rule="evenodd" fill="#dfdfdd" stroke="#7a7a80" stroke-width="0.8" stroke-linejoin="round" stroke-dasharray="4 3"><title>brim 3 mm — Probe_magnet_pressfit_helper.stl</title></path>
+<path d="M603.0,262.5 690.5,262.0 692.0,263.5 691.5,393.0 602.0,392.5 601.0,390.5 601.0,264.5Z" fill-rule="evenodd" fill="#dfdfdd" stroke="#7a7a80" stroke-width="0.8" stroke-linejoin="round" stroke-dasharray="4 3"><title>brim 3 mm — Probe_pressfit_holder.stl</title></path>
+<path d="M414.0,268.5 537.5,268.0 542.0,273.5 542.0,359.5 540.0,361.5 540.0,362.5 535.5,365.0 416.5,365.0 414.5,364.0 410.0,359.5 410.0,273.5Z" fill-rule="evenodd" fill="#dfdfdd" stroke="#7a7a80" stroke-width="0.8" stroke-linejoin="round" stroke-dasharray="4 3"><title>brim 3 mm — Mount_magnet_holder.stl</title></path>
+<path d="M389.0,568.5 512.5,568.0 514.5,569.0 519.0,574.5 519.0,659.5 518.0,661.5 511.5,667.0 390.5,667.0 386.5,665.0 383.0,660.5 383.0,573.5 384.5,571.0Z" fill-rule="evenodd" fill="#dfdfdd" stroke="#7a7a80" stroke-width="0.8" stroke-linejoin="round" stroke-dasharray="4 3"><title>brim 3 mm — Mount_magnet_pressfit_helper.stl</title></path>
+<path d="M367.0,384.5 410.5,384.0 411.5,388.0 557.5,388.0 558.5,389.0 564.5,389.0 565.5,390.0 571.5,391.0 581.5,396.0 584.5,399.0 585.5,399.0 594.0,407.5 597.0,413.5 599.0,415.5 602.0,421.5 602.0,424.5 603.0,425.5 603.0,428.5 604.0,429.5 604.0,436.5 605.0,437.5 605.0,593.5 603.5,595.0 544.0,594.5 544.0,471.5 543.0,470.5 543.0,466.5 542.0,465.5 542.0,463.5 541.0,462.5 541.0,460.5 539.0,457.5 538.0,453.5 536.0,451.5 534.0,447.5 525.5,439.0 524.5,439.0 519.5,435.0 513.5,432.0 511.5,432.0 508.5,430.0 505.5,430.0 504.5,429.0 497.5,429.0 496.5,428.0 344.5,428.0 342.0,426.5 342.0,424.5 341.0,423.5 341.0,388.5 342.5,387.0 366.5,387.0Z" fill-rule="evenodd" fill="#dfdfdd" stroke="#7a7a80" stroke-width="0.8" stroke-linejoin="round" stroke-dasharray="4 3"><title>brim 3 mm — Dock_mount_fixed_v2.stl</title></path>
+<path d="M631.0,561.5 687.5,561.0 691.0,563.5 691.0,656.5 689.5,659.0 687.5,660.0 631.5,660.0 629.0,658.5 628.0,656.5 628.0,563.5Z M646.5,589.0 645.0,590.5 645.0,593.5 648.5,594.0 649.0,590.5Z M645.5,607.0 645.0,613.5 648.5,614.0 649.0,607.5Z M645.5,627.0 645.0,630.5 648.5,631.0 649.0,627.5Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#9 KlickyProbe_v2.stl → spare-alt</title></path>
+<path d="M263.0,613.5 356.5,613.0 359.0,615.5 359.0,673.5 356.5,676.0 263.5,676.0 261.0,673.5 261.0,615.5Z M291.5,629.0 289.0,630.5 289.5,634.0 292.5,634.0 294.0,632.5 294.0,631.5Z M307.5,630.0 307.5,634.0 313.0,633.5 312.5,630.0Z M326.5,630.0 326.5,634.0 331.0,633.5 330.5,630.0Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#10 KlickyProbe_v2.stl → spare-alt</title></path>
+<path d="M387.0,471.5 513.5,471.0 516.0,473.5 516.0,532.5 514.5,534.0 484.5,534.0 482.0,532.5 482.0,529.5 481.0,528.5 481.0,517.5 480.0,516.5 480.0,504.5 479.0,503.5 479.0,495.5 478.0,494.5 477.5,487.0 424.5,487.0 423.0,489.5 423.0,498.5 422.0,499.5 422.0,506.5 421.0,507.5 421.0,516.5 420.0,517.5 420.0,528.5 419.0,529.5 419.0,532.5 417.5,534.0 386.5,534.0 385.0,532.5 385.0,473.5Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#7 Probe_Dock_v2.1.stl → spare-alt</title></path>
+<path d="M270.0,273.5 368.5,273.0 370.5,274.0 375.0,279.5 375.0,341.5 373.0,345.5 369.5,348.0 269.5,348.0 267.5,346.0 266.5,346.0 264.0,340.5 264.0,279.5 265.0,277.5Z M287.5,283.0 287.0,287.5 282.0,290.5 282.0,291.5 280.0,293.5 280.0,296.5 279.0,297.5 280.0,303.5 287.0,309.5 287.5,314.0 292.5,314.0 293.0,309.5 294.5,308.0 297.5,307.0 301.5,301.0 338.5,301.0 342.0,306.5 347.0,309.5 347.5,314.0 352.5,314.0 353.0,309.5 360.0,303.5 360.0,300.5 361.0,299.5 360.0,293.5 357.5,290.0 354.5,289.0 353.0,287.5 352.5,283.0 347.5,283.0 347.0,287.5 343.5,289.0 339.5,295.0 300.5,295.0 298.0,290.5 293.0,287.5 292.5,283.0Z M310.5,310.0 310.0,314.5 306.5,316.0 304.0,318.5 302.5,322.0 297.0,322.5 297.0,328.5 302.5,329.0 305.0,333.5 310.0,336.5 310.5,341.0 315.5,341.0 316.0,336.5 318.5,335.0 323.0,330.5 323.5,329.0 329.0,328.5 329.0,322.5 323.5,322.0 320.0,316.5 317.5,316.0 316.0,314.5 315.5,310.0Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#1 Probe_magnet_holder.stl → spare-alt</title></path>
+<path d="M276.0,465.5 341.5,465.0 345.0,467.5 346.0,471.5 347.0,472.5 347.0,570.5 346.0,571.5 345.0,575.5 343.5,577.0 339.5,579.0 278.5,579.0 272.0,575.5 270.0,571.5 270.0,471.5 271.0,469.5Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#5 Probe_magnet_pressfit_helper.stl → spare-alt</title></path>
+<path d="M614.0,273.5 679.5,273.0 681.0,274.5 680.5,382.0 613.0,381.5 612.0,379.5 612.0,371.5 613.0,370.5 612.0,369.5 612.0,286.5 613.0,285.5 612.0,284.5 612.0,275.5Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#3 Probe_pressfit_holder.stl → spare-alt</title></path>
+<path d="M630.0,441.5 695.5,441.0 698.0,443.5 698.0,535.5 695.5,539.0 631.5,539.0 628.0,536.5 628.0,443.5Z M677.5,466.0 676.0,467.5 676.5,470.0 682.0,469.5 682.0,467.5 680.5,466.0Z M677.5,478.0 675.0,480.5 676.0,484.5 681.5,485.0 683.0,483.5 683.0,480.5 680.5,478.0Z M679.5,494.0 678.5,495.0 676.5,495.0 675.0,497.5 675.0,499.5 677.5,502.0 680.5,502.0 683.0,499.5 683.0,496.5Z M677.5,509.0 676.0,510.5 676.5,513.0 679.5,514.0 682.0,512.5 682.0,510.5 680.5,509.0Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#8 KlickyProbe_AB_mount_v2.stl → spare-alt</title></path>
+<path d="M255.0,386.5 312.5,386.0 314.5,387.0 317.0,389.5 318.0,393.5 319.0,394.5 319.0,422.5 318.0,423.5 317.0,427.5 311.5,431.0 256.5,431.0 254.5,430.0 250.0,424.5 250.0,392.5 252.0,388.5Z M262.5,402.0 260.0,404.5 260.0,410.5 262.5,413.0 267.5,413.0 269.5,412.0 271.0,409.5 271.0,405.5 270.0,403.5 268.5,402.0Z M300.5,402.0 298.0,404.5 298.0,410.5 300.5,413.0 305.5,413.0 308.0,410.5 309.0,406.5 306.5,402.0Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#4 KlickyProbe_AB_mount_v2_holder.stl → spare-alt</title></path>
+<path d="M425.0,279.5 526.5,279.0 531.0,284.5 531.0,348.5 529.0,350.5 529.0,351.5 524.5,354.0 427.5,354.0 425.5,353.0 421.0,348.5 421.0,284.5Z M443.5,288.0 443.0,292.5 440.5,294.0 435.0,300.5 435.0,307.5 439.5,313.0 443.0,314.5 443.5,320.0 448.5,320.0 449.0,314.5 450.5,313.0 453.5,312.0 456.5,307.0 494.5,307.0 499.5,313.0 503.0,314.5 503.5,320.0 508.5,320.0 509.0,314.5 511.5,313.0 516.0,307.5 516.0,300.5 514.0,296.5 509.0,293.5 508.5,288.0 503.5,288.0 503.0,292.5 497.5,296.0 494.5,301.0 456.5,301.0 455.0,297.5 452.5,295.0 449.0,293.5 449.0,288.5Z M480.5,315.0 480.0,319.5 474.5,323.0 471.5,328.0 467.0,328.5 467.0,333.5 472.5,334.0 474.0,337.5 476.5,340.0 480.0,341.5 480.5,347.0 485.5,347.0 486.0,341.5 488.5,340.0 493.5,334.0 498.0,333.5 498.0,328.5 493.5,328.0 492.0,324.5 489.5,322.0 486.0,320.5 485.5,315.0Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#2 Mount_magnet_holder.stl → spare-alt</title></path>
+<path d="M400.0,579.5 501.5,579.0 503.5,580.0 508.0,585.5 508.0,648.5 507.0,650.5 500.5,656.0 401.5,656.0 397.5,654.0 394.0,649.5 394.0,584.5 395.5,582.0Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#11 Mount_magnet_pressfit_helper.stl → spare-alt</title></path>
+<path d="M549.0,619.5 600.5,619.0 605.0,622.5 606.0,624.5 606.0,704.5 602.5,709.0 600.5,710.0 549.5,710.0 544.0,705.5 543.0,703.5 543.0,699.5 541.0,697.5 541.0,680.5 543.0,678.5 543.0,676.5 541.0,675.5 541.0,657.5 543.0,655.5 543.0,650.5 541.0,648.5 541.0,635.5 543.0,633.5 543.0,625.5 545.0,621.5Z M549.5,626.0 548.0,627.5 548.0,690.5 549.5,693.0 577.5,693.0 579.0,691.5 579.0,686.5 580.0,685.5 580.0,682.5 583.5,679.0 590.0,677.5 590.0,644.5 584.5,643.0 581.0,640.5 580.0,636.5 579.0,635.5 578.5,626.0Z M591.5,631.0 590.0,632.5 590.0,636.5 594.5,637.0 596.0,635.5 596.0,633.5 593.5,631.0Z M592.5,691.0 590.0,692.5 590.0,696.5 593.5,698.0 596.0,695.5 596.0,693.5 593.5,691.0Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#12 Mount_pressfit_holder_v2.stl → spare-alt</title></path>
+<path d="M378.0,395.5 399.5,395.0 400.5,399.0 546.5,399.0 547.5,400.0 553.5,400.0 554.5,401.0 560.5,402.0 570.5,407.0 573.5,410.0 574.5,410.0 583.0,418.5 586.0,424.5 588.0,426.5 591.0,432.5 591.0,435.5 592.0,436.5 592.0,439.5 593.0,440.5 593.0,447.5 594.0,448.5 594.0,582.5 592.5,584.0 555.0,583.5 555.0,460.5 554.0,459.5 554.0,455.5 553.0,454.5 553.0,452.5 552.0,451.5 552.0,449.5 550.0,446.5 549.0,442.5 547.0,440.5 545.0,436.5 536.5,428.0 535.5,428.0 530.5,424.0 524.5,421.0 522.5,421.0 519.5,419.0 516.5,419.0 515.5,418.0 508.5,418.0 507.5,417.0 355.5,417.0 353.0,415.5 353.0,413.5 352.0,412.5 352.0,399.5 353.5,398.0 377.5,398.0Z" fill-rule="evenodd" fill="#bdbdbd" stroke="#686868" stroke-width="1.0" stroke-linejoin="round"><title>#6 Dock_mount_fixed_v2.stl → spare-alt</title></path>
+<text x="566.5" y="521.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold" transform="rotate(-90 566.5 515.5)">6</text>
+<text x="581.5" y="519.8" font-size="12" fill="#1a1a1e" text-anchor="middle" transform="rotate(-90 581.5 515.5)">spare-alt</text>
+<text x="450.5" y="619.1" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">11</text>
+<text x="450.5" y="629.5" font-size="12" fill="#1a1a1e" text-anchor="middle">spare-alt</text>
+<text x="300.5" y="527.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold" transform="rotate(-90 300.5 521.5)">5</text>
+<text x="315.5" y="525.8" font-size="12" fill="#1a1a1e" text-anchor="middle" transform="rotate(-90 315.5 521.5)">spare-alt</text>
+<text x="638.5" y="333.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold" transform="rotate(-90 638.5 327.5)">3</text>
+<text x="653.5" y="331.8" font-size="12" fill="#1a1a1e" text-anchor="middle" transform="rotate(-90 653.5 327.5)">spare-alt</text>
+<rect x="645.5" y="460.0" width="34.0" height="59.0" rx="3.0" fill="#ffffff"/>
+<text x="654.5" y="495.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 654.5 489.5)">8</text>
+<text x="669.5" y="493.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 669.5 489.5)">spare-alt</text>
+<rect x="290.0" y="293.5" width="59.0" height="34.0" rx="3.0" fill="#ffffff"/>
+<text x="319.5" y="312.1" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">1</text>
+<text x="319.5" y="322.5" font-size="12" fill="#1e1e20" text-anchor="middle">spare-alt</text>
+<rect x="446.0" y="299.5" width="59.0" height="34.0" rx="3.0" fill="#ffffff"/>
+<text x="475.5" y="318.1" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">2</text>
+<text x="475.5" y="328.5" font-size="12" fill="#1e1e20" text-anchor="middle">spare-alt</text>
+<rect x="642.5" y="580.0" width="34.0" height="59.0" rx="3.0" fill="#ffffff"/>
+<text x="651.5" y="615.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 651.5 609.5)">9</text>
+<text x="666.5" y="613.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 666.5 609.5)">spare-alt</text>
+<rect x="280.0" y="627.5" width="59.0" height="34.0" rx="3.0" fill="#ffffff"/>
+<text x="309.5" y="646.1" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">10</text>
+<text x="309.5" y="656.5" font-size="12" fill="#1e1e20" text-anchor="middle">spare-alt</text>
+<line x1="403.5" y1="499.5" x2="403.5" y2="464.5" stroke="#333336" stroke-width="1.2"/>
+<rect x="372.0" y="446.5" width="59.0" height="18.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#bdbdbd" stroke-width="1.4"/>
+<text x="401.5" y="460.5" font-size="12" fill="#1e1e20" text-anchor="middle">spare-alt</text>
+<rect x="396.0" y="491.5" width="15.0" height="16.0" rx="3.0" fill="#bdbdbd"/>
+<text x="403.5" y="505.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">7</text>
+<rect x="557.5" y="635.0" width="34.0" height="59.0" rx="3.0" fill="#ffffff"/>
+<text x="566.5" y="670.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 566.5 664.5)">12</text>
+<text x="581.5" y="668.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 581.5 664.5)">spare-alt</text>
+<rect x="254.0" y="391.5" width="59.0" height="34.0" rx="3.0" fill="#ffffff"/>
+<text x="283.5" y="410.1" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">4</text>
+<text x="283.5" y="420.5" font-size="12" fill="#1e1e20" text-anchor="middle">spare-alt</text>
+<text x="950.0" y="40.0" font-size="13" fill="#6e6e73" text-anchor="start" font-weight="bold">Bins on this plate</text>
+<rect x="950.0" y="48.0" width="65.0" height="18.0" rx="4.0" fill="#bdbdbd"/>
+<text x="982.5" y="61.3" font-size="12" fill="#1a1a1e" text-anchor="middle" font-weight="bold">spare-alt</text>
+<text x="950.0" y="102.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Parts on this plate  —  # · STL · bin (chapter · steps)</text>
+<rect x="950.0" y="116.0" width="12.0" height="12.0" rx="2.0" fill="#bdbdbd"/>
+<text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1</text>
+<text x="1003.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Probe_magnet_holder.stl</text>
+<text x="1003.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">spare-alt · Spares / alternates (not fitted) · — · not fitted</text>
+<rect x="950.0" y="152.0" width="12.0" height="12.0" rx="2.0" fill="#bdbdbd"/>
+<text x="968.0" y="161.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">2</text>
+<text x="1003.0" y="162.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Mount_magnet_holder.stl</text>
+<text x="1003.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">spare-alt · Spares / alternates (not fitted) · — · not fitted</text>
+<rect x="950.0" y="188.0" width="12.0" height="12.0" rx="2.0" fill="#bdbdbd"/>
+<text x="968.0" y="197.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">3</text>
+<text x="1003.0" y="198.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Probe_pressfit_holder.stl</text>
+<text x="1003.0" y="212.1" font-size="11" fill="#6e6e73" text-anchor="start">spare-alt · Spares / alternates (not fitted) · — · not fitted</text>
+<rect x="950.0" y="224.0" width="12.0" height="12.0" rx="2.0" fill="#bdbdbd"/>
+<text x="968.0" y="233.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">4</text>
+<text x="1003.0" y="234.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">KlickyProbe_AB_mount_v2_holder.stl</text>
+<text x="1003.0" y="248.1" font-size="11" fill="#6e6e73" text-anchor="start">spare-alt · Spares / alternates (not fitted) · — · not fitted</text>
+<rect x="950.0" y="260.0" width="12.0" height="12.0" rx="2.0" fill="#bdbdbd"/>
+<text x="968.0" y="269.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">5</text>
+<text x="1003.0" y="270.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Probe_magnet_pressfit_helper.stl</text>
+<text x="1003.0" y="284.1" font-size="11" fill="#6e6e73" text-anchor="start">spare-alt · Spares / alternates (not fitted) · — · not fitted</text>
+<rect x="950.0" y="296.0" width="12.0" height="12.0" rx="2.0" fill="#bdbdbd"/>
+<text x="968.0" y="305.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">6</text>
+<text x="1003.0" y="306.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Dock_mount_fixed_v2.stl</text>
+<text x="1003.0" y="320.1" font-size="11" fill="#6e6e73" text-anchor="start">spare-alt · Spares / alternates (not fitted) · — · not fitted</text>
+<rect x="950.0" y="332.0" width="12.0" height="12.0" rx="2.0" fill="#bdbdbd"/>
+<text x="968.0" y="341.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">7</text>
+<text x="1003.0" y="342.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Probe_Dock_v2.1.stl</text>
+<text x="1003.0" y="356.1" font-size="11" fill="#6e6e73" text-anchor="start">spare-alt · Spares / alternates (not fitted) · — · not fitted</text>
+<rect x="950.0" y="368.0" width="12.0" height="12.0" rx="2.0" fill="#bdbdbd"/>
+<text x="968.0" y="377.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">8</text>
+<text x="1003.0" y="378.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">KlickyProbe_AB_mount_v2.stl</text>
+<text x="1003.0" y="392.1" font-size="11" fill="#6e6e73" text-anchor="start">spare-alt · Spares / alternates (not fitted) · — · not fitted</text>
+<rect x="950.0" y="404.0" width="12.0" height="12.0" rx="2.0" fill="#bdbdbd"/>
+<text x="968.0" y="413.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">9, 10</text>
+<text x="1003.0" y="414.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">KlickyProbe_v2.stl  ×2</text>
+<text x="1003.0" y="428.1" font-size="11" fill="#6e6e73" text-anchor="start">spare-alt · Spares / alternates (not fitted) · — · not fitted</text>
+<rect x="950.0" y="440.0" width="12.0" height="12.0" rx="2.0" fill="#bdbdbd"/>
+<text x="968.0" y="449.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">11</text>
+<text x="1003.0" y="450.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Mount_magnet_pressfit_helper.stl</text>
+<text x="1003.0" y="464.1" font-size="11" fill="#6e6e73" text-anchor="start">spare-alt · Spares / alternates (not fitted) · — · not fitted</text>
+<rect x="950.0" y="476.0" width="12.0" height="12.0" rx="2.0" fill="#bdbdbd"/>
+<text x="968.0" y="485.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">12</text>
+<text x="1003.0" y="486.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Mount_pressfit_holder_v2.stl</text>
+<text x="1003.0" y="500.1" font-size="11" fill="#6e6e73" text-anchor="start">spare-alt · Spares / alternates (not fitted) · — · not fitted</text>
+<text x="24.0" y="900.1" font-size="11" fill="#6e6e73" text-anchor="start">brim (dashed ring) is set per object in the project: 3 mm on 7 part(s)</text>
+<text x="24.0" y="915.1" font-size="11" fill="#6e6e73" text-anchor="start">outlines from slicer/plates/B06-P2.3mf (the committed project) · scripts/render_plate_bins.py · bins: slicer/bins.py</text>
+</svg>

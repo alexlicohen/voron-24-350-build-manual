@@ -1,0 +1,3483 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/07-ab-belts/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 07 — A/B belts and tensioning - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/tonight.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-07-ab-belts-and-tensioning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 07 — A/B belts and tensioning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2.5, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (blue)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2.5, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b12-side-spool-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B12 — Side spool holder and camera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b13-exhaust-housing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B13 — Exhaust housing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b11-bay-ducting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B11 — Bay ducting (PETG V0)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-sort-sheets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate sort sheets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-board/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate board
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mascot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mascot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#understand-the-path-before-you-cut-anything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understand the path before you cut anything
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understand the path before you cut anything">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-071-confirm-the-gate-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.1 — Confirm the gate before you start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-072-learn-the-rule-that-governs-this-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.2 — Learn the rule that governs this chapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-073-trace-the-a-belt-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.3 — Trace the A belt path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-074-trace-the-b-belt-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.4 — Trace the B belt path
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-the-idlers-and-the-x-carriage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare the idlers and the X carriage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare the idlers and the X carriage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-075-set-both-front-idler-tensioners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.5 — Set both front-idler tensioners
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-076-fit-the-heat-set-inserts-and-m3-nuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.6 — Fit the heat-set inserts and M3 nuts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-077-set-the-two-carriage-stop-screws-to-3-mm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.7 — Set the two carriage stop screws to 3 mm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cut-and-clamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cut and clamp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cut and clamp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-078-cut-both-belts-to-the-same-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.8 — Cut both belts to the same length
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-079-clamp-the-first-end-of-both-belts-in-the-left-carriage-half" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.9 — Clamp the first end of both belts in the left carriage half
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-the-a-belt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route the A belt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Route the A belt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0710-a-belt-leave-the-carriage-and-turn-at-the-left-xy-joint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.10 — A belt: leave the carriage and turn at the left XY joint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0711-a-belt-run-rearward-up-the-left-y-extrusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.11 — A belt: run rearward up the left Y extrusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0712-a-belt-turn-90-at-the-rear-left-idler-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.12 — A belt: turn 90° at the rear-left idler stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0713-a-belt-s-wrap-the-a-drive-motor-pulley" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.13 — A belt: S-wrap the A drive motor pulley
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0714-a-belt-run-forward-down-the-right-y-extrusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.14 — A belt: run forward down the right Y extrusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0715-a-belt-u-turn-at-the-front-right-idler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.15 — A belt: U-turn at the front-right idler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0716-a-belt-turn-at-the-right-xy-joint-and-return-to-the-carriage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.16 — A belt: turn at the right XY joint and return to the carriage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-the-b-belt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route the B belt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Route the B belt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0717-b-belt-leave-the-carriage-and-turn-teeth-on-at-the-left-xy-joint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.17 — B belt: leave the carriage and turn teeth-on at the left XY joint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0718-b-belt-run-forward-and-u-turn-at-the-front-left-idler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.18 — B belt: run forward and U-turn at the front-left idler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0719-b-belt-run-rearward-up-the-left-outer-run-past-the-left-xy-joint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.19 — B belt: run rearward up the left outer run, past the left XY joint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0720-b-belt-s-wrap-the-b-drive-motor-pulley" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.20 — B belt: S-wrap the B drive motor pulley
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0721-b-belt-run-right-along-the-rear-and-turn-90-at-the-rear-right-idler-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.21 — B belt: run right along the rear and turn 90° at the rear-right idler stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0722-b-belt-run-forward-turn-smooth-at-the-right-xy-joint-and-return-to-the-carriage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.22 — B belt: run forward, turn smooth at the right XY joint and return to the carriage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0723-check-both-belts-against-the-overviews-before-closing-the-carriage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.23 — Check both belts against the overviews before closing the carriage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capture-the-ends-pull-tight-inspect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture the ends, pull tight, inspect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capture the ends, pull tight, inspect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0724-fit-the-right-x-carriage-half-to-capture-the-belt-ends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.24 — Fit the right X carriage half to capture the belt ends
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0725-fix-the-belts-lightly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.25 — Fix the belts, lightly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0726-fit-the-carriage-bolts-and-leave-them-loose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.26 — Fit the carriage bolts and leave them loose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0727-pull-both-belts-tight-and-equalise-the-tails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.27 — Pull both belts tight and equalise the tails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0728-tighten-the-carriage-bolts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.28 — Tighten the carriage bolts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0729-belt-rub-inspection-at-every-idler-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.29 — Belt-rub inspection at every idler stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-tension-provisional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial tension (provisional)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial tension (provisional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0730-set-the-150-mm-measuring-span" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.30 — Set the 150 mm measuring span
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0731-read-both-belts-with-the-phone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.31 — Read both belts with the phone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0732-bring-both-belts-to-110-hz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.32 — Bring both belts to ~110 Hz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0733-move-the-gantry-return-and-re-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.33 — Move the gantry, return, and re-check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finish-the-x-carriage-inductive-probe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finish the X carriage: inductive probe
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Finish the X carriage: inductive probe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0734-insulate-the-probe-and-keep-its-lead-whole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.34 — Insulate the probe and keep its lead whole
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0735-fit-the-probe-and-its-retainer-bracket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.35 — Fit the probe and its retainer bracket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0736-set-the-probe-height" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.36 — Set the probe height
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0737-route-the-probe-cable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.37 — Route the probe cable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0738-hall-effect-endstop-magnet-skip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.38 — Hall-effect endstop magnet: skip
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0739-dry-fit-the-ab-drive-cable-cover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 07.39 — Dry-fit the A/B drive cable cover
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint 07
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-07-ab-belts-and-tensioning">Chapter 07 — A/B belts and tensioning<a class="headerlink" href="#chapter-07-ab-belts-and-tensioning" title="Permanent link">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">One page per step</p>
+<p>Read this chapter <a class="step-pages-link" href="../steps/07-ab-belts/">one step per page</a> — big pictures, prev/next, and the same tick marks. This page is the whole chapter in one scroll.</p>
+</div>
+<!-- style: plain -->
+
+<p>You cut, thread and clamp the two belts that move the print head, give them a first tension, and fit the inductive probe to the X carriage. After this chapter the gantry is a working XY motion system, and everything that follows (toolhead, wiring, bring-up) assumes the belts are on.</p>
+<p><strong>What you're building in this chapter:</strong> Two belt loops, and the printed X carriage that clamps their ends. In CoreXY neither motor owns an axis: the rear-<strong>right</strong> motor drives the <strong>A</strong> belt, the rear-<strong>left</strong> motor drives <strong>B</strong>, and the print head moves in X when both turn the same way and in Y when they turn opposite ways. Each belt is one loop that starts and ends at the X carriage, starting in its <strong>left</strong> half. A runs in the <strong>upper</strong> plane, B in the <strong>lower</strong>, and they <strong>never cross</strong>. A belt's teeth wrap the toothed motor pulley that drives it; everywhere else its smooth back runs over a plain bearing stack (flanged bearings on one screw). The exception is the XY joints at the ends of the X extrusion, where each belt wraps one toothed 20T idler teeth-on: A the right joint's upper idler, B the left joint's lower one. Its other turn there is on a plain F695 pair (p.105, p.135, p.136, p.138). The joint and the height decide this, so never twist a belt to change it. Both loops are the same length, so equal belts give equal tension, and no tensioner can undo a length error. Last, you fit the inductive probe that later levels the gantry and maps the bed.</p>
+<figure class="mascot-scene mascot-scene--right"><img class="mascot-scene__img off-glb" src="../assets/mascot/mascot-caliper.svg" alt="Revali reading a caliper" width="220" height="220" loading="lazy" decoding="async"><figcaption>Belts that sound alike are not alike. Measure both. My ears are excellent. I still measure.</figcaption></figure>
+
+<p><strong>Time:</strong> 2.5–4.0 h hands-on, first build (<a href="../../voron-build-instructions-survey/">survey §5.1 P07 / §7.2 Ch 07</a>).</p>
+<p><strong>Sessions:</strong> 5 × ~30 min, a first-build estimate; each <code>Pause:</code> line carries its own segment minutes. Segment 3, threading both belts, cannot be broken and needs ~80 min in one sitting. If you must stop inside it, there is a soft stop after Step 07.16.</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li><strong>Ch 04</strong> is done: A/B drives and front idlers assembled, motor pulley set screws threadlocked.</li>
+<li><strong>Ch 05</strong> is done: gantry, XY joints and titanium backers, with the X carriage halves bagged at Step 05.45.</li>
+<li><strong>Ch 06 Part A</strong> is done: the gantry is installed on the Z joints and the Z belts are clamped.</li>
+<li><strong>Printed parts:</strong> batch <strong>B02</strong> for the blue accents (<code>[a]_tensioner_left/right</code>, <code>[a]_cable_cover</code>), <strong>B03</strong> for the front idlers, and <strong>B04</strong> for the XY joints, the X carriage and <code>probe_retainer_bracket</code>.</li>
+<li><strong>The gantry moves freely by hand over its full travel with no belts on.</strong> Fix any binding now, not after the belts are on.</li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>Ball-end hex 2.5 mm, for every screw in this chapter</li>
+<li>Needle-nose pliers and tweezers for threading the belts (the manual suggests them on p.132)</li>
+<li>Flush cutters or sharp scissors for the belt; a steel rule or tape of at least 2.2 m; a 150 mm steel rule for the tension span; a marker</li>
+<li>A phone with a spectrum app, which shows the pitch of a sound: <strong>Spectroid</strong> (Android), <strong>Sound Spectrum Analysis</strong> (iOS), or <strong>Gates Carbon Drive</strong> (both; use its "motorcycle" option) (<a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron tuning docs</a>)</li>
+<li>Nutopress Pro insert press with its M3 tip, only if the heat-set inserts on p.129 and SB p.68 were not done in the batch insert pass. Use the X-Tronic iron with the LDO brass tip only if a part will not fit under the press</li>
+</ul>
+<p><strong>Read first</strong></p>
+<ul>
+<li><strong>The tension you set here is provisional.</strong> Set enough to home the printer and level the gantry (QGL). Ch 06b releases it completely to square the gantry, and Ch 14 Step 14.4 sets the final number. Tensioning to final now just gets undone.</li>
+<li><strong>Equal length is the whole trick.</strong> Cut each belt against the other, never to a tape measure alone.</li>
+<li><strong>The only tension number is 110 Hz over a 150 mm span</strong>, from the Voron tuning docs. The Voron manual gives none. Do not use a "push it 2 mm with your finger" test: nothing here calibrates it.</li>
+<li><strong>Nothing in this chapter is torqued.</strong> Clamp the first belt ends firmly and the second ends lightly, pull the belts tight by hand, then tighten the carriage screws fully. There is no torque figure; do not invent one.</li>
+<li><strong>Three kit differences land here:</strong> check the X carriage files (p.129–130), tape the probe (p.143), and skip p.145. The probe lead is never cut.</li>
+</ul>
+<details class="note">
+<summary>For reference: hardware totals, sources and video</summary>
+<p><strong>Printed parts</strong></p>
+<p>Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.</p>
+<table>
+<thead>
+<tr>
+<th>Looks like</th>
+<th>STL</th>
+<th>Bin</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/x_frame_V2TR_MGN12_left.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/x_frame_V2TR_MGN12_left.png" width="96"></a></td>
+<td><code>Gantry/X_Axis/X_Carriage/x_frame_V2TR_MGN12_left</code></td>
+<td>07-X</td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/x_frame_V2TR_MGN12_right.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/x_frame_V2TR_MGN12_right.png" width="96"></a></td>
+<td><code>Gantry/X_Axis/X_Carriage/x_frame_V2TR_MGN12_right</code></td>
+<td>07-X</td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/probe_retainer_bracket.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/probe_retainer_bracket.png" width="96"></a></td>
+<td><code>Gantry/X_Axis/X_Carriage/probe_retainer_bracket</code></td>
+<td>07-X</td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/%5Ba%5D_tensioner_left.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/%5Ba%5D_tensioner_left.png" width="96"></a></td>
+<td><code>Gantry/Front_Idlers/[a]_tensioner_left</code></td>
+<td>04-B</td>
+<td style="text-align: right;">1</td>
+<td>Blue — fitted in Ch 04, adjusted here</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/%5Ba%5D_tensioner_right.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/%5Ba%5D_tensioner_right.png" width="96"></a></td>
+<td><code>Gantry/Front_Idlers/[a]_tensioner_right</code></td>
+<td>04-A</td>
+<td style="text-align: right;">1</td>
+<td>Blue — fitted in Ch 04, adjusted here</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/%5Ba%5D_cable_cover.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/%5Ba%5D_cable_cover.png" width="96"></a></td>
+<td><code>Gantry/AB_Drive_Units/[a]_cable_cover</code></td>
+<td>07-X</td>
+<td style="text-align: right;">1</td>
+<td>Blue — dry-fitted here, fitted at Step 10.66</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hardware</strong> (chapter totals)</p>
+<table>
+<thead>
+<tr>
+<th>Fastener / part</th>
+<th>Qty</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gates 2GT open belt, 6 mm wide</td>
+<td>2 lengths, cut equal</td>
+<td>A and B belts (p.125, p.131 — see Step 07.8)</td>
+</tr>
+<tr>
+<td>M3×8 SHCS</td>
+<td>4</td>
+<td>belt clamps, 2 per X carriage half (p.131, p.140)</td>
+</tr>
+<tr>
+<td>M3×12 SHCS</td>
+<td>2</td>
+<td>1 per X carriage half, in the plain hole beside the belt slot, head 3 mm off the plastic (p.130)</td>
+</tr>
+<tr>
+<td>M3×30 SHCS</td>
+<td>4</td>
+<td>2 carriage bolts (p.140) + 2 probe retainer bracket (p.143)</td>
+</tr>
+<tr>
+<td>M3 nut</td>
+<td>2</td>
+<td>right X carriage half, capture the M3×30 carriage bolts (p.129)</td>
+</tr>
+<tr>
+<td>M3 heat-set insert</td>
+<td>6</td>
+<td>2 per X carriage half, top and bottom (SB p.68 and the V2TR STLs; p.129 draws only the bottom one) + 2 in <code>probe_retainer_bracket</code> (p.129); the M3×12 stop screws do not use them</td>
+</tr>
+<tr>
+<td>Inductive probe, Omron TL-Q5MC</td>
+<td>1</td>
+<td>X carriage (p.143)</td>
+</tr>
+<tr>
+<td>Fibreglass tape (LDO-supplied)</td>
+<td>as needed</td>
+<td>probe insulation, front + sides only (LDO note p.143)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notes behind "Read first"</strong></p>
+<ul>
+<li><strong>The tension you set here is provisional.</strong> Gantry squaring (Ch 06b) <em>begins</em> by fully releasing A/B belt tension, and it needs a running printer (<code>G28</code>, <code>QUAD_GANTRY_LEVEL</code>, <code>SET_STEPPER_ENABLE</code>), so it happens inside Ch 13. Set enough tension to home and QGL. A/B tension is set three times on purpose: Ch 07 (provisional — enough to home and QGL), Ch 06b Step 06b.15 (provisional again, after squaring, cold and open) and Ch 14 Step 14.4 (final — panels on, cold, door open, immediately before the closed-chamber soak and hot Z-joint tighten of 14.6). Z belts: 06b.3 (so QGL converges for squaring), set for the last time at 14.5, same cold session. Ch 14 owns the final number; tensioning to final now just gets undone — that is <a href="../../voron-build-instructions-survey/">survey §5.2 W1</a>, a ~1.5 h rework.</li>
+<li><strong>Equal length is the whole trick.</strong> Both belt paths are the same length by design, so if the two belts are cut identical, equal tension follows (p.125). Cut each belt against the other, never to a tape measure alone: fold-cut both at once (Step 07.8), or do as p.125 recommends: route one, remove it, and cut the second to match it.</li>
+<li><strong>There is no sourced deflection number.</strong> The official manual gives <em>no</em> tension figure at all — only the equal-length rule. The one sourced number in this build's document set is <strong>110 Hz over a 150 mm span</strong> (<a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron secondary tuning</a>). voronldo.com's 80–100 Hz is discarded (<a href="../../voron-build-instructions-survey/">survey §4.3</a>). Do not substitute a "push it 2 mm with your finger" test — nothing here calibrates it.</li>
+<li><strong>Nothing in this chapter is torqued.</strong> The left half clamps the first belt ends at p.131. The right half's belt clamps and the carriage bolts go on lightly, the belts get pulled tight by hand, then those screws are fully tightened (p.140–141; p.141's middle panel highlights only the right half's two M3×8). The manual specifies no torque values; don't invent one.</li>
+<li>Three LDO deviations land in this page range: the X-carriage variant check (p.129–130), probe insulation (p.143), and p.145 skipped entirely.</li>
+<li><strong>The inductive probe is built once, here.</strong> Insulation, fitting, the 6 mm height and the cable route are Steps 07.34–07.37 (manual p.143–144). The tape goes on here and nowhere else: Ch 10 Step 10.30 only confirms it. The lead is never cut: it arrives pre-terminated for the toolhead board, and Ch 08 Step 08.60 plugs it in. Ch 08 otherwise only confirms the decision and bags the Klicky set. The <code>probe_retainer_bracket</code> and the fibreglass tape are counted in this chapter's totals, not Ch 08's.</li>
+</ul>
+<p><strong>Sources for this chapter:</strong></p>
+<ul>
+<li><a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=124">Voron 2.4r2 assembly manual, p.124–145</a> — the page sequence this chapter transcribes, pinned at commit <code>de7e89d</code></li>
+<li><a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron docs § Secondary printer tuning — A/B Belts</a> — the only sourced tension figure, 110 Hz over 150 mm, and the source of the spectrum image (GPL-3.0)</li>
+<li><a href="https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html">Voron docs § V2 Gantry Squaring</a> — why this tension is provisional</li>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a> — X-carriage variant check, probe insulation, p.145 skipped</li>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+">LDO 350 Rev D+ BOM</a> and <a href="https://www.onetwo3d.co.uk/voron-bill-of-material/voron-2-4-350mm-bill-of-material/">onetwo3D's 350 BOM</a> — belt supplied as 6.21 m bulk, 2000 mm per belt</li>
+<li><a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=204">Voron 2.4r2 assembly manual, p.204</a> — the <code>[a]_cable_cover</code> arch, screwed onto the A drive over the Z-chain wire bundle in Ch 10</li>
+</ul>
+<p><strong>Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):</strong> <a href="https://www.youtube.com/watch?v=ViB5Ulc9zDI&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5900s">Part 4 @1:38:20</a> (+6m), <a href="https://www.youtube.com/watch?v=hTKCBrk36R0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6764s">Part 5 @1:52:44</a> (+8m), <a href="https://www.youtube.com/watch?v=8pWoYkY1DiA&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=70s">Part 6 @0:01:10</a> (+18m), <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6225s">Part 8 @1:43:45</a> (+6m)</p>
+</details>
+<hr>
+<h2 id="understand-the-path-before-you-cut-anything">Understand the path before you cut anything<a class="headerlink" href="#understand-the-path-before-you-cut-anything" title="Permanent link">¶</a></h2>
+<h3 data-search-exclude="" id="step-071-confirm-the-gate-before-you-start">Step 07.1 — Confirm the gate before you start<a class="headerlink" href="#step-071-confirm-the-gate-before-you-start" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p124.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.124" crop="0.32 0.14 0.76 0.84" src="../assets/manual-pages/manual-p124.png"></a></p>
+<p><strong>What you're looking at:</strong> Before any belt goes on, prove that the gantry slides freely in X and Y with nothing driving it. The belts are the last mechanical link, and they thread through bearing stacks (small piles of bearings that turn the belt) at six places. Binding is far cheaper to find now.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Confirm the gantry is on the Z joints and the Z belts are clamped, from Ch 06 Part A.</li>
+<li>Push the gantry by hand through its full Y travel, and the X carriage through its full X travel.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>travel that stays smooth: no notchy spots, no resistance rising at either end, and no carriage running off a rail. The X carriage coasts when you push it.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=124">Voron manual p.124</a></p>
+<h3 data-search-exclude="" id="step-072-learn-the-rule-that-governs-this-chapter">Step 07.2 — Learn the rule that governs this chapter<a class="headerlink" href="#step-072-learn-the-rule-that-governs-this-chapter" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p125.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.125" crop="0.16 0.18 0.86 0.82" src="../assets/manual-pages/manual-p125.png"></a></p>
+<p><strong>What you're looking at:</strong> This page is the idea behind the whole chapter. In CoreXY neither motor owns an axis: two belt loops connect both motors to the carriage. The print head moves in X when the motors turn together and in Y when they turn opposite ways.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Read p.125.</li>
+<li>Note that the two belt paths are stacked at different heights and never cross: each belt stays in one horizontal plane for its whole loop.</li>
+<li>Note that both paths are the same length by design. Equal length is how you get equal tension.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>a clear picture in your head: you can say, without looking, where the A belt leaves the carriage and where it comes back.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=125">Voron manual p.125</a></p>
+<h3 data-search-exclude="" id="step-073-trace-the-a-belt-path">Step 07.3 — Trace the A belt path<a class="headerlink" href="#step-073-trace-the-a-belt-path" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p126.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.126" src="../assets/manual-pages/manual-p126.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/03-corexy-belt-path.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="CoreXY belt path — A belt and B belt" src="../assets/diagrams/03-corexy-belt-path.svg"></a></p>
+<p><strong>What you're looking at:</strong> The <strong>A</strong> belt is driven by the rear-right motor and runs in the upper of the two planes: its motor pulley and front idler sit 10 mm higher than B's. The diagram traces the same loop seen from above.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Trace the loop on p.126: X carriage, left XY joint, rearward along the left Y extrusion, the rear-left idler stack, the rear extrusion, the A drive's S-wrap (an S-shaped path round its motor pulley), forward along the right Y, the U-turn at the front-right idler, rearward to the right XY joint, and the carriage.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>two parallel A runs on the right-hand side and one on the left, with the A drive at the rear right. <a href="../../voron-build-instructions-survey/">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=126">Voron manual p.126</a></p>
+<h3 data-search-exclude="" id="step-074-trace-the-b-belt-path">Step 07.4 — Trace the B belt path<a class="headerlink" href="#step-074-trace-the-b-belt-path" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p127.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.127" src="../assets/manual-pages/manual-p127.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/03-corexy-belt-path.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="CoreXY belt path — A belt and B belt" src="../assets/diagrams/03-corexy-belt-path.svg"></a></p>
+<p><strong>What you're looking at:</strong> The <strong>B</strong> belt is A's mirror image: driven by the rear-left motor, in the lower plane, with two runs on the left and one on the right. Each drive unit carries a toothed motor pulley for its own belt and a plain stack for the other.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Trace the loop on p.127: X carriage, the left XY joint teeth-on (teeth against the idler), forward along the left Y, the front-left idler U-turn, the B drive's S-wrap, the rear extrusion, the rear-right idler stack, forward along the right Y, the right XY joint on the smooth back, and the carriage.</li>
+<li>Never wrap both belts on one pulley.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>a ready answer: B turns first at the left XY joint, teeth-on.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=127">Voron manual p.127</a></p>
+<hr>
+<h2 id="prepare-the-idlers-and-the-x-carriage">Prepare the idlers and the X carriage<a class="headerlink" href="#prepare-the-idlers-and-the-x-carriage" title="Permanent link">¶</a></h2>
+<h3 data-search-exclude="" id="step-075-set-both-front-idler-tensioners">Step 07.5 — Set both front-idler tensioners<a class="headerlink" href="#step-075-set-both-front-idler-tensioners" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/706-tensioner-four-turns.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="A front idler from above: screw backed out and the arm back at its stop, then 4 turns in pulling the arm forward along the screw" src="../assets/diagrams/706-tensioner-four-turns.svg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p128.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.128" crop="0.18 0.22 0.92 0.74" src="../assets/manual-pages/manual-p128.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/pair-tensioner.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Front-idler tensioners — the handed left/right pair" src="../assets/parts/pair-tensioner.png"></a></p>
+<p><strong>What you're looking at:</strong> The front-idler tensioners are the two blue parts at the front, fitted in Ch 04. Each carries an M3×40 screw that sets belt tension: winding it in pulls the idler forward and tightens that belt, and backing it out releases it.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the two front-idler M3×40 SHCS</li>
+<li>reused: the two front-idler M3 washers</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Back each M3×40 out until the tension arm is at the slack end of its travel. If the arm does not follow, push it back by hand to its stop, screw head against the idler's front.</li>
+<li>Wind it back in exactly 4 turns. Count the turns, and give both idlers the same number.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>both tensioner screws standing out of the front idler bodies by the same amount, with travel left in both directions.</p>
+</div>
+<p><strong>Helper:</strong> Counts the four turns aloud on each tensioner so both idlers get the same number.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=128">Voron manual p.128</a> · <a href="https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html">Voron docs § V2 Gantry Squaring, step 5</a></p>
+<div class="admonition info">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-pause.svg" alt="pause" width="30" height="30" loading="eager" decoding="async"> Good stopping point · ~25 min since the last one</p>
+<p>both belt paths traced against p.126–127, and both front-idler tensioners backed out and wound back in 4 turns each. Nothing is cut. Do not start cutting belt unless you can also thread it.</p>
+</div>
+<h3 data-search-exclude="" id="step-076-fit-the-heat-set-inserts-and-m3-nuts">Step 07.6 — Fit the heat-set inserts and M3 nuts<a class="headerlink" href="#step-076-fit-the-heat-set-inserts-and-m3-nuts" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p129.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.129" crop="0.16 0.22 0.76 0.78" src="../assets/manual-pages/manual-p129.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/sb-pages/sb-p068.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Stealthburner manual p.68 — two heat-set inserts in each carriage half, two in the retainer bracket, two M3 nuts" crop="0.12 0.24 0.86 0.84" src="../assets/sb-pages/sb-p068.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/pair-x_frame_V2TR_MGN12.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="X carriage halves — the handed left/right pair" src="../assets/parts/pair-x_frame_V2TR_MGN12.png"></a></p>
+<p><strong>What you're looking at:</strong> Six heat-set inserts (brass sleeves melted into the plastic) go in: <strong>two</strong> in each X carriage half and two in the probe retainer bracket. p.129 draws one per half; SB p.68 adds the second, for the Clockwork's mounting screws.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li><code>x_frame_V2TR_MGN12_left</code> ×1</li>
+<li><code>x_frame_V2TR_MGN12_right</code> ×1</li>
+<li><code>probe_retainer_bracket</code> ×1</li>
+<li>M3 heat-set insert ×6</li>
+<li>M3 nut ×2</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Confirm you printed <code>x_frame_V2TR_MGN12_left</code> and <code>x_frame_V2TR_MGN12_right</code>, the R2 / Stealthburner halves, not the ones for the older Afterburner toolhead.</li>
+<li>If the inserts went in during the Ch 00 pass, check all six; otherwise set them flush and square to the face.</li>
+<li>Press the two M3 nuts into their pockets in the right carriage half.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>inserts flush and square, nuts fully seated with no gap behind them, and an M3 screw starting by hand in every insert.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>The press tip and a freshly set insert both burn. Raise and park the head between inserts, keep the bench ventilated, and hold parts by the far edge until they cool.</p>
+</div>
+<p>This is LDO's kit note for these pages: <em>"If you are building Clockwork 2 double-check that you have the correct X-Carriage and follow the instructions in the Stealthburner manual."</em> <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a> (p.129–130)</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129">Voron manual p.129</a> · <a href="https://github.com/VoronDesign/Voron-Stealthburner/blob/1572a42e6df5d2f0ddf04a2145be4dc9c3693723/Manual/Assembly_Manual_SB.pdf#page=68">SB manual p.68</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a></p>
+<h3 data-search-exclude="" id="step-077-set-the-two-carriage-stop-screws-to-3-mm">Step 07.7 — Set the two carriage stop screws to 3 mm<a class="headerlink" href="#step-077-set-the-two-carriage-stop-screws-to-3-mm" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p130.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.130" crop="0.14 0.155 0.84 0.86" src="../assets/manual-pages/manual-p130.png"></a></p>
+<p><strong>What you're looking at:</strong> These two M3×12 are stop screws, not fasteners. The 3 mm left between each head and the plastic sets how the two carriage halves meet over the belt, so the two screws must match each other as well as the number.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>M3×12 SHCS ×2</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>In each carriage half, thread one M3×12 into the plain hole beside the belt slot shown on p.130, not into either heat-set insert.</li>
+<li>Stop when the head stands 3 mm off the plastic. Measure it with the caliper's depth blade.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>both screws at 3 mm ±0.5 mm, and the same on both halves.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=130">Voron manual p.130</a></p>
+<hr>
+<h2 id="cut-and-clamp">Cut and clamp<a class="headerlink" href="#cut-and-clamp" title="Permanent link">¶</a></h2>
+<h3 data-search-exclude="" id="step-078-cut-both-belts-to-the-same-length">Step 07.8 — Cut both belts to the same length<a class="headerlink" href="#step-078-cut-both-belts-to-the-same-length" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/701-belt-fold-cut.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="The belt folded back 2000 mm from its free end, cut at the fold and level with the free end, giving two equal belts with A marked" src="../assets/diagrams/701-belt-fold-cut.svg"></a></p>
+<p><strong>What you're looking at:</strong> This is the chapter's most important measurement. Both belt paths are the same length by design, so equal belts end up at equal tension.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>consumable: Gates 2GT open belt, 6 mm wide, two equal lengths</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Measure 2000 mm from the belt's free end and fold it back there.</li>
+<li>Lay the doubled belt flat and cut through both layers at the fold, square across. Then cut the reel side level with the free end.</li>
+<li>Mark one belt A with a dot on its smooth back near each end: it goes in the upper slot, and once threaded the two look identical.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>two belts side by side against a square edge, far ends flush, and about 100 mm of tail at each clamp (verify on bench).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Cut carefully</p>
+<p>a few millimetres of difference between the two belts is a permanent imbalance that the tensioners cannot remove.</p>
+</div>
+<p>Voron's own method, from p.125, works too: route the first belt off the reel as A, mark its length, take it off, cut it, then cut the second against it.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=125">Voron manual p.125</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+">LDO 350 Rev D+ BOM</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a> · <a href="https://www.onetwo3d.co.uk/voron-bill-of-material/voron-2-4-350mm-bill-of-material/">onetwo3D Voron 2.4 350 BOM</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~30 min since the last one</p>
+<p>heat-set inserts and M3 nuts in the carriage halves, stop screws set to 3 mm, both belts cut to matched length and marked A and B. Coil the two belts and bag them: the next segment is the one that cannot be broken.</p>
+</div>
+<h3 data-search-exclude="" id="step-079-clamp-the-first-end-of-both-belts-in-the-left-carriage-half">Step 07.9 — Clamp the first end of both belts in the left carriage half<a class="headerlink" href="#step-079-clamp-the-first-end-of-both-belts-in-the-left-carriage-half" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p131.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.131" crop="0.05 0.20 0.46 0.82" src="../assets/manual-pages/manual-p131.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/703-belt-clamp-section.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Section through the X carriage: A belt in the upper slot, B in the lower, teeth facing away from the extrusion" src="../assets/diagrams/703-belt-clamp-section.svg"></a></p>
+<p><strong>What you're looking at:</strong> The X carriage holds a belt by squeezing it between its two printed halves. Both belts' first ends go into the left half: A, whose pulley and idler sit 10 mm higher, in the upper slot and B in the lower.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the left X carriage half</li>
+<li>reused: both cut belts, marked A and B</li>
+<li>M3×8 SHCS ×2</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Feed belt A into the upper slot of the left half and B into the lower, teeth facing away from the extrusion.</li>
+<li>Hold the left half, belts in, against the rail carriage (the block that rides the X rail), and fully tighten both M3×8 screws, which hold these ends for good.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>both ends held fast under a firm tug, the A mark in the upper slot, the teeth facing the same way, and neither belt twisted.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=131">Voron manual p.131</a></p>
+<hr>
+<h2 id="route-the-a-belt">Route the A belt<a class="headerlink" href="#route-the-a-belt" title="Permanent link">¶</a></h2>
+<p>Work in one direction round the loop. Needle-nose pliers or tweezers make the bearing stacks easier to manage (p.132).</p>
+<div class="admonition warning">
+<p class="admonition-title">Never force a belt round a bearing stack</p>
+<p>you will damage the flange or unseat a bearing. If it will not go at a front idler, use the access trick in Step 07.15.</p>
+</div>
+<h3 data-search-exclude="" id="step-0710-a-belt-leave-the-carriage-and-turn-at-the-left-xy-joint">Step 07.10 — A belt: leave the carriage and turn at the left XY joint<a class="headerlink" href="#step-0710-a-belt-leave-the-carriage-and-turn-at-the-left-xy-joint" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p132.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.132" crop="0.12 0.24 0.37 0.70" src="../assets/manual-pages/manual-p132.png"></a></p>
+<p><strong>What you're looking at:</strong> At the left XY joint, the A belt turns 90° around the joint's upper, plain F695 pair, smooth back against the bearings. The toothed idler below it belongs to B. Keep the belt centred in the groove: a belt that climbs a flange frays.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the A belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Take the end of A left along the X extrusion to the left XY joint.</li>
+<li>Wrap it 90° around the joint's plain bearing stack, smooth back on the bearings, so it runs rearward along the left Y extrusion.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>the belt sitting centred in the stack's groove, not climbing a flange, smooth back on the bearings, with no twist back to the carriage.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=132">Voron manual p.132</a></p>
+<h3 data-search-exclude="" id="step-0711-a-belt-run-rearward-up-the-left-y-extrusion">Step 07.11 — A belt: run rearward up the left Y extrusion<a class="headerlink" href="#step-0711-a-belt-run-rearward-up-the-left-y-extrusion" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p126.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.126" crop="0.14 0.175 0.52 0.80" src="../assets/manual-pages/manual-p126.png"></a></p>
+<p><strong>What you're looking at:</strong> This is the one long run down the left side of the machine. Nothing turns the belt here, so the only things to get right are keeping it parallel to the extrusion and clear of every printed part on the way.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the A belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Run the belt straight back along the left Y extrusion to the rear-left drive unit. This is the single run on the left side, shown in the top-left inset of p.126.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>a run parallel to the extrusion along its whole length, clear of the printed parts and the Z belt.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=126">Voron manual p.126</a></p>
+<h3 data-search-exclude="" id="step-0712-a-belt-turn-90-at-the-rear-left-idler-stack">Step 07.12 — A belt: turn 90° at the rear-left idler stack<a class="headerlink" href="#step-0712-a-belt-turn-90-at-the-rear-left-idler-stack" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p126.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.126" crop="0.14 0.175 0.42 0.42" src="../assets/manual-pages/manual-p126.png"></a></p>
+<p><strong>What you're looking at:</strong> The rear-left corner is the <strong>B</strong> drive unit, and it carries two things at two heights: B's toothed motor pulley, and a plain bearing stack that belongs to the <strong>A</strong> belt. A wraps the plain stack only. Wrapping the pulley instead would lock the two axes together.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the A belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Wrap the belt round the idler stack at the rear-left corner, smooth back on it, not the B motor pulley beside it.</li>
+<li>Turn it to run right along the rear extrusion towards the A drive.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>the B motor pulley untouched and free to spin, and the A belt running along the rear extrusion at a constant height.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=126">Voron manual p.126</a></p>
+<h3 data-search-exclude="" id="step-0713-a-belt-s-wrap-the-a-drive-motor-pulley">Step 07.13 — A belt: S-wrap the A drive motor pulley<a class="headerlink" href="#step-0713-a-belt-s-wrap-the-a-drive-motor-pulley" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p133.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.133" crop="0.22 0.20 0.74 0.72" src="../assets/manual-pages/manual-p133.png"></a></p>
+<p><strong>What you're looking at:</strong> An S-wrap gives a drive pulley its grip. The belt comes in over one bearing, wraps a large arc of the toothed motor pulley, and leaves over a second bearing. More teeth in contact means the belt cannot skip under hard acceleration.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the A belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>At the A drive unit, rear right, take the belt round the first stack, over the toothed motor pulley, and back out round the second, in the S-shape on p.133.</li>
+<li>Seat the belt on the pulley teeth, not on a flange.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>a pulley that turns tooth by tooth when you nudge the belt, without slipping, and a belt that leaves heading forward along the right Y extrusion.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=133">Voron manual p.133</a></p>
+<h3 data-search-exclude="" id="step-0714-a-belt-run-forward-down-the-right-y-extrusion">Step 07.14 — A belt: run forward down the right Y extrusion<a class="headerlink" href="#step-0714-a-belt-run-forward-down-the-right-y-extrusion" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p134.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.134" crop="0.16 0.22 0.50 0.70" src="../assets/manual-pages/manual-p134.png"></a></p>
+<p><strong>What you're looking at:</strong> On its way forward, A passes the right XY joint at its own height without wrapping it; it wraps that joint on the return run. Checking that a long run is at the same height at both ends catches a half-twist.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the A belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Run the belt forward along the right Y extrusion, past the right XY joint without wrapping it, all the way to the front-right idler. The left-hand image on p.134 shows the belt passing the joint at its own height.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>a belt clear of the XY joint's printed parts, with no rub and no contact, and at the same height at both ends of the run.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=134">Voron manual p.134</a></p>
+<h3 data-search-exclude="" id="step-0715-a-belt-u-turn-at-the-front-right-idler">Step 07.15 — A belt: U-turn at the front-right idler<a class="headerlink" href="#step-0715-a-belt-u-turn-at-the-front-right-idler" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p134.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.134" crop="0.60 0.22 0.88 0.80" src="../assets/manual-pages/manual-p134.png"></a></p>
+<p><strong>What you're looking at:</strong> The front-right idler is a 180° turnaround: the belt goes round it and comes straight back, which is why the right side ends up with two parallel runs. The smooth back of the belt rides this stack, not the teeth.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the A belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Wrap the belt 180° around the front-right idler bearing stack.</li>
+<li>Bring it back rearward, parallel to the run you just made.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>two right-side runs, parallel and not touching, with the smooth back on the idler and the teeth facing away from it on both runs: outboard on the way out, inboard on the way back.</p>
+</div>
+<p>If the stack will not take the belt, take out that idler's M3×40 SHCS tensioner screw, thread the belt, refit the screw, then redo Step 07.5. No drive or joint has that screw.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=134">Voron manual p.134</a></p>
+<h3 data-search-exclude="" id="step-0716-a-belt-turn-at-the-right-xy-joint-and-return-to-the-carriage">Step 07.16 — A belt: turn at the right XY joint and return to the carriage<a class="headerlink" href="#step-0716-a-belt-turn-at-the-right-xy-joint-and-return-to-the-carriage" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p135.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.135" crop="0.27 0.24 0.62 0.68" src="../assets/manual-pages/manual-p135.png"></a></p>
+<p><strong>What you're looking at:</strong> The right XY joint closes the A loop. Here the belt wraps the joint's upper, toothed 20T idler teeth-on, because the return run doubled back at the front idler and its teeth now face inboard. This is correct, not a mistake in the routing.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the A belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Take the returning run rearward to the right XY joint.</li>
+<li>Wrap it 90° round the joint's toothed idler, teeth meshing, then bring it left along the X extrusion to the X carriage. Leave the tail loose there.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>A as a closed path, both ends at the carriage, teeth on the right joint's toothed idler and the smooth back everywhere else.</p>
+</div>
+<p><em>Soft stop (not a Pause):</em> if you must break here, tape the loose A tail to the X extrusion so it cannot pull back through a stack. When you come back, run a fingertip round all seven places the A belt touches before you start Step 07.17.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=135">Voron manual p.135</a></p>
+<hr>
+<h2 id="route-the-b-belt">Route the B belt<a class="headerlink" href="#route-the-b-belt" title="Permanent link">¶</a></h2>
+<p>B runs one plane below A and mirrors it: its U-turn is at the front left and its drive at the rear left. Like A, it leaves the left carriage half heading left, so its first turn is at the left XY joint too, on the joint's lower, toothed idler, and its last is at the right joint. The joint B passes without wrapping is the left one, on its way back to the B drive, just as A passed the right one on its way out. The manual's B pages (p.136, then p.137, then p.138) run in exactly this order.</p>
+<h3 data-search-exclude="" id="step-0717-b-belt-leave-the-carriage-and-turn-teeth-on-at-the-left-xy-joint">Step 07.17 — B belt: leave the carriage and turn teeth-on at the left XY joint<a class="headerlink" href="#step-0717-b-belt-leave-the-carriage-and-turn-teeth-on-at-the-left-xy-joint" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p136.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.136" crop="0.16 0.24 0.52 0.84" src="../assets/manual-pages/manual-p136.png"></a></p>
+<p><strong>What you're looking at:</strong> Back at the left XY joint, one plane down. Below the plain F695 pair that A already wraps sits the joint's toothed 20T idler. B makes its first turn on it, teeth meshing, turning from the X direction to run forward down the left Y extrusion.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the B belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Take the end of B left along the X extrusion, below A, to the left XY joint.</li>
+<li>Wrap it 90° round the joint's lower, toothed idler, teeth meshing, so it runs forward along the left Y extrusion.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>B's teeth centred on the toothed idler, A on the plain stack directly above with a visible gap, and B leaving forward with no twist.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=136">Voron manual p.136</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=105">Voron manual p.105</a></p>
+<h3 data-search-exclude="" id="step-0718-b-belt-run-forward-and-u-turn-at-the-front-left-idler">Step 07.18 — B belt: run forward and U-turn at the front-left idler<a class="headerlink" href="#step-0718-b-belt-run-forward-and-u-turn-at-the-front-left-idler" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p136.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.136" crop="0.60 0.24 0.90 0.84" src="../assets/manual-pages/manual-p136.png"></a></p>
+<p><strong>What you're looking at:</strong> The 180° turnaround at the front-left idler gives the left side its two parallel runs. It mirrors A's front-right turn: the smooth back rides the stack and the teeth face away from it. For B it comes early in the loop.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the B belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Run the belt forward along the left Y extrusion to the front-left idler.</li>
+<li>Wrap it 180° round the idler bearing stack, smooth back on it, and bring it rearward on the outer run, parallel to the run you just made.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>two parallel left-side runs that do not touch, with the smooth back on the idler and the teeth facing away from it on both runs: inboard on the way out, outboard on the way back.</p>
+</div>
+<p>If the stack will not take the belt, take out that idler's M3×40 SHCS tensioner screw, thread the belt, refit the screw, then redo Step 07.5. No drive or joint has that screw.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=136">Voron manual p.136</a></p>
+<h3 data-search-exclude="" id="step-0719-b-belt-run-rearward-up-the-left-outer-run-past-the-left-xy-joint">Step 07.19 — B belt: run rearward up the left outer run, past the left XY joint<a class="headerlink" href="#step-0719-b-belt-run-rearward-up-the-left-outer-run-past-the-left-xy-joint" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p137.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.137" crop="0.12 0.20 0.44 0.74" src="../assets/manual-pages/manual-p137.png"></a></p>
+<p><strong>What you're looking at:</strong> B's return run goes up the left side, outboard of the forward run. It passes the left XY joint at its own height without touching it and carries on to the B drive at the rear left. Check the height at both ends to catch a half-twist.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the B belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Run the belt rearward along the left Y extrusion on the outer run, past the left XY joint without wrapping anything, all the way to the B drive unit at the rear left.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>a belt clear of the joint's printed parts and of the inner run, both left-side runs parallel, and the height the same at both ends.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=137">Voron manual p.137</a></p>
+<h3 data-search-exclude="" id="step-0720-b-belt-s-wrap-the-b-drive-motor-pulley">Step 07.20 — B belt: S-wrap the B drive motor pulley<a class="headerlink" href="#step-0720-b-belt-s-wrap-the-b-drive-motor-pulley" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p137.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.137" crop="0.45 0.20 0.87 0.64" src="../assets/manual-pages/manual-p137.png"></a></p>
+<p><strong>What you're looking at:</strong> The same S-wrap as at the A drive, this time on the B motor at the rear left: bearing stack, toothed motor pulley, bearing stack. The plain stack on this unit that A already turns on sits at another height and is not touched.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the B belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>At the B drive unit, rear left, take the belt round the first stack, over the toothed motor pulley, and back out round the second, in the S-shape on p.137.</li>
+<li>Seat it on the pulley teeth, not a flange.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>a B pulley that turns tooth by tooth when you nudge the belt, with no slip, A untouched on its idler stack, and B running below A.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=137">Voron manual p.137</a></p>
+<h3 data-search-exclude="" id="step-0721-b-belt-run-right-along-the-rear-and-turn-90-at-the-rear-right-idler-stack">Step 07.21 — B belt: run right along the rear and turn 90° at the rear-right idler stack<a class="headerlink" href="#step-0721-b-belt-run-right-along-the-rear-and-turn-90-at-the-rear-right-idler-stack" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p138.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.138" crop="0.16 0.20 0.58 0.70" src="../assets/manual-pages/manual-p138.png"></a></p>
+<p><strong>What you're looking at:</strong> The rear-right corner is the <strong>A</strong> drive unit, and like the rear left it carries a motor pulley and a plain stack. B wraps the plain stack only, smooth back on it, turning from the rear extrusion to run forward down the right Y extrusion.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the B belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Run the belt right along the rear extrusion to the A drive unit.</li>
+<li>Wrap it 90° round that unit's idler stack, not the A motor pulley beside it, and turn it forward down the right Y extrusion.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>an A motor pulley that still turns freely, and B running along the rear below A without touching it, then leaving forward as the single right-side run.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=138">Voron manual p.138</a></p>
+<h3 data-search-exclude="" id="step-0722-b-belt-run-forward-turn-smooth-at-the-right-xy-joint-and-return-to-the-carriage">Step 07.22 — B belt: run forward, turn smooth at the right XY joint and return to the carriage<a class="headerlink" href="#step-0722-b-belt-run-forward-turn-smooth-at-the-right-xy-joint-and-return-to-the-carriage" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p138.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.138" crop="0.60 0.30 0.93 0.66" src="../assets/manual-pages/manual-p138.png"></a></p>
+<p><strong>What you're looking at:</strong> The right XY joint closes the B loop. Here the belt meets the joint's lower, plain F695 stack, smooth back on the bearings, with A's toothed idler directly above it. It is the mirror of the left joint, one plane down.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the B belt</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Run the belt forward along the right Y extrusion to the right XY joint.</li>
+<li>Wrap it 90° round the joint's lower, plain stack, smooth back and under A's toothed idler, then take it left to the carriage. Leave the tail loose.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>B's smooth back on the lower plain stack and A on the toothed idler above with a visible gap. Both belts are now closed paths.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=138">Voron manual p.138</a></p>
+<h3 data-search-exclude="" id="step-0723-check-both-belts-against-the-overviews-before-closing-the-carriage">Step 07.23 — Check both belts against the overviews before closing the carriage<a class="headerlink" href="#step-0723-check-both-belts-against-the-overviews-before-closing-the-carriage" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p127.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.127" src="../assets/manual-pages/manual-p127.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/03-corexy-belt-path.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="CoreXY belt path — A belt and B belt" src="../assets/diagrams/03-corexy-belt-path.svg"></a></p>
+<p><strong>What you're looking at:</strong> Two complete loops, still open at the carriage. This is the last moment when a wrong route costs minutes rather than an hour. You are testing four things: teeth on the toothed wheels, smooth back on every plain stack, no half-twist, and belts stacked, not crossed.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Put p.126 and p.127 beside the machine and walk both loops.</li>
+<li>Nudge the belt at each motor pulley and watch the pulley turn tooth by tooth rather than slip.</li>
+<li>Look along every straight run: the teeth face the same way at both ends.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>teeth on both motor pulleys and on the two toothed XY-joint idlers, smooth back on every plain stack, no half-twist, belts stacked not crossed, and the pulleys free.</p>
+</div>
+<p><strong>Helper:</strong> Reads out each stop on the loop from p.126 and p.127 while you check it on the machine.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=127">Voron manual p.127</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=126">Voron manual p.126</a></p>
+<hr>
+<h2 id="capture-the-ends-pull-tight-inspect">Capture the ends, pull tight, inspect<a class="headerlink" href="#capture-the-ends-pull-tight-inspect" title="Permanent link">¶</a></h2>
+<h3 data-search-exclude="" id="step-0724-fit-the-right-x-carriage-half-to-capture-the-belt-ends">Step 07.24 — Fit the right X carriage half to capture the belt ends<a class="headerlink" href="#step-0724-fit-the-right-x-carriage-half-to-capture-the-belt-ends" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p139.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.139" crop="0.12 0.26 0.42 0.76" src="../assets/manual-pages/manual-p139.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/703-belt-clamp-section.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Section through the X carriage: A belt in the upper slot, B in the lower, teeth facing away from the extrusion" src="../assets/diagrams/703-belt-clamp-section.svg"></a></p>
+<p><strong>What you're looking at:</strong> The right carriage half is the other jaw of the clamp. Each loose tail goes into the slot at its own height, so the two belts stay in their own planes right up to where they are gripped.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the right X carriage half</li>
+<li>reused: both belts, tails loose</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Feed the two loose belt tails into their clamp slots in the right X carriage half, each into the slot at its own height.</li>
+<li>Offer the half up to the carriage. Do not fasten anything yet.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>both tails seated in their slots, and both belts leaving the carriage without a twist.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=139">Voron manual p.139</a></p>
+<h3 data-search-exclude="" id="step-0725-fix-the-belts-lightly">Step 07.25 — Fix the belts, lightly<a class="headerlink" href="#step-0725-fix-the-belts-lightly" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p140.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.140" crop="0.20 0.24 0.53 0.78" src="../assets/manual-pages/manual-p140.png"></a></p>
+<p><strong>What you're looking at:</strong> These two screws stay deliberately loose. The clamp still has to let belt be pulled through it, because the next steps take the slack out of both loops by pulling on these tails. Tighten now and you lock the slack in.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>M3×8 SHCS ×2</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Run the two M3×8 SHCS into the right carriage half.</li>
+<li>Tighten them only lightly. As p.140 says, the belt must still be able to move.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>belt that you can still draw through the clamp by hand with moderate effort.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=140">Voron manual p.140</a></p>
+<h3 data-search-exclude="" id="step-0726-fit-the-carriage-bolts-and-leave-them-loose">Step 07.26 — Fit the carriage bolts and leave them loose<a class="headerlink" href="#step-0726-fit-the-carriage-bolts-and-leave-them-loose" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p140.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.140" crop="0.527 0.18 0.86 0.76" src="../assets/manual-pages/manual-p140.png"></a></p>
+<p><strong>What you're looking at:</strong> The two M3×30 carriage screws pass through both halves into the M3 nuts you pressed into their pockets earlier. They squeeze the halves together onto the belts, and they stay light for now for the same reason as the clamp screws.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>M3×30 SHCS ×2</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Pass the two M3×30 SHCS through the carriage, one at the top and one at the bottom, into the captive M3 nuts.</li>
+<li>Tighten them lightly.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>two carriage halves held together but still able to shift slightly, with nothing torqued.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=140">Voron manual p.140</a></p>
+<h3 data-search-exclude="" id="step-0727-pull-both-belts-tight-and-equalise-the-tails">Step 07.27 — Pull both belts tight and equalise the tails<a class="headerlink" href="#step-0727-pull-both-belts-tight-and-equalise-the-tails" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/704-belt-tails-equal.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Both belt tails pulled out below the X carriage until a rule shows the same length on each" src="../assets/diagrams/704-belt-tails-equal.svg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p141.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.141" crop="0.06 0.28 0.46 0.88" src="../assets/manual-pages/manual-p141.png"></a></p>
+<p><strong>What you're looking at:</strong> This is where belt tension is really set; the tensioners only trim it. Because both belts and both paths are the same length, equal tails mean equal tension.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Grab both belt ends with pliers and pull the belt tight, until the same length sticks out of the carriage on both belts.</li>
+<li>Pull one, then the other, then back again, because each pull changes the other. Tuck a little excess into the carriage. Leave the rest uncut: squaring in Ch 06b may need to free and re-clamp these ends.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>tails that match on the rule, and still match after you move the gantry through its full XY travel. If one crept, back off its M3×8 and pull it again.</p>
+</div>
+<p><strong>Helper:</strong> Reads both tail lengths off the rule and says which belt sticks out further.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=141">Voron manual p.141</a> · <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron docs § Secondary printer tuning — A/B Belts</a></p>
+<h3 data-search-exclude="" id="step-0728-tighten-the-carriage-bolts">Step 07.28 — Tighten the carriage bolts<a class="headerlink" href="#step-0728-tighten-the-carriage-bolts" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p141.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.141" crop="0.37 0.18 0.86 0.738" src="../assets/manual-pages/manual-p141.png"></a></p>
+<p><strong>What you're looking at:</strong> Now everything is made firm. The M3×8 thread into the rail carriage and the M3×30 into captive nuts. Stop at solid: there is no torque figure, and a stripped thread means opening the carriage with both belts in it.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Fully tighten the right half's two M3×8 belt-clamp screws first, the ones p.140 left light, as the middle panel of p.141 shows. The left half's two went fully tight in Step 07.9: check they still are.</li>
+<li>Then fully tighten the two M3×30 carriage screws, stopping when they are firm.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>belts that do not slip when you pull hard on each one at the carriage, and an X carriage that still runs the full X rail without catching on anything.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=141">Voron manual p.141</a></p>
+<div class="admonition info">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-pause.svg" alt="pause" width="30" height="30" loading="eager" decoding="async"> Good stopping point · ~80 min since the last one</p>
+<p>the long one, with no safe stop inside it. Both belts are routed, both ends captured in the carriage, the tails equalised and the carriage screws tightened. Only stop here once the carriage is closed and both belts are held at both ends.</p>
+</div>
+<h3 data-search-exclude="" id="step-0729-belt-rub-inspection-at-every-idler-stack">Step 07.29 — Belt-rub inspection at every idler stack<a class="headerlink" href="#step-0729-belt-rub-inspection-at-every-idler-stack" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p142.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.142" crop="0.12 0.18 0.92 0.82" src="../assets/manual-pages/manual-p142.png"></a></p>
+<p><strong>What you're looking at:</strong> A belt touches something at fourteen places, in six locations: two at each XY joint, one at each front idler, and four at each drive (two S-wrap stacks, the motor pulley and the other belt's stack). A belt riding a printed flange ticks once per revolution.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Look at both edges of the belt where it enters and leaves every stack. As p.142 says, the belt must not ride on the plastic parts.</li>
+<li>Repeat with the gantry at the extreme front, the extreme rear, and both ends of X.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>daylight between both belt edges and the printed part at every stack, in every position, with no rub marks, dust, tick or squeak.</p>
+</div>
+<p><strong>Helper:</strong> Watches one side of every stack as you move the gantry and calls out any rub.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=142">Voron manual p.142</a> · <a href="https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html">Voron docs § V2 Gantry Squaring, step 5</a> · <a href="https://www.youtube.com/watch?v=ViB5Ulc9zDI&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5996s">Video: Part 4 @1:39:56</a></p>
+<hr>
+<h2 id="initial-tension-provisional">Initial tension (provisional)<a class="headerlink" href="#initial-tension-provisional" title="Permanent link">¶</a></h2>
+<p>This tension is provisional: the squaring procedure starts by releasing it completely (<a href="https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html">V2 gantry squaring, step 5</a>; <a href="../../voron-build-instructions-survey/">survey §4.4 #2 and §5.2 W1</a>). What you set here only needs to be good enough to home, level the gantry (QGL) and run the bring-up in Ch 13. <strong>Ch 14 Step 14.4 owns the final number.</strong></p>
+<h3 data-search-exclude="" id="step-0730-set-the-150-mm-measuring-span">Step 07.30 — Set the 150 mm measuring span<a class="headerlink" href="#step-0730-set-the-150-mm-measuring-span" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/702-belt-span-150.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Top view of the right front corner: the run to pluck, 150 mm centre to centre between the XY joint's toothed idler and the front idler, and the tensioner screw, clockwise from the front for tighter, anticlockwise for looser" src="../assets/diagrams/702-belt-span-150.svg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/cad/07-30-a.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="CAD render — left side: the XY joint idler, the front idler and the belt run between them that you pluck" src="../assets/cad/07-30-a.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/cad/07-30-b.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="CAD render — both sides in place: on each side the run you pluck goes from the XY joint idler to the front idler" src="../assets/cad/07-30-b.png"></a></p>
+<p><strong>What you're looking at:</strong> A plucked belt's pitch depends on the length of free belt that vibrates, its span, so a frequency means nothing without it. The span runs between the idler in the XY joint and the idler in the front idler block.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Move the X extrusion forward by hand until the XY joint idler centres are 150 mm from the front idler centres.</li>
+<li>Measure centre to centre with the rule on both sides, with the gantry square to the frame, not skewed.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>150 mm on the left and 150 mm on the right, measured to the same features.</p>
+</div>
+<p><strong>Helper:</strong> Holds the rule between the two idler centres and reads the number aloud on each side.</p>
+<p class="src">Source: <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron docs § Secondary printer tuning — A/B Belts</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=141">Voron manual p.141</a> · <a href="https://www.youtube.com/watch?v=8pWoYkY1DiA&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=608s">Video: Part 6 @0:10:08</a> · CAD: Voron 2.4r2 STEP @ de7e89d</p>
+<h3 data-search-exclude="" id="step-0731-read-both-belts-with-the-phone">Step 07.31 — Read both belts with the phone<a class="headerlink" href="#step-0731-read-both-belts-with-the-phone" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/07-ab-belts/belt-tension-spectrum-peak.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Sound Spectrum Analysis — read the lowest peak, not the loudest" src="../assets/remote/07-ab-belts/belt-tension-spectrum-peak.jpg"></a>
+(no image of your own belt: this is Voron's example of the app's screen, not a belt at 110 Hz. The 54.6 Hz at the top labels its tallest peak, not its lowest. Copy no number from it.)</p>
+<p><strong>What you're looking at:</strong> A spectrum app turns a plucked belt into a plot of loudness against pitch, in hertz (Hz, vibrations per second). You want the lowest peak the pluck makes, the fundamental. A belt also rings at two and three times that, the harmonics, and a harmonic reads as far too tight.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Start the spectrum app, hold the phone close to the belt, and pluck the free 150 mm section like a guitar string.</li>
+<li>Read the lowest peak that jumps up with each pluck, not the loudest and not a harmonic. Do both belts.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>three plucks in a row landing within a few Hz of each other. A reading that jumps around is a harmonic or room noise.</p>
+</div>
+<p><strong>Helper:</strong> Holds the phone by the belt and reads the lowest peak aloud after each pluck.</p>
+<p class="src">Source: <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron docs § Secondary printer tuning — A/B Belts</a> · image <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/main/tuning/images/sound-spectrum-belt.jpg"><code>sound-spectrum-belt.jpg</code></a></p>
+<h3 data-search-exclude="" id="step-0732-bring-both-belts-to-110-hz">Step 07.32 — Bring both belts to ~110 Hz<a class="headerlink" href="#step-0732-bring-both-belts-to-110-hz" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/707-quarter-turns.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Both front-idler screw heads seen from the front: a quarter turn clockwise tightens, anticlockwise loosens, alternating between the A screw on the right and the B screw on the left" src="../assets/diagrams/707-quarter-turns.svg"></a></p>
+<p><strong>What you're looking at:</strong> The two tensions affect each other: tightening one belt shifts the X extrusion and changes the other. So you get there by alternating quarter turns between the two belts, not by finishing one belt and then starting the other.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Adjust with the front-idler tensioner screws. Seen from the front, clockwise winds a screw in for more tension, anticlockwise lets it out. Aim for about 110 Hz over the 150 mm span, about 2 lb.</li>
+<li>Alternate quarter turns between the two belts until they read the same.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>both belts reading about 110 Hz. Do not chase the number: this tension is provisional, and Ch 14 Step 14.4 sets it last.</p>
+</div>
+<p><strong>Helper:</strong> Reads each belt's lowest peak aloud after every quarter turn you make.</p>
+<p class="src">Source: <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron docs § Secondary printer tuning — A/B Belts</a></p>
+<h3 data-search-exclude="" id="step-0733-move-the-gantry-return-and-re-check">Step 07.33 — Move the gantry, return, and re-check<a class="headerlink" href="#step-0733-move-the-gantry-return-and-re-check" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/705-gantry-away-and-back.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Top view: the X extrusion moved back a few centimetres, returned until the XY joint idler centres are 150 mm from the front idler centres, and both belts read again" src="../assets/diagrams/705-gantry-away-and-back.svg"></a></p>
+<p><strong>What you're looking at:</strong> Moving the gantry away and back re-seats both belts in every stack and lets trapped slack spread out. A reading that only holds while the gantry has not moved is not a reading.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Move the X extrusion back at least a few centimetres, then forward again to the 150 mm span.</li>
+<li>Measure both belts again.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>both belts within a few Hz of each other, at about 110 Hz, after the gantry has moved away and back.</p>
+</div>
+<p>Right now, A and B being equal matters more than hitting 110 Hz exactly. Unequal tension racks the gantry (pulls it out of square) and fights the squaring you do in Ch 06b, which releases this tension completely anyway.</p>
+<p>If the two will not come together, the usual causes, in order, are unequal belt lengths (Step 07.8), unequal tails at the carriage, or a belt rubbing somewhere.</p>
+<p class="src">Source: <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron docs § Secondary printer tuning — A/B Belts</a> · <a href="../../voron-build-instructions-survey/">survey §7.2 Ch 07</a> · <a href="https://www.youtube.com/watch?v=8pWoYkY1DiA&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=901s">Video: Part 6 @0:15:01</a></p>
+<div class="admonition info">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-pause.svg" alt="pause" width="30" height="30" loading="eager" decoding="async"> Good stopping point · ~30 min since the last one</p>
+<p>belt-rub check clean at all fourteen contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional, so do not chase the number further: Ch 06b releases it entirely and Ch 14 sets it for the last time.</p>
+</div>
+<hr>
+<h2 id="finish-the-x-carriage-inductive-probe">Finish the X carriage: inductive probe<a class="headerlink" href="#finish-the-x-carriage-inductive-probe" title="Permanent link">¶</a></h2>
+<h3 data-search-exclude="" id="step-0734-insulate-the-probe-and-keep-its-lead-whole">Step 07.34 — Insulate the probe and keep its lead whole<a class="headerlink" href="#step-0734-insulate-the-probe-and-keep-its-lead-whole" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p143.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.143" crop="0.37 0.24 0.61 0.80" src="../assets/manual-pages/manual-p143.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/10-wiring/ldo-probe-insulation.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO: the Omron probe taped front and sides, sensing face bare (© LDO Motors)" src="../assets/remote/10-wiring/ldo-probe-insulation.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The inductive probe is a small rectangular block with two mounting holes at the top and a lead coming out of it. It senses the steel bed without touching it, for QGL (levelling the gantry) and the bed mesh. Tape insulates it before it is fitted.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>staged: Omron TL-Q5MC inductive probe ×1, in the Toolhead PCB Cables bag</li>
+<li>consumable: fibreglass tape 2×12 cm</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Wrap at least two layers of fibreglass tape round the front and sides of the block, starting slightly up from the bottom edge.</li>
+<li>Leave the lead full length and coil the spare loosely.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>the back and the bottom sensing face bare, the mounting holes clear, and the lead uncut with its connector on.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> Do not cut the probe lead. p.143 says to cut the probe wires to about 150 mm, but this kit's lead comes pre-cut and crimped for the Nitehawk <code>PROBE</code> port, Step 08.60. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe">src</a></p>
+</div>
+<p>Too much tape stops the probe triggering, so if it fails in Ch 13, peel some off.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=143">Voron manual p.143</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe">LDO wiring guide § Insulating the Z probe</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+">LDO 350 Rev D+ BOM</a></p>
+<h3 data-search-exclude="" id="step-0735-fit-the-probe-and-its-retainer-bracket">Step 07.35 — Fit the probe and its retainer bracket<a class="headerlink" href="#step-0735-fit-the-probe-and-its-retainer-bracket" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p143.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.143" crop="0.06 0.24 0.60 0.80" src="../assets/manual-pages/manual-p143.png"></a></p>
+<p><strong>What you're looking at:</strong> The retainer bracket is the small printed bar with two heat-set inserts that sits behind the carriage. The two M3×30 clamp the probe block to the carriage face through it. Keep them snug only, so the probe can still slide for the next step.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>Omron TL-Q5MC inductive probe ×1</li>
+<li>reused: the probe retainer bracket</li>
+<li>M3×30 SHCS ×2</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Hold the probe on the carriage face, lead up.</li>
+<li>Pass the two M3×30 SHCS through its mounting holes and the carriage into the retainer bracket's inserts behind.</li>
+<li>Tighten them enough to hold the probe but still let it slide.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>a probe held square and parallel to the carriage face that you can still push up and down with firm finger pressure.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=143">Voron manual p.143</a></p>
+<h3 data-search-exclude="" id="step-0736-set-the-probe-height">Step 07.36 — Set the probe height<a class="headerlink" href="#step-0736-set-the-probe-height" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p144.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.144" crop="0.15 0.26 0.46 0.64" src="../assets/manual-pages/manual-p144.png"></a></p>
+<p><strong>What you're looking at:</strong> Setting 6 mm of probe below the plastic is a starting position, not a calibration. It puts the sensing face where it will see the bed with margin to spare; the real trigger offset is measured during bring-up in Ch 13.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Slide the probe until its tip sits about 6 mm below the plastic part. This is a starting position only, fine-tuned during bring-up.</li>
+<li>Fully tighten the two M3×30.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>6 mm ±1 mm on the caliper's depth blade, and a probe that does not move when you push on it.</p>
+</div>
+<p><strong>Helper:</strong> Reads the caliper depth aloud while you slide the probe to 6 mm.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=144">Voron manual p.144</a></p>
+<h3 data-search-exclude="" id="step-0737-route-the-probe-cable">Step 07.37 — Route the probe cable<a class="headerlink" href="#step-0737-route-the-probe-cable" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p144.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.144" crop="0.50 0.18 0.90 0.64" src="../assets/manual-pages/manual-p144.png"></a></p>
+<p><strong>What you're looking at:</strong> The moulded slot is the one place the probe cable can sit without getting caught between the belts and the rail carriage across the full X travel. The cable plugs into the toolhead board in Ch 08.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Guide the probe cable into the moulded slot in the carriage.</li>
+<li>Leave the coiled end loose above the carriage until Step 08.60 plugs it into <code>PROBE</code>.</li>
+<li>Move the carriage from end to end and watch the cable.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>a cable held in the slot and clear of both belts and the rail carriage over the full travel.</p>
+</div>
+<p><strong>Helper:</strong> Slides the X carriage slowly end to end while you watch the probe cable.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=144">Voron manual p.144</a></p>
+<h3 data-search-exclude="" id="step-0738-hall-effect-endstop-magnet-skip">Step 07.38 — Hall-effect endstop magnet: skip<a class="headerlink" href="#step-0738-hall-effect-endstop-magnet-skip" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p145.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.145" crop="0.15 0.26 0.52 0.80" src="../assets/manual-pages/manual-p145.png"></a></p>
+<p><strong>What you're looking at:</strong> You skip this page. The pocket it shows in the carriage takes a magnet for the hall-effect endstop option (an endstop tells the printer an axis has reached its end). This kit uses a microswitch board in the printed endstop pod instead, on the right XY joint since Ch 05, so the pocket stays empty.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Do nothing here. Do not insert a 3×6 magnet.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>an empty magnet pocket in the carriage.</p>
+</div>
+<p>LDO's build notes say to skip page 145 because the kit does not use hall-effect endstops. It ships the XY microswitch board and the <code>[a]_endstop_pod_D2F_switch</code> printed part instead, fitted at Step 05.49. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a> (p.145), <a href="../../voron-build-instructions-survey/">survey §4.2</a></p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=145">Voron manual p.145</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a></p>
+<h3 data-search-exclude="" id="step-0739-dry-fit-the-ab-drive-cable-cover">Step 07.39 — Dry-fit the A/B drive cable cover<a class="headerlink" href="#step-0739-dry-fit-the-ab-drive-cable-cover" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p204.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.204" src="../assets/manual-pages/manual-p204.png"></a></p>
+<p><strong>What you're looking at:</strong> The <code>[a]_cable_cover</code> is the blue arch at the upper right of p.204. It screws onto the A drive at the rear right, over the wire bundle that Ch 10 routes behind the Z belt. With the belts on, you can now check that it clears them.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>staged: <code>[a]_cable_cover</code> ×1</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Hold the cover against the A drive, its two holes over the two heat-set inserts in the top of <code>a_drive_frame_upper</code>, and check that it clears both belts.</li>
+<li>Do not screw it on: the wire bundle goes under it first. Bag it for Step 10.66.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>both holes lined up with the inserts, neither belt touching the arch, and the cover bagged and labelled for Ch 10.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=204">Voron manual p.204</a> · <a href="https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Gantry/AB_Drive_Units"><code>STLs/Gantry/AB_Drive_Units/</code></a> · CAD: Voron 2.4r2 STEP @ de7e89d</p>
+<div class="admonition info">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-pause.svg" alt="pause" width="30" height="30" loading="eager" decoding="async"> Good stopping point · ~30 min since the last one</p>
+<p>inductive probe taped, fitted, set to height and its cable routed; endstop magnet correctly skipped; cable cover dry-fitted and bagged for Ch 10. The gantry is a working XY system. Do not tension further and do not square the gantry.</p>
+</div>
+<hr>
+<h2 id="checkpoint-07">Checkpoint 07<a class="headerlink" href="#checkpoint-07" title="Permanent link">¶</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Both belts follow p.126 (A) and p.127 (B). Each belt stays in one plane, and neither crosses the other.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> No half-twist anywhere. At the X carriage the belt teeth face away from the extrusion, and each belt's toothed face stays on the same side all the way round.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Teeth are meshed on both toothed motor pulleys (each pulley turns tooth by tooth when the belt is nudged, with no slip) and on the two toothed XY-joint idlers, A at the right joint and B at the left. The smooth back is on every plain stack.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> No belt rides on a printed part at any of the fourteen contacts in six locations, checked at both ends of X travel and both ends of Y travel (p.142).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The same length of belt sticks out of the X carriage on both belts, after moving the gantry away and back (p.141).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The two carriage screws and all four M3×8 belt clamps are fully tightened, and nothing slips under a hard pull.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <strong>Both belts read within a few Hz of each other at ~110 Hz over a 150 mm span</strong>, re-checked after moving the gantry. This is provisional: Ch 14 Step 14.4 sets the final value.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The gantry moves through its full XY range by hand with even resistance, no ticking and no notchy spots.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The probe is taped on the front and sides only and fitted, its lead <strong>uncut</strong> with its factory connector, its tip 6 mm below the plastic, and its cable in the slot.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> No hall-effect magnet is fitted (p.145 skipped).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Turn the A motor pulley by hand: the carriage moves diagonally. Turn both pulleys the same way: it moves in a straight line. That is CoreXY.</li>
+</ul>
+<div class="checkpoint-reward"><figure class="mascot-scene mascot-scene--right"><img class="mascot-scene__img off-glb" src="../assets/mascot/mascot-pass.svg" alt="Revali passing a gate" width="220" height="220" loading="lazy" decoding="async"><figcaption>You built a working CoreXY gantry with matched belts and its probe. 5 gummy worms.</figcaption></figure></div>
+
+<h2 id="common-mistakes">Common mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Tensioning to final now.</strong> Ch 06b releases A/B tension completely as its first move, and it cannot run until the printer is alive (Ch 13). The final value is set at Ch 14 Step 14.4: cold, door open, just before the 14.6 soak. Set ~110 Hz, confirm A ≈ B, and move on. Chasing the last 5 Hz here is time you will spend again.</li>
+<li><strong>Cutting the second belt to a tape measure instead of against the first.</strong> Any length error becomes a permanent tension imbalance that you will try to fix with the tensioners, and they cannot fix it. Fold-cut both together, or take the routed first belt off and cut the second against it (Step 07.8).</li>
+<li><strong>Wrapping the wrong part of a rear drive unit.</strong> Each drive unit holds the motor pulley for its own belt <em>and</em> an idler stack for the other belt. Putting the A belt on the B motor pulley looks plausible and locks the two axes together. The top-left inset of p.126 and the top-right inset of p.127 show which is which.</li>
+<li><strong>A half-twist in a long run.</strong> It shows up as a belt that runs fine at one end of travel and rubs at the other. Look along each straight run and confirm the teeth face the same way at both ends.</li>
+<li><strong>"Fixing" the teeth-on turn at an XY joint with a half-twist.</strong> Each belt meets one toothed idler at the XY joints, A at the right joint (Step 07.16) and B at the left (Step 07.17), and wraps it teeth-on by design. A twist put in to get the smooth back there walks the belt off a flange at the far end of travel.</li>
+<li><strong>Reading a harmonic on the phone.</strong> Spectrum apps show peaks at 2× and 3× the fundamental, so a 220 Hz reading looks "too tight" and sends you loosening a correctly tensioned belt. Take the <em>lowest</em> peak, and take three plucks.</li>
+<li><strong>Forcing a belt round a bearing stack.</strong> You will damage the flange or unseat a bearing. At a front idler, take out the M3×40 SHCS, thread the belt, refit it and redo Step 07.5 (Step 07.15, p.134). A drive unit or XY joint has no such screw: find what is catching instead.</li>
+</ul>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">¶</a></h2>
+<p><a href="../08-toolhead/">Ch 08 — Toolhead</a>: Stealthburner, Clockwork 2.5 and the Nitehawk-SB V2, where all five Rev D+ deviations land.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+        <script src="../../javascripts/terms.js"></script>
+      
+        <script src="../../javascripts/gatecalc.js"></script>
+      
+        <script src="../../javascripts/taptree.js"></script>
+      
+        <script src="../../javascripts/boards.js"></script>
+      
+        <script src="../../javascripts/tonight.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" role="img" aria-label="The nozzle-probe shaft directly under the nozzle, 2 to 3 mm behind the plate" style="color:#14181D">
+<title>The nozzle-probe shaft directly under the nozzle, 2 to 3 mm behind the plate</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="1000" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Shaft under the nozzle</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="30.0" y="110.0" width="420.0" height="870.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<text x="240.0" y="162.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">From above</text>
+<text x="240.0" y="202.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">rear</text>
+<rect x="155.0" y="230.0" width="20.0" height="460.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.5"/>
+<rect x="305.0" y="230.0" width="20.0" height="460.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.5"/>
+<rect x="65.0" y="310.0" width="350.0" height="350.0" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3" opacity="0.92"/>
+<rect x="192.0" y="495.4" width="96.0" height="32.4" rx="4" fill="#E7E9EC" stroke="none" stroke-width="0"/>
+<text x="240.0" y="520.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">plate</text>
+<rect x="283.0" y="280.0" width="22.0" height="24.0" rx="0" fill="#3E4550" stroke="#14181D" stroke-width="2"/>
+<circle cx="294.0" cy="298.0" r="5.0" fill="#B6BDC6" stroke="#14181D" stroke-width="2"/>
+<circle cx="425.0" cy="292.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="3"/>
+<path d="M 403.0 262.0 L 303.0 262.0" fill="none" stroke="#14181D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arw)"/>
+<circle cx="384.0" cy="210.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="384.0" y="221.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
+<text x="240.0" y="760.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">nozzle probe</text>
+<line x1="289.0" y1="306.0" x2="210.0" y2="730.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="289.0" cy="306.0" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<text x="240.0" y="800.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">on the right</text>
+<text x="240.0" y="836.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">bed extrusion</text>
+<text x="240.0" y="910.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">front</text>
+<rect x="470.0" y="110.0" width="700.0" height="870.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<text x="820.0" y="162.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">From the side</text>
+<rect x="660.0" y="730.0" width="490.0" height="120.0" rx="0" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="3"/>
+<rect x="882.0" y="682.0" width="60.0" height="48.0" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<rect x="870.0" y="622.0" width="300.0" height="60.0" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<rect x="997.0" y="639.4" width="96.0" height="32.4" rx="4" fill="#E7E9EC" stroke="none" stroke-width="0"/>
+<text x="1045.0" y="664.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">plate</text>
+<rect x="717.0" y="700.0" width="160.0" height="150.0" rx="10" fill="#E2E4E8" stroke="#3E4550" stroke-width="3.5"/>
+<rect x="811.0" y="668.0" width="52.0" height="32.0" rx="4" fill="#B6BDC6" stroke="#7E8794" stroke-width="3"/>
+<rect x="830.0" y="596.0" width="14.0" height="72.0" rx="0" fill="#B6BDC6" stroke="#7E8794" stroke-width="3"/>
+<circle cx="757.0" cy="790.0" r="17.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<circle cx="757.0" cy="790.0" r="6.0" fill="#7E8794" stroke="none" stroke-width="0"/>
+<circle cx="817.0" cy="790.0" r="17.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<circle cx="817.0" cy="790.0" r="6.0" fill="#7E8794" stroke="none" stroke-width="0"/>
+<circle cx="540.0" cy="740.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="540.0" y="751.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<text x="500.0" y="820.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">two</text>
+<text x="500.0" y="858.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">M3×25</text>
+<line x1="745.0" y1="792.0" x2="610.0" y2="830.0" stroke="#14181D" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="745.0" cy="792.0" r="2.4" fill="#14181D" stroke="none" stroke-width="0"/>
+<path d="M 787.0 905.0 L 687.0 905.0" fill="none" stroke="#5C6675" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwm)"/>
+<path d="M 787.0 905.0 L 887.0 905.0" fill="none" stroke="#5C6675" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwm)"/>
+<text x="787.0" y="950.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">slide</text>
+<rect x="767.0" y="220.0" width="140.0" height="246.0" rx="10" fill="#E2E4E8" stroke="#3E4550" stroke-width="3"/>
+<polygon points="817.0,466.0 857.0,466.0 843.7,514.0 843.0,526.0 831.0,526.0 830.3,514.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<line x1="837.0" y1="534.0" x2="837.0" y2="668.0" stroke="#2E7D32" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="12 9"/>
+<text x="927.0" y="486.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">nozzle</text>
+<text x="927.0" y="528.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#2E7D32" letter-spacing="0">over the shaft</text>
+<line x1="844.0" y1="560.0" x2="844.0" y2="592.0" stroke="#14181D" stroke-width="2" stroke-linecap="round"/>
+<line x1="870.0" y1="560.0" x2="870.0" y2="618.0" stroke="#14181D" stroke-width="2" stroke-linecap="round"/>
+<path d="M 787.0 574.0 L 842.0 574.0" fill="none" stroke="#14181D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arw)"/>
+<path d="M 925.0 574.0 L 872.0 574.0" fill="none" stroke="#14181D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arw)"/>
+<text x="936.0" y="585.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="start" fill="currentColor" letter-spacing="0">2 to 3 mm</text>
+<text x="500.0" y="960.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">rear</text>
+<text x="1150.0" y="960.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">front</text>
+</svg>

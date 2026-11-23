@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1070" width="1200" height="1070" role="img" aria-label="5 V check: probe the HAT adapter's pads over GPIO pins 2 and 6" style="color:#14181D">
+<title>5 V check: probe the HAT adapter's pads over GPIO pins 2 and 6</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="1070" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">5 V check on the HAT adapter</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="40.0" y="108.0" width="1120.0" height="70.0" rx="10" fill="#FBE3E0" stroke="#C0392B" stroke-width="3"/>
+<rect x="72.0" y="125.0" width="40.0" height="36.0" rx="6" fill="#FFFFFF" stroke="#14181D" stroke-width="3"/>
+<line x1="112.0" y1="134.0" x2="132.0" y2="134.0" stroke="#14181D" stroke-width="5" stroke-linecap="butt"/>
+<line x1="112.0" y1="152.0" x2="132.0" y2="152.0" stroke="#14181D" stroke-width="5" stroke-linecap="butt"/>
+<path d="M 72 143.0 C 52 143.0 58 169.0 48 173.0" fill="none" stroke="#14181D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="76.0" y1="117.0" x2="128.0" y2="169.0" stroke="#C0392B" stroke-width="6" stroke-linecap="round"/>
+<line x1="76.0" y1="169.0" x2="128.0" y2="117.0" stroke="#C0392B" stroke-width="6" stroke-linecap="round"/>
+<text x="152.0" y="155.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="800" text-anchor="start" fill="#C0392B" letter-spacing="0">Unplugged: cord out of the room</text>
+<rect x="60.0" y="422.0" width="1080.0" height="520.0" rx="18" fill="#CFE6D6" stroke="#2F7D4A" stroke-width="4"/>
+<rect x="730.0" y="456.0" width="380.0" height="94.0" rx="4" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<rect x="745.0" y="471.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="745.0" y="521.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="793.0" y="471.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="793.0" y="521.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="841.0" y="471.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="841.0" y="521.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="889.0" y="471.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="889.0" y="521.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="937.0" y="471.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="937.0" y="521.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="985.0" y="471.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="985.0" y="521.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="1033.0" y="471.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="1033.0" y="521.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="1081.0" y="471.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="1081.0" y="521.0" width="14.0" height="14.0" rx="0" fill="#C9A227" stroke="none" stroke-width="0"/>
+<rect x="130.0" y="434.0" width="614.0" height="330.0" rx="10" fill="#262B31" stroke="#11151A" stroke-width="3"/>
+<circle cx="176.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="176.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="224.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="224.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="272.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="272.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="320.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="320.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="368.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="368.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="416.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="416.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="464.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="464.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="512.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="512.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="560.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="560.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="608.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="608.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="656.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="656.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="704.0" cy="478.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<circle cx="704.0" cy="528.0" r="14.0" fill="#C9CED6" stroke="#8E959E" stroke-width="2"/>
+<rect x="300.0" y="646.0" width="224.0" height="52.0" rx="4" fill="#F2F2F0" stroke="#14181D" stroke-width="2.5"/>
+<line x1="320.0" y1="698.0" x2="280.0" y2="872.0" stroke="#14181D" stroke-width="6" stroke-linecap="round"/>
+<line x1="354.0" y1="698.0" x2="318.0" y2="872.0" stroke="#14181D" stroke-width="6" stroke-linecap="round"/>
+<line x1="388.0" y1="698.0" x2="356.0" y2="872.0" stroke="#14181D" stroke-width="6" stroke-linecap="round"/>
+<line x1="422.0" y1="698.0" x2="394.0" y2="872.0" stroke="#14181D" stroke-width="6" stroke-linecap="round"/>
+<line x1="456.0" y1="698.0" x2="432.0" y2="872.0" stroke="#14181D" stroke-width="6" stroke-linecap="round"/>
+<line x1="490.0" y1="698.0" x2="470.0" y2="872.0" stroke="#14181D" stroke-width="6" stroke-linecap="round"/>
+<text x="570.0" y="862.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#14181D" letter-spacing="0">6 wires to J9</text>
+<text x="150.0" y="614.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#FFFFFF" letter-spacing="0">HAT adapter</text>
+<line x1="176.0" y1="478.0" x2="164.4" y2="446.1" stroke="#B6BDC6" stroke-width="5.0" stroke-linecap="round"/>
+<polygon points="157.8,448.4 149.2,445.2 147.1,439.6 173.4,430.0 175.5,435.6 170.9,443.7" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<polygon points="150.9,438.2 115.3,340.5 134.1,333.6 169.7,431.4" fill="#C0392B" stroke="#C0392B" stroke-width="1"/>
+<line x1="124.7" y1="337.0" x2="107.6" y2="290.1" stroke="#C0392B" stroke-width="5.0" stroke-linecap="round"/>
+<line x1="272.0" y1="478.0" x2="288.0" y2="448.0" stroke="#B6BDC6" stroke-width="5.0" stroke-linecap="round"/>
+<polygon points="281.8,444.7 278.4,436.1 281.2,430.8 306.0,444.0 303.1,449.3 294.1,451.3" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<polygon points="284.8,432.7 333.6,340.9 351.3,350.3 302.4,442.1" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<line x1="342.4" y1="345.6" x2="365.9" y2="301.4" stroke="#14181D" stroke-width="5.0" stroke-linecap="round"/>
+<text x="66.0" y="242.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="800" text-anchor="middle" fill="#C0392B" letter-spacing="0">5 V</text>
+<text x="66.0" y="282.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">pin 2</text>
+<text x="422.0" y="242.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="800" text-anchor="middle" fill="currentColor" letter-spacing="0">GND</text>
+<text x="422.0" y="282.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">pin 6</text>
+<text x="1120.0" y="406.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="end" fill="#5C6675" letter-spacing="0">board edge</text>
+<text x="896.0" y="608.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">pins 25 to 40</text>
+<text x="80.0" y="917.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#2F7D4A" letter-spacing="0">microSD end</text>
+<text x="1120.0" y="917.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="end" fill="#2F7D4A" letter-spacing="0">USB and Ethernet end</text>
+<text x="600.0" y="1036.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">Expect a number, never 0 Ω.</text>
+</svg>

@@ -1,0 +1,2945 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/01-frame/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 01 — Frame - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/tonight.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-01-frame" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 01 — Frame
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2.5, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (blue)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2.5, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b12-side-spool-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B12 — Side spool holder and camera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b13-exhaust-housing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B13 — Exhaust housing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b11-bay-ducting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B11 — Bay ducting (PETG V0)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-sort-sheets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate sort sheets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-board/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate board
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mascot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mascot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#step-011-verify-the-flat-reference-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.1 — Verify the flat reference surface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-012-sort-the-extrusions-by-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.2 — Sort the extrusions by length
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-013-inspect-the-ends-and-test-fit-a-t-nut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.3 — Inspect the ends and test-fit a T-nut
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-014-start-an-m516-bhcs-in-each-end-of-eight-a-extrusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.4 — Start an M5×16 BHCS in each end of eight A extrusions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-015-understand-the-blind-joint-before-you-make-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.5 — Understand the blind joint before you make one
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-016-lay-out-the-bottom-square-on-the-reference-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.6 — Lay out the bottom square on the reference surface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-017-join-the-first-vertical-to-the-first-corner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.7 — Join the first vertical to the first corner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-018-add-the-remaining-three-verticals-and-close-the-bottom-square" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.8 — Add the remaining three verticals and close the bottom square
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-019-snug-and-check-the-bottom-square" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.9 — Snug and check the bottom square
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0110-fit-the-four-top-a-extrusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.10 — Fit the four top A extrusions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0111-snug-the-top-square" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.11 — Snug the top square
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0112-square-the-bottom-square-and-lock-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.12 — Square the bottom square and lock it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0113-square-the-top-square-and-lock-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.13 — Square the top square and lock it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0114-check-the-four-vertical-faces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.14 — Check the four vertical faces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0115-check-the-frame-sits-without-rock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.15 — Check the frame sits without rock
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0116-fit-corner-brackets-to-the-two-bed-extrusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.16 — Fit corner brackets to the two bed extrusions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0117-load-four-m5-t-nuts-into-the-bottom-rails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.17 — Load four M5 T-nuts into the bottom rails
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0118-set-the-bed-extrusions-and-start-the-fasteners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.18 — Set the bed extrusions and start the fasteners
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0119-position-the-bed-extrusions-on-the-centreline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.19 — Position the bed extrusions on the centreline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0120-final-squareness-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.20 — Final squareness verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0121-titanium-backers-not-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.21 — Titanium backers: not now
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0122-record-the-frame-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.22 — Record the frame log
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0123-seal-the-blind-joints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 01.23 — Seal the blind joints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint 01
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-01-frame">Chapter 01 — Frame<a class="headerlink" href="#chapter-01-frame" title="Permanent link">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">One page per step</p>
+<p>Read this chapter <a class="step-pages-link" href="../steps/01-frame/">one step per page</a> — big pictures, prev/next, and the same tick marks. This page is the whole chapter in one scroll.</p>
+</div>
+<!-- style: plain -->
+
+<p>You build the frame: an open box of aluminium bars that every other part of the printer bolts to. Once it is square, Ch 02 (Z drives) and Ch 03 (build plate) can start.</p>
+<p><strong>What you're building in this chapter:</strong> The bars are 2020 extrusion: aluminium, 20 × 20 mm, with a slot down each face that nuts and screw heads slide into. Four long ones stand upright in the corners (the <strong>verticals</strong>). Four shorter ones join them at the bottom (the <strong>bottom square</strong>) and four more at the top (the <strong>top square</strong>). Two more run front to back across the base to carry the heated bed (the <strong>bed extrusions</strong>). Every corner is a <em>blind joint</em>: a screw goes into the end of a horizontal, its head hides inside the vertical's slot, and you tighten it through a small hole in the vertical. You put everything together loosely, measure and nudge until the frame is square, and only then tighten it. That order matters. A screw tightened on a crooked frame locks the crookedness in, and everything built later copies it.</p>
+<figure class="mascot-scene mascot-scene--right"><img class="mascot-scene__img off-glb" src="../assets/mascot/mascot-hexkey.svg" alt="Revali turning a hex key" width="220" height="220" loading="lazy" decoding="async"><figcaption>Square the frame once, properly. Everything above copies this frame, including its mistakes, forever.</figcaption></figure>
+
+<p><strong>Time:</strong> 2.5–4.0 h hands-on, first build, two people (<a href="../../voron-build-instructions-survey/">survey §5.1 P01 / §7.2</a>).</p>
+<p><strong>Sessions:</strong> 4 × ~40 min (35 to 65 min each). Each session ends at a safe place to stop. The second, Steps 01.6 to 01.15, takes about 65 min and cannot be stopped halfway.</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li><strong>Ch 00</strong> is done: kit checked, extrusions counted, tools out.</li>
+<li><strong>No printed parts are needed.</strong> You can build the frame the day the kit arrives, while the printer works on later batches. Ch 02 needs B00, B01 and B02 plates P1 to P3, so start it once those are off the bed and sorted (<a href="../../voron-print-plan/">print plan §2</a>).</li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>3 mm hex key with a straight end, long arm: the kit's 3 mm hex key, which LDO's kit list includes. Whether its long arm ends straight or in a ball is a bench check (verify on bench). The Fabreeko set is ball-end, which is fine for the first loose pass but slips out under final tightening</li>
+<li>Machinist square, 150 mm: a precise L-shaped ruler for checking right angles</li>
+<li>Steel rule, 300 mm, and a steel tape measure of 1 m or more (the longest measurement is about 735 mm)</li>
+<li>Straightedge and feeler gauges, 0.02–0.10 mm: thin metal leaves for measuring small gaps</li>
+<li>The flat surface you chose in Step 00.10: the kitchen stone counter</li>
+<li>Rubber or nylon mallet</li>
+<li>Small flat file, for a rough edge on a cut end (it is on the Chapter 00 tool list)</li>
+<li>Masking tape and a marker</li>
+<li>Optional: torque screwdriver, 0.5–3 N·m</li>
+</ul>
+<p><strong>Read first</strong></p>
+<ul>
+<li><strong>Loose first, square second, tight last.</strong> Do not fully tighten any screw until a step tells you to.</li>
+<li><strong>Never force a T-nut into a slot.</strong> The fit is tight in this kit. If one sticks, try another slot or another nut.</li>
+<li><strong>"M5 shim" in the Voron manual means the brass M5 precision spacer</strong> in this kit, here and in every later chapter.</li>
+<li><strong>The 20 black rubber plugs</strong> in the <em>Electronics 2</em> box are blind joint seals. They go in at Step 01.23.</li>
+<li><strong>Leave the titanium strips (the backers) in their bag.</strong> They belong to Ch 05, and fitting them now means taking things apart later.</li>
+</ul>
+<details class="note">
+<summary>For reference: hardware totals, sources and video</summary>
+<p><strong>Printed parts</strong></p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Qty</th>
+<th>Colour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>none — this chapter needs no printed parts</em></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hardware</strong> (chapter totals)</p>
+<table>
+<thead>
+<tr>
+<th>Fastener / part</th>
+<th>Qty</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A extrusion</td>
+<td>10</td>
+<td>4 bottom + 4 top frame (p.15–17), 2 bed (p.18–20)</td>
+</tr>
+<tr>
+<td>B extrusion</td>
+<td>4</td>
+<td>verticals (p.15–16)</td>
+</tr>
+<tr>
+<td>M5×16 BHCS</td>
+<td>20</td>
+<td>16 frame blind joints + 4 corner brackets</td>
+</tr>
+<tr>
+<td>Corner bracket, 2020 cast — from the kit, no LDO BOM row</td>
+<td>4</td>
+<td>one per bed-extrusion end (p.18); <code>(verify on bench)</code> which box carries them</td>
+</tr>
+<tr>
+<td>M5×10 BHCS</td>
+<td>4</td>
+<td>bed extrusions down to the frame (p.19)</td>
+</tr>
+<tr>
+<td><strong>M5 precision spacer, brass</strong></td>
+<td>4</td>
+<td>under each M5×10 head — replaces the manual's "M5 shim"</td>
+</tr>
+<tr>
+<td>M5 T-nut, roll-in</td>
+<td>4</td>
+<td>bottom rails, under the bed extrusions (p.19)</td>
+</tr>
+<tr>
+<td>Extrusion Blind Joint Seal</td>
+<td>16</td>
+<td>one per blind joint, in the vertical's slot against the horizontal (01.23); LDO ships 20, 4 are spares</td>
+</tr>
+</tbody>
+</table>
+<p>C, D and E extrusions are sorted here but <strong>not used</strong> in this chapter — they are the gantry (manual p.85, p.88, p.101 → Ch 05).</p>
+<p><strong>Notes behind "Read first"</strong></p>
+<ul>
+<li><strong>Frame squaring is the one irreversible quality decision in this build.</strong> Re-check after every tightening pass. Gantry racking, quad-gantry-level and bed mesh all inherit what you set here (survey §4.4 #1).</li>
+<li>Extrusion and roll-in T-nut tolerances are tight in this kit. LDO: <em>"Due to the tight tolerances of the extrusions and roll-in t-nuts it is advisable to either test fit before assembly to identify the sides of the extrusions that fits the best or to pre-load the t-nuts into the extrusions."</em> <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">src</a></li>
+<li>Every <strong>"M5 shim"</strong> in the official manual is a <strong>brass M5 precision spacer</strong> in this kit — here and for the rest of the build.</li>
+<li><strong>Rev D+ / LDO: 20 Extrusion Blind Joint Seals</strong> (<em>Electronics 2</em>) are black rubber plugs that stop chamber air leaking along the extrusion slots. One goes in each blind joint, in the vertical's slot hard against the horizontal, at Step 01.23 once the frame is square and before the Z rails cover four of those slots. <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+">src</a> · <a href="https://west3d.com/products/extrusion-blind-joint-seals-20-pieces-by-ldo-motors">listing</a></li>
+<li><strong>Titanium extrusion backers are NOT installed in this chapter.</strong> They go onto the gantry's X and Y extrusions during <strong>Ch 05</strong>, on the face opposite the rail. Leave them bagged; fitting them to frame extrusions now would be wrong and fitting them after the gantry is assembled costs a teardown (survey §4.4 #3, §5.2 W2). This is the only place this note appears.</li>
+<li>Nothing here is printed. Build it the day the kit lands; the printer may be busy with later batches, and this chapter needs none of them.</li>
+</ul>
+<p><strong>Sources for this chapter:</strong></p>
+<ul>
+<li><a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf">Voron 2.4r2 assembly manual (pinned <code>de7e89d</code>)</a> pages 12–21 — extrusion sort, blind joints, bottom and top squares, bed extrusions, squareness check</li>
+<li><a href="https://docs.ldomotors.com/voron/voron2/build-faq">LDO Build Notes (Rev D)</a> — roll-in T-nut tolerance, and the brass M5 precision spacer substituted for every "M5 shim"</li>
+<li><a href="https://voron.link/onjwmcd">blind-joint video</a> and <a href="https://voron.link/kdtpzam">frame squaring video</a> — the two videos the manual links from p.10 and p.21</li>
+<li><a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers">whopping_Voron_mods — <code>extrusion_backers</code></a> — why the titanium backers are Ch 05 parts, not frame parts</li>
+<li><a href="../../voron-build-instructions-survey/">survey</a> §4.2, §4.4, §5.2</li>
+</ul>
+<p><strong>Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):</strong> <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3282s">Part 1 @0:54:42</a> (+2m), <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3346s">Part 1 @0:55:46</a> (+19m), <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=4452s">Part 1 @1:14:12</a> (+14m), <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5340s">Part 1 @1:29:00</a> (+19m), <a href="https://www.youtube.com/watch?v=hTKCBrk36R0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=11690s">Part 5 @3:14:50</a> (+2m)</p>
+</details>
+<hr>
+<h3 data-search-exclude="" id="step-011-verify-the-flat-reference-surface">Step 01.1 — Verify the flat reference surface<a class="headerlink" href="#step-011-verify-the-flat-reference-surface" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p012.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.12" crop="0.30 0.18 0.76 0.80" src="../assets/manual-pages/manual-p012.png"></a></p>
+<p><strong>What you're looking at:</strong> The frame takes its shape from whatever it is built on. A counter with one corner slightly high gives a twisted frame, and that cannot be fixed later. So check it once more.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Clean the patch you marked with tape in Step 00.10.</li>
+<li>Lay the straightedge across it five ways: left to right, front to back, both diagonals, through the centre. Each time, try to slide a feeler gauge under.</li>
+<li>Make sure both of you can reach all four corners. Put no mat or cloth on the stone.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>The thickest feeler leaf that slides under is 0.1 mm or thinner, no worse than in Ch 00, and the straightedge does not rock. Log the number.</p>
+</div>
+<p><strong>Helper:</strong> Reads the thickest feeler leaf that slides under and writes it in the log.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=12">Voron manual p.12</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=15">Voron manual p.15</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3226s">Video: Part 1 @0:53:46</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-012-sort-the-extrusions-by-length">Step 01.2 — Sort the extrusions by length<a class="headerlink" href="#step-012-sort-the-extrusions-by-length" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p013.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.13" crop="0.14 0.19 0.84 0.84" src="../assets/manual-pages/manual-p013.png"></a></p>
+<p><strong>What you're looking at:</strong> The kit has 18 extrusions in five lengths, named A to E. This chapter uses only A (the horizontals) and B (the verticals). C, D and E belong to the gantry in Ch 05.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>staged: A extrusion ×10</li>
+<li>staged: B extrusion ×4</li>
+<li>staged: C extrusion ×2</li>
+<li>staged: D extrusion ×1</li>
+<li>staged: E extrusion ×1</li>
+<li>consumable: masking tape</li>
+<li>tool: marker</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Lay all the extrusions out and sort them by length.</li>
+<li>Label each pile A, B, C, D or E with masking tape.</li>
+<li>Bag C, D and E apart from the rest and label the bag "Ch 05".</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>You count 10 A, 4 B, 2 C, 1 D and 1 E. The four B extrusions are the only ones with a small round <strong>access hole</strong> near each end.</p>
+</div>
+<p><strong>Helper:</strong> Sorts the extrusions into piles by length and counts each pile aloud.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=13">Voron manual p.13</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-013-inspect-the-ends-and-test-fit-a-t-nut">Step 01.3 — Inspect the ends and test-fit a T-nut<a class="headerlink" href="#step-013-inspect-the-ends-and-test-fit-a-t-nut" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p013.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.13" crop="0.14 0.19 0.84 0.84" src="../assets/manual-pages/manual-p013.png"></a></p>
+<p><strong>What you're looking at:</strong> Two things spoil a joint: a rough edge (a burr) on a cut end, and a tight slot. A roll-in T-nut drops into a slot and turns to lock.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>tool: M5 roll-in T-nut, fit test, back in its tray</li>
+<li>tool: M3 roll-in T-nut, fit test, back in its tray</li>
+<li>tool: machinist square</li>
+<li>tool: small flat file</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Check both ends of every A and B extrusion. File off only a burr, never the flat face.</li>
+<li>Roll the M5 T-nut into all four slots of each A. Tape the slot it fits best; mark any slot where it sticks with an X.</li>
+<li>Roll the M3 T-nut into each B slot without an access hole, or all four if all have one.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>Every end sits flat against the square, each A has a taped slot, and the M3 T-nut turns by finger in every tested B slot.</p>
+</div>
+<p>The Voron CAD drills the access holes through all four faces of each vertical, while the manual draws only two. Count the faces with holes on one of your B extrusions (verify on bench).</p>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Never force a T-nut. LDO warns that the fit is tight in this kit. If one will not turn, try another slot or another extrusion. <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=13">Voron manual p.13</a> · <a href="https://docs.ldomotors.com/voron/voron2/build-faq">LDO Build Notes (Rev D)</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-014-start-an-m516-bhcs-in-each-end-of-eight-a-extrusions">Step 01.4 — Start an M5×16 BHCS in each end of eight A extrusions<a class="headerlink" href="#step-014-start-an-m516-bhcs-in-each-end-of-eight-a-extrusions" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p014.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.14" crop="0.27 0.15 0.94 0.72" src="../assets/manual-pages/manual-p014.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/15-blind-joint.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="The blind joint in three stages: screw started, head in the slot, tightened through the access hole" src="../assets/diagrams/15-blind-joint.svg"></a></p>
+<p><strong>What you're looking at:</strong> Each joint's screw goes into a horizontal's end first, because later its head hides inside the vertical. BHCS means button head cap screw: a screw with a low, domed head.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>A extrusion ×8</li>
+<li>M5×16 BHCS ×16</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Take 8 of the 10 A extrusions. Set the other 2 aside for the bed.</li>
+<li>Thread an M5×16 BHCS into the hole in each end, 16 screws in all. Stop when 2 to 3 mm of the screw still shows under its head.</li>
+<li>Leave them finger-loose. If a screw is hard to turn, try a fresh one. If that is stiff too, the extrusion's thread is damaged: stop and ask your kit vendor.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>All 16 screws went in smoothly and stick out by the same amount.</p>
+</div>
+<p>No Voron page gives this gap. The 2 to 3 mm comes from the Voron CAD model: the vertical's slot has a 2 mm lip, and the head slides past it only with a gap of 2 to about 3.25 mm. Aim for the middle, about 2.5 mm.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=14">Voron manual p.14</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-015-understand-the-blind-joint-before-you-make-one">Step 01.5 — Understand the blind joint before you make one<a class="headerlink" href="#step-015-understand-the-blind-joint-before-you-make-one" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/15-blind-joint.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="The blind joint in three stages: screw started, head in the slot, tightened through the access hole" src="../assets/diagrams/15-blind-joint.svg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p015.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.15" crop="0.32 0.22 0.90 0.80" src="../assets/manual-pages/manual-p015.png"></a></p>
+<p><strong>What you're looking at:</strong> This is a practice run of the joint that holds the whole frame together: the blind joint. The screw head slides into a slot in the vertical, and you tighten it through the access hole on the opposite side. Nothing is tightened for real yet.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Take one A and one B extrusion. From the B's open end, slide the A's screw head into the slot on the face opposite an access hole. <a href="https://voron.link/onjwmcd">src</a></li>
+<li>Push the 3 mm hex key through that access hole until it sits in the screw head.</li>
+<li>Take the two apart again.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>You can see the screw's hex socket through the access hole, and the key goes straight into it.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=15">Voron manual p.15</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=10">Voron manual p.10</a> · <a href="https://voron.link/onjwmcd">blind-joint video</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3298s">Video: Part 1 @0:54:58</a></p>
+<div class="admonition info">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-pause.svg" alt="pause" width="30" height="30" loading="eager" decoding="async"> Good stopping point · ~40 min since the last one</p>
+<p>extrusions sorted and labelled, ends checked, 16 screws started in eight A extrusions, one practice joint tried and taken apart. Nothing is assembled. The next session takes about 65 min and cannot be stopped halfway, so start it when you have the time.</p>
+</div>
+<hr>
+<h3 data-search-exclude="" id="step-016-lay-out-the-bottom-square-on-the-reference-surface">Step 01.6 — Lay out the bottom square on the reference surface<a class="headerlink" href="#step-016-lay-out-the-bottom-square-on-the-reference-surface" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p015.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.15" crop="0.06 0.20 0.60 0.86" src="../assets/manual-pages/manual-p015.png"></a></p>
+<p><strong>What you're looking at:</strong> Now the real build starts, flat on the counter. Lay out the bottom square first, leaving a gap at each corner where a vertical will stand.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: A extrusion ×4, prepared</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Lay four of the prepared A extrusions on the stone in a square, taped slot facing up. They do not touch each other.</li>
+<li>Point each end into a corner gap of about 20 × 20 mm, the size of a vertical.</li>
+<li>Stick tape marked <strong>FRONT</strong> on the side facing you. Any side will do.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>All four lie flat on the stone with nothing lifting, and each corner has a square gap of roughly 20 × 20 mm.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=15">Voron manual p.15</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3227s">Video: Part 1 @0:53:47</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-017-join-the-first-vertical-to-the-first-corner">Step 01.7 — Join the first vertical to the first corner<a class="headerlink" href="#step-017-join-the-first-vertical-to-the-first-corner" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/16-corner-access-holes.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="One corner from above: the vertical with its access holes facing out of the frame" src="../assets/diagrams/16-corner-access-holes.svg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p015.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.15" crop="0.06 0.20 0.60 0.86" src="../assets/manual-pages/manual-p015.png"></a></p>
+<p><strong>What you're looking at:</strong> The first corner sets the pattern for the other three. Get one thing right: the vertical's two access holes point out of the frame, because the two horizontals cover its inner faces.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>B extrusion ×1</li>
+<li>reused: M5×16 BHCS ×2, already in the two A extrusions</li>
+<li>tool: 3 mm hex key, straight</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Stand a B extrusion in the first corner with its <strong>access holes facing outward</strong>.</li>
+<li>Lower it so each screw head slides into a slot, then push both A extrusions tight against it.</li>
+<li>Snug each screw through its access hole with the 3 mm key. Snug means just closed, <strong>not tight</strong>.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>Both access holes face out of the frame, both A ends touch the vertical with no gap, the vertical's bottom end is level with them, and the corner sits flat on the stone.</p>
+</div>
+<p><strong>Helper:</strong> Holds the two A extrusions together at the corner while you snug the bolts.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=15">Voron manual p.15</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-018-add-the-remaining-three-verticals-and-close-the-bottom-square">Step 01.8 — Add the remaining three verticals and close the bottom square<a class="headerlink" href="#step-018-add-the-remaining-three-verticals-and-close-the-bottom-square" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p016.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.16" crop="0.42 0.20 0.86 0.84" src="../assets/manual-pages/manual-p016.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/16-corner-access-holes.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="One corner from above: the vertical with its access holes facing out of the frame" src="../assets/diagrams/16-corner-access-holes.svg"></a></p>
+<p><strong>What you're looking at:</strong> Do the same at the other three corners. Keep every screw only snug, so the frame can still be nudged square later.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>B extrusion ×3</li>
+<li>reused: A extrusion ×2, prepared</li>
+<li>reused: M5×16 BHCS ×6, already in the A extrusions</li>
+</ul>
+<p><strong>Do:</strong> Repeat Step 01.7 at each remaining corner in turn, adding the last two bottom A extrusions as you go. Access holes face outward every time.</p>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>The bottom square is closed and four verticals stand in it, so 8 of the 16 blind joints are made. It still sits flat on the stone without rocking.</p>
+</div>
+<p><strong>Helper:</strong> Holds each vertical upright while you slide it over the bolt heads.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=16">Voron manual p.16</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-019-snug-and-check-the-bottom-square">Step 01.9 — Snug and check the bottom square<a class="headerlink" href="#step-019-snug-and-check-the-bottom-square" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/17-tightening-order.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Tightening order: corner 1, then 3, then 2, then 4" src="../assets/diagrams/17-tightening-order.svg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p016.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.16" crop="0.42 0.20 0.86 0.84" src="../assets/manual-pages/manual-p016.png"></a></p>
+<p><strong>What you're looking at:</strong> A first check with the machinist square. It is a precise right angle: hold it into a corner, and any light between its blade and the extrusion means that corner is not 90° yet.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Press each corner down onto the stone.</li>
+<li>Snug all 8 bottom screws, jumping to the opposite corner each time: corner 1, then 3, then 2, then 4.</li>
+<li>Hold the machinist square into each of the four inside corners. If a corner shows light, carry on: Step 01.12 squares the frame before anything is tightened.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>All 8 bottom screws are snug, you have looked into all four corners, and all four extrusions still touch the stone along their whole length.</p>
+</div>
+<p><strong>Helper:</strong> Holds the square in each inside corner and calls out any light under the blade.</p>
+<p>No Voron or LDO page gives a tightening order. Going across to the opposite corner is our own habit: it spreads the pull, so one corner cannot drag the square round.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=16">Voron manual p.16</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0110-fit-the-four-top-a-extrusions">Step 01.10 — Fit the four top A extrusions<a class="headerlink" href="#step-0110-fit-the-four-top-a-extrusions" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p017.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.17" crop="0.20 0.22 0.58 0.80" src="../assets/manual-pages/manual-p017.png"></a></p>
+<p><strong>What you're looking at:</strong> The top square is the same joint the other way up: each screw head drops into a vertical's slot from its open top end. The verticals wobble, so this takes two people.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: A extrusion ×4, prepared</li>
+<li>reused: M5×16 BHCS ×8, already in the A extrusions</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>With one person at each end, lower each of the four remaining A extrusions between two verticals so both screw heads enter the slots from the top.</li>
+<li>If one will not go in, check its screws: 2 to 3 mm should show under each head. Back out one that shows less, turn in one that shows more. Never pull the verticals apart.</li>
+<li>Snug only.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>The top square is closed, so all 16 blind joints are made, and no end has a visible gap.</p>
+</div>
+<p><strong>Helper:</strong> Holds the far end of each top extrusion level while you guide its bolt heads in.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=17">Voron manual p.17</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0111-snug-the-top-square">Step 01.11 — Snug the top square<a class="headerlink" href="#step-0111-snug-the-top-square" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p017.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.17" crop="0.20 0.22 0.58 0.80" src="../assets/manual-pages/manual-p017.png"></a></p>
+<p><strong>What you're looking at:</strong> As more parts go on, the frame settles, and the screws you snugged first are no longer snug. So go round once more.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Snug the 8 top screws through their access holes, again jumping to the opposite corner each time.</li>
+<li>Then go over all 16 joints once more, still only snug.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>All 16 joints are snug. The frame stands on its own and does not lean when you push a top corner lightly.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=17">Voron manual p.17</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0112-square-the-bottom-square-and-lock-it">Step 01.12 — Square the bottom square and lock it<a class="headerlink" href="#step-0112-square-the-bottom-square-and-lock-it" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/13-frame-diagonals.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="How to square a frame: measure both diagonals, tap the corner on the longer one inward" src="../assets/diagrams/13-frame-diagonals.svg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/17-tightening-order.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Tightening order: corner 1, then 3, then 2, then 4" src="../assets/diagrams/17-tightening-order.svg"></a></p>
+<p><strong>What you're looking at:</strong> A four-sided frame is square when its two diagonals are the same length. So measure both, nudge the frame until they match, and only then tighten for good.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Measure corner to corner across the bottom square, both ways. Hook the tape on the outside of the corner the same way each time.</li>
+<li>If one diagonal is longer, tap one of its corners inward with the mallet. Measure again, and repeat until the two match.</li>
+<li>Fully tighten the 8 bottom screws in the order 1, 3, 2, 4, then measure once more.</li>
+</ol>
+<p>How tight: the manual gives no torque number for these screws. Tighten firmly with the straight 3 mm key, not a ball end, which slips out under force. If you use the torque screwdriver, pick one setting and use it on all 16 joints. Even matters more than exact. <code>(not specified — snug, then even)</code></p>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>Both diagonals read the same, about <strong>721 mm</strong> on this frame, and all four corners are 90°. Write both numbers in the log. <a href="https://voron.link/kdtpzam">src</a></p>
+</div>
+<p><strong>Helper:</strong> Holds the tape's far end on the corner and reads each diagonal aloud.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21">Voron manual p.21</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=17">Voron manual p.17</a> · <a href="https://voron.link/kdtpzam">frame squaring video</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0113-square-the-top-square-and-lock-it">Step 01.13 — Square the top square and lock it<a class="headerlink" href="#step-0113-square-the-top-square-and-lock-it" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/13-frame-diagonals.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="How to square a frame: measure both diagonals, tap the corner on the longer one inward" src="../assets/diagrams/13-frame-diagonals.svg"></a></p>
+<p><strong>What you're looking at:</strong> The top gets the same treatment, with one extra risk: top and bottom can each be square yet turned slightly against each other. That twisted frame would leave the gantry out of parallel with the bed.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Measure both top diagonals.</li>
+<li>Tap a corner of the longer one inward with the mallet. Measure again, and repeat until they match.</li>
+<li>Look down each vertical to see that none leans, and check the top inside corners with the machinist square. Then fully tighten the 8 top screws in the order 1, 3, 2, 4, and measure again.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>The two top diagonals match each other and are within about a millimetre of the bottom pair.</p>
+</div>
+<p><strong>Helper:</strong> Reads both top diagonals aloud and says which one is longer.</p>
+<p>The one-millimetre limit is our own working figure; no Voron page gives one.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21">Voron manual p.21</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=17">Voron manual p.17</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0114-check-the-four-vertical-faces">Step 01.14 — Check the four vertical faces<a class="headerlink" href="#step-0114-check-the-four-vertical-faces" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/14-frame-six-faces.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="The six faces of the frame, each with two diagonals to compare" src="../assets/diagrams/14-frame-six-faces.svg"></a></p>
+<p><strong>What you're looking at:</strong> Top and bottom are square, but the whole box could still lean to one side, like a stack of cards pushed over. Measuring the diagonals of each upright side catches that.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>On each of the four upright sides, measure both diagonals and check the inside corners, top and bottom, with the machinist square.</li>
+<li>If a side will not come square, one of its joints is not fully pushed together. Loosen that joint, push it together and tighten it again.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>On every side the two diagonals match, at about <strong>735 mm</strong> (each side is 510 × 530 mm outside), and every corner is 90°.</p>
+</div>
+<p><strong>Helper:</strong> Holds the square flat against each upright and calls out any gap.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21">Voron manual p.21</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=17">Voron manual p.17</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=4395s">Video: Part 1 @1:13:15</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0115-check-the-frame-sits-without-rock">Step 01.15 — Check the frame sits without rock<a class="headerlink" href="#step-0115-check-the-frame-sits-without-rock" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/cad/01-15-a.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="CAD render — the frame on the reference surface" src="../assets/cad/01-15-a.png"></a></p>
+<p><strong>What you're looking at:</strong> The last test of this session. A square frame touches the counter with all four corners at once. A twisted one rocks, like a table with one short leg. The picture is the smaller 250 mm model and already shows the bed extrusions: ignore both.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Stand the frame on the stone and press down on each top corner in turn.</p>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>Nothing rocks or rattles, and all four bottom corners stay down. If it rocks, the frame is twisted: go back to Step 01.13.</p>
+</div>
+<p><strong>Helper:</strong> Watches the bottom corners and calls out any that lifts as you press.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21">Voron manual p.21</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=15">Voron manual p.15</a> · CAD: Voron 2.4r2 STEP @ de7e89d</p>
+<div class="admonition info">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-pause.svg" alt="pause" width="30" height="30" loading="eager" decoding="async"> Good stopping point · ~65 min since the last one</p>
+<p>the frame is assembled, square on all six sides, fully tightened, and sits on the stone without rocking. This is the first safe place to stop: never walk away between squaring and tightening. Leave the frame on the stone, covered.</p>
+</div>
+<hr>
+<h3 data-search-exclude="" id="step-0116-fit-corner-brackets-to-the-two-bed-extrusions">Step 01.16 — Fit corner brackets to the two bed extrusions<a class="headerlink" href="#step-0116-fit-corner-brackets-to-the-two-bed-extrusions" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p018.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.18" crop="0.12 0.34 0.80 0.74" src="../assets/manual-pages/manual-p018.png"></a></p>
+<p><strong>What you're looking at:</strong> The last two A extrusions carry the heated bed. Each end gets a corner bracket, a small metal angle that later sits on a bottom extrusion.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>A extrusion ×2</li>
+<li>Corner bracket ×4 — from the kit, no LDO BOM row</li>
+<li>M5×16 BHCS ×4</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Turn each bed extrusion so the slot you taped in Step 01.3 faces up. Ch 03 rolls M3 T-nuts into it, and once the brackets are on it cannot turn.</li>
+<li>Fix a bracket to each end with an M5×16 BHCS into the end hole, its free leg level with the bottom face and pointing away from the end.</li>
+<li>Snug only for now.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>4 brackets are on with 4 screws, every taped slot faces up, and every free leg lies level with the bottom face, pointing away from its end.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=18">Voron manual p.18</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=20">Voron manual p.20</a> · CAD: Voron 2.4r2 STEP @ de7e89d · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5361s">Video: Part 1 @1:29:21</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0117-load-four-m5-t-nuts-into-the-bottom-rails">Step 01.17 — Load four M5 T-nuts into the bottom rails<a class="headerlink" href="#step-0117-load-four-m5-t-nuts-into-the-bottom-rails" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p019.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.19" crop="0.09 0.19 0.39 0.64" src="../assets/manual-pages/manual-p019.png"></a></p>
+<p><strong>What you're looking at:</strong> Each bracket gets screwed down into a T-nut in the slot beneath it. Put the nuts in now and slide them into place later.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>M5 roll-in T-nut ×4</li>
+</ul>
+<p><strong>Do:</strong> Roll two M5 T-nuts into the top slot of the front bottom extrusion and two into the rear one, one for each bed-extrusion end. Leave them loose, roughly where the brackets will sit.</p>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>All four T-nuts turn freely and lie flat in the slot. If one is tight, swap it for another.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=19">Voron manual p.19</a> · <a href="https://docs.ldomotors.com/voron/voron2/build-faq">LDO Build Notes (Rev D)</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5292s">Video: Part 1 @1:28:12</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0118-set-the-bed-extrusions-and-start-the-fasteners">Step 01.18 — Set the bed extrusions and start the fasteners<a class="headerlink" href="#step-0118-set-the-bed-extrusions-and-start-the-fasteners" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p019.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.19" crop="0.38 0.19 0.89 0.86" src="../assets/manual-pages/manual-p019.png"></a></p>
+<p><strong>What you're looking at:</strong> Set the bed extrusions in place and start their four screws. Under each head goes a brass precision spacer, not a washer: it replaces the Voron manual's "M5 shim".</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>reused: the two bracketed bed extrusions</li>
+<li>M5×10 BHCS ×4</li>
+<li>M5 precision spacer ×4</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Set both bed extrusions in front to back, each bracket leg on a bottom extrusion over a T-nut.</li>
+<li>Ch 03 rolls T-nuts into the two side slots that face each other: if one carries an X, turn that extrusion end for end.</li>
+<li>Start an M5×10 BHCS through a spacer and each bracket hole into its T-nut, finger-loose.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>4 screws and 4 spacers are in. Each bed extrusion ends flush with the inner faces of the front and rear extrusions, its underside level with their tops.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=19">Voron manual p.19</a> · <a href="https://docs.ldomotors.com/voron/voron2/build-faq">LDO Build Notes (Rev D)</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0119-position-the-bed-extrusions-on-the-centreline">Step 01.19 — Position the bed extrusions on the centreline<a class="headerlink" href="#step-0119-position-the-bed-extrusions-on-the-centreline" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/18-bed-extrusions.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="The bed extrusions from above with the 255 mm and 65 mm measurements, and the bracket from the side with both screws to tighten" src="../assets/diagrams/18-bed-extrusions.svg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p020.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.20" crop="0.22 0.18 0.92 0.83" src="../assets/manual-pages/manual-p020.png"></a></p>
+<p><strong>What you're looking at:</strong> The bed bolts to these two extrusions, so they have to sit exactly where its mounting holes are: the same distance either side of the printer's centreline, and square to the front.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Mark the centreline on the front and rear bottom extrusions, <strong>255 mm</strong> from the outer face of the left side.</li>
+<li>Slide each bed extrusion until its inner face is <strong>65 mm</strong> from that line, at both ends.</li>
+<li>Tighten the M5×10 screws, then the M5×16, keeping each bracket flush against its extrusion.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>All four measurements read <strong>65 mm</strong>, which leaves 130 mm between the two, and both bed extrusions sit at <strong>90°</strong> to the front.</p>
+</div>
+<p><strong>Helper:</strong> Holds the tape on the centreline mark and reads each 65 mm aloud.</p>
+<p>If the bed's own holes disagree with these numbers later, trust the bed.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=20">Voron manual p.20</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=58">Voron manual p.58</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6396s">Video: Part 1 @1:46:36</a></p>
+<div class="admonition info">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-pause.svg" alt="pause" width="30" height="30" loading="eager" decoding="async"> Good stopping point · ~35 min since the last one</p>
+<p>both bed extrusions are in, 65 mm either side of the centreline, all eight bracket screws tight. Do not move the frame off the stone yet: Step 01.20 checks it there once more.</p>
+</div>
+<hr>
+<h3 data-search-exclude="" id="step-0120-final-squareness-verification">Step 01.20 — Final squareness verification<a class="headerlink" href="#step-0120-final-squareness-verification" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/14-frame-six-faces.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="The six faces of the frame, each with two diagonals to compare" src="../assets/diagrams/14-frame-six-faces.svg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p021.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.21" crop="0.15 0.22 0.84 0.76" src="../assets/manual-pages/manual-p021.png"></a></p>
+<p><strong>What you're looking at:</strong> Bolting in the bed extrusions can pull a square frame slightly out of square, so run every check one more time. These are the numbers that go in the log. Whatever is still off after this stays off for good.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Measure the two diagonals of the bottom, the top and each of the four upright sides.</li>
+<li>Check every inside corner with the machinist square.</li>
+<li>Check that the frame sits on the stone without rocking.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>Every pair of diagonals matches, every corner is 90°, and nothing rocks. <a href="https://voron.link/kdtpzam">src</a></p>
+</div>
+<p><strong>Helper:</strong> Reads each diagonal pair aloud and ticks it off as you go.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21">Voron manual p.21</a> · <a href="https://voron.link/kdtpzam">frame squaring video</a> · <a href="https://www.youtube.com/watch?v=hTKCBrk36R0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=11710s">Video: Part 5 @3:15:10</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0121-titanium-backers-not-now">Step 01.21 — Titanium backers: not now<a class="headerlink" href="#step-0121-titanium-backers-not-now" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Thin titanium strips called backers came with the kit order, though they are not on LDO's kit list. In Ch 05 they bolt to the gantry, on the face opposite a steel rail, to stop the aluminium bowing as the two metals warm up. They look like frame parts. They are not.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Check that the backers are still in their sealed bag, label it "Ch 05", and store it with the C, D and E extrusions.</p>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>The backers are bagged, labelled and put away. <a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers">whopping_Voron_mods — <code>extrusion_backers</code></a> · <a href="../../voron-build-instructions-survey/">survey</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0122-record-the-frame-log">Step 01.22 — Record the frame log<a class="headerlink" href="#step-0122-record-the-frame-log" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Write the numbers down before the frame leaves the counter. Much later, if the gantry will not square up in Ch 06, these numbers tell you whether the frame is to blame. "It looked fine" cannot do that.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> One of you measures and calls out each number. The other writes it in the table.</p>
+<table>
+<thead>
+<tr>
+<th>Measurement</th>
+<th>Target</th>
+<th>Measured (mm)</th>
+<th>By / date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reference surface — worst feeler gap under the straightedge (Steps 00.10 / 01.1)</td>
+<td>≤ 0.1, no larger than the 00.10 figure</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Bottom square, diagonal 1</td>
+<td>≈721 (350)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Bottom square, diagonal 2</td>
+<td>= diagonal 1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Top square, diagonal 1</td>
+<td>= bottom pair</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Top square, diagonal 2</td>
+<td>= diagonal 1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Front face, diagonals 1 / 2</td>
+<td>equal (≈735)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Rear face, diagonals 1 / 2</td>
+<td>equal (≈735)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Left face, diagonals 1 / 2</td>
+<td>equal (≈735)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Right face, diagonals 1 / 2</td>
+<td>equal (≈735)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Centreline to bed extrusion inner face — 4 places</td>
+<td>65 each</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Clear gap between bed extrusions</td>
+<td>130</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Torque setting used, if any</td>
+<td>one value, all 16</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>Every row has a number in it, and both diagonal pairs are written as numbers.</p>
+</div>
+<p><strong>Helper:</strong> Writes the four diagonals and the final torque into the frame log.</p>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21">Voron manual p.21</a> · <a href="../../voron-build-instructions-survey/">survey</a></p>
+<hr>
+<h3 data-search-exclude="" id="step-0123-seal-the-blind-joints">Step 01.23 — Seal the blind joints<a class="headerlink" href="#step-0123-seal-the-blind-joints" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/01-frame/blind-joint-seal-iso.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO's drawing: the blind-joint seal (blue) in the vertical's slot, hard against the horizontal (© LDO Motors)" src="../assets/remote/01-frame/blind-joint-seal-iso.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/01-frame/blind-joint-seal-top.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Top view: the seal fills the vertical's slot where the horizontal meets it (© LDO Motors)" src="../assets/remote/01-frame/blind-joint-seal-top.png"></a></p>
+<p><strong>What you're looking at:</strong> At every joint, the vertical's slot carries on past the horizontal to the open end, so warm air can leak out of the printer there. A rubber blind joint seal plugs it. LDO's guides do not mention the seals yet, so follow LDO's drawing.</p>
+<p><strong>Parts:</strong></p>
+<ul>
+<li>Extrusion Blind Joint Seal ×16</li>
+</ul>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Find the inside of each joint: just above a bottom horizontal, just below a top one.</li>
+<li>Roll a seal into the vertical's slot there, with its raised boss pointing at the horizontal.</li>
+<li>Slide it until it stops against the horizontal. Do all 16.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-check.svg" alt="check" width="30" height="30" loading="eager" decoding="async"> Check</p>
+<p>16 seals are in, each pushed up against its horizontal and none sticking out past the vertical's face. 4 spares are bagged.</p>
+</div>
+<p><strong>Helper:</strong> Hands over seals one at a time and ticks off each joint.</p>
+<p>Do not skip the four bottom joints on the left and right sides. From Step 02.06 the Z rails cover those slots, and no seal can go in afterwards.</p>
+<p>LDO gives no dimensions for the seals. In Ch 02, check that the T-nuts for the Z rails and the Z belt covers clear them <code>(verify on bench)</code>. <a href="https://store.dremc.com.au/products/ldo-motion-extrusion-blind-joint-seal">src</a></p>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+">LDO 350 Rev D+ BOM</a> · <a href="https://store.dremc.com.au/products/ldo-motion-extrusion-blind-joint-seal">LDO seal listing (DREMC)</a> · <a href="https://west3d.com/products/extrusion-blind-joint-seals-20-pieces-by-ldo-motors">LDO seal listing (West3D)</a></p>
+<div class="admonition info">
+<p class="admonition-title"><img class="mascot-badge off-glb" src="../assets/mascot/mascot-pause.svg" alt="pause" width="30" height="30" loading="eager" decoding="async"> Good stopping point · ~35 min since the last one</p>
+<p>final checks done, log filled in, every joint sealed. Go through Checkpoint 01, then the frame can come off the counter.</p>
+</div>
+<hr>
+<h2 id="checkpoint-01">Checkpoint 01<a class="headerlink" href="#checkpoint-01" title="Permanent link">¶</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The counter was re-checked with straightedge and feelers in five positions, and is no worse than the Step 00.10 number</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> 10 A and 4 B extrusions are used; 2 C, 1 D and 1 E are bagged for Ch 05</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Every extrusion end is smooth and sits flat against the square</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> All 16 blind joints are made and fully tightened, evenly</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Bottom diagonals match; top diagonals match each other and the bottom pair</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> On all four upright sides the diagonals match and the corners are 90°</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The frame sits on all four corners without rocking</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Every vertical's access holes face outward, and the straight 3 mm key goes straight in</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Both bed extrusions run front to back on their corner brackets, with brass <strong>M5 precision spacers</strong> under the screws, at 90° to the front</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Bed extrusions are 65 mm either side of the centreline at both ends, 130 mm apart; all four M5×10 and four M5×16 bracket screws are tight</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The FRONT tape is on a side the bed extrusions point at</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Titanium backers are still bagged and labelled for Ch 05</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The frame log table is filled in</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> 16 blind joint seals are in, each against its horizontal on the inside of the frame; 4 spares are bagged</li>
+</ul>
+<div class="checkpoint-reward"><figure class="mascot-scene mascot-scene--right"><img class="mascot-scene__img off-glb" src="../assets/mascot/mascot-pass.svg" alt="Revali passing a gate" width="220" height="220" loading="lazy" decoding="async"><figcaption>You built a square frame with both bed extrusions on the centreline. 5 gummy worms.</figcaption></figure></div>
+
+<h2 id="common-mistakes">Common mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Tightening as you go.</strong> Assemble snug, square the frame, then tighten. A screw tightened fully too early locks in whatever error was there, and the mallet cannot fix it afterwards.</li>
+<li><strong>A vertical with its access holes facing inward.</strong> The two horizontals cover the vertical's inner faces, so the holes must face out. Found late, this means taking a whole corner apart. Check it on the first corner at Step 01.7.</li>
+<li><strong>Building on a table that is "flat enough".</strong> A surface with one corner a few tenths of a millimetre high gives a twisted frame whose diagonals all match. Check the surface at Step 01.1 or do not use it.</li>
+<li><strong>Using an ordinary M5 washer instead of the brass precision spacer.</strong> The spacer has an exact thickness. A washer changes the height of everything stacked on it.</li>
+<li><strong>Forcing a roll-in T-nut.</strong> A forced nut scores the slot, and the next one will not go in at all. Try another slot or another nut.</li>
+<li><strong>Fitting the titanium backers to the frame.</strong> They are gantry parts for Ch 05 and go on the face opposite a rail. On the same face as the rail they make the bowing worse.</li>
+</ul>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">¶</a></h2>
+<p>Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches <strong>B00 + B01 + B02</strong>, B02 plates P1 to P3, sorted into bins 02-Z0 … 02-deck (print plan §2).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+        <script src="../../javascripts/terms.js"></script>
+      
+        <script src="../../javascripts/gatecalc.js"></script>
+      
+        <script src="../../javascripts/taptree.js"></script>
+      
+        <script src="../../javascripts/boards.js"></script>
+      
+        <script src="../../javascripts/tonight.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

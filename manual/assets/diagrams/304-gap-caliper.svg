@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 790" width="1200" height="790" role="img" aria-label="Where the caliper goes to measure the gap" style="color:#14181D">
+<title>Where the caliper goes to measure the gap</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="790" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Measure the gap at each screw</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="60.0" y="556.0" width="1100.0" height="143.0" rx="0" fill="#DCE9F6" stroke="none" stroke-width="0"/>
+<line x1="60.0" y1="556.0" x2="1160.0" y2="556.0" stroke="#2A6FB5" stroke-width="3" stroke-linecap="round"/>
+<line x1="64.0" y1="645.7" x2="1156.0" y2="645.7" stroke="#2A6FB5" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+<path d="M 60 556.0 L 60 699.0" fill="none" stroke="#2A6FB5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 60 699.0 L 100 689.0 L 140 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 140 699.0 L 180 689.0 L 220 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 220 699.0 L 260 689.0 L 300 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 300 699.0 L 340 689.0 L 380 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 380 699.0 L 420 689.0 L 460 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 460 699.0 L 500 689.0 L 540 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 540 699.0 L 580 689.0 L 620 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 620 699.0 L 660 689.0 L 700 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 700 699.0 L 740 689.0 L 780 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 780 699.0 L 820 689.0 L 860 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 860 699.0 L 900 689.0 L 940 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 940 699.0 L 980 689.0 L 1020 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1020 699.0 L 1060 689.0 L 1100 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1100 699.0 L 1140 689.0 L 1180 699.0" fill="none" stroke="#2A6FB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1150.0" y="677.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="#2A6FB5" letter-spacing="0">bed extrusion</text>
+<rect x="560.0" y="302.5" width="600.0" height="19.5" rx="0" fill="#3E4550" stroke="#14181D" stroke-width="2"/>
+<rect x="560.0" y="322.0" width="600.0" height="130.0" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<path d="M 1153.0 296.5 L 1167.0 336.9 L 1153.0 377.2 L 1167.0 417.6 L 1153.0 458.0" fill="none" stroke="#5C6675" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="573.0" y="517.0" width="156.0" height="39.0" rx="0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<polygon points="584.7,517.0 608.8,491.0 599.0,471.5 599.0,452.0 703.0,452.0 703.0,471.5 693.2,491.0 717.3,517.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="3"/>
+<line x1="582.8" y1="552.1" x2="582.8" y2="520.9" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="596.4" y1="552.1" x2="596.4" y2="520.9" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="610.0" y1="552.1" x2="610.0" y2="520.9" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="623.7" y1="552.1" x2="623.7" y2="520.9" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="637.4" y1="552.1" x2="637.4" y2="520.9" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="651.0" y1="552.1" x2="651.0" y2="520.9" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="664.6" y1="552.1" x2="664.6" y2="520.9" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="678.3" y1="552.1" x2="678.3" y2="520.9" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="692.0" y1="552.1" x2="692.0" y2="520.9" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="705.6" y1="552.1" x2="705.6" y2="520.9" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="719.2" y1="552.1" x2="719.2" y2="520.9" stroke="#7E8794" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M 631.5 361.0 L 631.5 621.0 L 670.5 621.0 L 670.5 361.0" fill="none" stroke="#7E8794" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<rect x="430.0" y="122.0" width="54.0" height="394.0" rx="4" fill="#B6BDC6" stroke="#14181D" stroke-width="2.5"/>
+<line x1="470.0" y1="142.0" x2="482.0" y2="142.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="470.0" y1="164.0" x2="482.0" y2="164.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="470.0" y1="186.0" x2="482.0" y2="186.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="470.0" y1="208.0" x2="482.0" y2="208.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="470.0" y1="230.0" x2="482.0" y2="230.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="470.0" y1="252.0" x2="482.0" y2="252.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="470.0" y1="274.0" x2="482.0" y2="274.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="470.0" y1="296.0" x2="482.0" y2="296.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="470.0" y1="318.0" x2="482.0" y2="318.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="470.0" y1="340.0" x2="482.0" y2="340.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="470.0" y1="362.0" x2="482.0" y2="362.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="470.0" y1="384.0" x2="482.0" y2="384.0" stroke="#14181D" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="418.0,392.0 496.0,392.0 496.0,452.0 557.0,452.0 557.0,466.0 496.0,476.0 418.0,476.0 418.0,456.0 240.0,456.0 240.0,444.0 418.0,422.0" fill="#E7E9EC" stroke="#14181D" stroke-width="2.5"/>
+<polygon points="418.0,512.0 496.0,512.0 496.0,542.0 557.0,542.0 557.0,556.0 418.0,556.0 418.0,548.0 240.0,544.0 240.0,532.0 418.0,512.0" fill="#E7E9EC" stroke="#14181D" stroke-width="2.5"/>
+<line x1="563.0" y1="454.0" x2="563.0" y2="554.0" stroke="#E8751A" stroke-width="6" stroke-linecap="round"/>
+<circle cx="200.0" cy="504.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="200.0" y="515.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">1</text>
+<text x="406.0" y="222.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">caliper</text>
+<text x="742.0" y="514.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="start" fill="#E8751A" letter-spacing="0">gap: plate to extrusion</text>
+<path d="M 1076 212 Q 1110 186 1144 212 Q 1110 238 1076 212 Z" fill="#FFFFFF" stroke="#14181D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1110.0" cy="212.0" r="10.0" fill="#14181D" stroke="none" stroke-width="0"/>
+<line x1="1066.0" y1="218.0" x2="600.0" y2="296.5" stroke="#5C6675" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="12 8"/>
+<circle cx="1040.0" cy="158.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="1040.0" y="169.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<text x="60.0" y="743.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="800" text-anchor="start" fill="#5C6675" letter-spacing="0">FRONT</text>
+<text x="1160.0" y="743.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" text-anchor="end" fill="currentColor" letter-spacing="0">all four gaps the same</text>
+</svg>

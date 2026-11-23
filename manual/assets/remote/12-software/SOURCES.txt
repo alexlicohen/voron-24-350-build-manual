@@ -1,0 +1,99 @@
+# Mirrored step images for docs/manual/12-software.md
+# Fetched 2026-09-05 (R6 B3). Each entry: local file, its owner, the URL as cited
+# in the chapter, the URL actually downloaded, the fetch date, the licence/permission
+# it is mirrored under, and the sha256 of the mirrored bytes.
+
+ldo-revd-mainsail-machine-page.png
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/mainsail_machine.png
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/mainsail_machine.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 67b2a842c8c1864081cf04635bc3c9d43f14b2dbb911922255ca375a1bc10838
+
+ldo-revd-serial-by-id-output.png
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/serial_by_id_output.png
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/serial_by_id_output.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : a611c36ed54f886ecc32c982aefe27d6913b3d927d793abe7d5f8cf07ac56c83
+
+ldo-revd-mainsail-config-devices.png
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/mainsail_cfg_devices.png
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/mainsail_cfg_devices.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : b1f33236c492e4989da133f3abc72c00f287796a9e254a3fda82a22ab460807c
+
+ldo-revd-s7-fans-wired.jpg
+  owner   : 
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S7_fan.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S7_fan.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : dcfffcd00eaf4038edf336afd6c2ebb5ace25316f1683e3c785aa97c8bf3a925
+
+nitehawk-sb-v2-reset-boot-buttons.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/reset_boot_buttons.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/reset_boot_buttons.jpg
+  date    : 2026-09-05
+  licence : no LICENSE file in repo — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : 1f6ecc60dac8569a4249152fd32a22dbe7b91ca0f36538a37cf16c8e5c2fe345
+
+nitehawk-sb-v2-make-menuconfig.png
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/make_menuconfig.png
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/make_menuconfig.png
+  date    : 2026-09-05
+  licence : no LICENSE file in repo — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : a4ba1b675520a4f7907c521ab9e421ac09b6c01457ed62c2cc775b8cc3b939c1
+
+nitehawk-sb-v2-katapult-menuconfig.png
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/katapult_menuconfig.png
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/katapult_menuconfig.png
+  date    : 2026-09-05
+  licence : no LICENSE file in repo — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : dc182e9bb41bbfa6b4373c5ddab6d7f40dda254a33fde737661c17ef51a62dd0
+
+# --- Added 2026-09-05 (wave 3, "describe the pieces" pass) for steps that
+# --- previously had no image. Mirrored under Alex's ruling (CONVENTIONS
+# --- "Image licensing"). Original filenames kept.
+
+KIAUH_install_opt.png
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/KIAUH_install_opt.png
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/RevC/KIAUH_install_opt.png
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 12.9
+
+
+# Added 2026-09-24 (wave 4 packet P9, claude): licence-cleared per assets/remote/LICENSES.md.
+
+rpi-4-model-b.jpg
+  owner   : Raspberry Pi Ltd (raspberrypi/documentation)
+  cited-as: https://github.com/raspberrypi/documentation/blob/34dfb87/documentation/asciidoc/computers/raspberry-pi/images/4-model-b.jpg
+  fetched : https://raw.githubusercontent.com/raspberrypi/documentation/34dfb87/documentation/asciidoc/computers/raspberry-pi/images/4-model-b.jpg
+  date    : 2026-09-24
+  licence : CC-BY-SA-4.0 (raspberrypi/documentation/LICENSE.md); changed: resized 1920 -> 1200 px wide, metadata stripped, JPEG q85
+  sha256  : d057ec3e5c0a7f361c01bedb5673e11df0ed6c23a641de348bc27b4588468455
+
+mainsail-first-boot-update-manager.png
+  owner   : mainsail-crew (mainsail-crew/docs)
+  cited-as: https://github.com/mainsail-crew/docs/blob/e0b03f8/docs/images/mainsailos/first-boot-update-manager.png
+  fetched : https://raw.githubusercontent.com/mainsail-crew/docs/e0b03f8/docs/images/mainsailos/first-boot-update-manager.png
+  date    : 2026-09-24
+  licence : GPL-3.0 (mainsail-crew/docs/LICENSE); unmodified
+  sha256  : cc63dad8779bc5ab42c265877c0887357c5c1d6ef7f3c222a4a79fb8fb825aaf
+
+klipperscreen-main-panel.png
+  owner   : KlipperScreen contributors (KlipperScreen/KlipperScreen)
+  cited-as: https://github.com/KlipperScreen/KlipperScreen/blob/3f08a9f/docs/img/panels/main_panel.png
+  fetched : https://raw.githubusercontent.com/KlipperScreen/KlipperScreen/3f08a9f/docs/img/panels/main_panel.png
+  date    : 2026-09-24
+  licence : AGPL-3.0 (KlipperScreen/KlipperScreen/LICENSE); unmodified
+  sha256  : 4e4c73c1c6f9364c034a207c757c94ac914900bc8fd0667ccb4cf5a50fa4b787

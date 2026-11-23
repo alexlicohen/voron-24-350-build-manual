@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Leviathan DFU press: SW2 and SW1 together, release SW1, then SW2" style="color:#14181D">
+<title>Leviathan DFU press: SW2 and SW1 together, release SW1, then SW2</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="800" fill="#FBFAF8"/>
+<text x="40.0" y="66.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">DFU: both down, SW1 up first</text>
+<line x1="40.0" y1="92.0" x2="1160.0" y2="92.0" stroke="#D6DAE0" stroke-width="2" stroke-linecap="round"/>
+<rect x="40.0" y="138.0" width="340.0" height="454.0" rx="12" fill="#262B31" stroke="#11151A" stroke-width="3"/>
+<rect x="120.0" y="258.0" width="80.0" height="80.0" rx="8" fill="#B6BDC6" stroke="#7E8794" stroke-width="3"/>
+<circle cx="160.0" cy="298.0" r="30.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="4"/>
+<text x="160.0" y="228.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#E8751A" letter-spacing="0">SW1</text>
+<rect x="120.0" y="428.0" width="80.0" height="80.0" rx="8" fill="#B6BDC6" stroke="#7E8794" stroke-width="3"/>
+<circle cx="160.0" cy="468.0" r="30.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="4"/>
+<text x="160.0" y="568.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#E8751A" letter-spacing="0">SW2</text>
+<rect x="260.0" y="328.0" width="96.0" height="110.0" rx="0" fill="#4A5059" stroke="#14181D" stroke-width="3"/>
+<text x="308.0" y="394.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">chip</text>
+<text x="210.0" y="644.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#E8751A" letter-spacing="0">press both</text>
+<rect x="430.0" y="138.0" width="340.0" height="454.0" rx="12" fill="#262B31" stroke="#11151A" stroke-width="3"/>
+<rect x="510.0" y="258.0" width="80.0" height="80.0" rx="8" fill="#B6BDC6" stroke="#7E8794" stroke-width="3"/>
+<circle cx="550.0" cy="298.0" r="22.0" fill="#E6E6E6" stroke="#14181D" stroke-width="3"/>
+<text x="550.0" y="228.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">SW1</text>
+<rect x="510.0" y="428.0" width="80.0" height="80.0" rx="8" fill="#B6BDC6" stroke="#7E8794" stroke-width="3"/>
+<circle cx="550.0" cy="468.0" r="30.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="4"/>
+<text x="550.0" y="568.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#E8751A" letter-spacing="0">SW2</text>
+<rect x="650.0" y="328.0" width="96.0" height="110.0" rx="0" fill="#4A5059" stroke="#14181D" stroke-width="3"/>
+<text x="698.0" y="394.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">chip</text>
+<text x="600.0" y="644.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#14181D" letter-spacing="0">let go of SW1</text>
+<polygon points="391.0,343.0 391.0,387.0 419.0,365.0" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<rect x="820.0" y="138.0" width="340.0" height="454.0" rx="12" fill="#262B31" stroke="#11151A" stroke-width="3"/>
+<rect x="900.0" y="258.0" width="80.0" height="80.0" rx="8" fill="#B6BDC6" stroke="#7E8794" stroke-width="3"/>
+<circle cx="940.0" cy="298.0" r="22.0" fill="#E6E6E6" stroke="#14181D" stroke-width="3"/>
+<text x="940.0" y="228.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">SW1</text>
+<rect x="900.0" y="428.0" width="80.0" height="80.0" rx="8" fill="#B6BDC6" stroke="#7E8794" stroke-width="3"/>
+<circle cx="940.0" cy="468.0" r="22.0" fill="#E6E6E6" stroke="#14181D" stroke-width="3"/>
+<text x="940.0" y="568.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">SW2</text>
+<rect x="1040.0" y="328.0" width="96.0" height="110.0" rx="0" fill="#4A5059" stroke="#14181D" stroke-width="3"/>
+<text x="1088.0" y="394.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">chip</text>
+<text x="990.0" y="644.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#14181D" letter-spacing="0">then let go of SW2</text>
+<polygon points="781.0,343.0 781.0,387.0 809.0,365.0" fill="#14181D" stroke="#14181D" stroke-width="1"/>
+<circle cx="80.0" cy="178.0" r="28.0" fill="#E8751A" stroke="#FFFFFF" stroke-width="3"/>
+<text x="80.0" y="189.8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="33.6" font-weight="800" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">2</text>
+<text x="600.0" y="760.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#C0392B" letter-spacing="0">Reach as at 12.15: from the upper edge, in front of the middle duct</text>
+</svg>
