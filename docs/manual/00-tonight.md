@@ -4,6 +4,37 @@
 
 **Total remaining (estimate):** ~60.9 h hands-on across 16 build chapters; 177.4 h of printing across 33 plates, plus 25.1 h across 7 plates outside the run, B11 (~5 min hands-on per plate start, the rest unattended).
 
+## Tonight's planner
+
+Timeline order, stopping at the first **KIT** row. One plate start per plan (one printer): a plate start is ~5 min hands-on — open the project, confirm the estimate, start it, watch the first layer — and then the printer runs unattended for the hours shown, so the rest of a 30-minute bucket can go on bench work.
+
+<div class="tonight-plan" data-tonight-section="tonight" markdown>
+
+**If you have 30 min:**
+
+- **first, and not tonight:** Pre-B00 checks on Gen 1 belts: belt pluck, hot first layer, brim-gap ladder — every row below waits on it
+- B00 — Calibration & jigs — <span data-first-step="B00.0">Step B00.0 · ~10 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black". Nothing printing.</span>
+  <small>~10 min hands-on planned</small>
+
+**If you have 60 min:**
+
+- **first, and not tonight:** Pre-B00 checks on Gen 1 belts: belt pluck, hot first layer, brim-gap ladder — every row below waits on it
+- B00 — Calibration & jigs — <span data-first-step="B00.0">Step B00.0 · ~10 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black". Nothing printing.</span>
+- B00 — Calibration & jigs — <span data-first-step="B00.8">Step B00.8 · ~25 min · leave-state: B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P2. If it asks to save on close, answer Don't Save unless you meant to re-arrange.</span> · helper: Drives the layer slider on each plate and reads the time and grams aloud for the tally.
+- B00 — Calibration & jigs — <span data-first-step="B00.8">Step B00.8 · ~20 min · leave-state: B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P3. Nothing re-sliced outside this session's re-saves yet.</span> · helper: Drives the layer slider on each plate and reads the time and grams aloud for the tally.
+  <small>~55 min hands-on planned</small>
+
+**If you have 90 min:**
+
+- **first, and not tonight:** Pre-B00 checks on Gen 1 belts: belt pluck, hot first layer, brim-gap ladder — every row below waits on it
+- B00 — Calibration & jigs — <span data-first-step="B00.0">Step B00.0 · ~10 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black". Nothing printing.</span>
+- B00 — Calibration & jigs — <span data-first-step="B00.8">Step B00.8 · ~25 min · leave-state: B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P2. If it asks to save on close, answer Don't Save unless you meant to re-arrange.</span> · helper: Drives the layer slider on each plate and reads the time and grams aloud for the tally.
+- B00 — Calibration & jigs — <span data-first-step="B00.8">Step B00.8 · ~20 min · leave-state: B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P3. Nothing re-sliced outside this session's re-saves yet.</span> · helper: Drives the layer slider on each plate and reads the time and grams aloud for the tally.
+- B00 — Calibration & jigs — <span data-first-step="B00.8">Step B00.8 · ~35 min · leave-state: B08 through B10 reviewed and ticked, the longest run of the four sessions. PrusaSlicer open on B10-P1.</span> · helper: Drives the layer slider on each plate and reads the time and grams aloud for the tally.
+  <small>~90 min hands-on planned</small>
+
+</div>
+
 ## <img class='mascot-badge off-glb' src='@mascot/mascot-pause.svg' alt='pause' width='30' height='30' loading='eager' decoding='async'> Before the kit
 
 The same planner over the timeline rows without the **KIT** marker, plus the individual `(pre-kit)` stopping points inside rows that do need the kit — the Core One+ batches and every piece of bench work that needs no Voron part.
@@ -100,6 +131,10 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B07.7 — Reads each bin label aloud and checks the count against the diagram.
 - **B11 — Bay ducting, part 1** — <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: B11-P1 to P3 and P6 are binned. Set Adv. Filtration for B08.</span>
     - Step B11.8 — Reads each bin label aloud and checks the count against the diagram.
+- **B11 — Bay ducting, part 2, after the kit-day measurements** — <span data-first-step="B11.10">Step B11.10 · ~20 min · waits for Steps 00.3, 00.4 and plates B11-P2, B11-P3 · leave-state: the bay is dry-laid and measured; nothing is stuck down or fastened.</span>
+    - Step B11.10 — Reads each caliper number back aloud and writes it into the log.
+- **B11 — Bay ducting, part 2, after the kit-day measurements** — <span data-first-step="B11.14">Step B11.14 · ~10 min · leave-state: all of B11 is binned for Ch 09. Chamber Filtration on Adv. Filtration.</span>
+    - Step B11.14 — Reads each bin label aloud and checks the count against the diagram.
 - **B08 — Skirts and front modules** — <span data-first-step="B08.2">Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.2 h unattended · leave-state: plate B08-P1 running, 6.2 h unattended — door shut; come back for the next step when it ends</span>
     - Step B08.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
 - **B08 — Skirts and front modules** — <span data-first-step="B08.4">Start plate B08-P2 (Step B08.4) · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B08-P2 running, 4.2 h unattended — door shut; come back for the next step when it ends</span>
@@ -142,13 +177,337 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B13.4 — Reads the spool label aloud before it goes on the printer.
 - **B13 — Exhaust housing** — <span data-first-step="B13.7">Step B13.7 · ~10 min · leave-state: the last plate of the run sorted into 14-exhaust. Every ASA bin is now full.</span>
     - Step B13.7 — Reads each bin label aloud and checks the count against the diagram.
+- **Ch 00 — Before you start** — <span data-first-step="00.1">Step 00.1 → Step 00.6 · ~40 min · leave-state: both cartons inventoried and repacked, every fastener bag closed, the deck thickness written on its film and the ten LDO-supplied parts in their own bin. Nothing is open to dust. Next on kit day: the rail soak at 00.17–00.18. Do not start unbagging rails before you have the grease and IPA on the bench.</span>
+    - Step 00.2 — Reads the serial off the carton label and finds the batch tile that holds it.
+    - Step 00.3 — Ticks each BOM line as you call out the count.
+    - Step 00.4 — Counts the eight panels against the BOM and writes the deck thickness on the tape.
+    - Step 00.5 — Reads the four markers from the table aloud while you check each one on the board.
+    - Step 00.6 — Counts the ten LDO parts into their bin and writes the DO NOT PRINT label.
+- **Ch 00 — Before you start** — <span data-first-step="00.7">Step 00.7 · ~10 min · leave-state: kit day: the kit tools are laid out on the bench and the handles are bagged for Ch 11. Steps 00.8–00.11 were done before the kit shipped; the next kit-day step is 00.12, still inside the IPA dry.</span>
+    - Step 00.7 — Lays the kit tools out on the bench and counts five wrenches, one tip and one drill bit.
 - **Ch 00 — Before you start** — <span data-first-step="00.8">Step 00.8 → Step 00.11 · ~25 min · leave-state: the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Steps 00.7 and 00.12 wait for the kit.</span>
     - Step 00.10 — Reads the thickest leaf that slides under aloud and writes it in the log.
     - Step 00.11 — Trims each label to its frame and slides it into the bag it names.
+- **Ch 00 — Before you start** — <span data-first-step="00.12">Step 00.12 · ~25 min · leave-state: kit day: the fastener bags are emptied into trays A–C and the trays are stacked. Steps 00.13–00.16 ran before the kit, at Gate B, so the next kit-day work is the grease at Step 00.19 once the rails are dry, or the soak at 00.17 if it has not started.</span>
+    - Step 00.12 — Reads each bag's label aloud and points to the compartment with the same label.
+- **Ch 00 — Before you start** — <span data-first-step="00.17">Step 00.17 → Step 00.18 · ~30 min · leave-state: all seven rails are soaked, end stops on, and laid out on a towel to dry. This is a genuine wait state: the IPA must evaporate completely (an hour at least, overnight is better) before grease goes in, so stopping here costs nothing. On kit day, fill it with 00.7 and 00.12–00.13. Do not start packing grease into a rail that is still damp.</span>
+    - Step 00.17 — Holds the rail flat on the bench while you tape the carriage and the end stops.
+- **Ch 00 — Before you start** — <span data-first-step="00.19">Step 00.19 → Step 00.22 · ~40 min · leave-state: all seven rails greased, wiped back to bare steel, labelled X / Y1 / Y2 / Z0–Z3 and bagged, and both jig sizes test-fitted. Rail prep is per-rail work, so if you have to stop earlier, stop after a rail is packed, wiped and bagged — never with a carriage half-packed.</span>
+    - Step 00.20 — Clips each rail guide over the rail and says whether it seats with light finger pressure.
+    - Step 00.21 — Writes the seven rail labels X, Y1, Y2 and Z0 to Z3, and checks each bag.
 - **Ch 00 — Before you start** — <span data-first-step="00.23">Step 00.23 → Step 00.29 · ~25 min · leave-state: you have read the manual's front matter (p.4–11) and can read a filename, a fastener name and an exploded view. Nothing physical is in progress.</span>
     - Step 00.25 — Points to each drawing on the page as you read its name aloud.
 - **Ch 00 — Before you start** — <span data-first-step="00.30">Step 00.30 → Step 00.32 · ~20 min · leave-state: measurement log started, all three Discord channels joined and the gating question posted. Ch 01 needs only the inventory and the flat reference; finish Checkpoint 00, rail lines included, before Ch 02.</span>
     - Step 00.30 — Rules the log columns and writes in each number you call out.
+- **Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail, edit `printer.cfg` on the bench** — <span data-first-step="12.7">Step 12.7 → Step 12.10 · ~20 min · leave-state: KIAUH and KlipperScreen installed, the DSI auto-detect line and the three rotation settings in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet.</span>
+    - Step 12.7 — Copies the version string into the build notes and reads it back, character by character.
+- **Ch 01 — Frame** — <span data-first-step="01.1">Step 01.1 → Step 01.5 · ~40 min · leave-state: extrusions sorted and labelled, ends checked, 16 screws started in eight A extrusions, one practice joint tried and taken apart. Nothing is assembled. The next session takes about 65 min and cannot be stopped halfway, so start it when you have the time.</span>
+    - Step 01.1 — Reads the thickest feeler leaf that slides under and writes it in the log.
+    - Step 01.2 — Sorts the extrusions into piles by length and counts each pile aloud.
+- **Ch 01 — Frame** — <span data-first-step="01.6">Step 01.6 → Step 01.15 · ~65 min · leave-state: the frame is assembled, square on all six sides, fully tightened, and sits on the stone without rocking. This is the first safe place to stop: never walk away between squaring and tightening. Leave the frame on the stone, covered.</span>
+    - Step 01.7 — Holds the two A extrusions together at the corner while you snug the bolts.
+    - Step 01.8 — Holds each vertical upright while you slide it over the bolt heads.
+    - Step 01.9 — Holds the square in each inside corner and calls out any light under the blade.
+    - Step 01.10 — Holds the far end of each top extrusion level while you guide its bolt heads in.
+    - Step 01.12 — Holds the tape's far end on the corner and reads each diagonal aloud.
+    - Step 01.13 — Reads both top diagonals aloud and says which one is longer.
+    - Step 01.14 — Holds the square flat against each upright and calls out any gap.
+    - Step 01.15 — Watches the bottom corners and calls out any that lifts as you press.
+- **Ch 01 — Frame** — <span data-first-step="01.16">Step 01.16 → Step 01.19 · ~35 min · leave-state: both bed extrusions are in, 65 mm either side of the centreline, all eight bracket screws tight. Do not move the frame off the stone yet: Step 01.20 checks it there once more.</span>
+    - Step 01.19 — Holds the tape on the centreline mark and reads each 65 mm aloud.
+- **Ch 01 — Frame** — <span data-first-step="01.20">Step 01.20 → Step 01.23 · ~35 min · leave-state: final checks done, log filled in, every joint sealed. Go through Checkpoint 01, then the frame can come off the counter.</span>
+    - Step 01.20 — Reads each diagonal pair aloud and ticks it off as you go.
+    - Step 01.22 — Writes the four diagonals and the final torque into the frame log.
+    - Step 01.23 — Hands over seals one at a time and ticks off each joint.
+- **Ch 02 — Z drives, Z idlers, Z rails, deck** — <span data-first-step="02.01">Step 02.01 → Step 02.04 · ~40 min · leave-state: the printed parts are sorted into `a` and `b` piles and checked, the press temperature is confirmed on the first retainer insert, and all 36 heat-set inserts are in the four retainers and four main bodies. Park the press head and switch the press off. Nothing is assembled yet.</span>
+    - Step 02.01 — Sorts the printed parts into the a and b piles and counts them.
+    - Step 02.02 — Writes Z0 to Z3 on four tape flags and sticks one per corner.
+- **Ch 02 — Z drives, Z idlers, Z rails, deck** — <span data-first-step="02.05">Step 02.05 → Step 02.08 · ~25 min · leave-state: the first Z rail is centred, tightened from the centre outward, smooth over its whole length, and its carriage is taped. A rail is a complete unit: stop only with one finished, never with half its screws started.</span>
+    - Step 02.05 — Runs each carriage end to end over the bench and says smooth or notchy.
+- **Ch 02 — Z drives, Z idlers, Z rails, deck** — <span data-first-step="02.09">Step 02.09 → Step 02.10 · ~35 min · leave-state: all four Z rails are on, facing each other, with the same ~3 mm bottom gap and hole pattern, and every carriage is taped or stoppered. The frame is still the right way up. Do not turn it over until the carriages are secured.</span>
+    - Step 02.09 — Tape-marks holes 2, 4 and on to 18 on each rail before its screws go in.
+- **Ch 02 — Z drives, Z idlers, Z rails, deck** — <span data-first-step="02.11">Step 02.11 → Step 02.16 · ~30 min · leave-state: the printer is upside down and steady, the deck panel is in with its notch at the back and held by eight clips of the measured thickness, the four M5 T-nuts sit under the deck holes, and the FRONT tape is on. Leave the deck unscrewed: its four screws belong to Ch 09 Step 09.5.</span>
+    - Step 02.11 — Takes the other side of the frame as it turns over, then counts the four T-nuts in.
+    - Step 02.12 — Reads the caliper display aloud so you can check it against the tape.
+    - Step 02.13 — Holds the far edge of the deck panel level as it lowers into the frame.
+    - Step 02.16 — Writes FRONT on the tape strip and sticks it on the front bottom extrusion.
+- **Ch 02 — Z drives, Z idlers, Z rails, deck** — <span data-first-step="02.17">Step 02.17 → Step 02.21 · ~35 min · leave-state: four complete shaft assemblies: 20T pulleys at 33 mm, bearings and precision spacers stacked, 80T pulleys threadlocked, and the 188 mm belt loops hung on. The bearings are only slid onto the shaft, so nothing is half-done. Do not start Step 02.22 until you can close a drive in one sitting.</span>
+    - Step 02.17 — Reads the caliper aloud: 33 mm from the long shaft end to the pulley.
+    - Step 02.18 — Reads the caliper aloud on each of the four shafts: 33 mm.
+- **Ch 02 — Z drives, Z idlers, Z rails, deck** — <span data-first-step="02.22">Step 02.22 → Step 02.26 · ~35 min · leave-state: all four drives are closed: shafts seated, each closed on six M3×40, blue baseplates on with their trapped M5 nuts, belt loops inside and free. Each drive takes about 9 minutes, so if you stop earlier, stop with a drive fully closed and its baseplate on, never with a drive half-closed.</span>
+    - Step 02.23 — Holds the drive beside the page and names any difference from the section view.
+- **Ch 02 — Z drives, Z idlers, Z rails, deck** — <span data-first-step="02.27">Step 02.27 → Step 02.28 · ~25 min · leave-state: four Z motors carry their 16T pulleys at 10.7 mm and are screwed to their `a` and `b` mounts with the cable exits matched. Get every leftover 16T pulley off the bench before you walk away, and leave each motor cable marked a or b.</span>
+    - Step 02.27 — Counts each pulley's teeth to 16 and reads the 10.7 mm cross-check aloud.
+- **Ch 02 — Z drives, Z idlers, Z rails, deck** — <span data-first-step="02.29">Step 02.29 → Step 02.37 · ~30 min · leave-state: the Z0 corner is complete: drive body on its two M5×40, motor slid in, cam closed, both M5×10 tight, rubber foot on, and the p.46 check passed. One corner is a complete unit, and this is the natural place to stop.</span>
+    - Step 02.36 — Holds the rubber foot square on the baseplate while you drive its screw.
+- **Ch 02 — Z drives, Z idlers, Z rails, deck** — <span data-first-step="02.38">Step 02.38 · ~55 min · leave-state: Z1, Z2 and Z3 are built and fitted the same way. Stop after any corner whose four M5 screws are tight, cam closed and foot fitted, never with a cam open and the motor free to slide. All four cables are labelled Z0–Z3 by the corner they are in, and the printer is back upright on its feet.</span>
+    - Step 02.38 — Writes Z0 to Z3 on the motor cable labels by physical corner.
+- **Ch 02 — Z drives, Z idlers, Z rails, deck** — <span data-first-step="02.41">Step 02.41 → Step 02.44 · ~25 min · leave-state: all four Z idlers are on, each lined up with the drive below it, all eight M5×30 tight, and the printer is upright on its feet. Work through Checkpoint 02 before the gantry starts hiding this.</span>
+    - Step 02.42 — Sights down both pulleys and says if the belt line twists.
+    - Step 02.44 — Ticks the checkpoint list while you point at each item on the machine.
+- **Ch 03 — Build plate** — <span data-first-step="03.1">Step 03.1 → Step 03.6 · ~30 min · leave-state: the plate is unpacked, you know its top from its bottom, the film is off, and the factory-fitted heater, thermal fuse and earth screw are inspected and left alone. The magnet is still in its liner. Do not start Step 03.9 until you can do 03.8 to 03.10 in one go: you get only one try at sticking the magnet down.</span>
+    - Step 03.2 — Points to the magnet side and the heater side and names each one.
+    - Step 03.4 — Counts the pad screws aloud and points out any lifted corner.
+- **Ch 03 — Build plate** — <span data-first-step="03.7">Step 03.7 → Step 03.10 · ~30 min · leave-state: the top face is clean, the magnet is stuck down with no bubbles, and all four screw holes are cut clear through it and tested with an M3×20 and the hex key. The magnet is fully stuck, so nothing is half done. Lay the plate flat, magnet up, and cover it.</span>
+    - Step 03.7 — Holds a torch behind the straightedge and says if any light shows under it.
+    - Step 03.8 — Holds the plate flat on the towel and checks afterwards for missed patches.
+- **Ch 03 — Build plate** — <span data-first-step="03.11">Step 03.11 → Step 03.17 · ~40 min · leave-state: the plate sits on its four thumb-nut spacers, 38 mm behind the frame's front edge and centred, with one screw tight and three loose on purpose and its cables loose above the deck. Four T-nuts wait in the inner slots for Ch 09. The plate is fastened and stable, so this is the natural place to stop. Do not tighten the other three screws.</span>
+    - Step 03.11 — Holds the rule on one inner face and reads the gap at each end.
+    - Step 03.14 — Holds the three leads toward the left extrusion while you lower the plate.
+    - Step 03.16 — Reads the rule at each corner and calls the number back to you.
+- **Ch 03 — Build plate** — <span data-first-step="03.18">Step 03.18 → Step 03.20 · ~20 min · leave-state: the four corner gaps are checked, the plate's leads lie loose above the deck with nothing tied or connected, and the flex plate has been tried, taken off, and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.</span>
+    - Step 03.18 — Reads the caliper at each corner and writes the four gaps down.
+- **Ch 04 — A/B drives and front idlers** — <span data-first-step="04.1">Step 04.1 → Step 04.5 · ~30 min · leave-state: the bench is split into four labelled kits and every part has its corner written on it in marker. The two inserts are in `a_drive_frame_upper`, one is in each tension arm, and both M5 nuts are seated. Switch off and unplug the insert press, and the iron if you used it. Nothing is stacked yet.</span>
+    - Step 04.1 — Counts the bearings and spacers into four labelled trays, one per assembly.
+    - Step 04.2 — Writes each destination in marker as you call it out, then reads the caliper on both lower frames.
+- **Ch 04 — A/B drives and front idlers** — <span data-first-step="04.6">Step 04.6 → Step 04.12 · ~40 min · leave-state: the A (front right) idler is complete and checked against p.68: bearings flange-out, the M5×40 axle in from the top and seated in the arm's nut, and the M3×40 tensioner with its washer snug. An idler is a self-contained unit; never stop with the temporary screw pulled out and the stack unsupported.</span>
+    - Step 04.9 — Pinches the two idler frames together while you swap the bolt for the arm.
+    - Step 04.12 — Points to each circled feature on the page while you find it on the idler.
+- **Ch 04 — A/B drives and front idlers** — <span data-first-step="04.13">Step 04.13 → Step 04.19 · ~35 min · leave-state: the B (front left) idler is complete and checked against p.72, and the two idlers sit side by side with visibly different bearing heights. Both are in their trays. Nothing is open.</span>
+    - Step 04.16 — Pinches the two idler frames together while you swap the bolt for the arm.
+    - Step 04.19 — Points to each circled feature on the page while you find it on the idler.
+- **Ch 04 — A/B drives and front idlers** — <span data-first-step="04.20">Step 04.20 → Step 04.23 · ~25 min · leave-state: the A drive frames are closed snug over both bearing stacks; the motor and pulley are not fitted yet. Put the closed frame in the A DRIVE tray; never stop with a stack loaded and the lower frame off.</span>
+    - Step 04.22 — Reads the eight-item stack order aloud and hands you each part in turn.
+- **Ch 04 — A/B drives and front idlers** — <span data-first-step="04.24">Step 04.24 → Step 04.28 · ~25 min · leave-state: the A drive is finished: a 2-bearing near post, a 4-bearing far post, frames closed snug, the pulley at 16.5 mm hub-down and threadlocked, the motor in with three M3×30 and its cable exit inboard, and the belt path checked straight. It is labelled A: REAR RIGHT. This is the natural stop; do not leave a bearing stack loaded with the lower frame off.</span>
+    - Step 04.24 — Reads the caliper aloud while you slide the pulley along the shaft.
+    - Step 04.28 — Sights along the belt at eye level and says if it tilts.
+- **Ch 04 — A/B drives and front idlers** — <span data-first-step="04.29">Step 04.29 → Step 04.37 · ~45 min · leave-state: the B drive is finished and labelled B: REAR LEFT, its pulley at 6.5 mm hub-up, and the two cable exits face each other when the drives are held in their build positions.</span>
+    - Step 04.30 — Reads the eight-item stack order aloud and hands you each part in turn.
+    - Step 04.33 — Reads the caliper aloud and says whether the pulley is the flipped one.
+    - Step 04.35 — Holds the A drive in its rear-right position while you hold B beside it.
+    - Step 04.37 — Sights along the belt at eye level and says if it tilts.
+- **Ch 04 — A/B drives and front idlers** — <span data-first-step="04.38">Step 04.38 · ~15 min · leave-state: all four assemblies are bagged and labelled with their corners, and nothing is left over on the bench. Work through Checkpoint 04 before Ch 05.</span>
+    - Step 04.38 — Writes each corner on its bag and seals all four.
+- **Ch 05 — Gantry** — <span data-first-step="05.1">Step 05.1 → Step 05.4 · ~25 min · leave-state: bench cleared, sub-assemblies laid out left and right, T-nuts test-rolled and counted into trays. Nothing is assembled yet. Cover the trays so nothing gets swept off.</span>
+    - Step 05.2 — Points to each gantry part as you name it and repeats the name back.
+    - Step 05.4 — Counts the T-nuts and bolts into their piles and checks them against the list.
+- **Ch 05 — Gantry** — <span data-first-step="05.10">Step 05.10 → Step 05.12 · ~30 min · leave-state: first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stop the carriage before you walk away.</span>
+    - Step 05.10 — Counts ten T-nuts into the slot and checks one sits under each marked hole.
+    - Step 05.11 — Holds both rail jigs steady on the extrusion while you start holes 2 and 19.
+- **Ch 05 — Gantry** — <span data-first-step="05.13">Step 05.13 → Step 05.15 · ~30 min · leave-state: both Y rails down and tightened, end M5 and M3 T-nuts loaded, both carriages trapped. Do not start a backer now: begin one only when you can finish it.</span>
+    - Step 05.14 — Checks every extrusion end: two M5 on top, one M5 and one M3 in the rail slot.
+- **Ch 05 — Gantry** — <span data-first-step="05.16">Step 05.16 → Step 05.18 · ~35 min · leave-state: both titanium Y backers screwed down flat on the face opposite the rail. Before you stop, check that no screw head has been chewed by a slipping driver.</span>
+    - Step 05.16 — Sorts the backers by length and finds the one with the four small pilot holes.
+    - Step 05.17 — Holds the backer flat on the extrusion while you start every screw.
+- **Ch 05 — Gantry** — <span data-first-step="05.19">Step 05.19 → Step 05.24 · ~40 min · leave-state: front idlers fitted and both Y axes screwed to the drives, gantry frame checked and deliberately left slightly loose. Do not tighten anything further, and do not start an XY joint: each joint is a bearing stack you must finish in one go.</span>
+    - Step 05.24 — Reads the rule at the idler end while you read it at the drives.
+- **Ch 05 — Gantry** — <span data-first-step="05.36">Step 05.36 → Step 05.40 · ~35 min · leave-state: both XY joints screwed to the X extrusion top and bottom, cable bridge on, assembly checked against p.105. Still motors down, the way it runs. The flip is the next step: do not try it alone.</span>
+    - Step 05.36 — Counts the six M5 T-nuts aloud: four in the top slot, two underneath.
+    - Step 05.40 — Spins each bearing stack and idler and calls out any that drags.
+- **Ch 05 — Gantry** — <span data-first-step="05.41">Step 05.41 → Step 05.44 · ~40 min · leave-state: gantry upside down (motors up), X axis in and screwed to both Y carriages, endstop pod on the right joint, running end to end without binding. It stays upside down into Ch 06. The belts are still bagged and the XY joint screws only lightly tightened: leave both alone.</span>
+    - Step 05.41 — Holds the idler end level while you turn the gantry over.
+    - Step 05.42 — Holds one XY joint on its carriage while you land the other.
+    - Step 05.49 — Presses both switches on the fitted board and says whether each one clicks cleanly.
+    - Step 05.44 — Pushes the X axis slowly end to end and reports any rough spot.
+- **Ch 05 — Gantry** — <span data-first-step="05.45">Step 05.45 → Step 05.48 · ~25 min · leave-state: gantry complete and still upside down (motors up), measurements written down, Ch 06 and Ch 07 parts bagged and labelled. Do not tension belts and do not square the gantry: both belong to Ch 06 and Ch 07, and both would be undone.</span>
+    - Step 05.46 — Labels the two bags and writes what is inside each one.
+    - Step 05.48 — Writes each gantry measurement into the log as you call it out.
+- **Ch 06 Part A — Z axis: hang the gantry, Z belts** — <span data-first-step="06.9">Step 06.9 → Step 06.10 · ~25 min · leave-state: four lower Z joints are on the Z carriages and parked at a matched height. Do not try the gantry lift until your second person is there: the next segment is one unbroken two-person move.</span>
+    - Step 06.10 — Reads the rule at all four corners and calls out any joint that sits higher.
+- **Ch 06 Part A — Z axis: hang the gantry, Z belts** — <span data-first-step="06.11">Step 06.11 → Step 06.15 · ~45 min · leave-state: the gantry is lifted into the frame and screwed to all four Z joints, which still move freely. This segment could not be broken up (two-person lift). The Z belts are not routed yet; leave the idlers alone.</span>
+    - Step 06.11 — Holds one end while you turn the gantry over, then tapes the Front and Back marks.
+    - Step 06.12 — Lifts the other Y extrusion with you, hands on the extrusion only, and says stop if anything catches.
+    - Step 06.13 — Lowers the other side in step with you and lets go only when you say so.
+- **Ch 06 Part A — Z axis: hang the gantry, Z belts** — <span data-first-step="06.16">Step 06.16 → Step 06.21 · ~40 min · leave-state: all four Z idlers are extended, the top clamps loosened, and the first Z belt is routed, clamped at both ends, trimmed and tied. Never stop with a belt half routed: finish the corner you are on.</span>
+    - Step 06.16 — Counts the turns aloud at each idler and ticks off each corner when it is done.
+    - Step 06.20 — Pulls the belt tail tight and holds it while you tighten both M5×16 bolts.
+- **Ch 06 Part A — Z axis: hang the gantry, Z belts** — <span data-first-step="06.23">Step 06.23 → Step 06.25 · ~35 min · leave-state: the gantry is squared against the A/B drives, the X axis is locked, the gantry is released, and everything moves freely by hand. Leave the machine powered off.</span>
+    - Step 06.23 — Plucks each Z belt in turn and says which note sounds lowest.
+    - Step 06.25 — Watches the corner you turn and says whether it rises smoothly, with no slip.
+- **Ch 07 — A/B belts, provisional tension** — <span data-first-step="07.1">Step 07.1 → Step 07.5 · ~25 min · leave-state: both belt paths traced against p.126–127, and both front-idler tensioners backed out and wound back in 4 turns each. Nothing is cut. Do not start cutting belt unless you can also thread it.</span>
+    - Step 07.5 — Counts the four turns aloud on each tensioner so both idlers get the same number.
+- **Ch 07 — A/B belts, provisional tension** — <span data-first-step="07.9">Step 07.9 → Step 07.28 · ~80 min · leave-state: the long one, with no safe stop inside it. Both belts are routed, both ends captured in the carriage, the tails equalised and the carriage screws tightened. Only stop here once the carriage is closed and both belts are held at both ends.</span>
+    - Step 07.23 — Reads out each stop on the loop from p.126 and p.127 while you check it on the machine.
+    - Step 07.27 — Reads both tail lengths off the rule and says which belt sticks out further.
+- **Ch 07 — A/B belts, provisional tension** — <span data-first-step="07.29">Step 07.29 → Step 07.33 · ~30 min · leave-state: belt-rub check clean at all fourteen contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional, so do not chase the number further: Ch 06b releases it entirely and Ch 14 sets it for the last time.</span>
+    - Step 07.29 — Watches one side of every stack as you move the gantry and calls out any rub.
+    - Step 07.30 — Holds the rule between the two idler centres and reads the number aloud on each side.
+    - Step 07.31 — Holds the phone by the belt and reads the lowest peak aloud after each pluck.
+    - Step 07.32 — Reads each belt's lowest peak aloud after every quarter turn you make.
+- **Ch 07 — A/B belts, provisional tension** — <span data-first-step="07.34">Step 07.34 → Step 07.39 · ~30 min · leave-state: inductive probe taped, fitted, set to height and its cable routed; endstop magnet correctly skipped; cable cover dry-fitted and bagged for Ch 10. The gantry is a working XY system. Do not tension further and do not square the gantry.</span>
+    - Step 07.36 — Reads the caliper depth aloud while you slide the probe to 6 mm.
+    - Step 07.37 — Slides the X carriage slowly end to end while you watch the probe cable.
+- **Ch 08 — Toolhead** — <span data-first-step="08.1">Step 08.1 → Step 08.8 · ~35 min · leave-state: all 17 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is checked. Nothing is assembled yet. Park the press head, switch it off and let the tip cool. Do not start the extruder with any insert still missing: from Step 08.12 on they are buried under a bearing and a gear train.</span>
+    - Step 08.1 — Reads the moulded code on each printhead half aloud and sorts the prints into build order.
+- **Ch 08 — Toolhead** — <span data-first-step="08.9">Step 08.9 → Step 08.18 · ~30 min · leave-state: the drive train is closed between the main body and the motor plate, and threadlocker is curing on the drive-gear set screw if your gear has one. Do not loosen the set screw again or work the drive gear against a tight spot while the threadlocker sets. The motor is not on yet, so nothing is under load.</span>
+    - Step 08.13 — Slides each bearing on and off the shaft and says whether it catches anywhere.
+    - Step 08.18 — Shines a torch down the filament path and says whether the filament meets the teeth.
+- **Ch 08 — Toolhead** — <span data-first-step="08.27">Step 08.27 → Step 08.32 · ~20 min · leave-state: the tool cartridge is closed around the Revo, its four M3×8 are in, and the PTFE is cut to 11 mm. Bag it nozzle-up. Do not put a tool on the nozzle and do not stand the cartridge on its nozzle: both undo the hand-tight seat you just set.</span>
+    - Step 08.31 — Checks that the four bolt heads stand at the same height and points at any that sits high.
+- **Ch 08 — Toolhead** — <span data-first-step="08.37">Step 08.37 → Step 08.42 · ~20 min · leave-state: the Stealthburner body is fully loaded: three LEDs seated, diffusers pushed forward, both fans in, the blower loose in its pocket until its screws go in at 08.44, and every wire leaving on the right. Rest it face-down on a soft cloth. Do not put weight on the diffuser faces, and spin the impellers with nothing but a finger.</span>
+    - Step 08.40 — Finds the airflow arrow on the fan frame and checks that it points into the body.
+- **Ch 08 — Toolhead** — <span data-first-step="08.43">Step 08.43 → Step 08.46 · ~20 min · leave-state: the Nitehawk-SB V2 and the fan adapter are mounted, both fan-voltage selectors are confirmed at 24 V, and the three PH2.0 fan and LED plugs are in. Do not mate the board-to-board header yet: that happens with the Stealthburner body at Step 08.62. Do not cut or bridge a voltage-selector pad.</span>
+    - Step 08.45 — Reads the meter aloud at each selector while you hold the probes.
+- **Ch 08 — Toolhead** — <span data-first-step="08.47">Step 08.47 → Step 08.53 · ~25 min · leave-state: the extruder motor and chamber thermistor are plugged in, the ground wire runs from the toolboard to the motor body, and the cable cover is set aside, still off. The heater, hotend thermistor and probe leads are not plugged in yet: they wait for the carriage. Nothing is powered and nothing is on the carriage. Do not plug the umbilical's far end into anything and do not power the printer to "just check": Checkpoint 08 and Ch 13 do that, in that order.</span>
+    - Step 08.48 — Reads the meter aloud and says whether it shows about 100 kΩ.
+    - Step 08.52 — Reads each port name from the table aloud while you find it on the board.
+- **Ch 08 — Toolhead** — <span data-first-step="08.54">Step 08.54 → Step 08.56 · ~10 min · leave-state: the probe decision is recorded, the inductive probe from Ch 07 is confirmed on the carriage, and the nozzle-probe bag is still closed for Ch 09. The Klicky bag stays closed. Do not open either bag to "get ahead": the nozzle probe is built and mounted in Ch 09.</span>
+    - Step 08.55 — Reads the caliper aloud from the probe tip to the plastic; about 6 mm passes.
+- **Ch 08 — Toolhead** — <span data-first-step="08.57">Step 08.57 → Step 08.65 · ~35 min · leave-state: the toolhead is on the carriage, the body is on with the board-to-board header mated, and the umbilical is parked on the chain anchor with one loose tie, its free end coiled and labelled. This is the end of the hands-on work in this chapter. Do not apply power: Checkpoint 08 below is a test on the cold bench, and it is the last cheap chance to find a toolhead fault.</span>
+    - Step 08.58 — Holds the carriage steady at mid-travel while you start the first bolt.
+    - Step 08.64 — Checks that one screw head shows through the cover, then labels the bag for Ch 09.
+- **Ch 09 — Electronics bay** — <span data-first-step="09.1">Step 09.1 → Step 09.5 · ~30 min · leave-state: the printer is on its top, the rear T-nuts are in, the deck panel is checked, and both DIN rails are screwed through the deck holes with their end caps on. Nothing is laid on the deck or clipped to a rail yet. Leave the printer where it is if you can: standing it back up costs you the T-nut access.</span>
+    - Step 09.2 — Points to each item in LDO's photo as you find it: Leviathan, Pi, USB adapter, SSR, PSU and inlet.
+    - Step 09.3 — Steadies the second side of the frame as it rolls onto the blanket, on a count of three.
+    - Step 09.4 — Reads the caliper at the deck edge aloud and writes the thickness down.
+- **Ch 09 — Electronics bay** — <span data-first-step="09.6">Step 09.6 → Step 09.7 · ~25 min · waits for plates B11-P2, B11-P4, B11-P5, B11-P6, B11-P7 · leave-state: both DIN rails are on and the DC loop is laid out on its tape marks, not stuck; the VHB, lids and AC parts wait for 09.36. A piece knocked out of place goes back to its marks. Slide the middle run aside if a board needs room to clip on, since 09.36 centres it again. Nothing is clipped to a rail yet. Leave the printer where it is if you can: standing it back up costs you the T-nut access.</span>
+    - Step 09.6 — Writes each joint's mark on the masking tape as the adult pushes the pieces closed.
+    - Step 09.7 — Practises hook, rotate and snap on the spare clip until it clicks on first time.
+- **Ch 09 — Electronics bay** — <span data-first-step="09.19">Step 09.19 → Step 09.24 · ~30 min · leave-state: every voltage-selection jumper is off the Leviathan and bagged, and the board is on its brackets with the Pi and its HAT adapter, the whole stack clipped to the front rail. Do not put a jumper back: they go in one at a time in Ch 10.</span>
+    - Step 09.19 — Counts the jumpers into the bag, five in all, and writes its label.
+    - Step 09.20 — Holds each bracket steady on the bench while the adult drives the M2 screws.
+- **Ch 09 — Electronics bay** — <span data-first-step="09.25">Step 09.25 → Step 09.30 · ~30 min · leave-state: the USB adapter stack is confirmed and clipped, and the nozzle probe is assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin just behind the plate's rear edge. The printer is still on its head. No mains is wired and nothing is powered.</span>
+    - Step 09.27 — Looks under the collar's flange and says whether any gap shows.
+    - Step 09.28 — Presses the switch plunger and says whether the click is clean and it springs back.
+    - Step 09.29 — Releases the shaft and says whether it drops freely and clicks the switch.
+    - Step 09.30 — Tries the 2 mm and 3 mm hex keys between pin and plate and says which one fits.
+- **Ch 09 — Electronics bay** — <span data-first-step="09.31">Step 09.31 → Step 09.34 · ~20 min · leave-state: the XY endstop pod is checked and its cable labels read, and the bed WAGO breakout is built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them is terminated.</span>
+    - Step 09.32 — Presses both switches on the fitted board and says whether each one clicks cleanly.
+    - Step 09.33 — Watches the pod while the adult moves the toolhead through X and Y, and calls out any touch.
+- **Ch 10 — Wiring** — <span data-first-step="10.30">Step 10.30 → Step 10.34 · ~25 min · leave-state: probe tape confirmed, XY endstop cable read (and repinned if needed) and plugged into the gantry PCB, nozzle-probe lead run to the Z-chain notch. Both cables are loose on the gantry, not yet in a chain.</span>
+    - Step 10.31 — Reads both 3-pin labels aloud and points to the matching row in the table.
+    - Step 10.34 — Presses the probe shaft down and says when the switch clicks and the shaft springs back.
+- **Ch 10 — Wiring** — <span data-first-step="10.35">Step 10.35 → Step 10.39 · ~35 min · leave-state: eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead routed, the camera cable too if fitted, and every occupied extrusion slot covered. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good.</span>
+    - Step 10.36 — Holds each COB mount in place on the top extrusion while the adult drives its screws.
+    - Step 10.81 — Feeds the cable along each slot from the corner while the adult seats it.
+- **Ch 10 — Wiring** — <span data-first-step="10.65">Step 10.65 → Step 10.66 · ~20 min · leave-state: all three chains filled and every end zip-tied, every latch clicked shut, the cable cover over the Z bundle; the gantry moves through full X, Y and Z travel by hand. The umbilical, A/B, XY endstop, LED, nozzle-probe and camera leads hang through the deck into the bay, every one unplugged. Before you stop, with two people, lay the printer on its right side on a blanket, the underside of the deck facing you: it stays there for the rest of the chapter. Then the helper leaves the room; Sections 1, 2 and 2b are one adult alone. Do not start Section 1 in a leftover ten minutes: mains work is a fresh session with a clear head, through LDO's Checkpoint #1 to the SSR and bed leads after it.</span>
+    - Step 10.65 — Holds each chain latch open with the flat screwdriver while the adult lays the cables in.
+- **Ch 10 — Wiring** — <span data-first-step="10.40">Step 10.40 → Step 10.46 · ~30 min · leave-state: six steppers tagged and plugged into their mapped ports, `STEPPER-4` empty, bed thermistor on TH1, XY endstops and the nozzle probe on their headers. The chains are as 10.66 left them; do not open one.</span>
+    - Step 10.40 — Writes the seven tags from the table and hands each one over for its cable.
+    - Step 10.43 — Reads each tag aloud and names the corner its cable runs to before it is plugged in.
+    - Step 10.45 — Presses each microswitch on the gantry PCB and says when it clicks.
+- **Ch 10 — Wiring** — <span data-first-step="10.68">Step 10.68 → Step 10.80 · ~30 min · leave-state: below-deck runs dressed, mains in the AC conduit and DC in the loop, both deck openings strain-relieved, every cable tagged, bay walked against LDO's photo and the overlay, strip fin fitted and every AC lid on; DC lids still off. Do not fit a DC lid or any skirt.</span>
+    - Step 10.70 — Reads every tag aloud and says where its far end goes.
+    - Step 10.72 — Reads each row of the walk table aloud and ticks it off when the adult points to it.
+- **Ch 10 — Wiring** — <span data-first-step="10.73">Step 10.73 → Step 10.79 · ~20 min · leave-state: the dead meter sweep is complete and every reading is in range. The machine is unplugged, open and ready for Checkpoint 10. Do not plug the cord in again until Ch 12 Step 12.11, the next power-on, done with the same hand-on-the-switch routine as 10.23.</span>
+    - Step 10.74 — Records each reading the adult calls out in the table; the adult holds both probes.
+    - Step 10.75 — Records the 5 V reading the adult calls out; the adult holds both probes.
+    - Step 10.76 — Records the room temperature and copies the 10.44 bed reading into the table.
+    - Step 10.77 — Records each bonding reading the adult calls out; the adult holds both probes, cord out of the room.
+    - Step 10.78 — Records the six readings the adult calls out; the adult holds both probes.
+    - Step 10.79 — Reads the connector list aloud, one port at a time, and ticks each one pressed home.
+- **Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges** — <span data-first-step="11.67">Step 11.67 → Step 11.4 · ~25 min · leave-state: machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, and inserts melted into the segments, both bay fans and the two grill retainers. The mini12864 parts are set aside unbuilt, nothing is screwed to the frame yet, and the machine is still on its right side, as Ch 12 left it.</span>
+    - Step 11.1 — Holds each skirt segment in place while you check the joints line up.
+    - Step 11.4 — Looks through the skirt bins for any mini12864 part and reads out what is there.
+- **Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges** — <span data-first-step="11.5">Step 11.5 → Step 11.12 · ~20 min · leave-state: the machine is on its head with the gantry strapped; the touchscreen module (built at 10.50) is screwed into the front of the ring, snug, and its FFC run is checked end to end and latched at both ends; three belt guards are on their segments (the fourth waits for the plug panel at 11.14), the keystone panel is filled, the right-hand fan support is built with both fans and the left one with its two retainers, and every skirt T-nut is pre-loaded in the right slot. The rest of the ring is still off the machine. Do not leave an FFC half-latched: the latch is what holds the contacts.</span>
+    - Step 11.6 — Holds the mount steady, face down, while you seat the screen and drive its four screws.
+    - Step 11.7 — Holds the module level and centred on the front extrusion while you drive its three screws.
+    - Step 11.9 — Sorts the guards into an a pile and a b pile and hands over the one each corner needs.
+    - Step 11.11 — Reads each fan's airflow arrow aloud and checks both point into the bay.
+    - Step 11.12 — Counts twelve M3 and two M5 T-nuts into a tray and hands them over one at a time.
+- **Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges** — <span data-first-step="11.13">Step 11.13 → Step 11.17 · ~20 min · leave-state: front, rear and both side skirt runs are mounted, both bay fans in the right-hand run and grills on retainers in the left. The ring is complete all the way round, and no run is half-fastened. The machine is still on its head, the gantry strapped.</span>
+    - Step 11.13 — Holds each front skirt against the touchscreen module while you drive its screws.
+    - Step 11.14 — Holds the rear center skirt in its gap while you drive the screws.
+    - Step 11.15 — Holds each side skirt level against the extrusion while you start its screw.
+    - Step 11.16 — Holds the fan support in the gap, grills out, while you drive the M5 screw.
+    - Step 11.17 — Holds the right fan support in its gap while you close the run.
+- **Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges** — <span data-first-step="11.18">Step 11.18 → Step 11.21 · ~20 min · leave-state: bay-fan wiring checked against Ch 10, bestagon insert decided, VHB pads pressed on, and the bottom panel fixed by its rear hinges and front clips, the machine upright again and the gantry strap off. Leave the VHB to cure undisturbed: do not swing the door open for a day (3M: about 90 % strength after 24 hours). Do not press a pad on and walk away before the panel is on it.</span>
+    - Step 11.19 — Picks the hexagon and pushes the insert in until it clicks.
+    - Step 11.20 — Wipes all six pad faces with IPA and the cloth before the pads go on.
+    - Step 11.21 — Holds the panel square to the frame while you press it onto the pads.
+- **Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges** — <span data-first-step="11.22">Step 11.22 → Step 11.25 · ~15 min · leave-state: all four Z belt covers are on, each with its hammerhead nut, and the gantry runs its full Z travel without touching one.</span>
+    - Step 11.23 — Counts four covers, four nuts and four screws onto the tray.
+    - Step 11.24 — Pinches the Z belt flat while you slide the cover in.
+    - Step 11.25 — Watches each cover and calls out any rub while you move the gantry.
+- **Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges** — <span data-first-step="11.34">Step 11.34 → Step 11.37 · ~20 min · leave-state: plenum and cartridge magnets glued in matching polarity, both lids closed, and the cartridge's fill state written on its lid. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went.</span>
+    - Step 11.34 — Tests each magnet against a spare and hands them over all the same side up.
+    - Step 11.36 — Marks the exposed face of each magnet while it sits on the plenum.
+    - Step 11.37 — Writes the fill state and the date on the cartridge lid.
+- **Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges** — <span data-first-step="11.38">Step 11.38 → Step 11.43 · ~15 min · leave-state: Nevermore plenum mounted in the chamber (its cartridge waits on the bench for 11.39, after Ch 13), filter fan connected to the Ch 10 lead, and bowden retainer and spool holder arm fitted. Its config is `[fan_generic nevermore]` on PF9 (11.41), which Ch 12 Step 12.32 already wrote; check it against your Ch 12 notes or Checkpoint 12, not a live Mainsail, because the machine stays unplugged until 13.3.</span>
+    - Step 11.40 — Finds the FILTER FAN tag on the coiled lead and reads it aloud.
+    - Step 11.41 — Writes the tag and tapes it to the plenum.
+- **Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges** — <span data-first-step="11.44">Step 11.44 → Step 11.47 · ~20 min · leave-state: the door frame is squared with its blind joints tightened, the rubber retainer strip is in, and both hinges have their dowels and bushings. The acrylic is held in the frame and nothing is glued.</span>
+    - Step 11.44 — Holds the machinist square in each corner while you tighten it.
+- **Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges** — <span data-first-step="11.48">Step 11.48 → Step 11.51 · ~20 min · leave-state: end of Part A. Handle, latch and handle-hinge magnets glued and curing, the latch insert and panel clip fitted, and the front opening foam-taped. Do not fit the back, side or top panels: Ch 13 needs every face open. Go to Ch 13.</span>
+    - Step 11.48 — Sorts the magnets into two polarity piles before you glue any of them in.
+    - Step 11.51 — Peels the foam tape backing a hand's length ahead as you press it down.
+- **Ch 13 — Initial startup** — <span data-first-step="13.3">Step 13.3 → Step 13.12 · ~40 min · leave-state: the machine has been powered, Klipper reports `Ready` with both MCUs, all three temperatures read room temperature, both heaters proved they climb and stop, every fan has been switched on and off, and every light has been switched on. Nothing has moved yet. Heaters off, machine idle.</span>
+    - Step 13.12 — Presses the light buttons in Mainsail and says which lamps came on.
+- **Ch 13 — Initial startup** — <span data-first-step="13.13">Step 13.13 → Step 13.16 · ~20 min · leave-state: every motor buzzed, identified and turning the right way, and any swap has been fixed at the connector, not in the config. The machine still has not homed.</span>
+    - Step 13.13 — Watches each Z corner and calls out which one just moved.
+    - Step 13.14 — Watches the two rear motors and calls out which one moved for each command.
+    - Step 13.15 — Watches the Clockwork 2.5 gears and says whether they turned both ways.
+- **Ch 13 — Initial startup** — <span data-first-step="13.17">Step 13.17 → Step 13.21 · ~20 min · leave-state: all three endstops and the inductive probe answer correctly to `QUERY_ENDSTOPS` / `QUERY_PROBE`, tested by hand with nothing homed. Do not stop halfway through the endstop set: the value of this pass is seeing all four in one sitting.</span>
+    - Step 13.17 — Reads the endstop states off the screen and calls each one back.
+    - Step 13.18 — Sends QUERY_ENDSTOPS while the adult holds the toolhead on the switch, then reads the reply aloud.
+    - Step 13.19 — Sends QUERY_ENDSTOPS while the adult holds the gantry at the back, then reads the reply aloud.
+    - Step 13.20 — Sends QUERY_ENDSTOPS while the adult holds the probe shaft down, then reads the reply aloud.
+    - Step 13.21 — Reads the probe state off the screen after each QUERY_PROBE and calls it back.
+- **Ch 13 — Initial startup** — <span data-first-step="13.22">Step 13.22 → Step 13.27 · ~30 min · leave-state: homing works. X, Y and Z home, the bed is located, 0,0 is defined, the `[safe_z_home]` position is written into `printer.cfg`, and a full `G28` completes without a crash. Klipper came back clean after the edits (commit them: `cd ~/printer_data/config && git add -A && git commit -m "13.26 safe_z_home"`). This is the biggest milestone in the chapter, and a good place to stop.</span>
+    - Step 13.26 — Reads the M114 X and Y values aloud while the adult types them into safe_z_home.
+- **Ch 13 — Initial startup** — <span data-first-step="13.28">Step 13.28 → Step 13.31 · ~20 min · leave-state: cold `PROBE_ACCURACY` is in range, both PID tunes are saved, and the machine is holding its heat soak at bed 100 °C / hotend 150 °C. The soak is a real wait: leave it soaking, but do not leave the room with the heaters on.</span>
+    - Step 13.28 — Reads the range and the standard deviation off the screen and writes them down.
+- **Ch 13 — Initial startup** — <span data-first-step="13.40">Step 13.40 → Step 13.43 · ~30 min · leave-state: extruder rotation distance set, the Voron cube sliced, printed and its first-layer squish dialled in, and the machine shut down properly. Ready for Checkpoint 13, then Ch 11 Part B.</span>
+    - Step 13.43 — Watches Mainsail, says when it loses the printer, and times the minute.
+- **Ch 13 — Initial startup** — <span data-first-step="13.44">Step 13.44 → Step 13.47 · ~35 min · leave-state: H, w, d, G and O measured and written down, the decision made, the chosen files in `measured/` or NO-GO recorded, and the Voron shut down as at Step 13.43. Nothing printed yet.</span>
+    - Step 13.44 — Holds the rule on each extrusion top and reads the clear length aloud.
+    - Step 13.45 — Reads both caliper values aloud and writes them on the record card.
+    - Step 13.46 — Reads each caliper value and the M114 Y aloud and writes them down.
+    - Step 13.47 — Reads each number off the record card while the adult types it in.
+- **Ch 13 — Initial startup** — <span data-first-step="13.48">Step 13.48 · ~15 min · leave-state: the add-on print is running on the Core One+, about 2.5 h. Leave the parts on the sheet until it has cooled.</span>
+    - Step 13.48 — Checks each file name on the bed against the printout and ticks it.
+- **Ch 13 — Initial startup** — <span data-first-step="13.49">Step 13.49 → Step 13.50 · ~25 min · leave-state: the add-on is fastened on, the bucket hangs on its magnets, and Klipper does not know about it yet. Do not run any scrub command before Step 13.52.</span>
+    - Step 13.49 — Tests each magnet pair and hands them over the right way up.
+    - Step 13.50 — Holds each bracket against the plate edge while the adult tightens it.
+- **Ch 13 — Initial startup** — <span data-first-step="13.51">Step 13.51 → Step 13.54 · ~30 min · leave-state: the scrubber runs inside `PRINT_START`, the config is committed and copied off the Pi, and the machine is shut down. Ready for Checkpoint 13, then Ch 11 Part B.</span>
+    - Step 13.51 — Reads each M114 value aloud and writes it on the record card.
+    - Step 13.53 — Watches the Omron from the side and calls out if it touches anything.
+- **Ch 06b — Gantry squaring, cold, and provisional tension** — <span data-first-step="06b.1">Step 06b.1 → Step 06b.16 · ~60 min · leave-state: the gantry is squared and de-racked cold, the A/B belts are at a provisional 110 Hz, the four Z joint M5×40 are still light, and `RESTART` has been run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers; both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6).</span>
+    - Step 06b.3 — Holds the phone at the belt span and reads the lowest peak aloud after each pluck.
+    - Step 06b.8 — Steadies the gantry corner you are working on while you take out its M5×40.
+    - Step 06b.11 — Writes the four gap readings into the table as you call them out.
+    - Step 06b.15 — Holds the phone at each belt span and reads the lowest peak aloud after each pluck.
+- **Ch 11 Part B — back, side and top panels, Clicky-Clack door** — <span data-first-step="11.52">Step 11.52 → Step 11.55 · ~25 min · leave-state: DC lids on, the filter cartridge on its plenum, back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down, cover tabs screwed on, and the PTFE through the cover's coupler. A panel is either fully clipped or off the machine: never leave one hanging on half its clips.</span>
+    - Step 11.53 — Counts out eleven screws and eleven hammerhead nuts, two per corner clip and one per midspan.
+    - Step 11.55 — Holds the panel square in the clips while you tighten opposite corners.
+- **Ch 11 Part B — back, side and top panels, Clicky-Clack door** — <span data-first-step="11.56">Step 11.56 → Step 11.58 · ~25 min · leave-state: both side panels foam-taped, clipped and screwed, all twenty-four M3×12 in. Both sides are fully on.</span>
+    - Step 11.56 — Cleans both side panels with the cloth, then peels the tape backing ahead.
+    - Step 11.57 — Holds the side panel against the clips while you tighten them.
+    - Step 11.58 — Holds the side panel against the clips while you tighten them.
+- **Ch 11 Part B — back, side and top panels, Clicky-Clack door** — <span data-first-step="11.59">Step 11.59 → Step 11.61 · ~15 min · leave-state: top panel on its eight clips, handlebars screwed down through their spacers, and the stock front doors confirmed as not fitted. The machine is closed on five faces; the front is still open.</span>
+    - Step 11.59 — Wipes the top panel clean and holds one edge while you seat it.
+    - Step 11.60 — Holds each handle square on its spacers while you drive the screws.
+    - Step 11.61 — Bags the two stock door panels and the spare magnets and labels the bag.
+- **Ch 11 Part B — back, side and top panels, Clicky-Clack door** — <span data-first-step="11.62">Step 11.62 → Step 11.64 · ~25 min · leave-state: door hinges hung, latch fitted, handle on, and the door swings and closes on its magnets. Do not stop with the door hanging on one hinge; it will twist the frame and the acrylic.</span>
+    - Step 11.62 — Holds the taped door in the opening while you mark and hang the hinges.
+    - Step 11.64 — Holds the paper shim between the magnets while you slide the handle into line.
+- **Ch 11 Part B — back, side and top panels, Clicky-Clack door** — <span data-first-step="11.65">Step 11.65 → Step 11.66 · ~15 min · leave-state: hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Part C, then Checkpoint 11.</span>
+    - Step 11.66 — Runs a finger round every panel seam and calls out any gap found.
+- **Ch 11 Part B — back, side and top panels, Clicky-Clack door** — <span data-first-step="11.68">Step 11.68 → Step 11.69 · ~20 min · leave-state: stack and board measured; a frame reprint started only if the stack was thick. Leave a reprint on the sheet until it has cooled.</span>
+    - Step 11.68 — Reads each caliper value aloud and types it into the calculator.
+- **Ch 11 Part B — back, side and top panels, Clicky-Clack door** — <span data-first-step="11.70">Step 11.70 → Step 11.73 · ~40 min · leave-state: puck screwed to the frame, frame on the right side, tube holder on, one new PTFE from the spool to the CW2.5, and a spool loaded. Nothing is half-fastened.</span>
+    - Step 11.70 — Hangs the empty Drybox on the puck and says whether it sits upright.
+    - Step 11.71 — Holds the frame against the extrusions while the adult starts both screws.
+    - Step 11.73 — Holds the spool while the adult locks the spindle and feeds the filament.
+- **Ch 11 Part B — back, side and top panels, Clicky-Clack door** — <span data-first-step="11.74">Step 11.74 → Step 11.76 · ~40 min · leave-state: camera screwed in, the toolhead proven clear of it at Z max, and the stream live in Mainsail. Ready for Checkpoint 11.</span>
+    - Step 11.74 — Holds the camera body on the extrusion while the adult drives both screws.
+    - Step 11.75 — Watches the gap between toolhead and camera and calls stop if it closes.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.25">Step 14.25 → Step 14.26 · ~30 min · leave-state: the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the five B13 parts checked and back in bin 14-exhaust. Nothing on the Voron has changed. Carry on with Part A while the delivery comes; Part H picks up again at Step 14.27, after Part G.</span>
+    - Step 14.25 — Holds the string along the route and reads its length off the rule.
+    - Step 14.26 — Counts the five parts against the bin label and reads each name aloud.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.1">Step 14.1 → Step 14.2 · ~15 min · leave-state: config checked against the `-sbv2` file and both PID sections confirmed. Nothing has heated and nothing mechanical has been touched: the heaters are read during the one closed soak, at Step 14.3, after the belts.</span>
+    - Step 14.1 — Reads each Must hold value aloud while the adult finds it in printer.cfg.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.4">Step 14.4 · ~20 min · leave-state: A and B are both at final tension and equal. The belts are one calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 sets it back to 1800 at the end, once the last hot check has passed.</span>
+    - Step 14.4 — Holds the phone by the span and reads the lowest peak aloud after each pluck.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.5">Step 14.5 → Step 14.6 · ~25 min · leave-state: all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint screws locked hot, `PROBE_ACCURACY` checked hot again afterwards, the hot mesh Range logged and the idle timeout set back to 1800, then the heaters off, the machine shut down and proved dead for the SSR bracket reading, which is in the tuning log, and stood up again, unplugged. The whole belt-and-shape item is closed. Shutting down lets go of every motor, and the gantry may sink onto the bed: clear the plate before you shut down, and `G28` after the next power-on. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder.</span>
+    - Step 14.5 — Holds the phone by each Z belt and reads the lowest peak aloud after each pluck.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.10">Step 14.10 → Step 14.11 · ~15 min · leave-state: the Ch 13 cube is measured against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; the multiplier is set later by eye, at 14.19–14.20, not from these numbers.</span>
+    - Step 14.10 — Fetches the Prusa B00 cube from its bin and sets both cubes side by side.
+    - Step 14.11 — Writes each caliper reading into the comparison table as the adult calls it out.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.12">Step 14.12 · ~15 min · leave-state: the accelerometer answers, the noise is in the 1–100 band, and the 350 mm `[resonance_tester]` probe point is confirmed live. Nothing has been shaped yet.</span>
+    - Step 14.12 — Reads the MEASURE_AXES_NOISE figures aloud and checks each one is under 100.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.13">Step 14.13 → Step 14.15 · ~25 min · leave-state: `SHAPER_CALIBRATE` run, the graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. Never stop between running the calibration and saving it: the CSVs live in `/tmp`, and a reboot loses them.</span>
+    - Step 14.14 — Finds the tallest peak on each graph and reads its frequency aloud.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.17">Step 14.17 → Step 14.18 · ~20 min · leave-state: the PA pattern printed and read, and the chosen value saved in the ASA filament profile. One calibration item closed; the extrusion multiplier is next.</span>
+    - Step 14.18 — Once the pattern has cooled off the plate, counts lines from its start to the sharpest corner with the loupe.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.24">Step 14.24 · ~20 min · leave-state: the serial request is posted; the nameplate is generated, printed and fitted once the serial arrives, since the plate carries it. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front verticals are only 20 mm wide; do not screw anything to the left vertical, which carries the door hinges.</span>
+    - Step 14.24 — Reads the serial back from the post and checks every character on the printed plate.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.29">Step 14.29 · ~30 min · leave-state: the housing on the back panel, the exhaust cover kept as a spare, and the fan lead inside the chamber and unplugged. Leave the tape for an hour before anything leans on the housing.</span>
+    - Step 14.29 — Holds the housing square on the panel while the adult drives the two screws from inside.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.33">Step 14.33 → Step 14.34 · ~35 min · leave-state: the exhaust in `printer.cfg`, the fan proved by target and on a hot chamber, heaters off, ceiling 0, and the idle timeout back at 1800.</span>
+    - Step 14.33 — Reads the pin line back off the screen: PB7, not PF7.
+- **Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune** — <span data-first-step="14.35">Step 14.35 → Step 14.36 · ~30 min · leave-state: PLA printed under the ceiling with the chamber logged, the purge run and stopped, the config committed and copied off the Pi, and the machine shut down properly.</span>
+    - Step 14.35 — Reads each Nominal and Minimal value back from the preset while the adult types.
 
 </div>
 

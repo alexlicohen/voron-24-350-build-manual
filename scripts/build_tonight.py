@@ -90,10 +90,9 @@ OUT = MANUAL / "00-tonight.md"
 
 PLATE_START_MIN = 5  # open the project, confirm the estimate, start, watch the first layer
 
-# The Voron kit is not here yet (expected early Nov 2026), so "Before
-# the kit" is the section that gets read and it renders first. Flip this to True
-# on kit day and the two planner sections swap back.
-KIT_ARRIVED = False
+# The Voron kit is here (Alex 2026-11-23), so the full planner renders. False
+# puts the stop-at-kit "Before the kit" section first instead.
+KIT_ARRIVED = True
 
 _CHAPTER_TITLE_RE = re.compile(
     r"^#\s*(?:Chapter|Batch)\s+([A-Za-z]?\d+[a-z]?)\s*—\s*(.+?)\s*$", re.MULTILINE
