@@ -6,7 +6,7 @@
 
 ## Tonight's planner
 
-Timeline order, stopping at the first **KIT** row. One plate start per plan (one printer): a plate start is ~5 min hands-on — open the project, confirm the estimate, start it, watch the first layer — and then the printer runs unattended for the hours shown, so the rest of a 30-minute bucket can go on bench work.
+Timeline order. One plate start per plan (one printer): a plate start is ~5 min hands-on — open the project, confirm the estimate, start it, watch the first layer — and then the printer runs unattended for the hours shown, so the rest of a 30-minute bucket can go on bench work.
 
 <div class="tonight-plan" data-tonight-section="tonight" markdown>
 

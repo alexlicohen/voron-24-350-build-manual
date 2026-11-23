@@ -886,7 +886,8 @@ def build_tonight_markdown(model=None):
         lines.append("## Tonight's planner")
         lines.append("")
         lines.extend([
-            "Timeline order, stopping at the first **KIT** row. One plate start per plan "
+            ("Timeline order. " if KIT_ARRIVED else
+             "Timeline order, stopping at the first **KIT** row. ") + "One plate start per plan "
             f"(one printer): a plate start is ~{PLATE_START_MIN} min hands-on — open the project, "
             "confirm the estimate, start it, watch the first layer — and then the printer runs "
             "unattended for the hours shown, so the rest of a 30-minute bucket can go on bench work.",
