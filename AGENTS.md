@@ -22,7 +22,7 @@ Most efficient AND most effective print/build order for the Voron 2.4 350 once t
 
 ## Printing and slicing
 - Print sheet follows the material: ASA satin + brim, no glue (Alex 2026-10-28), PLA satin,
-  PETG textured.
+  PETG textured, PETG V0 satin (Alex 2026-11-23).
 - Infill is gyroid by default (Alex 2026-10-31) for every new profile and 3MF; another pattern
   only for a stated reason, recorded next to the setting.
 - Test one variable at a time (Alex): change one print setting per test print.

@@ -1080,7 +1080,7 @@
      "run": "bay",
      "leave_state": "plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P1 (Step B11.3) · PETG on the textured sheet · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P1 (Step B11.3) · PETG V0 on the satin sheet · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#1",
@@ -1118,7 +1118,7 @@
      "run": "bay",
      "leave_state": "plate B11-P2 running, 4.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P2 (Step B11.5) · PETG on the textured sheet · ~5 min hands-on, then 4.3 h unattended · leave-state: plate B11-P2 running, 4.3 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P2 (Step B11.5) · PETG V0 on the satin sheet · ~5 min hands-on, then 4.3 h unattended · leave-state: plate B11-P2 running, 4.3 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#3",
@@ -1137,7 +1137,7 @@
      "run": "bay",
      "leave_state": "plate B11-P3 running, 3.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P3 (Step B11.6) · PETG on the textured sheet · ~5 min hands-on, then 3.2 h unattended · leave-state: plate B11-P3 running, 3.2 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P3 (Step B11.6) · PETG V0 on the satin sheet · ~5 min hands-on, then 3.2 h unattended · leave-state: plate B11-P3 running, 3.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#4",
@@ -1156,7 +1156,7 @@
      "run": "bay",
      "leave_state": "plate B11-P6 running, 4.0 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P6 (Step B11.15) · PETG on the textured sheet · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B11-P6 running, 4.0 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P6 (Step B11.15) · PETG V0 on the satin sheet · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B11-P6 running, 4.0 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#5",
@@ -1192,14 +1192,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "B11-P1 to P3 and P6 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.",
+     "leave_state": "B11-P1 to P3 and P6 are binned. Set Adv. Filtration for B08.",
      "helpers": [
       [
        "B11.8",
        "Reads each bin label aloud and checks the count against the diagram."
       ]
      ],
-     "text": "Step B11.8 · ~10 min · leave-state: B11-P1 to P3 and P6 are binned. Swap the satin sheet back on and set Adv. Filtration for B08."
+     "text": "Step B11.8 · ~10 min · leave-state: B11-P1 to P3 and P6 are binned. Set Adv. Filtration for B08."
     }
    ]
   },
@@ -1285,7 +1285,7 @@
      "run": "bay",
      "leave_state": "plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P4 (Step B11.12) · PETG on the textured sheet · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P4 (Step B11.12) · PETG V0 on the satin sheet · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#10",
@@ -1304,7 +1304,7 @@
      "run": "bay",
      "leave_state": "plate B11-P5 running, 4.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P5 (Step B11.13) · PETG on the textured sheet · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B11-P5 running, 4.2 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P5 (Step B11.13) · PETG V0 on the satin sheet · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B11-P5 running, 4.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#11",
@@ -1323,7 +1323,7 @@
      "run": "bay",
      "leave_state": "plate B11-P7 running, 2.7 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P7 (Step B11.16) · PETG on the textured sheet · ~5 min hands-on, then 2.7 h unattended · leave-state: plate B11-P7 running, 2.7 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P7 (Step B11.16) · PETG V0 on the satin sheet · ~5 min hands-on, then 2.7 h unattended · leave-state: plate B11-P7 running, 2.7 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#12",
@@ -1340,14 +1340,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration.",
+     "leave_state": "all of B11 is binned for Ch 09. Chamber Filtration on Adv. Filtration.",
      "helpers": [
       [
        "B11.14",
        "Reads each bin label aloud and checks the count against the diagram."
       ]
      ],
-     "text": "Step B11.14 · ~10 min · leave-state: all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration."
+     "text": "Step B11.14 · ~10 min · leave-state: all of B11 is binned for Ch 09. Chamber Filtration on Adv. Filtration."
     },
     {
      "id": "b11-bay-ducting#13",
@@ -1815,16 +1815,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B12-P1",
-     "print_hours": 6.7,
-     "run": "petg",
-     "leave_state": "plate B12-P1 running, 6.7 h unattended — door shut; come back for the next step when it ends",
+     "print_hours": 8.3,
+     "run": "asa",
+     "leave_state": "plate B12-P1 running, 8.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B12.2",
        "Reads the plate's hours and grams off the slicer and checks them against this step."
       ]
      ],
-     "text": "Start plate B12-P1 (Step B12.2) · PETG on the textured sheet · ~5 min hands-on, then 6.7 h unattended · leave-state: plate B12-P1 running, 6.7 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B12-P1 (Step B12.2) · ~5 min hands-on, then 8.3 h unattended · leave-state: plate B12-P1 running, 8.3 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b12-side-spool-and-camera#1",
@@ -9773,7 +9773,7 @@
    }
   },
   {
-   "name": "kit day, B12 and B13 unprinted: B12-P1 (PETG) is the next plate, B11.10 waits for the inventory",
+   "name": "kit day, B12 and B13 unprinted: B12-P1 is the next plate, B11.10 waits for the inventory",
    "kit_arrived": true,
    "ticks": {
     "b00-calibration-and-jigs": [

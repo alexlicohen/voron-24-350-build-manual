@@ -653,10 +653,11 @@ def _waits_text(seg):
 def _segment_text(seg):
     if seg["kind"] == "print":
         hrs = f"{seg['print_hours']:.1f} h" if seg["print_hours"] is not None else "?"
-        # a PETG plate (B11, B12-P1) prints from its own spool on the textured sheet: the
-        # bench reader sees the swap in the plan, not only on the Load step's page
-        petg = (" · PETG on the textured sheet"
-                if PLATES.get(seg["plate"], {}).get("colour") in PETG_COLOURS else "")
+        # a PETG plate prints from its own spool: the bench reader sees the swap in the plan,
+        # not only on the Load step's page. B11's PETG V0 stays on satin (index row 59)
+        colour = PLATES.get(seg["plate"], {}).get("colour")
+        petg = (" · PETG V0 on the satin sheet" if colour == "petg" else
+                " · PETG on the textured sheet" if colour in PETG_COLOURS else "")
         return (f"Start plate {seg['plate']} (Step {seg['first_step']}){petg} · "
                 f"~{seg['minutes']} min hands-on, then {hrs} unattended{_waits_text(seg)} · "
                 f"leave-state: {seg['leave_state']}")
@@ -837,8 +838,8 @@ def build_tonight_markdown(model=None):
     n_plates = len(run_segs)
     extra_print = ""
     if outside:
-        # a batch wholly outside the run by its id (B11), else the plate's own id (B12-P1:
-        # B12-P2 and P3 are in the run)
+        # a batch wholly outside the run by its id (B11), else the plate's own id (as B12-P1
+        # was in PETG on 2026-11-21/22, while B12-P2 and P3 stayed in the run)
         names = []
         for s in outside:
             b = s["plate"][:3]
@@ -1062,7 +1063,7 @@ def _kit_day_cases(chapters, rows):
     inventory = _case_ticks(chapters, (by["00"], "00.1", "00.6"))
     measured = step("B11", "B11.10", "B11.11")
     return [
-        ("kit day, B12 and B13 unprinted: B12-P1 (PETG) is the next plate, "
+        ("kit day, B12 and B13 unprinted: B12-P1 is the next plate, "
          "B11.10 waits for the inventory", True, _row_ticks(rows, no_b12_b13), []),
         ("kit day, every pre-kit row done: B11.10 waits for 00.3 and 00.4", True,
          _row_ticks(rows, pre), []),

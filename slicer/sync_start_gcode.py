@@ -31,9 +31,11 @@ is an error, not a full run.
 
 The value comes from the matching ini (`voron-coreone-asa.ini` for black plates,
 `voron-accent-blue.ini` for the blue accent plates, `bay-ducts-petg.ini` for B11's,
-`voron-petg-black.ini` for B12-P1's: `plates.INI`), so the
+`voron-petg-black.ini`, unused since B12-P1 went back to ASA: `plates.INI`), so the
 inis stay the single source of truth. The one exception is a key listed for the plate in
-`plates.PLATE_CONFIG` (a per-plate setting such as the part fan): that value wins over the ini's. With no plate ids it runs over every plate in
+`plates.PLATE_CONFIG` (a per-plate setting such as the part fan, or B12-P1's speeds and end
+G-code; print-, filament- and printer-scope keys alike, a G-code block `\\n`-escaped as the 3MF
+stores it): that value wins over the ini's. With no plate ids it runs over every plate in
 plates.py: the ASA run's and B11's.
 
 It never changes an ini. Switching every plate to another start G-code is therefore two

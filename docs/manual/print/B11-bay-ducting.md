@@ -5,11 +5,11 @@ pose: print
 caption: Ducts carry wires, not load. Same printer, different spool, gentler rules.
 ```
 
-**Time:** 25.1 h (7 plates) — PrusaSlicer 2.9.7 estimates: 11.9 h before kit (B11-P1 to P3 and P6, 173 g), 13.2 h after the kit-day measurements (B11-P4, P5 and P7, 176 g). 349 g of Jet Black PETG V0 in all. **Not part of the 169.1 h ASA run**, and none of its numbers are in the run's totals.
+**Time:** 25.1 h (7 plates) — PrusaSlicer 2.9.7 estimates: 11.9 h before kit (B11-P1 to P3 and P6, 173 g), 13.2 h after the kit-day measurements (B11-P4, P5 and P7, 176 g). 349 g of Jet Black PETG V0 in all. **Not part of the 177.4 h ASA run**, and none of its numbers are in the run's totals.
 
 **Sessions:** 7 plate starts (~5 min hands-on each, all day plates), ~10 min for the coupon test, ~30 min to inspect and bin; ~35 min of bay measuring on kit day, before P4, P5 and P7, and ~15 min for the A/B lead check after Checkpoint 06.
 
-**Prerequisites:** no ASA part, but a place in the run: P1 to P3 and P6 print right after B07, before B08. No part here holds a bearing or takes a press fit, so neither Gate A nor Gate B applies. Needs one 1 kg spool of **Prusament PETG V0 Jet Black** and the **textured** sheet. P4, P5 and P7 print at the next free slot after the kit-day bay measurements (B11.10, B11.11), ahead of any B08–B10 plate still waiting, and must be binned before Ch 09 Step 09.6 lays the DC loop. The A/B motor-lead check (B11.9) does not gate them: it needs the gantry hung, so it runs after Checkpoint 06, and a short lead gets a longer replacement before Ch 10. Layout v3 stands either way.
+**Prerequisites:** no ASA part, but a place in the run: P1 to P3 and P6 print right after B07, before B08. No part here holds a bearing or takes a press fit, so neither Gate A nor Gate B applies. Needs one 1 kg spool of **Prusament PETG V0 Jet Black** and the **satin** sheet, the one the ASA plates use. P4, P5 and P7 print at the next free slot after the kit-day bay measurements (B11.10, B11.11), ahead of any B08–B10 plate still waiting, and must be binned before Ch 09 Step 09.6 lays the DC loop. The A/B motor-lead check (B11.9) does not gate them: it needs the gantry hung, so it runs after Checkpoint 06, and a short lead gets a longer replacement before Ch 10. Layout v3 stands either way.
 
 **What this batch builds.** Layout v3 replaces LDO's five PVC wire ducts in the electronics bay with two printed conduits, made from MyStoopidStuff's remix of RyanDam's Cable Management Duct. The **DC conduit** is one continuous run, from the rear-left Z motor round the front to the Z-chain notch and open at both rear ends: curved 90° corners, two T-junctions, a 45° S-jog up to the Z-chain notch, and a middle run narrowed to 22 mm so it fits between the Leviathan and the PSU. The **AC conduit** is MSS's wire box at its original size by the WAGO bus, two re-radiused 90° curves down to a 34 mm run over the bed-lead hole, a T behind the SSR, and a divider fin at the PSU terminals. The closest AC-to-DC approach is 12.0 mm on the layout `(verify on bench)`. Fitting them is Ch 09's and Ch 10's job; this page only prints them. Design record: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md`.
 
@@ -70,7 +70,7 @@ Which piece goes where: the two stock 154s are the front run; the three corners 
 **Read first**
 
 - **Not Voron spec.** The ducts carry no load, so B11 has its own bundle, `slicer/bay-ducts-petg.ini`: system filament `Prusament PETG V0 @COREONE HF0.4`, 0.20 mm layers, 3 perimeters, 4 top and 4 bottom, 20 % **grid** infill, no supports. Printer settings and the cold start G-code are the ASA run's. Grid infill, as the bundle was sliced; the ducts carry no load. Every key: `slicer/OVERRIDES.md` § Bay-duct bundle.
-- **Textured sheet.** Prusa does not recommend PETG V0 on smooth PEI: it bonds hard enough to damage the sheet, and that damage is not covered by warranty. Swap back to the satin sheet before the next ASA plate.
+- **Satin sheet.** B11 prints on the ASA plates' satin sheet, so the sheet stays on (Alex 2026-11-23). Prusa recommends satin or textured for PETG V0 and warns against smooth PEI: it bonds hard enough to damage that sheet, and the damage is not covered by warranty. The projects carry a Z offset of +0.06, found on satin with a one-layer ladder. Let the bed cool before flexing parts off.
 - **AFS flaps.** The bundle's filament start G-code sends `M106 P3 S160` and its end G-code `M106 P3 R`, so the bypass flaps lift for PETG with Chamber Filtration left on Adv. Filtration. Print from Connect or USB, not OctoPrint: the fixed P3 target makes `M141` log an error OctoPrint would halt on.
 - **Arrangement.** P1 and P4 passed the Step B00.8 review as packed (2026-11-02). P2, P3 and P5 were re-packed and P6 and P7 split off on 2026-11-06 for the 25 mm edge rule; they need the same GUI check before printing. If kit day changes a duct, re-arrange that plate by hand, never with **Arrange** (it does not know the 25 mm rule): every part 25 mm from every edge, about 6 mm apart, rotations about Z only, no brim. Save over `slicer/plates/B11-Pn.3mf`, then `python3 slicer/build_plates.py --from-3mf B11-Pn` and `python3 slicer/check_docs.py`.
 - **Two groups.** P1 to P3 and P6 need nothing measured and print right after B07, before B08: Ch 09 needs them, and nothing needs B08–B10 until Ch 10.50. "Before kit" below names the group (no kit part needed), not the date. P4 holds the custom lengths, P5 and P7 the narrowed middle run (straights, then Ts); all three wait for the kit-day bay measurements, and P5 and P7 also wait for the coupon test. The A/B lead check after Checkpoint 06 only decides whether a longer replacement lead is needed.
@@ -80,10 +80,10 @@ Which piece goes where: the two stock 154s are the front run; the three corners 
 
 ## Step B11.1 — Filament and sheet prep
 
-**Do:** Load the Prusament PETG V0 Jet Black spool, V1 in the ledger. A fresh sealed spool goes straight in; an opened one dries at 55 °C for 6 h. Fit the textured sheet.
-**Check:** Textured sheet on, clean purge, and at least 348 g on the spool for the whole batch.
+**Do:** Load the Prusament PETG V0 Jet Black spool, V1 in the ledger. A fresh sealed spool goes straight in; an opened one dries at 55 °C for 6 h. Keep the satin sheet on.
+**Check:** Satin sheet on, clean purge, and at least 348 g on the spool for the whole batch.
 
-⚠ **Sheet:** Prusa does not recommend PETG V0 on smooth PEI. It can bond hard enough to tear the coating, and the damage is not covered by warranty. Keep the satin sheet for ASA. [src](https://www.prusa3d.com/product/prusament-petg-v0-jet-black-1kg/)
+⚠ **Sheet:** Prusa does not recommend PETG V0 on smooth PEI. It can bond hard enough to tear the coating, and the damage is not covered by warranty. Satin and textured are the sheets Prusa names for it. [src](https://www.prusa3d.com/product/prusament-petg-v0-jet-black-1kg/)
 
 Source: [print/README § B11 spool ledger](README.md#b11-spool-ledger) · [Prusament PETG V0 Jet Black](https://www.prusa3d.com/product/prusament-petg-v0-jet-black-1kg/) · [Prusa KB — PETG](https://help.prusa3d.com/article/petg_2059)
 
@@ -108,7 +108,7 @@ Source: [`slicer/OVERRIDES.md` § Bay-duct bundle](https://github.com/alexlicohe
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
-Pause: ~5 min since the last pause — the coupon is printing, 25 min, textured sheet on.
+Pause: ~5 min since the last pause — the coupon is printing, 25 min, satin sheet on.
 
 Source: [print/README § B11](README.md#b11-bay-ducting-petg-v0) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run
 
@@ -217,9 +217,9 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
-⚠ **Before the next ASA plate:** satin sheet back on, and **Settings → Chamber Filtration** reads **Adv. Filtration**. On None the AFS blower never runs and ASA vents unfiltered.
+⚠ **Before the next ASA plate:** **Settings → Chamber Filtration** reads **Adv. Filtration**. On None the AFS blower never runs and ASA vents unfiltered.
 
-Pause: ~10 min since the last pause — B11-P1 to P3 and P6 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.
+Pause: ~10 min since the last pause — B11-P1 to P3 and P6 are binned. Set Adv. Filtration for B08.
 
 Source: [print/README § Bins](README.md#bins) · [print plan §9 — B11 plates](../../voron-print-plan.md#9-machine-readable-batch-summary)
 
@@ -411,9 +411,9 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run · [pr
 
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
-⚠ **Before the next ASA plate:** satin sheet back on, and **Settings → Chamber Filtration** reads **Adv. Filtration**. On None the AFS blower never runs and ASA vents unfiltered.
+⚠ **Before the next ASA plate:** **Settings → Chamber Filtration** reads **Adv. Filtration**. On None the AFS blower never runs and ASA vents unfiltered.
 
-Pause: ~10 min since the last pause — all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration.
+Pause: ~10 min since the last pause — all of B11 is binned for Ch 09. Chamber Filtration on Adv. Filtration.
 
 Source: [print/README § Bins](README.md#bins)
 
@@ -466,11 +466,11 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and ben
 - [ ] SSR-to-WAGO measured; the stub regenerated at B11.11 if the gap was 112 mm or more
 - [ ] TH, probe, filter-fan and bed L leads confirmed against layout v3 in Ch 09/10, not on kit day
 - [ ] Every lid snaps onto its duct; bodies in 09-ducts-DC and 09-ducts-AC, lids in 10-lids-AC with the strip fin and 11-lids-DC
-- [ ] Satin sheet back on the printer and Chamber Filtration on Adv. Filtration for any ASA plate
+- [ ] Chamber Filtration on Adv. Filtration for any ASA plate
 - [ ] Any re-saved B11 plate rebuilt with `--from-3mf` and `check_docs.py` green
 
 ## Common mistakes
-- Printing PETG V0 on the smooth sheet. It can tear the coating; use the textured sheet.
+- Printing PETG V0 on the smooth sheet. It can tear the coating; use the satin sheet.
 - Printing B11-P5 or P7 before the coupon test and the gap measurement. Both can send it to the fallback.
 - Slicing a regenerated piece with the ASA bundle. B11 uses `slicer/bay-ducts-petg.ini` only.
 - Leaving Adv. Filtration to hold the flaps shut on a PETG plate printed without the B11 bundle.

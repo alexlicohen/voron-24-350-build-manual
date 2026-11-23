@@ -958,9 +958,11 @@ def build_plate_review_markdown():
             asa = colour not in PETG_COLOURS
             material = "ASA" if asa else ("PETG V0" if colour == "petg" else "PETG")
             # sheet follows the material (00-slicer-setup § Print sheet): ASA satin, no glue
-            sheet = "satin sheet, no glue" if asa else "textured sheet"
-            # `colour` is "petg" for every B11 plate and "petgblack" for B12-P1 (slicer/plates.py's
-            # colour key doubles as its ini selector) — both filaments are Jet Black.
+            sheet = ("satin sheet, no glue" if asa else
+                     "satin sheet" if colour == "petg" else "textured sheet")   # PETG V0: index row 59
+            # `colour` is "petg" for every B11 plate and "petgblack" for an ordinary-PETG plate
+            # (B12-P1 on 2026-11-21/22; none now; slicer/plates.py's colour key doubles as its ini
+            # selector) — both filaments are Jet Black.
             shown_colour = "black" if not asa else colour
             lines.append(
                 f"- [ ] {pid} — {material}, {sheet}, {shown_colour} · "
@@ -1042,9 +1044,10 @@ _LEDGER_ROW_RE = re.compile(
     r"^\|\s*(B\d\d-P\d)\s*\|\s*(\d+)\s*\|[^|]*\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*$",
     re.MULTILINE,
 )
-_SPOOL_HEAD_RE = re.compile(r"[#AVJ]\d+")   # #1-#3 black, A1 accent, V1 B11's PETG V0, J1 B12-P1's PETG
+_SPOOL_HEAD_RE = re.compile(r"[#AVJ]\d+")   # #1-#3 black, A1 accent, V1 B11's PETG V0, J1 ordinary PETG (unused)
 # README sections that hold the schedule and ledger rows of the plates outside the ASA run,
-# by plates.py run key. One section may hold both tables (the row patterns cannot collide).
+# by plates.py run key, read only while a plate is in that run ("petg": B12-P1 on 2026-11-21/22,
+# none now). One section may hold both tables (the row patterns cannot collide).
 _OUTSIDE_SECTIONS = {"bay": ("B11 run schedule", "B11 spool ledger"),
                      "petg": ("B12-P1 — side spool frame (PETG)",) * 2}
 # A batch chapter's gate is the bold one its **Prerequisites:** line names ("**Gate B passed**",
@@ -1206,7 +1209,7 @@ def build_plate_board_json():
         whole = all(run_of(pid) == r["run"] for pid in PLATES if pid[:3] in r["batches"])
         r["label"] = (f"{r['plates']}-plate run" if r["run"] == "asa"
                       else " + ".join(r["batches"]) if whole
-                      else " + ".join(ids) + " (PETG)")   # part of a batch: B12-P1
+                      else " + ".join(ids) + " (PETG)")   # part of a batch (B12-P1, 11-21/22)
         del r["batches"]
 
     return {
@@ -1226,7 +1229,7 @@ def build_plate_board_json():
 
 # ---------------------------------------------------------------- plate sort sheets
 _SORT_MATERIAL = {"black": "Galaxy Black ASA, satin sheet", "blue": "ASA Blue, satin sheet",
-                  "petg": "Jet Black PETG V0, textured sheet",
+                  "petg": "Jet Black PETG V0, satin sheet",
                   "petgblack": "Jet Black PETG, textured sheet"}
 _SORT_CROP = 6            # px of diagram kept around the bed box
 _COPIES_RE = re.compile(r"_x\d+$")

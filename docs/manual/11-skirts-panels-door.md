@@ -26,7 +26,7 @@ caption: Panels and a door, with four hands. Every printer looks finished the mo
 - **Print batch B02**: the blue accent parts used here: belt guards, fan grills, fan grill retainers, keystone blank, TFT faceplate and the Clicky-Clack handle.
 - **Print batch B07**: `handlebar_spacer_x4`, used at the top panel in step 11.60.
 - **Print batch B11**: the DC loop lids for 11.52 (bin 11-lids-DC; P4 and P5 print after the kit-day bay measurements).
-- **Print batch B12**: side spool holder and camera (3 plates, 14.2 h; the frame in PETG), for Part C only.
+- **Print batch B12**: side spool holder and camera (3 plates, 15.8 h), for Part C only.
 - **Part B also needs Ch 13 (Initial startup)**, and the Ch 06b gantry-squaring pass that runs inside it. Do not close the machine before both pass.
 - **Part C also needs Part B**, B12's bins 11-side-spool and 11-camera, and, for the camera, the USB cable laid at [Ch 10 Step 10.81](10-wiring.md#step-1081-add-on-lay-the-cameras-usb-cable-before-the-slots-close). Step 11.68 checks that the printed frame suits this machine's panel stack; only a stack over 6.2 mm sends Step 11.69 back to the Core One+ for a frame reprint.
 
@@ -100,7 +100,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/Hinge-L-sleeve-2X.png){ width=96 } ![](assets/parts/Hinge-L-solid-2X.png){ width=96 } | `Hinge-L-sleeve-2X.stl` / `Hinge-L-solid-2X.stl` | 11-door | 2 each | Black | B10 |
 | ![](assets/parts/Latch.png){ width=96 } ![](assets/parts/Panel_Clip.png){ width=96 } | `Latch.stl` / `Panel_Clip.stl` | 11-door | 1 each | Black | B10 |
 | ![](assets/parts/Handle.png){ width=96 } | `Handle.stl` (Clicky-Clack) | 11-door | 1 | Blue | B02 |
-| ![](assets/parts/side_spool_frame_puck.png){ width=96 } | `side_spool_frame_puck.stl` (Part C, remix of Printables 608769) | 11-side-spool | 1 | Black PETG | B12-P1 *(reprinted in PETG at 11.69 only if the stack is over 6.2 mm)* |
+| ![](assets/parts/side_spool_frame_puck.png){ width=96 } | `side_spool_frame_puck.stl` (Part C, remix of Printables 608769) | 11-side-spool | 1 | Black | B12-P1 *(reprinted at 11.69 only if the stack is over 6.2 mm)* |
 | ![](assets/parts/Bowden%20Tube%20Holder_Long.png){ width=96 } | `Bowden Tube Holder_Long.stl` (Part C, Printables 608769) | 11-side-spool | 1 | Black | B12-P2 |
 | ![](assets/parts/Universal-puck-R1.png){ width=96 } | `Universal-puck-R1.stl` (Part C, Printables 1605113) | 11-side-spool | 1 | Blue | B12-P3 |
 | ![](assets/parts/Universal-spoolholder-1kg-R1.png){ width=96 } | `Universal-spoolholder-1kg-R1.stl` (Part C, Printables 1605113) | 11-side-spool | 1 | Blue | B12-P3 |
@@ -2057,20 +2057,20 @@ Source: [Printables 608769 — side mounted spool, 350](https://www.printables.c
 
 **Parts:**
 
-- consumable: Prusament PETG Jet Black (spool J1), about 127 g
-- tool: the Core One+ with the textured sheet
+- consumable: Galaxy Black ASA, about 105 g
+- tool: the Core One+ with the satin sheet
 
 **Do:**
 
 1. Stack 6.2 mm or less: skip this step; the parts wait in bins 11-side-spool and 11-camera.
 2. Over 6.2 mm: run `remix.scad` with `-D stack=` set to the reading plus 0.3.
-3. Open `B12-P1.3mf`, use **Replace with STL** to swap in the new file, and print it alone in PETG.
+3. Open `B12-P1.3mf`, use **Replace with STL** to swap in the new file, and print it alone.
 
 **Check:** The step is skipped, or a new frame is off the bed with feet 0.3 mm taller than the stack reading.
 
-⚠ Leave Chamber Filtration on Adv. Filtration: the project lifts the bypass flaps for PETG, and the next ASA print needs it on. Keep the frame centred as the project has it and never press Arrange: no layout of the 212 mm frame meets the 25 mm edge rule.
+⚠ ASA: set Chamber Filtration to Adv. Filtration before the reprint. Keep the frame centred as the project has it and never press Arrange: no layout of the 212 mm frame meets the 25 mm edge rule.
 
-From `slicer/addons/side-spool-608769/`: `openscad -q --export-format binstl -o frame-stack.stl -D stack=… remix.scad`. Right-click the frame in PrusaSlicer for **Replace with STL**; the PETG settings stay, with no brim. Like the first frame, it is PETG: see [B12](print/B12-side-spool-and-camera.md).
+From `slicer/addons/side-spool-608769/`: `openscad -q --export-format binstl -o frame-stack.stl -D stack=… remix.scad`. Right-click the frame in PrusaSlicer for **Replace with STL**; its brim, the plate's slower settings and its 45 min heat hold stay: see [B12](print/B12-side-spool-and-camera.md).
 
 Source: [B12 — Side spool holder and camera](print/B12-side-spool-and-camera.md) · `slicer/addons/side-spool-608769/README.md` · `slicer/addons/side-spool-608769/remix.scad` · [Printables 608769 — side mounted spool, 350](https://www.printables.com/model/608769)
 

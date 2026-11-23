@@ -50,12 +50,16 @@ PrusaSlicer 2.9.7 estimates from `python3 slicer/build_plates.py --from-3mf B12-
 
 | Plate | Parts | Profile | Estimate |
 |---|---|---|---|
-| B12-P1 | the frame alone, as oriented, centred | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 105 g, 6.9 h |
+| B12-P1 | the frame alone, as oriented, centred | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA, plus the plate's own warp settings | 105 g, 8.3 h + 45 min heat hold |
 | B12-P2 | tube holder, flat face down (`plates.ORIENT`), and the camera's two parts (`../happycam-488020/`) | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 28 g, 1.8 h |
 | B12-P3 | puck and spindle, as oriented | `slicer/voron-accent-blue.ini`, blue accent ASA | 83 g, 5.7 h |
 
 The 212 × 212 mm frame cannot sit 25 mm from every bed edge, so B12-P1 is the one plate exempt from that
-rule (`slicer/plates.py` `EDGE_EXEMPT`; `slicer/audit_plates.py` lists the break with its reason). Prusa
+rule (`slicer/plates.py` `EDGE_EXEMPT`; `slicer/audit_plates.py` lists the break with its reason). Its corners
+sit about 4 mm from the front and back edges, so B12-P1 also carries its own settings in `plates.PLATE_CONFIG`
+(Alex 2026-11-22, after a day in PETG): whole first layer 15 mm/s, perimeters 50 mm/s, sparse and solid infill
+80 mm/s, part fan off, and an end G-code that holds the bed and chamber heat 15 min, then waits 30 min
+(`slicer/OVERRIDES.md` § Per-plate settings). Prusa
 prints the puck and spindle in PETG or PC; ASA at the Voron spec is stronger than that and keeps the machine
 in two colours. The grams are in the run's spool ledger (`docs/manual/print/README.md`). Everything goes in
 bin `11-side-spool`, a box: the frame fits no mesh bag.

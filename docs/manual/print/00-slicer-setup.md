@@ -2,11 +2,11 @@
 
 One-time setup for every print batch (`B00`–`B13`). Read this chapter before B00; batch chapters link
 back here and list only their own deviations (brim, orientation, accent colour). B11, the PETG V0 bay
-ducting, uses its own bundle, `slicer/bay-ducts-petg.ini`, and the textured sheet: see [its page](B11-bay-ducting.md).
+ducting, uses its own bundle, `slicer/bay-ducts-petg.ini`, on the same satin sheet: see [its page](B11-bay-ducting.md).
 
 ```mascot
 pose: check
-caption: Set the profile once, carefully. Thirty-two plates inherit these numbers and none of them ask twice.
+caption: Set the profile once, carefully. Thirty-three plates inherit these numbers and none of them ask twice.
 ```
 
 **Slicer:** PrusaSlicer **2.9.7** (current stable, released 2026-11-02: 2.9.6 plus security fixes, no
@@ -154,16 +154,23 @@ not a cited spec — treat it as adjustable if the calibration cube (below) says
 | **XY size compensation** | 0 | **keep 0** | Voron: "The parts have been designed with ABS/ASA shrinkage in mind… shrinkage should be set to 100 %. Compensating for this is likely to make bearing fits and screw holes too large." | docs.vorondesign.com/materials.html |
 | [Elephant-foot](../16-glossary.md#e) compensation | 0.20 | **keep 0.20 for now, verify on the cube** | shrinks only the first layer; several Voron parts have a bearing bore starting at the bed — measure before changing | judgment |
 | External perimeter speed | 50 | **35** | surface finish and corner accuracy on the visible skirts; speed is not a goal here | judgment |
-| Perimeter speed | 70 | **80** | inner walls only; the ASA speed sweep printed outer walls clean to 200 mm/s, and the external wall (35) sets the dimensions | ASA sweep, Alex 2026-10-28 |
-| Infill speed | 120 | **200** | the ASA speed sweep printed gyroid 40 % clean to 210 mm/s | ASA sweep, Alex 2026-10-28 |
-| Solid infill speed | 140 | **150** | raised with infill; visible top faces stay at the top solid infill speed | ASA sweep, Alex 2026-10-28 |
+| Perimeter speed | 70 | **80** | inner walls only; the ASA speed sweep printed outer walls clean to 200 mm/s, and the external wall (35) sets the dimensions. B12-P1 alone: **50**, for warp ([corrections log #58](../00-index.md#corrections-log)) | ASA sweep, Alex 2026-10-28 |
+| Infill speed | 120 | **200** | the ASA speed sweep printed gyroid 40 % clean to 210 mm/s. B12-P1 alone: **80**, for warp (log #58) | ASA sweep, Alex 2026-10-28 |
+| Solid infill speed | 140 | **150** | raised with infill; visible top faces stay at the top solid infill speed. B12-P1 alone: **80**, for warp (log #58) | ASA sweep, Alex 2026-10-28 |
 | Top solid infill | 80 | **keep 80** | already conservative | — |
-| First layer speed | 45 | **25** | ASA first-layer adhesion is the single biggest failure mode; slow the first layer (and see §Print sheet). This slows the first layer's perimeters, skirt and brim only: PrusaSlicer prints first-layer solid infill at **First layer infill speed** (`first_layer_infill_speed`), which stays at the profile's **100** mm/s, with first-layer acceleration 500 | Prusa ASA KB; judgment |
+| First layer speed | 45 | **25** | ASA first-layer adhesion is the single biggest failure mode; slow the first layer (and see §Print sheet). This slows the first layer's perimeters, skirt and brim only: PrusaSlicer prints first-layer solid infill at **First layer infill speed** (`first_layer_infill_speed`), which stays at the profile's **100** mm/s, with first-layer acceleration 500. B12-P1 alone: **15**, and its first-layer infill **15** too, for warp (log #58) | Prusa ASA KB; judgment |
 | External perimeters first | off | **keep off** | inside-out gives better dimensional accuracy on holes; only flip it if you see external-perimeter bulging | judgment |
 | Dynamic overhang speeds | on (15/25/45/90 %) | **keep on** | Prusa tuned these for the Core One's part fan | — |
 | Ironing | off | **keep off** | — | — |
 
 First-layer infill at 25 mm/s as well would be one more override, `first_layer_infill_speed = 25`. It is not set: it would change every plate's time estimate, and as a print-setting change it is tested on its own, one variable at a time, before it goes into the plates.
+
+**B12-P1 alone** (the 212 mm side spool frame, [corrections log #58](../00-index.md#corrections-log), Alex 2026-11-22)
+prints its whole first layer at 15 mm/s, perimeters at 50 and sparse and solid infill at 80, and its end G-code
+keeps the bed and chamber heated 15 min after the last layer (`G4 S900`), then waits 30 min with nothing moving
+(`G4 S1800`). The hold follows one Core One user's fix for a 200 mm ASA disc that bent while cooling
+([Prusa forum](https://forum.prusa3d.com/forum/prusa-core-one-how-do-i-print-this-printing-help/asa-warping-during-cooling)), not Prusa guidance; `G4 S…` on firmware 8.0.3-beta is untested on this printer
+`(verify on bench)`. The plate's 8.3 h estimate leaves the 45 min out. Every value: `slicer/OVERRIDES.md` § Per-plate settings.
 
 ### Filament settings (Prusament ASA @COREONE HF0.4)
 
@@ -198,7 +205,8 @@ Decided, and written on the sheet's edge tape; every batch's pre-print step then
   |---|---|---|
   | ASA (every Voron plate, the add-on prints) | **satin**, no glue, with the brims | Alex 2026-10-28: no glue. Smooth PEI without glue risks ASA tearing the film; textured needs glue for ASA. On satin ASA grips less and needs a brim: the brim-free test lifted at the corners, the brimmed part did not |
   | PLA (bench prints: hardware trays, gauges, jigs) | **satin** | Prusa: satin gives "optimal adhesion, especially when printing PLA and PETG" ([satin sheet KB](https://help.prusa3d.com/article/satin-steel-sheet_196526)) |
-  | PETG (B12-P1, the side spool frame), PETG V0 (B11) | **textured** | PETG bonds too hard to smooth PEI and can tear it; textured releases it cleanly |
+  | PETG V0 (B11) | **satin** | Alex 2026-11-23: Prusa names satin or textured for PETG V0 and warns only against smooth PEI. The coupon and a Z-offset ladder printed clean on satin, so the sheet stays on between the ASA plates and B11; the B11 projects carry Z offset +0.06 |
+  | PETG (bench prints) | **textured** | PETG bonds too hard to smooth PEI and can tear it; textured releases it cleanly |
 
   Any other material: check Prusa's material table before the first print, and add a row here.
   Live Adjust Z is not kept between prints on the Core One+ (Alex 2026-10-28), so the first-layer
@@ -222,14 +230,14 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 169.1 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 177.4 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
 its committed project right after Step B00.0 installs the presets. The Gen 2 expansion joints and nozzle
 wiper are not fitted, and the plates keep the cold-probe start (Alex 2026-10-28).
 
-1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~169 h of ASA is
+1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~177 h of ASA is
    about to run in an enclosure: confirm on the first ASA plate that the blower runs and the bypass flaps
    seal. One spare cartridge is still to buy (~600 print-h each, 1–2 wk Prusa lead time).
 2. **Firmware ≥ 6.8.1** on the Core One+, required either way. It runs 8.0.3-beta
@@ -413,7 +421,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 169.1 h / 32-plate run — B00 → B10, then B12 and B13, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 177.4 h / 33-plate run — B00 → B10, then B12 and B13, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 

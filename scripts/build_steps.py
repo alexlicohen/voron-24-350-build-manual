@@ -1215,7 +1215,7 @@ def _batch_caption(batch: str, where: str) -> str:
     run = [pid for pid in ids if run_of(pid) == "asa"]
     done = total = 0.0
     for b, d in batches.items():            # additive, as check_docs sums the run
-        if d["run_plates"]:                 # its ASA plates only (B12-P1 is PETG, outside)
+        if d["run_plates"]:                 # its ASA plates only (a non-ASA plate is outside)
             total = round(total + d["run_h"], 1)
             if b <= batch:
                 done = round(done + d["run_h"], 1)

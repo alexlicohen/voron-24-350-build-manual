@@ -135,6 +135,60 @@ It matters most for `start_gcode`: the plates were written with the stock CORE O
 which would push the hot-probe sequence back over the `coldstart` printer preset every
 time a project was opened.
 
+## Per-plate settings (`plates.PLATE_CONFIG`)
+
+The part fan is a filament setting with no per-object switch, so a plate that needs a different
+one carries it in `plates.PLATE_CONFIG`; B12-P1 is alone on its plate, so its speeds and its end
+G-code go there too. `sync_start_gcode.py --key <key> <plate>` writes each into the 3MF, and
+`build_plates.py` refuses to record a slice whose G-code disagrees. Every such key against
+`voron-coreone-asa.ini` (a G-code block is listed line by line below the table):
+
+| Plate | ini key | ini value | Plate value |
+|---|---|---|---|
+| B08-P2 | `min_fan_speed` | `20` | `0` |
+| B08-P3 | `min_fan_speed` | `20` | `0` |
+| B08-P4 | `min_fan_speed` | `20` | `0` |
+| B08-P5 | `min_fan_speed` | `20` | `0` |
+| B09-P1 | `min_fan_speed` | `20` | `0` |
+| B12-P1 | `min_fan_speed` | `20` | `0` |
+| B12-P1 | `first_layer_speed` | `25` | `15` |
+| B12-P1 | `first_layer_infill_speed` | `100` | `15` |
+| B12-P1 | `perimeter_speed` | `80` | `50` |
+| B12-P1 | `infill_speed` | `200` | `80` |
+| B12-P1 | `solid_infill_speed` | `150` | `80` |
+| B12-P1 | `end_gcode` | *(the ini's block)* | *(below)* |
+| B13-P1 | `min_fan_speed` | `20` | `0` |
+
+B12-P1 `end_gcode`:
+
+```gcode
+{if layer_z < max_print_height}G1 Z{z_offset+min(max_layer_z+1, max_print_height)} F720 ; Move print head up{endif}
+M104 S0 ; turn off temperature
+M107 ; turn off fan
+G1 X242 Y211 F10200 ; park
+G4 S900 ; hold bed and chamber heat 15 min (B12-P1: warp on cool-down)
+M140 S0 ; turn off heatbed
+M141 S0 ; disable chamber control
+G4 S1800 ; cool 30 min before anything else moves
+G4 ; wait
+M572 S0 ; reset PA
+M84 X Y E ; disable motors
+; max_layer_z = [max_layer_z]
+```
+
+Minimum fan 0 % (decision-log row 55, Alex 2026-11-14): the part fan runs only on bridges and the
+steepest overhangs (up to 25 %) on the plates of long parts; the B08-P1 rear centre skirt lifted
+where the fan came on. B12-P1 (row 58, Alex 2026-11-22) trades print time for less warp on the
+212 mm side spool frame in ASA: the whole first layer at 15 mm/s, perimeters 50 mm/s, sparse and
+solid infill 80 mm/s; external perimeters (35), small perimeters (50), top solid infill (80), gap
+fill (60), bridges (50) and the chamber gate (48) keep the ini's values. Its end G-code keeps every
+line of the ini's and adds two waits: the bed and chamber stay heated 15 min after the last layer
+(`G4 S900`), then nothing moves for 30 min (`G4 S1800`). The hold follows one Core One user's fix
+for a 200 mm ASA disc that bent while cooling
+([Prusa forum](https://forum.prusa3d.com/forum/prusa-core-one-how-do-i-print-this-printing-help/asa-warping-during-cooling)),
+not Prusa guidance; `G4 S<seconds>` on firmware 8.0.3-beta is unverified on this printer. The
+PrusaSlicer estimate does not include the 45 min.
+
 ## Bay-duct bundle (B11)
 
 `slicer/bay-ducts-petg.ini` prints batch B11 ([`docs/manual/print/B11-bay-ducting.md`](../docs/manual/print/B11-bay-ducting.md)): the PETG V0
@@ -158,14 +212,19 @@ suspects of lifting strands. Every key that differs from those flattened presets
 | `end_filament_gcode` | *(preset block)* | *(preset block)* + `M106 P3 R` | the preset's end block plus `M106 P3 R` |
 | `thumbnails` | `16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG` | `16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG, 640x480/PNG` | same as the ASA bundles |
 | `start_gcode` | *(the stock CORE One start block)* | *(the block in `slicer/coreone-cold-start.gcode`, flow line `M221 S95`)* | the vendored cold-probe start, same as the ASA bundles |
+| `z_offset` | `*(PrusaSlicer built-in default)*` | `0.06` | PETG V0 on the satin sheet with the cold-probe start: a 0.00-0.07 ladder in 0.01 steps (Alex 2026-11-23) read best at +0.06. Found on satin; the textured sheet is untested |
 
 Kept at the preset value: nozzle 230 C, bed 85/90 C, chamber 35 C, fan 30-60 %,
 `filament_max_volumetric_speed` 16, `extrusion_multiplier` 1.04, seam aligned, no skirt,
 no brim. Colour `#1A1A1A` (Jet Black) and the notes line are labels only.
 
-## PETG frame bundle (B12-P1)
+## PETG frame bundle (unused since 2026-11-22)
 
-`slicer/voron-petg-black.ini` prints plate B12-P1, the side spool frame ([`docs/manual/print/B12-side-spool-and-camera.md`](../docs/manual/print/B12-side-spool-and-camera.md)), in ordinary Prusament PETG Jet Black (Alex 2026-11-21: it warps less than ASA on a 212 mm part, the frame hangs outside the enclosure, and it
+No plate prints from this bundle: B12-P1 went back to Galaxy Black ASA on 2026-11-22 (Alex: the
+PETG Jet Black spool weighed 69 g net against the frame's 127 g), with its own warp settings
+([Per-plate settings](#per-plate-settings-platesplate_config)). Kept until Alex rules on deleting it.
+
+`slicer/voron-petg-black.ini` was made to print plate B12-P1, the side spool frame ([`docs/manual/print/B12-side-spool-and-camera.md`](../docs/manual/print/B12-side-spool-and-camera.md)), in ordinary Prusament PETG Jet Black (Alex 2026-11-21: it warps less than ASA on a 212 mm part, the frame hangs outside the enclosure, and it
 takes the frame off the black ASA). It is the bay-duct bundle above on the ordinary PETG preset
 `Prusament PETG @COREONE HF0.4` (the preset Alex's storage PETG prints ran on), with the ASA plates' walls,
 shells and infill, because the frame carries a 1 kg spool. Every key that differs from
@@ -178,7 +237,7 @@ shells and infill, because the frame carries a 1 kg spool. Every key that differ
 | `extrusion_multiplier` | `1.04` | `1` | `Prusament PETG @COREONE HF0.4`'s own value: ordinary PETG, not PETG V0 |
 | `filament_cost` | `54.99` | `29.99` | `Prusament PETG @COREONE HF0.4`'s own value: ordinary PETG, not PETG V0 |
 | `filament_max_volumetric_speed` | `16` | `24` | `Prusament PETG @COREONE HF0.4`'s own value: ordinary PETG, not PETG V0 |
-| `filament_notes` | `Prusament PETG V0 Jet Black - B11 bay ducting only. Textu...` | `Prusament PETG Jet Black (ordinary PETG, not B11's PETG V...` | label only |
+| `filament_notes` | `Prusament PETG V0 Jet Black - B11 bay ducting only. Satin...` | `Prusament PETG Jet Black (ordinary PETG, not B11's PETG V...` | label only |
 | `filament_settings_id` | `Prusament PETG V0 @COREONE HF0.4 - Voron bay ducts` | `Prusament PETG @COREONE HF0.4 - Voron side spool frame` | label: names the ordinary PETG preset |
 | `fill_density` | `20%` | `40%` | 40 % infill, as the ASA plates (Voron spec) |
 | `fill_pattern` | `grid` | `gyroid` | gyroid, the build's default (Alex 2026-10-31), as the ASA plates. B11's grid answered infill curl in the 2026-09-22 PETG V0 sweep; ordinary Prusament PETG has printed gyroid cleanly since (storage prints, 25 %) |
@@ -186,6 +245,7 @@ shells and infill, because the frame carries a 1 kg spool. Every key that differ
 | `perimeters` | `3` | `4` | 4 walls, as the ASA plates (Voron spec): the frame carries a 1 kg spool |
 | `temperature` | `230` | `255` | `Prusament PETG @COREONE HF0.4`'s own value: ordinary PETG, not PETG V0 |
 | `top_solid_layers` | `4` | `5` | 5 top layers, as the ASA plates (the print preset's value) |
+| `z_offset` | `0.06` | *(unset)* | `Prusament PETG @COREONE HF0.4`'s own value: ordinary PETG, not PETG V0 |
 
 Kept from the bay-duct bundle: the print preset's speeds and 0.45 mm widths, aligned seam,
 no supports, no skirt, no brim (`plates.brim_for` gives PETG none), the cold-probe start with

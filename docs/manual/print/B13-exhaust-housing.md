@@ -47,7 +47,7 @@ already printed it, and it is fitted at Ch 11 Step 11.54.
 
 ## Step B13.1 — Filament prep
 
-**Do:** Galaxy Black, spool #3 back on after B12-P3: the ledger has 429 g on it here and 363 g after P1. The blue
+**Do:** Galaxy Black, spool #3 back on after B12-P3: the ledger has 324 g on it here and 258 g after P1. The blue
 accent spool A1 comes back for P2. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean black purge; ≥66 g on spool #3 for P1.
 

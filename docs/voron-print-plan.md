@@ -3,12 +3,10 @@
 Print every part on the **Prusa Core One+**, Prusament ASA, plate by plate, in build order.
 Written to be followed with a 13-year-old: one plate = one job.
 
-**Totals at a glance:** 32 plates · **169.1 h** print time · **1912 g Galaxy Black + 445 g ASA Blue** ·
+**Totals at a glance:** 33 plates · **177.4 h** print time · **2017 g Galaxy Black + 445 g ASA Blue** ·
 against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.7 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
 **Plus B11**, the bay ducting, outside those totals: 7 plates · 25.1 h · 349 g Jet Black PETG V0 (§3, §9).
-**And B12-P1**, the side spool frame, printed in its batch's place but in Prusament PETG Jet Black, also outside
-them: 1 plate · 6.7 h · 127 g (§3).
 
 ```mascot
 pose: base-3q
@@ -248,11 +246,11 @@ alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both 
 So the minimum to start building is **B00 + B01 + B02-P1 to B02-P4** ≈ 48 h of printing.
 Everything else can be printed while you build.
 
-**What prints, and when.** The kit is expected in early November 2026 (§8), before the 169.1 h run has finished,
+**What prints, and when.** The kit is expected in early November 2026 (§8), before the 177.4 h run has finished,
 so printing overlaps the build. With Gate B's caliper and insert rows run early on what is already on the bench
 (§1.4) nothing is left to gate a batch.
 The order is therefore the plain numeric one — pre-B00 checks on the current Gen 1 belts, then
-**B00 → B01 → B02 → … → B10 → B12 → B13**, 169.1 h ≈ 19 printer-days ≈ 2½–3 weeks at two plate swaps a day. B11, the PETG V0
+**B00 → B01 → B02 → … → B10 → B12 → B13**, 177.4 h ≈ 19 printer-days ≈ 2½–3 weeks at two plate swaps a day. B11, the PETG V0
 bay ducting (outside the totals), cuts in twice: P1–P3 and P6 right after B07, before B08, and P4, P5 and P7 at the next free slot
 after the kit-day bay measurements, ahead of any B08–B10, B12 or B13 plate still waiting, because Ch 09 needs all seven and
 nothing needs B08–B10 until Ch 10.35, nor B12 until Ch 11 Part C, nor B13 until Ch 14 Part H. When the kit lands, the frame (no printed part) and
@@ -661,14 +659,14 @@ Notes:
 
 ---
 
-### Batch B12 — Side spool holder + camera · **3 plates · 14.2 h · 28 g black + 83 g blue + 127 g Jet Black PETG**
+### Batch B12 — Side spool holder + camera · **3 plates · 15.8 h · 133 g black + 83 g blue**
 **Unlocks:** Ch 11 Part C: the side spool holder on the right side's extrusions and the HappyCam camera mount
 inside the top front extrusion. Part of the build since 2026-11-12 (Alex); until then add-ons printed after
 Step 11.68. Page: [`manual/print/B12-side-spool-and-camera.md`](manual/print/B12-side-spool-and-camera.md).
 
 | STL | Repo path | Qty | Colour | g ea | h ea |
 |---|---|---:|---|---:|---:|
-| `side_spool_frame_puck.stl` | this repo, `slicer/addons/side-spool-608769/` (remix of Printables 608769, Maltasrc) | 1 | Black PETG | 127.2 | 6.65 |
+| `side_spool_frame_puck.stl` | this repo, `slicer/addons/side-spool-608769/` (remix of Printables 608769, Maltasrc) | 1 | Black | 105.3 | 8.34 |
 | `Bowden Tube Holder_Long.stl` | Printables 608769 (Maltasrc) | 1 | Black | 7.9 | 0.53 |
 | `HappyCam_main-350.stl` | Printables 527904 (Zemistr, remix of 488020) | 1 | Black | 18.6 | 1.20 |
 | `HappyCam_cover_with_light.stl` | Printables 527904 (Zemistr) | 1 | Black | 1.5 | 0.11 |
@@ -678,11 +676,12 @@ Step 11.68. Page: [`manual/print/B12-side-spool-and-camera.md`](manual/print/B12
 Unlike the other tables in §3, `g ea` / `h ea` here are each part sliced alone in PrusaSlicer 2.9.7 with its
 plate's settings (the camera body with its supports).
 
-- **Plate B12-P1** (6.7 h, 127 g Jet Black PETG) — the frame alone, centred; the one plate exempt from the 25 mm
-  edge rule (`plates.EDGE_EXEMPT`, §5.1). Prusament PETG on the textured sheet, no brim, from
-  `slicer/voron-petg-black.ini` (B11's PETG bundle with the ASA plates' 4 walls, 5 top and bottom layers and
-  40 % gyroid), and outside the run's totals (Alex 2026-11-21): PETG warps less on a 212 mm part whose corners
-  sit ~4 mm from the bed's front and back edges, the frame hangs outside the chamber, and it saves black ASA.
+- **Plate B12-P1** (8.3 h, 105 g black) — the frame alone, centred; the one plate exempt from the 25 mm edge
+  rule (`plates.EDGE_EXEMPT`, §5.1). Galaxy Black ASA with the 3 mm brim, and its own warp settings in the project
+  (`plates.PLATE_CONFIG`; Alex 2026-11-22, [corrections log #58](manual/00-index.md#corrections-log)): whole first
+  layer 15 mm/s, perimeters 50, sparse and solid infill 80, part fan off, and a 45 min end-of-print hold (bed and
+  chamber heated 15 min, then 30 min still; not in the 8.3 h), because its corners sit ~4 mm from the bed's front
+  and back edges. It was PETG on 2026-11-21, until the PETG spool weighed short.
 - **Plate B12-P2** (1.8 h, 28 g black) — tube holder and camera body, both turned 180° about X
   (`plates.ORIENT`), and the light cover as drawn; build-plate-only supports on the body alone
   (`plates.OBJECT_SETTINGS`).
@@ -690,7 +689,7 @@ plate's settings (the camera body with its supports).
 
 Notes:
 - The frame's 6.5 mm feet assume a 3 mm side panel on 3 mm foam. Ch 11 Step 11.68 calipers the real stack;
-  over 6.2 mm, `remix.scad -D stack=<reading + 0.3>` and B12-P1 is reprinted alone at Step 11.69 (§6), in PETG.
+  over 6.2 mm, `remix.scad -D stack=<reading + 0.3>` and B12-P1 is reprinted alone at Step 11.69 (§6).
 - Licences: frame and tube holder CC BY-NC-SA (Maltasrc), puck and spindle Open Community License (Prusa
   Research), camera pair CC BY-NC-SA (Zemistr); HappyCam's original 488020 pair (Voxel3D_NL, CC BY-NC) stays
   pinned as the fallback, on no plate. Credits: `slicer/addons/side-spool-608769/README.md`,
@@ -730,7 +729,7 @@ Notes:
 Ch 10 fits the strip fin. Layout v3, adopted 2026-09-23 — design record
 `review/2026-09-23-bay-mods/layout-v3/layout-v3.md`. Page: [`manual/print/B11-bay-ducting.md`](manual/print/B11-bay-ducting.md).
 
-**Not in any run total above or below.** Prusament PETG V0 Jet Black on the textured sheet, sliced with
+**Not in any run total above or below.** Prusament PETG V0 Jet Black on the satin sheet, sliced with
 `slicer/bay-ducts-petg.ini` (3 perimeters, 4/4 solid, 20 % grid, no supports: ducts carry no load, so not
 Voron spec). STLs: MyStoopidStuff's remix of RyanDam's Cable Management Duct (Printables 502306, GPL-3.0),
 stock pieces committed in `slicer/stl/bayducts/mss/502306/` (the Printables model was withdrawn by 2026-10-18), remixes for the Rev D+ bay committed in
@@ -794,9 +793,8 @@ comes off the bed, and carry that ratio forward.
 
 **Cross-check against the community numbers:** stripping the mods (the Klicky set ≈51 g, COB mounts 124 g, LDO extras)
 gives ≈ **0.95 kg functional** and ≈ **0.90 kg cosmetic**, against the widely-quoted ~1.0 kg / ~0.9 kg for a
-Voron 2.4 350 set. Total print time 169.1 h sits just above the commonly reported 120–160 h band, with B12's
-7.5 h of side spool parts and camera mount (plus its 6.7 h PETG frame, outside the total) and B13's 6.4 h of
-exhaust housing on top of the machine itself —
+Voron 2.4 350 set. Total print time 177.4 h sits just above the commonly reported 120–160 h band, with B12's
+15.8 h of side spool holder and camera mount and B13's 6.4 h of exhaust housing on top of the machine itself —
 which is what a quality-biased profile plus three fittings is supposed to do.
 
 ### 4.2 Filament budget
@@ -806,9 +804,9 @@ less — margin you gain, not a budget to spend.
 
 | | Needed | On hand | Margin | Reprint allowance |
 |---|---:|---:|---:|---:|
-| **Galaxy Black** | **1912 g** | 2400 g (3 × 800 g) | **488 g** | **26 %** |
+| **Galaxy Black** | **2017 g** | 2400 g (3 × 800 g) | **383 g** | **19 %** |
 | **ASA Blue** | **445 g** | 800 g (1 × 800 g) | **355 g** | **80 %** |
-| Total | 2357 g | 3200 g | 843 g | — |
+| Total | 2462 g | 3200 g | 738 g | — |
 
 **Black margin is comfortable, but not unlimited.** 383 g is about two of the largest plates, and the optional
 scrubber add-on would take about 38 g of it. Typical
@@ -824,8 +822,7 @@ first-build reprint rate is 10–15 %, so you should land fine — but:
 ### 4.3 Spool changes
 
 Cumulative black consumed after each batch: B00 **51** · B01 **360** · B03 **480** · B04 **597** · B05 **675** ·
-B06 **821** · B07 **1046** · B08 **1443** · B09 **1743** · B10 **1818** · B12 **1846** · B13 **1912 g**
-(B12-P1, the frame, is PETG from its own spool).
+B06 **821** · B07 **1046** · B08 **1443** · B09 **1743** · B10 **1818** · B12 **1951** · B13 **2017 g**.
 
 With 800 g spools and the numeric print order, spool **#1** carries B00 through **B05-P1** and ends with
 ~125 g. **B06-P1 starts spool #2** on that stub rather than risk a resume seam: the plate holds the Revo
@@ -833,7 +830,7 @@ hotend seat and the Clockwork 2.5 gear bores. #2 then runs to the end of **B08-P
 **spool #3 takes over mid-plate inside B09-P1** — the exhaust cover, a hinge, two bottom clips and eight panel clips, no bearing
 seat or bore, so a runout seam there is fine. The runout sensor pauses the plate about 2 h into its 3.9 h and waits
 for you to load #3 and press **Continue**, so start it when you will be home then and watch the clock. #3 finishes the run
-with B13-P1, the exhaust housing, and ~363 g spare (B12-P1, the frame, prints from J1, the PETG spool). The blue spool **A1** comes back for B12-P3, the puck and spindle, then once more after B13-P1 for B13-P2, the exhaust's blue parts, and ends with ~355 g. Same fresh-spool rule as B06 applies to B01-P1 (the 14.6 h, 200 g plate): a resume seam on
+with B13-P1, the exhaust housing, and ~258 g spare. The blue spool **A1** comes back for B12-P3, the puck and spindle, then once more after B13-P1 for B13-P2, the exhaust's blue parts, and ends with ~355 g. Same fresh-spool rule as B06 applies to B01-P1 (the 14.6 h, 200 g plate): a resume seam on
 a Z-drive body is not worth the risk, so it wants ≥200 g on the spool at the start — it has 749 g. Record
 what is *actually* consumed in the spool ledger in
 [`manual/print/README.md`](manual/print/README.md#spool-ledger); the prediction above is only as good as the
@@ -895,7 +892,7 @@ and B09-P4 were re-packed for it on 2026-11-03, and 18 plates again on 2026-11-0
 B06-P1 into P1 + P2, B09 onto five plates; B11 onto seven, P6 and P7 split off, still brimless). PrusaSlicer's
 **Arrange** does not know the rule: in the GUI, move parts by hand only. **One exemption (B12 integration, 2026-11-12):**
 B12-P1's side spool frame is 212 × 212 mm, so no layout on the 250 × 220 bed keeps it 25 mm from every edge; it
-prints alone and centred, in PETG with no brim, about 4 mm from the front and rear edges. `plates.EDGE_EXEMPT` names it with that
+prints alone and centred, brim under 1 mm from the front and rear edges. `plates.EDGE_EXEMPT` names it with that
 reason, `slicer/audit_plates.py` lists the break instead of failing it (gap and brim rules still apply), and no
 other plate is exempt.
 
@@ -992,7 +989,7 @@ delivery was **late 2026**; Alex's ruling of 2026-10-23 puts it at **early Novem
 **Decision (2026-09-23): deferred to the INDX rebuild, this winter.** The Gen 2 upgrade is no longer done
 before B00. It installs together with the INDX 8-tool conversion — Prusa documents the combined job
 (<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The
-whole 169.1 h / 32-plate run — B00 → B10, then B12 and B13, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 177.4 h / 33-plate run — B00 → B10, then B12 and B13, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; the mid-run pause is
 retired, because nothing changes the machine under the parts.
 
@@ -1063,9 +1060,9 @@ mechanical chapters need).
 | B08 | Skirts + front modules | 5 | 26.5 | 397 | 0 | Skirts | B00;B02;B07 |
 | B09 | Panels, filtration, spool | 5 | 20.8 | 300 | 0 | Panels | B00;B08 |
 | B10 | Clicky-Clack door | 1 | 5.7 | 75 | 0 | Panels (front door) | B00;B02;B09 |
-| B12 | Side spool holder + camera (P2, P3; P1 is PETG) | 2 | 7.5 | 28 | 83 | Panels (Ch 11 Part C) | B00 |
+| B12 | Side spool holder + camera | 3 | 15.8 | 133 | 83 | Panels (Ch 11 Part C) | B00 |
 | B13 | Exhaust housing | 2 | 6.4 | 66 | 35 | Calibration (Ch 14 Part H) | B00 |
-| **TOTAL** | | **32** | **169.1** | **1912** | **445** | | |
+| **TOTAL** | | **33** | **177.4** | **2017** | **445** | | |
 
 ```csv
 batch_id,name,plates,hours,g_black,g_blue,unlocks_chapter,hard_prereq_batches
@@ -1080,9 +1077,9 @@ B07,Electronics bay + lighting,3,15.3,225,0,Electronics;Controller;Wiring,B00
 B08,Skirts + front modules,5,26.5,397,0,Skirts,B00;B02;B07
 B09,"Panels, filtration, spool",5,20.8,300,0,Panels,B00;B08
 B10,Clicky-Clack door,1,5.7,75,0,Panels (front door),B00;B02;B09
-B12,Side spool holder + camera (P2+P3),2,7.5,28,83,Panels (Ch 11 Part C),B00
+B12,Side spool holder + camera,3,15.8,133,83,Panels (Ch 11 Part C),B00
 B13,Exhaust housing,2,6.4,66,35,Calibration (Ch 14 Part H),B00
-TOTAL,,32,169.1,1912,445,,
+TOTAL,,33,177.4,2017,445,,
 ```
 
 Plate-level detail (batch, plate, hours, grams) for scheduling:
@@ -1117,15 +1114,14 @@ B09-P3,B09,4.5,65,black
 B09-P4,B09,3.3,47,black
 B09-P5,B09,4.0,60,black
 B10-P1,B10,5.7,75,black
-B12-P1,B12,6.7,127,petgblack
+B12-P1,B12,8.3,105,black
 B12-P2,B12,1.8,28,black
 B12-P3,B12,5.7,83,blue
 B13-P1,B13,4.5,66,black
 B13-P2,B13,1.9,35,blue
 ```
 
-B12-P1 (`petgblack`, Prusament PETG Jet Black) prints in B12's place, and B11, the bay ducting, cuts in twice;
-both are outside the run and every total above. B11's plates, by group
+B11, the bay ducting, is outside the run and every total above. Its plates, by group
 (`slicer/check_docs.py` checks this block):
 
 ```csv

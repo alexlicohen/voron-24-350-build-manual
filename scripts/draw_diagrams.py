@@ -1734,7 +1734,7 @@ def _run_batches() -> set[str]:
 
 
 def _mixed_batches() -> set[str]:
-    """Run batches with a plate outside the run (B12: P1 prints in PETG). print/README's batch
+    """Run batches with a plate outside the run (none now; B12-P1 in PETG on 11-21/22). print/README's batch
     table counts only their ASA plates, so their timeline bar shows the index row's own whole-
     batch "N h print" (slicer/check_docs.py § 6 checks that figure against estimates.csv)."""
     from plates import PLATES, run_of

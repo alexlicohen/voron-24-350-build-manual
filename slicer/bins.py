@@ -413,7 +413,7 @@ NOTES: dict[str, str] = {
     "V3L_154N_DUCT.stl": "fitted only if the Leviathan-to-PSU gap measured ≥ 25 mm",
     "V3L_T_REG_N.stl": "fitted only if the Leviathan-to-PSU gap measured ≥ 25 mm",
     "V2L_STRIP_FIN.stl": "divider between PSU −V and FG, fitted as Ch 10 closes the AC lids",
-    "side_spool_frame_puck.stl": "PETG; feet for a side-panel stack up to 6.2 mm (11.68); thicker: reprint in PETG at 11.69",
+    "side_spool_frame_puck.stl": "feet for a side-panel stack up to 6.2 mm (11.68); thicker: reprint at 11.69",
     "HappyCam_main-350.stl": "Zemistr's 527904 body; snap off its build-plate supports",
 }
 

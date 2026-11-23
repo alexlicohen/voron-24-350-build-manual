@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build one PrusaSlicer project per plate, slice it, and record the numbers.
 
-For each plate in `plates.py` (the ASA run's, B11's bay-ducting plates and B12-P1 in PETG):
+For each plate in `plates.py` (the ASA run's and B11's bay-ducting plates):
   1. arrange the parts on the 250 x 220 bed (see geom.py - the CLI cannot),
   2. write the arranged meshes and merge them into `slicer/plates/<id>.3mf`,
   3. inject the print/filament/printer config and the per-object brim widths
@@ -333,7 +333,8 @@ REQUIRED_CFG_PETG = (("perimeters", "3"), ("top_solid_layers", "4"),
                      ("bottom_solid_layers", "4"), ("fill_density", "20%"),
                      ("fill_pattern", "grid"), ("layer_height", "0.2"),
                      ("support_material", "0"), ("filament_type", "PETG"))
-# B12-P1 (voron-petg-black.ini): ordinary PETG with the ASA plates' walls, shells and infill.
+# voron-petg-black.ini (B12-P1 2026-11-21/22, no plate since): ordinary PETG with the ASA plates'
+# walls, shells and infill.
 REQUIRED_CFG_PETG_BLACK = (("perimeters", "4"), ("top_solid_layers", "5"),
                            ("bottom_solid_layers", "5"), ("fill_density", "40%"),
                            ("fill_pattern", "gyroid"), ("layer_height", "0.2"),

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Single source of truth for what goes on each plate: the plates of the ASA run
-(B00-B10, B12 and B13), the separate PETG V0 bay-ducting batch B11, and B12-P1, the side
-spool frame, in ordinary PETG outside the run.
+(B00-B10, B12 and B13) and the separate PETG V0 bay-ducting batch B11.
 
 Mirrors `docs/voron-print-plan.md` §3 (per-batch parts tables and the plate
 packing lists) and §5.1 (orientation and brim). Every path here was verified to
@@ -11,8 +10,8 @@ A plate's `run` is "asa" unless it says otherwise. Every total the manual prints
 for "the run" is over the "asa" plates only (B12, Ch 11 Part C's side spool holder and
 camera, and B13, Ch 14 Part H's exhaust housing set, joined the run 2026-11-12); B11 ("bay") is
 added up on its own
-(slicer/check_docs.py § B11), and so is B12-P1 ("petg", Alex 2026-11-21), so batch B12 has one
-plate outside the run and two in it.
+(slicer/check_docs.py § B11). B12-P1, the side spool frame, was "petg" outside the run from
+2026-11-21 to 2026-11-22 and is back in the ASA run (Alex 2026-11-22).
 """
 from __future__ import annotations
 
@@ -205,7 +204,8 @@ BRIM_MIN_MM = 30.0
 # Plate colour key -> the ini bundle (slicer/) that prints it; build_plates.py and
 # sync_start_gcode.py read this. "petg" is B11's PETG V0 (not Voron spec, the ducts carry no
 # load); "petgblack" is ordinary Prusament PETG Jet Black with the ASA plates' walls and infill
-# (B12-P1, the side spool frame, Alex 2026-11-21).
+# (made for B12-P1, the side spool frame, 2026-11-21; no plate uses it since B12-P1 went back
+# to ASA on 2026-11-22, kept until Alex rules on deleting it).
 INI: dict[str, str] = {
     "black": "voron-coreone-asa.ini",
     "blue": "voron-accent-blue.ini",
@@ -219,7 +219,7 @@ def brim_for(path: str, footprint: float = 0.0, colour: str = "") -> float:
     """Brim width in mm for one STL: by filename, and at least BIG_PART_BRIM when the
     footprint's longest side (`footprint`, mm) is BRIM_MIN_MM or more. Lift-map 2: unbrimmed
     bars lifted at the corners even 20 mm in; brimmed ones stayed flat. ASA only: the
-    PETG plates (B11, B12-P1) print brimless, as reviewed, since the PETG bundles' 0.1 mm
+    PETG plates (B11) print brimless, as reviewed, since the PETG bundles' 0.1 mm
     brim gap fuses PETG (a 0.3 gap already fused on the storage prints)."""
     if colour in PETG_COLOURS:
         return 0.0
@@ -242,23 +242,53 @@ def footprint_of(bb) -> float:
 # plate here only on Alex's ruling, with the reason; nothing else relaxes the rule.
 EDGE_EXEMPT: dict[str, str] = {
     "B12-P1": ("the side spool frame is 212 x 212 mm on the 250 x 220 bed, so no rotation keeps "
-               "it 25 mm from every edge; it prints alone, centred, brimless in PETG "
-               "(B12 integration 2026-11-12; PETG 2026-11-21)"),
+               "part + brim 25 mm from every edge; it prints alone, centred, in ASA with the 3 mm "
+               "brim (B12 integration 2026-11-12; back to ASA 2026-11-22)"),
 }
 
 
-# Per-plate config keys that differ from the plate's ini (decision-log row 55). PrusaSlicer has
-# no per-object fan, so it is a plate setting. sync_start_gcode.py writes these into the 3MF
-# (`--key <key> <plate ids>`), build_plates.py refuses to slice a plate whose G-code disagrees.
+# Per-plate config keys that differ from the plate's ini (decision-log rows 55 and 58). The part
+# fan is a filament setting with no per-object switch, so it is a plate setting; B12-P1 is alone
+# on its plate, so its speeds and its end G-code go here too. sync_start_gcode.py writes
+# these into the 3MF (`--key <key> <plate ids>`), build_plates.py refuses to slice a plate whose G-code disagrees.
 # Part fan off except bridges and the steepest overhangs (bridge_fan_speed and
 # overhang_fan_speed_0 stay 25 %) on plates of long, blocky parts (Alex 2026-11-14): the
 # B08-P1 rear centre skirt lifted twice, at the layers where the solid floor ends and the fan
 # comes on. B08-P1 itself is printed and keeps 20 %.
 _FAN_OFF = {"min_fan_speed": "0"}
+# B12-P1's end G-code (Alex 2026-11-22): the ini's end_gcode (voron-coreone-asa.ini) with every
+# line kept, reordered so the bed and chamber stay heated 15 min after the last layer (G4 S900),
+# then 30 min with nothing moving (G4 S1800). Source for the hold: one Core One user's fix for a
+# 200 mm ASA disc that bent while cooling (forum.prusa3d.com, "ASA warping during cooling"), not
+# Prusa guidance. Stored as the 3MF stores it: one line, `\n` escaped (sync_start_gcode.py).
+_B12_P1_END = "\\n".join([
+    "{if layer_z < max_print_height}G1 Z{z_offset+min(max_layer_z+1, max_print_height)} F720 "
+    "; Move print head up{endif}",
+    "M104 S0 ; turn off temperature",
+    "M107 ; turn off fan",
+    "G1 X242 Y211 F10200 ; park",
+    "G4 S900 ; hold bed and chamber heat 15 min (B12-P1: warp on cool-down)",
+    "M140 S0 ; turn off heatbed",
+    "M141 S0 ; disable chamber control",
+    "G4 S1800 ; cool 30 min before anything else moves",
+    "G4 ; wait",
+    "M572 S0 ; reset PA",
+    "M84 X Y E ; disable motors",
+    "; max_layer_z = [max_layer_z]",
+])
 PLATE_CONFIG: dict[str, dict[str, str]] = {
     "B08-P2": _FAN_OFF, "B08-P3": _FAN_OFF, "B08-P4": _FAN_OFF, "B08-P5": _FAN_OFF,  # skirts
     "B09-P1": _FAN_OFF,   # exhaust cover, 158 mm
-    "B12-P1": _FAN_OFF,   # side spool frame, 212 x 212 mm
+    # side spool frame, 212 x 212 mm, fan off plus warp settings (Alex 2026-11-22): back in ASA
+    # (the PETG Jet Black spool weighed 69 g net against the frame's 127 g), so a 212 mm ASA part
+    # whose corners sit ~4 mm from the bed's front and back edges. Whole first layer 15 mm/s
+    # (walls 25, infill 100 in the ini), perimeters 50 (80), sparse and solid infill 80 (200, 150):
+    # print time traded for less warp. Chamber gate stays the ini's 48 (a 50 tried the same day
+    # was dropped). The end G-code holds the bed and chamber heat 15 min, then waits 30 min:
+    # _B12_P1_END. External, small and top-solid speeds, gap fill and bridges keep the ini's.
+    "B12-P1": {**_FAN_OFF, "first_layer_speed": "15", "first_layer_infill_speed": "15",
+               "perimeter_speed": "50", "infill_speed": "80", "solid_infill_speed": "80",
+               "end_gcode": _B12_P1_END},
     "B13-P1": _FAN_OFF,   # exhaust filter housing, 144 x 155 mm
 }
 
@@ -598,11 +628,11 @@ PLATES: dict[str, dict] = {
     # these were add-ons printed outside the plates after Step 11.68 measured. The three plates are
     # the jobs sliced that day, laid out by hand. P1's frame feet are 6.5 mm, for a 3 mm panel on
     # 3 mm foam; a thicker stack measured at 11.68 means a frame-only reprint (remix.scad -D stack=).
-    # Alex 2026-11-21: P1 prints in ordinary Prusament PETG Jet Black on the textured sheet, not
-    # ASA (less warp on a 212 mm part; it hangs outside the enclosure; saves black ASA), so it is
-    # outside the run's totals with its own spool line; its reprint at 11.69 is PETG too.
+    # Alex 2026-11-21 moved P1 to ordinary PETG Jet Black; 2026-11-22 it is back in Galaxy Black
+    # ASA in the run, on the satin sheet (the PETG spool weighed 69 g net, the frame needs 127 g;
+    # the black ASA spool has 250 g against ~105 g), with per-plate warp settings (PLATE_CONFIG).
     "B12-P1": dict(
-        batch="B12", colour="petgblack", run="petg",
+        batch="B12", colour="black",
         note="The side spool frame alone, centred: 212 x 212 mm, inside the edge rule only by exemption.",
         parts=[
             ("addons", "side-spool-608769/side_spool_frame_puck.stl", 1),
@@ -750,7 +780,7 @@ def all_sources() -> list[tuple[str, str]]:
 
 
 def run_of(plate_id: str) -> str:
-    """"asa" for the plate run (B00-B10, B12-P2/P3, B13), "bay" for B11, "petg" for B12-P1."""
+    """"asa" for the plate run (B00-B10, B12, B13), "bay" for B11."""
     return PLATES[plate_id].get("run", "asa")
 
 

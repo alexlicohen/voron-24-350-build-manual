@@ -2,7 +2,7 @@
 
 <p class="tonight-live" data-tonight="../../assets/tonight.json" hidden></p>
 
-**Total remaining (estimate):** ~60.9 h hands-on across 16 build chapters; 169.1 h of printing across 32 plates, plus 31.8 h across 8 plates outside the run, B11 and B12-P1 (~5 min hands-on per plate start, the rest unattended).
+**Total remaining (estimate):** ~60.9 h hands-on across 16 build chapters; 177.4 h of printing across 33 plates, plus 25.1 h across 7 plates outside the run, B11 (~5 min hands-on per plate start, the rest unattended).
 
 ## <img class='mascot-badge off-glb' src='@mascot/mascot-pause.svg' alt='pause' width='30' height='30' loading='eager' decoding='async'> Before the kit
 
@@ -98,7 +98,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B07.8 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
 - **B07 — Electronics bay + lighting** — <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: all three plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet: the inlet panel's go in at Ch 09.10, the COB mounts' at Ch 10.35.</span>
     - Step B07.7 — Reads each bin label aloud and checks the count against the diagram.
-- **B11 — Bay ducting, part 1** — <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: B11-P1 to P3 and P6 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.</span>
+- **B11 — Bay ducting, part 1** — <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: B11-P1 to P3 and P6 are binned. Set Adv. Filtration for B08.</span>
     - Step B11.8 — Reads each bin label aloud and checks the count against the diagram.
 - **B08 — Skirts and front modules** — <span data-first-step="B08.2">Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.2 h unattended · leave-state: plate B08-P1 running, 6.2 h unattended — door shut; come back for the next step when it ends</span>
     - Step B08.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -128,7 +128,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B10.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
 - **B10 — Clicky-Clack door** — <span data-first-step="B10.6">Step B10.6 · ~10 min · leave-state: sorted into 11-door beside B02's `Handle`. Only B12's two Part C bins and B13's 14-exhaust are still empty; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.</span>
     - Step B10.6 — Reads each bin label aloud and checks the count against the diagram.
-- **B12 — Side spool holder and camera** — <span data-first-step="B12.2">Start plate B12-P1 (Step B12.2) · PETG on the textured sheet · ~5 min hands-on, then 6.7 h unattended · leave-state: plate B12-P1 running, 6.7 h unattended — door shut; come back for the next step when it ends</span>
+- **B12 — Side spool holder and camera** — <span data-first-step="B12.2">Start plate B12-P1 (Step B12.2) · ~5 min hands-on, then 8.3 h unattended · leave-state: plate B12-P1 running, 8.3 h unattended — door shut; come back for the next step when it ends</span>
     - Step B12.2 — Reads the plate's hours and grams off the slicer and checks them against this step.
 - **B12 — Side spool holder and camera** — <span data-first-step="B12.4">Start plate B12-P2 (Step B12.4) · ~5 min hands-on, then 1.8 h unattended · leave-state: plate B12-P2 running, 1.8 h unattended — door shut; come back for the next step when it ends</span>
     - Step B12.4 — Counts the parts on the sorting diagram and checks the total against the object count.
@@ -220,21 +220,21 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: all three plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet: the inlet panel's go in at Ch 09.10, the COB mounts' at Ch 10.35.</span>
 
 ### 32 · Print — B11 — Bay ducting, part 1
-- <span data-first-step="B11.3">Start plate B11-P1 (Step B11.3) · PETG on the textured sheet · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B11.3">Start plate B11-P1 (Step B11.3) · PETG V0 on the satin sheet · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B11.4">Step B11.4 · ~10 min · leave-state: coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day.</span>
-- <span data-first-step="B11.5">Start plate B11-P2 (Step B11.5) · PETG on the textured sheet · ~5 min hands-on, then 4.3 h unattended · leave-state: plate B11-P2 running, 4.3 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B11.6">Start plate B11-P3 (Step B11.6) · PETG on the textured sheet · ~5 min hands-on, then 3.2 h unattended · leave-state: plate B11-P3 running, 3.2 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B11.15">Start plate B11-P6 (Step B11.15) · PETG on the textured sheet · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B11-P6 running, 4.0 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B11.5">Start plate B11-P2 (Step B11.5) · PETG V0 on the satin sheet · ~5 min hands-on, then 4.3 h unattended · leave-state: plate B11-P2 running, 4.3 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B11.6">Start plate B11-P3 (Step B11.6) · PETG V0 on the satin sheet · ~5 min hands-on, then 3.2 h unattended · leave-state: plate B11-P3 running, 3.2 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B11.15">Start plate B11-P6 (Step B11.15) · PETG V0 on the satin sheet · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B11-P6 running, 4.0 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B11.7">Step B11.7 · ~10 min · leave-state: the P1 to P3 and P6 parts inspected and bagged by plate.</span>
-- <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: B11-P1 to P3 and P6 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.</span>
+- <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: B11-P1 to P3 and P6 are binned. Set Adv. Filtration for B08.</span>
 
 ### 33 · Print — B11 — Bay ducting, part 2, after the kit-day measurements
 - <span data-first-step="B11.10">Step B11.10 · ~20 min · waits for Steps 00.3, 00.4 and plates B11-P2, B11-P3 · leave-state: the bay is dry-laid and measured; nothing is stuck down or fastened.</span>
 - <span data-first-step="B11.11">Step B11.11 · ~15 min · leave-state: every piece that needed it is regenerated, back on B11-P4 and re-sliced; `check_docs.py` is green.</span>
-- <span data-first-step="B11.12">Start plate B11-P4 (Step B11.12) · PETG on the textured sheet · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B11.13">Start plate B11-P5 (Step B11.13) · PETG on the textured sheet · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B11-P5 running, 4.2 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B11.16">Start plate B11-P7 (Step B11.16) · PETG on the textured sheet · ~5 min hands-on, then 2.7 h unattended · leave-state: plate B11-P7 running, 2.7 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B11.14">Step B11.14 · ~10 min · leave-state: all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration.</span>
+- <span data-first-step="B11.12">Start plate B11-P4 (Step B11.12) · PETG V0 on the satin sheet · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B11.13">Start plate B11-P5 (Step B11.13) · PETG V0 on the satin sheet · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B11-P5 running, 4.2 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B11.16">Start plate B11-P7 (Step B11.16) · PETG V0 on the satin sheet · ~5 min hands-on, then 2.7 h unattended · leave-state: plate B11-P7 running, 2.7 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B11.14">Step B11.14 · ~10 min · leave-state: all of B11 is binned for Ch 09. Chamber Filtration on Adv. Filtration.</span>
 - <span data-first-step="B11.9">Step B11.9 · ~15 min · waits for Step 06.26 · leave-state: both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4, P5 and P7 are unaffected.</span>
 
 ### 11 · Print — B08 — Skirts and front modules
@@ -261,7 +261,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="B10.6">Step B10.6 · ~10 min · leave-state: sorted into 11-door beside B02's `Handle`. Only B12's two Part C bins and B13's 14-exhaust are still empty; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.</span>
 
 ### 34 · Print — B12 — Side spool holder and camera
-- <span data-first-step="B12.2">Start plate B12-P1 (Step B12.2) · PETG on the textured sheet · ~5 min hands-on, then 6.7 h unattended · leave-state: plate B12-P1 running, 6.7 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B12.2">Start plate B12-P1 (Step B12.2) · ~5 min hands-on, then 8.3 h unattended · leave-state: plate B12-P1 running, 8.3 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B12.4">Start plate B12-P2 (Step B12.4) · ~5 min hands-on, then 1.8 h unattended · leave-state: plate B12-P2 running, 1.8 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B12.6">Start plate B12-P3 (Step B12.6) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B12-P3 running, 5.7 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B12.8">Step B12.8 · ~10 min · leave-state: brims and supports off, parts checked; the fit waits for Ch 11 Part C.</span>
